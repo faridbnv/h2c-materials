@@ -634,6 +634,7 @@ M103,organic-solvent,M103-organic-solvent,,polymer,limited,,no
 M103,water-solubility,M103-water-solubility,,polymer,resistant,,no
 M104,acid,M104-acid,,polymer,not-resistant,,yes
 M104,alkali,M104-alkali,,polymer,resistant,,no
+M104,flammability,Q05472,G104-01,own,narrative,,
 M104,hydrolysis,M104-hydrolysis,,polymer,not-resistant,,yes
 M104,oil-grease,M104-oil-grease,,polymer,limited,,no
 M104,organic-solvent,M104-organic-solvent,,polymer,limited,,no
@@ -755,6 +756,8 @@ M141,hydrolysis,M141-hydrolysis,,polymer,not-resistant,,yes
 M141,oil-grease,M141-oil-grease,,polymer,resistant,,no
 M141,organic-solvent,M141-organic-solvent,,polymer,limited,,no
 M141,uv-outdoor,M141-uv-outdoor,,polymer,resistant,,no
+M143,food-contact,Q05485,G143-01,own,narrative,,
+M147,moisture,Q05473,G147-01,own,narrative,,
 M149,acid,Q05433,G149-03,own,narrative,,
 M149,acid,Q05434,G149-03,own,narrative,,
 M149,alkali,Q05435,G149-03,own,narrative,,
@@ -787,7 +790,9 @@ M152,organic-solvent,M152-organic-solvent,,polymer,not-resistant,,yes
 M153,acid,M153-acid,,polymer,limited,,no
 M153,alkali,M153-alkali,,polymer,limited,,no
 M153,oil-grease,M153-oil-grease,,polymer,limited,,no
-M153,organic-solvent,M153-organic-solvent,,polymer,limited,,no
+M153,organic-solvent,Q05461,G153-02,own,narrative,,
+M153,uv-outdoor,Q05465,G153-01,own,narrative,,
+M153,uv-outdoor,Q05466,G153-02,own,narrative,,
 M153,water-solubility,M153-water-solubility,,polymer,resistant,,no
 M154,acid,M154-acid,,polymer,limited,,no
 M154,alkali,M154-alkali,,polymer,resistant,,no

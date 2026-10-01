@@ -1,0 +1,765 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0",
+    "url": "https://spectrumfilaments.com/en/filament/pa6-cs20-fr-v0/",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "https://spectrumfilaments.com/en/filament/pa6-cs20-fr-v0/#witness-for=source:S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Ceramic",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "filler: ceramic (from the sheet, not the name)"
+    ],
+    "materialId": "M158",
+    "materialName": "PLA-CE",
+    "estimateIdentity": "PLA",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+      "Publisher": "Spectrum Group Sp. z o.o.",
+      "Title": "Spectrum PA6 CS20 FR V0 official product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority.",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/en/filament/pa6-cs20-fr-v0/",
+      "Locator": "Document / exact product section",
+      "Applicable grades": "G104-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+      "SHA256": "3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Select a filament category:"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independently reviewed frozen operations required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G104-01",
+      "row": {
+        "GradeID": "G104-01",
+        "MaterialID": "M104",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PA6 CS20 FR V0",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "PA6 CS20 FR V0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Existing stable identity only; no catalogue addition or row update."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M158",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "90 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "HDT A ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-PA6-CS20-FR-V0",
+        "Locator": "p. 1: heat deflection temperature – HDT A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "heat deflection temperature – HDT A 90°C (ISO 75)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M158",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-PA6-CS20-FR-V0",
+        "Locator": "p. 1: water absorption less than",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "water absorption less than 0.3% (23°C/24h)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M158",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "HDT A",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-PA6-CS20-FR-V0",
+        "Locator": "p. 1: heat distortion temperature – HDT A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "heat distortion temperature – HDT A 200°C"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M158",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "recommended for larger prints",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "recommended",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle recommended",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-SPECTRUM-PA6-CS20-FR-V0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "recommended (Magigoo PA)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure recommended for larger prints"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c05-3c9c76d4-1",
+      "gradeKey": "G104-01",
+      "row": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "all applications where fire resistance is important",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 1; explicitly scoped product G104-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "all applications where fire resistance is important",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-3c9c76d4-2",
+      "gradeKey": "G104-01",
+      "row": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "manufacturing of components with good electrical insulation properties",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 2; explicitly scoped product G104-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "manufacturing of components with good electrical insulation properties",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-3c9c76d4-3",
+      "gradeKey": "G104-01",
+      "row": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "manufacturing of parts to be operated in high temperature conditions",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 3; explicitly scoped product G104-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "manufacturing of parts to be operated in high temperature conditions",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-3c9c76d4-4",
+      "gradeKey": "G104-01",
+      "row": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "manufacturing of elements exposed to high temperature changes",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 4; explicitly scoped product G104-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "manufacturing of elements exposed to high temperature changes",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-3c9c76d4-5",
+      "gradeKey": "G104-01",
+      "row": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "260-290°C",
+        "Exposure / conditions": "Own How to use nozzle260–290°C; bed80–100°C, speed30–120mm/s, cooling0–50%, enclosure recommended for larger prints, drybox/ruby or hardenedYes, MagigooPA. Existing TDS265–290°C, bed>80°C, speed30–70, cooling0–10%, closed chamber not necessary differ; no merged window or chronology priority. New page profile held until source/context conflict reviewed; existing source recipe not overwritten.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Locator": "p. 1: How to use, nozzle/bed/speed/cooling/enclosure rows; frozen clause 5; explicitly scoped product G104-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "260-290°C",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-3c9c76d4-6",
+      "gradeKey": "G104-01",
+      "row": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Durability",
+        "Topic": "Flammability",
+        "Finding": "The raw material from which Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) filament is made complies with the EN 45545 standard in the railway industry.",
+        "Exposure / conditions": "Explicit raw-material scope; no printed-product fire/rail certificate, certificate number, standard edition, hazard level, part geometry or independent conformity assessment retrieved from this page. No fire/rail selection pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Locator": "p. 1: Own description, raw material EN45545 sentence; frozen clause 6; explicitly scoped product G104-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "The raw material from which Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) filament is made complies with the EN 45545 standard in the railway industry.",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Nozzle temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Bed temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "0-50%",
+      "fromBelow": true,
+      "line": "Cooling 0-50%"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "recommended for larger prints",
+      "fromBelow": true,
+      "line": "Enclosure recommended for larger prints"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Ruby or hardened nozzle",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Ruby or hardened nozzle recommended"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "recommended (Magigoo PA)",
+      "fromBelow": true,
+      "line": "Adhesive recommended (Magigoo PA)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PA6 CS20 FR V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CS20 FR V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament Spectrum PA6 CS20 FR V0 is made with LUVOCOM 3F PAHT® KK 50056 BK FR. The quality of the filament was entirely checked and is certified by Lehmann&Voss",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) filament is a new flame-resistant construction material based on polycaprolactam. The ap",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Components manufactured using Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) can be operated at elevated temperatures up to 120°C long-term",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The raw material from which Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) filament is made complies with the EN 45545 standard in the rail",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "To attain the very attractive properties of Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) , as regards the technical aspects, you need to ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tip: Due to the essential content of glass microspheres, it is recommended to use nozzles with diameters exceeding the standard value of 0.4mm. The presence of ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "unprecedentedly low processing shrinkage (linear) <0.1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high temperature resistance up to 160°C for short term operation (max. 200h).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high temperature resistance up to 120°C for long-term operation (20,000h)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "flammability rating UL 94 – V0 (thickness ?0.4 mm)",
+      "reason": "properties.csv carries no property for \"flammability rating\""
+    },
+    {
+      "page": 1,
+      "text": "260-290°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80-100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 Neat NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high temperature up to 160°C for short-time operation (max. 200h)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 Low Warp™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 Low Warp CF15S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT thermal resistance – 180°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "PA6 Neat BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high temperature up to 160°C for short-time operation (max. 200h)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 Low Warp GF30™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30% glass fibres",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT thermal resistance – 180°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "PA6 GK10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high temperature up to 160°C for short-time operation (max. 200h)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15% carbon fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15% carbon fiber reinforcement",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10% lighter than PA6 CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high thermal resistance up to 170°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wide portfolio consisting of over 50 filaments with a versatile range of properties and applications, divided into three segments: desktop easy-to-use, industri",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our qualified support team helps at every stage from material selection to the 3D printing process.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spectrum Group Sp. z o.o. Parkowa 85 05-806 Pęcice VAT EU: PL5342505042 KRS: 0000560153 REGON: 361615220",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2025 Spectrum Filaments. All rights reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+    "note": "Only independently signed narrative and profile operations accepted; all automatic measurements rejected, conditions left missing, no new product."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      },
+      "row": {
+        "MaterialID": "M158",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PLA / Bio-performance",
+        "Shared formulation key": "S-SPECTRUM-PA6-CS20-FR-V0",
+        "Composition / filler": "30% glass fibres (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "PA6 CS20 FR V0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-PA6-CS20-FR-V0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Select a filament category:"
+      }
+    }
+  ],
+  "newMaterial": null
+}

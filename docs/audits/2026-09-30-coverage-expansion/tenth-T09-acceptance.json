@@ -1,0 +1,456 @@
+{
+  "before": [
+    "M001",
+    "M018",
+    "M028",
+    "M033",
+    "M050",
+    "M070",
+    "M083",
+    "M164"
+  ],
+  "after": [
+    "M001",
+    "M018",
+    "M028",
+    "M033",
+    "M050",
+    "M070",
+    "M083",
+    "M147",
+    "M164"
+  ],
+  "added": [
+    "M147"
+  ],
+  "G14701Before": {
+    "materialId": "M147",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "needsVerification": false,
+    "usesEstimate": false,
+    "usesPolymer": false,
+    "screened": false,
+    "screenedBy": [],
+    "results": [
+      {
+        "status": "PASS",
+        "criterion": "H2C-relevant scope",
+        "reason": "In scope for the H2C",
+        "constraint": {
+          "kind": "gate",
+          "gate": "scope"
+        }
+      },
+      {
+        "status": "PASS",
+        "criterion": "Nozzle temperature within H2C baseline",
+        "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+        "constraint": {
+          "kind": "gate",
+          "gate": "nozzle"
+        }
+      },
+      {
+        "status": "UNKNOWN",
+        "criterion": "Bed temperature within H2C baseline",
+        "reason": "No numeric requirement published",
+        "constraint": {
+          "kind": "gate",
+          "gate": "bed"
+        }
+      },
+      {
+        "status": "UNKNOWN",
+        "criterion": "Chamber temperature within H2C baseline",
+        "reason": "No numeric requirement published",
+        "constraint": {
+          "kind": "gate",
+          "gate": "chamber"
+        }
+      },
+      {
+        "status": "PASS",
+        "reason": "Published 3.1 ± 0.1 GPa (XY) (ISO 527, ISO 3167); moisture state and treatment not stated, admitted for screening; close to the limit: the threshold lies within the published spread, so some parts may fall below it",
+        "criterion": "tensileModulusXY >= 3",
+        "closeToLimit": true,
+        "observed": 3.1,
+        "unit": "GPa",
+        "interval": {
+          "lo": 3,
+          "hi": 3.2,
+          "kind": "uncertainty"
+        },
+        "measurementId": "V011415",
+        "gradeId": "G147-01",
+        "sourceId": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "direction": "XY",
+        "admitted": [
+          "moisture",
+          "treatment"
+        ],
+        "constraint": {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 3
+        }
+      },
+      {
+        "status": "PASS",
+        "reason": "Published 1200 kg/m³ (ISO 1183)",
+        "criterion": "density <= 1250",
+        "closeToLimit": false,
+        "observed": 1200,
+        "unit": "kg/m³",
+        "interval": {
+          "lo": 1200,
+          "hi": 1200,
+          "kind": "point"
+        },
+        "measurementId": "V011438",
+        "gradeId": "G147-01",
+        "sourceId": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "constraint": {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<=",
+          "value": 1250
+        }
+      }
+    ],
+    "failed": [],
+    "unresolved": [
+      {
+        "status": "UNKNOWN",
+        "criterion": "Bed temperature within H2C baseline",
+        "reason": "No numeric requirement published",
+        "constraint": {
+          "kind": "gate",
+          "gate": "bed"
+        }
+      },
+      {
+        "status": "UNKNOWN",
+        "criterion": "Chamber temperature within H2C baseline",
+        "reason": "No numeric requirement published",
+        "constraint": {
+          "kind": "gate",
+          "gate": "chamber"
+        }
+      }
+    ],
+    "heldBy": [
+      "Bed temperature within H2C baseline",
+      "Chamber temperature within H2C baseline"
+    ],
+    "failedBy": [],
+    "share": null,
+    "counts": {
+      "products": 1,
+      "pass": 0,
+      "fail": 0,
+      "untested": 1,
+      "screened": 0
+    },
+    "products": [
+      {
+        "gradeId": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "failedBy": [],
+        "state": {
+          "id": "as-printed",
+          "treatment": null,
+          "moisture": "dry"
+        },
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber"
+            }
+          },
+          {
+            "criterion": "tensileModulusXY >= 3",
+            "status": "PASS",
+            "reason": "Published 3.1 ± 0.1 GPa (XY) (ISO 527, ISO 3167); moisture state and treatment not stated, admitted for screening; close to the limit: the threshold lies within the published spread, so some parts may fall below it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "tensileModulusXY",
+              "operator": ">=",
+              "value": 3
+            },
+            "measurementId": "V011415",
+            "observed": 3.1,
+            "unit": "GPa",
+            "closeToLimit": true,
+            "admitted": [
+              "moisture",
+              "treatment"
+            ]
+          },
+          {
+            "criterion": "density <= 1250",
+            "status": "PASS",
+            "reason": "Published 1200 kg/m³ (ISO 1183)",
+            "constraint": {
+              "kind": "numeric",
+              "property": "density",
+              "operator": "<=",
+              "value": 1250
+            },
+            "measurementId": "V011438",
+            "observed": 1200,
+            "unit": "kg/m³",
+            "closeToLimit": false
+          }
+        ],
+        "admitted": [
+          "moisture",
+          "treatment"
+        ]
+      }
+    ],
+    "gradeId": "G147-01",
+    "state": {
+      "id": "as-printed",
+      "treatment": null,
+      "moisture": "dry"
+    }
+  },
+  "G14701After": {
+    "materialId": "M147",
+    "verdict": "PASS",
+    "eligible": true,
+    "needsVerification": false,
+    "usesEstimate": false,
+    "usesPolymer": false,
+    "screened": false,
+    "screenedBy": [],
+    "results": [
+      {
+        "status": "PASS",
+        "criterion": "H2C-relevant scope",
+        "reason": "In scope for the H2C",
+        "constraint": {
+          "kind": "gate",
+          "gate": "scope"
+        }
+      },
+      {
+        "status": "PASS",
+        "criterion": "Nozzle temperature within H2C baseline",
+        "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+        "constraint": {
+          "kind": "gate",
+          "gate": "nozzle"
+        }
+      },
+      {
+        "status": "PASS",
+        "criterion": "Bed temperature within H2C baseline",
+        "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+        "constraint": {
+          "kind": "gate",
+          "gate": "bed"
+        }
+      },
+      {
+        "status": "PASS",
+        "criterion": "Chamber temperature within H2C baseline",
+        "reason": "No heated requirement stated",
+        "constraint": {
+          "kind": "gate",
+          "gate": "chamber"
+        }
+      },
+      {
+        "status": "PASS",
+        "reason": "Published 3.1 ± 0.1 GPa (XY) (ISO 527, ISO 3167); moisture state and treatment not stated, admitted for screening; close to the limit: the threshold lies within the published spread, so some parts may fall below it",
+        "criterion": "tensileModulusXY >= 3",
+        "closeToLimit": true,
+        "observed": 3.1,
+        "unit": "GPa",
+        "interval": {
+          "lo": 3,
+          "hi": 3.2,
+          "kind": "uncertainty"
+        },
+        "measurementId": "V011415",
+        "gradeId": "G147-01",
+        "sourceId": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "direction": "XY",
+        "admitted": [
+          "moisture",
+          "treatment"
+        ],
+        "constraint": {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 3
+        }
+      },
+      {
+        "status": "PASS",
+        "reason": "Published 1200 kg/m³ (ISO 1183)",
+        "criterion": "density <= 1250",
+        "closeToLimit": false,
+        "observed": 1200,
+        "unit": "kg/m³",
+        "interval": {
+          "lo": 1200,
+          "hi": 1200,
+          "kind": "point"
+        },
+        "measurementId": "V011438",
+        "gradeId": "G147-01",
+        "sourceId": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "constraint": {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<=",
+          "value": 1250
+        }
+      }
+    ],
+    "failed": [],
+    "unresolved": [],
+    "heldBy": [],
+    "failedBy": [],
+    "share": "all",
+    "counts": {
+      "products": 1,
+      "pass": 1,
+      "fail": 0,
+      "untested": 0,
+      "screened": 0
+    },
+    "products": [
+      {
+        "gradeId": "G147-01",
+        "verdict": "PASS",
+        "screened": false,
+        "failedBy": [],
+        "state": {
+          "id": "as-printed",
+          "treatment": null,
+          "moisture": "dry"
+        },
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "No heated requirement stated",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber"
+            }
+          },
+          {
+            "criterion": "tensileModulusXY >= 3",
+            "status": "PASS",
+            "reason": "Published 3.1 ± 0.1 GPa (XY) (ISO 527, ISO 3167); moisture state and treatment not stated, admitted for screening; close to the limit: the threshold lies within the published spread, so some parts may fall below it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "tensileModulusXY",
+              "operator": ">=",
+              "value": 3
+            },
+            "measurementId": "V011415",
+            "observed": 3.1,
+            "unit": "GPa",
+            "closeToLimit": true,
+            "admitted": [
+              "moisture",
+              "treatment"
+            ]
+          },
+          {
+            "criterion": "density <= 1250",
+            "status": "PASS",
+            "reason": "Published 1200 kg/m³ (ISO 1183)",
+            "constraint": {
+              "kind": "numeric",
+              "property": "density",
+              "operator": "<=",
+              "value": 1250
+            },
+            "measurementId": "V011438",
+            "observed": 1200,
+            "unit": "kg/m³",
+            "closeToLimit": false
+          }
+        ],
+        "admitted": [
+          "moisture",
+          "treatment"
+        ]
+      }
+    ],
+    "gradeId": "G147-01",
+    "state": {
+      "id": "as-printed",
+      "treatment": null,
+      "moisture": "dry"
+    }
+  }
+}

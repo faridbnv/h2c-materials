@@ -1,0 +1,965 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_sha256": "d178614529e659331738535abd3b36ef44526c29b6dc3feaded5ecb1017e875c",
+  "overall_verdict": "APPROVE",
+  "approved_product_outcomes": 17,
+  "state": "PROPOSED_FINAL_AFTER_VERIFIED_COMMIT",
+  "source_custody_scope": "All30 unique original digests/URLs/access dates/SourceIDs match current registry and hash-verified originals;17 exact GradeID/MaterialID pairs verified. Rereads carried from independent21cachedPDF review, oldregisteredguide,7C05documents and newly reread1pageSpectrumTDS. Catalogue physicalpp1–2/28–29 only; no catalogue/website-wide reading claim.",
+  "per_target": [
+    {
+      "TaskID": "PROD-G137-01",
+      "GradeID": "G137-01",
+      "MaterialID": "M137",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "COC tough and flex are distinct own grades; industrial/optical/medical fields are maker context with no use qualification. Tough impact modification versus flex softer elastomer remains explicit."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Own chemical/UV/moisture/weathering prose lacks agent-specific concentration/time/temperature/specimen/retention tests. No hydrolysis/creep/fatigue result recovered in this original pass.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "PDF font extraction defects in six clauses and softer composition corrected in preceding m268 from rendered originals. Cached measured values/print settings retained; missing comparison conditions cannot be inferred from processing instructions.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "context only",
+        "Finding": "PDF font extraction defects in six clauses and softer composition corrected in preceding m268 from rendered originals. Cached measured values/print settings retained; missing comparison conditions cannot be inferred from processing instructions.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G137-03",
+      "GradeID": "G137-03",
+      "MaterialID": "M137",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "COC tough and flex are distinct own grades; industrial/optical/medical fields are maker context with no use qualification. Tough impact modification versus flex softer elastomer remains explicit."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Own chemical/UV/moisture/weathering prose lacks agent-specific concentration/time/temperature/specimen/retention tests. No hydrolysis/creep/fatigue result recovered in this original pass.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "PDF font extraction defects in six clauses and softer composition corrected in preceding m268 from rendered originals. Cached measured values/print settings retained; missing comparison conditions cannot be inferred from processing instructions.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "context only",
+        "Finding": "PDF font extraction defects in six clauses and softer composition corrected in preceding m268 from rendered originals. Cached measured values/print settings retained; missing comparison conditions cannot be inferred from processing instructions.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G138-01",
+      "GradeID": "G138-01",
+      "MaterialID": "M138",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Two own HDPE GF20 sheets describe generic polyethylene finishing context: polyethylene is difficult to paint or glue. No tested finishing operation or application approval; iSANMATE G138-03 is outside this maker batch."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Polymer/exact-sheet resistance prose remains qualitative, without agent/conditions; filler/neat distinctions preserved. No new published service test admitted.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Existing published values and recipes retained. No transfer between these exact GF20 grades, generic neat-polyethylene context and outside G138-03; no inference of test direction/form/moisture from recipe; unresolved headline/print questions require exact-product source or test.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "context only",
+        "Finding": "Existing published values and recipes retained. No transfer between these exact GF20 grades, generic neat-polyethylene context and outside G138-03; no inference of test direction/form/moisture from recipe; unresolved headline/print questions require exact-product source or test.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G138-02",
+      "GradeID": "G138-02",
+      "MaterialID": "M138",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Two own HDPE GF20 sheets describe generic polyethylene finishing context: polyethylene is difficult to paint or glue. No tested finishing operation or application approval; iSANMATE G138-03 is outside this maker batch."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Polymer/exact-sheet resistance prose remains qualitative, without agent/conditions; filler/neat distinctions preserved. No new published service test admitted.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Existing published values and recipes retained. No transfer between these exact GF20 grades, generic neat-polyethylene context and outside G138-03; no inference of test direction/form/moisture from recipe; unresolved headline/print questions require exact-product source or test.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "context only",
+        "Finding": "Existing published values and recipes retained. No transfer between these exact GF20 grades, generic neat-polyethylene context and outside G138-03; no inference of test direction/form/moisture from recipe; unresolved headline/print questions require exact-product source or test.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G139-01",
+      "GradeID": "G139-01",
+      "MaterialID": "M139",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Own LCP sheet claims suitability for large warp-free objects, with anisotropy and poor layer connection limitations. No dimensional/large-part test or load certification."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Existing chemicals/UV/flame claims remain bounded narrative with missing protocol; no new agent-specific result admitted.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Low-shrinkage claim does not repair Z-strength/direction/specimen comparison gaps or establish H2C layer adhesion. Existing values/recipe retained.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "context only",
+        "Finding": "Low-shrinkage claim does not repair Z-strength/direction/specimen comparison gaps or establish H2C layer adhesion. Existing values/recipe retained.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 1,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G140-01",
+      "GradeID": "G140-01",
+      "MaterialID": "M140",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "The German and French own PBT sheets name industry uses as resin context; no printed component/finishing qualification or filler-independent product transfer."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Sheet environment prose remains own bounded/family context without controlled exposure protocol. No new printed-product hydrolysis/weathering claim is inferred.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Existing exact own PBT grades/editions remain distinct. No fabricated specimen state, fibre-orientation or inherited mechanical/thermal result.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "context only",
+        "Finding": "Existing exact own PBT grades/editions remain distinct. No fabricated specimen state, fibre-orientation or inherited mechanical/thermal result.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G140-02",
+      "GradeID": "G140-02",
+      "MaterialID": "M140",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "The German and French own PBT sheets name industry uses as resin context; no printed component/finishing qualification or filler-independent product transfer."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Sheet environment prose remains own bounded/family context without controlled exposure protocol. No new printed-product hydrolysis/weathering claim is inferred.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Existing exact own PBT grades/editions remain distinct. No fabricated specimen state, fibre-orientation or inherited mechanical/thermal result.",
+        "FrozenMissingHeadlinesAddressed": [
+          "density",
+          "tensileModulusXY",
+          "tensileStrengthXY",
+          "tensileStrengthZ",
+          "elongationXY",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "context only",
+        "Finding": "Existing exact own PBT grades/editions remain distinct. No fabricated specimen state, fibre-orientation or inherited mechanical/thermal result.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G142-01",
+      "GradeID": "G142-01",
+      "MaterialID": "M142",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "nGen CF10 owns matte as-printed appearance; no post-print treatment method or validated application."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Handling/pre-print drying is distinct from moisture-service, hydrolysis or humid mechanical performance. No new environmental test.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Registered guide drying65°C6h added; own older TDS nozzle220–230 versus guide220–240 remain separate. Shared guide lacks mechanical form/direction/standard/load and duplicate volumetric4/12 differs. Support article403,70°C4–9h search excerpt lead only.",
+        "FrozenMissingHeadlinesAddressed": [
+          "density",
+          "tensileStrengthZ",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Registered guide drying65°C6h added; own older TDS nozzle220–230 versus guide220–240 remain separate. Shared guide lacks mechanical form/direction/standard/load and duplicate volumetric4/12 differs. Support article403,70°C4–9h search excerpt lead only.",
+        "FrozenPrintGapsAddressed": [
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 3,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G143-01",
+      "GradeID": "G143-01",
+      "MaterialID": "M143",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Old Amphora FL6000 prosthetics/orthotics/auto/apparel/tooling and current steam121C maker claim retained with missing protocol and medical qualification. Later Neostar FN0006 continuity not established."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Own FDA footer is claim without retrieved certificate/printed migration/lot/agent/temp/time. Steam claim is not a service exposure or sterilization validation.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Registered pre-print drying65°C6h. Guide duplicate speed30 40–60/volumetric4/12 malformed/conflicting and properties unconditioned. Clear means un-coloured, explicitly not transparent. No blending of old/new formulation measurements.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Registered pre-print drying65°C6h. Guide duplicate speed30 40–60/volumetric4/12 malformed/conflicting and properties unconditioned. Clear means un-coloured, explicitly not transparent. No blending of old/new formulation measurements.",
+        "FrozenPrintGapsAddressed": [
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 4,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G145-01",
+      "GradeID": "G145-01",
+      "MaterialID": "M145",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Older PLAPHA sheet prototyping/investment casting is maker intended use; no burnout/residue/casting or later-edition application validation."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "No new own agent-specific environment/humid test admitted; drying/printing do not establish water-service or biodegradation conditions.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Guide pre-print drying50°C4h. Duplicate speeds40–60/40–100 and volumetric4/12 differ; missing specimen/method/notch/load prevents mechanical comparison admission.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Guide pre-print drying50°C4h. Duplicate speeds40–60/40–100 and volumetric4/12 differ; missing specimen/method/notch/load prevents mechanical comparison admission.",
+        "FrozenPrintGapsAddressed": [
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 3,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G165-01",
+      "GradeID": "G165-01",
+      "MaterialID": "M165",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "vendor needed",
+        "Finding": "Reviewed source/guide offer low-warp printing/thermal context but no usable named end-use or post-print finishing. Application Gap is scoped to reviewed sources, not public-source absence."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Predrying125°C6h is handling, not annealing, hydrolysis or moisture-service result. No new exposure test.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Guide125°C6h drying retained. Malformed bed50 30–40 and duplicate volumetric4/12 not narrowed; unconditioned combinedHDT/Vicat50 cannot overwrite older TDS. Support route403 remains not retrieved.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileModulusXY",
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Guide125°C6h drying retained. Malformed bed50 30–40 and duplicate volumetric4/12 not narrowed; unconditioned combinedHDT/Vicat50 cannot overwrite older TDS. Support route403 remains not retrieved.",
+        "FrozenPrintGapsAddressed": [
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G147-01",
+      "GradeID": "G147-01",
+      "MaterialID": "M147",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Own PAHT9825 compound industry context and filament geometric precision report remain scoped separately; no printed rail/medical/end-use qualification."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Water uptake comparative4x longer/5x lower lacks RH/temp/specimen/time; no numerical uptake/hydrolysis pass. Wet-filament oven guidance is handling, not service performance.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Exact FFF2019 guide250–280°C/bed<80/non-heated chamber/standard brass/0.4mm glass/MagigooPA; wet filament hot dry air80°C at least12h. Older filament printing270–290°C and compound pellet processing/drying remain separate, no recency override. Introduction100°C retaining50% versus older120°C/UL746B descriptions not reconciled as an identical performance test.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "elongationXY",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Exact FFF2019 guide250–280°C/bed<80/non-heated chamber/standard brass/0.4mm glass/MagigooPA; wet filament hot dry air80°C at least12h. Older filament printing270–290°C and compound pellet processing/drying remain separate, no recency override. Introduction100°C retaining50% versus older120°C/UL746B descriptions not reconciled as an identical performance test.",
+        "FrozenPrintGapsAddressed": [
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 3,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G148-01",
+      "GradeID": "G148-01",
+      "MaterialID": "M148",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Official producer Bus-/Bahnbau exactKK50056BKFR context supports only resin application context. 9936BK remains distinct from9936BK/L; no food/magnetic transfer or printed-rail suitability."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Latest KK50056 source labels printedV-0@0.4mm separately from compound/moulded/rail claims. No full retrieved fire/rail certificate or test specimen continuity.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Existing recipes/measurements remain; raw bed>80 with typed80/80 is a specific comparison/endpoint handoff. No automatic conversion to unbounded recipe or assumption all recorded values are printed.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileModulusXY",
+          "tensileStrengthXY",
+          "tensileStrengthZ",
+          "elongationXY",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Existing recipes/measurements remain; raw bed>80 with typed80/80 is a specific comparison/endpoint handoff. No automatic conversion to unbounded recipe or assumption all recorded values are printed.",
+        "FrozenPrintGapsAddressed": [
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 3,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G148-02",
+      "GradeID": "G148-02",
+      "MaterialID": "M148",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Official producer Bus-/Bahnbau exactKK50056BKFR context supports only resin application context. 9936BK remains distinct from9936BK/L; no food/magnetic transfer or printed-rail suitability."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Latest KK50056 source labels printedV-0@0.4mm separately from compound/moulded/rail claims. No full retrieved fire/rail certificate or test specimen continuity.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Existing recipes/measurements remain; raw bed>80 with typed80/80 is a specific comparison/endpoint handoff. No automatic conversion to unbounded recipe or assumption all recorded values are printed.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileModulusXY",
+          "tensileStrengthXY",
+          "tensileStrengthZ",
+          "elongationXY",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Existing recipes/measurements remain; raw bed>80 with typed80/80 is a specific comparison/endpoint handoff. No automatic conversion to unbounded recipe or assumption all recorded values are printed.",
+        "FrozenPrintGapsAddressed": [
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 4,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G153-01",
+      "GradeID": "G153-01",
+      "MaterialID": "M153",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Strong5%EFG and Light0.5%EFG own intended prototypes/fit/concept/manufacturing aids and prior painting guidance remain maker claims. Semi-transparent ownpage bullet conflicts shared Deep black catalogue/Light black TDS; no transmission test."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Generic Light chemical and shared brand UV feature are narrative, without exposure test. Existing Strong chemical clause not duplicated. No neighbouringPETGPremium Mars-rover,HT100FDA orMAT TUV claim transfer.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 4,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G153-02",
+      "GradeID": "G153-02",
+      "MaterialID": "M153",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Strong5%EFG and Light0.5%EFG own intended prototypes/fit/concept/manufacturing aids and prior painting guidance remain maker claims. Semi-transparent ownpage bullet conflicts shared Deep black catalogue/Light black TDS; no transmission test."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Generic Light chemical and shared brand UV feature are narrative, without exposure test. Existing Strong chemical clause not duplicated. No neighbouringPETGPremium Mars-rover,HT100FDA orMAT TUV claim transfer.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 4,
+      "SearchExhausted": false
+    },
+    {
+      "TaskID": "PROD-G104-01",
+      "GradeID": "G104-01",
+      "MaterialID": "M104",
+      "verdict": "APPROVE_BOUNDED_OUTCOME",
+      "outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Own Spectrum PA6CS20FRV0 fire/electrical/high-temperature/temperature-change intended uses only, no validated use or independently obtained printed certification."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "EN45545 ownpage explicitly raw-material scope; UL94 claims preserve source printed-specimen/thickness wording without full certificate. No chemical/hydrolysis/moisture-service test inferred.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "UnresolvedHandoff": "Exact-product agent/concentration/temp/duration/specimen/result or qualified test needed for unresolved environmental categories; original missing conditions explicit."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Ownpage260–290/80–100/speed30–120/cooling0–50/enclosurelargeparts differs TDS265–290/>80/speed30–70/cooling0–10/noenclosure. New full profile held. Existing thermal values unchanged; CS20 name is not proof of filler fraction.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "elongationXY",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnresolvedHandoff": "No additional admissible comparison-qualified result recovered in this bounded original/page pass for remaining frozen missing properties; do not derive state/direction/notch/load from recipes. Vendor exact product/state published test or physical test needed."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Ownpage260–290/80–100/speed30–120/cooling0–50/enclosurelargeparts differs TDS265–290/>80/speed30–70/cooling0–10/noenclosure. New full profile held. Existing thermal values unchanged; CS20 name is not proof of filler fraction.",
+        "FrozenPrintGapsAddressed": [],
+        "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
+      },
+      "source_count": 2,
+      "SearchExhausted": false
+    }
+  ],
+  "historical_search_scope": "Prior handoff/register results reused for exact questions only; historical results do not establish universal absence. All17SearchExhaustedfalse. Fabru outcomes bounded cached-source context and vendor/test handoffs, not exhaustive website searches.",
+  "holds": [
+    {
+      "FindingID": "C05-COLORFABB-COMPARISON-CONDITIONS",
+      "Outcome": "vendor needed",
+      "ReleaseCondition": "Exact row-specific printed/moulded form, direction, moisture/postprocessing, standard, notch and HDT versus Vicat/load clarification before assigning comparison conditions or replacing older measured values. Conflicting/malformed duplicate printing columns remain original context.",
+      "review_verdict": "APPROVE_HOLD"
+    },
+    {
+      "FindingID": "C05-PA6-RECIPE-CONTEXT",
+      "Outcome": "conflicting",
+      "ReleaseCondition": "Maker/source-context resolution of nozzle, speed, cooling and enclosure differences before superseding any TDS recipe; retain both originals and literal directions.",
+      "review_verdict": "APPROVE_HOLD"
+    },
+    {
+      "FindingID": "C05-PROGRAFEN-OLDER-XY-CUSTODY",
+      "Outcome": "vendor needed",
+      "ReleaseCondition": "Official digest-verified copy and row-specific formulation/revision continuity for AGP2023 FDM/XY footnote before transferring conditions into retained Strong/Light TDS numbers. New ownership evidence alone does not settle this.",
+      "review_verdict": "APPROVE_HOLD"
+    }
+  ],
+  "price_scope": "Prior material-level price pass only; no invented pergrade price/newlisting search or refresh.",
+  "active_time_scope": "Active hours not measured reliably; fetch timing cannot support findings/hour, explicitly retained.",
+  "release_conditions": [
+    "Close only after accepted findings admitted/explicitly held, source/guard/rendered/replay/fullQA gates passed, private backup and local commit.",
+    "Concrete unread/new source/revision/question can reopen bounded outcomes; no absence/testing/service qualification inferred."
+  ],
+  "critical_limits": [
+    "BothHDPEgradesGF20, bothPBTgradesordinaryPBT; ownproduct identities distinct from generic polymer context.",
+    "nGenFLEXAmphora/Neostar continuity unresolved, Clear not transparent; steam/FDA not medical or safety validation.",
+    "PAHT9825generic0.4mm/glass guide, strictbed<80 and hotdryairatleast12h conditionalwetfilament, not pellet/annealing.",
+    "KK50056BKFRresinrail context/printedV0@0.4mm claim cannot certify9936BK/BKL or actual service.",
+    "GrapheneStrong/Light identity/formulation and oldXYcustody stillheld; catalogueownership does not silently correct manufacturer or conditions.",
+    "SpectrumPA6recipe conflict held, source CS20 label does not establish filler fraction."
+  ],
+  "correction_history": {
+    "prior_input_sha256": "ae19e8907cffec6c579f05a1436d4fe7ece93ebadf8b835fa4811c73a24df773",
+    "prior_report": "external-campaign/reviews/TENTH-PRODUCT-OUTCOMES-INITIAL-CORRECT-REVIEW.json",
+    "resolved": "BothGF20 and bothPBT identities corrected; canonical coverage already correct."
+  },
+  "path_only_attestation": {
+    "prior_corrected_input_sha256": "ee4ec5cc76a0d0e0dccc38d79c0cd93611312e9bd3c7154ae0955b5994133d15",
+    "normalized_input_sha256": "d178614529e659331738535abd3b36ef44526c29b6dc3feaded5ecb1017e875c",
+    "comparison": "Full objects exactly identical after assigning only normalized PriorOutcomesReused.File path strings. Original source facts/wording/search scopes unchanged."
+  },
+  "repository_mutations": "None by reviewer.",
+  "review_signature_sha256": "89059899a41b7f30a495a9d48727d33c25175a788983f4e4fbaa2176048141a8"
+}

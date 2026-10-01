@@ -15,7 +15,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 | Products | 1049 | 47 | 1 | 31 | 1128 |
 | Materials | 136 | 10 | 0 | 7 | 153 |
 
-4674 statements; 1329 sources read for know-how; 216 makers' sites searched.
+4698 statements; 1329 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".
@@ -51,6 +51,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | OBC (M086) | Flexible component; Indoor prototype | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PA6 (M049) | Indoor prototype; Warm environment | collected | 0 of 9 | 3 / 2 / 8 | — |
 | PA612-CF (M059) | Indoor prototype; Warm environment | collected | 0 of 3 | 1 / 0 / 0 | — |
+| PAHT (M147) | Indoor prototype; Lightweight structure | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-CF (M037) | Indoor prototype; Warm environment | collected | 0 of 10 | 5 / 3 / 8 | — |
 | PET-CF (M067) | Indoor prototype; Warm environment | collected | 0 of 8 | 3 / 2 / 5 | — |
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 2 / 0 / 2 | — |
@@ -76,6 +77,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PEBA (M045) | Indoor prototype | collected | 0 of 10 | 3 / 4 / 5 | — |
 | PETG-ESD (M026) | Indoor prototype | collected | 0 of 10 | 2 / 3 / 7 | — |
 | PETG-GF (M025) | Indoor prototype | collected | 0 of 5 | 3 / 2 / 4 | — |
+| PETG-GR (M153) | Indoor prototype | collected | 0 of 2 | 0 / 2 / 2 | — |
 | PETG-PTFE (M109) | Indoor prototype | collected | 0 of 2 | 0 / 1 / 1 | — |
 | PLA Aero (M017) | Indoor prototype | collected | 0 of 14 | 7 / 8 / 12 | — |
 | PLA Galaxy (M015) | Indoor prototype | collected | 0 of 4 | 2 / 1 / 3 | — |
@@ -123,7 +125,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | LCP (M139) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PA-ESD (M064) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PA12-AF (M154) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
-| PAHT (M147) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PAHT-CE (M148) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PBT-GF (M132) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-GF (M038) | — | collected | 0 of 3 | 2 / 2 / 2 | — |
@@ -132,7 +133,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PE-GF (M138) | — | collected | 0 of 3 | 2 / 2 / 2 | — |
 | PEEK (M097) | — | collected | 0 of 7 | 4 / 2 / 5 | — |
 | PEKK-CF (M122) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
-| PETG-GR (M153) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PLA-GR (M155) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PLA-PHB (M146) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 4 | 2 / 2 / 3 | — |

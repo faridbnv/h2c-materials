@@ -1,0 +1,65 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_sha256": "83f6def35f9e7e25940a71c5979bf2bf490077efe4cbb1e2cf7cb5d73115bd19",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 2,
+  "release_condition": "C05 source/facts are now admitted and exact source, grade and expectedcoverage guards checked; rerun these guarded comparisons immediately at injection.",
+  "source_reading_scope": "Both complete own HTML originals read independently during C05 review; exact Applications bullets and Bus- und Bahnbau row/range neighbours reread from originals. No new external research required.",
+  "coverage_contract": "D74/D114 stored manual Application judgments; current user rubric allows bounded producer/family application context as Reviewed with limitations, never Evidence recorded or suitability pass.",
+  "per_judgment": [
+    {
+      "FindingID": "CE-APP-M104-OFFICIAL",
+      "MaterialID": "M104",
+      "verdict": "APPROVE",
+      "source_id": "R-COVERAGE-20261001-3c9c76d4bb7c",
+      "original_path": ".cache/sources/by-sha/3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0.html",
+      "original_sha256": "3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0",
+      "source_currently_admitted": true,
+      "full_expected_grade_coverage_matches": true,
+      "locator": [
+        "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 1; explicitly scoped product G104-01",
+        "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 2; explicitly scoped product G104-01",
+        "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 3; explicitly scoped product G104-01",
+        "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 4; explicitly scoped product G104-01"
+      ],
+      "basis": [
+        "all applications where fire resistance is important",
+        "manufacturing of components with good electrical insulation properties",
+        "manufacturing of parts to be operated in high temperature conditions",
+        "manufacturing of elements exposed to high temperature changes"
+      ],
+      "judgment_rationale": "Exact own product4 intended-use bullets support RWL, no application performance/test/certification. Page/TDS recipe conflict retained."
+    },
+    {
+      "FindingID": "CE-APP-M148-OFFICIAL",
+      "MaterialID": "M148",
+      "verdict": "APPROVE",
+      "source_id": "R-COVERAGE-20261001-14396b9c74a0",
+      "original_path": ".cache/sources/by-sha/14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae.html",
+      "original_sha256": "14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae",
+      "source_currently_admitted": true,
+      "full_expected_grade_coverage_matches": true,
+      "locator": [
+        "p. 1: Bus- und Bahnbau, exact KK50056BKFR row and surrounding supply-form context; frozen clause 1; explicitly scoped product G148-02"
+      ],
+      "basis": [
+        "LUVOCOM 3F PAHT KK 50056 BK FR"
+      ],
+      "judgment_rationale": "Explicit KK50056BKFR in Bus- und Bahnbau is useful bounded producer application context, sufficient RWL under user family/compound-context rubric. Source makes no printed rail qualification. Existing9936BK remains unqualified; superseding material-level old Gap does not give it application evidence."
+    }
+  ],
+  "limits": [
+    "Both statuses RWL only; no measured application performance or printed-product certificate.",
+    "M148G14802context does not transfer to9936BK/BKL or erase formulation/printed specimen distinctions.",
+    "All product tasks remain open unless separately joined and reviewed; this manual coverage update is not whole-product research completion."
+  ],
+  "repository_mutations": "None by reviewer",
+  "normalization_attestation": {
+    "prior_input_sha256": "d84b6ef7141cfb96a4b9f83a9b2a5d4d1dd9185502f6a22a61229c3874c6ab86",
+    "prior_review_signature_sha256": "7e9f0d2887a0b56203585dc416527954b4076d0c16c76939424b9489babb66f1",
+    "changes": "Only2 future source Source note fields stripped trailing space; all judgments/operations/bases/guards unchanged; source rows now admitted.",
+    "fresh_original_read_required": false,
+    "original_fact_approvals": "Unchanged; prior original reread scope remains."
+  },
+  "review_signature_sha256": "0a6083d8aacadde75c2945dd9068cfa0eb4656dc682ed423daaacfb743d39e99"
+}

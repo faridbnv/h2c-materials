@@ -1,0 +1,536 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_sha256": "1e995322574fe30bfb5e0de5578bf0045d6deaf6d50d39dea7fd26473b60a64f",
+  "overall_verdict": "APPROVE",
+  "approved_source_operations": 7,
+  "approved_evidence_operations": 30,
+  "approved_profile_operations": 3,
+  "approved_measurements": 0,
+  "source_reading_scope": "All5 HTML product/material bodies independently read; catalogue physicalpp1–2/28–29 only,28–29 visually inspected; entire2-page LEHVOSS guide images independently read due broken font. Original/proposalSHAverified; each full expected grade row current. Every deciding profile field and narrative reviewed, exceeding requested sample.",
+  "documents": [
+    {
+      "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+      "original_path": ".cache/sources/by-sha/fabd692704e9f7b588e34c850f5cf49891d5848d206f8ba6c2a49b73923bc3ae.html",
+      "original_sha256": "fabd692704e9f7b588e34c850f5cf49891d5848d206f8ba6c2a49b73923bc3ae",
+      "proposal_file": "external-campaign/ingest/proposals/c05/fabd692704e9f7b5.json",
+      "proposal_sha256": "a0594b3c6a331ad831d9fce3cbee008fdccff900a22bdd200db8251eedd38d79",
+      "source_verdict": "APPROVE",
+      "reading_scope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "evidence": [
+        {
+          "operation_id": "c05-fabd6927-1",
+          "GradeID": "G143-01",
+          "locator": "p. 1: Details, semi-flexible filament/steam statement; frozen clause 1; explicitly scoped product G143-01",
+          "verdict": "APPROVE",
+          "limitations": "Own Clear variant steam121C maker claim; no cycle/time/pressure/efficacy or medical qualification or treatment state."
+        },
+        {
+          "operation_id": "c05-fabd6927-2",
+          "GradeID": "G143-01",
+          "locator": "p. 1: Own product summary footer, FDA food contact claim; frozen clause 2; explicitly scoped product G143-01",
+          "verdict": "APPROVE",
+          "limitations": "Own FDA footer only, not obtained certificate/printed migration test."
+        }
+      ],
+      "profiles": [],
+      "accepted_measurements": 0
+    },
+    {
+      "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+      "original_path": ".cache/sources/by-sha/3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0.html",
+      "original_sha256": "3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0",
+      "proposal_file": "external-campaign/ingest/proposals/c05/3c9c76d4bb7c514c.json",
+      "proposal_sha256": "f25c5bc8a4b349a6533b988a022db43417246cdd3a91b33a8794e7a6a97727bf",
+      "source_verdict": "APPROVE",
+      "reading_scope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "evidence": [
+        {
+          "operation_id": "c05-3c9c76d4-1",
+          "GradeID": "G104-01",
+          "locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 1; explicitly scoped product G104-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-3c9c76d4-2",
+          "GradeID": "G104-01",
+          "locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 2; explicitly scoped product G104-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-3c9c76d4-3",
+          "GradeID": "G104-01",
+          "locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 3; explicitly scoped product G104-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-3c9c76d4-4",
+          "GradeID": "G104-01",
+          "locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 4; explicitly scoped product G104-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-3c9c76d4-5",
+          "GradeID": "G104-01",
+          "locator": "p. 1: How to use, nozzle/bed/speed/cooling/enclosure rows; frozen clause 5; explicitly scoped product G104-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-3c9c76d4-6",
+          "GradeID": "G104-01",
+          "locator": "p. 1: Own description, raw material EN45545 sentence; frozen clause 6; explicitly scoped product G104-01",
+          "verdict": "APPROVE",
+          "limitations": "Explicit raw-material EN45545 scope, no printed fire/rail certificate."
+        }
+      ],
+      "profiles": [],
+      "accepted_measurements": 0
+    },
+    {
+      "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+      "original_path": ".cache/sources/by-sha/bc88189b518f547a000bc4c0f61b26059ff9cffa9c9c467d4a50c6c0635aea61.html",
+      "original_sha256": "bc88189b518f547a000bc4c0f61b26059ff9cffa9c9c467d4a50c6c0635aea61",
+      "proposal_file": "external-campaign/ingest/proposals/c05/bc88189b518f547a.json",
+      "proposal_sha256": "9ff2cbf3fdaa365bcf576ddbd437a60a00c9617ab5508ea5c23ea09eca1418b3",
+      "source_verdict": "APPROVE",
+      "reading_scope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "evidence": [
+        {
+          "operation_id": "c05-bc88189b-1",
+          "GradeID": "G153-01",
+          "locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 1; explicitly scoped product G153-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-bc88189b-2",
+          "GradeID": "G153-01",
+          "locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 2; explicitly scoped product G153-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-bc88189b-3",
+          "GradeID": "G153-01",
+          "locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 3; explicitly scoped product G153-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-bc88189b-4",
+          "GradeID": "G153-01",
+          "locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 4; explicitly scoped product G153-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-bc88189b-5",
+          "GradeID": "G153-01",
+          "locator": "p. 1: Applications, semi-transparent/backlit bullet; portfolio colour; Light TDS colour only; frozen clause 5; explicitly scoped product G153-01",
+          "verdict": "APPROVE",
+          "limitations": "Own transparency bullet contrasts with shared catalogue Deep black color; Strong TDS has no invented Black row. PETGPremium Mars case excluded."
+        }
+      ],
+      "profiles": [
+        {
+          "operation_id": "c05-profile-G153-01",
+          "GradeID": "G153-01",
+          "verdict": "APPROVE",
+          "all_fields_reviewed": [
+            "MaterialID",
+            "GradeID",
+            "Profile",
+            "Nozzle °C",
+            "Nozzle state",
+            "Nozzle min °C",
+            "Nozzle max °C",
+            "Nozzle requirement",
+            "Bed °C",
+            "Bed state",
+            "Bed min °C",
+            "Bed max °C",
+            "Bed requirement",
+            "Chamber °C",
+            "Chamber state",
+            "Chamber min °C",
+            "Chamber max °C",
+            "Chamber requirement",
+            "Enclosure",
+            "Enclosure state",
+            "Plate",
+            "Drying",
+            "Drying state",
+            "Drying °C",
+            "Drying hours",
+            "Nozzle material",
+            "Nozzle diameter",
+            "Abrasion / clogging",
+            "Hardened nozzle",
+            "H2C left",
+            "H2C right",
+            "AMS 2 Pro",
+            "AMS HT",
+            "AMS published",
+            "Support pairing",
+            "Failure modes",
+            "SourceID",
+            "H2C SourceID",
+            "Locator",
+            "Parse review"
+          ],
+          "raw_typed_fields": {
+            "Nozzle °C": "215-265°C",
+            "Nozzle min °C": "215",
+            "Nozzle max °C": "265",
+            "Bed °C": "60-80°C",
+            "Bed min °C": "60",
+            "Bed max °C": "80",
+            "Chamber °C": "Not published",
+            "Enclosure": "not necessary",
+            "Nozzle material": "Ruby or hardened nozzle recommended No",
+            "Hardened nozzle": "FALSE",
+            "Drying": "Not published",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable"
+          },
+          "limitations": "Own page215–265 nozzle60–80 bed, enclosure not necessary, ordinary-brass/hardened not recommended supports FALSE requirement. Unmeasured wear, noAMS/H2C qualification; oldTDS retained."
+        }
+      ],
+      "accepted_measurements": 0
+    },
+    {
+      "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+      "original_path": ".cache/sources/by-sha/0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f.html",
+      "original_sha256": "0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f",
+      "proposal_file": "external-campaign/ingest/proposals/c05/0b9610f078864612.json",
+      "proposal_sha256": "4af57aa3dde2eee5fdef904a4eae7b07acd2f20ef682cb72d8c52f5d795260bc",
+      "source_verdict": "APPROVE",
+      "reading_scope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "evidence": [
+        {
+          "operation_id": "c05-0b9610f0-1",
+          "GradeID": "G153-02",
+          "locator": "p. 1: Applications, exact Prografen Light section; frozen clause 1; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-0b9610f0-2",
+          "GradeID": "G153-02",
+          "locator": "p. 1: Applications, exact Prografen Light section; frozen clause 2; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-0b9610f0-3",
+          "GradeID": "G153-02",
+          "locator": "p. 1: Applications, exact Prografen Light section; frozen clause 3; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-0b9610f0-4",
+          "GradeID": "G153-02",
+          "locator": "p. 1: Applications, exact Prografen Light section; frozen clause 4; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-0b9610f0-5",
+          "GradeID": "G153-02",
+          "locator": "p. 1: Applications, semi-transparent/backlit bullet; portfolio colour; Light TDS colour only; frozen clause 5; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Own transparency bullet contrasts with own Light TDS Black plus shared catalogue Deep black; no transmission measurement. PETGPremium Mars case excluded."
+        },
+        {
+          "operation_id": "c05-0b9610f0-6",
+          "GradeID": "G153-02",
+          "locator": "p. 1: Own Material characteristics section; frozen clause 6; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        }
+      ],
+      "profiles": [
+        {
+          "operation_id": "c05-profile-G153-02",
+          "GradeID": "G153-02",
+          "verdict": "APPROVE",
+          "all_fields_reviewed": [
+            "MaterialID",
+            "GradeID",
+            "Profile",
+            "Nozzle °C",
+            "Nozzle state",
+            "Nozzle min °C",
+            "Nozzle max °C",
+            "Nozzle requirement",
+            "Bed °C",
+            "Bed state",
+            "Bed min °C",
+            "Bed max °C",
+            "Bed requirement",
+            "Chamber °C",
+            "Chamber state",
+            "Chamber min °C",
+            "Chamber max °C",
+            "Chamber requirement",
+            "Enclosure",
+            "Enclosure state",
+            "Plate",
+            "Drying",
+            "Drying state",
+            "Drying °C",
+            "Drying hours",
+            "Nozzle material",
+            "Nozzle diameter",
+            "Abrasion / clogging",
+            "Hardened nozzle",
+            "H2C left",
+            "H2C right",
+            "AMS 2 Pro",
+            "AMS HT",
+            "AMS published",
+            "Support pairing",
+            "Failure modes",
+            "SourceID",
+            "H2C SourceID",
+            "Locator",
+            "Parse review"
+          ],
+          "raw_typed_fields": {
+            "Nozzle °C": "215-265°C",
+            "Nozzle min °C": "215",
+            "Nozzle max °C": "265",
+            "Bed °C": "60-80°C",
+            "Bed min °C": "60",
+            "Bed max °C": "80",
+            "Chamber °C": "Not published",
+            "Enclosure": "not necessary",
+            "Nozzle material": "Ruby or hardened nozzle recommended No",
+            "Hardened nozzle": "FALSE",
+            "Drying": "Not published",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable"
+          },
+          "limitations": "Own page215–265 nozzle60–80 bed, enclosure not necessary, ordinary-brass/hardened not recommended supports FALSE requirement. Unmeasured wear, noAMS/H2C qualification; oldTDS retained."
+        }
+      ],
+      "accepted_measurements": 0
+    },
+    {
+      "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+      "original_path": ".cache/sources/by-sha/28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7.pdf",
+      "original_sha256": "28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7",
+      "proposal_file": "external-campaign/ingest/proposals/c05/28aad1fe75976553.json",
+      "proposal_sha256": "be940ef2357713d3e8a4f9a0a9582b9b8515e5efca80418d6c57ad66c8b4bf5f",
+      "source_verdict": "APPROVE",
+      "reading_scope": [
+        1,
+        2,
+        28,
+        29
+      ],
+      "evidence": [
+        {
+          "operation_id": "c05-28aad1fe-1",
+          "GradeID": "G153-01",
+          "locator": "p. 28: Prografen ownership paragraph and exact PET-G Light/Strong product list; frozen clause 1; explicitly scoped product G153-01",
+          "verdict": "APPROVE",
+          "limitations": "Explicit Prografen brand context covers named Strong/Light onp28; sharedUV featurep29 lacks test/service conditions. No formulation/specimen/edition continuity or tested pass."
+        },
+        {
+          "operation_id": "c05-28aad1fe-2",
+          "GradeID": "G153-02",
+          "locator": "p. 28: Prografen ownership paragraph and exact PET-G Light/Strong product list; frozen clause 2; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Explicit Prografen brand context covers named Strong/Light onp28; sharedUV featurep29 lacks test/service conditions. No formulation/specimen/edition continuity or tested pass."
+        },
+        {
+          "operation_id": "c05-28aad1fe-3",
+          "GradeID": "G153-01",
+          "locator": "p. 29: Key features of Prografen filaments, Resistance to UV radiation; frozen clause 3; explicitly scoped product G153-01",
+          "verdict": "APPROVE",
+          "limitations": "Explicit Prografen brand context covers named Strong/Light onp28; sharedUV featurep29 lacks test/service conditions. No formulation/specimen/edition continuity or tested pass."
+        },
+        {
+          "operation_id": "c05-28aad1fe-4",
+          "GradeID": "G153-02",
+          "locator": "p. 29: Key features of Prografen filaments, Resistance to UV radiation; frozen clause 4; explicitly scoped product G153-02",
+          "verdict": "APPROVE",
+          "limitations": "Explicit Prografen brand context covers named Strong/Light onp28; sharedUV featurep29 lacks test/service conditions. No formulation/specimen/edition continuity or tested pass."
+        }
+      ],
+      "profiles": [],
+      "accepted_measurements": 0
+    },
+    {
+      "SourceID": "R-COVERAGE-20261001-14396b9c74a0",
+      "original_path": ".cache/sources/by-sha/14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae.html",
+      "original_sha256": "14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae",
+      "proposal_file": "external-campaign/ingest/proposals/c05/14396b9c74a0cbdf.json",
+      "proposal_sha256": "135411cf34209726649098f382c02c81223f9ffa29d99de34c744cea8afef06f",
+      "source_verdict": "APPROVE",
+      "reading_scope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "evidence": [
+        {
+          "operation_id": "c05-14396b9c-1",
+          "GradeID": "G148-02",
+          "locator": "p. 1: Bus- und Bahnbau, exact KK50056BKFR row and surrounding supply-form context; frozen clause 1; explicitly scoped product G148-02",
+          "verdict": "APPROVE",
+          "limitations": "Exact KK50056BKFR row under Bus- und Bahnbau; producer application context, not printed part qualification. No9936L/BK orBK/L neighbour transfer."
+        }
+      ],
+      "profiles": [],
+      "accepted_measurements": 0
+    },
+    {
+      "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+      "original_path": ".cache/sources/by-sha/941cb5b0f2b9208e4db0a9c6c578e0283db7a3a86767f3f44f7de92c28790ffe.pdf",
+      "original_sha256": "941cb5b0f2b9208e4db0a9c6c578e0283db7a3a86767f3f44f7de92c28790ffe",
+      "proposal_file": "external-campaign/ingest/proposals/c05/941cb5b0f2b9208e.json",
+      "proposal_sha256": "1908f45f68f9ff266ab76758ff901d2a9b24ca54029e9cfb479a6058fa4c10ab",
+      "source_verdict": "APPROVE",
+      "reading_scope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "evidence": [
+        {
+          "operation_id": "c05-941cb5b0-1",
+          "GradeID": "G147-01",
+          "locator": "p. 1: p1 introductory water uptake comparison; frozen clause 1; explicitly scoped product G147-01",
+          "verdict": "APPROVE",
+          "limitations": "Full relative uptake comparison, no RH/time/specimen/standard, hydrolysis pass or multiplier."
+        },
+        {
+          "operation_id": "c05-941cb5b0-2",
+          "GradeID": "G147-01",
+          "locator": "p. 1: p1 Support Material Compatibility; frozen clause 2; explicitly scoped product G147-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-941cb5b0-3",
+          "GradeID": "G147-01",
+          "locator": "p. 1: p1 Startup/Shut Down; frozen clause 3; explicitly scoped product G147-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-941cb5b0-4",
+          "GradeID": "G147-01",
+          "locator": "p. 1: p1 Generic Machinery Settings, removal note; frozen clause 4; explicitly scoped product G147-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        },
+        {
+          "operation_id": "c05-941cb5b0-5",
+          "GradeID": "G147-01",
+          "locator": "p. 1: p1 Troubleshooting, Oozing/Stringing; frozen clause 5; explicitly scoped product G147-01",
+          "verdict": "APPROVE",
+          "limitations": "Corrected make sure that quotation optically matches original p1."
+        },
+        {
+          "operation_id": "c05-941cb5b0-6",
+          "GradeID": "G147-01",
+          "locator": "p. 1: p1 Filament Handling, Drying; frozen clause 6; explicitly scoped product G147-01",
+          "verdict": "APPROVE",
+          "limitations": "Exact own-source/heading wording, qualifier retained; narrative only, no application or category pass."
+        }
+      ],
+      "profiles": [
+        {
+          "operation_id": "c05-profile-G147-01",
+          "GradeID": "G147-01",
+          "verdict": "APPROVE",
+          "all_fields_reviewed": [
+            "MaterialID",
+            "GradeID",
+            "Profile",
+            "Nozzle °C",
+            "Nozzle state",
+            "Nozzle min °C",
+            "Nozzle max °C",
+            "Nozzle requirement",
+            "Bed °C",
+            "Bed state",
+            "Bed min °C",
+            "Bed max °C",
+            "Bed requirement",
+            "Chamber °C",
+            "Chamber state",
+            "Chamber min °C",
+            "Chamber max °C",
+            "Chamber requirement",
+            "Enclosure",
+            "Enclosure state",
+            "Plate",
+            "Drying",
+            "Drying state",
+            "Drying °C",
+            "Drying hours",
+            "Nozzle material",
+            "Nozzle diameter",
+            "Abrasion / clogging",
+            "Hardened nozzle",
+            "H2C left",
+            "H2C right",
+            "AMS 2 Pro",
+            "AMS HT",
+            "AMS published",
+            "Support pairing",
+            "Failure modes",
+            "SourceID",
+            "H2C SourceID",
+            "Locator",
+            "Parse review"
+          ],
+          "raw_typed_fields": {
+            "Nozzle °C": "250°C - 280°C",
+            "Nozzle min °C": "250",
+            "Nozzle max °C": "280",
+            "Bed °C": "< 80°C",
+            "Bed min °C": "Not published",
+            "Bed max °C": "80",
+            "Chamber °C": "printable on non-heated chamber machines",
+            "Enclosure": "Not published",
+            "Nozzle material": "Compatible with standard brass nozzles.",
+            "Hardened nozzle": "FALSE",
+            "Drying": "In case the filament has become wet, it should be dried. Using a hot dry air oven at 80°C for at least 12h is recommended.",
+            "Drying °C": "80",
+            "Drying hours": "12"
+          },
+          "limitations": "Actual250–280 nozzle,<80 strictupper/NP lower, nonheated chamber, brass permission,0.4mm glass/MagigooPA genericsetup. Conditional wet filament hotdryair80°C at least12h, not pellet/annealing. ExistingP0946nozzle270–290 remains; no recency supersession."
+        }
+      ],
+      "accepted_measurements": 0
+    }
+  ],
+  "held_findings_review": [
+    {
+      "FindingID": "C05-PA6-RECIPE-CONTEXT",
+      "Outcome": "conflicting",
+      "ReleaseCondition": "Maker/source-context resolution of nozzle, speed, cooling and enclosure differences before superseding any TDS recipe; retain both originals and literal directions.",
+      "review_verdict": "APPROVE_HOLD"
+    },
+    {
+      "FindingID": "C05-PROGRAFEN-OLDER-XY-CUSTODY",
+      "Outcome": "vendor needed",
+      "ReleaseCondition": "Official digest-verified copy and row-specific formulation/revision continuity for AGP2023 FDM/XY footnote before transferring conditions into retained Strong/Light TDS numbers. New ownership evidence alone does not settle this.",
+      "review_verdict": "APPROVE_HOLD"
+    }
+  ],
+  "history": {
+    "initial_input_sha256": "793c68c937ee0aeb95e2828b5c70e48ff2fc87e0910410d209450dda2349e3cf",
+    "initial_report": "external-campaign/reviews/TENTH-C05-INITIAL-CORRECT-REVIEW.json",
+    "corrected": "Missing that; Strong TDS colour overclaim removed; Q05004 chemical duplicate omitted; cached guide reused separately; OCR visual flagged; all30 Source+Locator+Topic keys independently unique after perproduct/perclause locator additions."
+  },
+  "release_limits": [
+    "Operation approval does not imply full release/browser approval; root must verify changed decisions and condition display.",
+    "PAHT9825 max80 stores strict<80 with raw/Parse review preserved, no recommendation exactly80; drying12 is minimum with at least retained.",
+    "No new measured properties/catalogue identities or positive UV/chemical/rail/medical/food suitability qualification."
+  ],
+  "repository_mutations": "None by reviewer",
+  "review_signature_sha256": "8bedefdf693c9329c905d24e3be041f0a2e181b9dfb05e5bfad7e0b5d61ad33d"
+}

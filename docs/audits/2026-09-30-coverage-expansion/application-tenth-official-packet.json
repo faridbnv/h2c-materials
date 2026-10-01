@@ -1,0 +1,207 @@
+{
+  "PacketID": "APPLICATION-TENTH-OFFICIAL-CONTEXT",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "MakerBatches": [
+    {
+      "Maker": "Spectrum",
+      "GradeIDs": [
+        "G104-01"
+      ]
+    },
+    {
+      "Maker": "LEHVOSS",
+      "GradeIDs": [
+        "G148-01",
+        "G148-02"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M104-OFFICIAL",
+      "MaterialID": "M104",
+      "ActiveGradeIDs": [
+        "G104-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G104-01",
+        "MaterialID": "M104",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PA6 CS20 FR V0",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "PA6 CS20 FR V0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+            "Publisher": "Spectrum Group Sp. z o.o.",
+            "Title": "Spectrum PA6 CS20 FR V0 official product page",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-10-01",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority.",
+            "Citation role": "cited",
+            "URL": "https://spectrumfilaments.com/en/filament/pa6-cs20-fr-v0/",
+            "Locator": "Document / exact product section",
+            "Applicable grades": "G104-01",
+            "Access state": "retrieved",
+            "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+            "SHA256": "3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0"
+          },
+          "PrivateReadingNote": "Digest-verified saved official original read directly; no source-text derivation from report.",
+          "RawBasis": [
+            "all applications where fire resistance is important",
+            "manufacturing of components with good electrical insulation properties",
+            "manufacturing of parts to be operated in high temperature conditions",
+            "manufacturing of elements exposed to high temperature changes"
+          ],
+          "Locator": [
+            "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 1; explicitly scoped product G104-01",
+            "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 2; explicitly scoped product G104-01",
+            "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 3; explicitly scoped product G104-01",
+            "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 4; explicitly scoped product G104-01"
+          ]
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The exact Spectrum PA6 CS20 FR V0 product page names fire-important applications, electrical insulation, high-temperature parts and temperature-change exposure. These are intended uses, without controlled application performance or retrieved printed-product fire/rail certification; raw-material EN45545 conformity remains raw-material context. The page and older TDS print windows disagree, so application claims do not resolve printing or suitability. Reviewed source basis: R-COVERAGE-20261001-3c9c76d4bb7c."
+      },
+      "PrimaryReview": "AI injector original reread; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M148-OFFICIAL",
+      "MaterialID": "M148",
+      "ActiveGradeIDs": [
+        "G148-01",
+        "G148-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G148-02",
+        "MaterialID": "M148",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PAHT KK 50056 BK",
+        "Shared formulation key": "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability behaviour UL 94 1/16'' (V-0) (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COVERAGE-20261001-14396b9c74a0",
+            "Publisher": "LEHVOSS",
+            "Title": "LEHVOSS LUVOCOM 3F official materials page — exact KK50056FR row",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-10-01",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority.",
+            "Citation role": "cited",
+            "URL": "https://www.lehvoss.de/Compounds/produkte/3d-druck-materialien/luvocom-3f",
+            "Locator": "Document / exact product section",
+            "Applicable grades": "G148-02",
+            "Access state": "retrieved",
+            "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+            "SHA256": "14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae"
+          },
+          "PrivateReadingNote": "Digest-verified saved official original read directly; no source-text derivation from report.",
+          "RawBasis": [
+            "LUVOCOM 3F PAHT KK 50056 BK FR"
+          ],
+          "Locator": [
+            "p. 1: Bus- und Bahnbau, exact KK50056BKFR row and surrounding supply-form context; frozen clause 1; explicitly scoped product G148-02"
+          ]
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C01558",
+          "MaterialID": "M148",
+          "GradeID": "G148-01",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the three reviewed cached originals for LUVOCOM 3F PAHT 9936 BK and PAHT KK 50056 BK FR (G148-01/G148-02). They provide material/processing and thermal/fire/rail context, predominantly compound/moulded specimens; the later 50056 sheet separately labels a printed V-0 specimen at0.4mm. Neither those labels, pellet predrying nor printing settings establish an application or finishing method. Official product/guide routes remain open; this is not public-source exhaustion or absence. 9936 BK/L remains a separate identity. Reviewed source basis: S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK, R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers, D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M148",
+        "GradeID": "G148-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The official LEHVOSS Bus- und Bahnbau section explicitly lists PAHT KK 50056 BK FR (G148-02) under flame-resistant railway resin context. This is a bounded producer application context for the named compound, not printed-product qualification, a rail/fire certificate or evidence for G148-01 PAHT9936BK. Pellet processing and the other source printed V-0@0.4mm statement remain distinct; neighbouring9936BK/L food or magnetic claims do not transfer. Reviewed source basis: R-COVERAGE-20261001-14396b9c74a0."
+      },
+      "PrimaryReview": "AI injector original reread; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M104-OFFICIAL",
+      "append": {
+        "MaterialID": "M104",
+        "GradeID": "G104-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The exact Spectrum PA6 CS20 FR V0 product page names fire-important applications, electrical insulation, high-temperature parts and temperature-change exposure. These are intended uses, without controlled application performance or retrieved printed-product fire/rail certification; raw-material EN45545 conformity remains raw-material context. The page and older TDS print windows disagree, so application claims do not resolve printing or suitability. Reviewed source basis: R-COVERAGE-20261001-3c9c76d4bb7c."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M148-OFFICIAL",
+      "append": {
+        "MaterialID": "M148",
+        "GradeID": "G148-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The official LEHVOSS Bus- und Bahnbau section explicitly lists PAHT KK 50056 BK FR (G148-02) under flame-resistant railway resin context. This is a bounded producer application context for the named compound, not printed-product qualification, a rail/fire certificate or evidence for G148-01 PAHT9936BK. Pellet processing and the other source printed V-0@0.4mm statement remain distinct; neighbouring9936BK/L food or magnetic claims do not transfer. Reviewed source basis: R-COVERAGE-20261001-14396b9c74a0."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C01558",
+          "MaterialID": "M148",
+          "GradeID": "G148-01",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the three reviewed cached originals for LUVOCOM 3F PAHT 9936 BK and PAHT KK 50056 BK FR (G148-01/G148-02). They provide material/processing and thermal/fire/rail context, predominantly compound/moulded specimens; the later 50056 sheet separately labels a printed V-0 specimen at0.4mm. Neither those labels, pellet predrying nor printing settings establish an application or finishing method. Official product/guide routes remain open; this is not public-source exhaustion or absence. 9936 BK/L remains a separate identity. Reviewed source basis: S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK, R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers, D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR."
+        }
+      ]
+    }
+  ]
+}

@@ -140,18 +140,18 @@ M138,PE-GF,within,unknown,unknown,unknown,unknown,unknown
 M139,LCP,within,unknown,unknown,unknown,unknown,unknown
 M140,PBT,within,unknown,unknown,unknown,unknown,unknown
 M141,PET-LW,within,within,within,unknown,unknown,unknown
-M142,nGen-CF,within,within,within,unknown,requires-hardened,unknown
-M143,nGen FLEX,within,within,within,unknown,unknown,unknown
+M142,nGen-CF,within,within,within,unknown,requires-hardened,required
+M143,nGen FLEX,within,within,within,unknown,unknown,required
 M144,PCTG-CF,within,within,within,within,requires-hardened,required
-M145,PLA-PHA,within,within,within,unknown,unknown,unknown
+M145,PLA-PHA,within,within,within,unknown,unknown,required
 M146,PLA-PHB,within,within,unknown,unknown,unknown,required
-M147,PAHT,within,within,unknown,unknown,unknown,unknown
+M147,PAHT,within,within,within,within,no-special-concern,required
 M148,PAHT-CE,within,within,unknown,unknown,requires-hardened,unknown
 M149,PCL,within,within,within,unknown,unknown,unknown
 M150,TPU-LW,within,within,within,unknown,unknown,required
 M151,TPU-GF,within,within,within,within,requires-hardened,unknown
 M152,PLA-NF,within,within,within,within,requires-hardened,required
-M153,PETG-GR,within,unknown,unknown,unknown,unknown,unknown
+M153,PETG-GR,within,within,within,within,no-special-concern,unknown
 M154,PA12-AF,within,within,unknown,unknown,requires-hardened,unknown
 M155,PLA-GR,within,unknown,unknown,unknown,unknown,unknown
 M156,PA6/66-CF,within,within,within,unknown,requires-hardened,required
@@ -163,7 +163,7 @@ M161,TPU 95A class,within,within,within,within,requires-hardened,required
 M162,TPU harder than 95A,within,within,within,within,requires-hardened,required
 M163,"TPU, hardness not stated",family,unknown,unknown,unknown,unknown,unknown
 M164,"Nylon, maker-undisclosed polyamide",within,within,within,within,requires-hardened,required
-M165,"Nylon-CF, maker-undisclosed polyamide",within,within,within,unknown,requires-hardened,unknown
+M165,"Nylon-CF, maker-undisclosed polyamide",within,within,within,unknown,requires-hardened,required
 M166,"Nylon-GF, maker-undisclosed polyamide",within,unknown,unknown,unknown,unknown,unknown
 M167,"TPE, maker-undisclosed elastomer",within,within,within,within,requires-hardened,required
 M168,PLA blend,within,within,within,within,requires-hardened,unknown

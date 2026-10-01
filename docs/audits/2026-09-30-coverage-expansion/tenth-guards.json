@@ -1,0 +1,112 @@
+{
+  "basis": "Committed ninth canonical baseline; disposable copies and independently copied verified originals; exact packet digests; no root mutations",
+  "cases": 21,
+  "rootManifestUnchanged": true,
+  "results": [
+    {
+      "case": "m269-application-five-maker-cached initial plus immediate zero rerun",
+      "admitted": 11,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m270-colorfabb-registered-guide-drying initial plus immediate zero rerun",
+      "admitted": 11,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m271-batch-c05-official-product-guidance initial plus immediate zero rerun",
+      "admitted": 40,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m272-application-tenth-official initial plus immediate zero rerun",
+      "admitted": 2,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m269-application-five-maker-cached changed expected identity",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m269-application-five-maker-cached changed packet bytes",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m270-colorfabb-registered-guide-drying changed expected identity",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m270-colorfabb-registered-guide-drying changed packet bytes",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m271-batch-c05-official-product-guidance changed expected identity",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m271-batch-c05-official-product-guidance changed packet bytes",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m272-application-tenth-official changed expected identity",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "m272-application-tenth-official changed packet bytes",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COLORFABB-PRINT-20260928-e02f420a2e56",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COVERAGE-20261001-fabd692704e9",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COVERAGE-20261001-3c9c76d4bb7c",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COVERAGE-20261001-bc88189b518f",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COVERAGE-20261001-0b9610f07886",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COVERAGE-20261001-28aad1fe7597",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COVERAGE-20261001-14396b9c74a0",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed original R-COVERAGE-20261001-941cb5b0f2b9",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Previously admitted deciding guide schedule moved",
+      "refused": true,
+      "noPartialWrites": true
+    }
+  ]
+}

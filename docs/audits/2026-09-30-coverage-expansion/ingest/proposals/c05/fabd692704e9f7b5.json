@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "fabd692704e9f7b588e34c850f5cf49891d5848d206f8ba6c2a49b73923bc3ae",
+    "url": "https://colorfabb.com/ngen-flex-clear",
+    "pages": 1,
+    "provider": "colorFabb",
+    "manufacturer": "colorFabb",
+    "docKey": "https://colorfabb.com/ngen-flex-clear#witness-for=source:R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX"
+  },
+  "identity": {
+    "polymer": "nGen",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Copolyesters",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: ngen"
+    ],
+    "materialId": "M143",
+    "materialName": "nGen FLEX",
+    "estimateIdentity": "nGen",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+      "Publisher": "colorFabb",
+      "Title": "colorFabb nGen_FLEX Clear official product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority.",
+      "Citation role": "cited",
+      "URL": "https://colorfabb.com/ngen-flex-clear",
+      "Locator": "Document / exact product section",
+      "Applicable grades": "G143-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+      "SHA256": "fabd692704e9f7b588e34c850f5cf49891d5848d206f8ba6c2a49b73923bc3ae"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "The store will not work correctly in the case when cookies are disabled."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independently reviewed frozen operations required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G143-01",
+      "row": {
+        "GradeID": "G143-01",
+        "MaterialID": "M143",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "nGen_FLEX",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Existing stable identity only; no catalogue addition or row update."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.13 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.13",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-ngen-flex-clear",
+        "Locator": "p. 1: Density:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density: 1.13 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240-260C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-ngen-flex-clear",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40 - 60 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Advised 3D printing temperature 240-260C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c05-fabd6927-1",
+      "gradeKey": "G143-01",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "G143-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "This means that printed objects can be steam sterlilized at 121C.",
+        "Exposure / conditions": "Own Clear product details, literal source spelling retained. No steam-cycle pressure/time, efficacy, geometry, ageing, medical approval or validated sterilization process. Do not generalize to another grade/formulation or add a treatment state.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+        "Locator": "p. 1: Details, semi-flexible filament/steam statement; frozen clause 1; explicitly scoped product G143-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "This means that printed objects can be steam sterlilized at 121C.",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-fabd6927-2",
+      "gradeKey": "G143-01",
+      "row": {
+        "MaterialID": "M143",
+        "GradeID": "G143-01",
+        "Domain": "Durability",
+        "Topic": "Food contact",
+        "Finding": "FDA food contact compliant",
+        "Exposure / conditions": "Own product-page footer claim, not an obtained certificate or printed-part migration/safety test. Contact agent, temperature/time, geometry, additives/lot and regulatory document not supplied here. No food-contact selection pass; download folder remains a lead.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+        "Locator": "p. 1: Own product summary footer, FDA food contact claim; frozen clause 2; explicitly scoped product G143-01"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FDA food contact compliant",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "printing temperature",
+      "raw": "240-260C",
+      "fromBelow": false,
+      "line": "Advised 3D printing temperature 240-260C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "print speed",
+      "raw": "40 - 60 mm/s",
+      "fromBelow": false,
+      "line": "Advised 3d print speed 40 - 60 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 40D/85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 45D/90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "company.current === true)[0].name\" class=\"selected-company-name\" >",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen_FLEX is best described as a semi-flexible filament with a shore hardness of 95A. It can be fed through a Bowden tube and printed at regular speeds. It is t",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter Tolerance: ± 0.1 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "At colorFabb we have a well equipped 3d printing studio with a lot of popular 3d printers. We know our materials will give you excellent results and to help you",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Glass Transition Temperature: 130C",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Advised Heated bed 80C + buildTak",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling fan nGen_FLEX gives best results on a buildTak covered buildplate, heated at around 80C. Make sure the distance between nozzle and buildplate is not too",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen_FLEX is best described as a semi-flexible filament with a shore hardness of 95A. It can be fed through a Bowden tube and printed at regular speeds. It is t",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €29.97 €24.77",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Only %1 left",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "%1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "020057",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% secure payments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 5951 DK Belfeld The Netherlands +31 (0)77 - 466 40 15",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+    "note": "Only independently signed narrative and profile operations accepted; all automatic measurements rejected, conditions left missing, no new product."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      },
+      "row": {
+        "MaterialID": "M143",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "Visit colorfabb.us",
+        "Shared formulation key": "R-COLORFABB-ngen-flex-clear",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-ngen-flex-clear",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "The store will not work correctly in the case when cookies are disabled."
+      }
+    }
+  ],
+  "newMaterial": null
+}

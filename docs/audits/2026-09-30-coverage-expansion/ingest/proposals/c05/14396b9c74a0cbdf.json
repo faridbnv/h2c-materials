@@ -1,0 +1,660 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae",
+    "url": "https://www.lehvoss.de/Compounds/produkte/3d-druck-materialien/luvocom-3f",
+    "pages": 1,
+    "provider": "LEHVOSS",
+    "manufacturer": "LEHVOSS",
+    "docKey": "https://www.lehvoss.de/Compounds/produkte/3d-druck-materialien/luvocom-3f#witness-for=source:S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen"
+  },
+  "identity": {
+    "polymer": "PAHT",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: paht"
+    ],
+    "materialId": "M147",
+    "materialName": "PAHT",
+    "estimateIdentity": "PAHT",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet's own title is \"compounds(at)lehvoss(dot)de\", which names the polymer the filament is made from rather than LEHVOSS's product; the product's own name is not printed on the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COVERAGE-20261001-14396b9c74a0",
+      "Publisher": "LEHVOSS",
+      "Title": "LEHVOSS LUVOCOM 3F official materials page — exact KK50056FR row",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority.",
+      "Citation role": "cited",
+      "URL": "https://www.lehvoss.de/Compounds/produkte/3d-druck-materialien/luvocom-3f",
+      "Locator": "Document / exact product section",
+      "Applicable grades": "G148-02",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+      "SHA256": "14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Kontakt"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independently reviewed frozen operations required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G148-02",
+      "row": {
+        "GradeID": "G148-02",
+        "MaterialID": "M148",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PAHT KK 50056 BK",
+        "Shared formulation key": "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability behaviour UL 94 1/16'' (V-0) (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COVERAGE-20261001-14396b9c74a0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Existing stable identity only; no catalogue addition or row update."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-luvocom-3f",
+        "Locator": "p. 1: Dichte",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Dichte 1 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c05-14396b9c-1",
+      "gradeKey": "G148-02",
+      "row": {
+        "MaterialID": "M148",
+        "GradeID": "G148-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "LUVOCOM 3F PAHT KK 50056 BK FR",
+        "Exposure / conditions": "Own Bus- und Bahnbau table under Flammbeständig und konform zu EN45545-2: exact KK50056BKFR resin row, Hochtemperatur-Polyamid, Keramikkugel gefüllt, EN45545konform, UL94V0flammbeständig, Schwarz. Resin/supply-form context, not printed-product certificate or rail suitability. The page names9936L/BK orBK/L separately; its food/magnetic claims are not assigned to existing9936BK.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-14396b9c74a0",
+        "Locator": "p. 1: Bus- und Bahnbau, exact KK50056BKFR row and surrounding supply-form context; frozen clause 1; explicitly scoped product G148-02"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "LUVOCOM 3F PAHT KK 50056 BK FR",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "LUVOSINT®, LUVOPRINT® und LUVOCOM® 3F | 3D-Druck-Materialien",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fakuma 2026",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FFF-Fokusmaterialien (3/95)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 Materialien für 95 % aller industrieller Anwendungen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA HT 9936 L/BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 unverstärkt, schwarz. Sehr gute Oberflächenqualität im Druck. Hohe Zähigkeit, reduzierte Feuchtigkeitsaufnahme, kein Verzug und daher leicht zu drucken. Leb",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 9780 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET mit 15 % CF-Verstärkung. Sehr gute Oberflächenqualität. Hohe Festigkeit, hohe Temperaturbeständigkeit. Geringe Feuchtigkeitsaufnahme, kein Verzug, sehr gut ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 50899 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PPS mit 10 % CF-Verstärkung. Sehr gute Oberflächenqualität, hohe Festigkeit und Steifigkeit für Aluminiumersatz. UL94 V0-flammhemmend, chemisch sehr beständig, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP GF 50282 BK  PP, 30 % Glasfaser verstärkt, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP CF 9928 BK  PP, 20 % Carbonfaser verstärkt, ESD, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP CF 50709 BK  PP, 20 % Carbonfaser verstärkt, elektrisch leitfähig, <10 3 Ohm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 9780 BK  PET, 15 % Carbonfaser verstärkt, Schwarz  Download",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA12 CF 9798 BK  PA12, 15 % Carbonfaser verstärkt, ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT CF 9742 BK  Hochtemperatur-Polyamid, 15 % Carbonfaser verstärkt",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT CF 9743 BK  Hochtemperatur-Polyamid, 25 % Carbonfaser verstärkt",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT CF 9806 BK  PA12, 10 % Carbonfaser verstärkt, ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT CF 9891 BK  Hochtemperatur-Polyamid, 15 % Carbonfaser verstärkt, verringerte Feuchteaufnahme",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS 9937 BK  PPS-Compound, unverstärkt, UL94 V0 flammbeständig, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS GF 50300 BK  PPS, 25 % Glasfaser verstärkt, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 9938 BK  PPS, 15 % Carbonfaser verstärkt, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 50353 BK  PPS, 30 % Carbonfaser verstärkt, , UL94 V0 flammbeständig, elektr. Leitfähig, <10 3 Ohm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 50899 BK  PPS, 10 % Carbonfaser verstärkt, UL94 V0 flammbeständig  Download",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK GF 9761 BK  PEEK, 30 % Glasfaser verstärkt, , UL94 V0 flammbeständig, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK CF 9676 BK  PEEK, 15 % Carbonfaser verstärkt, NORSOK M710 qualifiziert, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F TPU 50289 NT  TPU-Compound, 85 Shore A, Natur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PLA HT 50593 WT  PLA, erhöhte thermische Beständigkeit, Natur (Weiß)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP 9929 NT  PP-Compound, natur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F ABS 50624 NT  ABS-Compound, natur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT 9825 NT  Hochtemperatur-Polyamid natur (weiß)  Printing Guidelines",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT 9936 L/BK  Hochtemperatur-Polyamid mit verringerter Feuchteaufnahme, lebensmittelkonform, detektierbar, Schwarz  Download",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT 9875 NT  Hochtemperatur-Polyamid, unverstärkt, verbesserte Feuchteaufnahme",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEI 50236 GY  PEI-Compound unverstärkt, EN 45545-2 konform, UL94 V0 flammbeständig, Grau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEKK 50082 NT  PEKK-Compound unverstärkt, UL94 V0 flammbeständig, Natur",
+      "reason": "properties.csv carries no property for \"LUVOCOM 3F PEKK 50082 NTPEKK-Compound unverstärkt,\""
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK 9581 NT MP  PEEK-Compound, NORSOK M710 qualifiziert, Mikrogranulat, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK 50260 NT  PEEK-Compound, NORSOK M710 qualifiziert, Standardgranulat, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperaturbeständigkeit ab 220 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS 9937 BK  PPS-Compound, unverstärkt, UL94 V0 flammbeständig, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS GF 50300 BK  PPS, 25 % Glasfaser verstärkt, UL94 V0 flammbeständig, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 9938 BK  PPS, 15 % Carbonfaser verstärkt, EN45545-2 konform, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 50899 BK  PPS, 10 % Carbonfaser verstärkt, UL94 V0 flammbeständig  Download",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 50353 BK  PPS, 30 % Carbonfaser verstärkt, elektr. leitfähig <10 3 Ohm, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEI 50236 GY  PEI-Compound unverstärkt, EN 45545-2 konform, UL94 V0 flammbeständig, Grau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEKK 50082 NT  PEKK-Compound unverstärkt, UL94 V0 flammbeständig, Natur",
+      "reason": "properties.csv carries no property for \"LUVOCOM 3F PEKK 50082 NTPEKK-Compound unverstärkt,\""
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK 9581 NT MP  PEEK-Compound, NORSOK M710 qualifiziert, Mikrogranulat, UL94 V0 flammbeständig, Natur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK 50260 NT  PEEK-Compound, NORSOK M710 qualifiziert, Standardgranulat, UL94 V0 flammbeständig, Natur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK GF 9761 BK  PEEK, 30 % Glasfaser verstärkt, UL94 V0 flammbeständig, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK CF 9676 BK  PEEK, 15 % Carbonfaser verstärkt, NORSOK M710 qualifiziert, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Erfüllt NORSOK M710",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK 9581 NT MP  PEEK-Compound, NORSOK M710 qualifiziert, Mikrogranulat, UL94 V0 flammbeständig, Natur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK 50260 NT  PEEK-Compound, NORSOK M710 qualifiziert, Standardgranulat, UL94 V0 flammbeständig, Natur",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEEK CF 9676 BK  PEEK-Compound, 15 % Carbonfaser verstärkt, NORSOK M710 qualifiziert, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammbeständig und konform zu EN 45545-2",
+      "reason": "properties.csv carries no property for \"Flammbeständig und konform zu\""
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT KK 50056 BK FR  Hochtemperatur-Polyamid, Keramikkugel gefüllt, EN 45545 konform, UL94 V0 flammbeständig, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 9938 BK  PPS, 15 % Carbonfaser verstärkt, EN45545-2 konform, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEI 50236 GY  PEI-Compound unverstärkt, EN 45545-2 konform, UL94 V0 flammbeständig, Grau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 50474 BK/L  PET, 15 % Carbonfaser verstärkt, lebensmittelkonform, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 50474 GY/L  PET, 15 % Carbonfaser verstärkt, lebensmittelkonform, Grau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 50474 RD/L  PET, 15 % Carbonfaser verstärkt, lebensmittelkonform, Rot",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 50474 BL/L  PET, 15 % Carbonfaser verstärkt, lebensmittelkonform, Blau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT 9936 BK/L  Hochtemperatur-Polyamid mit verringerter Feuchteaufnahme, lebensmittelkonform, detektierbar, Schwarz  Download",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT 50588 BL/L  Hochtemperatur-Polyamid mit verringerter Feuchteaufnahme, lebensmittelkonform, detektierbar, Blau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP CF 9928 BK  PP, 20 % Carbonfaser verstärkt, ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP CF 50709 BK  PP, 20 % Carbonfaser verstärkt, elektrisch leitfähig, <10 3 Ohm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F TPU CNT 9902 BK  TPU, ESD, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA12 CF 9798 BK  PA12, 15 % Carbonfaser verstärkt, ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT CF 9806 BK  PA12, 10 % Carbonfaser verstärkt, ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPS CF 50353 BK  PPS, 30 % Carbonfaser verstärkt, elektrisch leitfähig, <10 3 Ohm, UL94 V0 flammbeständig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP CF 9928 BK  PP, 20 % Carbonfaser verstärkt, ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT GK 9874 NT  Hochtemperatur-Polyamid, 10 % Mikrohohlkugel gefüllt, Schwarz",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F TPU 50289 NT  TPU Compound, 85 Shore A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PLA HT 50593 WT  PLA, erhöhte thermische Beständigkeit, Natur (Weiß)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA12 CF 50414 RD  PA12, 15 % Carbonfaser verstärkt, Rot",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA12 CF 50415 BL  PA12, 15 % Carbonfaser verstärkt, Blau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA12 CF 50416 GN  PA12, 15 % Carbonfaser verstärkt, Grün",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 50474 GY/L  PET, 15 % Carbonfaser verstärkt, lebensmittelkonform, Grau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 50474 RD/L  PET, 15 % Carbonfaser verstärkt, lebensmittelkonform, Rot",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PET CF 50474 BL/L  PET, 15 % Carbonfaser verstärkt, lebensmittelkonform, Blau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT 9825 NT  Hochtemperatur-Polyamid natur (weiß)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PAHT 50588 BL/L  Hochtemperatur-Polyamid mit verringerter Feuchteaufnahme, lebensmittelkonform, detektierbar, Blau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PEI 50236 GY  PEI-Compound unverstärkt, EN 45545-2 konform, UL94 V0 flammbeständig, Grau",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA CF 50666 BK  PA, Carbonfaser und Glasfaser, Schwarz  Datenblatt",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PPA CF 51873 BK  PPA, Carbonfaser, Schwarz  Datenblatt",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM® 3F – Materialien für die Filamentfabrikation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F-Materialien wurden speziell für den 3D-Druck entwickelt und sind für den harten industriellen Alltag geeignet. Sie basieren hauptsächlich auf teilkri",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Mit unseren Materialzwillingen bieten wir zudem Spritzgießmaterialien an, welche durch ihr ähnliches Leistungsniveau den Übergang von 3D-Druck zum Spritzgießen ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Lehmann&Voss&Co.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+    "note": "Only independently signed narrative and profile operations accepted; all automatic measurements rejected, conditions left missing, no new product."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      },
+      "row": {
+        "MaterialID": "M147",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "compounds(at)lehvoss(dot)de",
+        "Shared formulation key": "S-PET-luvocom-3f",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "PPS mit 10 % CF-Verstärkung. Sehr gute Oberflächenqualität, hohe Festigkeit und Steifigkeit für Aluminiumersatz. UL94 V0-flammhemmend, chemisch sehr beständig,  (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-luvocom-3f",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Kontakt"
+      }
+    }
+  ],
+  "newMaterial": null
+}

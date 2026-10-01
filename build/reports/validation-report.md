@@ -17,14 +17,14 @@ Database snapshot 2026-09-21 · build 2026-10-01
 | measurements | 11244 |
 | numericMeasurements | 11069 |
 | quarantined | 18 |
-| profiles | 1316 |
-| evidence | 760 |
+| profiles | 1323 |
+| evidence | 770 |
 | prices | 357 |
-| sources | 1839 |
-| coverage | 863 |
-| knowHow | 4674 |
+| sources | 1846 |
+| coverage | 876 |
+| knowHow | 4698 |
 | polymerEnvironment | 353 |
-| polymerEvidence | 326 |
+| polymerEvidence | 325 |
 | coverageDerived | 1144 |
 
 ## Headline coverage
@@ -50,9 +50,9 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
-| nozzle | 119 | n/a | 9 | 0 | 47 |
-| bed | 114 | n/a | 8 | 0 | 53 |
-| chamber | 86 | 4 | 9 | 1 | 75 |
+| nozzle | 120 | n/a | 9 | 0 | 46 |
+| bed | 116 | n/a | 8 | 0 | 51 |
+| chamber | 88 | 4 | 9 | 1 | 73 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
 Nozzle and bed are read by the upper end of the window.
@@ -66,10 +66,10 @@ data/tables/chamber_bands.csv; it is shown beside the chamber question and chang
 | Kind | Materials |
 |---|---:|
 | Published temperature window | 60 |
-| No heated chamber needed, in words | 30 |
+| No heated chamber needed, in words | 32 |
 | Chamber recommended, no temperature | 2 |
 | Data sheet lists no setpoint | 4 |
-| Nothing published | 40 |
+| Nothing published | 38 |
 | Carrying an estimated band (any of the last three) | 9 |
 
 29 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), PP-GF (20-50 °C; a source says no heated chamber is needed), OBC (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes 25-60 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA (80-120 °C; a source says no heated chamber is needed), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
@@ -84,20 +84,20 @@ among them, so it can only show evidence and must never be offered as a hard con
 |---|---|---:|---:|---:|---:|
 | acid | verdict | 137 | 120 | 43 | 52 |
 | alkali | verdict | 69 | 62 | 42 | 52 |
-| organic-solvent | verdict | 84 | 45 | 45 | 56 |
+| organic-solvent | verdict | 85 | 45 | 46 | 55 |
 | oil-grease | verdict | 63 | 45 | 44 | 50 |
 | water-solubility | verdict | 42 | 41 | 34 | 34 |
-| flammability | verdict | 43 | 36 | 35 | 13 |
-| food-contact | indicator | 2 | 0 | 2 | 0 |
-| uv-outdoor | verdict | 77 | 0 | 27 | 16 |
-| moisture | verdict | 15 | 0 | 13 | 18 |
+| flammability | verdict | 44 | 36 | 36 | 13 |
+| food-contact | indicator | 3 | 0 | 3 | 0 |
+| uv-outdoor | verdict | 79 | 0 | 28 | 16 |
+| moisture | verdict | 16 | 0 | 14 | 18 |
 | creep | indicator | 2 | 0 | 2 | 0 |
 | fatigue | indicator | 5 | 0 | 5 | 0 |
 | hydrolysis | verdict | 10 | 0 | 10 | 35 |
 
 ## Polymer-level behaviour
 
-353 rows of published base-polymer behaviour, attached as 326 inferred records to 79 materials
+353 rows of published base-polymer behaviour, attached as 325 inferred records to 79 materials
 with no grade-level record in the category (D64). A record is shown in the drawer, counted apart in the filter rail, may screen a
 material out under inference where the polymer is attacked or dissolved, and never passes a requirement.
 
@@ -109,7 +109,7 @@ material out under inference where the polymer is attacked or dissolved, and nev
 | hydrolysis | 12 | 19 | 35 | 10 |
 | moisture | 2 | 2 | 18 | 0 |
 | oil-grease | 20 | 78 | 50 | 0 |
-| organic-solvent | 23 | 87 | 56 | 18 |
+| organic-solvent | 23 | 87 | 55 | 18 |
 | uv-outdoor | 8 | 8 | 16 | 1 |
 | water-solubility | 15 | 18 | 34 | 1 |
 

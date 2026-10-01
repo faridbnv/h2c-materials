@@ -1,0 +1,2874 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7",
+    "url": "https://spectrumfilaments.com/wp-content/uploads/2024/11/spectrum-portfolio-2025-en.pdf",
+    "pages": 32,
+    "provider": "3DJake",
+    "manufacturer": "3DJake",
+    "docKey": "https://spectrumfilaments.com/wp-content/uploads/2024/11/spectrum-portfolio-2025-en.pdf#witness-for=source:R-3DJAKE-EN-TDS-PETG-Graphene-Strong"
+  },
+  "nameUnsupported": {
+    "read": "ENGLISH",
+    "listed": "PROGRAFEN PET-G GRAPHENE STRONG"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pet-g"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+      "Publisher": "Spectrum Group Sp. z o.o.",
+      "Title": "Spectrum Filaments Product Portfolio 2025 — Prografen pp28–29",
+      "Revision": "Product Portfolio 2025",
+      "Publication date": "Not published",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. Targeted original reading only: cover/about and Prografen pp28–29; unrelated catalogue products not researched.",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/wp-content/uploads/2024/11/spectrum-portfolio-2025-en.pdf",
+      "Locator": "Physical PDF pp1–2,28–29 only",
+      "Applicable grades": "G153-01; G153-02",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+      "SHA256": "28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ENGLISH"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independently reviewed frozen operations required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G153-01",
+      "row": {
+        "GradeID": "G153-01",
+        "MaterialID": "M153",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PROGRAFEN PET-G GRAPHENE STRONG",
+        "Shared formulation key": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+        "Composition / filler": "addition of graphene results in a 25% increase in the tensile strength of the material and a 20% increase in stiffness compared to (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Existing stable identity only; no catalogue addition or row update."
+      }
+    },
+    {
+      "key": "G153-02",
+      "row": {
+        "GradeID": "G153-02",
+        "MaterialID": "M153",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PET-G PROGRAFEN GRAPHENE LIGHT",
+        "Shared formulation key": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Existing stable identity only; no catalogue addition or row update."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-spectrum-portfolio-2025-en",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 23: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "s: * For increased adhesion or to prevent warping: glue stick, Dimafix, 3DLac, M"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 23,
+        "text": "** annealed Adhesives: * For increased adhesion or to prevent warping: glue stick, Dimafix, 3DLac, Magigoo"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c05-28aad1fe-1",
+      "gradeKey": "G153-01",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-01",
+        "Domain": "Limitations",
+        "Topic": "Grade distinction",
+        "Finding": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+        "Exposure / conditions": "Own portfolio printed28/physicalPDF28. Named PET-G Graphene Light0.5% and Strong5% product list, own product pages and TDS publisher establish brand ownership; no assumption of identical formulations, specimen states or continuity across editions. Stable IDs and historical sources/prices retained.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+        "Locator": "p. 28: Prografen ownership paragraph and exact PET-G Light/Strong product list; frozen clause 1; explicitly scoped product G153-01"
+      },
+      "evidence": {
+        "page": 28,
+        "text": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-28aad1fe-2",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Limitations",
+        "Topic": "Grade distinction",
+        "Finding": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+        "Exposure / conditions": "Own portfolio printed28/physicalPDF28. Named PET-G Graphene Light0.5% and Strong5% product list, own product pages and TDS publisher establish brand ownership; no assumption of identical formulations, specimen states or continuity across editions. Stable IDs and historical sources/prices retained.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+        "Locator": "p. 28: Prografen ownership paragraph and exact PET-G Light/Strong product list; frozen clause 2; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 28,
+        "text": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-28aad1fe-3",
+      "gradeKey": "G153-01",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-01",
+        "Domain": "Durability",
+        "Topic": "UV resistance",
+        "Finding": "Resistance to UV radiation",
+        "Exposure / conditions": "Printed29/physicalPDF29, shared Prografen feature includes these named PET-G products and PLA products; maker brand-level claim attached only to explicit listed identities. No test standard, weathering dose/time, temperature, specimen, retention result, pigment/lot or service qualification supplied. Narrative only; no UV pass or polymer-level extrapolation.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+        "Locator": "p. 29: Key features of Prografen filaments, Resistance to UV radiation; frozen clause 3; explicitly scoped product G153-01"
+      },
+      "evidence": {
+        "page": 29,
+        "text": "Resistance to UV radiation",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-28aad1fe-4",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Durability",
+        "Topic": "UV resistance",
+        "Finding": "Resistance to UV radiation",
+        "Exposure / conditions": "Printed29/physicalPDF29, shared Prografen feature includes these named PET-G products and PLA products; maker brand-level claim attached only to explicit listed identities. No test standard, weathering dose/time, temperature, specimen, retention result, pigment/lot or service qualification supplied. Narrative only; no UV pass or polymer-level extrapolation.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+        "Locator": "p. 29: Key features of Prografen filaments, Resistance to UV radiation; frozen clause 4; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 29,
+        "text": "Resistance to UV radiation",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 23,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesive",
+      "raw": "s: * For increased adhesion or to prevent warping: glue stick, Dimafix, 3DLac, M",
+      "fromBelow": false,
+      "line": "** annealed Adhesives: * For increased adhesion or to prevent warping: glue stick, Dimafix, 3DLac, Magigoo"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "3D Printing Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Leading European 3D filament manufacturer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.5 milion kg annual production capacity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "80+ various filaments in portfolio",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and supplier in the 3D printing materials industry, product portfolios in the 3D printing filament market.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "specializing in the production of 3D filaments used in Our range includes over 80 different types of filaments,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "deliver top-quality 3D filaments that meet the needs of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "the key players in the European 3D filament market.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "expectations, offering a wide portfolio of 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "production capacity of approximately 1.5 million kilograms",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "of 3D filament, we are able to fulfill large orders and 3D printing with our products and bring even the most",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "more on page 26 more on page 28",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "free 3D printing experience",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "80+ filaments & 3 brands allowing to serve a variety of industries & customers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dedicated 3D printing resources",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "B2B online portal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Filament for 3D printers is manufactured by the method of free",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "During the production each 1 mm of filament is being continuously",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "measured in 2 axes with ± 0.8 μm accuracy. To be sure that the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Rj4hAYZ2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1 2 3 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Id Rj4hAYZ2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Weight 1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Diameter 1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Mean diameter 1.748 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Ovality 0.72%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Standard deviation 2.22 μm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Temperature 200 - 240 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Hot pad 40 - 60 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Date of production 19.09.2023",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Are you planning a unique 3D project that requires a custom color?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "you can choose any color from a selection of over 200 shades from",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "the RAL Classic palette or selected colors from RAL D2 Design Plus,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "taking your 3D printing project to the next level. If you’re looking for a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "specific shade outside of the RAL Classic or RAL D2 Design Plus palette",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Over 200 RAL colors and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "If you’re looking for a specific color from the RAL Classic or RAL D2 custom shades",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "We offer a wide selection of 213",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "and selected colors from RAL D2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "inquiry within 24 hours to discuss the details and ensure your order is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Minimum order – 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "from just one spool weighing 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "shipped within just 5 business days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ordering options. You can place an order starting from just one 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "that is fully compatible with BambuLab 3D printer reusable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Creality, FLSun & Raise 3D. No need for additional",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "many other 3D printers such as Prusa, Creality, FLSun, and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "environmental practices. Raise 3D, offering even greater flexibility and convenience.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 7,
+      "text": "Spool for 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ASA-X CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ASA 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Find out more on page 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "ASA 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "FlameGuard ASA 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "ASA-X CF10 ASA-X GF10 HIPS-X",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 16,
+      "text": "16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 17,
+      "text": "PET-G FR V0 PET-G",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 17,
+      "text": "PCTG CF10 PCTG GF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 17,
+      "text": "S-Flex 85A/90A/98A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 17,
+      "text": "PC 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 17,
+      "text": "17",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "PA6 PA6 PA6 PA12 CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "Low Warp Low Warp GF30 Low Warp CF15S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "PA6 CF15 PA6 GK10 PA6 Neat NT PA6 Neat BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "PA6 CS20 FR V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "PET-G HT100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "PP PPS AM230",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "PET-G FX120 PET CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "ABS GP450",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "PC/ABS FR V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 18,
+      "text": "18",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "Ideal to begin your 3D printing journey!",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "Always 5 spools 0.25 kg each",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "5 PACK 5 PACK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "5 PACK 5 PACK 5 PACK 5 PACK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "5 PACK 5 PACK 5 PACK 5 PACK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "PLA Crystal Pastello PLA PCTG Premium ASA 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "ASA 275 Polar White",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "ASA 275 Deep Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "ASA 275 Silver Star",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "ASA 275 Navy Blue",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "ASA 275 Bloody Red",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "5 PACK 5 PACK 5 PACK 5 PACK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "PLA Specials Material Mix #1 Material Mix #2 Carbon Set",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg) 1.75 mm (5x 0.25 kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "PLA Thermoactive Red rPETG Signal Yellow ASA-X CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "PCTG CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "WOOD Oak ASA 275 Traffic Yellow PET-G HT100 Pure White PA6 LW CF15S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 19,
+      "text": "19",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Fast, high-quality prints; speed up to 800mm/s; reliable; great dimensional stability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Multicolor gradient; vibrant, shiny finish; perfect for decorative, eye-catching 3D prints",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Metal-filled; metallic look & feel; more than 3x heavier than standard PLA; suitable for artistic models",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Halogen-free, flame-retardant PLA; eco-friendly; UL94 V0; 7x lower carbon footprint than ABS FR",
+      "reason": "properties.csv carries no property for \"Halogen-free, flame-retardant PLA; eco-friendly;\""
+    },
+    {
+      "page": 20,
+      "text": "High flow rate enabling fast printing (up to 350 mm/s), high strength comparable to ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Transparent, semi-crystalline prints; increased flow rate; temperature resistance up to 60°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Active foaming technology; reduced weight up to 50% of printed parts; low density",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "10% Carbon fiber reinforced, improved hardness & rigidity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Thermochromic effect, color changing ability at ca. 30°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "High impact resistance, excellent flexural strength, biodegradable, food safe, VICAT - 160°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "ASA 275 Easy to print, excellent resistance to external exposure & weather conditions, high printing speed (up to 350mm/s)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "FlameGuard ASA 275 Flame-retardant ASA; weather-resistant; UL94 V0; easy to print; suitable for high speed",
+      "reason": "properties.csv carries no property for \"FlameGuard ASA 275\""
+    },
+    {
+      "page": 20,
+      "text": "10% Carbon fiber reinforced, improved thermal resistance, outdoor use in conditions of increased exposure to UV",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "ASA-X CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "ASA-X GF10 10% glass fiber, excellent resistance to outdoor exposure, UV resistance, perfect bonding of the layers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "HIPS-X Light, fully soluble in D-Limonene, HDT B 88°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "High-speed PET-G; prints up to 800mm/s; durable; ideal for strong, functional parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "10% Carbon fiber reinforced, improved hardness & rigidity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Flame retardant, free of halogens, designed to meet UL 94 V0 standards",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "PET-G Flame Retardant V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "10% PTFE reinforced, reduced coefficient of friction, tribological properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "10% Carbon fiber reinforced, high stiffness and tensile strength, good impact and chemical resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "PCTG CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "10% Glass fiber reinforced, good corrosion and chemical resistance, high stiffness",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "PCTG GF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Up to 650% elongation at break, Shore 85A, high tensile & tear resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "S-Flex 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Up to 500% elongation at break, Shore 90A, oils & chemical resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "S-Flex 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "Up to 510% elongation at break, Shore 98A, high tensile & tear resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "S-Flex 98A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "20% carbon fiber reinforced, fexibility and resilience, ESD properties, excellent chemical resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "PA6 Low Warp",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "15% Carbon fiber reinforced, heat-stabilized, increased stiffness & tensile strength",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "PA6 Low Warp CF15S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "30% Glass fiber reinforced, heat-stabilized, excellent chemical resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "PA6 Low Warp GF30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "15% carbon fiber-filled PA12; lightweight; high strength; perfect for demanding industrial parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "PA12 CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 20,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PC 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "10% carbon fiber-reinforced PC; excellent strength-to-weight ratio; high heat resistant & rigidity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PA6 Neat NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "3F PA 9875 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PA6 Neat BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "3F PA 9936 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PA6 CF15 15% Carbon fiber reinforced, high Z-strength, high temperature resistance, reduced moisture & water",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "3F PA CF 9742 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "10% Glass microspheres reinforced, stiffer & lighter than pure polyamide, low impact of moisture, high",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PA6 GK10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "temperature resistance, good electrical insulation properties 3F PA GK 9874 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PA6 CS20 FR V0 Ceramic spheres, flame retardant, UL-94 V0 flammability achieved on ≥0.4 mm thick printed parts,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "3F PAHT KK 50056 BK FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PET-G HT100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PET-G FX120 Flexible, Shore hardness 95A, excellent durability & temp. resistance, steam sterilisation possibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PET CF15 15% Carbon fiber reinforced, high Z-strength; high hardness, stiffness & creep resistance, excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "3F PET CF 9780 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "ABS GP450 All-purpose, industrial grade, high mechanical strength & impact resistance, high printing speed (200mm/s), very robust",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "ABS Medical Manufactured using ABS pellets that meet the biocompatibility requirements of USP Class VI or ISO 10993-1 certifications",
+      "reason": "properties.csv carries no property for \"ABS Medical\""
+    },
+    {
+      "page": 21,
+      "text": "ABS Kevlar 10% Aramid fiber reinforced, high rigidity & impact strength, excellent dimensional stability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "10% Aramid fiber reinforced, UV resistance, good aging resistance, excellent resistance to external exposure",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "Flame-retardant UL-94 V0, halogen-free, excellent interlayer adhesion",
+      "reason": "properties.csv carries no property for \"Flame-retardant\""
+    },
+    {
+      "page": 21,
+      "text": "PC/ABS FR V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PP PP-copolymer unreinforced, outstanding chemical resistance, ultimate elongation - 500%;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "good temperature & electrical resistance 3F PP 9929 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "10% PTFE reinforced, improved thermal stability, increased electrical insulation, high abrasion resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "PPS AM230",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "316L",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 21,
+      "text": "21",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "[°C] [°C] [mm/s] High speedCooling [g/cm3] printing Dry boxrecommendedRuby orhardened nozzlerecommendedof print Toughness Hardness",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "190-250* 0-60 40-800 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Premium 185-215 0-45 40-350 Up to 100% 1.24 not necessary No No 10 6 9",
+      "reason": "properties.csv carries no property for \"PLA Premium\" (No)"
+    },
+    {
+      "page": 22,
+      "text": "PLA Pro 185-230 0-45 40-350 Up to 100% 1.22 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Magic Silk 220-240 40-60 40-200 Up to 100% 1.22 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 3 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA SILK Rainbow 220-240 40-60 40-200 Up to 100% 1.22 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 3 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA SILK 220-240 40-60 40-200 Up to 100% 1.22 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 3 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "Pastello PLA 185-215 0-60 40-200 Up to 100% 1.30 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Metal 195-230 40-60 30-80 Up to 100% 1.22 not necessary No Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "7 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "FlameGuard PLA 200-240 40-60 40-110 Up to 100% 1.26 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "Huracan PLA 185-230 0-45 40-350 Up to 100% 1.22 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "SafeGuard PLA 190-220 0-45 40-350 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Crystal 185-215 0-45 40-250 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "Light Weight PLA 200-280 0-45 30-100 Up to 100% 0.52-1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "8 6 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Tough 190-230 0-45 40-200 Up to 100% 1.20 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 5 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Glitter 185-215 0-45 40-200 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA MATT 190-230 0-45 40-450 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 5 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "185-225 0-45 40-250 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Carbon 190-220 0-45 40-200 Up to 100% 1.30 not necessary No Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 4 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Stone Age 185-225 0-45 40-250 Up to 100% 1.24 not necessary No No 10 6 9",
+      "reason": "properties.csv carries no property for \"PLA Stone Age\" (No)"
+    },
+    {
+      "page": 22,
+      "text": "PLA Thermoactive 190-220 0-45 40-250 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PLA Nature 185-215 0-45 40-250 Up to 100% 1.25 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "9 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "WOOD 190-220 0-45 20-80 Up to 100% 1.15 not necessary No No 8 5 9",
+      "reason": "properties.csv carries no property for \"WOOD\" (No)"
+    },
+    {
+      "page": 22,
+      "text": "GreenyHT 190-220 0-45 40-800 Up to 100% 1.54 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 5 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "GreenyPro 190-220 0-45 40-150 Up to 100% 1.34 not necessary No No 7 6 8",
+      "reason": "properties.csv carries no property for \"GreenyPro\" (No)"
+    },
+    {
+      "page": 22,
+      "text": "rPLA 190-215 40-50 40-200 Up to 100% 1.24 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "10 5 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "rPETG 230-255 60-80 40-150 75-100% 1.23 not necessary No No 8 5 8",
+      "reason": "properties.csv carries no property for \"rPETG\" (No)"
+    },
+    {
+      "page": 22,
+      "text": "Smart ABS 230-260 100 40-200 0-25% 1.05 No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "7 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "ASA 275 210-260 60-80 40-350 0-20% 1.07 No No 9 6 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "FlameGuard ASA 275 220-260 40-70 40-300 0-20% 1.08 No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "larger prints 5 6 7",
+      "reason": "properties.csv carries no property for \"larger prints\""
+    },
+    {
+      "page": 22,
+      "text": "ASA-X CF10 235-260 90-110 30-150 0-20% 1.10 not necessary No Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "6 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "ASA-X GF10 240-270 80-100 30-150 0-20% 1.11 not necessary No Yes 6 5 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "HIPS-X 230-245 80-100 40-200 0-20% 1.05 No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "larger prints 6 3 4",
+      "reason": "properties.csv carries no property for \"larger prints\""
+    },
+    {
+      "page": 22,
+      "text": "230-255** 60-80 40-800 75-100% 1.29 not necessary No No 7 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PET-G Premium 230-255 60-80 40-350 75-100% 1.27 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "8 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PET-G Glitter 230-255 60-80 40-200 75-100% 1.27 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "8 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PET-G Carbon 230-255 60-80 30-120 75-100% 1.32 not necessary No Yes 7 5 8",
+      "reason": "properties.csv carries no property for \"PET-G Carbon\" (Yes)"
+    },
+    {
+      "page": 22,
+      "text": "230-255 60-80 40-200 75-100% 1.27 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "8 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PET-G MATT 230-255 60-80 30-70 75-100% 1.35 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "8 6 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PET-G FR V0 230-255 60-80 30-70 75-100% 1.26 not necessary No No 6 5 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PET-G/PTFE 230-255 60-80 30-150 75-100% 1.32 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "6 5 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PCTG Premium 240-270 60-80 40-350 75-100% 1.27 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "8 7 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PCTG CF10 250-270 >50 30-150 50-85% 1.28 not necessary No Yes 7 6 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PCTG GF10 250-270 >50 30-150 50-85% 1.31 not necessary No Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "7 5 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "S-Flex 85A 200-230 50-70 15-50 Up to 100% 1.11 not necessary No No 5 4 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "S-Flex 90A 200-230 50-70 15-70 Up to 100% 1.22 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "6 3 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "S-Flex 98A 200-230 50-70 20-100 Up to 100% 1.09 not necessary No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "7 5 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "S-Flex Carbon 210-245 45-70 45-70 Up to 100% 1.23 not necessary Yes Yes 6 5 5",
+      "reason": "properties.csv carries no property for \"S-Flex Carbon\" (Yes)"
+    },
+    {
+      "page": 22,
+      "text": "PA6 Low Warp 250-280 85-100 30-150 0-30% 1.15 recommended Yes No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "4 4 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PA6 Low Warp CF15S 250-280 <80 30-150 0-30% 1.28 Yes Yes 5 7 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PA6 Low Warp GF30 250-280 <80 30-150 0-30% 1.34 Yes Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "5 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "PA12 CF15 255-290 >80 30-150 0-10% 1.07",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "Yes Yes 4 9 9",
+      "reason": "properties.csv carries no property for \"Yes Yes\" (Yes)"
+    },
+    {
+      "page": 22,
+      "text": "* 225-250°C for high speed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "** 245-270°C for high speed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 22,
+      "text": "22",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 60°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "4 6 3 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "3 6 5 2 HDT - 55°C shiny not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 85°C** shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "6 5 6 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 50°C glossy, silky not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 4 1 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 50°C glossy, silky not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 4 1 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 50°C glossy, silky not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 4 1 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 59°C semi-matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 3 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C matte, rough not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 5 3 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT (crystalline) - 90°C semi-matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "7 5 4 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 85°C** shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "6 5 4 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 3 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 60°C shiny, semi-transparent not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 3 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C matte, rough not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 5 3 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C semi-matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 4 6 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 5 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 116°C**, VICAT - 85°C** matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "2 4 3 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C semi-matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 5 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "VICAT - 60°C matte, carbon appearance not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 1 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "3 6 5 2 HDT - 55°C satin, stone appearance not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 5 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 60°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 3 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "1 5 5 2 HDT - 55°C not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 87°C, VICAT - 98°C matte, rough not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "1 6 4 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "3 6 3 5 VICAT - 160°C semi-matte not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT - 55°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "2 5 5 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "5 5 4 3 HDT B - 70°C shiny not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT A - 85°C, VICAT - 93°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "7 5 7 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "7 5 9 4 HDT A - 86°C, VICAT - 94°C shiny / semi-matte not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT A - 86°C, VICAT - 94°C shiny / semi-matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "7 5 10 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT A - 95°C, VICAT - 101.6°C matte, carbon appearance not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 7 5 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "3 6 2 4 HDT - 100°C semi-matte not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT A - 73°C, VICAT - 96°C matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "4 1 2 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "5 5 9 3 HDT B - 78°C shiny not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 78°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "5 5 4 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 78°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "5 5 4 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "3 5 4 3 HDT B - 72°C, VICAT - 80°C matte, carbon appearance not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 78°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "5 5 4 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 80°C, VICAT - 85°C matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "6 5 4 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "2 5 9 3 HDT B - 63°C, VICAT - 70°C opaque not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "VICAT - 70°C semi-matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "2 5 9 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 76°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "6 6 4 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "2 6 4 3 HDT B - 78°C, VICAT - 89°C matte, carbon appearance not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 78°C, VICAT - 89°C semi-matte not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "2 6 6 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "3 5 10 4 HDT B - 72°C shiny not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 74°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "2 5 10 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 75°C shiny not necessary*",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 6 10 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "5 6 10 6 HDT A - 134°C matte, carbon appearance not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 60°C shiny not necessary (1)",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "3 5 2 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "2 10 3 9 HDT B - 180°C matte, carbon appearance not necessary (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "HDT B - 180°C semi-matte, rough not necessary (1)",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 23,
+      "text": "2 7 2 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "4 10 3 8 HDT B - 170°C matte, carbon appearance not necessary (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "(1) - Magigoo PA (2) - Magigoo PC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 23,
+      "text": "23",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "[°C] [°C] [mm/s] High speedCooling [g/cm3] printing Dry boxrecommendedRuby orhardened nozzlerecommendedof print Toughness Hardness",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PC 275 270-330 90-130 30-250 0-20% 1.20 Yes No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "larger prints 6 5 5",
+      "reason": "properties.csv carries no property for \"larger prints\""
+    },
+    {
+      "page": 24,
+      "text": "270-330 >80 30-120 0-20% 1.20 Yes Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PC CF 7 5 5",
+      "reason": "properties.csv carries no property for \"PC CF\" (CF)"
+    },
+    {
+      "page": 24,
+      "text": "AquaPrint 190-215 25-70 20-50 0-50% 0.60-0.90 not necessary Yes No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "250-280 >80 30-150 0-10% 1.30 Yes No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "ThermaTech PA 5 7 8",
+      "reason": "properties.csv carries no property for \"ThermaTech PA\" (PA)"
+    },
+    {
+      "page": 24,
+      "text": "PA6 Neat NT 250-280 60-90 30-150 0-10% 1.14 Yes No 5 7 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "250-280 60-90 30-150 0-10% 1.25 Yes No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PA6 Neat BK 5 7 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "260-290 70-100 30-120 0-10% 1.25 not necessary Yes Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PA6 CF15 4 9 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PA6 GK10 260-290 70-100 30-120 0-10% 1.01 Yes Yes 3 6 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PA6 CS20 FR V0 260-290 70-100 30-120 0-10% 1.49 not necessary Yes Yes 4 7 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PET-G HT100 250-280 100-110 30-150 0-30% 1.18 No No 6 7 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PET-G FX120 240-260 60-80 30-100 30-70% 1.13 recommended Yes No 4 5 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "245-270 50-70 30-200 0-30% 1.40 not necessary No Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PET CF15 7 7 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "240-270 100 30-350 0-25% 1.04 No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "ABS GP450 7 6 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "ABS Medical 240-270 100 30-200 0-25% 1.06 No No 7 7 8",
+      "reason": "properties.csv carries no property for \"ABS Medical\" (No)"
+    },
+    {
+      "page": 24,
+      "text": "250-270 100 30-150 0-25% 1.05 No Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "ABS Kevlar 6 6 9",
+      "reason": "properties.csv carries no property for \"ABS Kevlar\""
+    },
+    {
+      "page": 24,
+      "text": "240-270 80-100 30-150 0-25% 1.07 No Yes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "ASA Kevlar 6 6 9",
+      "reason": "properties.csv carries no property for \"ASA Kevlar\""
+    },
+    {
+      "page": 24,
+      "text": "PC/ABS FR V0 240-265 90-110 40-300 0-25% 1.17 No No 5 6 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "265-295 95-120 30-80 0-35% 0.89 recommended No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PP 2 4 5",
+      "reason": "properties.csv carries no property for \"PP\" (PP)"
+    },
+    {
+      "page": 24,
+      "text": "265-295 90-120 30-80 0-10% 1.32 recommended No No",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "PC/PTFE 2 7 8",
+      "reason": "properties.csv carries no property for \"PC/PTFE\" (PC/PTFE)"
+    },
+    {
+      "page": 24,
+      "text": "PPS AM230 300-330 90-120 30-150 0-10% 1.33 Yes No 3 7 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "(60-80°C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "LUVOCOM 3F",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "For LUVOCOM 3F materials name references see page 21.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "[°C] [°C] [mm/s] [g/cm3] recommended",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "316L 155-170 60-70 10-30 Off 7.36 Yes 0.4 - 0.8 mm 16.48% 16.27%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "Silicon Carbide 155-170 60-70 10-30 Off 2.161 Yes 0.4 - 0.8 mm 16.40% 21.20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "Silicon Nitride 155-170 60-70 10-30 Off 2.200 Yes 0.4 - 0.8 mm 18.36% 20.36%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "155-170 60-70 10-30 Off 2.533 Yes 0.4 - 0.8 mm 19.00% 21.50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "Zirconia 155-170 60-70 10-30 Off 3.441 Yes 0.4 - 0.8 mm 20.30% 20.30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 24,
+      "text": "24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "HDT B - 139°C; VICAT - 150°C shiny not necessary (2)",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "6 6 10 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "HDT B - 139°C; VICAT - 150°C matte, carbon appearance not necessary (2)",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "6 6 10 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "semi-matte recommended (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "7 7 4 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "7 7 4 5 semi-matte recommended (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "HDT A - 90°C, continous service temp. (20.000h) - 120°C,",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "service temp. (200h) - 160°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "semi-matte recommended (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "6 7 4 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "HDT A - 200°C, continous service temp. (20.000h) - 150°C,",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "matte, carbon appearance recommended (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "5 10 4 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "service temp. (200h) - 180°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "4 8 4 5 opaque recommended (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "HDT A - 90°C, continous service temp. (20.000h) - 120°C,",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "service temp. (200h) - 160°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "5 6 2 5 matte, rough recommended (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "9 5 5 5 HDT B - 94°C shiny not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "VICAT - 170°C shiny",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "3 4 10 9 recommended (2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "Service temp. (200h) - 125°C matte, carbon appearance not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "5 7 4 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "7 5 7 4 VICAT - 95°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "7 5 8 4 shiny not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "VICAT - 97°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "4 5 5 4 HDT B - 88°C, VICAT - 95°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "4 5 5 4 HDT B - 89°C, VICAT - 94°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "6 6 4 5 shiny not necessary*",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "VICAT - 104°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 25,
+      "text": "semi-matte necessary (3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "6 3 10 6 HDT B - 80°C, VICAT - 135°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "semi-matte necessary (4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "5 6 6 7 HDT B - 140°C, VICAT - 145°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "4 6 3 10 HDT B - 129°C, VICAT - 236°C shiny necessary (5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "Adhesives: * For increased adhesion or to prevent warping: glue stick, Dimafix, 3DLac, Magigoo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "(1) - Magigoo PA; (2) - glue stick / Dimafix / 3DLac / Magigoo; (3) - MagigooPP; (4) - MagigooPC; (5) - Magigoo Pro HT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "1.20 1.19 > 1.000°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "1.196 1.269 2.100 – 2.200°C in argon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "1.225 1.256 1.680- 1.750°C in nitrogen at elevated pressue",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "1.235 1.274 1.475 – 1.640°C in air",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "1.255 1.255 1.450 – 1.500°C in air",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 25,
+      "text": "25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 26,
+      "text": "THE FILAMENT is our new brand of filaments designed for 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 26,
+      "text": "includes 5 basic materials:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 26,
+      "text": "frills” series is intended for both beginner 3D printing enthusiasts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 26,
+      "text": "• PLA HS – high speed PLA, printable up to 600 mm/s,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 26,
+      "text": "highly compatible with a wide range of 3D printers, making them",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 26,
+      "text": "26",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 27,
+      "text": "27",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 28,
+      "text": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 28,
+      "text": "Featuring 0.5% graphene, offers improved 0.5% graphene, combines ease of printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 28,
+      "text": "5% graphene-reinforced PET-G filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 28,
+      "text": "5% graphene, designed for ultra high-speed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 28,
+      "text": "printing (up to 1000 mm/s) and excels in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 28,
+      "text": "28",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 29,
+      "text": "polymer matrix improves results in 25% higher tensile increases the melt flow rate standard nozzles without",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 29,
+      "text": "of the printout by reducing a 20% increase in stiffness that graphene-filled filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 29,
+      "text": "up to 1000 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 29,
+      "text": "exceeding 1000 mm/s, which is unattainable for other materials currently",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 29,
+      "text": "29",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 30,
+      "text": "development for high-quality prototype and industrial 3D printing filaments.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 30,
+      "text": "30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA • PLA Carbon • PCTG • PA6 Neat NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• • PLA Stone • PCTG Carbon • PA6 Neat BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA Premium • PLA Nature • PCTG Glass Fiber • PA6 GK10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA Pro • WOOD • PA6 Low Warp • PA6 CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA Magic SILK • rPLA • PA6 Low Warp Carbon • PET-G HT100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA SILK Rainbow • rPETG • PA6 Low Warp Glass • PET-G FX120",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA SILK • ASA • PA12 CF15 • PET CF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• Pastello PLA • ASA Carbon • S-Flex 85A • ABS GP450",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA Metal • ASA Glass Fiber • S-Flex 90A • ABS Medical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• FlameGuard PLA • ASA Kevlar • S-Flex 98A • PP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• SafeGuard PLA • ABS • TPC 30D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA Crystal • ABS Kevlar • TPC 40D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• PLA Light Weight • PET-G • PC 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 0.25 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 0.25 kg • 0.25 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 0.50 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 0.50 kg • 0.50 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 0.75 kg • 0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 1 kg • 1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 2 kg • 2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 2.3 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 2.3 kg • 2.3 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 2.5 kg • 2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 4.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 3.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 4.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 12.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• 20 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• Shrink film • 1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "• Vacuum bag • 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 31,
+      "text": "31",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 32,
+      "text": "Parkowa 85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 32,
+      "text": "05-806 Pecice",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 32,
+      "text": "+48 608 109 008",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+    "note": "Only independently signed narrative and profile operations accepted; all automatic measurements rejected, conditions left missing, no new product."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "ENGLISH",
+        "Shared formulation key": "R-3DJAKE-spectrum-portfolio-2025-en",
+        "Composition / filler": "10% Carbon fiber reinforced, improved hardness & rigidity (p. 20, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "PET-G FR V0 PET-G Glow in the Dark (p. 17, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-spectrum-portfolio-2025-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ENGLISH"
+      }
+    }
+  ],
+  "newMaterial": null
+}

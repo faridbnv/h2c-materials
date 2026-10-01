@@ -104,7 +104,7 @@ test('A01: a conditioned question ranks only products that publish a conditioned
   }
 });
 
-test('T09: the H2C beam keeps its eight passing materials, and draws exactly the passing products whose judged state publishes both values', () => {
+test('T09: the H2C beam matches its reviewed acceptance set and draws exactly the passing products whose judged state publishes both values', () => {
   const c = byId('T09');
   const { ctx, rows, selection } = ask(c);
   assert.equal(selection.counts.pass, c.expect.passMaterials, c.expect.because);

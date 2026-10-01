@@ -1022,3 +1022,18 @@ CreatBot UltraPA's own table and FAQ disagree on nozzle/bed and drying windows; 
 npm run sql --silent -- "select measurementid, gradeid, property, specimen_type, test_temperature, standard_load from measurements where measurementid in ('V010184','V011541','V011542','V011543')"
 npm run sql --silent -- "select evidenceid, gradeid, finding, exposure_conditions from evidence where evidenceid in ('Q05428','Q05429','Q05430','Q05432')"
 ```
+
+## 26. colorFabb, LEHVOSS and Prografen source limits in the tenth coverage tranche
+
+The registered colorFabb Print Support original is reused for four pre-print drying schedules. Its duplicate tables disagree on speed/volumetric flow and contain malformed PA-CF bed and nGen Flex speed cells; mechanical form, direction, conditioning, standards and the combined HDT/Vicat load are missing. Q05452–Q05455 retain ordered headers/units and these limitations. No unconditioned measurement or guessed print window is admitted. Two own support routes returned403 once; search excerpts remain leads. Old nGenFLEX Amphora and newer Neostar resin descriptions have no established formulation continuity. Q05484's121C steam claim and Q05485'sFDA footer are not obtained certificates, a validated sterilization cycle or printed-part contact tests.
+
+LUVOCOM PAHT9825's exact2019 FFF guide provides250–280C nozzle, bed<80C, non-heated chamber compatibility, standard brass and conditional wet-filament hot-dry-air80C for at least12h. Its raw bounds and conditions stay visible in the Printing tab. The existing270–290C nozzle source remains separately recorded and selected by the existing rule; no source recency/intersection decides the disagreement. The guide's100C/50%-retention introduction and older120C/UL746B context cannot be reconciled as an identical tested service limit. Compound pellet drying remains a different operation.
+
+Spectrum PA6CS20FRV0's own product-page nozzle/speed/cooling/enclosure guidance differs from its TDS; Q05471 preserves the new source but its replacement profile stays held. Existing P0184 stores raw bed>80C beside typed80/80, a specific unresolved endpoint defect, not authority to narrow the maker's range. KK50056BKFR railway producer context is scoped to its resin grade; the separately printed V-0@0.4mm statement is not a complete printed-product railway certificate.9936BK/L is distinct from9936BK, so adjacent food/magnetic claims do not transfer.
+
+Prografen's exact Strong/Light pages add recipes and bounded uses. Their semi-transparent application bullet conflicts with the portfolio's shared Deep black color (and Light's own black TDS); Q05460/Q05483 keep that conflict. The portfolio explicitly states February2024 Spectrum acquisition and names Strong5%/Light0.5%EFG, but the existing grade manufacturer3DJake is held for a separate guarded identity correction; no value or historical price moves in this tranche. New ownership does not settle the older AGP2023XY specimen/revision-custody question. Shared UV and generic chemical statements remain narrative without test conditions or a selection pass.
+
+```sh
+npm run sql --silent -- "select profileid, gradeid, nozzle_c, bed_c, drying from profiles where profileid in ('P0184','P1321','P1322','P1323')"
+npm run sql --silent -- "select evidenceid, gradeid, topic, finding, exposure_conditions from evidence where evidenceid in ('Q05452','Q05460','Q05471','Q05483','Q05484','Q05485')"
+```

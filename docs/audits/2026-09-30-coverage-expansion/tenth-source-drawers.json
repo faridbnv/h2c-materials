@@ -1,0 +1,301 @@
+{
+  "basis": "Independent-original-reviewed literal source expectations; actual drawer/grid HTML, no interactive-layout/human-review claim",
+  "release": "990e56ba9394",
+  "cases": 59,
+  "results": [
+    {
+      "case": "No new measurements, measurement-model, product ownership/state/headline or price change",
+      "sourceOriginalsVerified": 8
+    },
+    {
+      "case": "Registered named-row pre-print drying only; no other recipe or treatment inference",
+      "gid": "G142-01",
+      "temp": 65,
+      "hours": 6
+    },
+    {
+      "case": "Registered named-row pre-print drying only; no other recipe or treatment inference",
+      "gid": "G143-01",
+      "temp": 65,
+      "hours": 6
+    },
+    {
+      "case": "Registered named-row pre-print drying only; no other recipe or treatment inference",
+      "gid": "G145-01",
+      "temp": 50,
+      "hours": 4
+    },
+    {
+      "case": "Registered named-row pre-print drying only; no other recipe or treatment inference",
+      "gid": "G165-01",
+      "temp": 125,
+      "hours": 6
+    },
+    {
+      "case": "Exact own graphene recipe without neighbour claims or invented drying schedule",
+      "gid": "G153-01"
+    },
+    {
+      "case": "Exact own graphene recipe without neighbour claims or invented drying schedule",
+      "gid": "G153-02"
+    },
+    {
+      "case": "9825 FFF guide fills silent bed/chamber/brass/drying fields while old270–290 nozzle remains; strict<80/conditional≥12h retained in raw original notes"
+    },
+    {
+      "case": "Material summary preserves missing lower bed bound instead of inventing80–80"
+    },
+    {
+      "case": "New environment clauses remain qualified narrative and Strong chemical claim stays single"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M137",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M137",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M137",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M137",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M138",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M138",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M138",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M138",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M139",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M139",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M139",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M139",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M140",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M140",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M140",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M140",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M142",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M142",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M142",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M142",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M143",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M143",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M143",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M143",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M145",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M145",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M145",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M145",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M147",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M147",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M147",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M147",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M148",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M148",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M148",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M148",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M153",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M153",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M153",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M153",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M165",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M165",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M165",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M165",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M104",
+      "tab": "Grades"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M104",
+      "tab": "Environment"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M104",
+      "tab": "Printing"
+    },
+    {
+      "case": "Actual source-qualified material drawer HTML",
+      "mid": "M104",
+      "tab": "Coverage"
+    },
+    {
+      "case": "Complete actual136-material coverage grid, marks/tooltips and source-bound judgments",
+      "counts": {
+        "Evidence recorded": 45,
+        "Gap": 27,
+        "Reviewed with limitations": 55,
+        "Unassessed": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "migration": "m269-application-five-maker-cached",
+  "packet": "ee32dc917ccb96cfd59eaeecd4850157ffde74d1637ad655c3e90d181c86d9d2",
+  "written": 11,
+  "records": [
+    {
+      "finding": "CE-APP-M137",
+      "coverageId": "C01550"
+    },
+    {
+      "finding": "CE-APP-M138",
+      "coverageId": "C01551"
+    },
+    {
+      "finding": "CE-APP-M139",
+      "coverageId": "C01552"
+    },
+    {
+      "finding": "CE-APP-M140",
+      "coverageId": "C01553"
+    },
+    {
+      "finding": "CE-APP-M142",
+      "coverageId": "C01554"
+    },
+    {
+      "finding": "CE-APP-M143",
+      "coverageId": "C01555"
+    },
+    {
+      "finding": "CE-APP-M145",
+      "coverageId": "C01556"
+    },
+    {
+      "finding": "CE-APP-M147",
+      "coverageId": "C01557"
+    },
+    {
+      "finding": "CE-APP-M148",
+      "coverageId": "C01558"
+    },
+    {
+      "finding": "CE-APP-M153",
+      "coverageId": "C01559"
+    },
+    {
+      "finding": "CE-APP-M165",
+      "coverageId": "C01560"
+    }
+  ]
+}

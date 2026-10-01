@@ -1,0 +1,1397 @@
+{
+  "PacketID": "TENTH-C05-OFFICIAL-PRODUCT-GUIDANCE",
+  "Batch": "c05",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G143-01",
+      "MaterialID": "M143",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "colorFabb",
+      "Product name": "nGen_FLEX",
+      "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G104-01",
+      "MaterialID": "M104",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Spectrum",
+      "Product name": "PA6 CS20 FR V0",
+      "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "PA6 CS20 FR V0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G153-01",
+      "MaterialID": "M153",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DJake",
+      "Product name": "PROGRAFEN PET-G GRAPHENE STRONG",
+      "Shared formulation key": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "Composition / filler": "addition of graphene results in a 25% increase in the tensile strength of the material and a 20% increase in stiffness compared to (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G153-02",
+      "MaterialID": "M153",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DJake",
+      "Product name": "PET-G PROGRAFEN GRAPHENE LIGHT",
+      "Shared formulation key": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G148-02",
+      "MaterialID": "M148",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "LEHVOSS",
+      "Product name": "LUVOCOM 3F PAHT KK 50056 BK",
+      "Shared formulation key": "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability behaviour UL 94 1/16'' (V-0) (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G147-01",
+      "MaterialID": "M147",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "LEHVOSS",
+      "Product name": "LUVOCOM 3F PAHT 9825 NT",
+      "Shared formulation key": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flamability Behaviour UL 94 1/16“ - (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "Documents": [
+    {
+      "File": "fabd692704e9f7b5.json",
+      "Extension": "html",
+      "ProposalSHA256": "a0594b3c6a331ad831d9fce3cbee008fdccff900a22bdd200db8251eedd38d79",
+      "OriginalSHA256": "fabd692704e9f7b588e34c850f5cf49891d5848d206f8ba6c2a49b73923bc3ae",
+      "OriginalPath": ".cache/sources/by-sha/fabd692704e9f7b588e34c850f5cf49891d5848d206f8ba6c2a49b73923bc3ae.html",
+      "Source": {
+        "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+        "Publisher": "colorFabb",
+        "Title": "colorFabb nGen_FLEX Clear official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. ",
+        "Citation role": "cited",
+        "URL": "https://colorfabb.com/ngen-flex-clear",
+        "Locator": "Document / exact product section",
+        "Applicable grades": "G143-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+        "SHA256": "fabd692704e9f7b588e34c850f5cf49891d5848d206f8ba6c2a49b73923bc3ae"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c05-fabd6927-1",
+          "gradeKey": "G143-01",
+          "row": {
+            "MaterialID": "M143",
+            "GradeID": "G143-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "This means that printed objects can be steam sterlilized at 121C.",
+            "Exposure / conditions": "Own Clear product details, literal source spelling retained. No steam-cycle pressure/time, efficacy, geometry, ageing, medical approval or validated sterilization process. Do not generalize to another grade/formulation or add a treatment state.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+            "Locator": "p. 1: Details, semi-flexible filament/steam statement; frozen clause 1; explicitly scoped product G143-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "This means that printed objects can be steam sterlilized at 121C.",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-fabd6927-2",
+          "gradeKey": "G143-01",
+          "row": {
+            "MaterialID": "M143",
+            "GradeID": "G143-01",
+            "Domain": "Durability",
+            "Topic": "Food contact",
+            "Finding": "FDA food contact compliant",
+            "Exposure / conditions": "Own product-page footer claim, not an obtained certificate or printed-part migration/safety test. Contact agent, temperature/time, geometry, additives/lot and regulatory document not supplied here. No food-contact selection pass; download folder remains a lead.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-fabd692704e9",
+            "Locator": "p. 1: Own product summary footer, FDA food contact claim; frozen clause 2; explicitly scoped product G143-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "FDA food contact compliant",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalReadingScope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "3c9c76d4bb7c514c.json",
+      "Extension": "html",
+      "ProposalSHA256": "f25c5bc8a4b349a6533b988a022db43417246cdd3a91b33a8794e7a6a97727bf",
+      "OriginalSHA256": "3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0",
+      "OriginalPath": ".cache/sources/by-sha/3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0.html",
+      "Source": {
+        "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+        "Publisher": "Spectrum Group Sp. z o.o.",
+        "Title": "Spectrum PA6 CS20 FR V0 official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. ",
+        "Citation role": "cited",
+        "URL": "https://spectrumfilaments.com/en/filament/pa6-cs20-fr-v0/",
+        "Locator": "Document / exact product section",
+        "Applicable grades": "G104-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+        "SHA256": "3c9c76d4bb7c514cddfe15f5d65256ea4d0551716cf91d6f1f26c29bc421a1f0"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c05-3c9c76d4-1",
+          "gradeKey": "G104-01",
+          "row": {
+            "MaterialID": "M104",
+            "GradeID": "G104-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "all applications where fire resistance is important",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+            "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 1; explicitly scoped product G104-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "all applications where fire resistance is important",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-3c9c76d4-2",
+          "gradeKey": "G104-01",
+          "row": {
+            "MaterialID": "M104",
+            "GradeID": "G104-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "manufacturing of components with good electrical insulation properties",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+            "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 2; explicitly scoped product G104-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "manufacturing of components with good electrical insulation properties",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-3c9c76d4-3",
+          "gradeKey": "G104-01",
+          "row": {
+            "MaterialID": "M104",
+            "GradeID": "G104-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "manufacturing of parts to be operated in high temperature conditions",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+            "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 3; explicitly scoped product G104-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "manufacturing of parts to be operated in high temperature conditions",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-3c9c76d4-4",
+          "gradeKey": "G104-01",
+          "row": {
+            "MaterialID": "M104",
+            "GradeID": "G104-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "manufacturing of elements exposed to high temperature changes",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer. Raw-resin EN45545 conformity and maker UL94 printed-thickness statement do not constitute an independently retrieved printed-product certificate.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+            "Locator": "p. 1: Applications, own PA6 CS20 FR V0 section; frozen clause 4; explicitly scoped product G104-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "manufacturing of elements exposed to high temperature changes",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-3c9c76d4-5",
+          "gradeKey": "G104-01",
+          "row": {
+            "MaterialID": "M104",
+            "GradeID": "G104-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "260-290°C",
+            "Exposure / conditions": "Own How to use nozzle260–290°C; bed80–100°C, speed30–120mm/s, cooling0–50%, enclosure recommended for larger prints, drybox/ruby or hardenedYes, MagigooPA. Existing TDS265–290°C, bed>80°C, speed30–70, cooling0–10%, closed chamber not necessary differ; no merged window or chronology priority. New page profile held until source/context conflict reviewed; existing source recipe not overwritten.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+            "Locator": "p. 1: How to use, nozzle/bed/speed/cooling/enclosure rows; frozen clause 5; explicitly scoped product G104-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "260-290°C",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-3c9c76d4-6",
+          "gradeKey": "G104-01",
+          "row": {
+            "MaterialID": "M104",
+            "GradeID": "G104-01",
+            "Domain": "Durability",
+            "Topic": "Flammability",
+            "Finding": "The raw material from which Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) filament is made complies with the EN 45545 standard in the railway industry.",
+            "Exposure / conditions": "Explicit raw-material scope; no printed-product fire/rail certificate, certificate number, standard edition, hazard level, part geometry or independent conformity assessment retrieved from this page. No fire/rail selection pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-3c9c76d4bb7c",
+            "Locator": "p. 1: Own description, raw material EN45545 sentence; frozen clause 6; explicitly scoped product G104-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "The raw material from which Spectrum PA6 CS20 FR V0 (made with LUVOCOM 3F PAHT® KK 50056 BK FR) filament is made complies with the EN 45545 standard in the railway industry.",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalReadingScope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "AutomaticRowsRejected": {
+        "measurements": 3,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "bc88189b518f547a.json",
+      "Extension": "html",
+      "ProposalSHA256": "9ff2cbf3fdaa365bcf576ddbd437a60a00c9617ab5508ea5c23ea09eca1418b3",
+      "OriginalSHA256": "bc88189b518f547a000bc4c0f61b26059ff9cffa9c9c467d4a50c6c0635aea61",
+      "OriginalPath": ".cache/sources/by-sha/bc88189b518f547a000bc4c0f61b26059ff9cffa9c9c467d4a50c6c0635aea61.html",
+      "Source": {
+        "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+        "Publisher": "Spectrum Group Sp. z o.o.",
+        "Title": "Prografen PET-G Graphene Strong official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. ",
+        "Citation role": "cited",
+        "URL": "https://spectrumfilaments.com/en/filament/prografen-petg-graphene-strong/",
+        "Locator": "Document / exact product section",
+        "Applicable grades": "G153-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+        "SHA256": "bc88189b518f547a000bc4c0f61b26059ff9cffa9c9c467d4a50c6c0635aea61"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c05-bc88189b-1",
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "visual and functional prototyping",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+            "Locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 1; explicitly scoped product G153-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "visual and functional prototyping",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-bc88189b-2",
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "fit testing",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+            "Locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 2; explicitly scoped product G153-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "fit testing",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-bc88189b-3",
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "concept models",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+            "Locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 3; explicitly scoped product G153-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "concept models",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-bc88189b-4",
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "manufacturing aids",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+            "Locator": "p. 1: Applications, exact Prografen Strong section; frozen clause 4; explicitly scoped product G153-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "manufacturing aids",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-bc88189b-5",
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Domain": "Limitations",
+            "Topic": "Grade distinction",
+            "Finding": "manufacturing of semi-transparent enclosures and backlit sections of various boards and signs",
+            "Exposure / conditions": "Own Applications section contrasts with the portfolio brand feature Deep black color; no light-transmission test or colour/edition continuity settles this apparent template/colour conflict. Retain as conflicting narrative, not a translucency/application approval. Nearby Mars-rover case study explicitly concerns PETG Premium and is not this product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+            "Locator": "p. 1: Applications, semi-transparent/backlit bullet; portfolio colour; Light TDS colour only; frozen clause 5; explicitly scoped product G153-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "manufacturing of semi-transparent enclosures and backlit sections of various boards and signs",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "215-265°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "215",
+            "Nozzle max °C": "265",
+            "Nozzle requirement": "required",
+            "Bed °C": "60-80°C",
+            "Bed state": "range",
+            "Bed min °C": "60",
+            "Bed max °C": "80",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "not necessary",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Ruby or hardened nozzle recommended No",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Ruby or hardened nozzle recommended No",
+            "Hardened nozzle": "FALSE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-COVERAGE-20261001-bc88189b518f",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: How to use: nozzle215–265°C; bed60–80°C; enclosure not necessary; ruby/hardened nozzle recommended No; own description standard brass nozzles",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "editorial": [],
+          "evidence": {
+            "page": 1,
+            "text": "nozzle: 215-265°C; bed: 60-80°C; enclosure: not necessary; nozzle-material: No",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "All raw/typed profile fields require independent original reread; preserve bounds and context. No source supersession."
+          },
+          "id": "c05-profile-G153-01"
+        }
+      ],
+      "OriginalReadingScope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "AutomaticRowsRejected": {
+        "measurements": 2,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "0b9610f078864612.json",
+      "Extension": "html",
+      "ProposalSHA256": "4af57aa3dde2eee5fdef904a4eae7b07acd2f20ef682cb72d8c52f5d795260bc",
+      "OriginalSHA256": "0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f",
+      "OriginalPath": ".cache/sources/by-sha/0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f.html",
+      "Source": {
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Publisher": "Spectrum Group Sp. z o.o.",
+        "Title": "Prografen PET-G Graphene Light official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. ",
+        "Citation role": "cited",
+        "URL": "https://spectrumfilaments.com/en/filament/prografen-petg-graphene-light/",
+        "Locator": "Document / exact product section",
+        "Applicable grades": "G153-02",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+        "SHA256": "0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c05-0b9610f0-1",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "visual and functional prototyping",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+            "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 1; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "visual and functional prototyping",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-0b9610f0-2",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "fit testing",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+            "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 2; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "fit testing",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-0b9610f0-3",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "concept models",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+            "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 3; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "concept models",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-0b9610f0-4",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "manufacturing aids",
+            "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+            "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 4; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "manufacturing aids",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-0b9610f0-5",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Limitations",
+            "Topic": "Grade distinction",
+            "Finding": "manufacturing of semi-transparent enclosures and backlit sections of various boards and signs",
+            "Exposure / conditions": "Own Applications section contrasts with the portfolio brand feature Deep black color and this Light TDS colour black; no light-transmission test or colour/edition continuity settles this apparent template/colour conflict. Retain as conflicting narrative, not a translucency/application approval. Nearby Mars-rover case study explicitly concerns PETG Premium and is not this product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+            "Locator": "p. 1: Applications, semi-transparent/backlit bullet; portfolio colour; Light TDS colour only; frozen clause 5; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "manufacturing of semi-transparent enclosures and backlit sections of various boards and signs",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-0b9610f0-6",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Durability",
+            "Topic": "Chemical exposure",
+            "Finding": "chemical resistance",
+            "Exposure / conditions": "Unqualified exact-product maker statement; agent, concentration, temperature, duration, specimen and result not published in this clause. No solvent-, weather- or category-level pass; neighbouring PET-G HT100 FDA and PET-G MATT UV claims not transferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+            "Locator": "p. 1: Own Material characteristics section; frozen clause 6; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "chemical resistance",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "215-265°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "215",
+            "Nozzle max °C": "265",
+            "Nozzle requirement": "required",
+            "Bed °C": "60-80°C",
+            "Bed state": "range",
+            "Bed min °C": "60",
+            "Bed max °C": "80",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "not necessary",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Ruby or hardened nozzle recommended No",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Ruby or hardened nozzle recommended No",
+            "Hardened nozzle": "FALSE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: How to use: nozzle215–265°C; bed60–80°C; enclosure not necessary; ruby/hardened nozzle recommended No; own description standard brass nozzles",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "editorial": [],
+          "evidence": {
+            "page": 1,
+            "text": "nozzle: 215-265°C; bed: 60-80°C; enclosure: not necessary; nozzle-material: No",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "All raw/typed profile fields require independent original reread; preserve bounds and context. No source supersession."
+          },
+          "id": "c05-profile-G153-02"
+        }
+      ],
+      "OriginalReadingScope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "28aad1fe75976553.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "be940ef2357713d3e8a4f9a0a9582b9b8515e5efca80418d6c57ad66c8b4bf5f",
+      "OriginalSHA256": "28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7",
+      "OriginalPath": ".cache/sources/by-sha/28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7.pdf",
+      "Source": {
+        "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+        "Publisher": "Spectrum Group Sp. z o.o.",
+        "Title": "Spectrum Filaments Product Portfolio 2025 — Prografen pp28–29",
+        "Revision": "Product Portfolio 2025",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. Targeted original reading only: cover/about and Prografen pp28–29; unrelated catalogue products not researched. ",
+        "Citation role": "cited",
+        "URL": "https://spectrumfilaments.com/wp-content/uploads/2024/11/spectrum-portfolio-2025-en.pdf",
+        "Locator": "Physical PDF pp1–2,28–29 only",
+        "Applicable grades": "G153-01; G153-02",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+        "SHA256": "28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c05-28aad1fe-1",
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Domain": "Limitations",
+            "Topic": "Grade distinction",
+            "Finding": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+            "Exposure / conditions": "Own portfolio printed28/physicalPDF28. Named PET-G Graphene Light0.5% and Strong5% product list, own product pages and TDS publisher establish brand ownership; no assumption of identical formulations, specimen states or continuity across editions. Stable IDs and historical sources/prices retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+            "Locator": "p. 28: Prografen ownership paragraph and exact PET-G Light/Strong product list; frozen clause 1; explicitly scoped product G153-01"
+          },
+          "evidence": {
+            "page": 28,
+            "text": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-28aad1fe-2",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Limitations",
+            "Topic": "Grade distinction",
+            "Finding": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+            "Exposure / conditions": "Own portfolio printed28/physicalPDF28. Named PET-G Graphene Light0.5% and Strong5% product list, own product pages and TDS publisher establish brand ownership; no assumption of identical formulations, specimen states or continuity across editions. Stable IDs and historical sources/prices retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+            "Locator": "p. 28: Prografen ownership paragraph and exact PET-G Light/Strong product list; frozen clause 2; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 28,
+            "text": "Acquired by Spectrum in February 2024, Prografen is a brand of 3D printing filaments enhanced with graphene, designed primarily for high-speed printing while delivering superior strength and flexibility.",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-28aad1fe-3",
+          "gradeKey": "G153-01",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-01",
+            "Domain": "Durability",
+            "Topic": "UV resistance",
+            "Finding": "Resistance to UV radiation",
+            "Exposure / conditions": "Printed29/physicalPDF29, shared Prografen feature includes these named PET-G products and PLA products; maker brand-level claim attached only to explicit listed identities. No test standard, weathering dose/time, temperature, specimen, retention result, pigment/lot or service qualification supplied. Narrative only; no UV pass or polymer-level extrapolation.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+            "Locator": "p. 29: Key features of Prografen filaments, Resistance to UV radiation; frozen clause 3; explicitly scoped product G153-01"
+          },
+          "evidence": {
+            "page": 29,
+            "text": "Resistance to UV radiation",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-28aad1fe-4",
+          "gradeKey": "G153-02",
+          "row": {
+            "MaterialID": "M153",
+            "GradeID": "G153-02",
+            "Domain": "Durability",
+            "Topic": "UV resistance",
+            "Finding": "Resistance to UV radiation",
+            "Exposure / conditions": "Printed29/physicalPDF29, shared Prografen feature includes these named PET-G products and PLA products; maker brand-level claim attached only to explicit listed identities. No test standard, weathering dose/time, temperature, specimen, retention result, pigment/lot or service qualification supplied. Narrative only; no UV pass or polymer-level extrapolation.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-28aad1fe7597",
+            "Locator": "p. 29: Key features of Prografen filaments, Resistance to UV radiation; frozen clause 4; explicitly scoped product G153-02"
+          },
+          "evidence": {
+            "page": 29,
+            "text": "Resistance to UV radiation",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalReadingScope": [
+        1,
+        2,
+        28,
+        29
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "14396b9c74a0cbdf.json",
+      "Extension": "html",
+      "ProposalSHA256": "135411cf34209726649098f382c02c81223f9ffa29d99de34c744cea8afef06f",
+      "OriginalSHA256": "14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae",
+      "OriginalPath": ".cache/sources/by-sha/14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae.html",
+      "Source": {
+        "SourceID": "R-COVERAGE-20261001-14396b9c74a0",
+        "Publisher": "LEHVOSS",
+        "Title": "LEHVOSS LUVOCOM 3F official materials page — exact KK50056FR row",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. ",
+        "Citation role": "cited",
+        "URL": "https://www.lehvoss.de/Compounds/produkte/3d-druck-materialien/luvocom-3f",
+        "Locator": "Document / exact product section",
+        "Applicable grades": "G148-02",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+        "SHA256": "14396b9c74a0cbdfa0a712fea24a97899574c4b58189e060a11debb3801ae9ae"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c05-14396b9c-1",
+          "gradeKey": "G148-02",
+          "row": {
+            "MaterialID": "M148",
+            "GradeID": "G148-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "LUVOCOM 3F PAHT KK 50056 BK FR",
+            "Exposure / conditions": "Own Bus- und Bahnbau table under Flammbeständig und konform zu EN45545-2: exact KK50056BKFR resin row, Hochtemperatur-Polyamid, Keramikkugel gefüllt, EN45545konform, UL94V0flammbeständig, Schwarz. Resin/supply-form context, not printed-product certificate or rail suitability. The page names9936L/BK orBK/L separately; its food/magnetic claims are not assigned to existing9936BK.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-14396b9c74a0",
+            "Locator": "p. 1: Bus- und Bahnbau, exact KK50056BKFR row and surrounding supply-form context; frozen clause 1; explicitly scoped product G148-02"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "LUVOCOM 3F PAHT KK 50056 BK FR",
+            "ocr": false
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": false,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalReadingScope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "941cb5b0f2b9208e.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "1908f45f68f9ff266ab76758ff901d2a9b24ca54029e9cfb479a6058fa4c10ab",
+      "OriginalSHA256": "941cb5b0f2b9208e4db0a9c6c578e0283db7a3a86767f3f44f7de92c28790ffe",
+      "OriginalPath": ".cache/sources/by-sha/941cb5b0f2b9208e4db0a9c6c578e0283db7a3a86767f3f44f7de92c28790ffe.pdf",
+      "Source": {
+        "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+        "Publisher": "LEHVOSS",
+        "Title": "LUVOCOM 3F PAHT 9825 NT Printing Guidelines (12/2019)",
+        "Revision": "12/2019",
+        "Publication date": "2019-12",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority. Original guide p1 font extraction loses letters; pipeline optical derivative and both original page images reread; originals unchanged. ",
+        "Citation role": "cited",
+        "URL": "https://www.lehvoss.de/fileadmin/user_upload/luvocom/Bilder/Produkte/Printing_Guidelines_LUVOCOM_3F_PAHT_9825_NT2.PDF",
+        "Locator": "Document / exact product section",
+        "Applicable grades": "G147-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+        "SHA256": "941cb5b0f2b9208e4db0a9c6c578e0283db7a3a86767f3f44f7de92c28790ffe"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c05-941cb5b0-1",
+          "gradeKey": "G147-01",
+          "row": {
+            "MaterialID": "M147",
+            "GradeID": "G147-01",
+            "Domain": "Durability",
+            "Topic": "Moisture",
+            "Finding": "Its water uptake takes about 4 times longer to reach the saturation point compared to unmodified PA6, also its saturation point is 5 times lower than conventional PA6 materials.",
+            "Exposure / conditions": "Literal own introduction comparison; no RH, temperature, duration, specimen dimensions, measured uptake or test standard printed. Moisture handling and service performance remain distinct. No hydrolysis or moisture selection pass; no multiplier applied to recorded absorption.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+            "Locator": "p. 1: p1 introductory water uptake comparison; frozen clause 1; explicitly scoped product G147-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Its water uptake takes about 4 times longer to reach the saturation point compared to unmodified PA6, also its saturation point is 5 times lower than conventional PA6 materials.",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": true,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-941cb5b0-2",
+          "gradeKey": "G147-01",
+          "row": {
+            "MaterialID": "M147",
+            "GradeID": "G147-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "LUVOCOM 3F PAHT® 9825 NT is fully compatible with water soluble supports such as PVA, PVOH, BVOH. Also it is fully compatible with breakaway supports such as HIPS.",
+            "Exposure / conditions": "Own Support Material Compatibility, printed guideline12/2019; maker compatibility guidance without H2C printer verification, tested geometry, interface settings, solvent-service evidence or support-removal qualification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+            "Locator": "p. 1: p1 Support Material Compatibility; frozen clause 2; explicitly scoped product G147-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "LUVOCOM 3F PAHT® 9825 NT is fully compatible with water soluble supports such as PVA, PVOH, BVOH. Also it is fully compatible with breakaway supports such as HIPS.",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": true,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-941cb5b0-3",
+          "gradeKey": "G147-01",
+          "row": {
+            "MaterialID": "M147",
+            "GradeID": "G147-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Before the production start feed it with dried material and extrude at least 50 mm of new filament through the nozzle to make sure any residue from previous prints are removed.",
+            "Exposure / conditions": "Own startup/shutdown advice: cleaning build plate with ethanol or IPA concerns substrate cleaning, not polymer solvent resistance. No chemical exposure result or numeric process qualification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+            "Locator": "p. 1: p1 Startup/Shut Down; frozen clause 3; explicitly scoped product G147-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Before the production start feed it with dried material and extrude at least 50 mm of new filament through the nozzle to make sure any residue from previous prints are removed.",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": true,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-941cb5b0-4",
+          "gradeKey": "G147-01",
+          "row": {
+            "MaterialID": "M147",
+            "GradeID": "G147-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Note: prior to removing the printed part from the bed, the bed temperature should be lowered to ambient to avoid deformation of the part.",
+            "Exposure / conditions": "Own removal condition, not a heat treatment/annealing schedule or measured dimensional tolerance. Named support/adhesion settings remain product guidance.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+            "Locator": "p. 1: p1 Generic Machinery Settings, removal note; frozen clause 4; explicitly scoped product G147-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Note: prior to removing the printed part from the bed, the bed temperature should be lowered to ambient to avoid deformation of the part.",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": true,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-941cb5b0-5",
+          "gradeKey": "G147-01",
+          "row": {
+            "MaterialID": "M147",
+            "GradeID": "G147-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Oozing/Stringing: Enable retraction, or increase the retraction length and/or speed. If that doesn’t improve make sure that the material is completely dried.",
+            "Exposure / conditions": "Own troubleshooting, conditional drying link; retraction/settings and dried state not quantified as an application test or service-moisture requirement.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+            "Locator": "p. 1: p1 Troubleshooting, Oozing/Stringing; frozen clause 5; explicitly scoped product G147-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Oozing/Stringing: Enable retraction, or increase the retraction length and/or speed. If that doesn’t improve make sure that the material is completely dried.",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": true,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        },
+        {
+          "id": "c05-941cb5b0-6",
+          "gradeKey": "G147-01",
+          "row": {
+            "MaterialID": "M147",
+            "GradeID": "G147-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "In case the filament has become wet, it should be dried. Using a hot dry air oven at 80°C for at least 12h is recommended.",
+            "Exposure / conditions": "Own conditional wet-filament drying, not granulate130°C6–8h/vacuum120°C4–6h from compound source, not annealing. Keep at least12h bound and oven type; no universal dryer equivalence.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+            "Locator": "p. 1: p1 Filament Handling, Drying; frozen clause 6; explicitly scoped product G147-01"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "In case the filament has become wet, it should be dried. Using a hot dry air oven at 80°C for at least 12h is recommended.",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": true,
+            "note": "Source own clause read directly; independent frozen operation review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G147-01",
+          "row": {
+            "MaterialID": "M147",
+            "GradeID": "G147-01",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "250°C - 280°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "250",
+            "Nozzle max °C": "280",
+            "Nozzle requirement": "required",
+            "Bed °C": "< 80°C",
+            "Bed state": "range",
+            "Bed min °C": "Not published",
+            "Bed max °C": "80",
+            "Bed requirement": "required",
+            "Chamber °C": "printable on non-heated chamber machines",
+            "Chamber state": "not-required",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "none",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Glass Build Plate surface with an adhesion promoter (Magigoo PA®)",
+            "Drying": "In case the filament has become wet, it should be dried. Using a hot dry air oven at 80°C for at least 12h is recommended.",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "12",
+            "Nozzle material": "Compatible with standard brass nozzles.",
+            "Nozzle diameter": "0.4mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "FALSE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-COVERAGE-20261001-941cb5b0f2b9",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: p1 Generic Machinery Settings and Filament Handling: FFF nozzle250–280°C, build plate<80°C, non-heated chamber machines, standard brass nozzles, 0.4mm glass/MagigooPA setup; wet filament hot dry air oven80°C at least12h",
+            "Parse review": "Original bed <80°C is a strict upper bound with no lower endpoint published; stored upper bound80 preserves that window, not approval to print at80. Nozzle250–280°C and non-heated chamber words are FFF guide settings, not compound extrusion temperatures. Original Nozzle material explicitly says compatible with standard brass nozzles; typed hardenedFALSE records that permission while the abrasion-text parser leaves an unstated abrasion result unknown. No abrasion measurement is inferred. Drying is conditional wet filament at80°C for at least12h in hot dry air oven; not annealing or pellet processing."
+          },
+          "notes": [],
+          "editorial": [],
+          "evidence": {
+            "page": 1,
+            "text": "nozzle: 250°C - 280°C; bed: < 80°C; chamber: printable on non-heated chamber machines; nozzle-material: Compatible with standard brass nozzles.; nozzle-diameter: 0.4mm; plate: Glass Build Plate surface with an adhesion promoter (Magigoo PA®); drying: In case the filament has become wet, it should be dried. Using a hot dry air oven at 80°C for at least 12h is recommended.",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+            "visual": true,
+            "note": "All raw/typed profile fields require independent original reread; preserve bounds and context. No source supersession."
+          },
+          "id": "c05-profile-G147-01"
+        }
+      ],
+      "OriginalReadingScope": "Complete exact product body/document, unrelated related-product claims excluded",
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      }
+    }
+  ],
+  "HeldFindings": [
+    {
+      "FindingID": "C05-PA6-RECIPE-CONTEXT",
+      "Outcome": "conflicting",
+      "ReleaseCondition": "Maker/source-context resolution of nozzle, speed, cooling and enclosure differences before superseding any TDS recipe; retain both originals and literal directions."
+    },
+    {
+      "FindingID": "C05-PROGRAFEN-OLDER-XY-CUSTODY",
+      "Outcome": "vendor needed",
+      "ReleaseCondition": "Official digest-verified copy and row-specific formulation/revision continuity for AGP2023 FDM/XY footnote before transferring conditions into retained Strong/Light TDS numbers. New ownership evidence alone does not settle this."
+    }
+  ],
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Review": "Independent AI required for every deciding profile and source/identity fact; no human review",
+  "NoCatalogueExpansion": true
+}

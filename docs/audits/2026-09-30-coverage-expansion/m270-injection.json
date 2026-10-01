@@ -1,0 +1,62 @@
+{
+  "migration": "m270-colorfabb-registered-guide-drying",
+  "packet": "d4672a7774298c37212f54c222aefd1d6e0bc914bd71b637d20859604673a94d",
+  "written": 11,
+  "records": [
+    {
+      "table": "sources",
+      "id": "R-COLORFABB-PRINT-20260928-e02f420a2e56",
+      "field": "Source note"
+    },
+    {
+      "table": "sources",
+      "id": "R-COLORFABB-PRINT-20260928-e02f420a2e56",
+      "field": "Citation role"
+    },
+    {
+      "table": "sources",
+      "id": "R-COLORFABB-PRINT-20260928-e02f420a2e56",
+      "field": "Applicable grades"
+    },
+    {
+      "table": "evidence",
+      "id": "Q05452",
+      "grade": "G145-01"
+    },
+    {
+      "table": "evidence",
+      "id": "Q05453",
+      "grade": "G142-01"
+    },
+    {
+      "table": "evidence",
+      "id": "Q05454",
+      "grade": "G143-01"
+    },
+    {
+      "table": "evidence",
+      "id": "Q05455",
+      "grade": "G165-01"
+    },
+    {
+      "table": "profiles",
+      "id": "P1317",
+      "grade": "G142-01"
+    },
+    {
+      "table": "profiles",
+      "id": "P1318",
+      "grade": "G143-01"
+    },
+    {
+      "table": "profiles",
+      "id": "P1319",
+      "grade": "G145-01"
+    },
+    {
+      "table": "profiles",
+      "id": "P1320",
+      "grade": "G165-01"
+    }
+  ]
+}

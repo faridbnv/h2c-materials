@@ -1,0 +1,109 @@
+{
+  "overall_verdict": "APPROVE",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T20:53:16.402264+00:00",
+  "release": "990e56ba9394",
+  "parent_commit": "cdb795addfc724759a22299315bc6873b6d0b743",
+  "verification_packet_sha256": "c11857b6eadf82b44f4f2d954a575587fb2c52f3bb5262a7d4ab03129a55ac73",
+  "approved_release_scope": "Tenth bounded data tranche m269–m272 on separately verified source-bound compiler fix; verified local commit only, no push/publication. Whole coverage campaign remains incomplete.",
+  "retained_prior_review_history": {
+    "initial_bound_CORRECT": "external-campaign/reviews/TENTH-CHANGED-ANSWERS-REVIEW.json",
+    "separate_fix_release": "external-campaign/reviews/SOURCE-BOUND-COMPILER-RELEASE-REVIEW.json",
+    "fixed_changed_answers": "external-campaign/reviews/TENTH-FIXED-CHANGED-ANSWERS-REVIEW.json"
+  },
+  "review_input_sha256": {
+    "TENTH-FIXED-CHANGED-ANSWERS-REVIEW.json": "20e760fcc3c8664d149dbeed64566d43735b5d7a55cfe1b99e06e5d0636b6961",
+    "TENTH-MIGRATION-GUARDS-REVIEW.json": "6a51e1402bfa9a85d828402645332dfc2021dacf4c4d5901248c49d2b52e9ea3",
+    "TENTH-C05-REVIEW.json": "3b82188a4e3ec118574a65e53783796e12e316f43104c3f8d395b12e5b05aab9",
+    "TENTH-CACHED-GUIDE-REVIEW.json": "fdec5cf78f04e2790fcc204ec95335b31175f654bfd2b7d77c2ef0bc9437ced2",
+    "APPLICATION-FIVE-MAKER-CACHED-REVIEW.json": "b74344011f80801af58d7e550f2ec69b3e82fa468eaf25b2141269196744c6d9",
+    "APPLICATION-TENTH-OFFICIAL-REVIEW.json": "c5c6733ac820682c9694aaeee0ca9c3156390b297a09d28737658044b25f2f8f",
+    "TENTH-PRODUCT-OUTCOMES-REVIEW.json": "c10e9d2f21989d14e3bc361ca054aa40e555eb8b2fe7ab13d84be14d50e47192"
+  },
+  "approved_packets_current_hash_verified": {
+    "application-five-maker-cached": "ee32dc917ccb96cfd59eaeecd4850157ffde74d1637ad655c3e90d181c86d9d2",
+    "tenth-cached-guide": "d4672a7774298c37212f54c222aefd1d6e0bc914bd71b637d20859604673a94d",
+    "tenth-c05": "2f9ddfa897f35abd0e7d153325652938a1cd688de4273f148658dc787d05e7a7",
+    "application-tenth-official": "83f6def35f9e7e25940a71c5979bf2bf490077efe4cbb1e2cf7cb5d73115bd19",
+    "tenth-product-outcomes": "d178614529e659331738535abd3b36ef44526c29b6dc3feaded5ecb1017e875c"
+  },
+  "canonical_admissions": {
+    "Application_new_rows": 13,
+    "distinct_material_targets": 12,
+    "sources_new": 7,
+    "sources_promoted": 1,
+    "evidence_clauses": 34,
+    "profiles": 7,
+    "measurements_new": 0
+  },
+  "release_gates": {
+    "warm_verify_fast_seconds": 27.48,
+    "budget_seconds": 90,
+    "full_verify_exit": 0,
+    "full_verify_seconds": 273.73,
+    "unit_tests": 454,
+    "import_tests": 194,
+    "scale_repro_audit_snapshot": "passed",
+    "native_views": 69,
+    "reviewed_changed_baselines": 5,
+    "other_baselines_unchanged": 64,
+    "layout_failures": 0,
+    "rendered_scenarios": 300,
+    "rendered_readings": 2592,
+    "rendered_seconds": 51.6,
+    "source_drawer_literal_cases": 59,
+    "migration_guard_cases": 21,
+    "compiled_paths_against_corrected_code_HEAD": 291,
+    "source_backup_originals": 2397,
+    "source_backup_derived": 2800,
+    "previous_known_absent": 124
+  },
+  "independent_changed_answer_summary": {
+    "frozen": [
+      15,
+      18195,
+      7
+    ],
+    "environment": [
+      48,
+      58224,
+      0
+    ],
+    "templates": [
+      24,
+      30744,
+      28
+    ],
+    "T09_materials_before_after": [
+      8,
+      9
+    ],
+    "T09_added_material": "M147",
+    "source_deciding_grades": [
+      "G147-01",
+      "G153-01",
+      "G153-02"
+    ],
+    "no_application_or_environment_claim_pass": true,
+    "measurement_estimate_model_unchanged": true,
+    "automatic_nondeciding_print_estimate_fields_changed": 11,
+    "all_print_calibration_peers_complete": true,
+    "M147_summary_missing_lower_bound_retained": true,
+    "actual_final_Overview_and_CSV_upper_bound_render_verified": true
+  },
+  "diff_and_scope_review": [
+    "Record-level diff admits13Application rows for12distinct material targets,34atomicnarrative clauses,7profiles,7neworiginalsource rows and1registeredoriginalpromotion; no newmeasurement/grade/property/schema/selectionengine change.",
+    "Compiled291paths reflect newguide/sourceknow-how, coverage/manualsupersession, productprintgates, provenance and automatically recalibrated nondecidingprint estimates. Measurement values/product mechanicalheadlines/states/prices remain unchanged.",
+    "Five nativebaselines reflect exactsource-supportedM147/M153 printgates andT09onlyM147. Acceptance count8→9 source-grounded; test assertions unchanged.",
+    "Every current packet still matches its independent approved SHA; reviewCORRECT histories retained. Source-bound compilerfix removes fabricated lower endpoint/peer without rewriting ownoriginal/profile.",
+    "Backup log confirms2397originals/2800derivatives,124knownpreviousabsent; not a claim that all historical source bytes exist."
+  ],
+  "limitations": [
+    "AI review and automated realrenderer/browser QA, no humanreview or interactive drawer-layout claim.",
+    "Resin/printed-product food/fire/railway claims, transparent/black conflict, PA6recipe and P0184endpoint defects, nGenFLEXformulation continuity, missingcomparisonconditions and exactidentity vendorhandoffs remain held/documented inOPEN-PROBLEMS26.",
+    "Cached-source Gap judgments do not claim officialroute/publicsource exhaustion;17joined product outcomes may close only after this verified commit, with explicit remainingvendor/test/identity releaseconditions.",
+    "Wholecampaign remains incomplete; cumulative66material Application targets/21joined product targets aftercommit does not mean all136/1077targetsfinal.",
+    "Historical active time/cold timing not remeasured; usefulfindingsperactivehour not invented."
+  ],
+  "review_signature_sha256": "be3906e6a2fb1c5620ed8e9611edad77cfdface898079d31d60125bbc29b8352"
+}

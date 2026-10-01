@@ -1,5 +1,5 @@
-COUNT 8 shown PASS
-STATUS ☑ PASS 8 | ☐ UNKNOWN 101 | ☐ FAIL 44
+COUNT 9 shown PASS
+STATUS ☑ PASS 9 | ☐ UNKNOWN 100 | ☐ FAIL 44
 GOAL
 None: compare two properties
 Tie, minimum mass, stiffness prescribed
@@ -115,7 +115,7 @@ Whisker: the spread a sheet reports for that value
 Line: one value of M; above is better
 Red dashed: a requirement (press its label to change it)
 Colour is polymer family
-Drawn: 14 products from 8 materials, each meeting every requirement.
+Drawn: 15 products from 9 materials, each meeting every requirement.
 READING THIS CHART
 Ranking
 M = E^(1/2) / ρ
@@ -176,4 +176,11 @@ Nylon, maker-undisclosed polyamide
 ⤢
 ☆
 best: CreatBot Ultra PA
+1 product drawn
+9
+PAHT
+0.00147 0.64×
+⤢
+☆
+best: LEHVOSS LUVOCOM 3F PAHT 9825 NT
 1 product drawn

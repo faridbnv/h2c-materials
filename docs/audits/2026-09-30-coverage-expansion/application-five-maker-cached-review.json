@@ -1,0 +1,436 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer;no human review",
+  "reviewed_at_utc": "2026-10-01T16:41:00.515239+00:00",
+  "input_path": "external-campaign/research/application-five-maker-cached-packet.json",
+  "input_sha256": "ee32dc917ccb96cfd59eaeecd4850157ffde74d1637ad655c3e90d181c86d9d2",
+  "overall_verdict": "APPROVE",
+  "approved_judgments": 11,
+  "required_corrections": 0,
+  "judgments": [
+    {
+      "finding_id": "CE-APP-M137",
+      "material_id": "M137",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G137-01",
+        "G137-03"
+      ],
+      "source_locators": "p.1 General in exact tough/flex sheets;Q04832/Q04833/Q04838/Q04839",
+      "source_ids": [
+        "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+        "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN"
+      ],
+      "existing_evidence_ids": [
+        "Q04832",
+        "Q04833",
+        "Q04838",
+        "Q04839"
+      ],
+      "ruling": "Industrial/functional/optical maker descriptions and flex medical/diagnostic claims support RWL only. COC tough opaque disadvantage is not resolved by optical neutrality wording. No medical/skin qualification or temperature/hardness transfer.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M138",
+      "material_id": "M138",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G138-01",
+        "G138-02",
+        "G138-03"
+      ],
+      "source_locators": "p.1 General and disadvantages in both language sheets",
+      "source_ids": [
+        "R-FABRU-PUREFIL-3493-Materialdatenblatt-HDPE-GF20-purefil",
+        "R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil"
+      ],
+      "existing_evidence_ids": [],
+      "ruling": "Generic PE painting/gluing difficulty is family finishing context, appropriately RWL. German bedrucken means surface printing, not a new FFF-printability decision. G138-03 outsidebatch is explicitly unassessed; no safety transfer from physiologically harmless PE.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M139",
+      "material_id": "M139",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G139-01"
+      ],
+      "source_locators": "p.1 General final paragraph and disadvantages;Q04854/Q04855",
+      "source_ids": [
+        "R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil"
+      ],
+      "existing_evidence_ids": [],
+      "ruling": "Large warp-free-object claim is an explicit maker intended use, so RWL is appropriate. Strong anisotropy/poor layer adhesion retained. Outdoor source claim creates no environmental application pass.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M140",
+      "material_id": "M140",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G140-01",
+        "G140-02"
+      ],
+      "source_locators": "p.1 General final paragraph in German/French sheets",
+      "source_ids": [
+        "R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
+        "R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil"
+      ],
+      "existing_evidence_ids": [],
+      "ruling": "Named electronics/electrical/automotive/machinery/chemical/appliance/sport industries are explicitly PBT resin context. RWL retains family source scope; no printed product validation or demonstrated finishing.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M142",
+      "material_id": "M142",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G142-01"
+      ],
+      "source_locators": "p.1 Description of January2025 and October2022 originals;Q04857/Q04863",
+      "source_ids": [
+        "R-COLORFABB-TDS-nGen-CF10",
+        "R-COLORFABB-TDS-E-colorFabb-nGen-CF10"
+      ],
+      "existing_evidence_ids": [
+        "Q04857",
+        "Q04863"
+      ],
+      "ruling": "Exact maker matte carbon-fibre surface-finish appearance supports only narrowly partial finishing/appearance assessment. It is as-printed appearance, not a painting/smoothing procedure or end-use qualification; RWL wording preserves this. All-round filament alone would not establish application evidence.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M143",
+      "material_id": "M143",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G143-01"
+      ],
+      "source_locators": "April6,2020p.1 General vs September1,2023p.1 Description",
+      "source_ids": [
+        "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS"
+      ],
+      "existing_evidence_ids": [],
+      "ruling": "2020AmphoraFL6000 intended prosthetics/orthotics/automotive/apparel/tooling and steam claim is historical/context-only. 2023NeostarFN0006 product description does not establish transfer/formulation continuity. RWL explicitly retains this distinction and no sterilization protocol or medical qualification.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M145",
+      "material_id": "M145",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G145-01"
+      ],
+      "source_locators": "April8,2020p.1 General;November1,2024p.1 Description/p.2 Notes",
+      "source_ids": [
+        "R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS",
+        "R-COLORFABB-TDS-PLA-PHA"
+      ],
+      "existing_evidence_ids": [],
+      "ruling": "Older PLA/PHA prototyping/investment-casting claim supports RWL only; no burnout schedule,residue/mould/metal compatibility or measured casting trial. Current2024 description does not itself repeat casting use; wording correctly says older TDS.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M147",
+      "material_id": "M147",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G147-01"
+      ],
+      "source_locators": "Compoundp.1 Application Examples;filamentp.2 General information",
+      "source_ids": [
+        "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT"
+      ],
+      "existing_evidence_ids": [
+        "Q04907"
+      ],
+      "ruling": "Automotive/textile-office/apparatus-precision examples belong to compound/moulded-specimen source Q04907. Filament geometry claim0.32mmVDI3405Part7,length24–150mm,Engineering settings with UltimakerS5Pro mechanical context remains separate and bounded. Neither is universal part tolerance/qualified end-use; RWL appropriate.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M148",
+      "material_id": "M148",
+      "verdict": "APPROVE",
+      "proposed_status": "Gap",
+      "approved_status": "Gap",
+      "grade_ids": [
+        "G148-01",
+        "G148-02"
+      ],
+      "source_locators": "All three pp1–2 including9936 Main features/General,50056FR Main features/processing",
+      "source_ids": [
+        "S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK",
+        "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+        "D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR"
+      ],
+      "existing_evidence_ids": [],
+      "ruling": "Processing,thermal,moisture/fire/rail claims do not supply specific end-use or post-print finishing basis. RWL would count ordinary print/material context as application assessment evidence. Change to Gap, bounded to these originals; keep official research open. Latest50056sheet explicitly prints V-0(printed specimen@0.4mm), so do not flatten every fire claim to resin-only or pretend a complete printed-product certificate.",
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true,
+      "replacement_applied": {
+        "Status": "Gap",
+        "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the three reviewed cached originals for LUVOCOM 3F PAHT 9936 BK and PAHT KK 50056 BK FR (G148-01/G148-02). They provide material/processing and thermal/fire/rail context, predominantly compound/moulded specimens; the later 50056 sheet separately labels a printed V-0 specimen at0.4mm. Neither those labels, pellet predrying nor printing settings establish an application or finishing method. Official product/guide routes remain open; this is not public-source exhaustion or absence. 9936 BK/L remains a separate identity. Reviewed source basis: S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK, R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers, D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR."
+      }
+    },
+    {
+      "finding_id": "CE-APP-M153",
+      "material_id": "M153",
+      "verdict": "APPROVE",
+      "proposed_status": "Reviewed with limitations",
+      "approved_status": "Reviewed with limitations",
+      "grade_ids": [
+        "G153-01",
+        "G153-02"
+      ],
+      "source_locators": "Bothp.1 Applications and Processing Temperature Profile footnote;Q05008/Q05011",
+      "source_ids": [
+        "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+        "R-3DJAKE-EN-TDS-PETG-Graphene-Light"
+      ],
+      "existing_evidence_ids": [
+        "Q05008",
+        "Q05011"
+      ],
+      "ruling": "Potential prototype models/tooling/construction/everyday uses and bare Painting,smoothing entry are maker intended-use/finishing claims; starting points may need optimization. RWL only,no method/result/validation,Strong/Light and source conditions separate. Source publishers incorporate reviewed SpectrumGroup correction;catalogue identity remains held.",
+      "replacement": null,
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true
+    },
+    {
+      "finding_id": "CE-APP-M165",
+      "material_id": "M165",
+      "verdict": "APPROVE",
+      "proposed_status": "Gap",
+      "approved_status": "Gap",
+      "grade_ids": [
+        "G165-01"
+      ],
+      "source_locators": "June18,2018p.1 General/Guideline/Additional information",
+      "source_ids": [
+        "R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS"
+      ],
+      "existing_evidence_ids": [],
+      "ruling": "Nearly warp-free printing,continuous120°C,sufficient mechanical properties and abrasive-nozzle advice give printing/thermal context,not intended end-use or post-print finishing. Change to Gap for this cached-source-only assessment; no source-wide absence or service allowable.",
+      "expected_full_grade_source_evidence_active_grade_and_current_coverage_guards_match": true,
+      "replacement_applied": {
+        "Status": "Gap",
+        "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the reviewed cached colorFabb PA-CF low warp (G165-01) sheet. It provides near-warp-free printing, continuous-temperature and abrasion/recipe context, without a named end-use or finishing method/result. Keep those statements in their existing print/thermal/know-how lanes; they do not establish an application assessment basis or service allowable. Official product/guide routes remain open; this is not public-source exhaustion or absence. Reviewed source basis: R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS."
+      }
+    }
+  ],
+  "original_custody_scope": {
+    "original_pdfs": 21,
+    "total_pages": 32,
+    "all_sha_verified": true,
+    "all_full_pages_reread": true,
+    "reading_method": "Fresh pdftotext-layout from each digest-verified original, complete pages read in bounded chunks. COC images and glyphs retain direct1800px visual reread from immediately preceding independent source correction review; unchanged originals compared freshly in this packet. No packet excerpt or primary-agent summary supplied deciding facts.",
+    "sources": [
+      {
+        "source_id": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+        "original_path": ".cache/sources/by-sha/bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83.pdf",
+        "sha256": "bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "original_path": ".cache/sources/by-sha/ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a.pdf",
+        "sha256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-FABRU-PUREFIL-3493-Materialdatenblatt-HDPE-GF20-purefil",
+        "original_path": ".cache/sources/by-sha/d19cd0fc99f6d375759c295a9f82eceba52ebf834028388d6e5dacd3f33feb92.pdf",
+        "sha256": "d19cd0fc99f6d375759c295a9f82eceba52ebf834028388d6e5dacd3f33feb92",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil",
+        "original_path": ".cache/sources/by-sha/94d6f95435dad96fb8b3549cf34e2c970f697872893871d1d0ca7e37fa7e69c1.pdf",
+        "sha256": "94d6f95435dad96fb8b3549cf34e2c970f697872893871d1d0ca7e37fa7e69c1",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil",
+        "original_path": ".cache/sources/by-sha/f3499bee1ec12f918063f7389e3a7b8376384ec25b52d6d8f6627e655ae8ad6f.pdf",
+        "sha256": "f3499bee1ec12f918063f7389e3a7b8376384ec25b52d6d8f6627e655ae8ad6f",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
+        "original_path": ".cache/sources/by-sha/f525fe2f087d8dba3e8c6abb2efe5c6e5c01ad723bb5e20c55f8e578be4b4f25.pdf",
+        "sha256": "f525fe2f087d8dba3e8c6abb2efe5c6e5c01ad723bb5e20c55f8e578be4b4f25",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil",
+        "original_path": ".cache/sources/by-sha/005acd3413b46dcd585437ccc4092b7e8213cebeb02084c06cfff96e62240943.pdf",
+        "sha256": "005acd3413b46dcd585437ccc4092b7e8213cebeb02084c06cfff96e62240943",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-TDS-nGen-CF10",
+        "original_path": ".cache/sources/by-sha/2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54.pdf",
+        "sha256": "2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-TDS-E-colorFabb-nGen-CF10",
+        "original_path": ".cache/sources/by-sha/d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88.pdf",
+        "sha256": "d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "original_path": ".cache/sources/by-sha/828c974a3e8aaa5aabdf477c6fecf7e78447e715e9763a48b8387c00f50b0792.pdf",
+        "sha256": "828c974a3e8aaa5aabdf477c6fecf7e78447e715e9763a48b8387c00f50b0792",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS",
+        "original_path": ".cache/sources/by-sha/e2a86ba681dd0ef8cb66eabf7b7f86a1d44a979f4299961202dc564728bfd939.pdf",
+        "sha256": "e2a86ba681dd0ef8cb66eabf7b7f86a1d44a979f4299961202dc564728bfd939",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS",
+        "original_path": ".cache/sources/by-sha/d92bf0040ab556fb90b6060a652c07541c7364d9dcd25a18432f941242b7b5f7.pdf",
+        "sha256": "d92bf0040ab556fb90b6060a652c07541c7364d9dcd25a18432f941242b7b5f7",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-TDS-PLA-PHA",
+        "original_path": ".cache/sources/by-sha/d9edb7dbfbf74ffd36e73df378554dc6889097289cbc20f5ecc753d4ae9b286f.pdf",
+        "sha256": "d9edb7dbfbf74ffd36e73df378554dc6889097289cbc20f5ecc753d4ae9b286f",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "original_path": ".cache/sources/by-sha/5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497.pdf",
+        "sha256": "5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "original_path": ".cache/sources/by-sha/ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7.pdf",
+        "sha256": "ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK",
+        "original_path": ".cache/sources/by-sha/775608da3240c9b6447e86ab7e3155a9ce5711db48d3341de47851f0c813b244.pdf",
+        "sha256": "775608da3240c9b6447e86ab7e3155a9ce5711db48d3341de47851f0c813b244",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+        "original_path": ".cache/sources/by-sha/82824ad975f7e2923cdc88b7d289a17eb0068a7bce6060599e4aec4174cf36c2.pdf",
+        "sha256": "82824ad975f7e2923cdc88b7d289a17eb0068a7bce6060599e4aec4174cf36c2",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR",
+        "original_path": ".cache/sources/by-sha/1efb0c8fc5374517d4821681de6139129dd304739b3328d4f9572ccbd88ee8bd.pdf",
+        "sha256": "1efb0c8fc5374517d4821681de6139129dd304739b3328d4f9572ccbd88ee8bd",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+        "original_path": ".cache/sources/by-sha/ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68.pdf",
+        "sha256": "ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "original_path": ".cache/sources/by-sha/fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73.pdf",
+        "sha256": "fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73",
+        "full_registered_source_guard_match": true
+      },
+      {
+        "source_id": "R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS",
+        "original_path": ".cache/sources/by-sha/d7211f580c38f8826633a1b0bf50740de4277c897ea716450f34943a43faee15.pdf",
+        "sha256": "d7211f580c38f8826633a1b0bf50740de4277c897ea716450f34943a43faee15",
+        "full_registered_source_guard_match": true
+      }
+    ]
+  },
+  "maker_batches": [
+    {
+      "Maker": "Fabru",
+      "GradeIDs": [
+        "G137-01",
+        "G137-03",
+        "G138-01",
+        "G138-02",
+        "G139-01",
+        "G140-01",
+        "G140-02"
+      ]
+    },
+    {
+      "Maker": "colorFabb",
+      "GradeIDs": [
+        "G142-01",
+        "G143-01",
+        "G145-01",
+        "G165-01"
+      ]
+    },
+    {
+      "Maker": "LEHVOSS",
+      "GradeIDs": [
+        "G147-01",
+        "G148-01",
+        "G148-02"
+      ]
+    },
+    {
+      "Maker": "Prografen catalogue currently filed under3DJake",
+      "GradeIDs": [
+        "G153-01",
+        "G153-02"
+      ]
+    }
+  ],
+  "batch_scope": "Four maker groups,16source-covered products;no group exceeds12products. M138 additionally names outsidebatch G138-03 as unassessed. Packet name five-maker does not change actual four-group scope.",
+  "review_contract": "D74/D114 stored manual Application judgment plus approved campaign rubric. RWL requires a bounded intended-use/finishing basis or explicitly scoped family context; ordinary print setup, properties or generic disclaimer alone do not establish it. No suitability/medical/chemical pass or Evidence-recorded promotion.",
+  "limitations": [
+    "All eleven current Application domains were previously unassessed;no supersession of unrelated judgments proposed.",
+    "No joined product task closes from this Application-only packet. Official-route research remains open, including for corrected Gap judgments.",
+    "M142 approval is narrowly appearance-only;it does not establish tested finishing/end-use.",
+    "M143 historical formulation transfer remains unresolved;old2020claims cannot qualify current2023FN0006printedproduct.",
+    "Reviewer did not edit canonical tables or frozen packet."
+  ],
+  "review_history": [
+    {
+      "input_sha256": "ec86f691664436b3fee9b532e28064a214446b5a0d9c51062fd4df56d597c195",
+      "overall_verdict": "CORRECT",
+      "report_path": "external-campaign/reviews/APPLICATION-FIVE-MAKER-CACHED-INITIAL-CORRECT-REVIEW.json",
+      "signature": "dde220ed8afdad7870a2f6f7478f32e2b896f6c3f67274be56cabead7576a7c0"
+    }
+  ],
+  "delta_attestation": "Exact reviewer-required M148/M165 Status/Finding replacements in Findings and Operations; all source FreshTextPath removed and replaced with path-free PrivateReadingNote. Reversing only those permitted deltas reproduces complete initial packet object. Remaining source/grade/evidence/coverage guards and all other fact content unchanged. Original21PDF/32page review reused;no repeated reads required.",
+  "review_signature_sha256": "d3372f3ec83d0727f9755c289d487e1f6398e9a6600f64491e16e16f4cd10ff3"
+}

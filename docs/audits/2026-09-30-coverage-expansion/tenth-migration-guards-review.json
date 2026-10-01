@@ -1,0 +1,29 @@
+{
+  "overall_verdict": "APPROVE",
+  "review_scope": "Migration integrity only; does not approve compiled source interpretation or final release",
+  "baseline_commit": "981263e061d009b2c517b0e2cf116f156fda63ea",
+  "inputs": {
+    "docs/audits/2026-09-30-coverage-expansion/tenth-guards.json": "438e8d0e92b6f4f3f0297264bf1f5e5b0b766eb835ea3f67560a4934f4a55514",
+    "docs/audits/2026-09-30-coverage-expansion/fixtures/tenth-guards.mjs": "3cd81c23d3dcbe7c6481e2761216b731c777da794f206e0069d12178eac11d29"
+  },
+  "independent_receipt": {
+    "path": "external-campaign/evidence/tenth-independent-guards.json",
+    "sha256": "438e8d0e92b6f4f3f0297264bf1f5e5b0b766eb835ea3f67560a4934f4a55514",
+    "cases": 21,
+    "identical_to_public": true
+  },
+  "findings": [
+    "Independently reproduced actual m269–m272 initial application and immediate zero-record reruns on disposable copies from ninth committed canonical tables.",
+    "Changed Expected Manufacturer and changed packet bytes stop application with no partial canonical writes for all four migrations.",
+    "Corrupt original bytes stop reused-source operation and all seven new source admissions; originals copied privately, never mutated in root.",
+    "Changed already-applied G147-01 drying hours12→6 stops rerun rather than accepting edited current data.",
+    "Full expected grade/source/coverage/row guards remain; proposal byte and original SHA binding retained; root manifest unchanged."
+  ],
+  "limitations": [
+    "Root is shared; this receipt pins the supplied packets and ninth baseline, not future changes.",
+    "Separate material print-summary bound loss identified in changed-answer review is outside injection guards."
+  ],
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T20:24:48.527343+00:00",
+  "review_signature_sha256": "293a2eed278f47aeb447b9b08982db2bf3e97248d33b9ce4606b7be055e6735e"
+}

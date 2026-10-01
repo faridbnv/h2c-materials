@@ -1,0 +1,740 @@
+{
+  "before_release": "1cce208a3e15",
+  "after_release": "990e56ba9394",
+  "measurementEstimateModelUnchanged": true,
+  "printEstimateModelRecalibration": true,
+  "materials": 11,
+  "changes": [
+    {
+      "MaterialID": "M056",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 60,
+        "hi": 120,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PA66 window; adjusted 1 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M055",
+            "name": "PA66",
+            "min": 60,
+            "max": 120
+          }
+        ]
+      },
+      "After": {
+        "lo": 65,
+        "hi": 125,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PA66 window; adjusted 3 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M055",
+            "name": "PA66",
+            "min": 60,
+            "max": 120
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M060",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 40,
+        "hi": 60,
+        "unit": "\u00b0C",
+        "basis": "median of 2 PA612 windows; adjusted 1 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M059",
+            "name": "PA612-CF",
+            "min": 40,
+            "max": 70
+          },
+          {
+            "materialId": "M065",
+            "name": "PA612-ESD",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      },
+      "After": {
+        "lo": 40,
+        "hi": 60,
+        "unit": "\u00b0C",
+        "basis": "median of 2 PA612 windows; adjusted 3 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M059",
+            "name": "PA612-CF",
+            "min": 40,
+            "max": 70
+          },
+          {
+            "materialId": "M065",
+            "name": "PA612-ESD",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M103",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 45,
+        "hi": 105,
+        "unit": "\u00b0C",
+        "basis": "median of 3 PP windows",
+        "peers": [
+          {
+            "materialId": "M082",
+            "name": "PP",
+            "min": 3,
+            "max": 120
+          },
+          {
+            "materialId": "M083",
+            "name": "PP-CF",
+            "min": 45,
+            "max": 100
+          },
+          {
+            "materialId": "M084",
+            "name": "PP-GF",
+            "min": 85,
+            "max": 105
+          }
+        ]
+      },
+      "After": {
+        "lo": 40,
+        "hi": 100,
+        "unit": "\u00b0C",
+        "basis": "median of 3 PP windows",
+        "peers": [
+          {
+            "materialId": "M082",
+            "name": "PP",
+            "min": 3,
+            "max": 120
+          },
+          {
+            "materialId": "M083",
+            "name": "PP-CF",
+            "min": 45,
+            "max": 100
+          },
+          {
+            "materialId": "M084",
+            "name": "PP-GF",
+            "min": 85,
+            "max": 105
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M124",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 80,
+        "hi": 120,
+        "unit": "\u00b0C",
+        "basis": "median of 3 PPS windows",
+        "peers": [
+          {
+            "materialId": "M072",
+            "name": "PPS",
+            "min": 100,
+            "max": 160
+          },
+          {
+            "materialId": "M073",
+            "name": "PPS-CF",
+            "min": 80,
+            "max": 120
+          },
+          {
+            "materialId": "M074",
+            "name": "PPS-GF",
+            "min": 80,
+            "max": 120
+          }
+        ]
+      },
+      "After": {
+        "lo": 75,
+        "hi": 115,
+        "unit": "\u00b0C",
+        "basis": "median of 3 PPS windows",
+        "peers": [
+          {
+            "materialId": "M072",
+            "name": "PPS",
+            "min": 100,
+            "max": 160
+          },
+          {
+            "materialId": "M073",
+            "name": "PPS-CF",
+            "min": 80,
+            "max": 120
+          },
+          {
+            "materialId": "M074",
+            "name": "PPS-GF",
+            "min": 80,
+            "max": 120
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M128",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 5,
+        "hi": 120,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PC-ABS window; adjusted 1 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M094",
+            "name": "PC-ABS",
+            "min": 3,
+            "max": 120
+          }
+        ]
+      },
+      "After": {
+        "lo": 5,
+        "hi": 125,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PC-ABS window; adjusted 3 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M094",
+            "name": "PC-ABS",
+            "min": 3,
+            "max": 120
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M136",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 75,
+        "hi": 120,
+        "unit": "\u00b0C",
+        "basis": "median of 12 styrenic windows",
+        "peers": [
+          {
+            "materialId": "M027",
+            "name": "ABS",
+            "min": 55,
+            "max": 130
+          },
+          {
+            "materialId": "M028",
+            "name": "ABS-GF",
+            "min": 80,
+            "max": 120
+          },
+          {
+            "materialId": "M029",
+            "name": "ABS-CF",
+            "min": 80,
+            "max": 110
+          },
+          {
+            "materialId": "M030",
+            "name": "ABS-ESD",
+            "min": 90,
+            "max": 120
+          },
+          {
+            "materialId": "M031",
+            "name": "ASA",
+            "min": 40,
+            "max": 120
+          },
+          {
+            "materialId": "M032",
+            "name": "ASA Aero",
+            "min": 60,
+            "max": 110
+          },
+          {
+            "materialId": "M033",
+            "name": "ASA-CF",
+            "min": 75,
+            "max": 120
+          },
+          {
+            "materialId": "M034",
+            "name": "ASA-GF",
+            "min": 80,
+            "max": 120
+          },
+          {
+            "materialId": "M081",
+            "name": "HIPS",
+            "min": 24,
+            "max": 120
+          },
+          {
+            "materialId": "M105",
+            "name": "ASA-EC",
+            "min": 75,
+            "max": 100
+          },
+          {
+            "materialId": "M106",
+            "name": "ABS-AF",
+            "min": 100,
+            "max": 110
+          },
+          {
+            "materialId": "M113",
+            "name": "ASA-AF",
+            "min": 80,
+            "max": 110
+          }
+        ]
+      },
+      "After": {
+        "lo": 75,
+        "hi": 115,
+        "unit": "\u00b0C",
+        "basis": "median of 12 styrenic windows",
+        "peers": [
+          {
+            "materialId": "M027",
+            "name": "ABS",
+            "min": 55,
+            "max": 130
+          },
+          {
+            "materialId": "M028",
+            "name": "ABS-GF",
+            "min": 80,
+            "max": 120
+          },
+          {
+            "materialId": "M029",
+            "name": "ABS-CF",
+            "min": 80,
+            "max": 110
+          },
+          {
+            "materialId": "M030",
+            "name": "ABS-ESD",
+            "min": 90,
+            "max": 120
+          },
+          {
+            "materialId": "M031",
+            "name": "ASA",
+            "min": 40,
+            "max": 120
+          },
+          {
+            "materialId": "M032",
+            "name": "ASA Aero",
+            "min": 60,
+            "max": 110
+          },
+          {
+            "materialId": "M033",
+            "name": "ASA-CF",
+            "min": 75,
+            "max": 120
+          },
+          {
+            "materialId": "M034",
+            "name": "ASA-GF",
+            "min": 80,
+            "max": 120
+          },
+          {
+            "materialId": "M081",
+            "name": "HIPS",
+            "min": 24,
+            "max": 120
+          },
+          {
+            "materialId": "M105",
+            "name": "ASA-EC",
+            "min": 75,
+            "max": 100
+          },
+          {
+            "materialId": "M106",
+            "name": "ABS-AF",
+            "min": 100,
+            "max": 110
+          },
+          {
+            "materialId": "M113",
+            "name": "ASA-AF",
+            "min": 80,
+            "max": 110
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M138",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 80,
+        "hi": 100,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PE window; adjusted 1 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M085",
+            "name": "PE",
+            "min": 80,
+            "max": 100
+          }
+        ]
+      },
+      "After": {
+        "lo": 85,
+        "hi": 105,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PE window; adjusted 3 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M085",
+            "name": "PE",
+            "min": 80,
+            "max": 100
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M140",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 100,
+        "hi": 120,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PBT window; adjusted 1 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M132",
+            "name": "PBT-GF",
+            "min": 100,
+            "max": 120
+          }
+        ]
+      },
+      "After": {
+        "lo": 95,
+        "hi": 115,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PBT window; adjusted 3 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M132",
+            "name": "PBT-GF",
+            "min": 100,
+            "max": 120
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M148",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 80,
+        "hi": 120,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PAHT window; adjusted 1 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M048",
+            "name": "PAHT-CF",
+            "min": 80,
+            "max": 120
+          }
+        ]
+      },
+      "After": {
+        "lo": 75,
+        "hi": 115,
+        "unit": "\u00b0C",
+        "basis": "median of 1 PAHT window; adjusted 3 \u00b0C for fibre where a peer differs",
+        "peers": [
+          {
+            "materialId": "M048",
+            "name": "PAHT-CF",
+            "min": 80,
+            "max": 120
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M154",
+      "EstimateField": "bedEstimate",
+      "Before": {
+        "lo": 60,
+        "hi": 110,
+        "unit": "\u00b0C",
+        "basis": "median of 3 PA12 windows",
+        "peers": [
+          {
+            "materialId": "M052",
+            "name": "PA12",
+            "min": 60,
+            "max": 110
+          },
+          {
+            "materialId": "M053",
+            "name": "PA12-CF",
+            "min": 25,
+            "max": 110
+          },
+          {
+            "materialId": "M054",
+            "name": "PA12-GF",
+            "min": 60,
+            "max": 110
+          }
+        ]
+      },
+      "After": {
+        "lo": 55,
+        "hi": 105,
+        "unit": "\u00b0C",
+        "basis": "median of 3 PA12 windows",
+        "peers": [
+          {
+            "materialId": "M052",
+            "name": "PA12",
+            "min": 60,
+            "max": 110
+          },
+          {
+            "materialId": "M053",
+            "name": "PA12-CF",
+            "min": 25,
+            "max": 110
+          },
+          {
+            "materialId": "M054",
+            "name": "PA12-GF",
+            "min": 60,
+            "max": 110
+          }
+        ]
+      }
+    },
+    {
+      "MaterialID": "M155",
+      "EstimateField": "nozzleEstimate",
+      "Before": {
+        "lo": 185,
+        "hi": 240,
+        "unit": "\u00b0C",
+        "basis": "median of 15 PLA windows",
+        "peers": [
+          {
+            "materialId": "M001",
+            "name": "PLA",
+            "min": 140,
+            "max": 260
+          },
+          {
+            "materialId": "M008",
+            "name": "PLA Silk",
+            "min": 190,
+            "max": 240
+          },
+          {
+            "materialId": "M011",
+            "name": "PLA Metal",
+            "min": 180,
+            "max": 230
+          },
+          {
+            "materialId": "M012",
+            "name": "PLA Marble",
+            "min": 180,
+            "max": 260
+          },
+          {
+            "materialId": "M013",
+            "name": "PLA Sparkle",
+            "min": 185,
+            "max": 240
+          },
+          {
+            "materialId": "M014",
+            "name": "PLA Wood",
+            "min": 150,
+            "max": 260
+          },
+          {
+            "materialId": "M015",
+            "name": "PLA Galaxy",
+            "min": 190,
+            "max": 230
+          },
+          {
+            "materialId": "M016",
+            "name": "PLA Glow",
+            "min": 180,
+            "max": 230
+          },
+          {
+            "materialId": "M017",
+            "name": "PLA Aero",
+            "min": 180,
+            "max": 280
+          },
+          {
+            "materialId": "M018",
+            "name": "PLA-CF",
+            "min": 190,
+            "max": 245
+          },
+          {
+            "materialId": "M019",
+            "name": "PLA-GF",
+            "min": 190,
+            "max": 235
+          },
+          {
+            "materialId": "M107",
+            "name": "PLA-ESD",
+            "min": 185,
+            "max": 230
+          },
+          {
+            "materialId": "M111",
+            "name": "PLA-EC",
+            "min": 210,
+            "max": 230
+          },
+          {
+            "materialId": "M152",
+            "name": "PLA-NF",
+            "min": 180,
+            "max": 240
+          },
+          {
+            "materialId": "M158",
+            "name": "PLA-CE",
+            "min": 190,
+            "max": 210
+          }
+        ]
+      },
+      "After": {
+        "lo": 185,
+        "hi": 235,
+        "unit": "\u00b0C",
+        "basis": "median of 14 PLA windows",
+        "peers": [
+          {
+            "materialId": "M008",
+            "name": "PLA Silk",
+            "min": 190,
+            "max": 240
+          },
+          {
+            "materialId": "M011",
+            "name": "PLA Metal",
+            "min": 180,
+            "max": 230
+          },
+          {
+            "materialId": "M012",
+            "name": "PLA Marble",
+            "min": 180,
+            "max": 260
+          },
+          {
+            "materialId": "M013",
+            "name": "PLA Sparkle",
+            "min": 185,
+            "max": 240
+          },
+          {
+            "materialId": "M014",
+            "name": "PLA Wood",
+            "min": 150,
+            "max": 260
+          },
+          {
+            "materialId": "M015",
+            "name": "PLA Galaxy",
+            "min": 190,
+            "max": 230
+          },
+          {
+            "materialId": "M016",
+            "name": "PLA Glow",
+            "min": 180,
+            "max": 230
+          },
+          {
+            "materialId": "M017",
+            "name": "PLA Aero",
+            "min": 180,
+            "max": 280
+          },
+          {
+            "materialId": "M018",
+            "name": "PLA-CF",
+            "min": 190,
+            "max": 245
+          },
+          {
+            "materialId": "M019",
+            "name": "PLA-GF",
+            "min": 190,
+            "max": 235
+          },
+          {
+            "materialId": "M107",
+            "name": "PLA-ESD",
+            "min": 185,
+            "max": 230
+          },
+          {
+            "materialId": "M111",
+            "name": "PLA-EC",
+            "min": 210,
+            "max": 230
+          },
+          {
+            "materialId": "M152",
+            "name": "PLA-NF",
+            "min": 180,
+            "max": 240
+          },
+          {
+            "materialId": "M158",
+            "name": "PLA-CE",
+            "min": 190,
+            "max": 210
+          }
+        ]
+      }
+    }
+  ],
+  "basis": "Automatic print guidance estimates; separate from new published measurements. Includes separately committed missing-bound compiler correction and this data tranche."
+}

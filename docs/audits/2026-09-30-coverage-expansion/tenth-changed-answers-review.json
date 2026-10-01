@@ -1,0 +1,78 @@
+{
+  "overall_verdict": "APPROVE_CHANGED_ANSWERS_PENDING_FULL_RELEASE_QA",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T20:49:03.579787+00:00",
+  "before_release": "1cce208a3e15",
+  "after_release": "990e56ba9394",
+  "parent_fix_commit": "cdb795addfc724759a22299315bc6873b6d0b743",
+  "prior_correct_review": {
+    "path": "external-campaign/reviews/TENTH-CHANGED-ANSWERS-REVIEW.json",
+    "sha256": "26dc74033bc098e7feec1869ff4188b5de06eaca00dda33adeef7981a0504cbf",
+    "retained": true
+  },
+  "inputs": {
+    "tenth-fixed-source-drawers.json": "818fba55e28f0fabb34810345f482ae7adf66b136b9118cb30e44e08d628c816",
+    "tenth-fixed-guards.json": "438e8d0e92b6f4f3f0297264bf1f5e5b0b766eb835ea3f67560a4934f4a55514",
+    "tenth-fixed-frozen-replay.json": "9eb27b0156ff177c4073ca2e733406cec5acea357ed61efe79db69080863a76c",
+    "tenth-fixed-environment-replay.json": "9f5ef4cd21ed8f03f63b6f09c37cd7d3b97c206c291a73203399aaaca689c3c1",
+    "tenth-fixed-template-replay.json": "42319471f5aa14b55212371828f0e19bb853ccdf2d53a67850003e63802784a1",
+    "tenth-fixed-print-estimate-recalibration.json": "acfc42346a5b42fe33b442d869742670e171a95ad54da4aa79f4ec04f52dc4ab",
+    "tenth-fixed-independent-overview-csv.json": "31b7668c0b4bac4cf050ed49a88e9656e4a623c5d76efd0cefbffd509b911d73"
+  },
+  "independent_reproduction": {
+    "updated_source_drawer_cases": 59,
+    "frozen_questions": 15,
+    "frozen_evaluations": 18195,
+    "frozen_changes": 7,
+    "environment_questions": 48,
+    "environment_evaluations": 58224,
+    "environment_changes": 0,
+    "template_modes": 24,
+    "template_evaluations": 30744,
+    "template_changes": 28,
+    "four_replay_renderer_receipts_identical": true,
+    "guard_receipt_21cases_equal_prior_independent_reproduction": true,
+    "actual_final_overview_csv_and_all_finite_calibration_peers": true
+  },
+  "approved_source_basis_reused": [
+    {
+      "source_sha256": "941cb5b0f2b9208e4db0a9c6c578e0283db7a3a86767f3f44f7de92c28790ffe",
+      "scope": "Both original guide pages optically reread; exact PAHT9825 guide bed<80, non-heated chamber, standard brass, conditional wet-filament80C≥12h. New nozzle250–280 distinct from retained selected270–290 profile. No universal compatibility/medical qualification."
+    },
+    {
+      "source_sha256": "ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7",
+      "scope": "Both original PDF pages reread; p1 Engineering table actual Ultimaker S5 Pro100%infill45/135XY ISO527/ISO3167 TypeA modulus3.1±0.1GPa, test atmosphere23C/50%RH not conditioning. ISO1183-3 specific gravity1.20g/cm3 specimen unstated. Existing values unchanged."
+    },
+    {
+      "source_sha256": "bc88189b518f547a000bc4c0f61b26059ff9cffa9c9c467d4a50c6c0635aea61",
+      "scope": "Own Strong page215–265 nozzle60–80bed enclosure not needed/hardened not needed; no drying or service qualification inferred."
+    },
+    {
+      "source_sha256": "0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f",
+      "scope": "Own Light page same exact print windows and enclosure/nozzle-material statements; no unrelated Mars rover transfer."
+    }
+  ],
+  "answer_explanation": [
+    "Seven frozen UNKNOWN→PASS changes and their28 template-mode repetitions derive only from exact PAHT9825/Graphene Strong/Graphene Light product recipes; all product mechanical headlines/states unchanged, no environmental criterion pass.",
+    "T09 strict material count8→9 adds only M147; its existing modulus3.1±.1GPa/density1200kg/m3 remain unchanged. New bed upper bound and non-heated chamber resolve print gates; no maker-application claim or estimate creates this pass.",
+    "Complete136-material grid and48 actual renderer tab HTML checks preserve exact record/exposure qualifiers; assertions do not constitute browser-layout or human review."
+  ],
+  "corrections_resolved": [
+    "Compiled M147 bedC remains minnull/max80; actual drawer Overview explicitly states upper bound80/lower bound not published and CSV preserves upperbound. Source P1322 raw<80 and exact product gate remain faithful.",
+    "All nozzle/bed calibration peers now have finite lower/upper endpoints; M147 incomplete source is absent from M148 estimate peers. M148 now75–115 based only on M048 finite80–120 plus existing automatic fibre adjustment3C, distinct from old unsupported80–100.",
+    "Updated source fixture accurately names measurement-model invariance, separately reporting print-estimate recalibration."
+  ],
+  "estimate_separation": {
+    "measurement_model": "Measurements, product mechanical/physical headline and state lanes and measurement estimateModel unchanged.",
+    "print_estimates": "Compared with ninth baseline,11 materials have automatic print estimate fields/bases changed. This includes10bed changes from new recipe calibration and M155nozzle recalibration from separately fixed incomplete-peer exclusion. All are labelled estimates, decide nothing and are not new measurements.",
+    "no_synthetic_complete_peer": "Checked every final nozzle/bedEstimate peer min/max finite; incomplete published ranges are neither used as numeric calibration windows nor overwritten with estimates."
+  },
+  "ui_baseline_review": "Only five declared views differ: Indoor prototype79→81 (M147/M153), Lightweight13→14 (M147), beam8→9 /14products→15 (G147-01). Other64views unchanged in earlier intentional source-data baseline write. T09 assertion logic unchanged; neutral test name and exact original-grounded acceptance explanation.",
+  "scope_limits": [
+    "Final fullverify exit0, actual UI replay and backup/compiled-diff receipts remain required for final tranche release approval.",
+    "Recorded application/maker/environment narratives do not establish application/chemical/UV service qualification; newenvironmentrecords remain narrative and actual category queries have0verdict/screen changes.",
+    "Previously approved17joined product outcomes are bounded original/official-route outcomes with remaining vendor/test/identity holds; not universal source absence or wholecampaign completion.",
+    "No repeated broad source research performed: existing independent original reviews reused; changed final compiled/rendered lanes and current release receipts freshly checked."
+  ],
+  "review_signature_sha256": "c04fa0e6281f1e854fa5facbf2f262173ed47e748c83af19482c85f9df6f6c2f"
+}

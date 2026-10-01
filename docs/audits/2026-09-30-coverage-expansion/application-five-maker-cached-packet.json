@@ -1,0 +1,1209 @@
+{
+  "PacketID": "APPLICATION-FIVE-MAKER-CACHED-ORIGINALS",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "MakerBatches": [
+    {
+      "Maker": "Fabru",
+      "GradeIDs": [
+        "G137-01",
+        "G137-03",
+        "G138-01",
+        "G138-02",
+        "G139-01",
+        "G140-01",
+        "G140-02"
+      ]
+    },
+    {
+      "Maker": "colorFabb",
+      "GradeIDs": [
+        "G142-01",
+        "G143-01",
+        "G145-01",
+        "G165-01"
+      ]
+    },
+    {
+      "Maker": "LEHVOSS",
+      "GradeIDs": [
+        "G147-01",
+        "G148-01",
+        "G148-02"
+      ]
+    },
+    {
+      "Maker": "Prografen catalogue currently filed under3DJake",
+      "GradeIDs": [
+        "G153-01",
+        "G153-02"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M137",
+      "MaterialID": "M137",
+      "ActiveGradeIDs": [
+        "G137-01",
+        "G137-03"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G137-03",
+        "MaterialID": "M137",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "Cyclo-Olefin-Copolymer flexibel (COC flex)",
+        "Shared formulation key": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Composition / filler": "The sheet declares a softer grade: \"COC flex is an innovative, transparent thermoplastic elastomer based on cyclic olefin copolymers (COC)\". Its density of 940 kg/m³ is below what neat COC reaches (1010); recorded as a Variant under D57 (R098).",
+        "Variant": "declared softer grade",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04832",
+          "MaterialID": "M137",
+          "GradeID": "G137-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "COC Tough is a high-performance technical filament based on cyclo-olefin copolymer, specially developed for applications where mechanical strength, chemical resistance and optical neutrality are required.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04833",
+          "MaterialID": "M137",
+          "GradeID": "G137-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The high temperature resistance makes the material ideally suited for industrial applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04838",
+          "MaterialID": "M137",
+          "GradeID": "G137-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This property makes the material particularly suitable for applications where elasticity and formal stability are required under changing climatic conditions.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04839",
+          "MaterialID": "M137",
+          "GradeID": "G137-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "At the same time, the transparency of the material is maintained – a crucial advantage for medical, diagnostic or optical products.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+            "Publisher": "Fabru / purefil",
+            "Title": "Cyclo-olefin copolymer impact-modified (COC tough)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10802%2FMaterial-datasheet-COC-tough-purefil-EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G137-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83"
+          },
+          "OriginalPath": ".cache/sources/by-sha/bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+            "Publisher": "Fabru / purefil",
+            "Title": "Cyclo-Olefin-Copolymer flexibel (COC flex)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10857%2FMaterial-datasheet-COC-flex-purefil-EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G137-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M137",
+        "GradeID": "G137-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: COC tough and COC flex (G137-01/G137-03) publish industrial, optical and medical/diagnostic application claims (Q04832/Q04833/Q04838/Q04839). The originals provide maker descriptions without application validation, medical/skin qualification or a tested finishing process. Tough and the declared softer flex variant remain distinct; no transfer of temperature, hardness or suitability follows. Reviewed source basis: R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN, R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M138",
+      "MaterialID": "M138",
+      "ActiveGradeIDs": [
+        "G138-01",
+        "G138-02",
+        "G138-03"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G138-02",
+        "MaterialID": "M138",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "Polyethylen high density glass fiber 20% (HDPE GF20)",
+        "Shared formulation key": "R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil",
+        "Composition / filler": "Polyethylen high density glass fiber 20% (HDPE GF20) (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-PUREFIL-3493-Materialdatenblatt-HDPE-GF20-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Polyethylen hohe Dichte Glasfaser 20% (HDPE GF20)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/3493%2FMaterialdatenblatt+HDPE+GF20+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G138-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d19cd0fc99f6d375759c295a9f82eceba52ebf834028388d6e5dacd3f33feb92"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d19cd0fc99f6d375759c295a9f82eceba52ebf834028388d6e5dacd3f33feb92.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Polyethylen high density glass fiber 20% (HDPE GF20)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/3492%2FMaterial+data+sheet+HDPE+GF20+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G138-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "94d6f95435dad96fb8b3549cf34e2c970f697872893871d1d0ca7e37fa7e69c1"
+          },
+          "OriginalPath": ".cache/sources/by-sha/94d6f95435dad96fb8b3549cf34e2c970f697872893871d1d0ca7e37fa7e69c1.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M138",
+        "GradeID": "G138-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru HDPE GF20 originals (G138-01/G138-02) discuss generic polyethylene behaviour and explicitly describe difficulty painting or gluing. These are incomplete finishing limitations and polymer context, without a demonstrated product-specific finishing method or application qualification. Physiologically harmless wording about PE is not printed-product safety evidence. G138-03 iSANMATE is outside this maker batch and remains individually unassessed. Reviewed source basis: R-FABRU-PUREFIL-3493-Materialdatenblatt-HDPE-GF20-purefil, R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M139",
+      "MaterialID": "M139",
+      "ActiveGradeIDs": [
+        "G139-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G139-01",
+        "MaterialID": "M139",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Liquid Crystal Polymer (LCP)",
+        "Shared formulation key": "R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "- non-flammable (V0) (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Liquid Crystal Polymer (LCP)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/4706%2Fmaterial+data+sheet+LCP+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G139-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "f3499bee1ec12f918063f7389e3a7b8376384ec25b52d6d8f6627e655ae8ad6f"
+          },
+          "OriginalPath": ".cache/sources/by-sha/f3499bee1ec12f918063f7389e3a7b8376384ec25b52d6d8f6627e655ae8ad6f.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M139",
+        "GradeID": "G139-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru LCP (G139-01) claims suitability for large warp-free objects due to almost-zero shrinkage in its own sheet. This is a maker claim with no geometry, measured warp limit or application trial; anisotropy and poor interlayer adhesion remain explicit limitations (Q04854/Q04855). No structural, outdoor or electrical suitability follows. Reviewed source basis: R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M140",
+      "MaterialID": "M140",
+      "ActiveGradeIDs": [
+        "G140-01",
+        "G140-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G140-02",
+        "MaterialID": "M140",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "Polybutylenterephthalat (PBT)",
+        "Shared formulation key": "R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Inflammabilité (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Polybutylenterephthalat (PBT)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/656%2FMaterialdatenblatt+PBT+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G140-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "f525fe2f087d8dba3e8c6abb2efe5c6e5c01ad723bb5e20c55f8e578be4b4f25"
+          },
+          "OriginalPath": ".cache/sources/by-sha/f525fe2f087d8dba3e8c6abb2efe5c6e5c01ad723bb5e20c55f8e578be4b4f25.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Polybutylenterephthalat (PBT)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/652%2FFiche+technique+du+mat%C3%A9riau+PBT+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G140-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "005acd3413b46dcd585437ccc4092b7e8213cebeb02084c06cfff96e62240943"
+          },
+          "OriginalPath": ".cache/sources/by-sha/005acd3413b46dcd585437ccc4092b7e8213cebeb02084c06cfff96e62240943.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M140",
+        "GradeID": "G140-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru PBT (G140-01/G140-02) sheets describe electronics, electrical, automotive, machinery, chemical, appliance and sporting-goods industries as typical uses of thermoplastic PBT resin. Preserve that polymer/resin context without treating it as printed-product validation. High bed/chamber demands and the narrow processing window remain relevant; no demonstrated finishing method or universal suitability follows. Reviewed source basis: R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil, R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M142",
+      "MaterialID": "M142",
+      "ActiveGradeIDs": [
+        "G142-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G142-01",
+        "MaterialID": "M142",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "nGen CF10",
+        "Shared formulation key": "R-COLORFABB-TDS-nGen-CF10",
+        "Composition / filler": "Our great all-round 3D-printing filament just got better with the addition of a chopped carbon fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-nGen-CF10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04857",
+          "MaterialID": "M142",
+          "GradeID": "G142-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "nGen-CF10 retains good toughness and adds the matte carbon fiber high quality surface finish look to your 3D printed parts.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-COLORFABB-TDS-E-colorFabb-nGen-CF10",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04863",
+          "MaterialID": "M142",
+          "GradeID": "G142-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "nGen CF10 retains good toughness and adds the matte carbon fiber high quality surface finish look to your 3D printed part.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-COLORFABB-TDS-nGen-CF10",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-TDS-nGen-CF10",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet nGen CF10",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/colorFabb%20nGen/TDS_nGen%20CF10.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G142-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54"
+          },
+          "OriginalPath": ".cache/sources/by-sha/2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-TDS-E-colorFabb-nGen-CF10",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet nGen-CF10",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/TDS_E_colorFabb_nGen-CF10.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G142-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M142",
+        "GradeID": "G142-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: colorFabb nGen CF10 (G142-01) has a maker matte carbon-fibre surface-finish description in two editions (Q04857/Q04863). This describes the as-printed appearance, without a tested painting, coating or smoothing procedure or application validation. Edition-specific values and conditions remain separate; no selection pass follows. Reviewed source basis: R-COLORFABB-TDS-nGen-CF10, R-COLORFABB-TDS-E-colorFabb-nGen-CF10."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M143",
+      "MaterialID": "M143",
+      "ActiveGradeIDs": [
+        "G143-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G143-01",
+        "MaterialID": "M143",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "nGen_FLEX",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet nGen_FLEX",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/colorFabb%20nGen/TDS_E_ColorFabb_nGen_FLEX.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G143-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "828c974a3e8aaa5aabdf477c6fecf7e78447e715e9763a48b8387c00f50b0792"
+          },
+          "OriginalPath": ".cache/sources/by-sha/828c974a3e8aaa5aabdf477c6fecf7e78447e715e9763a48b8387c00f50b0792.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet nGen_FLEX",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://ninjatek.com/wp-content/uploads/colorFabb_nGen_Flex_Filament_TDS.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G143-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "e2a86ba681dd0ef8cb66eabf7b7f86a1d44a979f4299961202dc564728bfd939"
+          },
+          "OriginalPath": ".cache/sources/by-sha/e2a86ba681dd0ef8cb66eabf7b7f86a1d44a979f4299961202dc564728bfd939.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M143",
+        "GradeID": "G143-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: colorFabb nGen_FLEX (G143-01) older TDS names prosthetics, orthotics, automotive parts, apparel and tooling, plus a steam-sterilization claim. These remain bounded maker claims, without a sterilization protocol, medical approval or application test. The 2020 Amphora FL6000 and 2023 Neostar FN0006 source descriptions differ; formulation continuity and transfer of old claims to a current printed product are not established. Reviewed source basis: R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX, R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M145",
+      "MaterialID": "M145",
+      "ActiveGradeIDs": [
+        "G145-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G145-01",
+        "MaterialID": "M145",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "PLA/PHA",
+        "Shared formulation key": "R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet PLA/PHA",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by NinjaTek; the sheet is colorFabb's.",
+            "Citation role": "cited",
+            "URL": "https://ninjatek.com/wp-content/uploads/colorFabb_PLA-PHA_Printing_Filament_TDS.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G145-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d92bf0040ab556fb90b6060a652c07541c7364d9dcd25a18432f941242b7b5f7"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d92bf0040ab556fb90b6060a652c07541c7364d9dcd25a18432f941242b7b5f7.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-TDS-PLA-PHA",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet PLA/PHA",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/PLA/colorFabb%20PLA-PHA/TDS_PLA-PHA.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G145-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d9edb7dbfbf74ffd36e73df378554dc6889097289cbc20f5ecc753d4ae9b286f"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d9edb7dbfbf74ffd36e73df378554dc6889097289cbc20f5ecc753d4ae9b286f.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M145",
+        "GradeID": "G145-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: colorFabb PLA/PHA (G145-01) older TDS claims reliable prototyping and investment casting. No burnout schedule, residue measurement, mould/metal compatibility or verified casting outcome is supplied. Preserve the intended-use claim without calling it validated application or finishing evidence; biodegradability does not establish service suitability. Reviewed source basis: R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS, R-COLORFABB-TDS-PLA-PHA."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M147",
+      "MaterialID": "M147",
+      "ActiveGradeIDs": [
+        "G147-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G147-01",
+        "MaterialID": "M147",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PAHT 9825 NT",
+        "Shared formulation key": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flamability Behaviour UL 94 1/16“ - (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04907",
+          "MaterialID": "M147",
+          "GradeID": "G147-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Automotive industry, textile- and office machinery, apparatus- and precision engineering.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+            "Publisher": "LEHVOSS",
+            "Title": "Preliminary data sheet. HT",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by FormFutura; the sheet is LEHVOSS's.",
+            "Citation role": "cited",
+            "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/Partner%20Materials/Lehvoss/Luvocom%203F%20PAHT%209825%20NT/Data%20sheets%20%26%20declarations/TDS%20-%20LUVOCOM%203F%20PAHT%209825%20NT%20-%20Injection%20molded%20specimen.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G147-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497"
+          },
+          "OriginalPath": ".cache/sources/by-sha/5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+            "Publisher": "LEHVOSS",
+            "Title": "LUVOCOM 3F Filament PAHT® 9825 NT",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by colorFabb; the sheet is LEHVOSS's. The printed-specimen edition of the injection moulded sheet S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen: tensile values on printed ISO 3167 type A bars in two Ultimaker profiles, three XY rasters and ZX. Fetched in batch b36; entered by m198, a migration that checks each figure on its page (the owner's decision 7 of 2026-09-26).",
+            "Citation role": "cited",
+            "URL": "https://colorfabb.com/media/datasheets/tds/lehvoss/TDS_LUVOCOM_3F_Filaments_9825_NT.PDF",
+            "Locator": "Document / product page",
+            "Applicable grades": "G147-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M147",
+        "GradeID": "G147-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: LUVOCOM 3F PAHT 9825 NT (G147-01) has automotive, textile/office machinery and precision-engineering examples in the compound/moulded-specimen source (Q04907). A separate filament sheet reports geometric accuracy under named printer/settings and VDI3405:Part7; this is bounded printed-specimen context, not a universal part tolerance or qualified application. Compound examples do not establish FFF product suitability or transfer moulded values to prints. Reviewed source basis: S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen, R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M148",
+      "MaterialID": "M148",
+      "ActiveGradeIDs": [
+        "G148-01",
+        "G148-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G148-01",
+        "MaterialID": "M148",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PAHT 9936 BK",
+        "Shared formulation key": "S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK",
+            "Publisher": "LEHVOSS",
+            "Title": "PRELIMINARY DATASHEET LUVOCOM 3F PAHT 9936 BK",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by FormFutura; the sheet is LEHVOSS's.",
+            "Citation role": "cited",
+            "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/Partner%20Materials/Lehvoss/Luvocom%203F%20PAHT%209936%20BK/Data%20sheets%20%26%20declarations/TDS%20-%20LUVOCOM%203F%20PAHT%209936%20BK.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G148-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "775608da3240c9b6447e86ab7e3155a9ce5711db48d3341de47851f0c813b244"
+          },
+          "OriginalPath": ".cache/sources/by-sha/775608da3240c9b6447e86ab7e3155a9ce5711db48d3341de47851f0c813b244.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
+            "Publisher": "LEHVOSS",
+            "Title": "PRELIMINARY DATASHEET LUVOCOM 3F PAHT KK 50056 BK",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3D4Makers; the sheet is LEHVOSS's.",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_LUVOCOM_3F_PAHT_KK_50056_BK_FR_Filament_3D4Makers.pdf?v=1642530062",
+            "Locator": "Document / product page",
+            "Applicable grades": "G148-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "82824ad975f7e2923cdc88b7d289a17eb0068a7bce6060599e4aec4174cf36c2"
+          },
+          "OriginalPath": ".cache/sources/by-sha/82824ad975f7e2923cdc88b7d289a17eb0068a7bce6060599e4aec4174cf36c2.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR",
+            "Publisher": "LEHVOSS",
+            "Title": "LUVOCOM 3F PAHT® KK 50056 BK FR",
+            "Revision": "Preliminary datasheet",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "LEHVOSS's own preliminary datasheet for the compound LUVOCOM 3F PAHT KK 50056 BK FR, delivered as pellets; found by the research package of 2026-09-26 (P1-VALUES). Consulted beside the 3D4Makers filament sheet G148-02 cites; no value is transcribed from it.",
+            "Citation role": "corroboration",
+            "URL": "https://www.lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PAHT_KK_50056_BK_FR/25150056-en-ISO.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G148-02",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+            "SHA256": "1efb0c8fc5374517d4821681de6139129dd304739b3328d4f9572ccbd88ee8bd"
+          },
+          "OriginalPath": ".cache/sources/by-sha/1efb0c8fc5374517d4821681de6139129dd304739b3328d4f9572ccbd88ee8bd.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M148",
+        "GradeID": "G148-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the three reviewed cached originals for LUVOCOM 3F PAHT 9936 BK and PAHT KK 50056 BK FR (G148-01/G148-02). They provide material/processing and thermal/fire/rail context, predominantly compound/moulded specimens; the later 50056 sheet separately labels a printed V-0 specimen at0.4mm. Neither those labels, pellet predrying nor printing settings establish an application or finishing method. Official product/guide routes remain open; this is not public-source exhaustion or absence. 9936 BK/L remains a separate identity. Reviewed source basis: S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK, R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers, D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M153",
+      "MaterialID": "M153",
+      "ActiveGradeIDs": [
+        "G153-01",
+        "G153-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G153-01",
+        "MaterialID": "M153",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PROGRAFEN PET-G GRAPHENE STRONG",
+        "Shared formulation key": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+        "Composition / filler": "addition of graphene results in a 25% increase in the tensile strength of the material and a 20% increase in stiffness compared to (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05008",
+          "MaterialID": "M153",
+          "GradeID": "G153-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "Post-treatment Painting, smoothing",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q05011",
+          "MaterialID": "M153",
+          "GradeID": "G153-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "Post-treatment Painting, smoothing",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+            "Publisher": "Spectrum Group Sp. z o.o.",
+            "Title": "Technical Data Sheet PROGRAFEN PET-G GRAPHENE STRONG",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Publisher corrected from retailer/host attribution after rereading p. 2 Contact and Disclaimer: Spectrum Group Sp. z o.o. The unchanged original is hosted at nice-cdn.com. Existing catalogue manufacturer attribution to3DJake remains a separate identity question; no product/value transfer or grade manufacturer change.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_PETG_Graphene_Strong.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G153-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+            "Publisher": "Spectrum Group Sp. z o.o.",
+            "Title": "Technical Data Sheet PET-G PROGRAFEN GRAPHENE LIGHT",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Publisher corrected from retailer/host attribution after rereading p. 2 Contact and Disclaimer: Spectrum Group Sp. z o.o. The unchanged original is hosted at nice-cdn.com. Existing catalogue manufacturer attribution to3DJake remains a separate identity question; no product/value transfer or grade manufacturer change.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_PETG_Graphene_Light.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G153-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73"
+          },
+          "OriginalPath": ".cache/sources/by-sha/fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M153",
+        "GradeID": "G153-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: PROGRAFEN PET-G Graphene Strong and Light (G153-01/G153-02) own TDS copies name prototype 3D models, tooling, construction elements and everyday-use items; they also list painting and smoothing (Q05008/Q05011) without a method or result. These are maker intended-use/finishing claims without product application validation. Strong and Light remain distinct and missing specimen/orientation conditions are not inferred from another revision. Reviewed source basis: R-3DJAKE-EN-TDS-PETG-Graphene-Strong, R-3DJAKE-EN-TDS-PETG-Graphene-Light."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-M165",
+      "MaterialID": "M165",
+      "ActiveGradeIDs": [
+        "G165-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G165-01",
+        "MaterialID": "M165",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "PA-CF low warp",
+        "Shared formulation key": "R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS",
+        "Composition / filler": "The addition of carbon fibers makes this filament highly abrasive for regular brass nozzle. We (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet colorFabb PA-CF low warp",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by NinjaTek; the sheet is colorFabb's.",
+            "Citation role": "cited",
+            "URL": "https://ninjatek.com/wp-content/uploads/colorFabb_PA-CF_Low_Warp_TDS.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G165-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d7211f580c38f8826633a1b0bf50740de4277c897ea716450f34943a43faee15"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d7211f580c38f8826633a1b0bf50740de4277c897ea716450f34943a43faee15.pdf",
+          "OriginalPagesReread": true,
+          "PrivateReadingNote": "Private digest-derived fresh text retained in campaign; original SHA256 is the authority. No private derived text shipped."
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M165",
+        "GradeID": "G165-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the reviewed cached colorFabb PA-CF low warp (G165-01) sheet. It provides near-warp-free printing, continuous-temperature and abrasion/recipe context, without a named end-use or finishing method/result. Keep those statements in their existing print/thermal/know-how lanes; they do not establish an application assessment basis or service allowable. Official product/guide routes remain open; this is not public-source exhaustion or absence. Reviewed source basis: R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS."
+      },
+      "PrimaryReview": "Hash-checked originals and all pages reread by Codex AI injector; no human review. Source excerpts remain authoritative over summaries.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M137",
+      "append": {
+        "MaterialID": "M137",
+        "GradeID": "G137-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: COC tough and COC flex (G137-01/G137-03) publish industrial, optical and medical/diagnostic application claims (Q04832/Q04833/Q04838/Q04839). The originals provide maker descriptions without application validation, medical/skin qualification or a tested finishing process. Tough and the declared softer flex variant remain distinct; no transfer of temperature, hardness or suitability follows. Reviewed source basis: R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN, R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M138",
+      "append": {
+        "MaterialID": "M138",
+        "GradeID": "G138-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru HDPE GF20 originals (G138-01/G138-02) discuss generic polyethylene behaviour and explicitly describe difficulty painting or gluing. These are incomplete finishing limitations and polymer context, without a demonstrated product-specific finishing method or application qualification. Physiologically harmless wording about PE is not printed-product safety evidence. G138-03 iSANMATE is outside this maker batch and remains individually unassessed. Reviewed source basis: R-FABRU-PUREFIL-3493-Materialdatenblatt-HDPE-GF20-purefil, R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M139",
+      "append": {
+        "MaterialID": "M139",
+        "GradeID": "G139-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru LCP (G139-01) claims suitability for large warp-free objects due to almost-zero shrinkage in its own sheet. This is a maker claim with no geometry, measured warp limit or application trial; anisotropy and poor interlayer adhesion remain explicit limitations (Q04854/Q04855). No structural, outdoor or electrical suitability follows. Reviewed source basis: R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M140",
+      "append": {
+        "MaterialID": "M140",
+        "GradeID": "G140-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru PBT (G140-01/G140-02) sheets describe electronics, electrical, automotive, machinery, chemical, appliance and sporting-goods industries as typical uses of thermoplastic PBT resin. Preserve that polymer/resin context without treating it as printed-product validation. High bed/chamber demands and the narrow processing window remain relevant; no demonstrated finishing method or universal suitability follows. Reviewed source basis: R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil, R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M142",
+      "append": {
+        "MaterialID": "M142",
+        "GradeID": "G142-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: colorFabb nGen CF10 (G142-01) has a maker matte carbon-fibre surface-finish description in two editions (Q04857/Q04863). This describes the as-printed appearance, without a tested painting, coating or smoothing procedure or application validation. Edition-specific values and conditions remain separate; no selection pass follows. Reviewed source basis: R-COLORFABB-TDS-nGen-CF10, R-COLORFABB-TDS-E-colorFabb-nGen-CF10."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M143",
+      "append": {
+        "MaterialID": "M143",
+        "GradeID": "G143-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: colorFabb nGen_FLEX (G143-01) older TDS names prosthetics, orthotics, automotive parts, apparel and tooling, plus a steam-sterilization claim. These remain bounded maker claims, without a sterilization protocol, medical approval or application test. The 2020 Amphora FL6000 and 2023 Neostar FN0006 source descriptions differ; formulation continuity and transfer of old claims to a current printed product are not established. Reviewed source basis: R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX, R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M145",
+      "append": {
+        "MaterialID": "M145",
+        "GradeID": "G145-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: colorFabb PLA/PHA (G145-01) older TDS claims reliable prototyping and investment casting. No burnout schedule, residue measurement, mould/metal compatibility or verified casting outcome is supplied. Preserve the intended-use claim without calling it validated application or finishing evidence; biodegradability does not establish service suitability. Reviewed source basis: R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS, R-COLORFABB-TDS-PLA-PHA."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M147",
+      "append": {
+        "MaterialID": "M147",
+        "GradeID": "G147-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: LUVOCOM 3F PAHT 9825 NT (G147-01) has automotive, textile/office machinery and precision-engineering examples in the compound/moulded-specimen source (Q04907). A separate filament sheet reports geometric accuracy under named printer/settings and VDI3405:Part7; this is bounded printed-specimen context, not a universal part tolerance or qualified application. Compound examples do not establish FFF product suitability or transfer moulded values to prints. Reviewed source basis: S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen, R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M148",
+      "append": {
+        "MaterialID": "M148",
+        "GradeID": "G148-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the three reviewed cached originals for LUVOCOM 3F PAHT 9936 BK and PAHT KK 50056 BK FR (G148-01/G148-02). They provide material/processing and thermal/fire/rail context, predominantly compound/moulded specimens; the later 50056 sheet separately labels a printed V-0 specimen at0.4mm. Neither those labels, pellet predrying nor printing settings establish an application or finishing method. Official product/guide routes remain open; this is not public-source exhaustion or absence. 9936 BK/L remains a separate identity. Reviewed source basis: S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK, R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers, D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M153",
+      "append": {
+        "MaterialID": "M153",
+        "GradeID": "G153-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: PROGRAFEN PET-G Graphene Strong and Light (G153-01/G153-02) own TDS copies name prototype 3D models, tooling, construction elements and everyday-use items; they also list painting and smoothing (Q05008/Q05011) without a method or result. These are maker intended-use/finishing claims without product application validation. Strong and Light remain distinct and missing specimen/orientation conditions are not inferred from another revision. Reviewed source basis: R-3DJAKE-EN-TDS-PETG-Graphene-Strong, R-3DJAKE-EN-TDS-PETG-Graphene-Light."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M165",
+      "append": {
+        "MaterialID": "M165",
+        "GradeID": "G165-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: no usable intended-use or post-print finishing basis was found in the reviewed cached colorFabb PA-CF low warp (G165-01) sheet. It provides near-warp-free printing, continuous-temperature and abrasion/recipe context, without a named end-use or finishing method/result. Keep those statements in their existing print/thermal/know-how lanes; they do not establish an application assessment basis or service allowable. Official product/guide routes remain open; this is not public-source exhaustion or absence. Reviewed source basis: R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS."
+      },
+      "supersede": []
+    }
+  ],
+  "BatchLimitation": "Application-only judgments do not close joined product tasks; official-route/new-source research continues. No universal absence or search exhaustion claimed."
+}

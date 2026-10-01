@@ -1,0 +1,607 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f",
+    "url": "https://spectrumfilaments.com/en/filament/prografen-petg-graphene-light/",
+    "pages": 1,
+    "provider": "3DJake",
+    "manufacturer": "3DJake",
+    "docKey": "https://spectrumfilaments.com/en/filament/prografen-petg-graphene-light/#witness-for=source:R-3DJAKE-EN-TDS-PETG-Graphene-Light"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+      "Publisher": "Spectrum Group Sp. z o.o.",
+      "Title": "Prografen PET-G Graphene Light official product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Saved exact original, campaign witness/import pipeline; no source overwrite or edition priority.",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/en/filament/prografen-petg-graphene-light/",
+      "Locator": "Document / exact product section",
+      "Applicable grades": "G153-02",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified private saved original, no refetch of applied digest.",
+      "SHA256": "0b9610f0788646128bec7ab0556c2da31f5793ba6b363384eb93ba950ca5b42f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Select a filament category:"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independently reviewed frozen operations required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G153-02",
+      "row": {
+        "GradeID": "G153-02",
+        "MaterialID": "M153",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PET-G PROGRAFEN GRAPHENE LIGHT",
+        "Shared formulation key": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Existing stable identity only; no catalogue addition or row update."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not necessary",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "recommended",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle recommended",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DJAKE-PET-G-PROGRAFEN-GRAPHENE-LIGHT",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "Up to 100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "s up to 800 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure not necessary"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      }
+    },
+    {
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "215-265°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "215",
+        "Nozzle max °C": "265",
+        "Nozzle requirement": "required",
+        "Bed °C": "60-80°C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not necessary",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Ruby or hardened nozzle recommended No",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle recommended No",
+        "Hardened nozzle": "FALSE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: How to use: nozzle215–265°C; bed60–80°C; enclosure not necessary; ruby/hardened nozzle recommended No; own description standard brass nozzles",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "nozzle: 215-265°C; bed: 60-80°C; enclosure: not necessary; nozzle-material: No",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "All raw/typed profile fields require independent original reread; preserve bounds and context. No source supersession."
+      },
+      "id": "c05-profile-G153-02"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c05-0b9610f0-1",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "visual and functional prototyping",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 1; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "visual and functional prototyping",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-0b9610f0-2",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "fit testing",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 2; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "fit testing",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-0b9610f0-3",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "concept models",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 3; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "concept models",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-0b9610f0-4",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "manufacturing aids",
+        "Exposure / conditions": "Maker claim only; no controlled application test, specimen, concentration, exposure temperature/duration, certification or suitability pass. Exact named product, no neighbouring-product transfer.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Locator": "p. 1: Applications, exact Prografen Light section; frozen clause 4; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "manufacturing aids",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-0b9610f0-5",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Limitations",
+        "Topic": "Grade distinction",
+        "Finding": "manufacturing of semi-transparent enclosures and backlit sections of various boards and signs",
+        "Exposure / conditions": "Own Applications section contrasts with the portfolio brand feature Deep black color and this Light TDS colour black; no light-transmission test or colour/edition continuity settles this apparent template/colour conflict. Retain as conflicting narrative, not a translucency/application approval. Nearby Mars-rover case study explicitly concerns PETG Premium and is not this product.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Locator": "p. 1: Applications, semi-transparent/backlit bullet; portfolio colour; Light TDS colour only; frozen clause 5; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "manufacturing of semi-transparent enclosures and backlit sections of various boards and signs",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    },
+    {
+      "id": "c05-0b9610f0-6",
+      "gradeKey": "G153-02",
+      "row": {
+        "MaterialID": "M153",
+        "GradeID": "G153-02",
+        "Domain": "Durability",
+        "Topic": "Chemical exposure",
+        "Finding": "chemical resistance",
+        "Exposure / conditions": "Unqualified exact-product maker statement; agent, concentration, temperature, duration, specimen and result not published in this clause. No solvent-, weather- or category-level pass; neighbouring PET-G HT100 FDA and PET-G MATT UV claims not transferred.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-COVERAGE-20261001-0b9610f07886",
+        "Locator": "p. 1: Own Material characteristics section; frozen clause 6; explicitly scoped product G153-02"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "chemical resistance",
+        "ocr": false
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "visual": false,
+        "note": "Source own clause read directly; independent frozen operation review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Nozzle temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Bed temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "Up to 100%",
+      "fromBelow": true,
+      "line": "Cooling Up to 100%"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "not necessary",
+      "fromBelow": true,
+      "line": "Enclosure not necessary"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Ruby or hardened nozzle",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Ruby or hardened nozzle recommended"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "printing speed",
+      "raw": "s up to 800 mm/s",
+      "fromBelow": false,
+      "line": "printing speeds up to 800 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Prografen PET-G Graphene Light is a graphene-enhanced filament for 3D printing, designed for everyday engineering and industrial applications. It contains 0.5% ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The filament can be easily printed using standard brass nozzles without the risk of excessive wear, unlike materials reinforced with carbon fibers. Prografen PE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Graphene is a one-atom-thick material composed of carbon atoms arranged in a honeycomb structure, which significantly enhances the mechanical and functional pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperature resistance HDT – 69°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature – 78°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "215-265°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "60-80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40-600 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature – 78°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "10% PTFE content",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "thermal resistance up to 70°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature – 75°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "PET-G HT100™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "high temperature resistance (100°C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PCTG CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10% carbon fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HDT thermal resistance – 78°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature – 78°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "heat deflection temperature – 70°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Wide portfolio consisting of over 50 filaments with a versatile range of properties and applications, divided into three segments: desktop easy-to-use, industri",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our qualified support team helps at every stage from material selection to the 3D printing process.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spectrum Group Sp. z o.o. Parkowa 85 05-806 Pęcice VAT EU: PL5342505042 KRS: 0000560153 REGON: 361615220",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2025 Spectrum Filaments. All rights reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+    "note": "Only independently signed narrative and profile operations accepted; all automatic measurements rejected, conditions left missing, no new product."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independently reviewed frozen operations required; no human review",
+        "note": "Automatic rows rejected; admission restricted to frozen independently reviewed operations."
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PLA / Bio-performance",
+        "Shared formulation key": "R-3DJAKE-PET-G-PROGRAFEN-GRAPHENE-LIGHT",
+        "Composition / filler": "Prografen PET-G Graphene Light is a graphene-enhanced filament for 3D printing, designed for everyday engineering and industrial applications. It contains 0.5%  (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-PET-G-PROGRAFEN-GRAPHENE-LIGHT",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Select a filament category:"
+      }
+    }
+  ],
+  "newMaterial": null
+}

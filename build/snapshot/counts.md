@@ -11,7 +11,7 @@ rather than repeat a number.
 | … out of scope | 17 | recorded, never a candidate |
 | Products | 1,128 | active procurement grades |
 | … with a comparable value for at least one property | 1,015 | D84 |
-| … with a print profile of their own | 1,006 |  |
+| … with a print profile of their own | 1,008 |  |
 | … reading values from a twin's sheet | 45 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 477 | where their own sheet is silent (D88); 33 guide rows |
 | … with a maker's know-how statement | 1,049 | lane 3 |
@@ -20,8 +20,8 @@ rather than repeat a number.
 | Product values | 4,535 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 663 | headline cells of in-scope materials |
 | Material values estimated | 148 | where no product publishes (D43) |
-| Print profiles | 1,316 |  |
-| Evidence records | 760 | exposure, flammability, post-processing and the rest |
-| Know-how statements | 4,674 | the makers' words, shown in the panel only (D85) |
+| Print profiles | 1,323 |  |
+| Evidence records | 770 | exposure, flammability, post-processing and the rest |
+| Know-how statements | 4,698 | the makers' words, shown in the panel only (D85) |
 | Price observations | 357 | sampled 2026-09-30 |
-| Sources | 1,839 |  |
+| Sources | 1,846 |  |

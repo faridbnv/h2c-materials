@@ -78,8 +78,8 @@
       "policy": { "unknownPolicy": "strict" },
       "rankBy": "beam-stiffness",
       "expect": {
-        "passMaterials": 8,
-        "because": "The eight materials the review's live trial and its pure recheck found pass; a presentation change moves no verdict. The decision set is every passing product whose own judged state publishes both values, re-derived in the test from the products' states, not from the workspace."
+        "passMaterials": 9,
+        "because": "The original eight materials remain passing. Campaign m271 adds M147 / G147-01 after independently re-reading exact PAHT9825 FFF guide bed<80C and non-heated-chamber instructions; its existing comparable stiffness/density and270-290C nozzle are unchanged. No application or environmental claim establishes this pass. The decision set is every passing product whose own judged state publishes both values, re-derived in the test from the products' states, not from the workspace."
       }
     }
   ]

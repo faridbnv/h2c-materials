@@ -1,0 +1,1222 @@
+{
+  "release": "990e56ba9394",
+  "parent_commit": "cdb795a",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "scorecard": [
+    "C3",
+    "C6",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C15"
+  ],
+  "canonical_operations": {
+    "Application_new_rows": 13,
+    "distinct_material_targets": 12,
+    "sources_new": 7,
+    "sources_promoted": 1,
+    "evidence_clauses": 34,
+    "profiles": 7,
+    "measurements_new": 0
+  },
+  "source_fixtures": 59,
+  "migration_guard_cases": 21,
+  "compiled_difference_paths": 291,
+  "source_backup": {
+    "originals": 2397,
+    "derived_files": 2800,
+    "known_absent": 124
+  },
+  "independent_review": "AI; no human review or interactive drawer-layout claim",
+  "cold_timing": "Not rerun; prior cold limitation remains",
+  "automatic_print_estimate_changes": 11,
+  "warm_verify_fast_seconds": 27.48,
+  "full_verify_seconds": 273.73,
+  "full_verify_exit": 0,
+  "replays": {
+    "frozen": {
+      "before_release": "1cce208a3e15",
+      "after_release": "990e56ba9394",
+      "questions": 15,
+      "evaluations": 18195,
+      "answer_changes": 7,
+      "changes": [
+        {
+          "question": "Indoor prototype",
+          "level": "material",
+          "id": "M147",
+          "before": "UNKNOWN",
+          "after": "PASS"
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G147-01",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "before_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 290 \u00b0C, within the H2C's 350 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No numeric requirement published",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No numeric requirement published",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "priceCADkg <= 45",
+              "status": "UNKNOWN",
+              "reason": "No price observation of its own in the sampled shops",
+              "constraint": {
+                "kind": "numeric",
+                "property": "priceCADkg",
+                "operator": "<=",
+                "value": 45,
+                "mandatory": false,
+                "__group": "Cost"
+              },
+              "missing": "not-available-in-market"
+            }
+          ],
+          "after_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 290 \u00b0C, within the H2C's 350 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 80 \u00b0C, within the H2C's 120 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "No heated requirement stated",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "priceCADkg <= 45",
+              "status": "UNKNOWN",
+              "reason": "No price observation of its own in the sampled shops",
+              "constraint": {
+                "kind": "numeric",
+                "property": "priceCADkg",
+                "operator": "<=",
+                "value": 45,
+                "mandatory": false,
+                "__group": "Cost"
+              },
+              "missing": "not-available-in-market"
+            }
+          ]
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "material",
+          "id": "M153",
+          "before": "UNKNOWN",
+          "after": "PASS"
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G153-01",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "before_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No print profile recorded for this product",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No print profile recorded for this product",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No print profile recorded for this product",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "priceCADkg <= 45",
+              "status": "FAIL",
+              "reason": "Published 85.76 CAD/kg",
+              "constraint": {
+                "kind": "numeric",
+                "property": "priceCADkg",
+                "operator": "<=",
+                "value": 45,
+                "mandatory": false,
+                "__group": "Cost"
+              },
+              "measurementId": null,
+              "observed": 85.76,
+              "unit": "CAD/kg",
+              "closeToLimit": false
+            }
+          ],
+          "after_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 265 \u00b0C, within the H2C's 350 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 80 \u00b0C, within the H2C's 120 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "priceCADkg <= 45",
+              "status": "FAIL",
+              "reason": "Published 85.76 CAD/kg",
+              "constraint": {
+                "kind": "numeric",
+                "property": "priceCADkg",
+                "operator": "<=",
+                "value": 45,
+                "mandatory": false,
+                "__group": "Cost"
+              },
+              "measurementId": null,
+              "observed": 85.76,
+              "unit": "CAD/kg",
+              "closeToLimit": false
+            }
+          ]
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G153-02",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "before_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No print profile recorded for this product",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No print profile recorded for this product",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No print profile recorded for this product",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "priceCADkg <= 45",
+              "status": "UNKNOWN",
+              "reason": "No price observation of its own in the sampled shops",
+              "constraint": {
+                "kind": "numeric",
+                "property": "priceCADkg",
+                "operator": "<=",
+                "value": 45,
+                "mandatory": false,
+                "__group": "Cost"
+              },
+              "missing": "not-available-in-market"
+            }
+          ],
+          "after_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 265 \u00b0C, within the H2C's 350 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 80 \u00b0C, within the H2C's 120 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "priceCADkg <= 45",
+              "status": "UNKNOWN",
+              "reason": "No price observation of its own in the sampled shops",
+              "constraint": {
+                "kind": "numeric",
+                "property": "priceCADkg",
+                "operator": "<=",
+                "value": 45,
+                "mandatory": false,
+                "__group": "Cost"
+              },
+              "missing": "not-available-in-market"
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure",
+          "level": "material",
+          "id": "M147",
+          "before": "UNKNOWN",
+          "after": "PASS"
+        },
+        {
+          "question": "Lightweight structure",
+          "level": "product",
+          "id": "G147-01",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "before_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 290 \u00b0C, within the H2C's 350 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No numeric requirement published",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "UNKNOWN",
+              "reason": "No numeric requirement published",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "density <= 1250",
+              "status": "PASS",
+              "reason": "Published 1200 kg/m\u00b3 (ISO 1183)",
+              "constraint": {
+                "kind": "numeric",
+                "property": "density",
+                "operator": "<=",
+                "value": 1250,
+                "mandatory": true,
+                "__group": "Mechanical"
+              },
+              "measurementId": "V011438",
+              "observed": 1200,
+              "unit": "kg/m\u00b3",
+              "closeToLimit": false
+            },
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "status": "PASS",
+              "reason": "Published 3.1 \u00b1 0.1 GPa (XY) (ISO 527, ISO 3167); moisture state and treatment not stated, admitted for screening",
+              "constraint": {
+                "kind": "numeric",
+                "property": "tensileModulusXY",
+                "operator": ">=",
+                "value": 2.5,
+                "mandatory": true,
+                "__group": "Mechanical"
+              },
+              "measurementId": "V011415",
+              "observed": 3.1,
+              "unit": "GPa",
+              "closeToLimit": false,
+              "admitted": [
+                "moisture",
+                "treatment"
+              ]
+            }
+          ],
+          "after_results": [
+            {
+              "criterion": "H2C-relevant scope",
+              "status": "PASS",
+              "reason": "In scope for the H2C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "scope",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Build material",
+              "status": "PASS",
+              "reason": "Recorded as a build material",
+              "constraint": {
+                "kind": "facet",
+                "facet": "supportMaterial",
+                "equals": false,
+                "__group": "Manufacturing"
+              }
+            },
+            {
+              "criterion": "Nozzle temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 290 \u00b0C, within the H2C's 350 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "nozzle",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "Needs up to 80 \u00b0C, within the H2C's 120 \u00b0C",
+              "constraint": {
+                "kind": "gate",
+                "gate": "bed",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "status": "PASS",
+              "reason": "No heated requirement stated",
+              "constraint": {
+                "kind": "gate",
+                "gate": "chamber",
+                "__group": "Compatibility"
+              }
+            },
+            {
+              "criterion": "density <= 1250",
+              "status": "PASS",
+              "reason": "Published 1200 kg/m\u00b3 (ISO 1183)",
+              "constraint": {
+                "kind": "numeric",
+                "property": "density",
+                "operator": "<=",
+                "value": 1250,
+                "mandatory": true,
+                "__group": "Mechanical"
+              },
+              "measurementId": "V011438",
+              "observed": 1200,
+              "unit": "kg/m\u00b3",
+              "closeToLimit": false
+            },
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "status": "PASS",
+              "reason": "Published 3.1 \u00b1 0.1 GPa (XY) (ISO 527, ISO 3167); moisture state and treatment not stated, admitted for screening",
+              "constraint": {
+                "kind": "numeric",
+                "property": "tensileModulusXY",
+                "operator": ">=",
+                "value": 2.5,
+                "mandatory": true,
+                "__group": "Mechanical"
+              },
+              "measurementId": "V011415",
+              "observed": 3.1,
+              "unit": "GPa",
+              "closeToLimit": false,
+              "admitted": [
+                "moisture",
+                "treatment"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "environment": {
+      "before_commit": "981263e",
+      "baseline_core": false,
+      "baseline_basis": "Frozen compiled database of the named committed baseline. Environment replay compares verdicts/screens; source-level changes are reviewed separately.",
+      "questions": 48,
+      "evaluations": 58224,
+      "answer_changes": 0,
+      "changes": []
+    },
+    "template": {
+      "before_release": "1cce208a3e15",
+      "after_release": "990e56ba9394",
+      "question_modes": 24,
+      "evaluations": 30744,
+      "answer_changes": 28,
+      "changes": [
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M153\"]",
+            "level": "material",
+            "id": "M153",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G153-02",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Strict\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Strict\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Explore\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Explore\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Explore with estimates\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Explore with estimates\",\"M147\"]",
+            "level": "material",
+            "id": "M147",
+            "verdict": "PASS",
+            "screened": false
+          }
+        },
+        {
+          "before": {
+            "key": "[\"Lightweight structure\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "UNKNOWN",
+            "screened": false
+          },
+          "after": {
+            "key": "[\"Lightweight structure\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+            "level": "product",
+            "id": "G147-01",
+            "verdict": "PASS",
+            "screened": false
+          }
+        }
+      ]
+    }
+  },
+  "unit_tests": 454,
+  "import_tests": 194,
+  "interface_views": 69,
+  "rendered_scenarios": 300,
+  "readings": 2592,
+  "rendered_scenario_seconds": 51.6,
+  "ui_baseline_change": "Five independently reviewed counts only",
+  "logs": [
+    {
+      "name": "tenth-fixed-build.log",
+      "sha256": "2a5ed224500ac79bea9d5990e8c7cc9845741390c65bc715e0a5e057987936f9"
+    },
+    {
+      "name": "tenth-fixed-snapshot.log",
+      "sha256": "3358cd22650cfa43d7c0b055bf270d1419c4b82b33ff4f423de879b3ba581d2e"
+    },
+    {
+      "name": "tenth-fixed-verify-full.log",
+      "sha256": "ad9d6cc64718441060284507f7c780f0b2fabeff671f8289c3f4c7abe7d0e517"
+    },
+    {
+      "name": "tenth-fixed-verify-fast.log",
+      "sha256": "2468c55d4b89b2580bf6c2be6492c6f13e7e1003fc1cd19fd51ba6b5a2f4f825"
+    },
+    {
+      "name": "tenth-fixed-build-diff.log",
+      "sha256": "b18945f36f9a385d079065242b385ca0c1627db7b7251b01bce5b07028979524"
+    },
+    {
+      "name": "tenth-fixed-record-diff.log",
+      "sha256": "0efa3763a7defb398bb00965994f048e4c559f62a7b68aaf3c62de6fbcc6e681"
+    },
+    {
+      "name": "tenth-fixed-source-backup.log",
+      "sha256": "96b590c23d4b09bab4caed3bf4cd8612e5a450b96fa2134b31ac65367ea00df9"
+    }
+  ]
+}
