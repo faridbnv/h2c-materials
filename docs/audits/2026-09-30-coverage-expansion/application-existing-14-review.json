@@ -1,0 +1,294 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/application-existing-14-packet.json",
+  "input_sha256": "8c269c807bcb635e333dbdec73748c19f607d183d4f3dbef04d35be2d469fc09",
+  "signed_at_utc": "2026-10-01T04:06:19.583720+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 14,
+  "source_reading_batches": {
+    "Spectrum": 3,
+    "Nanovia": 2,
+    "FormFutura": 3,
+    "Extrudr": 3,
+    "Fillamentum": 3
+  },
+  "operations": [
+    {
+      "FindingID": "CE-APP-M105",
+      "verdict": "APPROVE",
+      "MaterialID": "M105",
+      "GradeID": "G105-01",
+      "EvidenceID": "Q04646",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asa-conductive",
+      "source_sha256": "1fba88b90bf4990299ebc527ee590dc6d4bcdc2f07191bd9bb7cdbd2001ea0dc",
+      "OriginalPath": ".cache/sources/by-sha/1fba88b90bf4990299ebc527ee590dc6d4bcdc2f07191bd9bb7cdbd2001ea0dc.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "This makes the filament an excellent choice for applications requiring effective current conduction.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M107",
+      "verdict": "APPROVE",
+      "MaterialID": "M107",
+      "GradeID": "G107-01",
+      "EvidenceID": "Q04671",
+      "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD",
+      "source_sha256": "4e18fc47b5ce4d8b7a8e34b0c7f026ad834a2044b2e82aba7d2165db94141ee2",
+      "OriginalPath": ".cache/sources/by-sha/4e18fc47b5ce4d8b7a8e34b0c7f026ad834a2044b2e82aba7d2165db94141ee2.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "Spectrum PLA ESD is a modern, antistatic 3D print-ing filament based on a modified PLA biopolymer that provides permanent protection against electro-static discharge (ESD) and sparking in explosive (EX / ATEX) environments.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification.",
+        "EX/ATEX wording is raw maker description, not reviewed printed-product certification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M111",
+      "verdict": "APPROVE",
+      "MaterialID": "M111",
+      "GradeID": "G111-01",
+      "EvidenceID": "Q04717",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-conductive",
+      "source_sha256": "bf38c474a2d2d60875656dec7e9adc0992d814396194791b6358d42621638e36",
+      "OriginalPath": ".cache/sources/by-sha/bf38c474a2d2d60875656dec7e9adc0992d814396194791b6358d42621638e36.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "The material is based on a PLA polymer modified with carbon nanotubes (CNT), which significantly reduce surface resistivity \u2013 making it suitable for compo-nents that require basic electrical conduction.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M106",
+      "verdict": "APPROVE",
+      "MaterialID": "M106",
+      "GradeID": "G106-03",
+      "EvidenceID": "Q04664",
+      "SourceID": "R-NANOVIA-ABS-AF",
+      "source_sha256": "d34b740369eeb42a0569f4cad521ed7d7e26933a7e3aab0ad56bbfeeffe97405",
+      "OriginalPath": ".cache/sources/by-sha/d34b740369eeb42a0569f4cad521ed7d7e26933a7e3aab0ad56bbfeeffe97405.html",
+      "Locator": "p. 1",
+      "raw_source_basis": "For an outdoor usage, we recommend that you paint your print or submit them to an anti UV treatment, such as our Nanovia smoothing solution.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification.",
+        "Outdoor paint/anti-UV recommendation has no process or retention result; following source sentence says ABS/aramid sensitive to UV. No outdoor suitability inferred."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M112",
+      "verdict": "APPROVE",
+      "MaterialID": "M112",
+      "GradeID": "G112-02",
+      "EvidenceID": "Q04734",
+      "SourceID": "R-NANOVIA-PC-PTFE",
+      "source_sha256": "b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150",
+      "OriginalPath": ".cache/sources/by-sha/b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150.html",
+      "Locator": "p. 1",
+      "raw_source_basis": "PolyT\u00e9traFluoro\u00e9thyl\u00e8ne (PTFE) low friction index combined with polycarbonate\u2019s (PC) mechanical resistance makes this filament ideal for mechanical pieces exposed to friction, such as gears.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M110",
+      "verdict": "APPROVE",
+      "MaterialID": "M110",
+      "GradeID": "G110-02",
+      "EvidenceID": "Q04700",
+      "SourceID": "S-PET-TDS-AthenaX-GF10",
+      "source_sha256": "afbcb26046c16af853e4a48346ebd9ac8bf36daa642a827acb42492e7a367745",
+      "OriginalPath": ".cache/sources/by-sha/afbcb26046c16af853e4a48346ebd9ac8bf36daa642a827acb42492e7a367745.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "Making tooling, equipment, and manufacturing aids.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M113",
+      "verdict": "APPROVE",
+      "MaterialID": "M113",
+      "GradeID": "G113-02",
+      "EvidenceID": "Q04747",
+      "SourceID": "S-PET-TDS-ApolloX-Kevlar",
+      "source_sha256": "247abb9d6cb925a232b6f816dff3bbb4aea450a2300970eeb8513cd2e350e304",
+      "OriginalPath": ".cache/sources/by-sha/247abb9d6cb925a232b6f816dff3bbb4aea450a2300970eeb8513cd2e350e304.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "Fixtures, tooling, work holding, and soft jaws",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M144",
+      "verdict": "APPROVE",
+      "MaterialID": "M144",
+      "GradeID": "G144-01",
+      "EvidenceID": "Q04871",
+      "SourceID": "S-PET-formfutura-tds-athenaxcf10",
+      "source_sha256": "a3a4ff83477dda017dd095ab0481e4e15b99d56dbaee772b069d76f3d160f95d",
+      "OriginalPath": ".cache/sources/by-sha/a3a4ff83477dda017dd095ab0481e4e15b99d56dbaee772b069d76f3d160f95d.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "3D printing end-use parts.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M126",
+      "verdict": "APPROVE",
+      "MaterialID": "M126",
+      "GradeID": "G126-02",
+      "EvidenceID": "Q04783",
+      "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
+      "source_sha256": "cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901",
+      "OriginalPath": ".cache/sources/by-sha/cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "Due to its low evaporation rate, FLEX Medium ESD is particularly suitable for automotive interior applications.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification.",
+        "Low evaporation automotive-interior claim is qualitative; no printed finished-part emissions approval. Raw-resin REACH/RoHS is not product validation."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M152",
+      "verdict": "APPROVE",
+      "MaterialID": "M152",
+      "GradeID": "G152-01",
+      "EvidenceID": "Q04987",
+      "SourceID": "R-EXTRUDR-flax-TDS-en",
+      "source_sha256": "9369384413f53d7b7b03f0ecd3c603bf828b66c446ebd2286214371438ccd1ca",
+      "OriginalPath": ".cache/sources/by-sha/9369384413f53d7b7b03f0ecd3c603bf828b66c446ebd2286214371438ccd1ca.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "The material has been developed for rapid prototyping applications.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M159",
+      "verdict": "APPROVE",
+      "MaterialID": "M159",
+      "GradeID": "G039-15",
+      "EvidenceID": "Q02956",
+      "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+      "source_sha256": "3296681c4e5852f926e15faf81204f76f5a61bbf7a1bcbd97aadd51644f0fb40",
+      "OriginalPath": ".cache/sources/by-sha/3296681c4e5852f926e15faf81204f76f5a61bbf7a1bcbd97aadd51644f0fb40.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "Due to its low evaporation rate, FLEX Semisoft is particularly suitable for automotive interior applications.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification.",
+        "Low evaporation automotive-interior claim is qualitative; no printed finished-part emissions approval. Raw-resin REACH/RoHS is not product validation."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M135",
+      "verdict": "APPROVE",
+      "MaterialID": "M135",
+      "GradeID": "G135-02",
+      "EvidenceID": "Q04820",
+      "SourceID": "R-FILLAMENTUM-TDS-Vinyl-303-FI",
+      "source_sha256": "d4c4260ea96ec34d66360aee2de66c8e951a22011018708795a0259821c05803",
+      "OriginalPath": ".cache/sources/by-sha/d4c4260ea96ec34d66360aee2de66c8e951a22011018708795a0259821c05803.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "Thanks to the large application range of PVC, this filament is ideal for prototyping.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M146",
+      "verdict": "APPROVE",
+      "MaterialID": "M146",
+      "GradeID": "G146-01",
+      "EvidenceID": "Q04898",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+      "source_sha256": "03d0c0a5dd7e9b97386fe8e3ad078c9a72b3300952d6cb33f0ceee7d11fa6925",
+      "OriginalPath": ".cache/sources/by-sha/03d0c0a5dd7e9b97386fe8e3ad078c9a72b3300952d6cb33f0ceee7d11fa6925.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "The filament complies with the requirements for food-contact applications.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification.",
+        "Only cited food-contact compliance maker claim supports this particular judgment; no underlying certificate or printed food-contact test verified. Adjacent electrical/electronic equipment use is also printed but not an assigned basis here."
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M154",
+      "verdict": "APPROVE",
+      "MaterialID": "M154",
+      "GradeID": "G154-01",
+      "EvidenceID": "Q05012",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+      "source_sha256": "c2860553376cdc4fbf427ed6e770c272aaa6db5cfe8d0d879d1f2555e28c65de",
+      "OriginalPath": ".cache/sources/by-sha/c2860553376cdc4fbf427ed6e770c272aaa6db5cfe8d0d879d1f2555e28c65de.pdf",
+      "Locator": "p. 1",
+      "raw_source_basis": "The material can be with the advantage used for printing parts that are under constant stress, for example, bearings, cogwheels, reinforcement parts etc.",
+      "original_reading_scope": "SHA-verified original first page, fresh pdftotext raw/layout extraction for PDF or visible HTML own-product paragraph, independently reread basis and surrounding context. Whitespace and PDF line-wrap hyphen normalization used for fidelity check, not to change raw records.",
+      "ownership_check": "Own named product TDS or own HTML product section; no navigation, other-product footer or generic family passage used as intended-use proof.",
+      "guard_review": "Current full grade, evidence and registered source rows equal frozen Expected guards; proposed append equals ProposedCoverage; no current non-superseded manual Application judgment on material.",
+      "status_review": "Reviewed with limitations is appropriate; cited maker know-how remains separate and is not promoted to application validation.",
+      "limitations": [
+        "Bounded exact-product maker intended-use or finishing statement; no measured finished-service or selection qualification."
+      ]
+    }
+  ],
+  "scope_limits": [
+    "Fourteen bounded manual judgments only. No deciding product suitability facts or measurements introduced.",
+    "One maker-source reading serves the cited product basis; no implied broad public research exhaustion.",
+    "Certification field integrity corrections are separate reviewed operations. If those change full ExpectedGrade guards before applying these judgments, injector must reconcile the changed expected metadata rather than bypass a guard."
+  ],
+  "review_signature_sha256": "973d68e8a2ff90e198dd90eb759181bf15be24d2d8929ee3b1e4c298747d179b"
+}

@@ -1,0 +1,1134 @@
+{
+  "PacketID": "APPLICATION-EXISTING-14",
+  "MakerBatches": {
+    "Spectrum": 3,
+    "Nanovia": 2,
+    "FormFutura": 3,
+    "Extrudr": 3,
+    "Fillamentum": 3
+  },
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M105",
+      "ExpectedGrade": {
+        "GradeID": "G105-01",
+        "MaterialID": "M105",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "ASA Conductive",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-asa-conductive",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-asa-conductive",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04646",
+          "MaterialID": "M105",
+          "GradeID": "G105-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This makes the filament an excellent choice for applications requiring effective current conduction.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-en-tds-spectrum-asa-conductive",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-SPECTRUM-en-tds-spectrum-asa-conductive",
+            "Publisher": "Spectrum",
+            "Title": "TECHNICAL DATA SHEET ASA Conductive",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-18",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://spectrumfilaments.com/wp-content/uploads/2025/09/en_tds_spectrum_asa_conductive.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G105-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "1fba88b90bf4990299ebc527ee590dc6d4bcdc2f07191bd9bb7cdbd2001ea0dc"
+          },
+          "OriginalPath": ".cache/sources/by-sha/1fba88b90bf4990299ebc527ee590dc6d4bcdc2f07191bd9bb7cdbd2001ea0dc.pdf",
+          "TextPath": ".cache/text/1fba88b90bf4990299ebc527ee590dc6d4bcdc2f07191bd9bb7cdbd2001ea0dc.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M105",
+        "GradeID": "G105-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum ASA Conductive (G105-01), Q04646, S-SPECTRUM-en-tds-spectrum-asa-conductive, p. 1. Maker names electrical-current conduction; no printed-component electrical service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M107",
+      "ExpectedGrade": {
+        "GradeID": "G107-01",
+        "MaterialID": "M107",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PLA ESD",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pla-esd",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-esd",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04671",
+          "MaterialID": "M107",
+          "GradeID": "G107-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Spectrum PLA ESD is a modern, antistatic 3D print-ing filament based on a modified PLA biopolymer that provides permanent protection against electro-static discharge (ESD) and sparking in explosive (EX / ATEX) environments.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD",
+            "Publisher": "Spectrum",
+            "Title": "TECHNICAL DATA SHEET PLA ESD",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-18",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Spectrum's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_Spectrum_PLA_ESD.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G107-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "4e18fc47b5ce4d8b7a8e34b0c7f026ad834a2044b2e82aba7d2165db94141ee2"
+          },
+          "OriginalPath": ".cache/sources/by-sha/4e18fc47b5ce4d8b7a8e34b0c7f026ad834a2044b2e82aba7d2165db94141ee2.pdf",
+          "TextPath": ".cache/text/4e18fc47b5ce4d8b7a8e34b0c7f026ad834a2044b2e82aba7d2165db94141ee2.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M107",
+        "GradeID": "G107-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum PLA ESD (G107-01), Q04671, S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD, p. 1. Maker names electronic safety and EX/ATEX environments; no printed-product ATEX certification is established. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M111",
+      "ExpectedGrade": {
+        "GradeID": "G111-01",
+        "MaterialID": "M111",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PLA Conductive",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pla-conductive",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-conductive",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04717",
+          "MaterialID": "M111",
+          "GradeID": "G111-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The material is based on a PLA polymer modified with carbon nanotubes (CNT), which significantly reduce surface resistivity \u2013 making it suitable for compo-nents that require basic electrical conduction.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-conductive",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-conductive",
+            "Publisher": "Spectrum",
+            "Title": "TECHNICAL DATA SHEET PLA Conductive",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-18",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://spectrumfilaments.com/wp-content/uploads/2025/09/en_tds_spectrum_pla_conductive.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G111-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "bf38c474a2d2d60875656dec7e9adc0992d814396194791b6358d42621638e36"
+          },
+          "OriginalPath": ".cache/sources/by-sha/bf38c474a2d2d60875656dec7e9adc0992d814396194791b6358d42621638e36.pdf",
+          "TextPath": ".cache/text/bf38c474a2d2d60875656dec7e9adc0992d814396194791b6358d42621638e36.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M111",
+        "GradeID": "G111-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum PLA Conductive (G111-01), Q04717, S-SPECTRUM-en-tds-spectrum-pla-conductive, p. 1. Maker names components requiring basic electrical conduction; no component-performance or safety qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M106",
+      "ExpectedGrade": {
+        "GradeID": "G106-03",
+        "MaterialID": "M106",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "ABS AF",
+        "Shared formulation key": "R-NANOVIA-ABS-AF",
+        "Composition / filler": "Nanovia ABS AF : Aramid fiber reinforced quantity (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-ABS-AF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04664",
+          "MaterialID": "M106",
+          "GradeID": "G106-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "For an outdoor usage, we recommend that you paint your print or submit them to an anti UV treatment, such as our Nanovia smoothing solution.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-ABS-AF",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-ABS-AF",
+            "Publisher": "Nanovia",
+            "Title": "Store",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/ref/nanovia-abs-af/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G106-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d34b740369eeb42a0569f4cad521ed7d7e26933a7e3aab0ad56bbfeeffe97405"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d34b740369eeb42a0569f4cad521ed7d7e26933a7e3aab0ad56bbfeeffe97405.html",
+          "TextPath": ".cache/text/d34b740369eeb42a0569f4cad521ed7d7e26933a7e3aab0ad56bbfeeffe97405.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M106",
+        "GradeID": "G106-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia ABS AF (G106-03), Q04664, R-NANOVIA-ABS-AF, p. 1. Maker recommends paint or an anti-UV treatment for outdoor use; no coating procedure, retention result or outdoor lifetime is established. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M112",
+      "ExpectedGrade": {
+        "GradeID": "G112-02",
+        "MaterialID": "M112",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PC-PTFE",
+        "Shared formulation key": "R-NANOVIA-PC-PTFE",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Nanovia PC-ABS V0 : Demanding technical applications Starting at : 60,80 &euro; ex. VAT / kg Select options (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PC-PTFE",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04734",
+          "MaterialID": "M112",
+          "GradeID": "G112-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "PolyT\u00e9traFluoro\u00e9thyl\u00e8ne (PTFE) low friction index combined with polycarbonate\u2019s (PC) mechanical resistance makes this filament ideal for mechanical pieces exposed to friction, such as gears.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-PC-PTFE",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-PC-PTFE",
+            "Publisher": "Nanovia",
+            "Title": "Store",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/ref/nanovia-pc-ptfe/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G112-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150"
+          },
+          "OriginalPath": ".cache/sources/by-sha/b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150.html",
+          "TextPath": ".cache/text/b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M112",
+        "GradeID": "G112-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia PC-PTFE (G112-02), Q04734, R-NANOVIA-PC-PTFE, p. 1. Maker names friction-exposed mechanical parts such as gears; no component load, life or finished-part qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M110",
+      "ExpectedGrade": {
+        "GradeID": "G110-02",
+        "MaterialID": "M110",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "AthenaX GF10",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pctg-gf10",
+        "Composition / filler": "AthenaX GF10 combines all benefits of our AthenaX filament plus 10% glass fibers. This glass fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-AthenaX-GF10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04700",
+          "MaterialID": "M110",
+          "GradeID": "G110-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Making tooling, equipment, and manufacturing aids.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PET-TDS-AthenaX-GF10",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-TDS-AthenaX-GF10",
+            "Publisher": "FormFutura",
+            "Title": "TECHNICAL DATA SHEET AthenaX GF10",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/TDS_-_AthenaX_GF10.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G110-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "afbcb26046c16af853e4a48346ebd9ac8bf36daa642a827acb42492e7a367745"
+          },
+          "OriginalPath": ".cache/sources/by-sha/afbcb26046c16af853e4a48346ebd9ac8bf36daa642a827acb42492e7a367745.pdf",
+          "TextPath": ".cache/text/afbcb26046c16af853e4a48346ebd9ac8bf36daa642a827acb42492e7a367745.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M110",
+        "GradeID": "G110-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura AthenaX GF10 (G110-02), Q04700, S-PET-TDS-AthenaX-GF10, p. 1. Maker names tooling, equipment and manufacturing aids; no application-specific load, tolerance or service-life qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M113",
+      "ExpectedGrade": {
+        "GradeID": "G113-02",
+        "MaterialID": "M113",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "ApolloX Kevlar",
+        "Shared formulation key": "S-PET-TDS-ApolloX-Kevlar",
+        "Composition / filler": "Our ApolloX Kevlar combines all benefits of ApolloX filament plus 10% aramid fibers. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-ApolloX-Kevlar",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04747",
+          "MaterialID": "M113",
+          "GradeID": "G113-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Fixtures, tooling, work holding, and soft jaws",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PET-TDS-ApolloX-Kevlar",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-TDS-ApolloX-Kevlar",
+            "Publisher": "FormFutura",
+            "Title": "Technical Data Sheet ApolloX Kevlar",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/TDS_-_ApolloX_Kevlar.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G113-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "247abb9d6cb925a232b6f816dff3bbb4aea450a2300970eeb8513cd2e350e304"
+          },
+          "OriginalPath": ".cache/sources/by-sha/247abb9d6cb925a232b6f816dff3bbb4aea450a2300970eeb8513cd2e350e304.pdf",
+          "TextPath": ".cache/text/247abb9d6cb925a232b6f816dff3bbb4aea450a2300970eeb8513cd2e350e304.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M113",
+        "GradeID": "G113-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura ApolloX Kevlar (G113-02), Q04747, S-PET-TDS-ApolloX-Kevlar, p. 1. Maker names fixtures, tooling, work holding and soft jaws; no application-specific load, tolerance or service-life qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M144",
+      "ExpectedGrade": {
+        "GradeID": "G144-01",
+        "MaterialID": "M144",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "AthenaX CF10",
+        "Shared formulation key": "S-PET-formfutura-tds-athenaxcf10",
+        "Composition / filler": "AthenaX CF10 combines all benefits of our AthenaX filament plus 10% carbon fibers. This carbon fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-formfutura-tds-athenaxcf10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04871",
+          "MaterialID": "M144",
+          "GradeID": "G144-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "3D printing end-use parts.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PET-formfutura-tds-athenaxcf10",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-formfutura-tds-athenaxcf10",
+            "Publisher": "FormFutura",
+            "Title": "TECHNICAL DATA SHEET AthenaX CF10",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/formfutura-tds-athenaxcf10.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G144-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "a3a4ff83477dda017dd095ab0481e4e15b99d56dbaee772b069d76f3d160f95d"
+          },
+          "OriginalPath": ".cache/sources/by-sha/a3a4ff83477dda017dd095ab0481e4e15b99d56dbaee772b069d76f3d160f95d.pdf",
+          "TextPath": ".cache/text/a3a4ff83477dda017dd095ab0481e4e15b99d56dbaee772b069d76f3d160f95d.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M144",
+        "GradeID": "G144-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura AthenaX CF10 (G144-01), Q04871, S-PET-formfutura-tds-athenaxcf10, p. 1. Maker names end-use parts; no specific application, load or service-life qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M126",
+      "ExpectedGrade": {
+        "GradeID": "G126-02",
+        "MaterialID": "M126",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX MEDIUM ESD",
+        "Shared formulation key": "R-EXTRUDR-flex-medium-esd-TDS-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04783",
+          "MaterialID": "M126",
+          "GradeID": "G126-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Due to its low evaporation rate, FLEX Medium ESD is particularly suitable for automotive interior applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
+            "Publisher": "Extrudr",
+            "Title": "TECHNICAL DATA SHEET FLEX MEDIUM ESD",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/flex-medium-esd-TDS-en.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G126-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901"
+          },
+          "OriginalPath": ".cache/sources/by-sha/cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901.pdf",
+          "TextPath": ".cache/text/cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M126",
+        "GradeID": "G126-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr FLEX MEDIUM ESD (G126-02), Q04783, R-EXTRUDR-flex-medium-esd-TDS-en, p. 1. Maker names automotive interiors based on low evaporation; no finished-part emissions, automotive approval or service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M152",
+      "ExpectedGrade": {
+        "GradeID": "G152-01",
+        "MaterialID": "M152",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLAX",
+        "Shared formulation key": "R-EXTRUDR-flax-TDS-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flax-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04987",
+          "MaterialID": "M152",
+          "GradeID": "G152-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The material has been developed for rapid prototyping applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-flax-TDS-en",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-flax-TDS-en",
+            "Publisher": "Extrudr",
+            "Title": "TECHNICAL DATA SHEET FLAX",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/flax-TDS-en.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G152-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "9369384413f53d7b7b03f0ecd3c603bf828b66c446ebd2286214371438ccd1ca"
+          },
+          "OriginalPath": ".cache/sources/by-sha/9369384413f53d7b7b03f0ecd3c603bf828b66c446ebd2286214371438ccd1ca.pdf",
+          "TextPath": ".cache/text/9369384413f53d7b7b03f0ecd3c603bf828b66c446ebd2286214371438ccd1ca.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M152",
+        "GradeID": "G152-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr FLAX (G152-01), Q04987, R-EXTRUDR-flax-TDS-en, p. 1. Maker names rapid prototyping; no dimensional-tolerance or end-use service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M159",
+      "ExpectedGrade": {
+        "GradeID": "G039-15",
+        "MaterialID": "M159",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX SEMISOFT",
+        "Shared formulation key": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02956",
+          "MaterialID": "M159",
+          "GradeID": "G039-15",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Due to its low evaporation rate, FLEX Semisoft is particularly suitable for automotive interior applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-flex-semisoft-TDS-en",
+            "Publisher": "Extrudr",
+            "Title": "TECHNICAL DATA SHEET FLEX SEMISOFT",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/flex-semisoft-TDS-en.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G039-15",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "3296681c4e5852f926e15faf81204f76f5a61bbf7a1bcbd97aadd51644f0fb40"
+          },
+          "OriginalPath": ".cache/sources/by-sha/3296681c4e5852f926e15faf81204f76f5a61bbf7a1bcbd97aadd51644f0fb40.pdf",
+          "TextPath": ".cache/text/3296681c4e5852f926e15faf81204f76f5a61bbf7a1bcbd97aadd51644f0fb40.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M159",
+        "GradeID": "G039-15",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr FLEX SEMISOFT (G039-15), Q02956, R-EXTRUDR-flex-semisoft-TDS-en, p. 1. Maker names automotive interiors based on low evaporation; raw-material REACH/RoHS wording does not establish printed-product qualification. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M135",
+      "ExpectedGrade": {
+        "GradeID": "G135-02",
+        "MaterialID": "M135",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Vinyl 303",
+        "Shared formulation key": "R-FILLAMENTUM-TDS-Vinyl-303-FI",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-TDS-Vinyl-303-FI",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04820",
+          "MaterialID": "M135",
+          "GradeID": "G135-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Thanks to the large application range of PVC, this filament is ideal for prototyping.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-TDS-Vinyl-303-FI",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FILLAMENTUM-TDS-Vinyl-303-FI",
+            "Publisher": "Fillamentum",
+            "Title": "Vinyl 303",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_Vinyl-303_FI.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G135-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d4c4260ea96ec34d66360aee2de66c8e951a22011018708795a0259821c05803"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d4c4260ea96ec34d66360aee2de66c8e951a22011018708795a0259821c05803.pdf",
+          "TextPath": ".cache/text/d4c4260ea96ec34d66360aee2de66c8e951a22011018708795a0259821c05803.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M135",
+        "GradeID": "G135-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum Vinyl 303 (G135-02), Q04820, R-FILLAMENTUM-TDS-Vinyl-303-FI, p. 1. Maker names prototyping based on PVC application range; no specific finished-part performance or service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M146",
+      "ExpectedGrade": {
+        "GradeID": "G146-01",
+        "MaterialID": "M146",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "NonOilen",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04898",
+          "MaterialID": "M146",
+          "GradeID": "G146-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The filament complies with the requirements for food-contact applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+            "Publisher": "Fillamentum",
+            "Title": "Physical properties Typical Value Test Method",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_NonOilen_EN_03082020_FfN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G146-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "03d0c0a5dd7e9b97386fe8e3ad078c9a72b3300952d6cb33f0ceee7d11fa6925"
+          },
+          "OriginalPath": ".cache/sources/by-sha/03d0c0a5dd7e9b97386fe8e3ad078c9a72b3300952d6cb33f0ceee7d11fa6925.pdf",
+          "TextPath": ".cache/text/03d0c0a5dd7e9b97386fe8e3ad078c9a72b3300952d6cb33f0ceee7d11fa6925.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M146",
+        "GradeID": "G146-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum NonOilen (G146-01), Q04898, R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN, p. 1. Only a maker food-contact compliance claim supports this bounded assessment; no verified printed-part food-contact certification, named tested application or finishing procedure follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M154",
+      "ExpectedGrade": {
+        "GradeID": "G154-01",
+        "MaterialID": "M154",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Nylon AF80 Aramid",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+        "Composition / filler": "a material filled with aramid fibres for (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05012",
+          "MaterialID": "M154",
+          "GradeID": "G154-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The material can be with the advantage used for printing parts that are under constant stress, for example, bearings, cogwheels, reinforcement parts etc.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+            "Publisher": "Fillamentum",
+            "Title": "Nylon AF80 Aramid",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-AF80-Aramid.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G154-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c2860553376cdc4fbf427ed6e770c272aaa6db5cfe8d0d879d1f2555e28c65de"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c2860553376cdc4fbf427ed6e770c272aaa6db5cfe8d0d879d1f2555e28c65de.pdf",
+          "TextPath": ".cache/text/c2860553376cdc4fbf427ed6e770c272aaa6db5cfe8d0d879d1f2555e28c65de.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M154",
+        "GradeID": "G154-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum Nylon AF80 Aramid (G154-01), Q05012, R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid, p. 1. Maker names parts under constant stress, including bearings, cogwheels and reinforcement parts; no component load, fatigue life or finished-part qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      }
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M105",
+      "append": {
+        "MaterialID": "M105",
+        "GradeID": "G105-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum ASA Conductive (G105-01), Q04646, S-SPECTRUM-en-tds-spectrum-asa-conductive, p. 1. Maker names electrical-current conduction; no printed-component electrical service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M107",
+      "append": {
+        "MaterialID": "M107",
+        "GradeID": "G107-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum PLA ESD (G107-01), Q04671, S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD, p. 1. Maker names electronic safety and EX/ATEX environments; no printed-product ATEX certification is established. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M111",
+      "append": {
+        "MaterialID": "M111",
+        "GradeID": "G111-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum PLA Conductive (G111-01), Q04717, S-SPECTRUM-en-tds-spectrum-pla-conductive, p. 1. Maker names components requiring basic electrical conduction; no component-performance or safety qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M106",
+      "append": {
+        "MaterialID": "M106",
+        "GradeID": "G106-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia ABS AF (G106-03), Q04664, R-NANOVIA-ABS-AF, p. 1. Maker recommends paint or an anti-UV treatment for outdoor use; no coating procedure, retention result or outdoor lifetime is established. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M112",
+      "append": {
+        "MaterialID": "M112",
+        "GradeID": "G112-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia PC-PTFE (G112-02), Q04734, R-NANOVIA-PC-PTFE, p. 1. Maker names friction-exposed mechanical parts such as gears; no component load, life or finished-part qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M110",
+      "append": {
+        "MaterialID": "M110",
+        "GradeID": "G110-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura AthenaX GF10 (G110-02), Q04700, S-PET-TDS-AthenaX-GF10, p. 1. Maker names tooling, equipment and manufacturing aids; no application-specific load, tolerance or service-life qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M113",
+      "append": {
+        "MaterialID": "M113",
+        "GradeID": "G113-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura ApolloX Kevlar (G113-02), Q04747, S-PET-TDS-ApolloX-Kevlar, p. 1. Maker names fixtures, tooling, work holding and soft jaws; no application-specific load, tolerance or service-life qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M144",
+      "append": {
+        "MaterialID": "M144",
+        "GradeID": "G144-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura AthenaX CF10 (G144-01), Q04871, S-PET-formfutura-tds-athenaxcf10, p. 1. Maker names end-use parts; no specific application, load or service-life qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M126",
+      "append": {
+        "MaterialID": "M126",
+        "GradeID": "G126-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr FLEX MEDIUM ESD (G126-02), Q04783, R-EXTRUDR-flex-medium-esd-TDS-en, p. 1. Maker names automotive interiors based on low evaporation; no finished-part emissions, automotive approval or service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M152",
+      "append": {
+        "MaterialID": "M152",
+        "GradeID": "G152-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr FLAX (G152-01), Q04987, R-EXTRUDR-flax-TDS-en, p. 1. Maker names rapid prototyping; no dimensional-tolerance or end-use service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M159",
+      "append": {
+        "MaterialID": "M159",
+        "GradeID": "G039-15",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr FLEX SEMISOFT (G039-15), Q02956, R-EXTRUDR-flex-semisoft-TDS-en, p. 1. Maker names automotive interiors based on low evaporation; raw-material REACH/RoHS wording does not establish printed-product qualification. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M135",
+      "append": {
+        "MaterialID": "M135",
+        "GradeID": "G135-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum Vinyl 303 (G135-02), Q04820, R-FILLAMENTUM-TDS-Vinyl-303-FI, p. 1. Maker names prototyping based on PVC application range; no specific finished-part performance or service qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M146",
+      "append": {
+        "MaterialID": "M146",
+        "GradeID": "G146-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum NonOilen (G146-01), Q04898, R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN, p. 1. Only a maker food-contact compliance claim supports this bounded assessment; no verified printed-part food-contact certification, named tested application or finishing procedure follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M154",
+      "append": {
+        "MaterialID": "M154",
+        "GradeID": "G154-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum Nylon AF80 Aramid (G154-01), Q05012, R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid, p. 1. Maker names parts under constant stress, including bearings, cogwheels and reinforcement parts; no component load, fatigue life or finished-part qualification follows. Claims remain in maker know-how and cannot pass selection. Other products remain individually bounded."
+      },
+      "supersede": []
+    }
+  ]
+}

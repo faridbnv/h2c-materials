@@ -1,0 +1,63 @@
+{
+  "migration": "m242-application-existing-14",
+  "packet": "8c269c807bcb635e333dbdec73748c19f607d183d4f3dbef04d35be2d469fc09",
+  "written": 14,
+  "records": [
+    {
+      "finding": "CE-APP-M105",
+      "coverageId": "C01521"
+    },
+    {
+      "finding": "CE-APP-M107",
+      "coverageId": "C01522"
+    },
+    {
+      "finding": "CE-APP-M111",
+      "coverageId": "C01523"
+    },
+    {
+      "finding": "CE-APP-M106",
+      "coverageId": "C01524"
+    },
+    {
+      "finding": "CE-APP-M112",
+      "coverageId": "C01525"
+    },
+    {
+      "finding": "CE-APP-M110",
+      "coverageId": "C01526"
+    },
+    {
+      "finding": "CE-APP-M113",
+      "coverageId": "C01527"
+    },
+    {
+      "finding": "CE-APP-M144",
+      "coverageId": "C01528"
+    },
+    {
+      "finding": "CE-APP-M126",
+      "coverageId": "C01529"
+    },
+    {
+      "finding": "CE-APP-M152",
+      "coverageId": "C01530"
+    },
+    {
+      "finding": "CE-APP-M159",
+      "coverageId": "C01531"
+    },
+    {
+      "finding": "CE-APP-M135",
+      "coverageId": "C01532"
+    },
+    {
+      "finding": "CE-APP-M146",
+      "coverageId": "C01533"
+    },
+    {
+      "finding": "CE-APP-M154",
+      "coverageId": "C01534"
+    }
+  ]
+}

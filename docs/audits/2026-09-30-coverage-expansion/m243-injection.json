@@ -1,0 +1,12 @@
+{
+  "migration": "m243-certification-source-ownership",
+  "packet": "73f1fb3ee7982345701b7c2076a6c953264b01103ca0497e4541d7c2bfbc2d7f",
+  "written": 5,
+  "records": [
+    "G029-05",
+    "G112-02",
+    "G122-02",
+    "G167-08",
+    "G167-12"
+  ]
+}

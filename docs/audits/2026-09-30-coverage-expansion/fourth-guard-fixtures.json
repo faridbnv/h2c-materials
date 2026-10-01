@@ -1,0 +1,16 @@
+{
+  "fixture": "Disposable copy; canonical files untouched",
+  "results": [
+    {
+      "case": "Five guarded certification corrections rerun",
+      "written": 0,
+      "unchanged": true
+    },
+    {
+      "case": "Grade ownership/identity changed",
+      "record": "G029-05",
+      "refused": true,
+      "unchanged": true
+    }
+  ]
+}

@@ -130,3 +130,30 @@ The only changed UI baseline is PLA's maker-limitation count after the UV refile
 Private originals and derivatives are exported after the tranche; known absent originals
 remain absent. The catalogue-wide campaign continues, with remaining judgments and
 product research still pending; source qualification is not a completed product search.
+
+## Fourteen assessments and certification ownership
+
+m242 records fourteen previously unassessed Application cells as Reviewed with
+limitations, across five maker groups. Each judgment names its exact product basis and
+the missing qualification. Application now has 42 Evidence recorded, 35 Reviewed with
+limitations, 26 Gap and 33 not assessed. All fourteen judgments were independently
+reread and approved by an AI reviewer; no human review is implied.
+
+m243 corrects five certification fields whose earlier extraction quoted a different
+Nanovia product from the related-product footer. It preserves each product's own maker
+claim and the lack of a verified certificate or laboratory report. It does not confer
+food, medical, fire or electrical qualification. Additional source claims identified
+during review remain follow-up tasks in the external campaign.
+
+Both migrations were reapplied immediately after their own injection with zero writes.
+The full old-grade guards deliberately stop an older migration after a later grade
+correction; they cannot replay an old proposal over the newer certification field.
+A disposable fixture confirms m243 refuses a changed grade before any write.
+
+Canonical formatting, schema and lint passed. Full verification passed, including
+69 interface views and 300 rendered scenarios with 2,592 readings; verify:fast took
+65.9 seconds. No UI baseline or snapshot changed. The record diff contains nineteen
+changes and the compiled diff twenty intended paths. Frozen replay moved zero verdicts
+or screens across fifteen questions and 18,195 evaluations. The existing private
+backup was checked and exported again; no new document entered in this tranche.
+All-catalogue research and the remaining source admissions continue.

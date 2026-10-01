@@ -1,0 +1,139 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/certification-corrections-packet.json",
+  "input_sha256": "73f1fb3ee7982345701b7c2076a6c953264b01103ca0497e4541d7c2bfbc2d7f",
+  "signed_at_utc": "2026-10-01T03:39:51.186118+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 5,
+  "source_reading_batches": [
+    {
+      "batch": "CERT-1",
+      "products": [
+        "G029-05",
+        "G112-02",
+        "G122-02",
+        "G167-08",
+        "G167-12"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "OperationID": "CERT-G029-05",
+      "GradeID": "G029-05",
+      "verdict": "APPROVE_BOUNDED_CORRECTION",
+      "SourceID": "R-NANOVIA-ABS-CF",
+      "source_sha256": "9432da1949e748295c4ab53e5ec828831c23380347022a9b5143a4ce3715d811",
+      "OriginalPath": ".cache/sources/by-sha/9432da1949e748295c4ab53e5ec828831c23380347022a9b5143a4ce3715d811.html",
+      "Locator": "p. 1: Certifications",
+      "raw_claim": "RoHS certification Nanovia ABS CF :",
+      "ownership_check": "Exact own-product claim appears before Related products; previous claim names a different footer product.",
+      "guards": "Current source registration and full expected grade row agree; only Certification claims changes.",
+      "original_reread_scope": "SHA-verified original HTML own product introduction, certification/advantages and safety/FAQ context when applicable, and Related products footer; no separate certificate retrieval.",
+      "limits": [
+        "Own product maker claim only; underlying linked certification documents were not retrieved or verified in this review.",
+        "No certification selection pass, medical approval, or measured service qualification is established."
+      ],
+      "additional_own_claims": []
+    },
+    {
+      "OperationID": "CERT-G112-02",
+      "GradeID": "G112-02",
+      "verdict": "APPROVE_BOUNDED_CORRECTION",
+      "SourceID": "R-NANOVIA-PC-PTFE",
+      "source_sha256": "b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150",
+      "OriginalPath": ".cache/sources/by-sha/b03786673755ba6327e4e287a947cfb0a9a38ac54e1d4b9c9fcc2431543b7150.html",
+      "Locator": "p. 1: Certifications",
+      "raw_claim": "Certification RoHS Nanovia PC-PTFE :",
+      "ownership_check": "Exact own-product claim appears before Related products; previous claim names a different footer product.",
+      "guards": "Current source registration and full expected grade row agree; only Certification claims changes.",
+      "original_reread_scope": "SHA-verified original HTML own product introduction, certification/advantages and safety/FAQ context when applicable, and Related products footer; no separate certificate retrieval.",
+      "limits": [
+        "Own product maker claim only; underlying linked certification documents were not retrieved or verified in this review.",
+        "No certification selection pass, medical approval, or measured service qualification is established."
+      ],
+      "additional_own_claims": []
+    },
+    {
+      "OperationID": "CERT-G122-02",
+      "GradeID": "G122-02",
+      "verdict": "APPROVE_BOUNDED_CORRECTION",
+      "SourceID": "R-NANOVIA-PEKK-A-CF",
+      "source_sha256": "8ec95029b4bd15096e72b8fe563f0107b07acfc67d82970b0a21d0e137799fdc",
+      "OriginalPath": ".cache/sources/by-sha/8ec95029b4bd15096e72b8fe563f0107b07acfc67d82970b0a21d0e137799fdc.html",
+      "Locator": "p. 1: Certifications",
+      "raw_claim": "Certification RoHS Nanovia PEKK-A CF :",
+      "ownership_check": "Exact own-product claim appears before Related products; previous claim names a different footer product.",
+      "guards": "Current source registration and full expected grade row agree; only Certification claims changes.",
+      "original_reread_scope": "SHA-verified original HTML own product introduction, certification/advantages and safety/FAQ context when applicable, and Related products footer; no separate certificate retrieval.",
+      "limits": [
+        "Own product maker claim only; underlying linked certification documents were not retrieved or verified in this review.",
+        "No certification selection pass, medical approval, or measured service qualification is established."
+      ],
+      "additional_own_claims": []
+    },
+    {
+      "OperationID": "CERT-G167-08",
+      "GradeID": "G167-08",
+      "verdict": "APPROVE_BOUNDED_CORRECTION",
+      "SourceID": "R-NANOVIA-Flex-VX",
+      "source_sha256": "a3e6bf39931c3b35e27f85fd398ab88511b334833658c48a415afeddd8f15bd2",
+      "OriginalPath": ".cache/sources/by-sha/a3e6bf39931c3b35e27f85fd398ab88511b334833658c48a415afeddd8f15bd2.html",
+      "Locator": "p. 1: Advantages, with Virucide properties and FAQ limits",
+      "raw_claim": "Certified Virucide norm ISO 21702 on influenza H1N1 (the H1N1 is a shell virus similar to COVID19)",
+      "ownership_check": "Exact own-product claim appears before Related products; previous claim names a different footer product.",
+      "guards": "Current source registration and full expected grade row agree; only Certification claims changes.",
+      "original_reread_scope": "SHA-verified original HTML own product introduction, certification/advantages and safety/FAQ context when applicable, and Related products footer; no separate certificate retrieval.",
+      "limits": [
+        "Own product maker claim only; underlying linked certification documents were not retrieved or verified in this review.",
+        "No certification selection pass, medical approval, or measured service qualification is established.",
+        "Own source says normalized independent-laboratory FFF sample; raw Virucide properties writes H1H1 whereas Advantages and FAQ write H1N1. Preserve source spellings and distinguish maker statements from certificate validation.",
+        "FAQ explicitly states no existing ISO validated norm proving COVID-19 action; no painted or varnished covering and direct pathogen contact required. These contextual limits were reread."
+      ],
+      "additional_own_claims": [
+        {
+          "finding": "Certification RoHS Nanovia Flex VX :",
+          "locator": "Own Certifications heading before Packaging and FAQ",
+          "disposition": "Additional own-product claim available; recommended separate bounded follow-up or expanded replacement."
+        }
+      ]
+    },
+    {
+      "OperationID": "CERT-G167-12",
+      "GradeID": "G167-12",
+      "verdict": "APPROVE_BOUNDED_CORRECTION",
+      "SourceID": "R-NANOVIA-ISTROFLEX",
+      "source_sha256": "d86d18d3c27a5af40763b4c0a44249c82262e1d6fc61f2db8a20ba13381a46de",
+      "OriginalPath": ".cache/sources/by-sha/d86d18d3c27a5af40763b4c0a44249c82262e1d6fc61f2db8a20ba13381a46de.html",
+      "Locator": "p. 1: Advantages, with laboratory reference below",
+      "raw_claim": "Endocrine pertubatur free certified",
+      "ownership_check": "Exact own-product claim appears before Related products; previous claim names a different footer product.",
+      "guards": "Current source registration and full expected grade row agree; only Certification claims changes.",
+      "original_reread_scope": "SHA-verified original HTML own product introduction, certification/advantages and safety/FAQ context when applicable, and Related products footer; no separate certificate retrieval.",
+      "limits": [
+        "Own product maker claim only; underlying linked certification documents were not retrieved or verified in this review.",
+        "No certification selection pass, medical approval, or measured service qualification is established.",
+        "Inline Method OEDT/SERPBIO summary was independently read: activity of human estrogenic receptors in S. cerevisiae SW303.1B, three independent repetitions. Reported absence is specific to that assay and is not universal endocrine safety or medical approval.",
+        "The statement that linked laboratory report was not retrieved refers to separate underlying report bytes, not to the inline laboratory summary that was reread."
+      ],
+      "additional_own_claims": [
+        {
+          "finding": "RoHS certification Nanovia Istroflex RoHS certification:",
+          "locator": "Health and safety / RoHS certification before Endocrine disruptor test",
+          "disposition": "Additional own-product claim available; recommended separate bounded follow-up or expanded replacement."
+        },
+        {
+          "finding": "Compostable according to norm EN 13432, this filament is certified without endocrine disruptors.",
+          "locator": "Own product introduction",
+          "disposition": "EN 13432 compostability claim is maker context; full underlying certification and service conditions not established."
+        }
+      ]
+    }
+  ],
+  "scope_limits": [
+    "This packet repairs five contaminated grade fields, not a complete certification inventory.",
+    "Own RoHS claims for Flex VX and ISTROFLEX and own EN 13432 compostability text for ISTROFLEX remain useful source-backed follow-ups. Their omission does not make the proposed bounded replacements false; no omitted claim should be presented as verified absent.",
+    "Preserve previous field values in guarded migration/audit history; replay affected answers and report any movement."
+  ],
+  "review_signature_sha256": "0c406064c1a1a16fe5138dad3881867a779fc2de5784090cea41626b1031f7b8"
+}
