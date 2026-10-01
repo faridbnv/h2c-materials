@@ -1,0 +1,13 @@
+{
+  "before_commit": "983607f",
+  "baseline_core": false,
+  "baseline_basis": "Frozen compiled database of the named committed baseline. Environment replay compares verdicts/screens; source-level changes are reviewed separately.",
+  "questions": 48,
+  "evaluations": 58224,
+  "answer_changes": 0,
+  "changes": [],
+  "before_release": "62442c28a1c8",
+  "after_release": "05fe0c3368b0",
+  "before_database_sha256": "0bd21cf5dc72762c0d066b09c7175023fe41d23680f034c47063327bb3af45e6",
+  "after_database_sha256": "4748454a87d66457e5aecaa8700aab4db3c55e5538758f8f58f7166438981dc1"
+}

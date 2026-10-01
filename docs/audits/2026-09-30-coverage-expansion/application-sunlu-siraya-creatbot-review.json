@@ -1,0 +1,104 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T09:12:12.499482+00:00",
+  "input_path": "external-campaign/research/application-sunlu-siraya-creatbot-packet.json",
+  "input_sha256": "6c324deb587f94a84241160d677ff447d5e304d14b59817fcf64401dbd032c54",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 4,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "SUNLU",
+      "GradeIDs": [
+        "G149-03",
+        "G039-18"
+      ]
+    },
+    {
+      "Manufacturer": "Siraya Tech",
+      "GradeIDs": [
+        "G039-69"
+      ]
+    },
+    {
+      "Manufacturer": "CreatBot",
+      "GradeIDs": [
+        "G164-09"
+      ]
+    }
+  ],
+  "per_operation": [
+    {
+      "FindingID": "CE-APP-M149",
+      "MaterialID": "M149",
+      "GradeID": "G149-03",
+      "verdict": "APPROVE",
+      "status": "Reviewed with limitations",
+      "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+      "original": ".cache/sources/by-sha/77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b.pdf",
+      "original_sha256": "77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b",
+      "reread_scope": "Full four-page PDF text plus p1 intended-use layout visually re-read",
+      "basis_evidence_ids": [
+        "Q04916"
+      ],
+      "locator": "PCL TDS p1 Main applications/Product features, p2 Recommended Printing Parameters, p3 specimen Note1, p4 handling",
+      "raw_basis": "Decorative items, toys, accessories, and figurines",
+      "reason": "Own maker intended uses and repeated reshaping/3D-pen claims support RWL, not demonstrated applications. Source70°C claim,75–85°C suggested profile and260°C test-specimen recipe are distinct and inconsistent; no transfer from these specimen values to low-temperature use or medical/skin-contact qualification."
+    },
+    {
+      "FindingID": "CE-APP-M150",
+      "MaterialID": "M150",
+      "GradeID": "G039-69",
+      "verdict": "APPROVE",
+      "status": "Reviewed with limitations",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "original": ".cache/sources/by-sha/ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620.html",
+      "original_sha256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "reread_scope": "Complete original own product body and contextual navigation/footer text re-read; no menu/adjacent-product claims admitted",
+      "basis_evidence_ids": [
+        "Q03257"
+      ],
+      "locator": "Own HTML §1 Application and key features; §2 temperature-specific property tables; §3 Workflow/approximate hardness-flow guide",
+      "raw_basis": "Lightweighting: Significantly reducing weight for drone parts, robotics, and more.",
+      "reason": "Actively foaming TPU source names light-weighting, insoles/seals, wearables and prototypes as maker uses. Density/hardness change with extrusion temperature and flow calibration, so print state is material. No application/load/shock/skin/robotics validation follows; RWL scoped only G039-69. Retired G129-06 names same historical product and confers no second active formulation."
+    },
+    {
+      "FindingID": "CE-APP-M160",
+      "MaterialID": "M160",
+      "GradeID": "G039-18",
+      "verdict": "APPROVE",
+      "status": "Reviewed with limitations",
+      "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+      "original": ".cache/sources/by-sha/1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9.pdf",
+      "original_sha256": "1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9",
+      "reread_scope": "Full four-page PDF text plus p1 intended-use layout visually re-read",
+      "basis_evidence_ids": [
+        "Q02980"
+      ],
+      "locator": "TPU90A TDS p1 Main applications/Product features; p4 handling UV caution",
+      "raw_basis": "Footwear materials, sports protective gear, automotive parts, and daily necessities.",
+      "reason": "These are own named intended uses, not protective-equipment/automotive qualification. Adjacent99.9% antibacterial andUV-resistant claims have no deciding test conditions; p4 says product may yellow underUV and store away sunlight. RWL avoids protection/antibacterial/UV-service/load certification; other12grades remain separately bounded."
+    },
+    {
+      "FindingID": "CE-APP-M164",
+      "MaterialID": "M164",
+      "GradeID": "G164-09",
+      "verdict": "APPROVE",
+      "status": "Reviewed with limitations",
+      "SourceID": "R-CREATBOT-PRINT-20260928-3148a159f1e5",
+      "original": ".cache/sources/by-sha/3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806.html",
+      "original_sha256": "3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806",
+      "reread_scope": "Complete original own product body and contextual navigation/footer text re-read; no menu/adjacent-product claims admitted",
+      "basis_evidence_ids": [
+        "Q05306"
+      ],
+      "locator": "Own UltraPA body opening paragraph; Technical Data Sheet processing table and own FAQ temperature/storage paragraphs, before More Materials footer",
+      "raw_basis": "CreatBot Ultra PA is a high-performance polyamide (nylon) engineering material for 3D printing. It offers excellent mechanical strength, toughness, wear resistance and high-temperature resistance, widely used in gear transmission, wear parts, automotive functional parts and industrial equipment.",
+      "reason": "Exact own UltraPA intended-use statement supports RWL. Table nozzle280–300°C/bed70–80°C andFAQ260–290°C/bed80–100°C conflict; drying table80–100°C6–8h versusFAQ70–80°C6–8h with85°Cmaximum conflict. Page claims are not use validation; neighbouringPEEK/medical/case-menu statements excluded."
+    }
+  ],
+  "guard_checks": "Full current grade/evidence/source rows match Expected. ActiveGradeID sets and absence of current Application coverage judgments match allfour. ProposedCoverage equals serialized append operations; no supersessions.",
+  "limitations": "Own intended-use marketing/manual statements only, retained separately in know-how. Allfour judgments are RWL, no suitability or decision pass, no application validation and no finishing test introduced.",
+  "required_corrections": [],
+  "canonical_mutations": "None; external review report only.",
+  "review_signature_sha256": "ea419280425ed6a16efd6850561fc679629ad56bba982ad52ff5b955b6571e5d"
+}

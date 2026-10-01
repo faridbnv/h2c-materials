@@ -1,0 +1,701 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+    "url": "https://media.sunlu.com/prod/20260414/4f598c89-404d-4872-99ca-499f116f2be7.pdf?filename=TDS",
+    "pages": 4,
+    "provider": "SUNLU",
+    "manufacturer": "SUNLU",
+    "docKey": "https://media.sunlu.com/prod/20260414/4f598c89-404d-4872-99ca-499f116f2be7.pdf?filename=TDS#witness-for=source:R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8"
+  },
+  "identity": {
+    "polymer": "PCL",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pcl"
+    ],
+    "materialId": "M149",
+    "materialName": "PCL",
+    "estimateIdentity": "PCL",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+      "Publisher": "SUNLU",
+      "Title": "SUNLU PCL 产品资料 / Product information",
+      "Revision": "Version1.0",
+      "Publication date": "2024-06",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://media.sunlu.com/prod/20260414/4f598c89-404d-4872-99ca-499f116f2be7.pdf?filename=TDS",
+      "Locator": "Document / product page",
+      "Applicable grades": "G149-03",
+      "Access state": "retrieved",
+      "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+      "SHA256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "产品资料 Version1.0 2024-6"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent operation review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G149-03",
+      "row": {
+        "GradeID": "G149-03",
+        "MaterialID": "M149",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PCL",
+        "Shared formulation key": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability UL 94 1.5 mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Resolve existing exact product only; no new grade, material, identity or formulation/source overwrite."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "800 %",
+        "Raw unit": "%",
+        "Raw numeric": "800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "800",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "50mm/min ISO527/2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Locator": "p. 1: 断裂伸长率(X-Y) Elongation at break ISO527/2 50mm/min %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "断裂伸长率(X-Y) Elongation at break ISO527/2 50mm/min % 800"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "58-60 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "58",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "60",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "58",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "60",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO11357-3",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Locator": "p. 1: 熔点温度 Melting Point ISO11357-3 10℃/min ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔点温度 Melting Point ISO11357-3 10℃/min ℃ 58-60"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Decomposition temperature",
+        "Raw value": "300 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "300",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO11358",
+        "Standards": "ISO 11358",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Locator": "p. 1: 分解温度@5%Decomposition Temp. ISO11358 20℃/min ℃",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "分解温度@5%Decomposition Temp. ISO11358 20℃/min ℃ ≥300"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "1.3-1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.6",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1.6",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "23℃ ISO294",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Locator": "p. 1: 收缩率 Mold Shrinkage ISO294 23℃ %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "收缩率 Mold Shrinkage ISO294 23℃ % 1.3-1.6"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "30 ± 10 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "10",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "10",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "150°C",
+        "Test temperature °C": "150",
+        "Standard / load": "150℃/2.16kg ISO1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Locator": "p. 1: 熔体指数 Melt Flow Rate ISO1133 150℃/2.16kg g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔体指数 Melt Flow Rate ISO1133 150℃/2.16kg g/10min 30±10"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.13 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.13",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "23℃ ISO1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Locator": "p. 1: 密度 Density ISO1183 23℃ g/cm3",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "密度 Density ISO1183 23℃ g/cm3 1.13"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    },
+    {
+      "id": "c04-elong800",
+      "gradeKey": "G149-03",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "G149-03",
+        "Property": "Elongation at break",
+        "Raw value": "800 %",
+        "Raw unit": "%",
+        "Raw numeric": "800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "800",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "50 mm/min ISO 527/2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "[1] 测试样条打印速度 45 mm/s，打印温度 80 ℃。填充 100%，走线方式为 90 度。",
+        "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+        "Locator": "p. 1: 断裂伸长率(X-Y) Elongation at break, ISO527/2, 50mm/min, %, 800; p. 3: Note [1], specimen printing 45mm/s at80°C; p. 2: recommended nozzle75–85°C",
+        "Notes": "Separate bilingual Version1.0 2024-6 original with control stamp2024.08.13. Own p3 printed specimen80°C45mm/s100%90° lies in own75–85°C recommended recipe. English77ea19eb original800% remains separately retained with its contradictory260°C off-recipe specimen; neither is overwritten and no chronology/formulation continuity inferred. AI translation of raw specimen note: printing speed45mm/s, printing temperature80°C,100% infill,90° raster. Moisture, post-processing and tensile test temperature not published. Typical laboratory mean, not product standard or application allowable.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "断裂伸长率(X-Y) Elongation at break ISO527/2 50mm/min % 800"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Original pp1–3 numeric table and specimen footnote visually reread; independent full field operation review required."
+      }
+    },
+    {
+      "id": "c04-mfr150",
+      "gradeKey": "G149-03",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "G149-03",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "30 ± 10 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "30",
+        "Raw uncertainty ±": "10",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30",
+        "Normalized uncertainty ±": "10",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "150℃",
+        "Test temperature °C": "150",
+        "Standard / load": "ISO1133 150℃/2.16kg",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+        "Locator": "p. 1: 熔体指数 Melt Flow Rate, ISO1133, 150℃/2.16kg, g/10min, 30±10",
+        "Notes": "Separate bilingual original states150°C/2.16kg; English original states260°C/2.16kg. Preserve both methods, no temperature overwrite, in-service melt-flow requirement or specimen print-state inference. 2.16kg is flow-test mass, not a typed MPa test load.",
+        "Parse review": "Original prints150℃ (Unicode Celsius glyph) in ISO1133 test-condition cell; typed150°C faithfully transcribes that temperature, while the parser does not recognize this glyph. 2.16kg remains test mass, not MPa load; no other condition is inferred."
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔体指数 Melt Flow Rate ISO1133 150℃/2.16kg g/10min 30±10"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Original p1 measured result and condition fields visually reread; separate independent review required."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c04-816dc4c0-1",
+      "gradeKey": "G149-03",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "G149-03",
+        "Domain": "Durability",
+        "Topic": "Acetone",
+        "Finding": "丙酮 Ketone 一般",
+        "Exposure / conditions": "Own chemical table; Chinese specifically names acetone and rates一般 (AI translation: general/fair). English source77ea19eb rates genericKetoneGood. Agent/language mismatch and absent concentration, duration, specimen and exposure temperature prevent harmonization or a solvent-class verdict. Retain own Chinese words; no invented protocol or rating threshold.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+        "Locator": "p. 2: Chemical resistance, 丙酮 Ketone agent/rating"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "丙酮 Ketone 一般"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Source raw clause re-read; separate independent packet review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "可在 70℃低温下打印，打印笔用，可重复塑型",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "[1] [2]",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "拉伸强度（X-Y）Tensile Strength ISO527/2 50mm/min MPa /",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "杨氏模量(X-Y)Young’s Modulus ISO527/2 1mm/min MPa /",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "弯曲强度 (X-Y) Flexural Strength ISO178 2mm/min MPa /",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "弯曲模量 (X-Y) Flexural Modulus ISO178 2mm/min MPa /",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "ISO180 23℃ KJ/m2 /",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO180 23℃ KJ/m2 /",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "邵氏硬度 Shore hardness ISO868 23℃ HA/HD /",
+      "reason": "the sheet publishes no value for Hardness in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "热变形温度（X-Y）Heat Deflection (HDT) ISO75 0.45MPa ℃ /",
+      "reason": "the sheet publishes no value for HDT in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "玻璃化转变温度 Glass Transition(Tg) ISO11357-3 10℃/min ℃ /",
+      "reason": "the sheet publishes no value for Glass transition temperature in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "维卡软化温度 Vicat Softening Temp. ISO306 5kg,50℃/h ℃ /",
+      "reason": "the sheet publishes no value for Vicat softening temperature in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "热膨胀系数 Coefficient of Thermal Exp. ISO11359-2 ㎛（m·℃） 90",
+      "reason": "the sheet states Coefficient of thermal expansion in ㎛（m·℃）, and the database keeps it in µm/m/K"
+    },
+    {
+      "page": 1,
+      "text": "体积电阻率 Volume Resistivity IEC60093 - ohm-cm 1.05*1012",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 1,
+      "text": "阻燃性 Flammability UL94 1.5mm Class HB",
+      "reason": "properties.csv carries no property for \"阻燃性 Flammability\""
+    },
+    {
+      "page": 1,
+      "text": "弱酸影响 Weak Acid (pH 3-6) 一般",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "强酸的影响 Strong Acid (pH<3) 差",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "弱碱的影响 Weak Bases （pH 8-10) 一般",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "强碱的影响 Strong Bases (pH >10) 差",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "介电常数 Dielectric Constant IEC60250 1kHz 3.4",
+      "reason": "the sheet states Relative permittivity in 1kHz, and the database keeps it in Dimensionless"
+    },
+    {
+      "page": 2,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "75-85℃ /",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "[1] 测试样条打印速度 45 mm/s，打印温度 80 ℃。填充 100%，走线方式为 90 度。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "[2] 典型值是指实验室平均数据，仅用于使用时的参考，不作为产品的标准，不同打印机打印有区别。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "产品资料 Version1.0 2024-6",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent operation review required; no human review",
+    "note": "Only signed packet findings accepted. All automatic values/profiles rejected, no catalogue or model change."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      },
+      "row": {
+        "MaterialID": "M149",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PCL",
+        "Shared formulation key": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "阻燃性 Flammability UL94 1.5mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-4f598c89-404d-4872-99ca-499f116f2be7",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "产品资料 Version1.0 2024-6"
+      }
+    }
+  ],
+  "newMaterial": null
+}

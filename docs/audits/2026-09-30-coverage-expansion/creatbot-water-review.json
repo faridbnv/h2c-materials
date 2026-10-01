@@ -1,0 +1,54 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T15:13:45.349914+00:00",
+  "input_path": "external-campaign/research/creatbot-water-packet.json",
+  "input_sha256": "51b3fd9d1868927a781b919d0e99e917a69d1df389fd250d3cf6ed577632d642",
+  "overall_verdict": "APPROVE",
+  "approved_measurement_operations": 1,
+  "source_reading_batches": [
+    {
+      "maker": "CreatBot",
+      "products": [
+        "G164-09"
+      ],
+      "distinct_products": 1
+    }
+  ],
+  "source": {
+    "SourceID": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+    "original_path": ".cache/sources/by-sha/f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2.pdf",
+    "original_sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+    "read_scope": "Complete one-page original text and full page image reread; title exact CreatBot UltraPA, saturation row and disclaimer visually checked. Official own page3148a159 source also prints same row."
+  },
+  "per_operation": [
+    {
+      "FindingID": "CREATBOT-WATER-2.595",
+      "verdict": "APPROVE",
+      "GradeID": "G164-09",
+      "MaterialID": "M164",
+      "property": "Water absorption",
+      "raw_value": "2.595%",
+      "raw_method_cell": "25℃，55%RH",
+      "locator": "p. 1: Physical Properties, Saturated water absorption rate, Test method25℃，55%RH, Data2.595%",
+      "reason": "Exact own Physical Properties row: Saturated water absorption rate /25℃，55%RH /2.595%. Canonical% factor1 is faithful; no standardized method, duration or immersion stated. Typed ambient25°C faithful toUnicodeglyph and parser exception explicit. Form, initial specimen moisture and postprocessing unspecified; atmospheric55%RH is retained as condition, not transferred to mechanical specimen state."
+    }
+  ],
+  "guard_checks": {
+    "full_ExpectedGrade_Source_current_match": true,
+    "original_SHA256_match": true,
+    "all_10_full_existing_measurements_current_match": true,
+    "no_owned_water_absorption_duplicate": true,
+    "property_registered_and_percent_unit_supported": true,
+    "no_existing_notch_Tg_or_other_measurement_correction": true
+  },
+  "limitations": [
+    "Saturated wording is preserved source property label; it does not establish immersion,100%RH, equilibrium duration or a standard.",
+    "No ratio basis (mass/volume) inferred where source onlystates%.",
+    "Ambient55%RH measurement condition is not declared conditioned tensile/flexural/impact state; no mechanical result edited.",
+    "Printed specimen form is not established by marketing disclaimer or recommended print parameters.",
+    "Water absorption is a physical property record, not hydrolysis durability or service performance certification, environmental PASS, medical or food-contact qualification.",
+    "Append becomes eleventh owned measurement only after serialized admission; reviewer made no canonical edit. Full verification and source-grounded rendered-record fixture remain root release gates."
+  ],
+  "canonical_mutations": false,
+  "review_signature_sha256": "db815be7ad7126b62ffe6b31869d2b6ac22aef168ffa8a0b5f810a4cdaf70ae5"
+}

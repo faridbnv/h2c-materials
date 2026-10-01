@@ -1,0 +1,400 @@
+{
+  "BatchID": "APP-SUNLU-SIRAYA-CREATBOT-ORIGINALS",
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M149",
+      "MaterialID": "M149",
+      "ActiveGradeIDs": [
+        "G149-01",
+        "G149-02",
+        "G149-03",
+        "G149-04"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04916",
+          "MaterialID": "M149",
+          "GradeID": "G149-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Decorative items, toys, accessories, and figurines",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+            "Publisher": "SUNLU",
+            "Title": "TECHNICAL DATA SHEET ISO PCL",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://media.sunlu.com/prod/20260414/9c709eea-12c7-4a05-b5cd-227c63c700b8.pdf?filename=TDS",
+            "Locator": "Document / product page",
+            "Applicable grades": "G149-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b"
+          },
+          "OriginalPath": ".cache/sources/by-sha/77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b.pdf",
+          "TextPath": ".cache/text/77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b.json"
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M149",
+        "GradeID": "G149-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: SUNLU PCL (G149-03) has maker good for statements (Q04916, R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Repeated reshaping and 3D-pen use are maker guidance; the sheet’s specimen recipe at 260 °C differs from its low-temperature product guidance. No medical or skin-contact qualification follows."
+      },
+      "PrimaryReview": "Original digest checked and complete product body reread by injector on 2026-10-01; intended-use claims and limitations scoped separately from suitability.",
+      "IndependentReview": "PENDING_FINAL_OPERATION_REVIEW",
+      "ExpectedGrade": {
+        "GradeID": "G149-03",
+        "MaterialID": "M149",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PCL",
+        "Shared formulation key": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability UL 94 1.5 mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    },
+    {
+      "FindingID": "CE-APP-M150",
+      "MaterialID": "M150",
+      "ActiveGradeIDs": [
+        "G039-69",
+        "G150-01",
+        "G150-02",
+        "G150-03"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q03257",
+          "MaterialID": "M150",
+          "GradeID": "G039-69",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Lightweighting: Significantly reducing weight for drone parts, robotics, and more.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+            "Publisher": "Siraya Tech",
+            "Title": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://siraya.tech/pages/siraya-tech-flex-tpu-air-tds",
+            "Locator": "Document / product page",
+            "Applicable grades": "G129-06; G039-69",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620.html",
+          "TextPath": ".cache/text/ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620.json"
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M150",
+        "GradeID": "G039-69",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Siraya Tech Flex TPU Air (G039-69) has maker good for statements (Q03257, D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Application claims depend on controlled foaming and the print state; no validated insoles, seals, wearables or robotics performance follows."
+      },
+      "PrimaryReview": "Original digest checked and complete product body reread by injector on 2026-10-01; intended-use claims and limitations scoped separately from suitability.",
+      "IndependentReview": "PENDING_FINAL_OPERATION_REVIEW",
+      "ExpectedGrade": {
+        "GradeID": "G039-69",
+        "MaterialID": "M150",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Flex TPU Air",
+        "Shared formulation key": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+        "Composition / filler": "\"Actively Foaming Thermoplastic Polyurethane (TPU)\" (D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under TPU-LW on 2026-09-28 (m223-what-the-makers-say-it-is), moved from TPU, hardness not stated: foaming TPU, \"Actively Foaming Thermoplastic Polyurethane (TPU)\" (D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1). Its own page says it is an actively foaming TPU, \"Up to 50% lighter than standard TPUs\", printing between 63A and 78A: a foaming TPU is TPU-LW, filed by its foaming and not its hardness (as a conductive TPU is by its load, R204). Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    },
+    {
+      "FindingID": "CE-APP-M160",
+      "MaterialID": "M160",
+      "ActiveGradeIDs": [
+        "G039-03",
+        "G039-04",
+        "G039-11",
+        "G039-18",
+        "G039-20",
+        "G039-25",
+        "G039-30",
+        "G039-60",
+        "G039-62",
+        "G039-63",
+        "G039-70",
+        "G042-01",
+        "G167-09"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02980",
+          "MaterialID": "M160",
+          "GradeID": "G039-18",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Footwear materials, sports protective gear, automotive parts, and daily necessities.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+            "Publisher": "SUNLU",
+            "Title": "TECHNICAL DATA SHEET ISO TPU 90A",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://media.sunlu.com/prod/20260330/c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b.pdf?filename=TDS",
+            "Locator": "Document / product page",
+            "Applicable grades": "G039-18",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9"
+          },
+          "OriginalPath": ".cache/sources/by-sha/1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9.pdf",
+          "TextPath": ".cache/text/1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9.json"
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M160",
+        "GradeID": "G039-18",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: SUNLU TPU 90A (G039-18) has maker good for statements (Q02980, R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Sports/protective and automotive examples are uses named by the maker, not protection, antibacterial, UV-service or load certification."
+      },
+      "PrimaryReview": "Original digest checked and complete product body reread by injector on 2026-10-01; intended-use claims and limitations scoped separately from suitability.",
+      "IndependentReview": "PENDING_FINAL_OPERATION_REVIEW",
+      "ExpectedGrade": {
+        "GradeID": "G039-18",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "TPU 90A",
+        "Shared formulation key": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability UL 94 1.5 mm Class / (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    },
+    {
+      "FindingID": "CE-APP-M164",
+      "MaterialID": "M164",
+      "ActiveGradeIDs": [
+        "G164-02",
+        "G164-05",
+        "G164-06",
+        "G164-07",
+        "G164-09"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05306",
+          "MaterialID": "M164",
+          "GradeID": "G164-09",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "CreatBot Ultra PA is a high-performance polyamide (nylon) engineering material for 3D printing. It offers excellent mechanical strength, toughness, wear resistance and high-temperature resistance, widely used in gear transmission, wear parts, automotive functional parts and industrial equipment.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-CREATBOT-PRINT-20260928-3148a159f1e5",
+          "Locator": "p. 1: exact-product Good for paragraph; m222 record-tier review"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-CREATBOT-PRINT-20260928-3148a159f1e5",
+            "Publisher": "CreatBot",
+            "Title": "Ultra PA Filament Printing Guide",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-28",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+            "Citation role": "cited",
+            "URL": "https://www.creatbot.com/filamentList/ultra-pa/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G164-09",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806"
+          },
+          "OriginalPath": ".cache/sources/by-sha/3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806.html",
+          "TextPath": ".cache/text/3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806.json"
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M164",
+        "GradeID": "G164-09",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: CreatBot Ultra PA (G164-09) has maker good for statements (Q05306, R-CREATBOT-PRINT-20260928-3148a159f1e5, p. 1: exact-product Good for paragraph; m222 record-tier review). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. The own page’s table and FAQ disagree on nozzle/bed and drying schedules; these are unresolved processing claims, not a qualified application."
+      },
+      "PrimaryReview": "Original digest checked and complete product body reread by injector on 2026-10-01; intended-use claims and limitations scoped separately from suitability.",
+      "IndependentReview": "PENDING_FINAL_OPERATION_REVIEW",
+      "ExpectedGrade": {
+        "GradeID": "G164-09",
+        "MaterialID": "M164",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "CreatBot",
+        "Product name": "Ultra PA",
+        "Shared formulation key": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M149",
+      "append": {
+        "MaterialID": "M149",
+        "GradeID": "G149-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: SUNLU PCL (G149-03) has maker good for statements (Q04916, R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Repeated reshaping and 3D-pen use are maker guidance; the sheet’s specimen recipe at 260 °C differs from its low-temperature product guidance. No medical or skin-contact qualification follows."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M150",
+      "append": {
+        "MaterialID": "M150",
+        "GradeID": "G039-69",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Siraya Tech Flex TPU Air (G039-69) has maker good for statements (Q03257, D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Application claims depend on controlled foaming and the print state; no validated insoles, seals, wearables or robotics performance follows."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M160",
+      "append": {
+        "MaterialID": "M160",
+        "GradeID": "G039-18",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: SUNLU TPU 90A (G039-18) has maker good for statements (Q02980, R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Sports/protective and automotive examples are uses named by the maker, not protection, antibacterial, UV-service or load certification."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M164",
+      "append": {
+        "MaterialID": "M164",
+        "GradeID": "G164-09",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: CreatBot Ultra PA (G164-09) has maker good for statements (Q05306, R-CREATBOT-PRINT-20260928-3148a159f1e5, p. 1: exact-product Good for paragraph; m222 record-tier review). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. The own page’s table and FAQ disagree on nozzle/bed and drying schedules; these are unresolved processing claims, not a qualified application."
+      },
+      "supersede": []
+    }
+  ],
+  "ExpectedDecisionDelta": 0,
+  "NoNewSourceAdmission": true,
+  "SourceReadingBatches": [
+    {
+      "Manufacturer": "SUNLU",
+      "GradeIDs": [
+        "G149-03",
+        "G039-18"
+      ]
+    },
+    {
+      "Manufacturer": "Siraya Tech",
+      "GradeIDs": [
+        "G039-69"
+      ]
+    },
+    {
+      "Manufacturer": "CreatBot",
+      "GradeIDs": [
+        "G164-09"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "release": "05fe0c3368b0",
+  "parent_commit": "be85521971257acb797c91f426f5da725efb75ac",
+  "warm_verify_fast_seconds": 46.37,
+  "full_verify_seconds": 235.88,
+  "full_verify_exit": 0,
+  "interface_views": 69,
+  "rendered_scenarios": 300,
+  "readings": 2592,
+  "rendered_scenario_seconds": 48.3,
+  "compiled_difference_paths": 86,
+  "automatic_estimate_changes": 0,
+  "ui_baseline_change": "01-default measurement count11241\u219211244 only; other68views unchanged",
+  "source_backup": {
+    "originals": 2390,
+    "new_originals": 5,
+    "derived_files": 2790,
+    "known_absent": 124
+  },
+  "frozen_questions": 15,
+  "frozen_evaluations": 18195,
+  "environment_questions": 48,
+  "environment_evaluations": 58224,
+  "template_question_modes": 24,
+  "template_evaluations": 30744,
+  "frozen_environment_template_answer_changes": 0,
+  "supplemental_changed_criteria": 1,
+  "application_counts": {
+    "Evidence recorded": 45,
+    "Reviewed with limitations": 44,
+    "Gap": 26,
+    "Unassessed": 21
+  },
+  "logs": [
+    {
+      "name": "eighth-final-verify-fast.log",
+      "sha256": "022c6b47ef380f7f00249dd1f2ac7e4b957ea34b92c19ed64494feb3def11778"
+    },
+    {
+      "name": "eighth-final-verify.log",
+      "sha256": "41dc65451b1164dc476b6bcedd2620267315657d4f74927d451cf2f0024edf12"
+    },
+    {
+      "name": "eighth-release-verify.log",
+      "sha256": "b96936325e9f0cb1d5a8d0a099d55d9173bd3d7afd8ef0b0a5f5bc3c9cdcc5bd"
+    },
+    {
+      "name": "eighth-final-build-diff.log",
+      "sha256": "aac594b8853e2f84a36cde15baa29e4dbd25beb7b7cc67d48e63898b10479fc3"
+    },
+    {
+      "name": "eighth-final-record-diff.log",
+      "sha256": "366f2d71bf083bda6a8c015b5ec2f4a0bd2909ee693dcf9cc91b9fbb4753b9bb"
+    },
+    {
+      "name": "eighth-source-backup.log",
+      "sha256": "7baff2b104a85f3cec056f0de3d212a72db226f761ace94a477e8796564be220"
+    },
+    {
+      "name": "eighth-ui-write.log",
+      "sha256": "432216e51f2281a7f3ed0b7b2f12e77fc9d18b4d7d83a5ea805609c3d8691c96"
+    }
+  ],
+  "review": "Independent AI; no human review",
+  "retained_failed_runs": [
+    "Initialfast rejected two test assumptions, corrected in separate be85521 commit with baseline fullQA",
+    "Initialfull run187.28s passed data/import/repro but stopped at intentional measurementcount UI baseline; finalfull rerun passed"
+  ]
+}

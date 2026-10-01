@@ -1483,7 +1483,7 @@ M149,PCL,density,value,1100,kg/m³,,,,,3,G149-02,V010142
 M149,PCL,tensileModulusXY,estimate,0.519,GPa,0.23-1.18,0.142-1.89,0.142-1.89,this-material,,,
 M149,PCL,tensileStrengthXY,estimate,34.6,MPa,16.5-72.3,11.5-104,open-104,this-material,,,
 M149,PCL,tensileStrengthZ,none,,MPa,,,,,,,
-M149,PCL,elongationXY,value,800,%,,,,,1,G149-03,V010184
+M149,PCL,elongationXY,value,800,%,,,,,1,G149-03,V011541
 M149,PCL,charpyNotched,none,,kJ/m²,,,,,,,
 M149,PCL,izodNotched,none,,kJ/m²,,,,,,,
 M149,PCL,hdt045,value,57,°C,,,,,1,G149-04,V010322

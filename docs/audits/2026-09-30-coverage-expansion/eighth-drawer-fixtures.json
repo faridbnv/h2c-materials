@@ -1,0 +1,66 @@
+{
+  "basis": "Actual renderDrawer HTML, scoped independently reviewed records; content assertion does not claim browser layout or human review",
+  "release": "05fe0c3368b0",
+  "cases": [
+    {
+      "material": "M149",
+      "tab": "Grades",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M149",
+      "tab": "Environment",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M149",
+      "tab": "Coverage",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M150",
+      "tab": "Grades",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M150",
+      "tab": "Environment",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M150",
+      "tab": "Coverage",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M160",
+      "tab": "Grades",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M160",
+      "tab": "Environment",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M160",
+      "tab": "Coverage",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M164",
+      "tab": "Grades",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M164",
+      "tab": "Environment",
+      "actualDrawerHTML": true
+    },
+    {
+      "material": "M164",
+      "tab": "Coverage",
+      "actualDrawerHTML": true
+    }
+  ]
+}

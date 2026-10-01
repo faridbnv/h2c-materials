@@ -1,0 +1,278 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T15:55:01.732285+00:00",
+  "overall_verdict": "APPROVE_LOCAL_RELEASE",
+  "release": "05fe0c3368b0",
+  "parent_commit": "be85521971257acb797c91f426f5da725efb75ac",
+  "scope": "Approve eighth coverage tranche m261–m267 for verified local commit. Approval applies to this pinned canonical release and reviewed data/migration/audit/snapshot changes; no push/publication authorization. The broader campaign remains incomplete.",
+  "inputs": [
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-verification.json",
+      "sha256": "7e51d0f5ca4286cd46efe985208d34aaf61070f90a6252316f6d4c74c8033a5e"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/README.md",
+      "sha256": "b0c7b8328e0e89e4de883191f84f89cb11fec2508ead84ef8926a05f062c1fb1"
+    },
+    {
+      "path": "external-campaign/reviews/EIGHTH-CHANGED-ANSWERS-REVIEW.json",
+      "sha256": "d9c4c42f7e1d8ab79a55a178e2d9d1ec43c060c2871f555bc41ec1c85b81e440",
+      "signature_sha256": "569caf78886033fb092cfba4b79cc4e1eea79e6f5b4fc407379bcabf3128bbf2"
+    },
+    {
+      "path": "external-campaign/evidence/eighth-final-verify-fast.log",
+      "sha256": "022c6b47ef380f7f00249dd1f2ac7e4b957ea34b92c19ed64494feb3def11778"
+    },
+    {
+      "path": "external-campaign/evidence/eighth-final-verify.log",
+      "sha256": "41dc65451b1164dc476b6bcedd2620267315657d4f74927d451cf2f0024edf12"
+    },
+    {
+      "path": "external-campaign/evidence/eighth-release-verify.log",
+      "sha256": "b96936325e9f0cb1d5a8d0a099d55d9173bd3d7afd8ef0b0a5f5bc3c9cdcc5bd"
+    },
+    {
+      "path": "external-campaign/evidence/eighth-final-build-diff.log",
+      "sha256": "aac594b8853e2f84a36cde15baa29e4dbd25beb7b7cc67d48e63898b10479fc3"
+    },
+    {
+      "path": "external-campaign/evidence/eighth-final-record-diff.log",
+      "sha256": "366f2d71bf083bda6a8c015b5ec2f4a0bd2909ee693dcf9cc91b9fbb4753b9bb"
+    },
+    {
+      "path": "external-campaign/evidence/eighth-source-backup.log",
+      "sha256": "7baff2b104a85f3cec056f0de3d212a72db226f761ace94a477e8796564be220"
+    },
+    {
+      "path": "external-campaign/evidence/eighth-ui-write.log",
+      "sha256": "432216e51f2281a7f3ed0b7b2f12e77fc9d18b4d7d83a5ea805609c3d8691c96"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/application-sunlu-siraya-creatbot-packet.json",
+      "sha256": "6c324deb587f94a84241160d677ff447d5e304d14b59817fcf64401dbd032c54"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/application-sunlu-siraya-creatbot-review.json",
+      "sha256": "4297c80c6b9f43b1d8e27a2eb65e541eaaee0af2f2c3c0f42e74fd0ea1472a5b"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/creatbot-water-packet.json",
+      "sha256": "51b3fd9d1868927a781b919d0e99e917a69d1df389fd250d3cf6ed577632d642"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/creatbot-water-review.json",
+      "sha256": "73191a5704976e4a84f1f70ff4da6446e16954e99c96814a970ad13b94a4a1eb"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-lab-custody-packet.json",
+      "sha256": "05b1f35ae7b763f445c8753543f4a1c0930574f6ccd0b743e6b4d9bfefcdb9e2"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-lab-custody-review.json",
+      "sha256": "54eb2918efcde0c545e37189da7be0322c5e01d1aeec1f65faee6e1957754f73"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-product-outcomes-packet.json",
+      "sha256": "379b8e3c891fadfa12cb8b4183062d590e1f88f978379006ca1967a9a842aa2a"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-product-outcomes-review.json",
+      "sha256": "bf909b10de66ceb26f9bdc51d7b979dc7eacb54ef9828e7d9483ff6011389613"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sunlu-pcl-specimen-packet.json",
+      "sha256": "60e37a5aa4ae55ab08687783cae699da264fe9ea7ede6e3c04fb1ab192ba6988"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sunlu-pcl-specimen-review.json",
+      "sha256": "6c8e11c0890d90188ef2223496c3a6c51bb97d415de5bbed0e256e9dba47a97a"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sunlu-environment-packet.json",
+      "sha256": "0238b226fb41886043c317babb477f18a1ed51828d508a5b0cb25ef4df95330b"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sunlu-environment-review.json",
+      "sha256": "a4b4c9047c2cf08c1561f847968db34c7c23e1c88ba180066087808f9a777de0"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/siraya-air-nozzle-packet.json",
+      "sha256": "1d95e8906d340416b14ade0d72264b7126de6370be4a283b46eb7f42d6bd03fb"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/siraya-air-nozzle-review.json",
+      "sha256": "5dc92362f221c1e4f26aa9a1d6fb444f1254dacc35ebfc58a8acaa60ff11cd02"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sunlu-siraya-c04-packet.json",
+      "sha256": "110b995f046cc5e10ca193b4782e8b918eb512ce95d99e3437a0375898572aac"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sunlu-siraya-c04-review.json",
+      "sha256": "2bfa249be2376666ed6ef97704565a0425e6c20438d035165cd9fad25eb57c9c"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-custody-check.json",
+      "sha256": "019ed892bbfca5397462282bd209ae0213deb41ec7827e2ac0be8c20f3d6d5b6"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-environment-replay.json",
+      "sha256": "9fa4e26476b0b84d09e522ce7c1b40e2f18b712990e78167c67b16ffdd63c1ca"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-frozen-replay.json",
+      "sha256": "ddfa1a47a6405c16dd99ca027ec0088c02cfc7f57323cd0c52f004cff6ffd3f2"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-template-replay.json",
+      "sha256": "5e73ba8c76f2e9e43130b7f355f36c3f18cd55e21a334b00c0d685f8de9815a9"
+    }
+  ],
+  "working_diff": {
+    "tracked_patch_sha256": "a5d0a0ce2b39989a4d855499a40b39e878fe9118ee7da7c6926c10405725abfb",
+    "tracked_files": [
+      "build/reports/validation-report.md",
+      "build/snapshot/counts.md",
+      "build/snapshot/environment.csv",
+      "build/snapshot/gates.csv",
+      "build/snapshot/headlines.csv",
+      "build/snapshot/print.csv",
+      "build/snapshot/products.csv",
+      "build/snapshot/ui/01-default.txt",
+      "data/manifest.json",
+      "data/review/accepted-findings.csv",
+      "data/tables/coverage.csv",
+      "data/tables/evidence.csv",
+      "data/tables/measurements.csv",
+      "data/tables/profiles.csv",
+      "data/tables/sources.csv",
+      "docs/OPEN-PROBLEMS.md",
+      "docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md",
+      "docs/audits/2026-09-30-coverage-expansion/README.md",
+      "docs/audits/2026-09-30-coverage-expansion/ingest/ledger.csv"
+    ],
+    "untracked_files": [
+      "docs/audits/2026-09-30-coverage-expansion/application-sunlu-siraya-creatbot-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/application-sunlu-siraya-creatbot-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/creatbot-water-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/creatbot-water-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-changed-answers-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-custody-check.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-drawer-fixtures.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-environment-replay.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-frozen-replay.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-guard-fixtures.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-lab-custody-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-lab-custody-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-product-outcomes-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-product-outcomes-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-rerun-fixtures.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-source-fixtures.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-supplemental-fixtures.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-template-replay.json",
+      "docs/audits/2026-09-30-coverage-expansion/eighth-verification.json",
+      "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-drawers.mjs",
+      "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-guards.mjs",
+      "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-source.mjs",
+      "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-supplemental.mjs",
+      "docs/audits/2026-09-30-coverage-expansion/ingest/proposals/c04/5b7089593d2d541d.json",
+      "docs/audits/2026-09-30-coverage-expansion/ingest/proposals/c04/6bdcca0ceec24b20.json",
+      "docs/audits/2026-09-30-coverage-expansion/ingest/proposals/c04/73edc6fa27c18a17.json",
+      "docs/audits/2026-09-30-coverage-expansion/ingest/proposals/c04/816dc4c0cc18aad8.json",
+      "docs/audits/2026-09-30-coverage-expansion/ingest/proposals/c04/8af0c76b9d9ca589.json",
+      "docs/audits/2026-09-30-coverage-expansion/m261-injection.json",
+      "docs/audits/2026-09-30-coverage-expansion/m262-injection.json",
+      "docs/audits/2026-09-30-coverage-expansion/m263-injection.json",
+      "docs/audits/2026-09-30-coverage-expansion/m264-injection.json",
+      "docs/audits/2026-09-30-coverage-expansion/m265-injection.json",
+      "docs/audits/2026-09-30-coverage-expansion/m266-injection.json",
+      "docs/audits/2026-09-30-coverage-expansion/m267-injection.json",
+      "docs/audits/2026-09-30-coverage-expansion/siraya-air-nozzle-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/siraya-air-nozzle-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/sunlu-environment-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/sunlu-environment-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/sunlu-pcl-specimen-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/sunlu-pcl-specimen-review.json",
+      "docs/audits/2026-09-30-coverage-expansion/sunlu-siraya-c04-packet.json",
+      "docs/audits/2026-09-30-coverage-expansion/sunlu-siraya-c04-review.json",
+      "scripts/migrate/m261-application-sunlu-siraya-creatbot.mjs",
+      "scripts/migrate/m262-sunlu-pcl-off-recipe-specimen.mjs",
+      "scripts/migrate/m263-batch-c04-sunlu-siraya-source-conditions.mjs",
+      "scripts/migrate/m264-sunlu-bounded-environmental-ratings.mjs",
+      "scripts/migrate/m265-siraya-air-source-bounded-nozzle-gate.mjs",
+      "scripts/migrate/m266-creatbot-published-water-absorption.mjs",
+      "scripts/migrate/m267-waltek-full-text-custody-note.mjs"
+    ]
+  },
+  "verification": {
+    "warm_verify_fast_seconds": 46.37,
+    "warm_budget_seconds": 90,
+    "full_verify_seconds": 235.88,
+    "recorded_full_verify_exit": 0,
+    "unit_tests": 450,
+    "import_tests": 194,
+    "scale_tests": 1,
+    "reproducible_tests": 1,
+    "failed_tests": 0,
+    "skipped_tests": 0,
+    "interface_views": 69,
+    "rendered_scenarios": 300,
+    "readings": 2592,
+    "rendered_scenario_seconds": 48.3,
+    "audit_errors": 0,
+    "snapshot_current": true,
+    "layout_failures": 0,
+    "initial_failed_runs": "Retained initial test-assumption failures repaired in separate verified test-only parent commitbe85521; initial full UI baseline stop retained, final full rerun completed."
+  },
+  "diff_review": {
+    "compiled_difference_paths": 86,
+    "record_operations": "Four limited Application rows C01546–C01549;26 evidence rows Q05426–Q05451 (3 know-how/23 compiled evidence);3 measurements V011541–V011543;four source-condition fields on V010184;three profile fields on P0977;5 witnessed sources;4 record/field-specific fullwidth lint acceptances. No deletions, numeric overwrites, new model or schema.",
+    "automatic_estimate_changes": 0,
+    "independent_estimate_comparison": "All material headline estimate objects and meta.estimateModel identical against frozen62442c28a1c8.",
+    "ui_baseline_diff": "Actual git diff build/snapshot/ui changes only01-default measurement count11241→11244. Other68view baselines unchanged.",
+    "other_snapshots": "Counts/source/environment additions;M150abrasion gate unknown;G039-69ownhardening unknown;PCLheadline/prodvalue800% unchanged but provenanceV010184→V011541.",
+    "production_code_changed": false,
+    "schema_changed": false,
+    "tests_changed_in_this_tranche": false
+  },
+  "source_backup": {
+    "manifest_originals": 2390,
+    "derived_manifest_files": 2790,
+    "known_absent_inventory_entries": 124,
+    "known_absent_scope": "Previously known absent inventory entries are retained; no claim every historical source has bytes.",
+    "all_manifest_files_exist_and_size_match": true,
+    "new_originals_sha_verified": 5,
+    "new_derived_files_sha_verified": 5,
+    "manifest_sha256": "506190573e2fd81695f6a3318b8219f1bd0a33e4676ef7e95bd75678545bb860",
+    "derived_manifest_sha256": "de18af07dc66c284732b56972ef3f98bd09b3ffe54621a6da7ddec2abd145506",
+    "review_scope": "Direct inventory/size validation for all original and derived manifest entries, SHA validation for five newly admitted originals and their five derived files; export log additionally reviewed."
+  },
+  "changed_answers": {
+    "frozen_questions": 15,
+    "frozen_evaluations": 18195,
+    "environment_questions": 48,
+    "environment_evaluations": 58224,
+    "template_question_modes": 24,
+    "template_evaluations": 30744,
+    "verdict_or_screen_changes": 0,
+    "supplemental_checks": 16,
+    "changed_supplemental_criteria": 1,
+    "explanation": "Siraya G039-69 hardening criterion without available hardened nozzle FAIL→PASS because unsupported own requirement was removed. Existing no-requirement-recorded semantics, not brass certification or overall suitability. PCL799/801 dry unchanged; conditioned UNKNOWN; new in-recipe original backs same800%."
+  },
+  "review_release_conditions": [
+    "All eight final operation/outcome packets match their independently approved public review input hashes. Newly deciding source conditions, environmental clauses and Application judgments already independently original-reviewed; no new fact release in final metadata.",
+    "Four product outcomes retain exact-question answers, bounded routes/searches, historical price receipts, conflicting/unretrieved/vendor/test holds; only final after verified local commit. They do not imply global public-source exhaustion or campaign completion.",
+    "Positive Waltek4.9/4.8 activities and24 coupled Siraya foaming numeric cells remain held; canonical/compiled lanes retain only correct admitted narrative/disclaimer and existing SirayaMFR measurement. Custody accurately names digest original/full-text pages/external holds.",
+    "Unknown source conditions and own source conflicts remain explicit in canonical records, reviewed drawer content and OPEN-PROBLEMS§25. No medical/skin/child/protective, chemical-category or printed-product certificate passes follow.",
+    "Historical m263 rerun receipt is bounded before later Q05428 notes correction; current disposable guards safely refuse older packet after row change. No claim current historical m263 may overwrite new notes.",
+    "Four TEXT-FULLWIDTH findings are accepted only for V011543 Locator/Notes/Parse review/Standard-load, preserving own literal25℃，55%RH and independently reviewed typed25°C. No check disabled.",
+    "Approval covers this tranche and its verified local commit only; remaining21unassessed Application cells and other assigned campaign targets still require work."
+  ],
+  "limitations": [
+    "Independent AI review only; no human review or physical validation.",
+    "Browser69views and300rendered scenarios verified from retained final command log; this reviewer independently reproduced selected actual drawer HTML, source/guard/supplemental and portfolio checks, not a second full browser campaign.",
+    "No new cold timing or useful-findings-per-active-hour measurement claimed.",
+    "No repository files or source bytes changed by this reviewer. Final clean-tree/local commit identity remains the sole writer’s post-commit check."
+  ],
+  "review_signature_sha256": "c1ed16ff92af1479cb3bcdadf874e29e981314ed9525f01952d883718c21d3e5"
+}

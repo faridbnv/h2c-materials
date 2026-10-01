@@ -1,0 +1,50 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T15:31:48.731772+00:00",
+  "input_path": "external-campaign/research/eighth-lab-custody-packet.json",
+  "input_sha256": "05b1f35ae7b763f445c8753543f4a1c0930574f6ccd0b743e6b4d9bfefcdb9e2",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 1,
+  "original_sha256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+  "original_path": ".cache/sources/by-sha/6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212.pdf",
+  "per_operation": [
+    {
+      "OperationID": "LAB-CUSTODY-Q05428",
+      "EvidenceID": "Q05428",
+      "verdict": "APPROVE",
+      "reason": "Only custody-lane sentence changes; original quote, exact-grade association, published-observation classification, sample-only/language/untested-photo and no-certification limits unchanged. Full current grade/evidence/source guards match. Direct SQL confirms original-linked indexedpp1–4 with p3 numericactivities4.9/4.8, and zeroWaltek source_facts records."
+    }
+  ],
+  "independent_custody_check": {
+    "database": "dist/h2c.sqlite",
+    "observed_compiled_release": "5c0ecd94f0d6",
+    "documents_fts_pages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "documents_fts_SHA256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+    "p3_contains_original_activities": [
+      "4.9",
+      "4.8"
+    ],
+    "source_facts_rows_for_exact_SourceID": 0,
+    "queries": [
+      "select page,text,sha256 from documents_fts where sourceid=? order by page",
+      "select count(*) from source_facts where sourceid=?"
+    ]
+  },
+  "provenance_history": {
+    "prior_operation_review": "external-campaign/reviews/SUNLU-SIRAYA-C04-OPERATIONS.json",
+    "prior_packet_sha256": "110b995f046cc5e10ca193b4782e8b918eb512ce95d99e3437a0375898572aac",
+    "clarification": "Earlier approval verified source facts/limits but did not validate promised structured source_facts custody. That wording is corrected after explicit SQL audit; original source and external numerical holds stay unchanged. Historical review/packet remains preserved."
+  },
+  "limitations": [
+    "Positive activityresults remain external atomic holds, not evidence rows, measurements, bacterialcategory or productcertification.",
+    "FTS text is indexed documentary custody, not structured atomic release. Source bytes are authoritative and all report sample/language limits remain.",
+    "ObservedSQLite release predates latestcanonical water/custody changes; final rebuild and release fixtures must reverify FTS presence/digest. This report approves faithful provenance correction, not final verification or commit."
+  ],
+  "canonical_mutations": false,
+  "review_signature_sha256": "ab790a7d28bc78774b48acb375a3fb271d25cc3ce90600d61115dc027ef12043"
+}

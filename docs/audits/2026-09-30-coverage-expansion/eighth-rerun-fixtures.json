@@ -1,0 +1,42 @@
+{
+  "canonicalContentUnchanged": true,
+  "manifestSHA256": "b8eb15b963df5f882f7372c578d502277f53435695096792c099708451cbccfd",
+  "scope": "All six migration reruns before later custody correction; subsequent changed custody wording correctly stops historical m263 guard.",
+  "results": [
+    {
+      "migration": "m261-application-sunlu-siraya-creatbot",
+      "packet": "6c324deb587f94a84241160d677ff447d5e304d14b59817fcf64401dbd032c54",
+      "written": 0,
+      "records": []
+    },
+    {
+      "migration": "m262-sunlu-pcl-off-recipe-specimen",
+      "packet": "60e37a5aa4ae55ab08687783cae699da264fe9ea7ede6e3c04fb1ab192ba6988",
+      "written": 0
+    },
+    {
+      "migration": "m263-batch-c04-sunlu-siraya-source-conditions",
+      "packet": "110b995f046cc5e10ca193b4782e8b918eb512ce95d99e3437a0375898572aac",
+      "log": [],
+      "written": true,
+      "applied": 0
+    },
+    {
+      "migration": "m264-sunlu-bounded-environmental-ratings",
+      "packet": "0238b226fb41886043c317babb477f18a1ed51828d508a5b0cb25ef4df95330b",
+      "written": 0,
+      "records": []
+    },
+    {
+      "migration": "m265-siraya-air-source-bounded-nozzle-gate",
+      "packet": "1d95e8906d340416b14ade0d72264b7126de6370be4a283b46eb7f42d6bd03fb",
+      "written": 0
+    },
+    {
+      "migration": "m266-creatbot-published-water-absorption",
+      "packet": "51b3fd9d1868927a781b919d0e99e917a69d1df389fd250d3cf6ed577632d642",
+      "written": 0,
+      "records": []
+    }
+  ]
+}

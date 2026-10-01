@@ -1,0 +1,729 @@
+{
+  "PacketID": "EIGHTH-JOINED-PRODUCT-BOUNDED-OUTCOMES",
+  "State": "PROPOSED_FINAL_AFTER_VERIFIED_COMMIT",
+  "Targets": [
+    {
+      "TaskID": "PROD-G149-03",
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "Outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Maker decorative/3D-pen/repeat-shaping uses and new teaching/prototyping claim; no validated safety or use suitability."
+      },
+      "Environmental": {
+        "Outcome": "found",
+        "Finding": "English own9chemical agent/result pairs, qualitativeHB at1.5mm and UV-yellowing/storage caveat found. No exposure duration, quantitative retention or weathering protocol. New bilingual acetone一般 differs generic EnglishKetoneGood; Chinese ether/Englishester row remains held.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "MissingConditionsHandoff": "Vendor/exactspecimen/exposuretest needed for unanswered class conditions; no qualified PASS."
+      },
+      "DecisionProperties": {
+        "Outcome": "conflicting",
+        "Finding": "English800% at260°C is retainedoffrecipe. New bilingual800%at80°C45mm/s100%90° is separate inrecipe result. SameMFR30±10 has different150/260°C conditions. Typedrawnumbers unchanged onoldsource. No tensile strength/modulus, notchedimpact,HDT orTg result in examined sheets (slash cells), not proof of universal absence.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileModulusXY",
+          "tensileStrengthXY",
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "hdt045",
+          "glassTransition"
+        ],
+        "UnansweredHandoff": "Vendorpublished exactproduct/stateZ/modulus/notch/Tg/HDT asneeded, otherwise ownstandardizedtest; no syntheticmeasurements."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Own75–85°C nozzle profile; bed table slash and ownproductpage noheatedbed claim are distinct. No chamber/drying/annealing schedule or humid mechanical result in examined originals. Source-specimen260°C contradiction remains vendor-needed.",
+        "FrozenPrintGapsAddressed": [
+          "nozzle",
+          "bed",
+          "chamber"
+        ]
+      },
+      "Price": {
+        "Outcome": "already recorded",
+        "Finding": "Recentpricepassmaterialoutcome retained; no concrete newpricedlisting lead pursued and no refreshroutine. Materialresult is not priceproof foreverygrade.",
+        "PriorMaterialOutcome": {
+          "MaterialID": "M149",
+          "Material": "PCL",
+          "Priced": "no",
+          "CAD/kg": "",
+          "Tiers": "",
+          "Converted": "",
+          "Products priced": "0 of 4",
+          "Why not": "3D4Makers lists Facilan PCL 100 without stating its VAT basis; no iSANMATE, SUNLU or Filament2Print listing was found in a bounded search."
+        }
+      },
+      "SourcesReread": [
+        {
+          "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+          "URL": "https://media.sunlu.com/prod/20260414/9c709eea-12c7-4a05-b5cd-227c63c700b8.pdf?filename=TDS",
+          "SHA256": "77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b",
+          "AccessDate": "2026-09-21"
+        },
+        {
+          "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+          "URL": "https://www.sunlu.com/zh-cn/products/pcl-3d-printing-filament",
+          "SHA256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2",
+          "AccessDate": "2026-10-01"
+        },
+        {
+          "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+          "URL": "https://media.sunlu.com/prod/20260414/4f598c89-404d-4872-99ca-499f116f2be7.pdf?filename=TDS",
+          "SHA256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+          "AccessDate": "2026-10-01"
+        }
+      ],
+      "Searches": [
+        {
+          "Query": "site.sunlu.com PCL filament applications 3D pen TDS",
+          "Outcome": "found",
+          "SourceClass": "official maker",
+          "RoutesInspected": [
+            "https://www.sunlu.com/zh-cn/products/pcl-3d-printing-filament"
+          ],
+          "Queries": 1,
+          "SearchExhausted": false
+        }
+      ],
+      "PriorOutcomesReused": [],
+      "StoppingReason": "Bounded source/route pass yielded documented facts and conflicts; proceed with explicit vendor/test/contract handoffs, rather than repeating searches without a materially new question.",
+      "KnownUnretrievedLeads": [
+        "SDS/RoHS/Reach downloads exist onSUNLUownpage but are not retrieved or treated as approvals in this pass."
+      ],
+      "ReleaseCondition": "Everyacceptedpacket admitted or held, independentreview,sourcefixtures,replays,fullQA,backup andlocalcommit. Pending untilthosegates pass."
+    },
+    {
+      "TaskID": "PROD-G039-18",
+      "GradeID": "G039-18",
+      "MaterialID": "M160",
+      "Outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Own footwear/sports protective/automotive/daily uses only; no load or protective equipment qualification."
+      },
+      "Environmental": {
+        "Outcome": "found",
+        "Finding": "Eight own chemical agent/result pairs added from existingTDS; ownUV-resistant claim remains qualified by missing protocol and yellowingcaution. Waltek ISO22196 sample-only E.coli4.9/Staph4.8 retained in the digest-verified original, full-text pages and held packet; no99.9%conversion, antimicrobial requirement or skin/medical suitability.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "MissingConditionsHandoff": "Vendor/exactspecimen/exposuretest needed for unanswered class conditions; no qualified PASS."
+      },
+      "DecisionProperties": {
+        "Outcome": "conflicting",
+        "Finding": "Webhardness80/elong10±5/strength40±6/density1.23 differ linked byte-identical TDS90A±2/>=1000/30±3/1.17±.02. No overwrite by date. TDS modulus,Zstrength,notchedIzod,Tg slash/absent; no publishedCharpy in examined sources.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileModulusXY",
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnansweredHandoff": "Vendorpublished exactproduct/stateZ/modulus/notch/Tg/HDT asneeded, otherwise ownstandardizedtest; no syntheticmeasurements."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Existing220–240°Cnozzle/30–60°Cbed and230°C40mm/s100%90° specimens retained. Drying60–70°C range without duration is guidance, no narrowed scalar. No chamber or annealing schedule/humid mechanical result in examinedsource. Avoid-high-infill use advice versus100%specimen retained as context.",
+        "FrozenPrintGapsAddressed": [
+          "chamber"
+        ]
+      },
+      "Price": {
+        "Outcome": "already recorded",
+        "Finding": "Recentpricepassmaterialoutcome retained; no concrete newpricedlisting lead pursued and no refreshroutine. Materialresult is not priceproof foreverygrade.",
+        "PriorMaterialOutcome": {
+          "MaterialID": "M160",
+          "Material": "TPU 90A class",
+          "Priced": "yes",
+          "CAD/kg": "74.985",
+          "Tiers": "Canadian shop (2026-09-10); Canadian shop",
+          "Converted": "no",
+          "Products priced": "2 of 13",
+          "Why not": ""
+        }
+      },
+      "SourcesReread": [
+        {
+          "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+          "URL": "https://media.sunlu.com/prod/20260330/c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b.pdf?filename=TDS",
+          "SHA256": "1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9",
+          "AccessDate": "2026-09-19"
+        },
+        {
+          "SourceID": "R-SUNLU-COVERAGE-20261001-6bdcca0ceec2",
+          "URL": "https://media.sunlu.com/prod/20260709/88948301783590261309.pdf?filename=Antibacterial Test Report",
+          "SHA256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+          "AccessDate": "2026-10-01"
+        },
+        {
+          "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+          "URL": "https://www.sunlu.com/jp/products/266",
+          "SHA256": "73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094",
+          "AccessDate": "2026-10-01"
+        }
+      ],
+      "Searches": [
+        {
+          "Query": "site.sunlu.com TPU 90A filament applications TDS",
+          "Outcome": "found",
+          "SourceClass": "official maker",
+          "RoutesInspected": [
+            "https://www.sunlu.com/jp/products/266"
+          ],
+          "Queries": 1,
+          "SearchExhausted": false
+        }
+      ],
+      "PriorOutcomesReused": [],
+      "StoppingReason": "Bounded source/route pass yielded documented facts and conflicts; proceed with explicit vendor/test/contract handoffs, rather than repeating searches without a materially new question.",
+      "KnownUnretrievedLeads": [
+        "SDS/RoHS/Reach downloads exist onSUNLUownpage but are not retrieved or treated as approvals in this pass.",
+        "https://uk.store.sunlu.com/blogs/product-knowledge/sunlu-tpu-90a-filament-everyday-3d-printing-projects — discovered official source, not retrieved; no application claim/result derived. Follow-up lead retained without repeating completed searches."
+      ],
+      "ReleaseCondition": "Everyacceptedpacket admitted or held, independentreview,sourcefixtures,replays,fullQA,backup andlocalcommit. Pending untilthosegates pass."
+    },
+    {
+      "TaskID": "PROD-G039-69",
+      "GradeID": "G039-69",
+      "MaterialID": "M150",
+      "Outcome": "context only",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Own lightweighting/drone/robotics/cushioning/wearables and tuning claims, no application validation."
+      },
+      "Environmental": {
+        "Outcome": "context only",
+        "Finding": "Hygroscopic handling guidance only; no service-water/hydrolysis/chemical/UV/creep/fatigue exposure test in examined ownTDS/manual. Missing metrics lead to vendor/test handoffs; no broad absence assertion.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "MissingConditionsHandoff": "Vendor/exactspecimen/exposuretest needed for unanswered class conditions; no qualified PASS."
+      },
+      "DecisionProperties": {
+        "Outcome": "context only",
+        "Finding": "TDS owns fourcoupledprinted states240/250/260/270°C, eachdensity/Vicat/ShoreA/yield/break/elongation. Those tablevalues preserved in the digest-verified original, full-text pages and held atomic rows; do not flatten to independent favourable density/hardness/strength or call rawfilamentdensity printed density. Tensilemodulus,Zstrength,notchedimpact,Tg not published in examined tables.",
+        "FrozenMissingHeadlinesAddressed": [
+          "density",
+          "tensileModulusXY",
+          "tensileStrengthXY",
+          "tensileStrengthZ",
+          "elongationXY",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnansweredHandoff": "Vendorpublished exactproduct/stateZ/modulus/notch/Tg/HDT asneeded, otherwise ownstandardizedtest; no syntheticmeasurements."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Existing230–270°C/30–45°C retained, foaming/flow calibrations conditional. Drying TDS dedicateddryerorconvection vsmanualconvection/dryernotrecommended is unresolved in wet-filament context, distinct from upon-openingdry-storage. Source-gate review requires removing unsourcedhardening/fibreabrasion requirement toNP, no brassapproval. Scalar drying range remains knownlimitation; no annealing/humidstrength result in examinedsource.",
+        "FrozenPrintGapsAddressed": [
+          "chamber"
+        ]
+      },
+      "Price": {
+        "Outcome": "already recorded",
+        "Finding": "Recentpricepassmaterialoutcome retained; no concrete newpricedlisting lead pursued and no refreshroutine. Materialresult is not priceproof foreverygrade.",
+        "PriorMaterialOutcome": {
+          "MaterialID": "M150",
+          "Material": "TPU-LW",
+          "Priced": "yes",
+          "CAD/kg": "69.99",
+          "Tiers": "Amazon.ca, the maker's store",
+          "Converted": "no",
+          "Products priced": "1 of 4",
+          "Why not": ""
+        }
+      },
+      "SourcesReread": [
+        {
+          "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+          "URL": "https://siraya.tech/pages/siraya-tech-flex-tpu-air-tds",
+          "SHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+          "AccessDate": "2026-09-20"
+        },
+        {
+          "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+          "URL": "https://siraya.tech/pages/siraya-tech-tpu-air-user-manual",
+          "SHA256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4",
+          "AccessDate": "2026-10-01"
+        }
+      ],
+      "Searches": [
+        {
+          "Query": "site.siraya.tech TPU Air user guide drying flow applications",
+          "Outcome": "found",
+          "SourceClass": "official maker",
+          "RoutesInspected": [
+            "https://siraya.tech/pages/siraya-tech-flex-tpu-air-tds",
+            "https://siraya.tech/pages/siraya-tech-tpu-air-user-manual"
+          ],
+          "Queries": 1,
+          "SearchExhausted": false
+        }
+      ],
+      "PriorOutcomesReused": [],
+      "StoppingReason": "Bounded source/route pass yielded documented facts and conflicts; proceed with explicit vendor/test/contract handoffs, rather than repeating searches without a materially new question.",
+      "KnownUnretrievedLeads": [],
+      "ReleaseCondition": "Everyacceptedpacket admitted or held, independentreview,sourcefixtures,replays,fullQA,backup andlocalcommit. Pending untilthosegates pass."
+    },
+    {
+      "TaskID": "PROD-G164-09",
+      "GradeID": "G164-09",
+      "MaterialID": "M164",
+      "Outcome": "conflicting",
+      "ApplicationAndFinishing": {
+        "Outcome": "context only",
+        "Finding": "Own gear/wear/autoindustrial uses only; adjacent PEEKmedical statements excluded."
+      },
+      "Environmental": {
+        "Outcome": "found",
+        "Finding": "Ownpageoil/chemical/longlife claims lack exposure/retention/load protocol. Saturated-water row25°C55%RH2.595% must retain conditioning words; no hydrolysis or immersion protocol inferred. No ownweathering/creep/fatigue test or food approval in examinedsources.",
+        "FrozenCategoriesAddressed": [
+          "acid",
+          "alkali",
+          "organic-solvent",
+          "oil-grease",
+          "water-solubility",
+          "flammability",
+          "food-contact",
+          "uv-outdoor",
+          "moisture",
+          "creep",
+          "fatigue",
+          "hydrolysis"
+        ],
+        "MissingConditionsHandoff": "Vendor/exactspecimen/exposuretest needed for unanswered class conditions; no qualified PASS."
+      },
+      "DecisionProperties": {
+        "Outcome": "already recorded",
+        "Finding": "Own makerTDS hostedbyFilament2Print now has11 canonical measurements: V011343–V011352 plus V011543 admitted by m266 after independent AI review of packet51b3fd9d1868927a781b919d0e99e917a69d1df389fd250d3cf6ed577632d642. V011543 records saturated water absorption2.595% at25°C55%RH, with duration, standard, specimen form and immersion not published; no hydrolysis or service approval follows. Zstrength/Izod absent orslash; PDF/TDS table has no Tg row, while ownFAQ givesgenericnylon Tg approximately70°C without measuredexactproduct method. ExistingCharpy9.74ISO179 hasno statednotch inPDF/table, while ownpage MechanicalProperties calls9.74 Notched impact strength. Preserve page-versus-table scope conflict; no silently inferred notchedheadline, genericTg productvalue or printed-specimen recipe. XY orientation and printed source standards retained.",
+        "FrozenMissingHeadlinesAddressed": [
+          "tensileStrengthZ",
+          "charpyNotched",
+          "izodNotched",
+          "glassTransition"
+        ],
+        "UnansweredHandoff": "Vendorpublished exactproduct/stateZ/modulus/notch/Tg/HDT asneeded, otherwise ownstandardizedtest; no syntheticmeasurements."
+      },
+      "PrintingTreatmentMoistureStates": {
+        "Outcome": "conflicting",
+        "Finding": "Officialpage table280–300/70–80/dry80–100C6–8h versus FAQ260–290/80–100/dry70–80C≤85 conflict retained; no intersected/reconciled window applied. Ownrecommendationchamber40–60 conditional, priorchambersearchused onlyits question. Source chamber slash unknown notzero/noenclosure. No exactunfilledUltraPA annealing schedule inferredfrom UltraPA-CF guide.",
+        "FrozenPrintGapsAddressed": []
+      },
+      "Price": {
+        "Outcome": "already recorded",
+        "Finding": "Recentpricepassmaterialoutcome retained; no concrete newpricedlisting lead pursued and no refreshroutine. Materialresult is not priceproof foreverygrade.",
+        "PriorMaterialOutcome": {
+          "MaterialID": "M164",
+          "Material": "Nylon, maker-undisclosed polyamide",
+          "Priced": "yes",
+          "CAD/kg": "107.21",
+          "Tiers": "EUR",
+          "Converted": "2 product(s) from EUR",
+          "Products priced": "2 of 5",
+          "Why not": ""
+        }
+      },
+      "SourcesReread": [
+        {
+          "SourceID": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+          "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4090",
+          "SHA256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+          "AccessDate": "2026-09-26"
+        },
+        {
+          "SourceID": "R-CREATBOT-PRINT-20260928-3148a159f1e5",
+          "URL": "https://www.creatbot.com/filamentList/ultra-pa/",
+          "SHA256": "3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806",
+          "AccessDate": "2026-09-28"
+        }
+      ],
+      "Searches": [
+        {
+          "Query": "site.creatbot.com Ultra PA filament chemical resistance annealing UV application",
+          "Outcome": "found",
+          "SourceClass": "official maker",
+          "RoutesInspected": [
+            "https://www.creatbot.com/filamentList/ultra-pa/",
+            "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4090"
+          ],
+          "Queries": 1,
+          "SearchExhausted": false
+        }
+      ],
+      "PriorOutcomesReused": [
+        {
+          "File": "/Users/farid/.codex/worktrees/d1fb/h2c-materials-branch/docs/audits/2026-09-28-gap-closing/C-SITE-OUTCOMES.csv",
+          "Record": {
+            "GradeID": "G164-09",
+            "Manufacturer": "CreatBot",
+            "Product": "Ultra PA",
+            "SourceIDs": "R-CREATBOT-PRINT-20260928-3148a159f1e5",
+            "URLs": "https://www.creatbot.com/filamentList/ultra-pa/",
+            "Outcome": "explicit-statement-recorded",
+            "Limit": "Exact raw chamber/enclosure words entered; qualitative heating advice supplies no numeric setpoint.",
+            "Scope maker site": "TRUE",
+            "Next action": "Follow current engine result; maker setpoint or own H2C print if unresolved",
+            "Reviewed by": "Codex AI agent, 2026-09-28"
+          }
+        }
+      ],
+      "StoppingReason": "Bounded source/route pass yielded documented facts and conflicts; proceed with explicit vendor/test/contract handoffs, rather than repeating searches without a materially new question.",
+      "KnownUnretrievedLeads": [],
+      "ReleaseCondition": "Everyacceptedpacket admitted or held, independentreview,sourcefixtures,replays,fullQA,backup andlocalcommit. Pending untilthosegates pass."
+    }
+  ],
+  "HeldFindings": [
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-240",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Printed Part Density (g/cm³) row",
+      "PublishedCell": "0.88",
+      "PublishedProperty": "Printed Part Density (g/cm³)",
+      "PublishedMethod": "ISO845",
+      "PublishedPrintTemperatureC": 240,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-250",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Printed Part Density (g/cm³) row",
+      "PublishedCell": "0.7",
+      "PublishedProperty": "Printed Part Density (g/cm³)",
+      "PublishedMethod": "ISO845",
+      "PublishedPrintTemperatureC": 250,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-260",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Printed Part Density (g/cm³) row",
+      "PublishedCell": "0.59",
+      "PublishedProperty": "Printed Part Density (g/cm³)",
+      "PublishedMethod": "ISO845",
+      "PublishedPrintTemperatureC": 260,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-270",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Printed Part Density (g/cm³) row",
+      "PublishedCell": "0.51",
+      "PublishedProperty": "Printed Part Density (g/cm³)",
+      "PublishedMethod": "ISO845",
+      "PublishedPrintTemperatureC": 270,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-240",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Vicat Softening Temp (°C) row",
+      "PublishedCell": "83",
+      "PublishedProperty": "Vicat Softening Temp (°C)",
+      "PublishedMethod": "ISO306",
+      "PublishedPrintTemperatureC": 240,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-250",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Vicat Softening Temp (°C) row",
+      "PublishedCell": "74",
+      "PublishedProperty": "Vicat Softening Temp (°C)",
+      "PublishedMethod": "ISO306",
+      "PublishedPrintTemperatureC": 250,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-260",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Vicat Softening Temp (°C) row",
+      "PublishedCell": "65",
+      "PublishedProperty": "Vicat Softening Temp (°C)",
+      "PublishedMethod": "ISO306",
+      "PublishedPrintTemperatureC": 260,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-270",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Vicat Softening Temp (°C) row",
+      "PublishedCell": "53",
+      "PublishedProperty": "Vicat Softening Temp (°C)",
+      "PublishedMethod": "ISO306",
+      "PublishedPrintTemperatureC": 270,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-240",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Hardness (Shore A) row",
+      "PublishedCell": "78",
+      "PublishedProperty": "Hardness (Shore A)",
+      "PublishedMethod": "ISO7619",
+      "PublishedPrintTemperatureC": 240,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-250",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Hardness (Shore A) row",
+      "PublishedCell": "71",
+      "PublishedProperty": "Hardness (Shore A)",
+      "PublishedMethod": "ISO7619",
+      "PublishedPrintTemperatureC": 250,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-260",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Hardness (Shore A) row",
+      "PublishedCell": "68",
+      "PublishedProperty": "Hardness (Shore A)",
+      "PublishedMethod": "ISO7619",
+      "PublishedPrintTemperatureC": 260,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-270",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Hardness (Shore A) row",
+      "PublishedCell": "63",
+      "PublishedProperty": "Hardness (Shore A)",
+      "PublishedMethod": "ISO7619",
+      "PublishedPrintTemperatureC": 270,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-240",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Tensile Yield Strength (MPa) row",
+      "PublishedCell": "6.3",
+      "PublishedProperty": "Tensile Yield Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 240,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-250",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Tensile Yield Strength (MPa) row",
+      "PublishedCell": "4.4",
+      "PublishedProperty": "Tensile Yield Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 250,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-260",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Tensile Yield Strength (MPa) row",
+      "PublishedCell": "3.4",
+      "PublishedProperty": "Tensile Yield Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 260,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-270",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Tensile Yield Strength (MPa) row",
+      "PublishedCell": "2.8",
+      "PublishedProperty": "Tensile Yield Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 270,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-240",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Tensile Breaking Strength (MPa) row",
+      "PublishedCell": "10.3",
+      "PublishedProperty": "Tensile Breaking Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 240,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-250",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Tensile Breaking Strength (MPa) row",
+      "PublishedCell": "7.2",
+      "PublishedProperty": "Tensile Breaking Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 250,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-260",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Tensile Breaking Strength (MPa) row",
+      "PublishedCell": "5.0",
+      "PublishedProperty": "Tensile Breaking Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 260,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-270",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Tensile Breaking Strength (MPa) row",
+      "PublishedCell": "3.8",
+      "PublishedProperty": "Tensile Breaking Strength (MPa)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 270,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-240",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Elongation at Break (%) row",
+      "PublishedCell": "629",
+      "PublishedProperty": "Elongation at Break (%)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 240,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-250",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Elongation at Break (%) row",
+      "PublishedCell": "605",
+      "PublishedProperty": "Elongation at Break (%)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 250,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-260",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Elongation at Break (%) row",
+      "PublishedCell": "547",
+      "PublishedProperty": "Elongation at Break (%)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 260,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-270",
+      "GradeID": "G039-69",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "OriginalSHA256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "Locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Elongation at Break (%) row",
+      "PublishedCell": "475",
+      "PublishedProperty": "Elongation at Break (%)",
+      "PublishedMethod": "X-Y,ISO527",
+      "PublishedPrintTemperatureC": 270,
+      "Outcome": "context only",
+      "ReleaseCondition": "Faithful coupled product-print-state/value contract and independent source-field review; no flattening to a favourable mixed temperature state. Flow/infill/specimen conditioning/testtemperature remain missing where not printed; existing approximateworkflow table is no measurement protocol. The digest-verified original remains authoritative."
+    }
+  ],
+  "SearchContract": "Verified oldoriginals reused; official product/download/guide routes, one focusedofficial query perproduct. Limits up to3queries and one distributorroute are maxima, not a claim all routes exhausted. Finish with evidenced mixed outcomes and explicit source/vendor/test handoffs, never universal absence.",
+  "ActiveTime": "Historical perproductactive time not reliably measured. Retained18.92s focusedbody-reading segment is onlythatsegment, no fabricated20minute exhaustion or usefulness-per-hour claim."
+}

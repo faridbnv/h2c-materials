@@ -1,0 +1,288 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2",
+    "url": "https://www.sunlu.com/zh-cn/products/pcl-3d-printing-filament",
+    "pages": 1,
+    "provider": "SUNLU",
+    "manufacturer": "SUNLU",
+    "docKey": "https://www.sunlu.com/zh-cn/products/pcl-3d-printing-filament#witness-for=source:R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8"
+  },
+  "identity": {
+    "polymer": "PCL",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pcl"
+    ],
+    "materialId": "M149",
+    "materialName": "PCL",
+    "estimateIdentity": "PCL",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+      "Publisher": "SUNLU",
+      "Title": "SUNLU PCL official product page (Chinese)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://www.sunlu.com/zh-cn/products/pcl-3d-printing-filament",
+      "Locator": "Document / product page",
+      "Applicable grades": "G149-03",
+      "Access state": "retrieved",
+      "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+      "SHA256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "三绿官网"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent operation review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G149-03",
+      "row": {
+        "GradeID": "G149-03",
+        "MaterialID": "M149",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PCL",
+        "Shared formulation key": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability UL 94 1.5 mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Resolve existing exact product only; no new grade, material, identity or formulation/source overwrite."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "800",
+        "Raw unit": "%",
+        "Raw numeric": "800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "800",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-pcl-3d-printing-filament",
+        "Locator": "p. 1: 断裂伸长率",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "断裂伸长率（%）  800  热变形温度（℃）  /  回抽速度  /"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c04-5b708959-1",
+      "gradeKey": "G149-03",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "G149-03",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "三绿PCL的低熔点使材料打印过程更加安全，适合教学与快速成型。材料可重复塑形，灵活性高。",
+        "Exposure / conditions": "Own Chinese product introduction. AI translation: low melting point, claimed safer printing, suitable for teaching and rapid prototyping, repeat shaping. Maker claim only: no child, classroom, burn, skin or medical safety validation. New teaching/rapid-prototyping use lead; decorative-use claim already recorded separately.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+        "Locator": "p. 1: Own PCL introduction"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "三绿PCL的低熔点使材料打印过程更加安全，适合教学与快速成型。材料可重复塑形，灵活性高。"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": false,
+        "note": "Source raw clause re-read; separate independent packet review required."
+      }
+    },
+    {
+      "id": "c04-5b708959-2",
+      "gradeKey": "G149-03",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "G149-03",
+        "Domain": "Makers' know-how",
+        "Topic": "Warping and shrinkage",
+        "Finding": "该材料无需热床即可成功打印，减少了对设备的依赖。打印过程中几乎不发生翘边现象，大大提高了打印稳定性和成功率，使打印过程更加轻松和高效。",
+        "Exposure / conditions": "Own Chinese no-heated-bed/near-no-warping claim; AI translation explicitly marked. No printer, geometry, adhesion force, quantified warp or controlled trial. Page parameter table bed slash means missing, not a numeric zero; no H2C compatibility pass or profile override.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+        "Locator": "p. 1: Own PCL 无需热床，几乎不翘边 paragraph"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "该材料无需热床即可成功打印，减少了对设备的依赖。打印过程中几乎不发生翘边现象，大大提高了打印稳定性和成功率，使打印过程更加轻松和高效。"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": false,
+        "note": "Source raw clause re-read; separate independent packet review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "查看图片 1 查看图片 2 查看图片 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "拉伸强度（MPa）  /  密度（g/cm³）  1.13  喷嘴温度  75-85℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "悬臂梁缺口冲击强度（kJ/m²）  /  收缩率（%）  1.3-1.6  回抽距离  /",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "弯曲强度（MPa）  /  熔体指数（g/10 min）  30±10  热床温度  /",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "黑色  #1F2123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "白色  #F9FDFF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "作为3D打印耗材领域的领先制造商，SUNLU提供包括3D打印耗材、3D打印树脂和耗材烘干机在内的产品。依托自主知识产权，我们致力于为您的3D打印需求提供高效、高品质的解决方案。",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent operation review required; no human review",
+    "note": "Only signed packet findings accepted. All automatic values/profiles rejected, no catalogue or model change."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      },
+      "row": {
+        "MaterialID": "M149",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PCL",
+        "Shared formulation key": "R-SUNLU-pcl-3d-printing-filament",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-pcl-3d-printing-filament",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "三绿官网"
+      }
+    }
+  ],
+  "newMaterial": null
+}

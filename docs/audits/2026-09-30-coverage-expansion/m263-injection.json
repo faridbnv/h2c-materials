@@ -1,0 +1,22 @@
+{
+  "migration": "m263-batch-c04-sunlu-siraya-source-conditions",
+  "packet": "110b995f046cc5e10ca193b4782e8b918eb512ce95d99e3437a0375898572aac",
+  "log": [
+    "source R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+    "evidence Q05426 Good for",
+    "evidence Q05427 Warping and shrinkage",
+    "source R-SUNLU-COVERAGE-20261001-6bdcca0ceec2",
+    "evidence Q05428 Grade distinction",
+    "source R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+    "evidence Q05429 Grade distinction",
+    "evidence Q05430 Grade distinction",
+    "source R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+    "measurement V011541 Elongation at break",
+    "measurement V011542 Melt mass-flow rate",
+    "evidence Q05431 Acetone",
+    "source R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+    "evidence Q05432 Printing advice"
+  ],
+  "written": true,
+  "applied": 5
+}

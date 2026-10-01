@@ -1,0 +1,15 @@
+{
+  "release": "05fe0c3368b0",
+  "WaltekFTSPages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "WaltekStructuredSourceFacts": 0,
+  "SirayaStructuredSourceFacts": 58,
+  "SirayaFTSPages": [
+    1
+  ],
+  "basis": "Fresh SQL after rebuilding SQLite from the final canonical inputs; numerical holds remain source records and external atomic holds."
+}

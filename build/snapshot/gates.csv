@@ -148,7 +148,7 @@ M146,PLA-PHB,within,within,unknown,unknown,unknown,required
 M147,PAHT,within,within,unknown,unknown,unknown,unknown
 M148,PAHT-CE,within,within,unknown,unknown,requires-hardened,unknown
 M149,PCL,within,within,within,unknown,unknown,unknown
-M150,TPU-LW,within,within,within,unknown,requires-hardened,required
+M150,TPU-LW,within,within,within,unknown,unknown,required
 M151,TPU-GF,within,within,within,within,requires-hardened,unknown
 M152,PLA-NF,within,within,within,within,requires-hardened,required
 M153,PETG-GR,within,unknown,unknown,unknown,unknown,unknown

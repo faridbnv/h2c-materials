@@ -1,0 +1,510 @@
+{
+  "basis": "Expectations from independently reviewed exact-source facts and existing screening contract; source claims do not establish overall suitability",
+  "beforeRelease": "62442c28a1c8",
+  "afterRelease": "05fe0c3368b0",
+  "changedCriteria": 1,
+  "checks": [
+    {
+      "grade": "G039-69",
+      "question": {
+        "kind": "gate",
+        "gate": "abrasive",
+        "hardenedAvailable": false
+      },
+      "before": {
+        "status": "FAIL",
+        "criterion": "No hardened nozzle",
+        "reason": "A source states it needs an abrasion-resistant nozzle",
+        "constraint": {
+          "kind": "gate",
+          "gate": "abrasive",
+          "hardenedAvailable": false
+        }
+      },
+      "after": {
+        "status": "PASS",
+        "criterion": "No hardened nozzle",
+        "reason": "No hardened-nozzle requirement recorded. The filler is not disclosed, so check the product: glow, metal, wood and marble fills can wear brass",
+        "constraint": {
+          "kind": "gate",
+          "gate": "abrasive",
+          "hardenedAvailable": false
+        }
+      },
+      "scope": "Criterion result only: removal of unsupported hardening requirement; no source approval of brass or overall product suitability"
+    },
+    {
+      "grade": "G039-69",
+      "question": {
+        "kind": "gate",
+        "gate": "abrasive",
+        "hardenedAvailable": true
+      },
+      "before": {
+        "status": "PASS",
+        "criterion": "Hardened nozzle available",
+        "reason": "A hardened nozzle prints abrasive and non-abrasive filament",
+        "constraint": {
+          "kind": "gate",
+          "gate": "abrasive",
+          "hardenedAvailable": true
+        }
+      },
+      "after": {
+        "status": "PASS",
+        "criterion": "Hardened nozzle available",
+        "reason": "A hardened nozzle prints abrasive and non-abrasive filament",
+        "constraint": {
+          "kind": "gate",
+          "gate": "abrasive",
+          "hardenedAvailable": true
+        }
+      },
+      "scope": "Criterion result only: removal of unsupported hardening requirement; no source approval of brass or overall product suitability"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "numeric",
+        "property": "elongationXY",
+        "operator": ">=",
+        "value": 799
+      },
+      "moisture": "dry",
+      "before": {
+        "status": "PASS",
+        "reason": "Published 800 % (XY) (ISO 527); moisture state and treatment not stated, admitted for screening",
+        "criterion": "elongationXY >= 799",
+        "closeToLimit": false,
+        "observed": 800,
+        "unit": "%",
+        "interval": {
+          "lo": 800,
+          "hi": 800,
+          "kind": "point"
+        },
+        "measurementId": "V010184",
+        "gradeId": "G149-03",
+        "sourceId": null,
+        "direction": "XY",
+        "admitted": [
+          "moisture",
+          "treatment"
+        ],
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 799
+        }
+      },
+      "after": {
+        "status": "PASS",
+        "reason": "Published 800 % (XY) (ISO 527); moisture state and treatment not stated, admitted for screening",
+        "criterion": "elongationXY >= 799",
+        "closeToLimit": false,
+        "observed": 800,
+        "unit": "%",
+        "interval": {
+          "lo": 800,
+          "hi": 800,
+          "kind": "point"
+        },
+        "measurementId": "V011541",
+        "gradeId": "G149-03",
+        "sourceId": null,
+        "direction": "XY",
+        "admitted": [
+          "moisture",
+          "treatment"
+        ],
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 799
+        }
+      },
+      "scope": "Separate80°C bilingual specimen replaces off-recipe260°C headline; both raw values800%, no humid mechanical value inferred"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "numeric",
+        "property": "elongationXY",
+        "operator": ">=",
+        "value": 799
+      },
+      "moisture": "humid",
+      "before": {
+        "status": "UNKNOWN",
+        "criterion": "elongationXY >= 799",
+        "missing": "other-state",
+        "elsewhere": [
+          {
+            "stateId": "as-printed",
+            "treatment": null,
+            "moisture": "dry",
+            "value": 800,
+            "measurementId": "V010184"
+          }
+        ],
+        "reason": "Published only dry or with moisture unstated (V010184: 800 %); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 799
+        }
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "elongationXY >= 799",
+        "missing": "other-state",
+        "elsewhere": [
+          {
+            "stateId": "as-printed",
+            "treatment": null,
+            "moisture": "dry",
+            "value": 800,
+            "measurementId": "V011541"
+          }
+        ],
+        "reason": "Published only dry or with moisture unstated (V011541: 800 %); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 799
+        }
+      },
+      "scope": "Separate80°C bilingual specimen replaces off-recipe260°C headline; both raw values800%, no humid mechanical value inferred"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "numeric",
+        "property": "elongationXY",
+        "operator": ">=",
+        "value": 801
+      },
+      "moisture": "dry",
+      "before": {
+        "status": "FAIL",
+        "reason": "Published 800 % (XY) (ISO 527); moisture state and treatment not stated, admitted for screening",
+        "criterion": "elongationXY >= 801",
+        "closeToLimit": false,
+        "observed": 800,
+        "unit": "%",
+        "interval": {
+          "lo": 800,
+          "hi": 800,
+          "kind": "point"
+        },
+        "measurementId": "V010184",
+        "gradeId": "G149-03",
+        "sourceId": null,
+        "direction": "XY",
+        "admitted": [
+          "moisture",
+          "treatment"
+        ],
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 801
+        }
+      },
+      "after": {
+        "status": "FAIL",
+        "reason": "Published 800 % (XY) (ISO 527); moisture state and treatment not stated, admitted for screening",
+        "criterion": "elongationXY >= 801",
+        "closeToLimit": false,
+        "observed": 800,
+        "unit": "%",
+        "interval": {
+          "lo": 800,
+          "hi": 800,
+          "kind": "point"
+        },
+        "measurementId": "V011541",
+        "gradeId": "G149-03",
+        "sourceId": null,
+        "direction": "XY",
+        "admitted": [
+          "moisture",
+          "treatment"
+        ],
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 801
+        }
+      },
+      "scope": "Separate80°C bilingual specimen replaces off-recipe260°C headline; both raw values800%, no humid mechanical value inferred"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "numeric",
+        "property": "elongationXY",
+        "operator": ">=",
+        "value": 801
+      },
+      "moisture": "humid",
+      "before": {
+        "status": "UNKNOWN",
+        "criterion": "elongationXY >= 801",
+        "missing": "other-state",
+        "elsewhere": [
+          {
+            "stateId": "as-printed",
+            "treatment": null,
+            "moisture": "dry",
+            "value": 800,
+            "measurementId": "V010184"
+          }
+        ],
+        "reason": "Published only dry or with moisture unstated (V010184: 800 %); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 801
+        }
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "elongationXY >= 801",
+        "missing": "other-state",
+        "elsewhere": [
+          {
+            "stateId": "as-printed",
+            "treatment": null,
+            "moisture": "dry",
+            "value": 800,
+            "measurementId": "V011541"
+          }
+        ],
+        "reason": "Published only dry or with moisture unstated (V011541: 800 %); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+        "constraint": {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 801
+        }
+      },
+      "scope": "Separate80°C bilingual specimen replaces off-recipe260°C headline; both raw values800%, no humid mechanical value inferred"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "environment",
+        "category": "acid"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Acid resistance evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05433",
+          "Q05434"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "acid"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "environment",
+        "category": "alkali"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Alkali resistance evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05435",
+          "Q05436"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "alkali"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "environment",
+        "category": "organic-solvent"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Organic solvent resistance evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05431",
+          "Q05438",
+          "Q05439",
+          "Q05441"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "organic-solvent"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "environment",
+        "category": "hydrolysis"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Hydrolytic stability evidence",
+        "reason": "No evidence record for this product",
+        "constraint": {
+          "kind": "environment",
+          "category": "hydrolysis"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G149-03",
+      "question": {
+        "kind": "environment",
+        "category": "uv-outdoor"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "UV and outdoor evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05443"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "uv-outdoor"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G039-18",
+      "question": {
+        "kind": "environment",
+        "category": "acid"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Acid resistance evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05444",
+          "Q05445"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "acid"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G039-18",
+      "question": {
+        "kind": "environment",
+        "category": "alkali"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Alkali resistance evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05446",
+          "Q05447"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "alkali"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G039-18",
+      "question": {
+        "kind": "environment",
+        "category": "organic-solvent"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Organic solvent resistance evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05449",
+          "Q05450"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "organic-solvent"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G039-18",
+      "question": {
+        "kind": "environment",
+        "category": "hydrolysis"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "Hydrolytic stability evidence",
+        "polymer": true,
+        "polymerId": "TPU",
+        "polymerVerdict": "limited",
+        "polymerEvidenceIds": [
+          "M160-hydrolysis"
+        ],
+        "reason": "No evidence record for this material. Its base polymer TPU is published as limited (not resistant to Hot water, moisture vapour, tropical climate (polyester-based TPU), resistant to Hot water, moisture vapour, tropical climate (polyether-based TPU); R-BASF-ELASTOLLAN-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+        "constraint": {
+          "kind": "environment",
+          "category": "hydrolysis"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    },
+    {
+      "grade": "G039-18",
+      "question": {
+        "kind": "environment",
+        "category": "uv-outdoor"
+      },
+      "after": {
+        "status": "UNKNOWN",
+        "criterion": "UV and outdoor evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q02982"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "uv-outdoor"
+        }
+      },
+      "scope": "Narrative chemical ratings or general resin/yellowing claims do not qualify product exposure"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {openTables} from '../../../../scripts/data/table-io.mjs';
+import {locate} from '../../../../scripts/data/source-store.mjs';
+import {classifyTopic,classifyFinding,isUsableEvidence} from '../../../../build/src/normalize/chemical.js';
+import {coverageMatrix} from '../../../../app/js/engine/coverage.js';
+const t=openTables(),db=JSON.parse(readFileSync('dist/db.json')),cases=[];
+const env=JSON.parse(readFileSync('docs/audits/2026-09-30-coverage-expansion/sunlu-environment-packet.json'));
+const sourceIds=new Set(env.Operations.map(o=>o.Source.RegisteredSource.SourceID));
+for(const id of ['R-SUNLU-COVERAGE-20261001-816dc4c0cc18','R-SUNLU-COVERAGE-20261001-6bdcca0ceec2','D-SIRAYA-siraya-tech-flex-tpu-air-tds','R-FILAMENT2PRINT-CreatBot-UltraPA'])sourceIds.add(id);
+for(const id of sourceIds){const s=t.get('sources',id),p=locate(s.SHA256,id);assert.equal(p.bytes,'present');assert.equal(createHash('sha256').update(readFileSync(p.path)).digest('hex'),s.SHA256);}
+const old=db.measurements.find(m=>m.id==='V010184'),fresh=db.measurements.find(m=>m.id==='V011541');
+assert.equal(old.value,800);assert.equal(old.specimenForm,'off-recipe');assert.match(old.printParameters,/260 °C/);assert.match(old.printParameters,/150mm\/s/);
+assert.equal(fresh.value,800);assert.equal(fresh.specimenForm,'printed');assert.match(fresh.printParameters,/80/);assert.match(fresh.printParameters,/45/);
+for(const g of db.grades)for(const h of Object.values(g.headline??{}))assert.notEqual(h.measurementId,old.id);
+assert.equal(db.grades.find(g=>g.id==='G149-03').headline.elongationXY.measurementId,'V011541');
+cases.push({case:'Different PCL original specimen recipes remain separate: English260°C off recipe; bilingual80°C printed; value800% preserved in both',ids:[old.id,fresh.id]});
+const mfr=db.measurements.find(m=>m.id==='V011542');assert.equal(mfr.testTemperatureC,150);assert.equal(mfr.testTemperature,'150℃');assert.equal(mfr.specimenForm,'not-stated');assert.deepEqual(mfr.interval,{lo:20,hi:40,kind:'uncertainty'});assert.match(t.get('measurements',mfr.id)['Parse review'],/150/);
+cases.push({case:'PCL150℃/2.16kg flow method and30±10g/10min interval retained with explicit parser review, without inferring specimen state'});
+for(const op of env.Operations){const r=t.rows('evidence').find(r=>r.GradeID===op.Proposed.GradeID&&r.SourceID===op.Proposed.SourceID&&r.Finding===op.Proposed.Finding);assert.ok(r);assert.equal(r['Exposure / conditions'],op.Proposed['Exposure / conditions']);assert.equal(isUsableEvidence({topic:classifyTopic(r.Topic),finding:classifyFinding(r.Finding)}),false);const e=db.evidence.find(e=>e.id===r.EvidenceID);if(e)assert.equal(e.verdict,'narrative');}
+assert.equal(env.Operations.length,19);cases.push({case:'All19 independently reviewed chemical, HB and yellowing clauses preserve literal agent/rating/scope and cannot establish environmental passes'});
+assert.equal(t.get('profiles','P0977')['Hardened nozzle'],'Not published');assert.equal(db.grades.find(g=>g.id==='G039-69').print.hardenedNozzle,null);
+cases.push({case:'Siraya TPU Air has no own hardened-nozzle requirement; no brass approval, foaming-state collapse or fibre abrasion inference'});
+const w=db.measurements.find(m=>m.id==='V011543');assert.equal(w.value,2.595);assert.equal(w.unit,'%');assert.equal(w.testTemperatureC,25);assert.equal(w.specimenForm,'not-stated');assert.equal(w.moistureState,'not-stated');assert.match(t.get('measurements',w.id)['Standard / load'],/55%RH/);assert.equal(t.get('measurements',w.id).Standards,'Not published');
+cases.push({case:'CreatBot2.595% saturated-water row retains25℃55%RH; no duration, standard, immersion or mechanical specimen state inferred'});
+assert.equal(t.get('evidence','Q05428')['Evidence type'],'Published observation');assert.match(t.get('evidence','Q05428').Finding,/refer only to the sample/);assert.match(t.get('evidence','Q05428')['Exposure / conditions'],/digest-verified original/);assert.doesNotMatch(t.get('evidence','Q05428')['Exposure / conditions'],/retained in source_facts/);
+cases.push({case:'Waltek sample-only limitation remains visible; positive lab activities stay held outside maker-claim/application lanes'});
+const mats=db.materials.filter(m=>!m.excluded&&!m.familyEntry),matrix=coverageMatrix(mats,db.coverage,['Post-processing / application']),counts={};for(const m of matrix){const s=m.cells[0].status??'Unassessed';counts[s]=(counts[s]??0)+1;}for(const id of ['M149','M150','M160','M164'])assert.equal(matrix.find(m=>m.materialId===id).cells[0].status,'Reviewed with limitations');assert.equal(mats.length,136);
+cases.push({case:'All four new Application judgments remain limited and agree with compiled coverage cells',counts});
+writeFileSync(process.argv[2],JSON.stringify({basis:'Literal source expectations from pinned independent original reviews; engine outputs do not supply expected facts',release:db.meta.release.id,verifiedOriginals:sourceIds.size,cases},null,2)+'\n');console.log(JSON.stringify({fixtures:cases.length,counts}));

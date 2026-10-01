@@ -1,0 +1,38 @@
+{
+  "basis": "Literal source expectations from pinned independent original reviews; engine outputs do not supply expected facts",
+  "release": "05fe0c3368b0",
+  "verifiedOriginals": 6,
+  "cases": [
+    {
+      "case": "Different PCL original specimen recipes remain separate: English260°C off recipe; bilingual80°C printed; value800% preserved in both",
+      "ids": [
+        "V010184",
+        "V011541"
+      ]
+    },
+    {
+      "case": "PCL150℃/2.16kg flow method and30±10g/10min interval retained with explicit parser review, without inferring specimen state"
+    },
+    {
+      "case": "All19 independently reviewed chemical, HB and yellowing clauses preserve literal agent/rating/scope and cannot establish environmental passes"
+    },
+    {
+      "case": "Siraya TPU Air has no own hardened-nozzle requirement; no brass approval, foaming-state collapse or fibre abrasion inference"
+    },
+    {
+      "case": "CreatBot2.595% saturated-water row retains25℃55%RH; no duration, standard, immersion or mechanical specimen state inferred"
+    },
+    {
+      "case": "Waltek sample-only limitation remains visible; positive lab activities stay held outside maker-claim/application lanes"
+    },
+    {
+      "case": "All four new Application judgments remain limited and agree with compiled coverage cells",
+      "counts": {
+        "Evidence recorded": 45,
+        "Gap": 26,
+        "Reviewed with limitations": 44,
+        "Unassessed": 21
+      }
+    }
+  ]
+}

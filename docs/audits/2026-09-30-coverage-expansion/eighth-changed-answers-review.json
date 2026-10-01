@@ -1,0 +1,192 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T15:49:06.374656+00:00",
+  "overall_verdict": "APPROVE_CHANGED_ANSWERS_AND_FIXTURES",
+  "scope": "Source-grounded changed-answer and fixture review for eighth data tranche at release05fe0c3368b0. This is not the final release approval: full verification, intentional UI baseline diff, source backup and record/build diff still require final release review.",
+  "inputs": [
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-source-fixtures.json",
+      "sha256": "1e7c744d91567aec67f96cab4b173bf74f8e120d2d40a0956888bfd21539558d"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-guard-fixtures.json",
+      "sha256": "160708d229eee4ef36bff1ac9f416765f1ab2199f85332e7e1ac9abd1cd14566"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-rerun-fixtures.json",
+      "sha256": "a47b0b24ef71dd95b7ddf299f2caae22dad17aaf1cb2f00fc3367bb43ebb12e8"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-drawer-fixtures.json",
+      "sha256": "d84dc76f78988d9b0ae25305fd5797988dd95ab99e5c4adb0da4bac2584d7684"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-supplemental-fixtures.json",
+      "sha256": "1a1cae985907e28d0fd7fa198e99f952c0272852403353313b3e417bbd9f4b59"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-frozen-replay.json",
+      "sha256": "ddfa1a47a6405c16dd99ca027ec0088c02cfc7f57323cd0c52f004cff6ffd3f2"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-environment-replay.json",
+      "sha256": "9fa4e26476b0b84d09e522ce7c1b40e2f18b712990e78167c67b16ffdd63c1ca"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/eighth-template-replay.json",
+      "sha256": "5e73ba8c76f2e9e43130b7f355f36c3f18cd55e21a334b00c0d685f8de9815a9"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-source.mjs",
+      "sha256": "145c493cda9d831e3050007d552baba98a90b62be4ae933fda37b8f7d8e838a2"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-guards.mjs",
+      "sha256": "26ed91c7b7bf3ef1638798fc3ce24a11b0bb86cbe622ee4f35e7325264929e11"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-drawers.mjs",
+      "sha256": "f95151b26af378515395a5ab11c50a80948d9bd8ec6665ae9661c45054bb76fe"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/fixtures/eighth-supplemental.mjs",
+      "sha256": "d6720c575ed83f1e6440ac10fca419983eaa31911fab0f0b6ece986d7ad62309"
+    },
+    {
+      "path": "external-campaign/baseline/tranche8-db.json",
+      "sha256": "0bd21cf5dc72762c0d066b09c7175023fe41d23680f034c47063327bb3af45e6",
+      "release": "62442c28a1c8"
+    },
+    {
+      "path": "dist/db.json",
+      "sha256": "4748454a87d66457e5aecaa8700aab4db3c55e5538758f8f58f7166438981dc1",
+      "release": "05fe0c3368b0"
+    }
+  ],
+  "originals": [
+    {
+      "original_path": ".cache/sources/by-sha/77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b.pdf",
+      "sha256": "77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b",
+      "reread_scope": "SUNLU PCL English pp1–4: retained full prior review; fresh deciding p3 260°C/150mm/s versus p2 75–85°C."
+    },
+    {
+      "original_path": ".cache/sources/by-sha/816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec.pdf",
+      "sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "reread_scope": "SUNLU PCL bilingual pp1–3: retained full prior review; fresh p3 45mm/s80°C100%90° footnote and p1 150℃/2.16kg."
+    },
+    {
+      "original_path": ".cache/sources/by-sha/1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9.pdf",
+      "sha256": "1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9",
+      "reread_scope": "SUNLU TPU90A English pp1–4: retained independent full source review; hash verified in source fixture; agent pairs remain full narrative."
+    },
+    {
+      "original_path": ".cache/sources/by-sha/ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620.html",
+      "sha256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "reread_scope": "Siraya TPU Air own TDS: fresh own body/nozzle rows, 230–270°C and full four state table; no fiber/abrasion/hardening statement."
+    },
+    {
+      "original_path": ".cache/sources/by-sha/f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2.pdf",
+      "sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+      "reread_scope": "CreatBot UltraPA whole one-page original retained independent text/image review; fresh exact saturated-water row25℃，55%RH2.595%."
+    },
+    {
+      "original_path": ".cache/sources/by-sha/6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212.pdf",
+      "sha256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "reread_scope": "Waltek four-page original retained independent text/image review; fresh sample-only Notice and p3 activities4.9/4.8."
+    }
+  ],
+  "independent_reproduction": [
+    {
+      "fixture": "source",
+      "cases": 7,
+      "result": "PASS",
+      "matches_public_receipt": true,
+      "originals_sha_verified": 6
+    },
+    {
+      "fixture": "guards",
+      "cases": 9,
+      "result": "PASS",
+      "matches_public_receipt": true,
+      "mutation_scope": "Disposable private temporary canonical copy only; root repository read-only."
+    },
+    {
+      "fixture": "drawer",
+      "cases": 12,
+      "result": "PASS",
+      "matches_public_receipt": true,
+      "scope": "Actual renderDrawer HTML string assertions, four materials × Grades/Environment/Coverage. Does not itself prove browser layout or every record/qualifier in every drawer view."
+    },
+    {
+      "fixture": "supplemental",
+      "checks": 16,
+      "result": "PASS",
+      "matches_public_receipt": true,
+      "changed_criteria": 1
+    },
+    {
+      "fixture": "frozen",
+      "questions": 15,
+      "evaluations": 18195,
+      "changed_verdict_or_screen": 0,
+      "matches_public_receipt": true
+    },
+    {
+      "fixture": "environment",
+      "questions": 48,
+      "evaluations": 58224,
+      "changed_verdict_or_screen": 0,
+      "baseline": "Immediate frozen eighth baseline62442c28a1c8; direct independent reproduction, rather than relying on receipt without after-release metadata."
+    },
+    {
+      "fixture": "production_templates",
+      "questions": 24,
+      "evaluations": 30744,
+      "changed_verdict_or_screen": 0,
+      "matches_public_receipt": true
+    }
+  ],
+  "changed_answers": [
+    {
+      "grade_id": "G039-69",
+      "criterion": "abrasive gate, hardenedAvailable=false",
+      "before": "FAIL",
+      "after": "PASS",
+      "source_basis": "Unsupported TRUE hardening requirement removed to Not published after exact own TDS/manual full-body review. Existing gate interprets no recorded hardening requirement as criterion PASS. This does not establish brass approval, a no-wear measurement, or overall product suitability."
+    },
+    {
+      "grade_id": "G149-03",
+      "criterion": "elongationXY ≥799/≥801 dry",
+      "before": "PASS/FAIL",
+      "after": "PASS/FAIL",
+      "source_basis": "Old English800% V010184260°C/150mm/s is off-recipe. New bilingual V011541800%80°C/45mm/s is independently stated inside75–85°C recipe. Provenance changes; raw800 values and threshold verdicts remain faithful. Print temperature is not tensile test temperature."
+    },
+    {
+      "grade_id": "G149-03",
+      "criterion": "same elongation thresholds humid/conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "source_basis": "No conditioned mechanical measurement published in these originals; ambient/storage handling never establishes measured humid performance."
+    }
+  ],
+  "source_and_lane_checks": [
+    "All19 chemical/HB/yellowing operations retain literal full agent/rating/scope wording and exact missing conditions. Full pairs classify narrative; no environmental product PASS follows.",
+    "All10 supplemental environmental category questions on SUNLU PCL/TPU90A return UNKNOWN. Registered acid/alkali/organic-solvent/hydrolysis/uv-outdoor categories are used, not invented aliases.",
+    "G039-69 still has only existing V009999MFR8 own canonical measurement. All24 coupled foaming-state numeric cells remain held; no density/strength/hardness flattening or model branch added.",
+    "Waltek exact source has only sample-only disclaimer Q05428 in evidence, no positive4.9/4.8 evidence or measurement admission. Fresh read-only SQLite query confirms zero source_facts rows and documents_fts retains all four pages. Custody wording now names verified original/full-text pages/external holds faithfully.",
+    "CreatBot V011543 retains2.595%, ambient25°C and literal25℃，55%RH; no standard, duration, specimen form, immersion, or conditioned tensile state inferred. Four TEXT-FULLWIDTH acceptances are record+field-specific with exact-source justification.",
+    "All four Application judgments remain Reviewed with limitations. Current136-material grid counts45Evidence recorded,44Reviewed with limitations,26Gap,21Unassessed; campaign is not complete."
+  ],
+  "idempotence_scope": {
+    "historical_receipt": "Six zero-record reapplications before later reviewed custody correction. m263 written:true is a pipeline boolean; applied:0/log[] and unchanged manifest support zero record edits, not a numerical written count.",
+    "current_guards": "Current changed expected values refuse safely. Historical m263 now correctly refuses after Q05428 custody correction, rather than replaying its older notes."
+  },
+  "estimates": "The replay proves zero verdict/screen moves in these portfolios. It does not assert every estimate value, provenance, or explanation is unchanged. Any automatic estimate recalibration must remain reported separately from new published facts.",
+  "limitations": [
+    "Independent AI review only; no human or physical testing.",
+    "Drawer fixture assertions check selected content; full browser verification belongs to final release gate.",
+    "Historical rerun receipt retained rather than reexecuting old canonical migrations. Current guard reproduction used a disposable copy.",
+    "Environmental replay public receipt initially lacked after-release metadata; independent fresh replay is stamped here through pinned current database digest/release."
+  ],
+  "review_signature_sha256": "569caf78886033fb092cfba4b79cc4e1eea79e6f5b4fc407379bcabf3128bbf2"
+}

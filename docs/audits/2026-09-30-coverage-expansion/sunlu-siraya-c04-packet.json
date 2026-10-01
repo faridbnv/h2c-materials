@@ -1,0 +1,543 @@
+{
+  "PacketID": "SUNLU-SIRAYA-C04-EXACT-SOURCE-CONDITIONS",
+  "Batch": "c04",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "SUNLU",
+      "Product name": "PCL",
+      "Shared formulation key": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability UL 94 1.5 mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-18",
+      "MaterialID": "M160",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "SUNLU",
+      "Product name": "TPU 90A",
+      "Shared formulation key": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability UL 94 1.5 mm Class / (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-69",
+      "MaterialID": "M150",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Siraya Tech",
+      "Product name": "Flex TPU Air",
+      "Shared formulation key": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "Composition / filler": "\"Actively Foaming Thermoplastic Polyurethane (TPU)\" (D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under TPU-LW on 2026-09-28 (m223-what-the-makers-say-it-is), moved from TPU, hardness not stated: foaming TPU, \"Actively Foaming Thermoplastic Polyurethane (TPU)\" (D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1). Its own page says it is an actively foaming TPU, \"Up to 50% lighter than standard TPUs\", printing between 63A and 78A: a foaming TPU is TPU-LW, filed by its foaming and not its hardness (as a conductive TPU is by its load, R204). Read by an AI agent (claude-opus-5.5), not a person.",
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "Documents": [
+    {
+      "File": "5b7089593d2d541d.json",
+      "Extension": "html",
+      "ProposalSHA256": "1c4bd37f420d91ca4a8840b2ba7383449d71ac50bbe080a4fa6f1f52b02886d9",
+      "OriginalSHA256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2",
+      "Source": {
+        "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+        "Publisher": "SUNLU",
+        "Title": "SUNLU PCL official product page (Chinese)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://www.sunlu.com/zh-cn/products/pcl-3d-printing-filament",
+        "Locator": "Document / product page",
+        "Applicable grades": "G149-03",
+        "Access state": "retrieved",
+        "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+        "SHA256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c04-5b708959-1",
+          "gradeKey": "G149-03",
+          "row": {
+            "MaterialID": "M149",
+            "GradeID": "G149-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "三绿PCL的低熔点使材料打印过程更加安全，适合教学与快速成型。材料可重复塑形，灵活性高。",
+            "Exposure / conditions": "Own Chinese product introduction. AI translation: low melting point, claimed safer printing, suitable for teaching and rapid prototyping, repeat shaping. Maker claim only: no child, classroom, burn, skin or medical safety validation. New teaching/rapid-prototyping use lead; decorative-use claim already recorded separately.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+            "Locator": "p. 1: Own PCL introduction"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "三绿PCL的低熔点使材料打印过程更加安全，适合教学与快速成型。材料可重复塑形，灵活性高。"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": false,
+            "note": "Source raw clause re-read; separate independent packet review required."
+          }
+        },
+        {
+          "id": "c04-5b708959-2",
+          "gradeKey": "G149-03",
+          "row": {
+            "MaterialID": "M149",
+            "GradeID": "G149-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Warping and shrinkage",
+            "Finding": "该材料无需热床即可成功打印，减少了对设备的依赖。打印过程中几乎不发生翘边现象，大大提高了打印稳定性和成功率，使打印过程更加轻松和高效。",
+            "Exposure / conditions": "Own Chinese no-heated-bed/near-no-warping claim; AI translation explicitly marked. No printer, geometry, adhesion force, quantified warp or controlled trial. Page parameter table bed slash means missing, not a numeric zero; no H2C compatibility pass or profile override.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+            "Locator": "p. 1: Own PCL 无需热床，几乎不翘边 paragraph"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "该材料无需热床即可成功打印，减少了对设备的依赖。打印过程中几乎不发生翘边现象，大大提高了打印稳定性和成功率，使打印过程更加轻松和高效。"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": false,
+            "note": "Source raw clause re-read; separate independent packet review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "73edc6fa27c18a17.json",
+      "Extension": "html",
+      "ProposalSHA256": "11788a52661d33ea57d274e4eeb8190a1b0945717367c7bb9977262e2d123b98",
+      "OriginalSHA256": "73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094",
+      "Source": {
+        "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+        "Publisher": "SUNLU",
+        "Title": "SUNLU TPU 90A official product page (Japanese)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://www.sunlu.com/jp/products/266",
+        "Locator": "Document / product page",
+        "Applicable grades": "G039-18",
+        "Access state": "retrieved",
+        "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+        "SHA256": "73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c04-73edc6fa-1",
+          "gradeKey": "G039-18",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-18",
+            "Domain": "Limitations",
+            "Topic": "Grade distinction",
+            "Finding": "80",
+            "Exposure / conditions": "Own page headed TPU90A prints80 with ambiguousHA/HD, versus linked byte-identical existing TPU90A TDS ISO86890A±2. No specimen, temperature, method, lot or chronology resolves this. Raw page row retained as contradictory narrative, not a measurement, identity move or hardness override.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+            "Locator": "p. 1: Own TPU90A parameter table, Shore Hardness"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "80"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": false,
+            "note": "Source raw clause re-read; separate independent packet review required."
+          }
+        },
+        {
+          "id": "c04-73edc6fa-2",
+          "gradeKey": "G039-18",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-18",
+            "Domain": "Limitations",
+            "Topic": "Grade distinction",
+            "Finding": "10±5",
+            "Exposure / conditions": "Own TPU90A page table prints10±5%, versus linked existing TDS >=1000%. Same download route returns the exact existing TDS digest1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9. Missing web specimen, method, revision and conditions. No recency precedence, typed measurement or numeric correction.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+            "Locator": "p. 1: Own TPU90A parameter table, Elongation at Break"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "10±5"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": false,
+            "note": "Source raw clause re-read; separate independent packet review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "8af0c76b9d9ca589.json",
+      "Extension": "html",
+      "ProposalSHA256": "7346265f0970ee1c4632237839eca6622f5c09bef34c332607ad5c7f1d4e1a6f",
+      "OriginalSHA256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4",
+      "Source": {
+        "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+        "Publisher": "Siraya Tech",
+        "Title": "Siraya Tech TPU Air User Manual",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://siraya.tech/pages/siraya-tech-tpu-air-user-manual",
+        "Locator": "Document / product page",
+        "Applicable grades": "G039-69",
+        "Access state": "retrieved",
+        "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+        "SHA256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c04-8af0c76b-1",
+          "gradeKey": "G039-69",
+          "row": {
+            "MaterialID": "M150",
+            "GradeID": "G039-69",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Wet Filament? If you suspect moisture exposure, dry the filament thoroughly in a convection oven at 70°C - 80°C for 4-6 hours before printing. (A filament dryer is not recommended because heating cannot maintain a uniform temperature throughout the entire environment.)",
+            "Exposure / conditions": "Own wet-filament conditional schedule and full device warning. Existing own TDS permits dedicated filament dryer or convection oven at70–80°C4–6h; this manual also says upon opening to use dryer or desiccant container. Preserve distinct storage/pre-print contexts, no absolute ban, narrowed scalar schedule, service-moisture or hydrolysis result. Retraction/flow/release-agent guidance already recorded and not duplicated.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+            "Locator": "p. 1: §3 Before Printing, Drying and Storage, Wet Filament"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Wet Filament? If you suspect moisture exposure, dry the filament thoroughly in a convection oven at 70°C - 80°C for 4-6 hours before printing. (A filament dryer is not recommended because heating cannot maintain a uniform temperature throughout the entire environment.)"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": false,
+            "note": "Source raw clause re-read; separate independent packet review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "816dc4c0cc18aad8.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "cb919311d1656019f598b7eaf792f3c92296feb4fc778dfc9aa1747755022b0a",
+      "OriginalSHA256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "Source": {
+        "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+        "Publisher": "SUNLU",
+        "Title": "SUNLU PCL 产品资料 / Product information",
+        "Revision": "Version1.0",
+        "Publication date": "2024-06",
+        "Access date": "2026-10-01",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://media.sunlu.com/prod/20260414/4f598c89-404d-4872-99ca-499f116f2be7.pdf?filename=TDS",
+        "Locator": "Document / product page",
+        "Applicable grades": "G149-03",
+        "Access state": "retrieved",
+        "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+        "SHA256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c04-816dc4c0-1",
+          "gradeKey": "G149-03",
+          "row": {
+            "MaterialID": "M149",
+            "GradeID": "G149-03",
+            "Domain": "Durability",
+            "Topic": "Acetone",
+            "Finding": "丙酮 Ketone 一般",
+            "Exposure / conditions": "Own chemical table; Chinese specifically names acetone and rates一般 (AI translation: general/fair). English source77ea19eb rates genericKetoneGood. Agent/language mismatch and absent concentration, duration, specimen and exposure temperature prevent harmonization or a solvent-class verdict. Retain own Chinese words; no invented protocol or rating threshold.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+            "Locator": "p. 2: Chemical resistance, 丙酮 Ketone agent/rating"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "丙酮 Ketone 一般"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Source raw clause re-read; separate independent packet review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [
+        {
+          "id": "c04-elong800",
+          "gradeKey": "G149-03",
+          "row": {
+            "MaterialID": "M149",
+            "GradeID": "G149-03",
+            "Property": "Elongation at break",
+            "Raw value": "800 %",
+            "Raw unit": "%",
+            "Raw numeric": "800",
+            "Raw uncertainty ±": "Not applicable",
+            "Raw upper bound": "Not applicable",
+            "Operator": "=",
+            "Conversion factor": "1",
+            "Normalized value": "800",
+            "Normalized uncertainty ±": "Not applicable",
+            "Normalized upper bound": "Not applicable",
+            "Normalized unit": "%",
+            "Data status": "Published value",
+            "Specimen type": "Printed specimen",
+            "Direction": "XY",
+            "Moisture condition": "Not published",
+            "Moisture state": "not-stated",
+            "Post-processing": "Not published",
+            "Post-processing state": "not-stated",
+            "Anneal °C": "Not applicable",
+            "Anneal h": "Not applicable",
+            "Test temperature": "Not published",
+            "Test temperature °C": "Not published",
+            "Standard / load": "50 mm/min ISO 527/2",
+            "Standards": "ISO 527",
+            "Test load MPa": "Not applicable",
+            "Notch": "Not applicable",
+            "Specimen / print parameters": "[1] 测试样条打印速度 45 mm/s，打印温度 80 ℃。填充 100%，走线方式为 90 度。",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+            "Locator": "p. 1: 断裂伸长率(X-Y) Elongation at break, ISO527/2, 50mm/min, %, 800; p. 3: Note [1], specimen printing 45mm/s at80°C; p. 2: recommended nozzle75–85°C",
+            "Notes": "Separate bilingual Version1.0 2024-6 original with control stamp2024.08.13. Own p3 printed specimen80°C45mm/s100%90° lies in own75–85°C recommended recipe. English77ea19eb original800% remains separately retained with its contradictory260°C off-recipe specimen; neither is overwritten and no chronology/formulation continuity inferred. AI translation of raw specimen note: printing speed45mm/s, printing temperature80°C,100% infill,90° raster. Moisture, post-processing and tensile test temperature not published. Typical laboratory mean, not product standard or application allowable.",
+            "Parse review": "Not applicable"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "断裂伸长率(X-Y) Elongation at break ISO527/2 50mm/min % 800"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Original pp1–3 numeric table and specimen footnote visually reread; independent full field operation review required."
+          }
+        },
+        {
+          "id": "c04-mfr150",
+          "gradeKey": "G149-03",
+          "row": {
+            "MaterialID": "M149",
+            "GradeID": "G149-03",
+            "Property": "Melt mass-flow rate",
+            "Raw value": "30 ± 10 g/10 min",
+            "Raw unit": "g/10 min",
+            "Raw numeric": "30",
+            "Raw uncertainty ±": "10",
+            "Raw upper bound": "Not applicable",
+            "Operator": "=",
+            "Conversion factor": "1",
+            "Normalized value": "30",
+            "Normalized uncertainty ±": "10",
+            "Normalized upper bound": "Not applicable",
+            "Normalized unit": "g/10 min",
+            "Data status": "Published value",
+            "Specimen type": "Not published (do not assume printed)",
+            "Direction": "Not applicable",
+            "Moisture condition": "Not published",
+            "Moisture state": "not-stated",
+            "Post-processing": "Not published",
+            "Post-processing state": "not-stated",
+            "Anneal °C": "Not applicable",
+            "Anneal h": "Not applicable",
+            "Test temperature": "150℃",
+            "Test temperature °C": "150",
+            "Standard / load": "ISO1133 150℃/2.16kg",
+            "Standards": "ISO 1133",
+            "Test load MPa": "Not applicable",
+            "Notch": "Not applicable",
+            "Specimen / print parameters": "Not published",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+            "Locator": "p. 1: 熔体指数 Melt Flow Rate, ISO1133, 150℃/2.16kg, g/10min, 30±10",
+            "Notes": "Separate bilingual original states150°C/2.16kg; English original states260°C/2.16kg. Preserve both methods, no temperature overwrite, in-service melt-flow requirement or specimen print-state inference. 2.16kg is flow-test mass, not a typed MPa test load.",
+            "Parse review": "Original prints150℃ (Unicode Celsius glyph) in ISO1133 test-condition cell; typed150°C faithfully transcribes that temperature, while the parser does not recognize this glyph. 2.16kg remains test mass, not MPa load; no other condition is inferred."
+          },
+          "evidence": {
+            "page": 1,
+            "text": "熔体指数 Melt Flow Rate ISO1133 150℃/2.16kg g/10min 30±10"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Original p1 measured result and condition fields visually reread; separate independent review required."
+          }
+        }
+      ],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 6,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "6bdcca0ceec24b20.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "0c223fb2c4b36320ce6d9669b0fd0cf570a218f0084403c6cef3998c5aeec0ec",
+      "OriginalSHA256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "Source": {
+        "SourceID": "R-SUNLU-COVERAGE-20261001-6bdcca0ceec2",
+        "Publisher": "Waltek Testing Group (Foshan) Co., Ltd.",
+        "Title": "Waltek inspection report WTF25F05115022R1F — TPU90A",
+        "Revision": "WTF25F05115022R1F",
+        "Publication date": "2025-06-30",
+        "Access date": "2026-10-01",
+        "Source class": "Reference or register",
+        "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://media.sunlu.com/prod/20260709/88948301783590261309.pdf?filename=Antibacterial Test Report",
+        "Locator": "Document / product page",
+        "Applicable grades": "G039-18",
+        "Access state": "retrieved",
+        "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+        "SHA256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c04-6bdcca0c-1",
+          "gradeKey": "G039-18",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-18",
+            "Domain": "Limitations",
+            "Topic": "Grade distinction",
+            "Finding": "The sample is submitted by the applicant for testing, sample source information is provided by the applicant and the laboratory is not responsible for its authenticity, the results shown in this report refer only to the sample(s).",
+            "Exposure / conditions": "ReportNotice③; source copy served by SUNLU ownTPU90A page. Sample nameTPU90A, clientSunlu(Guangdong)TechnologyCoLtd. Manufacturer/specification/lot/form/print recipe unstated; English reference only and Chinese version controls but was not retrieved. Customer spool image p4 explicitlyuntested. Lab observations retained in source_facts and external atomic holds, not put in a maker-claim/application lane, not a product certificate, skin/medical/protective qualification or selection pass. No lab-registry authenticity check claimed.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-SUNLU-COVERAGE-20261001-6bdcca0ceec2",
+            "Locator": "p. 1: Cover Notice③, sample-only scope; p2 identity/language note; p4 sample and untested customer photograph"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "The sample is submitted by the applicant for testing, sample source information is provided by the applicant and the laboratory is not responsible for its authenticity, the results shown in this report refer only to the sample(s)."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Source raw clause re-read; separate independent packet review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    }
+  ],
+  "AdmissionRequiresIndependentReview": true,
+  "HeldFindings": [
+    {
+      "FindingID": "C04-WALTEK-ECOLI",
+      "OriginalSHA256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "GradeID": "G039-18",
+      "Locator": "p3 ISO22196-2011 table, Escherichia coli(ATCC8739)",
+      "RawResult": "Antibacterial activity | 4.9",
+      "Outcome": "context only",
+      "ReleaseCondition": "Reviewed non-filterable sample-test topic/data contract preserving laboratory attribution, missing specimen/form/lot and English-reference-only status. No percentage conversion, organism generalization or product certification."
+    },
+    {
+      "FindingID": "C04-WALTEK-STAPH",
+      "OriginalSHA256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "GradeID": "G039-18",
+      "Locator": "p3 ISO22196-2011 table, Staphylococcus aureus(ATCC6538P)",
+      "RawResult": "Antibacterial activity | 4.8",
+      "Outcome": "context only",
+      "ReleaseCondition": "Same non-filterable sample-test contract; keep original lab counts/protocol with source facts. No medical/skin/protection suitability or bacterial requirement interface."
+    },
+    {
+      "FindingID": "C04-PCL-ETHER-ESTER",
+      "OriginalSHA256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "GradeID": "G149-03",
+      "Locator": "p2 chemical table 醚 Ester",
+      "RawResult": "醚 Ester 好",
+      "Outcome": "conflicting",
+      "ReleaseCondition": "Maker clarification of Chinese ether versus English ester agent, before mapping any agent or comparative result."
+    }
+  ],
+  "NoSourceChronologyInference": true
+}

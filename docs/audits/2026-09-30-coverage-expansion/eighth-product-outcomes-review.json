@@ -1,0 +1,465 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T15:31:48.841446+00:00",
+  "input_path": "external-campaign/research/eighth-product-outcomes-packet.json",
+  "input_sha256": "379b8e3c891fadfa12cb8b4183062d590e1f88f978379006ca1967a9a842aa2a",
+  "overall_verdict": "APPROVE",
+  "approved_target_outcomes": 4,
+  "targets_needing_wording_correction": 0,
+  "corrections": [],
+  "per_target": [
+    {
+      "TaskID": "PROD-G149-03",
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "verdict": "APPROVE",
+      "frozen_missing_properties_exactly_covered": true,
+      "frozen_environment_categories_exactly_covered": true,
+      "frozen_print_gaps_exactly_covered": true,
+      "prior_material_price_receipt_exactly_matches": true,
+      "source_scope_honest_after_listed_corrections": true,
+      "not_a_suitability_pass": true
+    },
+    {
+      "TaskID": "PROD-G039-18",
+      "GradeID": "G039-18",
+      "MaterialID": "M160",
+      "verdict": "APPROVE",
+      "frozen_missing_properties_exactly_covered": true,
+      "frozen_environment_categories_exactly_covered": true,
+      "frozen_print_gaps_exactly_covered": true,
+      "prior_material_price_receipt_exactly_matches": true,
+      "source_scope_honest_after_listed_corrections": true,
+      "not_a_suitability_pass": true
+    },
+    {
+      "TaskID": "PROD-G039-69",
+      "GradeID": "G039-69",
+      "MaterialID": "M150",
+      "verdict": "APPROVE",
+      "frozen_missing_properties_exactly_covered": true,
+      "frozen_environment_categories_exactly_covered": true,
+      "frozen_print_gaps_exactly_covered": true,
+      "prior_material_price_receipt_exactly_matches": true,
+      "source_scope_honest_after_listed_corrections": true,
+      "not_a_suitability_pass": true
+    },
+    {
+      "TaskID": "PROD-G164-09",
+      "GradeID": "G164-09",
+      "MaterialID": "M164",
+      "verdict": "APPROVE",
+      "frozen_missing_properties_exactly_covered": true,
+      "frozen_environment_categories_exactly_covered": true,
+      "frozen_print_gaps_exactly_covered": true,
+      "prior_material_price_receipt_exactly_matches": true,
+      "source_scope_honest_after_listed_corrections": true,
+      "not_a_suitability_pass": true
+    }
+  ],
+  "source_reviews": [
+    {
+      "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+      "GradeID": "G149-03",
+      "original_path": ".cache/sources/by-sha/77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b.pdf",
+      "original_sha256": "77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+      "GradeID": "G149-03",
+      "original_path": ".cache/sources/by-sha/5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2.html",
+      "original_sha256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+      "GradeID": "G149-03",
+      "original_path": ".cache/sources/by-sha/816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec.pdf",
+      "original_sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+      "GradeID": "G039-18",
+      "original_path": ".cache/sources/by-sha/1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9.pdf",
+      "original_sha256": "1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-6bdcca0ceec2",
+      "GradeID": "G039-18",
+      "original_path": ".cache/sources/by-sha/6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212.pdf",
+      "original_sha256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+      "GradeID": "G039-18",
+      "original_path": ".cache/sources/by-sha/73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094.html",
+      "original_sha256": "73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+      "GradeID": "G039-69",
+      "original_path": ".cache/sources/by-sha/ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620.html",
+      "original_sha256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+      "GradeID": "G039-69",
+      "original_path": ".cache/sources/by-sha/8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4.html",
+      "original_sha256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+      "GradeID": "G164-09",
+      "original_path": ".cache/sources/by-sha/f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2.pdf",
+      "original_sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    },
+    {
+      "SourceID": "R-CREATBOT-PRINT-20260928-3148a159f1e5",
+      "GradeID": "G164-09",
+      "original_path": ".cache/sources/by-sha/3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806.html",
+      "original_sha256": "3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806",
+      "read_scope": "Full own source reread in current/eighth source reviews; CreatBot complete one-page PDF visually checked plus full official product body/FAQ."
+    }
+  ],
+  "held_foaming_reviews": [
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-240",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "0.88",
+      "print_temperature_C": 240,
+      "property": "Printed Part Density (g/cm³)",
+      "method": "ISO845",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Printed Part Density (g/cm³) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-250",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "0.7",
+      "print_temperature_C": 250,
+      "property": "Printed Part Density (g/cm³)",
+      "method": "ISO845",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Printed Part Density (g/cm³) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-260",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "0.59",
+      "print_temperature_C": 260,
+      "property": "Printed Part Density (g/cm³)",
+      "method": "ISO845",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Printed Part Density (g/cm³) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Printed Part Density-270",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "0.51",
+      "print_temperature_C": 270,
+      "property": "Printed Part Density (g/cm³)",
+      "method": "ISO845",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Printed Part Density (g/cm³) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-240",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "83",
+      "print_temperature_C": 240,
+      "property": "Vicat Softening Temp (°C)",
+      "method": "ISO306",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Vicat Softening Temp (°C) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-250",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "74",
+      "print_temperature_C": 250,
+      "property": "Vicat Softening Temp (°C)",
+      "method": "ISO306",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Vicat Softening Temp (°C) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-260",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "65",
+      "print_temperature_C": 260,
+      "property": "Vicat Softening Temp (°C)",
+      "method": "ISO306",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Vicat Softening Temp (°C) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Vicat Softening Temp-270",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "53",
+      "print_temperature_C": 270,
+      "property": "Vicat Softening Temp (°C)",
+      "method": "ISO306",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Vicat Softening Temp (°C) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-240",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "78",
+      "print_temperature_C": 240,
+      "property": "Hardness (Shore A)",
+      "method": "ISO7619",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Hardness (Shore A) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-250",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "71",
+      "print_temperature_C": 250,
+      "property": "Hardness (Shore A)",
+      "method": "ISO7619",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Hardness (Shore A) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-260",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "68",
+      "print_temperature_C": 260,
+      "property": "Hardness (Shore A)",
+      "method": "ISO7619",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Hardness (Shore A) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Hardness-270",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "63",
+      "print_temperature_C": 270,
+      "property": "Hardness (Shore A)",
+      "method": "ISO7619",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Hardness (Shore A) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-240",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "6.3",
+      "print_temperature_C": 240,
+      "property": "Tensile Yield Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Tensile Yield Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-250",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "4.4",
+      "print_temperature_C": 250,
+      "property": "Tensile Yield Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Tensile Yield Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-260",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "3.4",
+      "print_temperature_C": 260,
+      "property": "Tensile Yield Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Tensile Yield Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Yield Strength-270",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "2.8",
+      "print_temperature_C": 270,
+      "property": "Tensile Yield Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Tensile Yield Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-240",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "10.3",
+      "print_temperature_C": 240,
+      "property": "Tensile Breaking Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Tensile Breaking Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-250",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "7.2",
+      "print_temperature_C": 250,
+      "property": "Tensile Breaking Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Tensile Breaking Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-260",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "5.0",
+      "print_temperature_C": 260,
+      "property": "Tensile Breaking Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Tensile Breaking Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Tensile Breaking Strength-270",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "3.8",
+      "print_temperature_C": 270,
+      "property": "Tensile Breaking Strength (MPa)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Tensile Breaking Strength (MPa) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-240",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "629",
+      "print_temperature_C": 240,
+      "property": "Elongation at Break (%)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 240C column, Elongation at Break (%) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-250",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "605",
+      "print_temperature_C": 250,
+      "property": "Elongation at Break (%)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 250C column, Elongation at Break (%) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-260",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "547",
+      "print_temperature_C": 260,
+      "property": "Elongation at Break (%)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 260C column, Elongation at Break (%) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    },
+    {
+      "FindingID": "SIRAYA-AIR-Elongation at Break-270",
+      "verdict": "APPROVE_HOLD",
+      "raw_cell": "475",
+      "print_temperature_C": 270,
+      "property": "Elongation at Break (%)",
+      "method": "X-Y,ISO527",
+      "locator": "OwnTDS §2 Mechanical Properties, Print @ 270C column, Elongation at Break (%) row",
+      "reason": "Literal originaltable column reproduced; digestverifiedoriginal authoritative, FTS retains source page; coupledstate/value contract hold remains. No favourable mixed-state combination."
+    }
+  ],
+  "limitations": [
+    "This is quality/coverage/source review of four proposed joined outcomes, not blanket completion of other catalogue targets.",
+    "Packet correctly keeps proposed-final state contingent on accepted admission/holds, fixtures/replays, fullQA, backup and verified local commit.",
+    "Searches are bounded one-query pass, not query/time exhaustion or universal absence. Reviewer checked retained search register and packet, not repeated each web search. CreatBot focused query is recorded in packet; earlier chamber-only outcome is reused for that question alone.",
+    "Prior price pass is material-level outcome, not new per-grade price proof or refresh. No price source falsely included in source-reread set.",
+    "Atomic Siraya values held as source facts are not measurements or published product headlines. All four print temperatures are in own recommended range; no arbitrary off-recipe classification.",
+    "Independent AI review cannot establish lab/vendor validation or exhaustive official-site coverage."
+  ],
+  "canonical_mutations": false,
+  "creatbot_source_checks": {
+    "original_pdf_sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+    "exact_water_row": [
+      "Saturated water absorption rate",
+      "25℃，55%RH",
+      "2.595%"
+    ],
+    "water_duration_specimen_immersion_method": "Not stated;55%RH condition not immersion/hydrolysis",
+    "canonical_measurement_count": 11,
+    "pdf_charpy_notch": "Not stated",
+    "page_impact_wording": "Notched impact strength9.74kJ/m²",
+    "page_FAQ_Tg_context": "nylon glass transition approximately70°C; not a measured exact UltraPA table result"
+  },
+  "correction_history": [
+    {
+      "input_sha256": "17817acab04ee03f5aa829d4754eb189d770fc5cde69f750527caa7ef1ba71f9",
+      "verdict": "CORRECT",
+      "report_path": "external-campaign/reviews/EIGHTH-PRODUCT-OUTCOMES-INITIAL-REVIEW.json",
+      "report_sha256": "54f1665e12673e686d65566a0683aceef987380370eb90a975f001509378c2bd",
+      "corrections": [
+        {
+          "target": "PROD-G164-09",
+          "field": "DecisionProperties.Finding",
+          "problem": "11 published values claimed already recorded, but canonical grade owns10(V011343–V011352). Saturation2.595% is printed but not a measurement row.",
+          "required": "Say10 canonical measurements; saturation2.595% at25°C55%RH remains source_facts/context or explicit hold, not already admitted measurement."
+        },
+        {
+          "target": "PROD-G164-09",
+          "field": "DecisionProperties.Finding",
+          "problem": "Unknown notch in PDF is correct, but official own page Mechanical Properties explicitly calls9.74kJ/m² Notched impact strength. Treat this own-page/table discrepancy as unresolved, not global absence.",
+          "required": "Keep existing unspecified-notch ISO179 measurement; add page-notched versus table-unspecified scope conflict/no inferred notched headline."
+        },
+        {
+          "target": "PROD-G164-09",
+          "field": "DecisionProperties.Finding",
+          "problem": "Own FAQ contains approximate nylon glass transition70°C, although PDF/table has no measured exact-product Tg.",
+          "required": "Preserve generic nylon Tg~70°C as narrative context without method, not measured product value; do not describe examined whole source as silent."
+        },
+        {
+          "target": "PROD-G164-09",
+          "field": "PrintingTreatmentMoistureStates.Finding",
+          "problem": "no intersection could incorrectly claim mathematical nonoverlap. Nozzle280–300 and260–290 overlap; bed/drying touch80.",
+          "required": "Say no intersected/reconciled window applied; retain original conflicting sections."
+        },
+        {
+          "target": "PROD-G039-18",
+          "field": "KnownUnretrievedLeads",
+          "problem": "SEARCH-LOG records exact own maker TPU90A everyday-projects blog but outcome omits that unread concrete lead.",
+          "required": "Retainhttps://uk.store.sunlu.com/blogs/product-knowledge/sunlu-tpu-90a-filament-everyday-3d-printing-projects as not retrieved/follow-up; no claims derived from unread content."
+        }
+      ]
+    },
+    {
+      "input_sha256": "5a5e11c8aad0d6afe58133372a3ca28d5a3e8abf264afb2cef5184f76a983795",
+      "verdict": "CORRECT_SINGLE_SOURCE_DESCRIPTION",
+      "reason": "Intermediate version introduced Tg slash description, but PDF contains noTg row. Final current packet accurately says noTg row; separate genericFAQ~70°C remains context."
+    },
+    {
+      "input_sha256": "3f7a9cd389013ac813243014ecdd82668dd012c2dfff3c4a2c62cf84e213e7ea",
+      "verdict": "APPROVE_PRE_ADMISSION_SNAPSHOT",
+      "report_path": "external-campaign/reviews/EIGHTH-PRODUCT-OUTCOMES-PRE-CUSTODY-REVIEW.json",
+      "report_sha256": "ec30affe8b3cd56ef07428e5a943e37d6aa8b3c1c76c5b10f34b95d46c1df86e",
+      "update": "V011543 now admitted and exact approvedwaterpacketmatches;11ownedrows. Waltek/Siraya custody now verifiedoriginal/indexedfull-text rather than unverifiedstructured source_facts claim. Heldreleaseconditions likewise use authoritative digestverifiedoriginal."
+    }
+  ],
+  "attestation": "APPROVE4 bounded proposed-final outcomes with actualV011543admission, exactoriginal/FTScustody and24unchangedrawheldfoamingcells. No broaderabsence, completedunusedlead, inferrednotch/Tg or suitability. FinalQA/backups/commitgates remain pending.",
+  "water_status_note": "V011543 exact canonicalrow matches approved51b3fd9… append,11ownedrows. All prior10rows retained. Admittedphysicalwaterrecord carries25℃55%RH; no specimen/duration/immersion/hydrolysis or mechanicalconditioning inference.",
+  "custody_attestation": {
+    "lab_review": "external-campaign/reviews/EIGHTH-LAB-CUSTODY-REVIEW.json",
+    "Waltek_indexed_pages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "Waltek_structured_source_facts_rows": 0,
+    "Siraya_TDS_indexed_page": 1,
+    "Siraya_TDS_indexed_text_has_foaming_column_values": true,
+    "observed_compiled_release": "5c0ecd94f0d6",
+    "limitation": "Final freshbuild must bind these original-index checks to finalrelease; SQL observations are independent custody checks, not finalsource fixtures."
+  },
+  "review_signature_sha256": "302a03ef1a64e390faee8d1d13d8ef7b1bbadb724912c017be74a2798850d3b3"
+}

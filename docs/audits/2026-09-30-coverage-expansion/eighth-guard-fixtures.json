@@ -1,0 +1,66 @@
+{
+  "fixture": "Disposable canonical copy; root files untouched",
+  "results": [
+    {
+      "migration": "m262-sunlu-pcl-off-recipe-specimen",
+      "case": "unchanged reapplication",
+      "written": 0,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m262-sunlu-pcl-off-recipe-specimen",
+      "case": "changed expected record",
+      "record": "V010184",
+      "field": "Normalized value",
+      "refused": true,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m265-siraya-air-source-bounded-nozzle-gate",
+      "case": "unchanged reapplication",
+      "written": 0,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m265-siraya-air-source-bounded-nozzle-gate",
+      "case": "changed expected record",
+      "record": "P0977",
+      "field": "Hardened nozzle",
+      "refused": true,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m266-creatbot-published-water-absorption",
+      "case": "unchanged reapplication",
+      "written": 0,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m266-creatbot-published-water-absorption",
+      "case": "changed expected record",
+      "record": "V011543",
+      "field": "Normalized value",
+      "refused": true,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m267-waltek-full-text-custody-note",
+      "case": "unchanged reapplication",
+      "written": 0,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m267-waltek-full-text-custody-note",
+      "case": "changed expected record",
+      "record": "Q05428",
+      "field": "Exposure / conditions",
+      "refused": true,
+      "contentUnchanged": true
+    },
+    {
+      "migration": "m263-batch-c04-sunlu-siraya-source-conditions",
+      "case": "later reviewed custody correction stops historical old packet",
+      "refused": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "migration": "m262",
+  "packet_sha256": "60e37a5aa4ae55ab08687783cae699da264fe9ea7ede6e3c04fb1ab192ba6988",
+  "records": [
+    "V010184"
+  ],
+  "operations": "Four field corrections to existing measurement",
+  "receipt_basis": "Reconstructed from pinned approved packet, current full records and retained initial tool result; this file is not a captured initial command stdout. Zero-record canonical-content rerun is independently retained in eighth-rerun-fixtures.json."
+}

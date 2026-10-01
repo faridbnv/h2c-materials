@@ -710,7 +710,7 @@ G039-65,M161,TPU A95,within,within,within,not-needed,unknown,unknown,bed: guide 
 G039-66,M161,Flex TPU 95A,within,within,within,not-needed,requires-hardened,required,bed: guide PG024; chamber: guide PG024; enclosure: guide PG024
 G039-67,M159,Flex TPU 85A,unknown,unknown,unknown,unknown,unknown,required,
 G039-68,M162,Flex TPU 64D,within,within,within,not-needed,requires-hardened,unknown,
-G039-69,M150,Flex TPU Air,within,within,unknown,unknown,requires-hardened,required,
+G039-69,M150,Flex TPU Air,within,within,unknown,unknown,unknown,required,
 G039-70,M160,TPU 90A,within,within,within,unknown,unknown,required,
 G040-01,M162,TPU for AMS,within,within,within,unknown,unknown,required,
 G041-01,M161,TPU 95A HF,within,within,within,not-needed,unknown,required,enclosure: guide PG024

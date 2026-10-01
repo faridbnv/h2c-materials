@@ -1006,3 +1006,19 @@ robotic payloads, and the guide's sanding advice is not a verified safety assess
 ```sh
 npm run sql --silent -- "select evidenceid, topic, finding, exposure_conditions from evidence where gradeid = 'G151-01' and evidenceid in ('Q05364','Q05370','Q05371','Q05372','Q05373','Q05374')"
 ```
+
+
+## 25. SUNLU, Siraya Air and CreatBot source limits retained by the eighth coverage tranche
+
+SUNLU PCL's English original states specimen preparation at260°C/150mm/s against its75–85°C product recipe. V010184 remains800% but is off-recipe and cannot back a product headline or bound. The separate bilingual original records V011541800% at80°C/45mm/s with100% infill and90° raster; no formulation continuity or revision priority is inferred. V011542 records the bilingual flow method150℃/2.16kg, separate from the English260°C flow method. Their acetone/generic-ketone and ether/ester wording remains scope-dependent, with the ether/ester row held for clarification. SUNLU TPU90A's Japanese page prints ambiguous hardness80 and elongation10±5 versus the linked TDS90A±2 and≥1000%; Q05429–Q05430 retain the conflict without replacing numeric measurements. Maker clarification of the intended table/specimen is needed.
+
+The Waltek report served by SUNLU identifies a TPU90A sample, not a general printed-product certificate. Q05428 preserves its sample-only disclaimer. Positive antibacterial activities4.9/4.8 remain in the digest-verified original, full-text pages and external atomic holds pending a faithful non-filterable sample-test data topic and source-field review. Manufacturer, lot, specimen form and print recipe are unstated; the controlling Chinese report was not retrieved and the customer spool photograph is explicitly untested. No99.9% conversion or medical, skin or protective qualification follows.
+
+Siraya TPU Air's TDS and own manual disagree over a dedicated filament dryer versus a convection oven for drying wet filament. Q05432 retains the manual70–80°C/4–6h advice and its explicit dryer exclusion beside the earlier TDS guidance; storage upon opening remains a different question. No reconciled scalar schedule is invented. Its four240/250/260/270°C foaming states couple density, hardness, heat and strength;24 literal table values remain held pending a faithful coupled product-state contract. Flattening them would permit favourable values from different print temperatures to be combined. Its own0.4–0.8mm nozzle-diameter range remains a follow-up to the existing profile parsing limitation; endpoints must not be mistaken for an exhaustive supported-size list. The unsupported hardening/fibre-abrasion requirement on P0977 is corrected to Not published, without a source approval of brass.
+
+CreatBot UltraPA's own table and FAQ disagree on nozzle/bed and drying windows; no intersected or reconciled window is applied. The table/PDF Charpy9.74 ISO179 row names no notch, while the page calls9.74 notched impact strength. Its FAQ's generic nylon Tg approximately70°C is not an exact-product measured Tg and its table has no Tg row. V011543 faithfully records saturated water absorption2.595% at25℃，55%RH; duration, standardized method, specimen form and immersion are unstated. It does not establish hydrolysis resistance or the moisture state of mechanical test specimens. Vendor clarification or testing remains necessary for the conflicting processing and notch claims.
+
+```sh
+npm run sql --silent -- "select measurementid, gradeid, property, specimen_type, test_temperature, standard_load from measurements where measurementid in ('V010184','V011541','V011542','V011543')"
+npm run sql --silent -- "select evidenceid, gradeid, finding, exposure_conditions from evidence where evidenceid in ('Q05428','Q05429','Q05430','Q05432')"
+```

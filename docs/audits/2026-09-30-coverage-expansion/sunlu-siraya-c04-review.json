@@ -1,0 +1,241 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T09:59:05.096947+00:00",
+  "input_path": "external-campaign/research/sunlu-siraya-c04-packet.json",
+  "input_sha256": "110b995f046cc5e10ca193b4782e8b918eb512ce95d99e3437a0375898572aac",
+  "overall_verdict": "APPROVE",
+  "approved_sources": 5,
+  "approved_evidence_operations": 7,
+  "approved_measurement_operations": 2,
+  "held_findings": 3,
+  "source_reading_batches": [
+    {
+      "makers": [
+        "SUNLU",
+        "Siraya Tech"
+      ],
+      "products": [
+        "G149-03",
+        "G039-18",
+        "G039-69"
+      ],
+      "distinct_products": 3
+    }
+  ],
+  "source_reviews": [
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+      "original_path": ".cache/sources/by-sha/5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2.html",
+      "original_sha256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2",
+      "proposal_path": "external-campaign/ingest/proposals/c04/5b7089593d2d541d.json",
+      "proposal_sha256": "1c4bd37f420d91ca4a8840b2ba7383449d71ac50bbe080a4fa6f1f52b02886d9",
+      "verdict": "APPROVE",
+      "grade_scope": "G149-03",
+      "source_identity_limiter": "Exact maker product page/guide/TDS; Waltek is applicant-submitted sample report linked by exact maker page, not identity validation."
+    },
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+      "original_path": ".cache/sources/by-sha/73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094.html",
+      "original_sha256": "73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094",
+      "proposal_path": "external-campaign/ingest/proposals/c04/73edc6fa27c18a17.json",
+      "proposal_sha256": "11788a52661d33ea57d274e4eeb8190a1b0945717367c7bb9977262e2d123b98",
+      "verdict": "APPROVE",
+      "grade_scope": "G039-18",
+      "source_identity_limiter": "Exact maker product page/guide/TDS; Waltek is applicant-submitted sample report linked by exact maker page, not identity validation."
+    },
+    {
+      "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+      "original_path": ".cache/sources/by-sha/8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4.html",
+      "original_sha256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4",
+      "proposal_path": "external-campaign/ingest/proposals/c04/8af0c76b9d9ca589.json",
+      "proposal_sha256": "7346265f0970ee1c4632237839eca6622f5c09bef34c332607ad5c7f1d4e1a6f",
+      "verdict": "APPROVE",
+      "grade_scope": "G039-69",
+      "source_identity_limiter": "Exact maker product page/guide/TDS; Waltek is applicant-submitted sample report linked by exact maker page, not identity validation."
+    },
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+      "original_path": ".cache/sources/by-sha/816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec.pdf",
+      "original_sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "proposal_path": "external-campaign/ingest/proposals/c04/816dc4c0cc18aad8.json",
+      "proposal_sha256": "cb919311d1656019f598b7eaf792f3c92296feb4fc778dfc9aa1747755022b0a",
+      "verdict": "APPROVE",
+      "grade_scope": "G149-03",
+      "source_identity_limiter": "Exact maker product page/guide/TDS; Waltek is applicant-submitted sample report linked by exact maker page, not identity validation."
+    },
+    {
+      "SourceID": "R-SUNLU-COVERAGE-20261001-6bdcca0ceec2",
+      "original_path": ".cache/sources/by-sha/6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212.pdf",
+      "original_sha256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "proposal_path": "external-campaign/ingest/proposals/c04/6bdcca0ceec24b20.json",
+      "proposal_sha256": "0c223fb2c4b36320ce6d9669b0fd0cf570a218f0084403c6cef3998c5aeec0ec",
+      "verdict": "APPROVE",
+      "grade_scope": "G039-18",
+      "source_identity_limiter": "Exact maker product page/guide/TDS; Waltek is applicant-submitted sample report linked by exact maker page, not identity validation."
+    }
+  ],
+  "per_operation": [
+    {
+      "OperationID": "c04-5b708959-1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+      "original_sha256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2",
+      "locator": "p. 1: Own PCL introduction",
+      "raw": "三绿PCL的低熔点使材料打印过程更加安全，适合教学与快速成型。材料可重复塑形，灵活性高。",
+      "reason": "Exact own PCL introduction; Chinese teaching/rapid-prototyping/safety/repeated-shaping claims, not tested child, skin or medical suitability. Quote remains manufacturer know-how."
+    },
+    {
+      "OperationID": "c04-5b708959-2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-5b7089593d2d",
+      "original_sha256": "5b7089593d2d541d05ad87ee2d2c1873b802ef86e4868c0493d95f4b6a1ccbc2",
+      "locator": "p. 1: Own PCL 无需热床，几乎不翘边 paragraph",
+      "raw": "该材料无需热床即可成功打印，减少了对设备的依赖。打印过程中几乎不发生翘边现象，大大提高了打印稳定性和成功率，使打印过程更加轻松和高效。",
+      "reason": "Exact own PCL feature paragraph under no heated bed/nearly no warping. Claim stays narrative; page table slash does not become zero or overwrite typed profile."
+    },
+    {
+      "OperationID": "c04-73edc6fa-1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "GradeID": "G039-18",
+      "MaterialID": "M160",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+      "original_sha256": "73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094",
+      "locator": "p. 1: Own TPU90A parameter table, Shore Hardness",
+      "raw": "80",
+      "reason": "Own TPU90A table Shore Hardness（HA/HD） raw cell80. Identity/property ambiguity versus linked exact TDS90A±2 expressly retained; no new hardness measurement or material move."
+    },
+    {
+      "OperationID": "c04-73edc6fa-2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "GradeID": "G039-18",
+      "MaterialID": "M160",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-73edc6fa27c1",
+      "original_sha256": "73edc6fa27c18a17a12c7af41544e10627614cd0554c91eb57f40512e6ea0094",
+      "locator": "p. 1: Own TPU90A parameter table, Elongation at Break",
+      "raw": "10±5",
+      "reason": "Own TPU90A Elongation at Break（%） raw cell10±5 versus linked TDS>=1000. Table observation is a published discrepancy, not a resolved numeric correction. Missing conditions stay explicit."
+    },
+    {
+      "OperationID": "c04-8af0c76b-1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "GradeID": "G039-69",
+      "MaterialID": "M150",
+      "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+      "original_sha256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4",
+      "locator": "p. 1: §3 Before Printing, Drying and Storage, Wet Filament",
+      "raw": "Wet Filament? If you suspect moisture exposure, dry the filament thoroughly in a convection oven at 70°C - 80°C for 4-6 hours before printing. (A filament dryer is not recommended because heating cannot maintain a uniform temperature throughout the entire environment.)",
+      "reason": "Full Wet Filament sentence and parenthetical reproduced. Manual upon-opening paragraph allows dryer/desiccant storage; existing own TDS also permits dedicated dryer or convection oven. Proposed note keeps this contextual conflict instead of absolute device prohibition or humidity-service proof."
+    },
+    {
+      "OperationID": "c04-816dc4c0-1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+      "original_sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "locator": "p. 2: Chemical resistance, 丙酮 Ketone agent/rating",
+      "raw": "丙酮 Ketone 一般",
+      "reason": "Bilingual p2 prints 丙酮 Ketone 一般; Chinese acetone versus generic English Ketone identity and rating disagreement retained. Published observation denotes observed table wording, not an independently witnessed experiment. Full clause stays narrative and cannot establish solvent-class performance."
+    },
+    {
+      "OperationID": "c04-elong800",
+      "kind": "measurement",
+      "verdict": "APPROVE",
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+      "original_sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "locator": "p. 1: 断裂伸长率(X-Y) Elongation at break, ISO527/2, 50mm/min, %, 800; p. 3: Note [1], specimen printing 45mm/s at80°C; p. 2: recommended nozzle75–85°C",
+      "raw": "800 %",
+      "reason": "Original p1 XY/ISO527/2/50mm/min/%/800 row plus explicit p3 printed footnote45mm/s80°C100%90° and p2 recommended75–85°C. Printed specimen is source-supported and in recipe.80°C is print temperature, never tensile test temperature. Old English source260°C row preserved off-recipe underD95. No revision continuity or allowable assumed."
+    },
+    {
+      "OperationID": "c04-mfr150",
+      "kind": "measurement",
+      "verdict": "APPROVE",
+      "GradeID": "G149-03",
+      "MaterialID": "M149",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-816dc4c0cc18",
+      "original_sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "locator": "p. 1: 熔体指数 Melt Flow Rate, ISO1133, 150℃/2.16kg, g/10min, 30±10",
+      "raw": "30 ± 10 g/10 min",
+      "reason": "Original p1 ISO1133/150℃/2.16kg/g10min/30±10. Faithful150°C temperature, uncertainty10 and factor1; Unicode glyph parse exception explained.2.16kg is applied flow-test mass, not MPa. Specimen form/conditioning unknown; source footnote for printed test specimens does not automatically declare flow-test form."
+    },
+    {
+      "OperationID": "c04-6bdcca0c-1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "GradeID": "G039-18",
+      "MaterialID": "M160",
+      "SourceID": "R-SUNLU-COVERAGE-20261001-6bdcca0ceec2",
+      "original_sha256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "locator": "p. 1: Cover Notice③, sample-only scope; p2 identity/language note; p4 sample and untested customer photograph",
+      "raw": "The sample is submitted by the applicant for testing, sample source information is provided by the applicant and the laboratory is not responsible for its authenticity, the results shown in this report refer only to the sample(s).",
+      "reason": "Verbatim Notice③ expressly limits report to submitted sample and disclaims identity authenticity. SUNLU own exact TPU90A page supplies report link, but client/manufacturer/form/lot distinction and English-reference-only status retained. No positive antibacterial activities admitted into an application or maker lane."
+    }
+  ],
+  "hold_reviews": [
+    {
+      "FindingID": "C04-WALTEK-ECOLI",
+      "verdict": "APPROVE_HOLD",
+      "original_sha256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "locator": "p3 ISO22196-2011 table, Escherichia coli(ATCC8739)",
+      "raw": "Antibacterial activity | 4.9",
+      "release_condition": "Reviewed non-filterable sample-test topic/data contract preserving laboratory attribution, missing specimen/form/lot and English-reference-only status. No percentage conversion, organism generalization or product certification.",
+      "reason": "Source wording visually confirmed. Positive Waltek sample-only activities stay source_facts; Chinese ether versus English ester ambiguity remains unresolved."
+    },
+    {
+      "FindingID": "C04-WALTEK-STAPH",
+      "verdict": "APPROVE_HOLD",
+      "original_sha256": "6bdcca0ceec24b207e68d3c91fafd3542983b3405fb3833e16d2d79f9f7bc212",
+      "locator": "p3 ISO22196-2011 table, Staphylococcus aureus(ATCC6538P)",
+      "raw": "Antibacterial activity | 4.8",
+      "release_condition": "Same non-filterable sample-test contract; keep original lab counts/protocol with source facts. No medical/skin/protection suitability or bacterial requirement interface.",
+      "reason": "Source wording visually confirmed. Positive Waltek sample-only activities stay source_facts; Chinese ether versus English ester ambiguity remains unresolved."
+    },
+    {
+      "FindingID": "C04-PCL-ETHER-ESTER",
+      "verdict": "APPROVE_HOLD",
+      "original_sha256": "816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec",
+      "locator": "p2 chemical table 醚 Ester",
+      "raw": "醚 Ester 好",
+      "release_condition": "Maker clarification of Chinese ether versus English ester agent, before mapping any agent or comparative result.",
+      "reason": "Source wording visually confirmed. Positive Waltek sample-only activities stay source_facts; Chinese ether versus English ester ambiguity remains unresolved."
+    }
+  ],
+  "guard_checks": {
+    "ExpectedGrades_all_three_exact_match": true,
+    "all_five_proposal_byte_hashes_match": true,
+    "all_five_source_rows_equal_proposal_source_row": true,
+    "accepted_evidence_measurements_profiles_equal_frozen_operations": true,
+    "all_five_original_byte_hashes_match": true,
+    "automatic_measurements_and_profiles_remain_rejected": true,
+    "new_grade_or_identity_overwrite_authorized": false
+  },
+  "limitations": [
+    "Independent AI reread, not human review or lab-authenticity verification.",
+    "All five originals were read: complete HTML text including own body and surrounding context; all four pages of each PDF through original extraction, with relevant PCL pp1–3 and Waltek pp2–4 visually checked.",
+    "No new environmental test protocol, sample-to-formulation continuity, chemical suitability, bacterial requirement/category or medical/protective approval.",
+    "Release still requires serialized guarded admission, independent fixtures, rendered qualifier checks and repository verification.",
+    "Old English PCL original remains separate. Source edition ordering and publication URL dates do not decide correctness."
+  ],
+  "correction_history": [
+    {
+      "input_sha256": "7aca47361ed6015709f34a4bf726050ef0f527cc00f4347f48fdbdf43ca2a716",
+      "verdict": "CORRECT_RAW_HOLD_LABELS",
+      "reason": "Waltek p3 header prints Antibacterial activity without(R); two held RawResult labels corrected. No released operation or proposal bytes changed. Restoring only those two old labels in memory reproduces prior packet SHA exactly."
+    }
+  ],
+  "canonical_mutations": false,
+  "review_signature_sha256": "bc8bdbcf4f08e94a1e4b7c5f2f906a8e1b9c40a9c14c17266be27799063d5f22"
+}

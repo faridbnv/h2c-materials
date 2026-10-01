@@ -1,0 +1,53 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T09:38:26.680998+00:00",
+  "input_path": "external-campaign/research/sunlu-pcl-specimen-packet.json",
+  "input_sha256": "60e37a5aa4ae55ab08687783cae699da264fe9ea7ede6e3c04fb1ab192ba6988",
+  "overall_verdict": "APPROVE",
+  "approved_measurement_corrections": 1,
+  "approved_field_operations": 4,
+  "target": "V010184 / G149-03 / M149 elongation800%",
+  "source": {
+    "SourceID": "R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8",
+    "original": ".cache/sources/by-sha/77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b.pdf",
+    "sha256": "77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b",
+    "locator": "pp1–3, product70°C/recommended75–85°C/explicit260°C150mm/s100%90° printed specimens",
+    "custody": "OriginalSHA reverified; pp1–3 full text and relevant images independently read in preceding signed ruling."
+  },
+  "per_operation": [
+    {
+      "field": "Specimen type",
+      "verdict": "APPROVE",
+      "expected": "Printed specimen",
+      "proposed": "Printed off the product's recipe"
+    },
+    {
+      "field": "Specimen / print parameters",
+      "verdict": "APPROVE",
+      "expected": "Not published",
+      "proposed": "Test specimens were printed at a printing speed of 150mm/s and a printing temperature of 260 °C. Infill: 100%, with a 90° raster orientation."
+    },
+    {
+      "field": "Locator",
+      "verdict": "APPROVE",
+      "expected": "p. 1: (X-Y) Elongation at break ISO 527/2 50 mm/min %",
+      "proposed": "p. 1: (X-Y) Elongation at break ISO 527/2 50 mm/min %; p. 3: specimen Note [1]; p. 2: Recommended Printing Parameters, Nozzle Temp."
+    },
+    {
+      "field": "Notes",
+      "verdict": "APPROVE",
+      "expected": "Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).",
+      "proposed": "Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Source-condition review 2026-10-01: p. 3 Note [1] states printed specimens at 260 °C, 150mm/s, 100% infill and 90° raster; p. 2 recommends nozzle 75-85°C and p. 1 claims printing at 70°C. The stated specimen preparation differs from the product recipe, so this 800% value is retained as Printed off the product's recipe (D95), not a product headline, bound or estimate observation. Whether the 260 °C specimen note is a template/transcription error is unresolved; no replacement temperature or 75-85°C elongation result is inferred."
+    }
+  ],
+  "guard_checks": "Fullcurrent old measurement and source match, allfour serialized fields equal independently sourced ruling; proposed full row differs only in those fields. Raw800/normalized800/direction/standard/testtemperature/moisture/treatment remain unchanged.",
+  "limitations": [
+    "Printed source contradiction remains unresolved; do not silently correct260°C or impute measured800%at75–85°C.",
+    "p2 allows tuning printer parameters but does not establish260°C as equally intended or a validated alternate recipe.",
+    "No blanket reclassification of other rows from common footnote without property-specific specimen-scope review.",
+    "Numeric answer/model changes must be replayed and estimate recalibration reported separately."
+  ],
+  "release_gates": "Reapply no-op, changed expected values refusal, source-grounded default/as-published/state fixtures and model/scenario replay required before local commit.",
+  "canonical_mutations": "None; externalreview only.",
+  "review_signature_sha256": "5fff34f30550a79c4aad52d33497db7e1c983ab8aa3d050af9d86f192e572b35"
+}

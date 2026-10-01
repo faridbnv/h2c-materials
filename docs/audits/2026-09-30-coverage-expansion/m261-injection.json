@@ -1,0 +1,12 @@
+{
+  "migration": "m261",
+  "packet_sha256": "6c324deb587f94a84241160d677ff447d5e304d14b59817fcf64401dbd032c54",
+  "records": [
+    "C01546",
+    "C01547",
+    "C01548",
+    "C01549"
+  ],
+  "operations": "Four appended limited assessments",
+  "receipt_basis": "Reconstructed from pinned approved packet, current full records and retained initial tool result; this file is not a captured initial command stdout. Zero-record canonical-content rerun is independently retained in eighth-rerun-fixtures.json."
+}

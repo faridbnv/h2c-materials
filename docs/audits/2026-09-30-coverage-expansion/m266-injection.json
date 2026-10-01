@@ -1,0 +1,11 @@
+{
+  "migration": "m266-creatbot-published-water-absorption",
+  "packet": "51b3fd9d1868927a781b919d0e99e917a69d1df389fd250d3cf6ed577632d642",
+  "written": 1,
+  "records": [
+    {
+      "finding": "CREATBOT-WATER-2.595",
+      "measurementId": "V011543"
+    }
+  ]
+}

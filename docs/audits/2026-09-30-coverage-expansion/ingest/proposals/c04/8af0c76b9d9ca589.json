@@ -1,0 +1,752 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4",
+    "url": "https://siraya.tech/pages/siraya-tech-tpu-air-user-manual",
+    "pages": 1,
+    "provider": "Siraya Tech",
+    "manufacturer": "Siraya Tech",
+    "docKey": "https://siraya.tech/pages/siraya-tech-tpu-air-user-manual#witness-for=source:D-SIRAYA-siraya-tech-flex-tpu-air-tds"
+  },
+  "nameUnsupported": {
+    "read": "Resin",
+    "listed": "Flex TPU Air"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpu",
+      "filler: cf (from the sheet, not the name)"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.85,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet's own title is \"Resin\", which names the polymer the filament is made from rather than Siraya Tech's product; the product's own name is not printed on the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+      "Publisher": "Siraya Tech",
+      "Title": "Siraya Tech TPU Air User Manual",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-01",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Separate witnessed original; no edition chronology or formulation continuity inferred. Existing exact product only. Conditions and unresolved contradictions retained. Lab report is a sample-only reference, not a product approval. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://siraya.tech/pages/siraya-tech-tpu-air-user-manual",
+      "Locator": "Document / product page",
+      "Applicable grades": "G039-69",
+      "Access state": "retrieved",
+      "Access note": "Staged from saved digest-verified private original; applied sources never refetched or overwritten.",
+      "SHA256": "8af0c76b9d9ca589c7d6f8b65920ed33f9f71e1538efb108c0bcd62328431de4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Prime Day Sales"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent operation review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G039-69",
+      "row": {
+        "GradeID": "G039-69",
+        "MaterialID": "M150",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Flex TPU Air",
+        "Shared formulation key": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+        "Composition / filler": "\"Actively Foaming Thermoplastic Polyurethane (TPU)\" (D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under TPU-LW on 2026-09-28 (m223-what-the-makers-say-it-is), moved from TPU, hardness not stated: foaming TPU, \"Actively Foaming Thermoplastic Polyurethane (TPU)\" (D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1). Its own page says it is an actively foaming TPU, \"Up to 50% lighter than standard TPUs\", printing between 63A and 78A: a foaming TPU is TPU-LW, filed by its foaming and not its hardness (as a conductive TPU is by its load, R204). Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Resolve existing exact product only; no new grade, material, identity or formulation/source overwrite."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230°C - 270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "30°C - 45°C",
+        "Bed state": "range",
+        "Bed min °C": "30",
+        "Bed max °C": "45",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm - 0.8mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-tpu-air-user-manual",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30 - 60 mm/s"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature  230°C - 270°C  See the table below for how temperature affects hardness and density. Optimal Performance: We've found 260°C It's a great temperature to start your tuning. It offers"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "30°C - 45°C",
+        "Bed state": "range",
+        "Bed min °C": "30",
+        "Bed max °C": "45",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm - 0.8mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-SIRAYA-siraya-tech-tpu-air-user-manual",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Print Temp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30 - 60 mm/s"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Diameter  0.4mm - 0.8mm  Standard 0.4mm works great"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c04-8af0c76b-1",
+      "gradeKey": "G039-69",
+      "row": {
+        "MaterialID": "M150",
+        "GradeID": "G039-69",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Wet Filament? If you suspect moisture exposure, dry the filament thoroughly in a convection oven at 70°C - 80°C for 4-6 hours before printing. (A filament dryer is not recommended because heating cannot maintain a uniform temperature throughout the entire environment.)",
+        "Exposure / conditions": "Own wet-filament conditional schedule and full device warning. Existing own TDS permits dedicated filament dryer or convection oven at70–80°C4–6h; this manual also says upon opening to use dryer or desiccant container. Preserve distinct storage/pre-print contexts, no absolute ban, narrowed scalar schedule, service-moisture or hydrolysis result. Retraction/flow/release-agent guidance already recorded and not duplicated.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20261001-8af0c76b9d9c",
+        "Locator": "p. 1: §3 Before Printing, Drying and Storage, Wet Filament"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Wet Filament? If you suspect moisture exposure, dry the filament thoroughly in a convection oven at 70°C - 80°C for 4-6 hours before printing. (A filament dryer is not recommended because heating cannot maintain a uniform temperature throughout the entire environment.)"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": false,
+        "note": "Source raw clause re-read; separate independent packet review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "230°C - 270°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature  230°C - 270°C  See the table below for how temperature affects hardness and density. Optimal Performance: We've found 260°C It's a great temperature to start your tuning. It offers"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "0.4mm - 0.8mm",
+      "fromBelow": false,
+      "line": "Nozzle Diameter  0.4mm - 0.8mm  Standard 0.4mm works great"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "30°C - 45°C",
+      "fromBelow": false,
+      "line": "Bed Temperature 30°C - 45°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling Fan 100%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30 - 60 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed  30 - 60 mm/s  Slower speeds often yield better results with flexible. Capable machines might handle up to 150 mm/s, but tune carefully."
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print Temp",
+      "raw": "(°C)",
+      "fromBelow": false,
+      "line": "Print Temp (°C)  Approx. Shore Hardness  Resulting Properties  Starting Flow Rate (%)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Call us +13234128788",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Introduction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Siraya Tech TPU Air isn't just another flexible filament; it's an active foaming TPU that puts you in control of the final weight and softness of your prints. I",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dial-In Your Flexibility: Adjust print temperature to achieve hardness ranging from a firm ~85A down to a very flexible ~65A Shore.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Technical Specifications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm (+/- 0.03mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament Density (Unfoamed): ~1.15 g/cm³",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Printed Part Density (Foamed): Variable, down to ~0.54 g/cm³ (at max foaming temp)",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Printed Part Hardness: Variable, ~65A - 85A (Shore Hardness) depending on print temp/foaming",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Before Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1) Drying and Storage",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Upon Opening: Immediately place the spool in a filament dryer or a sealed container with plenty of active desiccant (aim for <15% humidity). Print directly from",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wet Filament? If you suspect moisture exposure, dry the filament thoroughly in a convection oven at 70°C - 80°C for 4-6 hours before printing. (A filament dryer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(2) Preparing for printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Best Practice: Turn Retraction OFF in your slicer (set Retraction Distance and Speed to 0).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not Sticking? Ensure your bed is clean (wash with soap and water, then wipe with IPA) and perfectly leveled. A slightly slower, wider first layer (e.g., 20mm/s ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. Print Setting Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Calibration is essential: Print small test cubes (like a 20x20x10mm cube) at your target temperature, starting with the flow rates below and adjusting until you",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "230°C - 240°C  ~85A  Denser, Stiffer, Less Foaming, Less Texture  ~85% - 90%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "250°C  ~75A  Balanced Foaming, Noticeably Lighter/Softer  ~65% - 70%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "260°C  ~70A  Optimal Balance, Good Foaming & Softness  ~55% - 60%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "270°C  ~65A  Max Foaming, Lightest, Softest, Max Texture  ~50% - 55%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. Safety Precautions",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Consult your 3D printer's safety manual.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6. Share Your Creations!",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Siraya Tech: Maker of Performance UV Resins for 3D printing and Platinum Silicone Crafting superior products for your projects.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent operation review required; no human review",
+    "note": "Only signed packet findings accepted. All automatic values/profiles rejected, no catalogue or model change."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently signed source operations may enter."
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Resin",
+        "Shared formulation key": "D-SIRAYA-siraya-tech-tpu-air-user-manual",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-SIRAYA-siraya-tech-tpu-air-user-manual",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Prime Day Sales"
+      }
+    }
+  ],
+  "newMaterial": null
+}

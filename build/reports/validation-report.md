@@ -14,15 +14,15 @@ Database snapshot 2026-09-21 · build 2026-10-01
 | retiredDuplicates | measurements 299, evidence 17 |
 | excluded | 17 |
 | grades | 1163 |
-| measurements | 11241 |
-| numericMeasurements | 11066 |
+| measurements | 11244 |
+| numericMeasurements | 11069 |
 | quarantined | 18 |
 | profiles | 1316 |
-| evidence | 737 |
+| evidence | 760 |
 | prices | 357 |
-| sources | 1834 |
-| coverage | 859 |
-| knowHow | 4671 |
+| sources | 1839 |
+| coverage | 863 |
+| knowHow | 4674 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 326 |
 | coverageDerived | 1144 |
@@ -82,15 +82,15 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 | Category | Kind | Records | With a verdict | Materials | From the base polymer |
 |---|---|---:|---:|---:|---:|
-| acid | verdict | 133 | 120 | 42 | 52 |
-| alkali | verdict | 65 | 62 | 41 | 52 |
-| organic-solvent | verdict | 78 | 45 | 44 | 56 |
-| oil-grease | verdict | 61 | 45 | 43 | 50 |
+| acid | verdict | 137 | 120 | 43 | 52 |
+| alkali | verdict | 69 | 62 | 42 | 52 |
+| organic-solvent | verdict | 84 | 45 | 45 | 56 |
+| oil-grease | verdict | 63 | 45 | 44 | 50 |
 | water-solubility | verdict | 42 | 41 | 34 | 34 |
-| flammability | verdict | 42 | 36 | 34 | 13 |
+| flammability | verdict | 43 | 36 | 35 | 13 |
 | food-contact | indicator | 2 | 0 | 2 | 0 |
-| uv-outdoor | verdict | 76 | 0 | 26 | 16 |
-| moisture | verdict | 13 | 0 | 11 | 18 |
+| uv-outdoor | verdict | 77 | 0 | 27 | 16 |
+| moisture | verdict | 15 | 0 | 13 | 18 |
 | creep | indicator | 2 | 0 | 2 | 0 |
 | fatigue | indicator | 5 | 0 | 5 | 0 |
 | hydrolysis | verdict | 10 | 0 | 10 | 35 |

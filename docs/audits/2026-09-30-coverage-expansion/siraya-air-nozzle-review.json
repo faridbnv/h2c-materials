@@ -1,0 +1,113 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T10:02:09.054502+00:00",
+  "input_path": "external-campaign/research/siraya-air-nozzle-packet.json",
+  "input_sha256": "1d95e8906d340416b14ade0d72264b7126de6370be4a283b46eb7f42d6bd03fb",
+  "overall_verdict": "APPROVE",
+  "approved_profile_corrections": 1,
+  "approved_field_operations": 3,
+  "target": {
+    "GradeID": "G039-69",
+    "MaterialID": "M150",
+    "ProfileID": "P0977"
+  },
+  "source": {
+    "SourceID": "D-SIRAYA-siraya-tech-flex-tpu-air-tds",
+    "original_path": ".cache/sources/by-sha/ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620.html",
+    "original_sha256": "ff3637e90a27d3155045fe74c023fdb6ce676476b221c739fb346a5870d53620",
+    "read_scope": "Complete own TDS HTML, including product name/material identity, property columns, workflow and all Recommended Printing Conditions; navigation kept distinct from product body. Complete separately witnessed manual8af0c76b body also reread for corroboration."
+  },
+  "per_operation": [
+    {
+      "field": "Abrasion / clogging",
+      "expected_old": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+      "proposed_new": "Not published",
+      "verdict": "APPROVE",
+      "locator": "p.1: Complete own FlexTPUAir TDS body, Recommended Printing Conditions",
+      "reason": "No own product nozzle-hardening or fiber-abrasion requirement printed. Source-scope locator records bounded full-document read, not exhaustive maker-site search."
+    },
+    {
+      "field": "Hardened nozzle",
+      "expected_old": "TRUE",
+      "proposed_new": "Not published",
+      "verdict": "APPROVE",
+      "locator": "p.1: Complete own FlexTPUAir TDS body, Recommended Printing Conditions",
+      "reason": "No own product nozzle-hardening or fiber-abrasion requirement printed. Source-scope locator records bounded full-document read, not exhaustive maker-site search."
+    },
+    {
+      "field": "Locator",
+      "expected_old": "p. 1: Recommended printing settings; p. 1: Drying note; p. 1: Nozzle Temperature; p. 1: Build Plate Temperature",
+      "proposed_new": "p. 1: Recommended printing settings; p. 1: Drying note; p. 1: Nozzle Temperature; p. 1: Build Plate Temperature; source-scope review2026-10-01: complete ownTDS product body and Recommended Printing Conditions, no nozzle-material/hardening or fibre-abrasion requirement stated",
+      "verdict": "APPROVE",
+      "locator": "p.1: Complete own FlexTPUAir TDS body, Recommended Printing Conditions",
+      "reason": "No own product nozzle-hardening or fiber-abrasion requirement printed. Source-scope locator records bounded full-document read, not exhaustive maker-site search."
+    }
+  ],
+  "guard_checks": {
+    "full_ExpectedGrade_Profile_Source_current_match": true,
+    "original_digest_verified": true,
+    "serialized_three_ops_reproduce_ProposedProfile_exactly": true,
+    "only_stated_fields_changed": true
+  },
+  "limitations": [
+    "Own source names actively foaming TPU and does not publish hardening, nozzle-metal requirement or fiber-abrasion requirement. Clearing unsupported TRUE and fibre prose toNotpublished is source-supported; it never establishesFALSE, brass suitability or H2C compatibility.",
+    "All nozzle/bed/drying values, source identity, grades and remaining profile fields remain unchanged under this packet. Subsequent guide fallback must remain labelled and scenario changes require source-grounded replay.",
+    "Own TDS recommends nozzle diameter0.4mm−0.8mm and says0.4mm standard works well; ordinary diameter is not an assertion about nozzle metallurgy. Current profile diameter gap is a separate useful source-backed lead, not silently admitted here."
+  ],
+  "foaming_measurement_ruling": {
+    "verdict": "HOLD_COUPLED_PRODUCT_STATE_VALUES",
+    "source_columns": [
+      "Print @240C",
+      "Print @250C",
+      "Print @260C",
+      "Print @270C"
+    ],
+    "reason": "All four printed columns fall inside230−270°C source recommended temperature range; D95 does not make the other temperatures off-recipe merely because260°C is a starting point. Print temperature/flow changes density, hardness, tensile strength and elongation together. Current products.assess/state selects by treatment/moisture, not a coupled foaming-temperature/flow state; preference uses comparison/specimen/treatment/moisture/source/property/interval/ID, so ordinary measurement admission could flatten distinct physical states and let independently selected properties describe no demonstrated single state.",
+    "raw_pairs": {
+      "density_g_cm3": [
+        "0.88",
+        "0.7",
+        "0.59",
+        "0.51"
+      ],
+      "Vicat_C": [
+        "83",
+        "74",
+        "65",
+        "53"
+      ],
+      "ShoreA": [
+        "78",
+        "71",
+        "68",
+        "63"
+      ],
+      "tensile_yield_MPa": [
+        "6.3",
+        "4.4",
+        "3.4",
+        "2.8"
+      ],
+      "tensile_break_MPa": [
+        "10.3",
+        "7.2",
+        "5.0",
+        "3.8"
+      ],
+      "elongation_percent": [
+        "629",
+        "605",
+        "547",
+        "475"
+      ]
+    },
+    "remaining_unknowns": [
+      "Coupled print-state/flow comparison contract; no source flow or full specimen geometry linked to each measured column.",
+      "Approximate tuning guide hardness~85/~75/~70/~65 differs from measured table78/71/68/63; do not harmonize or substitute.",
+      "Nozzle starting point260°C is calibration advice, not mandated exclusive product state."
+    ],
+    "release_condition": "Keep original column-specific facts in source_facts/held findings until reviewed faithful coupled-state comparability or nondeciding observation contract; no new estimate-model branch, fake specimen class or catalogue grade invented."
+  },
+  "canonical_mutations": false,
+  "review_signature_sha256": "18fd373fd388732d2410307c4efba7e56ec7a1fb7e2c4dc50d3fca8eb61784e1"
+}
