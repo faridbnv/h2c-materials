@@ -1,0 +1,43 @@
+{
+  "migration": "m273-application-last-nine",
+  "packet": "227b8c362446235e93d568487d66410a5dfb69757aaab4967962eff552d27226",
+  "written": 9,
+  "records": [
+    {
+      "finding": "CE-APP-LAST-M114",
+      "coverageId": "C01563"
+    },
+    {
+      "finding": "CE-APP-LAST-M119",
+      "coverageId": "C01564"
+    },
+    {
+      "finding": "CE-APP-LAST-M120",
+      "coverageId": "C01565"
+    },
+    {
+      "finding": "CE-APP-LAST-M124",
+      "coverageId": "C01566"
+    },
+    {
+      "finding": "CE-APP-LAST-M128",
+      "coverageId": "C01567"
+    },
+    {
+      "finding": "CE-APP-LAST-M131",
+      "coverageId": "C01568"
+    },
+    {
+      "finding": "CE-APP-LAST-M133",
+      "coverageId": "C01569"
+    },
+    {
+      "finding": "CE-APP-LAST-M168",
+      "coverageId": "C01570"
+    },
+    {
+      "finding": "CE-APP-LAST-M174",
+      "coverageId": "C01571"
+    }
+  ]
+}

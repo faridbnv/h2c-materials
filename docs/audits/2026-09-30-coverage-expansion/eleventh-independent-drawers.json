@@ -1,0 +1,74 @@
+{
+  "beforeRelease": "990e56ba9394",
+  "afterRelease": "784aaac91d99",
+  "packetSHA256": "227b8c362446235e93d568487d66410a5dfb69757aaab4967962eff552d27226",
+  "allDecisionLanesIdentical": true,
+  "onlyRootChanges": [
+    "meta counts/release",
+    "nine coverage appends"
+  ],
+  "results": [
+    {
+      "material": "M114",
+      "coverageId": "C01563",
+      "status": "Gap",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M119",
+      "coverageId": "C01564",
+      "status": "Gap",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M120",
+      "coverageId": "C01565",
+      "status": "Gap",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M124",
+      "coverageId": "C01566",
+      "status": "Gap",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M128",
+      "coverageId": "C01567",
+      "status": "Gap",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M131",
+      "coverageId": "C01568",
+      "status": "Reviewed with limitations",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M133",
+      "coverageId": "C01569",
+      "status": "Gap",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M168",
+      "coverageId": "C01570",
+      "status": "Reviewed with limitations",
+      "literalDrawerVerified": true
+    },
+    {
+      "material": "M174",
+      "coverageId": "C01571",
+      "status": "Gap",
+      "literalDrawerVerified": true
+    }
+  ],
+  "counts": {
+    "Evidence recorded": 45,
+    "Gap": 34,
+    "Reviewed with limitations": 57
+  },
+  "unassessed": 0,
+  "completeCoverageGridMaterialIDs": 136,
+  "scope": "Actual renderer HTML and grid status assertions; automated, no human or browser-layout claim"
+}

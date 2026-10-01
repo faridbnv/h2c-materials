@@ -1,0 +1,215 @@
+{
+  "input_sha256": "227b8c362446235e93d568487d66410a5dfb69757aaab4967962eff552d27226",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 9,
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T20:26:38.503756+00:00",
+  "maker_batches": [
+    {
+      "Maker": "3DXTECH",
+      "GradeIDs": [
+        "G114-01",
+        "G119-01",
+        "G120-01",
+        "G124-01",
+        "G128-01"
+      ]
+    },
+    {
+      "Maker": "Extrudr",
+      "GradeIDs": [
+        "G131-01",
+        "G168-03",
+        "G168-04"
+      ]
+    },
+    {
+      "Maker": "Flashforge",
+      "GradeIDs": [
+        "G133-01"
+      ]
+    },
+    {
+      "Maker": "Spectrum",
+      "GradeIDs": [
+        "G001-134",
+        "G168-05"
+      ]
+    },
+    {
+      "Maker": "FormFutura",
+      "GradeIDs": [
+        "G174-01"
+      ]
+    }
+  ],
+  "source_custody": [
+    {
+      "SourceID": "X-ECOMAX-ESD-TPC-92A-v3",
+      "sha256": "00ae838bed4536925b9640fc0bcb87a7f7329c6eb49b93e0bbfd7e21e461930c",
+      "OriginalPath": ".cache/sources/by-sha/00ae838bed4536925b9640fc0bcb87a7f7329c6eb49b93e0bbfd7e21e461930c.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G114-01"
+    },
+    {
+      "SourceID": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+      "sha256": "66bef94a979f5cb761f65e3687213419bcc314241b64e277f4190e45de7c6d4b",
+      "OriginalPath": ".cache/sources/by-sha/66bef94a979f5cb761f65e3687213419bcc314241b64e277f4190e45de7c6d4b.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G119-01"
+    },
+    {
+      "SourceID": "X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS",
+      "sha256": "68d3079c2e99d1b168d77cc8533bf7cde4c42d82e3009c505dd355c6cb382907",
+      "OriginalPath": ".cache/sources/by-sha/68d3079c2e99d1b168d77cc8533bf7cde4c42d82e3009c505dd355c6cb382907.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G120-01"
+    },
+    {
+      "SourceID": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+      "sha256": "a3d92ff529ac45331c3b5a4a30160ef10a34e51136028e1f1836e79d1290e734",
+      "OriginalPath": ".cache/sources/by-sha/a3d92ff529ac45331c3b5a4a30160ef10a34e51136028e1f1836e79d1290e734.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G124-01"
+    },
+    {
+      "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+      "sha256": "d2a92ebae3f2ecfa64e28820576e513d42f60089d42c98183f487e44d5c7f8dd",
+      "OriginalPath": ".cache/sources/by-sha/d2a92ebae3f2ecfa64e28820576e513d42f60089d42c98183f487e44d5c7f8dd.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G128-01"
+    },
+    {
+      "SourceID": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en",
+      "sha256": "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c",
+      "OriginalPath": ".cache/sources/by-sha/456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c.pdf",
+      "read_scope": "all 2 pages",
+      "owned_grades": "G131-01"
+    },
+    {
+      "SourceID": "D-FLASH-PBAT-TDS-EN",
+      "sha256": "c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7",
+      "OriginalPath": ".cache/sources/by-sha/c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7.pdf",
+      "read_scope": "all 4 pages",
+      "owned_grades": "G133-01"
+    },
+    {
+      "SourceID": "R-EXTRUDR-greentec-pro-TDS-en",
+      "sha256": "760b35ecc10d26502b3f66588ece95100838495a5e4e07242b25c491ab940c81",
+      "OriginalPath": ".cache/sources/by-sha/760b35ecc10d26502b3f66588ece95100838495a5e4e07242b25c491ab940c81.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G168-03"
+    },
+    {
+      "SourceID": "R-EXTRUDR-greentec-TDS-en",
+      "sha256": "7f3c349fc7bd46f080cdb8910ec24398939b71b0096c179e6f3ec22b2c6153f2",
+      "OriginalPath": ".cache/sources/by-sha/7f3c349fc7bd46f080cdb8910ec24398939b71b0096c179e6f3ec22b2c6153f2.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G168-04"
+    },
+    {
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
+      "sha256": "3ca0f7060c58486704dcc95a688e981bdf58c2cadfad40ee9be6719d45e485d6",
+      "OriginalPath": ".cache/sources/by-sha/3ca0f7060c58486704dcc95a688e981bdf58c2cadfad40ee9be6719d45e485d6.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G001-134"
+    },
+    {
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
+      "sha256": "9a2c77aa94eba1ad4a0c906c92f164aec9fb6e78c8c24c15f48acfac21f34530",
+      "OriginalPath": ".cache/sources/by-sha/9a2c77aa94eba1ad4a0c906c92f164aec9fb6e78c8c24c15f48acfac21f34530.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G168-05"
+    },
+    {
+      "SourceID": "S-PET-TDS-Crystal-Flex",
+      "sha256": "95dd0c3faeba82855270f90fac744605ecda8dd1c25fa51def2293293f756659",
+      "OriginalPath": ".cache/sources/by-sha/95dd0c3faeba82855270f90fac744605ecda8dd1c25fa51def2293293f756659.pdf",
+      "read_scope": "all 1 pages",
+      "owned_grades": "G174-01"
+    }
+  ],
+  "reading_scope": "Independently SHA-verified and freshly extracted/re-read all12 complete cached originals16pages; text suffices for these narrative/absence judgments, no optical certificate verification. Source registry/ExpectedGrade full rows and absence of active Application coverage checked against current tables. No broad official-site research or joined product target closure.",
+  "judgments": [
+    {
+      "FindingID": "CE-APP-LAST-M114",
+      "MaterialID": "M114",
+      "verdict": "APPROVE",
+      "Status": "Gap",
+      "source_locator": "p1 complete title/property tables/Printed Specimen Conditions/disclaimer",
+      "basis_and_limits": "Exact90A title, numbers and printed XY specimen block only; filename92A is not grade authority. Gap appropriate."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M119",
+      "MaterialID": "M119",
+      "verdict": "APPROVE",
+      "Status": "Gap",
+      "source_locator": "p1 complete sheet",
+      "basis_and_limits": "Complete PC/ASA source has property and specimen blocks only, no outdoor or intended-use claim. Gap appropriate."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M120",
+      "MaterialID": "M120",
+      "verdict": "APPROVE",
+      "Status": "Gap",
+      "source_locator": "p1 complete sheet",
+      "basis_and_limits": "Complete ESD-PVDF source gives electrical/property numbers and printed XY specimen block; no electrical/chemical use qualification inferred. Gap appropriate."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M124",
+      "MaterialID": "M124",
+      "verdict": "APPROVE",
+      "Status": "Gap",
+      "source_locator": "p1 complete sheet",
+      "basis_and_limits": "Complete ESD-PPS sheet prints345C extrusion and130C bed in Printed Specimen Conditions only. Not an application/finishing operation or H2C product recipe. Gap appropriate."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M128",
+      "MaterialID": "M128",
+      "verdict": "APPROVE",
+      "Status": "Gap",
+      "source_locator": "p1 complete sheet",
+      "basis_and_limits": "Complete CarbonX PC/ABS sheet gives property/specimen block only; carbon fibre title not a structural-use qualification. Gap appropriate."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M131",
+      "MaterialID": "M131",
+      "verdict": "APPROVE",
+      "Status": "Reviewed with limitations",
+      "source_locator": "p1 Description and Features; p2 print/settings/certification/storage",
+      "basis_and_limits": "p1 exact Description technical applications, Features demanding performance applications and Smooth surface with carbon look. RWL appropriately bounded appearance and nonspecific intended-use context; no finishing procedure or performance test. p2 certification color scope retained."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M133",
+      "MaterialID": "M133",
+      "verdict": "APPROVE",
+      "Status": "Gap",
+      "source_locator": "complete p1–4, including Support Material, Cautions and specimen attachment",
+      "basis_and_limits": "Complete4pages: own PBAT description, properties, specimen preparation, print recipe and PVA/BVOH support row, conditional60C≥5h filament drying; no named end-use or post-print finishing operation. Gap appropriate; dissolvable support pairing does not infer a removal test."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M168",
+      "MaterialID": "M168",
+      "verdict": "APPROVE",
+      "Status": "Reviewed with limitations",
+      "source_locator": "complete own4 one-page sheets, Description/Features and disclaimers",
+      "basis_and_limits": "Four exact own sheets: Extrudr GreenTEC Pro semi-matte/raw material FDA, GreenTEC matte/raw material FDA; Spectrum GreenyHT rough matt masks printed layers/base material food approved; GreenyPro semi-matte/Food safe and FDA compliant maker claim. RWL bounded appearance only, no fabrication finishing procedure, qualification or transfer to other three products."
+    },
+    {
+      "FindingID": "CE-APP-LAST-M174",
+      "MaterialID": "M174",
+      "verdict": "APPROVE",
+      "Status": "Gap",
+      "source_locator": "complete one-page2015v2 TDS",
+      "basis_and_limits": "2015v2 Crystal Flex source states92% visible light through fibre, bend230% without white stress, interlayer/water claims; no named end-use/finishing. Gap appropriate; optical fibre claim is not printed window/enclosure application."
+    }
+  ],
+  "limitations": [
+    "Seven Gap statuses are limited to reviewed originals; official-route follow-up remains open, not universal absence or exhausted searches.",
+    "Two RWL judgments describe bounded maker appearance/context; neither establishes a validated application, post-print finishing procedure or selection pass.",
+    "M168 covers four explicitly named source-owned products only; three other active grade records remain outside this source batch. No shared formulation inference.",
+    "No certificates retrieved/validated; resin food claims and printed product maker claims remain distinct.",
+    "Future source/identity/canonical changes require guards to be rechecked before injection."
+  ],
+  "review_signature_sha256": "602182d7734564dfb8aa9759775e050b3bb2c5e4e9089b75b8ecb752048fc6de"
+}

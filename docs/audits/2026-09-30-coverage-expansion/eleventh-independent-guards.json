@@ -1,0 +1,39 @@
+{
+  "baselineCommit": "661728a5f6e670ff5885cc996fb969e82e81bc59",
+  "packetSHA256": "227b8c362446235e93d568487d66410a5dfb69757aaab4967962eff552d27226",
+  "cases": 6,
+  "results": [
+    {
+      "case": "Nine appends and immediate zero-record rerun",
+      "passed": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed final expected grade rejects after eight earlier pending operations",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed final expected source rejects after eight earlier pending operations",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed final deciding original bytes rejected",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed pinned packet bytes rejected",
+      "refused": true,
+      "noPartialWrites": true
+    },
+    {
+      "case": "Changed final already-applied judgment status rejected",
+      "refused": true,
+      "noPartialWrites": true
+    }
+  ],
+  "rootManifestUnchanged": true,
+  "scope": "Disposable tables and original copies only; no root mutations"
+}

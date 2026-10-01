@@ -1,0 +1,9 @@
+{
+  "before_commit": "661728a",
+  "baseline_core": false,
+  "baseline_basis": "Frozen compiled database of the named committed baseline. Environment replay compares verdicts/screens; source-level changes are reviewed separately.",
+  "questions": 48,
+  "evaluations": 58224,
+  "answer_changes": 0,
+  "changes": []
+}

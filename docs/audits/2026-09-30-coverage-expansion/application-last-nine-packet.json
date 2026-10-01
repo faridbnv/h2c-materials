@@ -1,0 +1,798 @@
+{
+  "PacketID": "APPLICATION-LAST-NINE-BLANK-CACHED-ORIGINALS",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "MakerBatches": [
+    {
+      "Maker": "3DXTECH",
+      "GradeIDs": [
+        "G114-01",
+        "G119-01",
+        "G120-01",
+        "G124-01",
+        "G128-01"
+      ]
+    },
+    {
+      "Maker": "Extrudr",
+      "GradeIDs": [
+        "G131-01",
+        "G168-03",
+        "G168-04"
+      ]
+    },
+    {
+      "Maker": "Flashforge",
+      "GradeIDs": [
+        "G133-01"
+      ]
+    },
+    {
+      "Maker": "Spectrum",
+      "GradeIDs": [
+        "G001-134",
+        "G168-05"
+      ]
+    },
+    {
+      "Maker": "FormFutura",
+      "GradeIDs": [
+        "G174-01"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-APP-LAST-M114",
+      "MaterialID": "M114",
+      "ActiveGradeIDs": [
+        "G114-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G114-01",
+        "MaterialID": "M114",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD-TPC (90A)",
+        "Shared formulation key": "X-ECOMAX-ESD-TPC-92A-v3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-ESD-TPC-92A-v3",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-ECOMAX-ESD-TPC-92A-v3",
+            "Publisher": "3DXTECH",
+            "Title": "Technical Data Sheet: 3DXSTAT™ ESD-TPC (90A) 3D Printing Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://irp.cdn-website.com/8ecbc4ef/files/uploaded/ESD_TPC_92A_v3.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G114-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "00ae838bed4536925b9640fc0bcb87a7f7329c6eb49b93e0bbfd7e21e461930c"
+          },
+          "OriginalPath": ".cache/sources/by-sha/00ae838bed4536925b9640fc0bcb87a7f7329c6eb49b93e0bbfd7e21e461930c.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Technical Data Sheet: 3DXSTAT™ ESD-TPC (90A) 3D Printing Filament",
+      "Locator": "p1 complete title/property tables/Printed Specimen Conditions/disclaimer",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M114",
+        "GradeID": "G114-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page 3DXSTAT ESD-TPC90A TDS gives values and printed-specimen preparation, but no named intended use or post-print finishing basis. ESD/TPC naming and specimen preparation alone do not establish an application. The filename92A does not override its own90A title. Reviewed source basis: X-ECOMAX-ESD-TPC-92A-v3. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M119",
+      "MaterialID": "M119",
+      "ActiveGradeIDs": [
+        "G119-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G119-01",
+        "MaterialID": "M119",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXMAX PC/ASA",
+        "Shared formulation key": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+            "Publisher": "3DXTECH",
+            "Title": "Technical Data Sheet: 3DXMAX® PC/ASA 3D Printing Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/3DXMAX_PCASA_TDS_v3.pdf?v=1723942763",
+            "Locator": "Document / product page",
+            "Applicable grades": "G119-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "66bef94a979f5cb761f65e3687213419bcc314241b64e277f4190e45de7c6d4b"
+          },
+          "OriginalPath": ".cache/sources/by-sha/66bef94a979f5cb761f65e3687213419bcc314241b64e277f4190e45de7c6d4b.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Technical Data Sheet: 3DXMAX® PC/ASA 3D Printing Filament",
+      "Locator": "p1 complete sheet",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M119",
+        "GradeID": "G119-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page PC/ASA TDS gives properties and printed-specimen preparation, without intended-use or finishing statements. Its ASA identity does not supply an outdoor-application claim or weathering test. Reviewed source basis: X-ECOMAX-3DXMAX-PCASA-TDS-v3. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M120",
+      "MaterialID": "M120",
+      "ActiveGradeIDs": [
+        "G120-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G120-01",
+        "MaterialID": "M120",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD-PVDF",
+        "Shared formulation key": "X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS",
+            "Publisher": "3DXTECH",
+            "Title": "Technical Data Sheet: 3DXSTAT™ ESD-PVDF 3D Printing Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/3DXSTAT_ESD_PVDF_v3_TDS.pdf?v=1723942764",
+            "Locator": "Document / product page",
+            "Applicable grades": "G120-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "68d3079c2e99d1b168d77cc8533bf7cde4c42d82e3009c505dd355c6cb382907"
+          },
+          "OriginalPath": ".cache/sources/by-sha/68d3079c2e99d1b168d77cc8533bf7cde4c42d82e3009c505dd355c6cb382907.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Technical Data Sheet: 3DXSTAT™ ESD-PVDF 3D Printing Filament",
+      "Locator": "p1 complete sheet",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M120",
+        "GradeID": "G120-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page ESD-PVDF TDS gives values and printed-specimen conditions, without intended-use or post-print finishing statements. ESD and PVDF identity are not evidence of a specific safe electrical or chemical application. Reviewed source basis: X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M124",
+      "MaterialID": "M124",
+      "ActiveGradeIDs": [
+        "G124-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G124-01",
+        "MaterialID": "M124",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD-PPS",
+        "Shared formulation key": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+            "Publisher": "3DXTECH",
+            "Title": "Technical Data Sheet: 3DXSTAT™ ESD-PPS 3D Printing Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/3DXSTAT_ESD_PPS_v3_TDS.pdf?v=1723942764",
+            "Locator": "Document / product page",
+            "Applicable grades": "G124-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "a3d92ff529ac45331c3b5a4a30160ef10a34e51136028e1f1836e79d1290e734"
+          },
+          "OriginalPath": ".cache/sources/by-sha/a3d92ff529ac45331c3b5a4a30160ef10a34e51136028e1f1836e79d1290e734.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Technical Data Sheet: 3DXSTAT™ ESD-PPS 3D Printing Filament",
+      "Locator": "p1 complete sheet",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M124",
+        "GradeID": "G124-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page ESD-PPS TDS provides property/specimen tables without intended-use or finishing evidence. Its345C/130C printed-specimen settings do not establish an H2C manufacturing recipe or application suitability. Reviewed source basis: X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M128",
+      "MaterialID": "M128",
+      "ActiveGradeIDs": [
+        "G128-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G128-01",
+        "MaterialID": "M128",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "CarbonX Carbon Fiber PC/ABS",
+        "Shared formulation key": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Composition / filler": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+            "Publisher": "3DXTECH",
+            "Title": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/CarbonX_CF_PC_ABS_TDS_v1.1.pdf?v=1723942768",
+            "Locator": "Document / product page",
+            "Applicable grades": "G128-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d2a92ebae3f2ecfa64e28820576e513d42f60089d42c98183f487e44d5c7f8dd"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d2a92ebae3f2ecfa64e28820576e513d42f60089d42c98183f487e44d5c7f8dd.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament",
+      "Locator": "p1 complete sheet",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M128",
+        "GradeID": "G128-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own CarbonX PC/ABS TDS gives measured values and printed-specimen preparation, without named intended uses or finishing methods. Carbon fibre reinforcement does not justify a structural application approval. Reviewed source basis: X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M131",
+      "MaterialID": "M131",
+      "ActiveGradeIDs": [
+        "G131-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G131-01",
+        "MaterialID": "M131",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO PC-PBT CF",
+        "Shared formulation key": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en",
+        "Composition / filler": "PC-PBT with carbon fibre reinforcement raises the properties of the base material to a new level and makes it one of the most (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability UL 94 (1.5 mm) UL 94 Class HB (Bayer) (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en",
+            "Publisher": "Extrudr",
+            "Title": "TECHNICAL DATA SHEET DURAPRO PC-PBT CF",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-pc-pbt-cf-TDS-en.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G131-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c"
+          },
+          "OriginalPath": ".cache/sources/by-sha/456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c.pdf",
+          "OriginalPagesReread": "all 2 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Smooth surface with carbon look",
+      "Locator": "p1 Description and Features; p2 print/settings/certification/storage",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M131",
+        "GradeID": "G131-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: DURAPRO PC-PBT CF describes a smooth surface with carbon look and demanding technical applications, as bounded maker appearance/context. No post-print finishing operation, controlled application performance or qualified load follows; its chemical-resistance claim and heat values remain separate from application suitability. Reviewed source basis: R-EXTRUDR-durapro-pc-pbt-cf-TDS-en. Maker appearance/context does not create a selection pass."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M133",
+      "MaterialID": "M133",
+      "ActiveGradeIDs": [
+        "G133-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G133-01",
+        "MaterialID": "M133",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "Flexible",
+        "Shared formulation key": "D-FLASH-PBAT-TDS-EN",
+        "Composition / filler": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-PBAT-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-FLASH-PBAT-TDS-EN",
+            "Publisher": "Flashforge",
+            "Title": "Technical Data Sheet Flexible Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/PBAT_TDS_EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G133-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7.pdf",
+          "OriginalPagesReread": "all 4 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Features: Flexibility/Dimensional stability/Easy to print",
+      "Locator": "complete p1–4, including Support Material, Cautions and specimen attachment",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M133",
+        "GradeID": "G133-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The complete Flashforge Flexible PBAT TDS provides flexibility/dimensional/printing claims, support pairings, specimen diagrams and conditional drying, without a named intended end-use or post-print finishing method. PVA/BVOH support compatibility and a biodegradable-material claim are not an application/finishing test. Reviewed source basis: D-FLASH-PBAT-TDS-EN. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M168",
+      "MaterialID": "M168",
+      "ActiveGradeIDs": [
+        "G001-66",
+        "G001-134",
+        "G168-01",
+        "G168-02",
+        "G168-03",
+        "G168-04",
+        "G168-05"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G168-03",
+        "MaterialID": "M168",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "GREENTEC PRO",
+        "Shared formulation key": "R-EXTRUDR-greentec-pro-TDS-en",
+        "Composition / filler": "\"Biodegradable batch based on PLA, contains copolyester and additives.\" (D-EXTRUDR-GREENTEC-PRO-MSDS-EN-2019, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Identified on 2026-09-28 (m223-what-the-makers-say-it-is), under PLA family, polymer not stated: PLA-based, with a copolyester, \"Biodegradable batch based on PLA, contains copolyester and additives.\" (D-EXTRUDR-GREENTEC-PRO-MSDS-EN-2019, p. 1). Extrudr's 2019 safety data sheet: PLA-based with a copolyester. Its current edition says only \"bio-copolyester\" (D-EXTRUDR-GREENTEC-PRO-MSDS-EN). A study with material Extrudr supplied (Burkhardt et al., Sci. Rep. 12, 20341, 2022) reports it as PLA, PBAT and PHA with a mineral filler, and its glass transition near 60 °C is PLA's. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-EXTRUDR-greentec-pro-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-greentec-pro-TDS-en",
+            "Publisher": "Extrudr",
+            "Title": "TECHNICAL DATA SHEET GREENTEC PRO",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/greentec-pro-TDS-en.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G168-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "760b35ecc10d26502b3f66588ece95100838495a5e4e07242b25c491ab940c81"
+          },
+          "OriginalPath": ".cache/sources/by-sha/760b35ecc10d26502b3f66588ece95100838495a5e4e07242b25c491ab940c81.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-greentec-TDS-en",
+            "Publisher": "Extrudr",
+            "Title": "TECHNICAL DATA SHEET GREENTEC",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/greentec-TDS-en.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G168-04",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "7f3c349fc7bd46f080cdb8910ec24398939b71b0096c179e6f3ec22b2c6153f2"
+          },
+          "OriginalPath": ".cache/sources/by-sha/7f3c349fc7bd46f080cdb8910ec24398939b71b0096c179e6f3ec22b2c6153f2.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "S-SPECTRUM-en-tds-spectrum-greenyht",
+            "Publisher": "Spectrum",
+            "Title": "TECHNICAL DATA SHEET GreenyHT",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://spectrumfilaments.com/wp-content/uploads/2022/10/en_tds_spectrum_greenyht.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G001-134",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "3ca0f7060c58486704dcc95a688e981bdf58c2cadfad40ee9be6719d45e485d6"
+          },
+          "OriginalPath": ".cache/sources/by-sha/3ca0f7060c58486704dcc95a688e981bdf58c2cadfad40ee9be6719d45e485d6.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "S-SPECTRUM-en-tds-spectrum-greeny-pro",
+            "Publisher": "Spectrum",
+            "Title": "TECHNICAL DATA SHEET Greeny Pro",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://spectrumfilaments.com/wp-content/uploads/2023/10/en_tds_spectrum_greeny_pro.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G168-05",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "9a2c77aa94eba1ad4a0c906c92f164aec9fb6e78c8c24c15f48acfac21f34530"
+          },
+          "OriginalPath": ".cache/sources/by-sha/9a2c77aa94eba1ad4a0c906c92f164aec9fb6e78c8c24c15f48acfac21f34530.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "GreenTEC Pro: high-quality semi-matte look; GreenTEC: high-quality matte look; GreenyHT: The surface irregularity and matt look effectively mask the layers of printed part.; Greeny Pro: Semi-matte print finish",
+      "Locator": "complete own4 one-page sheets, Description/Features and disclaimers",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M168",
+        "GradeID": "G168-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Own Extrudr GREENTEC PRO/GREENTEC and Spectrum GreenyHT/Greeny Pro sheets describe semi-matte/matte/rough print appearance; GreenyHT explicitly says it masks printed layers. These four named products provide bounded appearance context, no finishing procedure or validated high-performance/food-contact application. Raw-material FDA versus product food-safe claims remain distinct and certificates were not retrieved. Other active products GreenTEC Pro filed underFabru, BigRep PROHT and3DJake niceBIO are outside this source batch; no formulation/value/approval transfer. Reviewed source basis: R-EXTRUDR-greentec-pro-TDS-en, R-EXTRUDR-greentec-TDS-en, S-SPECTRUM-en-tds-spectrum-greenyht, S-SPECTRUM-en-tds-spectrum-greeny-pro. Maker appearance/context does not create a selection pass."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    },
+    {
+      "FindingID": "CE-APP-LAST-M174",
+      "MaterialID": "M174",
+      "ActiveGradeIDs": [
+        "G174-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G174-01",
+        "MaterialID": "M174",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "Crystal Flex",
+        "Shared formulation key": "S-PET-TDS-Crystal-Flex",
+        "Composition / filler": "An easy to use high-end SBC (Styrene Butadiene Block Copolymer) type of 3D printer filament (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant: Yes; RoHS certified: Yes; FDA compliant: Yes (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-Crystal-Flex",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-TDS-Crystal-Flex",
+            "Publisher": "FormFutura",
+            "Title": "Technical Data Sheet Crystal Flex™",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/Crystal%20Flex/Data%20Sheets%20and%20Declarations/TDS%20-%20Crystal%20Flex.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G174-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "95dd0c3faeba82855270f90fac744605ecda8dd1c25fa51def2293293f756659"
+          },
+          "OriginalPath": ".cache/sources/by-sha/95dd0c3faeba82855270f90fac744605ecda8dd1c25fa51def2293293f756659.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingNote": "Freshly extracted from hash-verified original; entire exact document re-read, not historical summary."
+        }
+      ],
+      "RawBasis": "Crystal Flex™ is a strong, flexible and crystal clear filament, as it will let 92% of visible light pass through its fibre.",
+      "Locator": "complete one-page2015v2 TDS",
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M174",
+        "GradeID": "G174-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The Crystal Flex v2 sheet gives fibre visible-light transmission, flexibility/white-stress/interlayer/printing claims and property tables, without a named intended use or post-print finishing method.92% transmission through fibre is not proof of a printed enclosure/window application; REACH/RoHS/FDA Yes cells are claims without obtained certificates or a printed-product use qualification. Reviewed source basis: S-PET-TDS-Crystal-Flex. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "PrimaryReview": "AI injector reread complete12 hash-verified PDFs; no human review.",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-LAST-M114",
+      "append": {
+        "MaterialID": "M114",
+        "GradeID": "G114-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page 3DXSTAT ESD-TPC90A TDS gives values and printed-specimen preparation, but no named intended use or post-print finishing basis. ESD/TPC naming and specimen preparation alone do not establish an application. The filename92A does not override its own90A title. Reviewed source basis: X-ECOMAX-ESD-TPC-92A-v3. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M119",
+      "append": {
+        "MaterialID": "M119",
+        "GradeID": "G119-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page PC/ASA TDS gives properties and printed-specimen preparation, without intended-use or finishing statements. Its ASA identity does not supply an outdoor-application claim or weathering test. Reviewed source basis: X-ECOMAX-3DXMAX-PCASA-TDS-v3. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M120",
+      "append": {
+        "MaterialID": "M120",
+        "GradeID": "G120-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page ESD-PVDF TDS gives values and printed-specimen conditions, without intended-use or post-print finishing statements. ESD and PVDF identity are not evidence of a specific safe electrical or chemical application. Reviewed source basis: X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M124",
+      "append": {
+        "MaterialID": "M124",
+        "GradeID": "G124-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own one-page ESD-PPS TDS provides property/specimen tables without intended-use or finishing evidence. Its345C/130C printed-specimen settings do not establish an H2C manufacturing recipe or application suitability. Reviewed source basis: X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M128",
+      "append": {
+        "MaterialID": "M128",
+        "GradeID": "G128-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The own CarbonX PC/ABS TDS gives measured values and printed-specimen preparation, without named intended uses or finishing methods. Carbon fibre reinforcement does not justify a structural application approval. Reviewed source basis: X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M131",
+      "append": {
+        "MaterialID": "M131",
+        "GradeID": "G131-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: DURAPRO PC-PBT CF describes a smooth surface with carbon look and demanding technical applications, as bounded maker appearance/context. No post-print finishing operation, controlled application performance or qualified load follows; its chemical-resistance claim and heat values remain separate from application suitability. Reviewed source basis: R-EXTRUDR-durapro-pc-pbt-cf-TDS-en. Maker appearance/context does not create a selection pass."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M133",
+      "append": {
+        "MaterialID": "M133",
+        "GradeID": "G133-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The complete Flashforge Flexible PBAT TDS provides flexibility/dimensional/printing claims, support pairings, specimen diagrams and conditional drying, without a named intended end-use or post-print finishing method. PVA/BVOH support compatibility and a biodegradable-material claim are not an application/finishing test. Reviewed source basis: D-FLASH-PBAT-TDS-EN. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M168",
+      "append": {
+        "MaterialID": "M168",
+        "GradeID": "G168-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Own Extrudr GREENTEC PRO/GREENTEC and Spectrum GreenyHT/Greeny Pro sheets describe semi-matte/matte/rough print appearance; GreenyHT explicitly says it masks printed layers. These four named products provide bounded appearance context, no finishing procedure or validated high-performance/food-contact application. Raw-material FDA versus product food-safe claims remain distinct and certificates were not retrieved. Other active products GreenTEC Pro filed underFabru, BigRep PROHT and3DJake niceBIO are outside this source batch; no formulation/value/approval transfer. Reviewed source basis: R-EXTRUDR-greentec-pro-TDS-en, R-EXTRUDR-greentec-TDS-en, S-SPECTRUM-en-tds-spectrum-greenyht, S-SPECTRUM-en-tds-spectrum-greeny-pro. Maker appearance/context does not create a selection pass."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-LAST-M174",
+      "append": {
+        "MaterialID": "M174",
+        "GradeID": "G174-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: The Crystal Flex v2 sheet gives fibre visible-light transmission, flexibility/white-stress/interlayer/printing claims and property tables, without a named intended use or post-print finishing method.92% transmission through fibre is not proof of a printed enclosure/window application; REACH/RoHS/FDA Yes cells are claims without obtained certificates or a printed-product use qualification. Reviewed source basis: S-PET-TDS-Crystal-Flex. This is a gap in the reviewed originals, not public-source exhaustion or universal absence; a concrete new official-source lead can reopen the question."
+      },
+      "supersede": []
+    }
+  ],
+  "SearchContract": "Manual cached-source Application judgments only; no joined-product task closure or public-source absence implied. Prior maker/price searches reused where relevant. Fresh source reading of complete12 PDFs /16pages, no new document admission."
+}

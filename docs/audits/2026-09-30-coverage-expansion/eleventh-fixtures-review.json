@@ -1,0 +1,59 @@
+{
+  "overall_verdict": "APPROVE_FIXTURES_PENDING_FULL_RELEASE_QA",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T20:59:03.850948+00:00",
+  "release": "784aaac91d99",
+  "baseline_release": "990e56ba9394",
+  "baseline_commit": "661728a5f6e670ff5885cc996fb969e82e81bc59",
+  "input_packet_sha256": "227b8c362446235e93d568487d66410a5dfb69757aaab4967962eff552d27226",
+  "approved_source_review": {
+    "path": "external-campaign/reviews/APPLICATION-LAST-NINE-REVIEW.json",
+    "sha256": "a4e534ca7028df0bdacb4992ef96ec0931d2e6b30970b5b1f63ca58a50388a3f",
+    "scope_reused": "All12 original PDFs/16pages and exact grade/source registry basis previously independently reread. No new source or proposed wording changes; no repeated research required."
+  },
+  "fixture_sha256": {
+    "eleventh-independent-drawers.mjs": "7ce7ebc6fb9d648a0865db96fbff66da4d6ccb4861d14da4293f05a3f6f5b1ef",
+    "eleventh-independent-drawers.json": "38bc105c496047325b663bde6bc6a3809a9253dd2a1948d75b7c8c62fb580ddd",
+    "eleventh-independent-drawers.coverage.html": "8be135a2ea47a69dda91df61ebea9f2d765a6d1eff55966bcc60f0ca4792bfaf",
+    "eleventh-independent-guards.mjs": "db826144770e1ba9bf9cb6aec59d0aa84c50976866fe8e929825d2179920ebce",
+    "eleventh-independent-guards.json": "9155e1ce885b831c0e93aa6d55487b2e26cc973f99d20963efdb027ebdcf01cd"
+  },
+  "compiled_checks": [
+    "Every compiled root lane except coverage and meta is deeply identical to frozen tenth baseline, including all materials, grades, measurements, profiles, environmental evidence, know-how, prices, sources, polymer context, schemas/registry and estimate outputs.",
+    "Every meta key except counts/release is identical; previous coverage rows are unchanged and exactly nine new rows C01563–C01571 match source-approved packet wording/status.",
+    "No application judgment can become a decision criterion or introduce a selection pass. Zero decision moves expected; final frozen/category/template replays remain required."
+  ],
+  "actual_renderer_checks": {
+    "nine_Coverage_drawer_findings_and_statuses": "Exact escaped source-approved text and status verified in actual renderDrawer HTML",
+    "complete_coverage_grid_material_ids": 136,
+    "Application_counts": {
+      "Evidence recorded": 45,
+      "Reviewed with limitations": 57,
+      "Gap": 34,
+      "Unassessed": 0
+    },
+    "source_scope": "Seven cached-source Gap and two bounded maker-appearance/context RWL judgments; no certified suitability or post-processing result inferred.",
+    "browser_layout_scope": "HTML assertions only; full native browser QA remains release gate."
+  },
+  "guard_checks": {
+    "cases": 6,
+    "all_pass": true,
+    "root_manifest_unchanged": true,
+    "cases_detail": [
+      "Nine appends from committed baseline and immediate zero-record rerun",
+      "Changed final expected grade rejects after eight earlier pending operations without partial writes",
+      "Changed final expected source rejects after eight earlier pending operations without partial writes",
+      "Corrupted final original bytes reject admission",
+      "Changed pinned packet bytes reject admission",
+      "Changed final already-applied coverage status rejects rerun"
+    ],
+    "execution": "Disposable data/source copies only; mutable original bytes never touched in root. Two initial harness attempts lacked copied CSV runtime dependencies and produced no migration writes; corrected harness completed all six cases. Source facts and canonical migration untouched."
+  },
+  "release_scope_limits": [
+    "This judgment-only tranche does not close additional joined product tasks;21 previously closed products remain21.",
+    "Coverage grid zero-unassessed does not mean whole research campaign complete or official sources exhausted.",
+    "Campaign material-task count reaches75 only after verified local commit; remainder must retain explicit pending outcomes.",
+    "Final full QA, timings, source-backup and record/compiled diff receipt needed for ELEVENTH-RELEASE-REVIEW approval."
+  ],
+  "review_signature_sha256": "e6472568a633cddab9bc446190a3ff1ee7a21c95b3cbd9d5cbff4994aecd8d3a"
+}
