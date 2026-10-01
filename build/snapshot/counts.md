@@ -14,14 +14,14 @@ rather than repeat a number.
 | … with a print profile of their own | 1,006 |  |
 | … reading values from a twin's sheet | 45 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 477 | where their own sheet is silent (D88); 33 guide rows |
-| … with a maker's know-how statement | 1,045 | lane 3 |
+| … with a maker's know-how statement | 1,050 | lane 3 |
 | Measurements | 11,237 | active rows |
 | … with a usable number | 11,062 |  |
 | Product values | 4,533 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 663 | headline cells of in-scope materials |
 | Material values estimated | 148 | where no product publishes (D43) |
 | Print profiles | 1,316 |  |
-| Evidence records | 625 | exposure, flammability, post-processing and the rest |
-| Know-how statements | 4,665 | the makers' words, shown in the panel only (D85) |
+| Evidence records | 632 | exposure, flammability, post-processing and the rest |
+| Know-how statements | 4,692 | the makers' words, shown in the panel only (D85) |
 | Price observations | 357 | sampled 2026-09-30 |
 | Sources | 1,828 |  |

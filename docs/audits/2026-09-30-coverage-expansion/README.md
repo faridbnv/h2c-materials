@@ -47,3 +47,48 @@ evidence, without touching the canonical checkout.
 
 This first batch is not completion of the campaign. Application assessment for the other
 materials, remaining product research and environmental operations are still in progress.
+
+## Registered-source recovery tranche
+
+m235 reread eighteen products in groups of twelve and six, corrected four summaries,
+retired one duplicate, and added thirty maker statements without treating them as
+suitability evidence. Three corrected legacy Application records keep their citation
+lane because material_links uses it; new maker claims remain in know-how. The original
+injection receipt records the interim packet; its reconciliation and the independent
+final approval identify the final operations. No new document was imported.
+
+m236 recategorizes three existing hydrolysis claims and admits five exact original
+statements across six products. It preserves German “gut”, the FX256 hot-water claim
+up to 80 °C, and the eSUN PC-HT wording in full. Agent, duration, specimen, radiation
+dose and measured retention remain unstated where the originals omit them. These are
+narrative maker claims; no service qualification or selection pass follows. Raw-PC
+context and the iSANMATE glass/carbon identity conflict remain held.
+
+m237 appends seventeen manual Application judgments as Reviewed with limitations,
+superseding older judgments where appropriate. In-scope Application now has 41 Evidence
+recorded, 17 Reviewed with limitations, 29 Gap and 49 not assessed. Three former
+Evidence recorded judgments were narrowed after their claims were reread. Exact-product
+environmental records cover 50 of 136 materials (49 at baseline); UV records cover seven
+(six before), hydrolysis six (zero before). Counts describe presence, not qualification.
+
+The independent AI reviewer reread all admitted statements and all seventeen judgments.
+Public packet paths are relative; path-only normalization was independently attested
+against the original approved packets. Originals stay private. Each migration rerun
+writes zero. Supplemental original-grounded fixtures confirm narrative claims cannot pass or fail a service criterion and stable grade ownership is preserved. Disposable-copy fixtures changed expected identities and proved that m235
+and m237 stop before saving; the canonical tables were untouched by those fixtures.
+
+Canonical formatting, schema and lint passed with no new findings. Generated know-how
+worklist was refreshed after its stale-output check failed. Full verification then passed,
+including 69 interface views, laptop/tablet/phone layout checks and 300 scenarios with
+2,592 rendered readings. Warm verify:fast measured 25.8 s before the final Application
+judgments; the final full run took 54.9 s, within its 90 s budget. Frozen replay still moves
+zero verdicts or screens across 15 questions and 18,195 evaluations. The compiled diff
+against the first tranche has 194 intentional paths: records, source metadata, coverage
+and environmental display; no measurements, profiles or estimate rules changed.
+
+The private backup export verified 2,379 originals already present and 2,779 derived
+files; 124 known missing inventory entries remain. Automatic approval initially refused
+an opaque environment-variable destination; the explicit existing private destination
+was authorized after inspection. The in-app browser rejects file URLs, so additional
+interactive desktop inspection was unavailable; repository headless browser checks
+passed. This is a verified tranche, not completion of the all-catalogue campaign.

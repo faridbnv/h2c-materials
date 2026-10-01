@@ -1,0 +1,220 @@
+{
+  "migration": "m235-coverage-recovered-statements",
+  "written": 35,
+  "records": [
+    {
+      "operation": "REC-1",
+      "table": "evidence",
+      "id": "Q00371",
+      "kind": "edit"
+    },
+    {
+      "operation": "REC-2",
+      "table": "evidence",
+      "id": "Q00333",
+      "kind": "edit"
+    },
+    {
+      "operation": "REC-3",
+      "table": "evidence",
+      "id": "Q00363",
+      "kind": "edit"
+    },
+    {
+      "operation": "REC-4",
+      "table": "evidence",
+      "id": "Q00255",
+      "kind": "edit"
+    },
+    {
+      "operation": "REC-5",
+      "table": "evidence",
+      "id": "Q05307",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-6",
+      "table": "evidence",
+      "id": "Q05308",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-7",
+      "table": "evidence",
+      "id": "Q05309",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-8",
+      "table": "evidence",
+      "id": "Q05310",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-9",
+      "table": "evidence",
+      "id": "Q05311",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-10",
+      "table": "evidence",
+      "id": "Q05312",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-11",
+      "table": "evidence",
+      "id": "Q05313",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-12",
+      "table": "evidence",
+      "id": "Q05314",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-13",
+      "table": "evidence",
+      "id": "Q05315",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-14",
+      "table": "evidence",
+      "id": "Q05316",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-15",
+      "table": "evidence",
+      "id": "Q05317",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-16",
+      "table": "evidence",
+      "id": "Q05318",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-17",
+      "table": "evidence",
+      "id": "Q05319",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-18",
+      "table": "evidence",
+      "id": "Q05320",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-19",
+      "table": "evidence",
+      "id": "Q05321",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-20",
+      "table": "evidence",
+      "id": "Q05322",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-21",
+      "table": "evidence",
+      "id": "Q05323",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-22",
+      "table": "evidence",
+      "id": "Q05324",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-23",
+      "table": "evidence",
+      "id": "Q05325",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-24",
+      "table": "evidence",
+      "id": "Q05326",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-25",
+      "table": "evidence",
+      "id": "Q05327",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-26",
+      "table": "evidence",
+      "id": "Q05328",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-27",
+      "table": "evidence",
+      "id": "Q05329",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-28",
+      "table": "evidence",
+      "id": "Q05330",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-29",
+      "table": "evidence",
+      "id": "Q05331",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-30",
+      "table": "evidence",
+      "id": "Q05332",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-31",
+      "table": "evidence",
+      "id": "Q05333",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-32",
+      "table": "evidence",
+      "id": "Q05334",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-33",
+      "table": "evidence",
+      "id": "Q05335",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-34",
+      "table": "evidence",
+      "id": "Q05336",
+      "kind": "append"
+    },
+    {
+      "operation": "REC-SOURCE-1",
+      "table": "sources",
+      "id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+      "kind": "edit"
+    }
+  ],
+  "initial_packet_sha256": "1f09adfdcef4e6d18d460861368957280d37ca782383a692bbbf8735a893f118",
+  "final_reviewed_packet_sha256": "97cd8ee8dd0389e9c3e6759dfd9c56577e692da23e3c25d7663eb99d2c18bc75",
+  "reconciliation": "Before commit, restored Q00333, Q00363 and Q00255 to their existing Application domain/topic because material_links use them there. Raw corrections remain; all new maker claims stay in know-how. Final approved packet rerun wrote zero.",
+  "path_normalization_prior_sha256": "ad5d71813b9f46f97c1dc850a0c2f7b57d2badcfe2c2538b2a78157c0442e737"
+}

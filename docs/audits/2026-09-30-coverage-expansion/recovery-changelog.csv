@@ -1,0 +1,91 @@
+table,record,action,field,before,after
+coverage,C00439,Edited,Status,Gap,Superseded
+coverage,C00439,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01497: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C00718,Edited,Status,Evidence recorded,Superseded
+coverage,C00718,Edited,Finding,Evidence-specific finishing and use notes. Missing individual methods are not inferred.,Superseded by C01498: Evidence-specific finishing and use notes. Missing individual methods are not inferred.
+coverage,C00830,Edited,Status,Evidence recorded,Superseded
+coverage,C00830,Edited,Finding,Support-interface purpose and pairing limitation recorded from official Bambu evidence.,Superseded by C01499: Support-interface purpose and pairing limitation recorded from official Bambu evidence.
+coverage,C00924,Edited,Status,Gap,Superseded
+coverage,C00924,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01501: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C00963,Edited,Status,Evidence recorded,Superseded
+coverage,C00963,Edited,Finding,Evidence-specific finishing and use notes. Missing individual methods are not inferred.,Superseded by C01500: Evidence-specific finishing and use notes. Missing individual methods are not inferred.
+coverage,C00973,Edited,Status,Gap,Superseded
+coverage,C00973,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01502: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C01497,Added,,,
+coverage,C01498,Added,,,
+coverage,C01499,Added,,,
+coverage,C01500,Added,,,
+coverage,C01501,Added,,,
+coverage,C01502,Added,,,
+coverage,C01503,Added,,,
+coverage,C01504,Added,,,
+coverage,C01505,Added,,,
+coverage,C01506,Added,,,
+coverage,C01507,Added,,,
+coverage,C01508,Added,,,
+coverage,C01509,Added,,,
+coverage,C01510,Added,,,
+coverage,C01511,Added,,,
+coverage,C01512,Added,,,
+coverage,C01513,Added,,,
+evidence,Q00255,Edited,Finding,Electrical/electronic components and wear-loaded parts are proposed; long-term load claims have no published creep curve.,It may be used for production of electrical and electronic equipment.
+evidence,Q00255,Edited,Exposure / conditions,Not published,Maker intended-use statement only; no printed-part application validation or suitability established. Corrected from the registered original; prior editorial embellishments removed.
+evidence,Q00255,Edited,Locator,Application,"p. 1: Description, electrical/electronic use sentence"
+evidence,Q00333,Edited,Finding,Detailed functional prints and high surface quality are intended uses.,3D Prints details with a high resolution and high surface quality
+evidence,Q00333,Edited,Exposure / conditions,Not published,Maker intended-use statement only; no printed-part application validation or suitability established. Corrected from the registered original; prior editorial embellishments removed.
+evidence,Q00333,Edited,Locator,Application,p. 1: Suitable applications; scanned original visually reread
+evidence,Q00363,Edited,Finding,Support interface for Bambu Lab PLA filaments; not a stand-alone model material,"It is fully compatible with all Bambu Lab PLA filaments and Bambu Lab printers, offering effortless peel-off removal, smooth interface quality, with reliable performance."
+evidence,Q00363,Edited,Exposure / conditions,Manufacturer TDS statement; no concentration/time/temperature design limit,Maker intended-use statement only; no printed-part application validation or suitability established. Corrected from the registered original; prior editorial embellishments removed.
+evidence,Q00363,Edited,Locator,pp. 1-3: Intended role,"p. 1: Basic Info, compatibility and removal sentence"
+evidence,Q00371,Edited,Domain,Application,Makers' know-how
+evidence,Q00371,Edited,Topic,Published applications,Good for
+evidence,Q00371,Edited,Finding,"Automotive/transportation, functional prototyping and electronics",With its resilience to UV light and its flame retardancy and V0 verification it is perfectly suitable for various industrial applications.
+evidence,Q00371,Edited,Exposure / conditions,Manufacturer TDS/product statement; validate for the final part,"Retired duplicate of Q02891, which retains the exact maker statement on the same product and source. Unsupported named sectors in the former editorial summary were removed after original reread; no application suitability established."
+evidence,Q00371,Edited,Evidence type,Manufacturer statement,Retired duplicate record
+evidence,Q00371,Edited,Locator,pp. 1-3: Published applications,"p. 1: Product Description, final sentence"
+evidence,Q02929,Edited,Domain,Makers' know-how,Durability
+evidence,Q02929,Edited,Topic,Benefits,Hydrolysis / dimensional stability
+evidence,Q02929,Edited,Exposure / conditions,Not applicable,"Manufacturer hydrolysis-resistance claim; agent/concentration, temperature, duration, specimen, test method and measured performance not published. No service qualification or product screening pass established."
+evidence,Q02936,Edited,Domain,Makers' know-how,Durability
+evidence,Q02936,Edited,Topic,Benefits,Hydrolysis / dimensional stability
+evidence,Q02936,Edited,Exposure / conditions,Not applicable,"Manufacturer hydrolysis-resistance claim; agent/concentration, temperature, duration, specimen, test method and measured performance not published. No service qualification or product screening pass established."
+evidence,Q03093,Edited,Domain,Makers' know-how,Durability
+evidence,Q03093,Edited,Topic,Benefits,Hydrolysis / dimensional stability
+evidence,Q03093,Edited,Exposure / conditions,Not applicable,"Manufacturer hydrolysis-resistance claim; agent/concentration, temperature, duration, specimen, test method and measured performance not published. No service qualification or product screening pass established."
+evidence,Q05307,Added,,,
+evidence,Q05308,Added,,,
+evidence,Q05309,Added,,,
+evidence,Q05310,Added,,,
+evidence,Q05311,Added,,,
+evidence,Q05312,Added,,,
+evidence,Q05313,Added,,,
+evidence,Q05314,Added,,,
+evidence,Q05315,Added,,,
+evidence,Q05316,Added,,,
+evidence,Q05317,Added,,,
+evidence,Q05318,Added,,,
+evidence,Q05319,Added,,,
+evidence,Q05320,Added,,,
+evidence,Q05321,Added,,,
+evidence,Q05322,Added,,,
+evidence,Q05323,Added,,,
+evidence,Q05324,Added,,,
+evidence,Q05325,Added,,,
+evidence,Q05326,Added,,,
+evidence,Q05327,Added,,,
+evidence,Q05328,Added,,,
+evidence,Q05329,Added,,,
+evidence,Q05330,Added,,,
+evidence,Q05331,Added,,,
+evidence,Q05332,Added,,,
+evidence,Q05333,Added,,,
+evidence,Q05334,Added,,,
+evidence,Q05335,Added,,,
+evidence,Q05336,Added,,,
+evidence,Q05337,Added,,,
+evidence,Q05338,Added,,,
+evidence,Q05339,Added,,,
+evidence,Q05340,Added,,,
+evidence,Q05341,Added,,,
+sources,S-SPECTRUM-PRINT-20260928-e6a9efb89400,Edited,Source note,Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.,"Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted. Coverage-expansion reread 2026-09-30: the Applications section now supports six exact-product maker-use statements, with separately labelled Material characteristics service-duration claims. Independently reviewed by an AI agent; no application validation or suitability established."
+sources,S-SPECTRUM-PRINT-20260928-e6a9efb89400,Edited,Citation role,corroboration,cited

@@ -1,0 +1,1684 @@
+{
+  "PacketID": "APPLICATION-RECOVERY-17",
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M038",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02891",
+          "MaterialID": "M038",
+          "GradeID": "G038-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Benefits",
+          "Finding": "With its resilience to UV light and its flame retardancy and V0 verification it is perfectly suitable for various industrial applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-BASF-PCGF30-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G038-02",
+        "MaterialID": "M038",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Ultrafuse PC GF30",
+        "Shared formulation key": "R-BASF-PCGF30-TDS",
+        "Composition / filler": "Polycarbonate with 30% glass fibre",
+        "Variant": "Not applicable",
+        "Colour caveat": "Use exact TDS and colour/SDS scope",
+        "Availability": "Current official product page retrieved",
+        "Certification claims": "UL 94 V0 at 1.5 mm and 3.0 mm; verify colour, thickness and certificate",
+        "Selected-grade rationale": "Exact 1.75 mm FFF grade from named manufacturer requested by user",
+        "SourceID": "R-BASF-PCGF30-TDS",
+        "Source locator": "TDS v1.2, pp. 1-3",
+        "Diameter compatibility": "1.75 and 2.85 mm offered; select 1.75 mm for H2C evaluation"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-BASF-PCGF30-TDS",
+            "Publisher": "BASF Forward AM",
+            "Title": "Ultrafuse PC GF30 Technical Data Sheet",
+            "Revision": "Version 1.2",
+            "Publication date": "2022-01-26",
+            "Access date": "2026-09-13",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://forward-am.com/wp-content/uploads/2021/12/Ultrafuse_PC_GF30_TDS_EN_v1.2.pdf",
+            "Locator": "pp. 1-3",
+            "Applicable grades": "M038 / G038-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "bf1773381d166b1a930dd12be1164c3284b74bebfd4cc2894a8018cf8f3914a0"
+          },
+          "OriginalPath": ".cache/sources/by-sha/bf1773381d166b1a930dd12be1164c3284b74bebfd4cc2894a8018cf8f3914a0.pdf",
+          "TextPath": ".cache/text/bf1773381d166b1a930dd12be1164c3284b74bebfd4cc2894a8018cf8f3914a0.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M038",
+        "GradeID": "G038-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: BASF Forward AM Ultrafuse PC GF30 (G038-02) has source-backed maker application, support/removal or finishing statements (Q02891; R-BASF-PCGF30-TDS; p. 1). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. Unsupported named sectors were removed and their old record retired as a duplicate."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M066",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00333",
+          "MaterialID": "M066",
+          "GradeID": "G066-01",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "3D Prints details with a high resolution and high surface quality",
+          "Exposure / conditions": "Maker intended-use statement only; no printed-part application validation or suitability established. Corrected from the registered original; prior editorial embellishments removed.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PET-TDS",
+          "Locator": "p. 1: Suitable applications; scanned original visually reread"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G066-01",
+        "MaterialID": "M066",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "High Precision PET",
+        "Shared formulation key": "S-PET-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-TDS",
+            "Publisher": "FormFutura",
+            "Title": "High Precision PET \u2014 technical data sheet",
+            "Revision": "Not published",
+            "Publication date": "2024-08-23",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.formfutura.com/web/content/256571?download=true",
+            "Locator": "Document / product page",
+            "Applicable grades": "G066-01",
+            "Access state": "retrieved-copy",
+            "Access note": "Retrieved; user-supplied local copy re-verified 2026-09-11 (SHA256 match confirms identical to originally cited document)",
+            "SHA256": "f04c5244e4400548198fe54348c625ec9926364e021f167ed74673b387dabd89"
+          },
+          "OriginalPath": ".cache/sources/by-sha/f04c5244e4400548198fe54348c625ec9926364e021f167ed74673b387dabd89.pdf",
+          "TextPath": ".cache/text/f04c5244e4400548198fe54348c625ec9926364e021f167ed74673b387dabd89.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M066",
+        "GradeID": "G066-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura High Precision PET (G066-01) has source-backed maker application, support/removal or finishing statements (Q00333; S-PET-TDS; p. 1: Suitable applications; scanned original visually reread). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M077",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00363",
+          "MaterialID": "M077",
+          "GradeID": "G077-01",
+          "Domain": "Application",
+          "Topic": "Intended role",
+          "Finding": "It is fully compatible with all Bambu Lab PLA filaments and Bambu Lab printers, offering effortless peel-off removal, smooth interface quality, with reliable performance.",
+          "Exposure / conditions": "Maker intended-use statement only; no printed-part application validation or suitability established. Corrected from the registered original; prior editorial embellishments removed.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+          "Locator": "p. 1: Basic Info, compatibility and removal sentence"
+        },
+        {
+          "EvidenceID": "Q04194",
+          "MaterialID": "M077",
+          "GradeID": "G077-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Supports and removal",
+          "Finding": "It eliminates the need for post-processing, saving time while delivering flawless results.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G077-01",
+        "MaterialID": "M077",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Support for PLA (New Version)",
+        "Shared formulation key": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+        "Composition / filler": "Commercial support formulation; composition not disclosed",
+        "Variant": "Not applicable",
+        "Colour caveat": "White; use exact product TDS scope",
+        "Availability": "Current official Bambu product page retrieved; Canadian price not verified",
+        "Certification claims": "Flammable; no mechanical values published in the TDS",
+        "Selected-grade rationale": "Exact current Bambu support product and manufacturer TDS",
+        "SourceID": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+        "Source locator": "pp. 1-3; official product page",
+        "Diameter compatibility": "1.75 mm; 0.2, 0.4, 0.6 and 0.8 mm nozzles listed"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - Support for PLA",
+            "Revision": "V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-13",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/s2/default/200ef29f5cd04b20ba6c2c86f0cc3ec0/Bambus_Support_for_PLA_Technical_Data_Sheet.pdf",
+            "Locator": "pp. 1-3",
+            "Applicable grades": "M077 / G077-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "4e070b33f2d0ff9c6169519635e7c2d508fd0760e2379dfc5cbd525ee89bdf2d"
+          },
+          "OriginalPath": ".cache/sources/by-sha/4e070b33f2d0ff9c6169519635e7c2d508fd0760e2379dfc5cbd525ee89bdf2d.pdf",
+          "TextPath": ".cache/text/4e070b33f2d0ff9c6169519635e7c2d508fd0760e2379dfc5cbd525ee89bdf2d.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M077",
+        "GradeID": "G077-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Bambu Lab Support for PLA (New Version) (G077-01) has source-backed maker application, support/removal or finishing statements (Q00363, Q04194; R-BAMBU-SUPPORT-PLA-NEW-TDS; p. 1: Basic Info, compatibility and removal sentence; p. 1). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M090",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00255",
+          "MaterialID": "M090",
+          "GradeID": "G090-01",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "It may be used for production of electrical and electronic equipment.",
+          "Exposure / conditions": "Maker intended-use statement only; no printed-part application validation or suitability established. Corrected from the registered original; prior editorial embellishments removed.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-CPECF",
+          "Locator": "p. 1: Description, electrical/electronic use sentence"
+        },
+        {
+          "EvidenceID": "Q04449",
+          "MaterialID": "M090",
+          "GradeID": "G090-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This material is optimal for applications with long-term load.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-CPECF",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04451",
+          "MaterialID": "M090",
+          "GradeID": "G090-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "The objects have nice smooth surface.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-CPECF",
+          "Locator": "p. 1"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G090-01",
+        "MaterialID": "M090",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "CPE CF112 Carbon",
+        "Shared formulation key": "S-CPECF",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-CPECF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-CPECF",
+            "Publisher": "Fillamentum",
+            "Title": "CPE CF112 Carbon",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_CPE-CF112-Carbon.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G090-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "3848af4a10ac9189899dea703d30d1abf6e5b95b1c66b9f6eaa49fc5cf248dca"
+          },
+          "OriginalPath": ".cache/sources/by-sha/3848af4a10ac9189899dea703d30d1abf6e5b95b1c66b9f6eaa49fc5cf248dca.pdf",
+          "TextPath": ".cache/text/3848af4a10ac9189899dea703d30d1abf6e5b95b1c66b9f6eaa49fc5cf248dca.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M090",
+        "GradeID": "G090-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum CPE CF112 Carbon (G090-01) has source-backed maker application, support/removal or finishing statements (Q00255, Q04449, Q04451; S-CPECF; p. 1: Description, electrical/electronic use sentence; p. 1). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M086",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05307",
+          "MaterialID": "M086",
+          "GradeID": "G086-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This material can be used to produce electrical and electronic equipment.",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI",
+          "Locator": "p. 1: final paragraph"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G086-02",
+        "MaterialID": "M086",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "OBC 905",
+        "Shared formulation key": "R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flame classification - UL 94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI",
+            "Publisher": "Fillamentum",
+            "Title": "OBC 905",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2022/11/TDS_OBC-905_EN_07102022_FI.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G086-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c04d642ddc257c757ab51ef849e6017d6ba02d32b5bf05403739b53b6ab37a96"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c04d642ddc257c757ab51ef849e6017d6ba02d32b5bf05403739b53b6ab37a96.pdf",
+          "TextPath": ".cache/text/c04d642ddc257c757ab51ef849e6017d6ba02d32b5bf05403739b53b6ab37a96.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M086",
+        "GradeID": "G086-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum OBC 905 (G086-02) has source-backed maker application, support/removal or finishing statements (Q05307; R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI; p. 1: final paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M091",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05308",
+          "MaterialID": "M091",
+          "GradeID": "G091-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Supports and removal",
+          "Finding": "Panchroma\u2122 CoPE does not bond well with standard PLA, making it unsuitable for multi-material prints combining PLA-based Panchroma effects. However, this low adhesion is an advantage when using CoPE as a breakaway support material for PLA, allowing for clean and easy support removal.",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PANCHROMA-TM-COPE-PAGE",
+          "Locator": "Specialized Compatibility, complete paragraph"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G091-02",
+        "MaterialID": "M091",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Panchroma CoPE",
+        "Shared formulation key": "R-POLYMAKER-PANCHROMA-TDS-V2-1#CoPE",
+        "Composition / filler": "Co-polyester (CoPE); composition not disclosed",
+        "Variant": "Not applicable",
+        "Colour caveat": "CoPE colour range; use TDS column scope",
+        "Availability": "Current Polymaker wiki page retrieved 2026-09-13",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Exact CoPE identity, recorded 2026-09-13 as the representative grade. Replaces G091-01, which duplicated Fillamentum CPE HG100 (the CPE grade G089-01)",
+        "SourceID": "R-POLYMAKER-PANCHROMA-TDS-V2-1",
+        "Source locator": "Data table, CoPE column",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PANCHROMA-TM-COPE-PAGE",
+            "Publisher": "Polymaker",
+            "Title": "Panchroma\u2122 CoPE",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://wiki.polymaker.com/polymaker-products/polymaker-filaments/panchroma-tm/panchroma-tm-cope#read=2026-09-26",
+            "Locator": "Product page",
+            "Applicable grades": "G091-02",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again. A second reading of the page R-POLYMAKER-WIKI-PANCHROMA-COPE registers (its bytes of 2026-09-13 are not held); the URL's fragment keeps the two readings apart.",
+            "SHA256": "19064d746a3d2e0dff836783c1ecbd864277f75ab0e5b4b01ef06bb7c4e6923e"
+          },
+          "OriginalPath": ".cache/sources/by-sha/19064d746a3d2e0dff836783c1ecbd864277f75ab0e5b4b01ef06bb7c4e6923e.html",
+          "TextPath": ".cache/text/19064d746a3d2e0dff836783c1ecbd864277f75ab0e5b4b01ef06bb7c4e6923e.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M091",
+        "GradeID": "G091-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Panchroma CoPE (G091-02) has source-backed maker application, support/removal or finishing statements (Q05308; S-PANCHROMA-TM-COPE-PAGE; Specialized Compatibility, complete paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M108",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05309",
+          "MaterialID": "M108",
+          "GradeID": "G108-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "end-use parts",
+          "Exposure / conditions": "Maker intended-use claim only. Application bullet 5 states prolonged operation up to 120\u00b0C and short-time operation up to 160\u00b0C; Material characteristics separately states long-time 20.000h at120\u00b0C and short-time max.200h at160\u00b0C. Those are maker service claims, not measured specimen results or design limits. Load, specimen and validation not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "Locator": "Applications, all six bullets, published bullet/heading 1"
+        },
+        {
+          "EvidenceID": "Q05310",
+          "MaterialID": "M108",
+          "GradeID": "G108-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "tooling",
+          "Exposure / conditions": "Maker intended-use claim only. Application bullet 5 states prolonged operation up to 120\u00b0C and short-time operation up to 160\u00b0C; Material characteristics separately states long-time 20.000h at120\u00b0C and short-time max.200h at160\u00b0C. Those are maker service claims, not measured specimen results or design limits. Load, specimen and validation not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "Locator": "Applications, all six bullets, published bullet/heading 2"
+        },
+        {
+          "EvidenceID": "Q05311",
+          "MaterialID": "M108",
+          "GradeID": "G108-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "functional prototyping",
+          "Exposure / conditions": "Maker intended-use claim only. Application bullet 5 states prolonged operation up to 120\u00b0C and short-time operation up to 160\u00b0C; Material characteristics separately states long-time 20.000h at120\u00b0C and short-time max.200h at160\u00b0C. Those are maker service claims, not measured specimen results or design limits. Load, specimen and validation not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "Locator": "Applications, all six bullets, published bullet/heading 3"
+        },
+        {
+          "EvidenceID": "Q05312",
+          "MaterialID": "M108",
+          "GradeID": "G108-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "industrial modelling",
+          "Exposure / conditions": "Maker intended-use claim only. Application bullet 5 states prolonged operation up to 120\u00b0C and short-time operation up to 160\u00b0C; Material characteristics separately states long-time 20.000h at120\u00b0C and short-time max.200h at160\u00b0C. Those are maker service claims, not measured specimen results or design limits. Load, specimen and validation not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "Locator": "Applications, all six bullets, published bullet/heading 4"
+        },
+        {
+          "EvidenceID": "Q05313",
+          "MaterialID": "M108",
+          "GradeID": "G108-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "production of slide bearings, gear wheels and racks, sweep-off gears and guide rolls operated in elevated temperatures up to 120\u00b0C on a prolonged basis and up to 160\u00b0C on a short-time basis",
+          "Exposure / conditions": "Maker intended-use claim only. Application bullet 5 states prolonged operation up to 120\u00b0C and short-time operation up to 160\u00b0C; Material characteristics separately states long-time 20.000h at120\u00b0C and short-time max.200h at160\u00b0C. Those are maker service claims, not measured specimen results or design limits. Load, specimen and validation not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "Locator": "Applications, all six bullets, published bullet/heading 5"
+        },
+        {
+          "EvidenceID": "Q05314",
+          "MaterialID": "M108",
+          "GradeID": "G108-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "all types of ring and plate seals with an increased chemical and corrosion resistance",
+          "Exposure / conditions": "Maker intended-use claim only. Application bullet 5 states prolonged operation up to 120\u00b0C and short-time operation up to 160\u00b0C; Material characteristics separately states long-time 20.000h at120\u00b0C and short-time max.200h at160\u00b0C. Those are maker service claims, not measured specimen results or design limits. Load, specimen and validation not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "Locator": "Applications, all six bullets, published bullet/heading 6"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G108-01",
+        "MaterialID": "M108",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "PA6 GK10",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pa6-gk10",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-pa6-gk10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+            "Publisher": "Spectrum",
+            "Title": "PA6 GK10 - Spectrum Filaments",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-28",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted. Coverage-expansion reread 2026-09-30: the Applications section now supports six exact-product maker-use statements, with separately labelled Material characteristics service-duration claims. Independently reviewed by an AI agent; no application validation or suitability established.",
+            "Citation role": "cited",
+            "URL": "https://spectrumfilaments.com/en/filament/pa6-gk10/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G108-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "e6a9efb894009a6e768bc934c9f9b8d3155ab5e27a10b4b849ce38982a4313c3"
+          },
+          "OriginalPath": ".cache/sources/by-sha/e6a9efb894009a6e768bc934c9f9b8d3155ab5e27a10b4b849ce38982a4313c3.html",
+          "TextPath": ".cache/text/e6a9efb894009a6e768bc934c9f9b8d3155ab5e27a10b4b849ce38982a4313c3.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M108",
+        "GradeID": "G108-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum PA6 GK10 (G108-01) has source-backed maker application, support/removal or finishing statements (Q05309, Q05310, Q05311, Q05312, Q05313, Q05314; S-SPECTRUM-PRINT-20260928-e6a9efb89400; Applications, all six bullets, published bullet/heading 1; Applications, all six bullets, published bullet/heading 2; Applications, all six bullets, published bullet/heading 3; Applications, all six bullets, published bullet/heading 4; Applications, all six bullets, published bullet/heading 5; Applications, all six bullets, published bullet/heading 6). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M116",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05315",
+          "MaterialID": "M116",
+          "GradeID": "G116-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "3DXSTAT ESD PC is an advanced ESD-Safe compound designed for use in critical applications which require electrostatic discharge (ESD) protection.",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "XP-3dxstat-esd-pc-1",
+          "Locator": "3DXSTAT ESD-PC description, first sentence"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G116-01",
+        "MaterialID": "M116",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD-PC",
+        "Shared formulation key": "X-ECOMAX-3DXSTAT-ESD-PC-v3-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-3DXSTAT-ESD-PC-v3-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "XP-3dxstat-esd-pc-1",
+            "Publisher": "3DXTECH",
+            "Title": "3DXSTAT\u2122 ESD-PC",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://www.3dxtech.com/products/3dxstat-esd-pc-1",
+            "Locator": "Product page",
+            "Applicable grades": "G116-01",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+            "SHA256": "46ce3632adc315c8659e3d593b2fecfa1d206349d8edd4cd3dde0d1c2241a8ea"
+          },
+          "OriginalPath": ".cache/sources/by-sha/46ce3632adc315c8659e3d593b2fecfa1d206349d8edd4cd3dde0d1c2241a8ea.html",
+          "TextPath": ".cache/text/46ce3632adc315c8659e3d593b2fecfa1d206349d8edd4cd3dde0d1c2241a8ea.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M116",
+        "GradeID": "G116-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: 3DXTECH 3DXSTAT ESD-PC (G116-01) has source-backed maker application, support/removal or finishing statements (Q05315; XP-3dxstat-esd-pc-1; 3DXSTAT ESD-PC description, first sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M129",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05316",
+          "MaterialID": "M129",
+          "GradeID": "G129-07",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "FiberFlex CF is ideal for applications requiring a combination of flexibility and strength\u2014such as shock absorbers, gaskets, protective components, industrial structures, or mechanical parts exposed to heavy loads and harsh conditions.",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE",
+          "Locator": "Description, applications sentence"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G129-07",
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "FiberFlex CF",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-FIBERFLEXCF-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEXCF-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE",
+            "Publisher": "Fiberlogy",
+            "Title": "FiberFlex+CF Filament \u2013 S2",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://fiberlogy.com/en/product/fiberflexcf-filament-s2/",
+            "Locator": "Product page",
+            "Applicable grades": "G129-07",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+            "SHA256": "900cb1aa1d935c7b3137a00984e5c0c2665c11565fd5ba8ce4be06f7d6e72979"
+          },
+          "OriginalPath": ".cache/sources/by-sha/900cb1aa1d935c7b3137a00984e5c0c2665c11565fd5ba8ce4be06f7d6e72979.html",
+          "TextPath": ".cache/text/900cb1aa1d935c7b3137a00984e5c0c2665c11565fd5ba8ce4be06f7d6e72979.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M129",
+        "GradeID": "G129-07",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fiberlogy FiberFlex CF (G129-07) has source-backed maker application, support/removal or finishing statements (Q05316; D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE; Description, applications sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M130",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05317",
+          "MaterialID": "M130",
+          "GradeID": "G130-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "ThermaX PPE has been an ideal material for a wide array of applications in demanding markets such as aerospace, automotive, industrial, electronics, and telecommunications.",
+          "Exposure / conditions": "Maker market claim only. The same paragraph explicitly attributes UL94 V0 to the base resin; no printed-part certification or suitability established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "XP-thermax-ppe-ps-1",
+          "Locator": "ThermaX PPE+PS description, final sentence"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G130-01",
+        "MaterialID": "M130",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "THERMAX PPE/PS",
+        "Shared formulation key": "X-ECOMAX-THERMAX-PPE-PS-TDS-v1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-THERMAX-PPE-PS-TDS-v1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "XP-thermax-ppe-ps-1",
+            "Publisher": "3DXTECH",
+            "Title": "THERMAX\u2122 PPE/PS",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://www.3dxtech.com/products/thermax-ppe-ps-1",
+            "Locator": "Product page",
+            "Applicable grades": "G130-01",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+            "SHA256": "7060f33c20fb17d1a96bcf8861c918626c4cb83089f45e62e39bccd8e08c57e7"
+          },
+          "OriginalPath": ".cache/sources/by-sha/7060f33c20fb17d1a96bcf8861c918626c4cb83089f45e62e39bccd8e08c57e7.html",
+          "TextPath": ".cache/text/7060f33c20fb17d1a96bcf8861c918626c4cb83089f45e62e39bccd8e08c57e7.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M130",
+        "GradeID": "G130-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: 3DXTECH THERMAX PPE/PS (G130-01) has source-backed maker application, support/removal or finishing statements (Q05317; XP-thermax-ppe-ps-1; ThermaX PPE+PS description, final sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. The source attributes UL94 V0 to the base resin; no printed-part certificate is established."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M141",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05318",
+          "MaterialID": "M141",
+          "GradeID": "G141-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "LW-PET is particularly suitable for applications where every gram matters. Drones and RC components can benefit from reduced mass, while the adjustable density and flexibility make the material interesting for helmet padding and other lightweight structures.",
+          "Exposure / conditions": "Maker use claim only; helmet padding is not certified protective equipment. No part qualification or application validation established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-COLORFABB-LW-PET-NATURAL-PAGE",
+          "Locator": "Developed for lightweight applications, first paragraph"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G141-01",
+        "MaterialID": "M141",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "Lightweight PET",
+        "Shared formulation key": "R-COLORFABB-TDS-LW-PET",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-LW-PET",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-COLORFABB-LW-PET-NATURAL-PAGE",
+            "Publisher": "colorFabb",
+            "Title": "LW-PET NATURAL",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://colorfabb.com/lw-pet-natural",
+            "Locator": "Product page",
+            "Applicable grades": "G141-01",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+            "SHA256": "608f3a2c763bbb4068dc3e2f547c82b793fdc05411ae39b5eea03cc0e6f1edd0"
+          },
+          "OriginalPath": ".cache/sources/by-sha/608f3a2c763bbb4068dc3e2f547c82b793fdc05411ae39b5eea03cc0e6f1edd0.html",
+          "TextPath": ".cache/text/608f3a2c763bbb4068dc3e2f547c82b793fdc05411ae39b5eea03cc0e6f1edd0.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M141",
+        "GradeID": "G141-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: colorFabb Lightweight PET (G141-01) has source-backed maker application, support/removal or finishing statements (Q05318; D-COLORFABB-LW-PET-NATURAL-PAGE; Developed for lightweight applications, first paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. Helmet-padding claims are not certification of protective equipment."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M155",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05319",
+          "MaterialID": "M155",
+          "GradeID": "G155-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "Painting",
+          "Exposure / conditions": "Post-treatment row is a starting point which may need optimization. Coating, preparation, procedure and conditions not published; no validated finishing outcome.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+          "Locator": "p. 1: Processing Temperature Profile, Post-treatment row"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G155-01",
+        "MaterialID": "M155",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PLA PROGRAFEN GRAPHENE LIGHT",
+        "Shared formulation key": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+            "Publisher": "3DJake",
+            "Title": "Technical Data Sheet PLA PROGRAFEN GRAPHENE LIGHT",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is 3DJake's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_PLA_Graphene_LIGHT.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G155-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d216d53621a78a6ea1aedd3ebe038990215fb864f46b010c92be8553e9c21e79"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d216d53621a78a6ea1aedd3ebe038990215fb864f46b010c92be8553e9c21e79.pdf",
+          "TextPath": ".cache/text/d216d53621a78a6ea1aedd3ebe038990215fb864f46b010c92be8553e9c21e79.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M155",
+        "GradeID": "G155-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: 3DJake PLA PROGRAFEN GRAPHENE LIGHT (G155-01) has source-backed maker application, support/removal or finishing statements (Q05319; R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT; p. 1: Processing Temperature Profile, Post-treatment row). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. Painting is a suggested starting point; coating, preparation, conditions and a validated outcome are not published."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M158",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05240",
+          "MaterialID": "M158",
+          "GradeID": "G158-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "Its plaster-like finish makes models look like traditional castings\u2014with a natural, matte texture and clear reproduction of even the finest details.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q05320",
+          "MaterialID": "M158",
+          "GradeID": "G158-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Thanks to its high print resolution and dimensional stability, PLA MINERAL is an excellent choice for architectural, artistic, and model-making studios, as well as for all applications requiring faithful detail reproduction\u2014from scale models and sculptures to precision prototypes. The material allows for aesthetic finishes: prints can be further processed, such as sanding or staining, which provides great freedom in creating a final effect reminiscent of a traditional plaster cast.",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE",
+          "Locator": "Description, second paragraph"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G158-01",
+        "MaterialID": "M158",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "PLA MINERAL",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-PLA-MINERAL-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-PLA-MINERAL-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE",
+            "Publisher": "Fiberlogy",
+            "Title": "PLA Mineral Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://fiberlogy.com/en/product/pla-mineral-filament/",
+            "Locator": "Product page",
+            "Applicable grades": "G158-01",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+            "SHA256": "f47f0af366f8004f1b3d7ef5a77ab3d522614ff70bd7e0e39326011415f4d60d"
+          },
+          "OriginalPath": ".cache/sources/by-sha/f47f0af366f8004f1b3d7ef5a77ab3d522614ff70bd7e0e39326011415f4d60d.html",
+          "TextPath": ".cache/text/f47f0af366f8004f1b3d7ef5a77ab3d522614ff70bd7e0e39326011415f4d60d.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M158",
+        "GradeID": "G158-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fiberlogy PLA MINERAL (G158-01) has source-backed maker application, support/removal or finishing statements (Q05240, Q05320; D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE; p. 1; Description, second paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M166",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05321",
+          "MaterialID": "M166",
+          "GradeID": "G166-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Onyx GF is a chopped-glass-fiber-filled nylon filament built for industrial tooling and end-use parts.",
+          "Exposure / conditions": "Maker intended-use claim. Printed-property specimens in this sheet use an FX10; continuous-fiber reinforcement is separate and not transferred to ordinary H2C printed parts.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+          "Locator": "p. 1: HIGH-STRENGTH COLOR COMPOSITE, first sentence"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G166-01",
+        "MaterialID": "M166",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Markforged",
+        "Product name": "Onyx GF",
+        "Shared formulation key": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Composition / filler": "Onyx GF is a chopped-glass-fiber-filled nylon filament built for industrial (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+            "Publisher": "Markforged",
+            "Title": "COMPOSITE MATERIAL DATASHEET",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.us-east-1.amazonaws.com/static.markforged.com/downloads/Onyx-GF-Material-Datasheet.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G166-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "2f2c62d7166497db6fcc363d56f8058f7262a67d9e52054ef4b71046e113b5dd"
+          },
+          "OriginalPath": ".cache/sources/by-sha/2f2c62d7166497db6fcc363d56f8058f7262a67d9e52054ef4b71046e113b5dd.pdf",
+          "TextPath": ".cache/text/2f2c62d7166497db6fcc363d56f8058f7262a67d9e52054ef4b71046e113b5dd.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M166",
+        "GradeID": "G166-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Markforged Onyx GF (G166-01) has source-backed maker application, support/removal or finishing statements (Q05321; R-MARKFORGED-Onyx-GF-Material-Datasheet; p. 1: HIGH-STRENGTH COLOR COMPOSITE, first sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. The sheet uses FX10 specimens; continuous-fiber performance is separate and is not transferred to an H2C printed part."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M167",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05322",
+          "MaterialID": "M167",
+          "GradeID": "G167-07",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Its semi-rigid base, allows for structural components, still able to deform when necessary and absorb shocks. This combination makes Nanovia Flex B4C particularly suited for tools, maintenance equipment, and transport vessels for fragile materials.",
+          "Exposure / conditions": "Maker use claim only; no radiation-shielding qualification, dose or service conditions established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-Flex-B4C",
+          "Locator": "Description, semi-rigid base paragraph"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G167-07",
+        "MaterialID": "M167",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Flex B4C",
+        "Shared formulation key": "R-NANOVIA-Flex-B4C",
+        "Composition / filler": "The page declares the load: \"Massic B4C concentration 25 %\" and \"Volumic B4C concentration 10 %\" (boron carbide). Its density of 1450 kg/m\u00b3 is above what an unfilled thermoplastic elastomer reaches (1250 kg/m\u00b3, polymers.csv TPE); recorded as a Variant under D57 (R095).",
+        "Variant": "declared dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Certification RoHS Nanovia Flex B4C : (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-Flex-B4C",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-Flex-B4C",
+            "Publisher": "Nanovia",
+            "Title": "Store",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/ref/nanovia-flex-b4c/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G167-07",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "a1ce5f081e16739aa171a951d6bedf645a5b9d80ac03a94c4c7b1a5383962858"
+          },
+          "OriginalPath": ".cache/sources/by-sha/a1ce5f081e16739aa171a951d6bedf645a5b9d80ac03a94c4c7b1a5383962858.html",
+          "TextPath": ".cache/text/a1ce5f081e16739aa171a951d6bedf645a5b9d80ac03a94c4c7b1a5383962858.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M167",
+        "GradeID": "G167-07",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia Flex B4C (G167-07) has source-backed maker application, support/removal or finishing statements (Q05322; R-NANOVIA-Flex-B4C; Description, semi-rigid base paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. No radiation-shielding qualification is established. Flex VX intended-use claims are separately recorded and do not establish medical or safety certification."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M169",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05327",
+          "MaterialID": "M169",
+          "GradeID": "G169-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Rigid, Load-Bearing Parts",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "Locator": "IDEAL FOR, four headings, published bullet/heading 1"
+        },
+        {
+          "EvidenceID": "Q05328",
+          "MaterialID": "M169",
+          "GradeID": "G169-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Weight-Critical Structural Components",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "Locator": "IDEAL FOR, four headings, published bullet/heading 2"
+        },
+        {
+          "EvidenceID": "Q05329",
+          "MaterialID": "M169",
+          "GradeID": "G169-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Heat-Resistant Technical Parts",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "Locator": "IDEAL FOR, four headings, published bullet/heading 3"
+        },
+        {
+          "EvidenceID": "Q05330",
+          "MaterialID": "M169",
+          "GradeID": "G169-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Motorsport Applications",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "Locator": "IDEAL FOR, four headings, published bullet/heading 4"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G169-01",
+        "MaterialID": "M169",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "GREENTEC PRO CF",
+        "Shared formulation key": "R-EXTRUDR-greentec-pro-cf-TDS-en",
+        "Composition / filler": "The composite material contains 10% carbon fibre (p. 1, as the sheet states it) \"Biobasiernede Charge auf PLA-Basis, enth\u00e4lt Copolyester und Additive.\" (D-EXTRUDR-GREENTEC-PRO-CF-MSDS-DE, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Identified on 2026-09-28 (m223-what-the-makers-say-it-is), under PLA family-CF, polymer not stated: PLA-based, with a copolyester, \"Biobasiernede Charge auf PLA-Basis, enth\u00e4lt Copolyester und Additive.\" (D-EXTRUDR-GREENTEC-PRO-CF-MSDS-DE, p. 1). Extrudr's German safety data sheet (as printed, \"Biobasiernede\"): PLA-based with a copolyester, and 10 % carbon fibre by its sheet. The English edition of 18.11.2024 omits PLA. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-EXTRUDR-greentec-pro-cf-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-PRINT-20260929-463457967aab",
+            "Publisher": "Extrudr",
+            "Title": "GreenTEC Pro CF \u2013 Carbon Composite Material for Performance | Extrudr",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-29",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The exact product's page, saved by the gap-fill research of 2026-09-28 and staged from that copy by digest (b40). Only the print setting its profile names was taken; the page's other statements are unread here. Reviewed by Claude, an agent.",
+            "Citation role": "cited",
+            "URL": "https://extrudr.com/en/at/products/greentec-pro-cf/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G169-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "463457967aab73c4a6f8c599b28f492d9fbed676861bbd966c4624389353cd28"
+          },
+          "OriginalPath": ".cache/sources/by-sha/463457967aab73c4a6f8c599b28f492d9fbed676861bbd966c4624389353cd28.html",
+          "TextPath": ".cache/text/463457967aab73c4a6f8c599b28f492d9fbed676861bbd966c4624389353cd28.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M169",
+        "GradeID": "G169-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr GREENTEC PRO CF (G169-01) has source-backed maker application, support/removal or finishing statements (Q05327, Q05328, Q05329, Q05330; R-EXTRUDR-PRINT-20260929-463457967aab; IDEAL FOR, four headings, published bullet/heading 1; IDEAL FOR, four headings, published bullet/heading 2; IDEAL FOR, four headings, published bullet/heading 3; IDEAL FOR, four headings, published bullet/heading 4). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    },
+    {
+      "FindingID": "CE-APP-M170",
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05331",
+          "MaterialID": "M170",
+          "GradeID": "G167-10",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Shoes materials",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "Locator": "p. 1: Applications, six bullets, published bullet/heading 1"
+        },
+        {
+          "EvidenceID": "Q05332",
+          "MaterialID": "M170",
+          "GradeID": "G167-10",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Automobile",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "Locator": "p. 1: Applications, six bullets, published bullet/heading 2"
+        },
+        {
+          "EvidenceID": "Q05333",
+          "MaterialID": "M170",
+          "GradeID": "G167-10",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Running piping",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "Locator": "p. 1: Applications, six bullets, published bullet/heading 3"
+        },
+        {
+          "EvidenceID": "Q05334",
+          "MaterialID": "M170",
+          "GradeID": "G167-10",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Machinery",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "Locator": "p. 1: Applications, six bullets, published bullet/heading 4"
+        },
+        {
+          "EvidenceID": "Q05335",
+          "MaterialID": "M170",
+          "GradeID": "G167-10",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Electric products",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "Locator": "p. 1: Applications, six bullets, published bullet/heading 5"
+        },
+        {
+          "EvidenceID": "Q05336",
+          "MaterialID": "M170",
+          "GradeID": "G167-10",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Sporting goods",
+          "Exposure / conditions": "Maker statement only; no application validation, exposure test or suitability established. Specific conditions not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "Locator": "p. 1: Applications, six bullets, published bullet/heading 6"
+        }
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G167-10",
+        "MaterialID": "M170",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "TPE 83A",
+        "Shared formulation key": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+        "Composition / filler": "\"Hydrogenated Styrene 99-100 CAS: 91261-65-3 /Butadiene Copolymer\" (D-ESUN-TPE-83A-MSDS, p. 2)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under TPS on 2026-09-28 (m223-what-the-makers-say-it-is), moved from TPE, polymer not stated: hydrogenated styrene/butadiene copolymer, \"Hydrogenated Styrene 99-100 CAS: 91261-65-3 /Butadiene Copolymer\" (D-ESUN-TPE-83A-MSDS, p. 2). A hydrogenated styrene/butadiene block copolymer (CAS 91261-65-3) is SEBS: a styrenic TPE (TPS). Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+            "Publisher": "eSUN",
+            "Title": "Technical Data Sheet",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.esun3d.com/media/esun/catalog/certification/product/TPE-83A/eSUN_TPE-83A_Filament_TDS_V4.0.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G167-10",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c645e2c9ce0e6bf4f8298da7f2a17c2ebe154c5758aed49aa6e5c4d84e298142"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c645e2c9ce0e6bf4f8298da7f2a17c2ebe154c5758aed49aa6e5c4d84e298142.pdf",
+          "TextPath": ".cache/text/c645e2c9ce0e6bf4f8298da7f2a17c2ebe154c5758aed49aa6e5c4d84e298142.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M170",
+        "GradeID": "G167-10",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: eSUN TPE 83A (G167-10) has source-backed maker application, support/removal or finishing statements (Q05331, Q05332, Q05333, Q05334, Q05335, Q05336; S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0; p. 1: Applications, six bullets, published bullet/heading 1; p. 1: Applications, six bullets, published bullet/heading 2; p. 1: Applications, six bullets, published bullet/heading 3; p. 1: Applications, six bullets, published bullet/heading 4; p. 1: Applications, six bullets, published bullet/heading 5; p. 1: Applications, six bullets, published bullet/heading 6). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "PrimaryReview": "Existing originals and source-faithful statements reread in recovery batch; manually assessed as limited claims, not suitability."
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M038",
+      "append": {
+        "MaterialID": "M038",
+        "GradeID": "G038-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: BASF Forward AM Ultrafuse PC GF30 (G038-02) has source-backed maker application, support/removal or finishing statements (Q02891; R-BASF-PCGF30-TDS; p. 1). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. Unsupported named sectors were removed and their old record retired as a duplicate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00439",
+          "MaterialID": "M038",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M066",
+      "append": {
+        "MaterialID": "M066",
+        "GradeID": "G066-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FormFutura High Precision PET (G066-01) has source-backed maker application, support/removal or finishing statements (Q00333; S-PET-TDS; p. 1: Suitable applications; scanned original visually reread). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00718",
+          "MaterialID": "M066",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M077",
+      "append": {
+        "MaterialID": "M077",
+        "GradeID": "G077-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Bambu Lab Support for PLA (New Version) (G077-01) has source-backed maker application, support/removal or finishing statements (Q00363, Q04194; R-BAMBU-SUPPORT-PLA-NEW-TDS; p. 1: Basic Info, compatibility and removal sentence; p. 1). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00830",
+          "MaterialID": "M077",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Support-interface purpose and pairing limitation recorded from official Bambu evidence."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M090",
+      "append": {
+        "MaterialID": "M090",
+        "GradeID": "G090-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum CPE CF112 Carbon (G090-01) has source-backed maker application, support/removal or finishing statements (Q00255, Q04449, Q04451; S-CPECF; p. 1: Description, electrical/electronic use sentence; p. 1). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00963",
+          "MaterialID": "M090",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M086",
+      "append": {
+        "MaterialID": "M086",
+        "GradeID": "G086-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fillamentum OBC 905 (G086-02) has source-backed maker application, support/removal or finishing statements (Q05307; R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI; p. 1: final paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00924",
+          "MaterialID": "M086",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M091",
+      "append": {
+        "MaterialID": "M091",
+        "GradeID": "G091-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Panchroma CoPE (G091-02) has source-backed maker application, support/removal or finishing statements (Q05308; S-PANCHROMA-TM-COPE-PAGE; Specialized Compatibility, complete paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00973",
+          "MaterialID": "M091",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M108",
+      "append": {
+        "MaterialID": "M108",
+        "GradeID": "G108-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Spectrum PA6 GK10 (G108-01) has source-backed maker application, support/removal or finishing statements (Q05309, Q05310, Q05311, Q05312, Q05313, Q05314; S-SPECTRUM-PRINT-20260928-e6a9efb89400; Applications, all six bullets, published bullet/heading 1; Applications, all six bullets, published bullet/heading 2; Applications, all six bullets, published bullet/heading 3; Applications, all six bullets, published bullet/heading 4; Applications, all six bullets, published bullet/heading 5; Applications, all six bullets, published bullet/heading 6). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M116",
+      "append": {
+        "MaterialID": "M116",
+        "GradeID": "G116-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: 3DXTECH 3DXSTAT ESD-PC (G116-01) has source-backed maker application, support/removal or finishing statements (Q05315; XP-3dxstat-esd-pc-1; 3DXSTAT ESD-PC description, first sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M129",
+      "append": {
+        "MaterialID": "M129",
+        "GradeID": "G129-07",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fiberlogy FiberFlex CF (G129-07) has source-backed maker application, support/removal or finishing statements (Q05316; D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE; Description, applications sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M130",
+      "append": {
+        "MaterialID": "M130",
+        "GradeID": "G130-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: 3DXTECH THERMAX PPE/PS (G130-01) has source-backed maker application, support/removal or finishing statements (Q05317; XP-thermax-ppe-ps-1; ThermaX PPE+PS description, final sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. The source attributes UL94 V0 to the base resin; no printed-part certificate is established."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M141",
+      "append": {
+        "MaterialID": "M141",
+        "GradeID": "G141-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: colorFabb Lightweight PET (G141-01) has source-backed maker application, support/removal or finishing statements (Q05318; D-COLORFABB-LW-PET-NATURAL-PAGE; Developed for lightweight applications, first paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. Helmet-padding claims are not certification of protective equipment."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M155",
+      "append": {
+        "MaterialID": "M155",
+        "GradeID": "G155-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: 3DJake PLA PROGRAFEN GRAPHENE LIGHT (G155-01) has source-backed maker application, support/removal or finishing statements (Q05319; R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT; p. 1: Processing Temperature Profile, Post-treatment row). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. Painting is a suggested starting point; coating, preparation, conditions and a validated outcome are not published."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M158",
+      "append": {
+        "MaterialID": "M158",
+        "GradeID": "G158-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fiberlogy PLA MINERAL (G158-01) has source-backed maker application, support/removal or finishing statements (Q05240, Q05320; D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE; p. 1; Description, second paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M166",
+      "append": {
+        "MaterialID": "M166",
+        "GradeID": "G166-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Markforged Onyx GF (G166-01) has source-backed maker application, support/removal or finishing statements (Q05321; R-MARKFORGED-Onyx-GF-Material-Datasheet; p. 1: HIGH-STRENGTH COLOR COMPOSITE, first sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. The sheet uses FX10 specimens; continuous-fiber performance is separate and is not transferred to an H2C printed part."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M167",
+      "append": {
+        "MaterialID": "M167",
+        "GradeID": "G167-07",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia Flex B4C (G167-07) has source-backed maker application, support/removal or finishing statements (Q05322; R-NANOVIA-Flex-B4C; Description, semi-rigid base paragraph). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. No radiation-shielding qualification is established. Flex VX intended-use claims are separately recorded and do not establish medical or safety certification."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M169",
+      "append": {
+        "MaterialID": "M169",
+        "GradeID": "G169-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Extrudr GREENTEC PRO CF (G169-01) has source-backed maker application, support/removal or finishing statements (Q05327, Q05328, Q05329, Q05330; R-EXTRUDR-PRINT-20260929-463457967aab; IDEAL FOR, four headings, published bullet/heading 1; IDEAL FOR, four headings, published bullet/heading 2; IDEAL FOR, four headings, published bullet/heading 3; IDEAL FOR, four headings, published bullet/heading 4). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M170",
+      "append": {
+        "MaterialID": "M170",
+        "GradeID": "G167-10",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: eSUN TPE 83A (G167-10) has source-backed maker application, support/removal or finishing statements (Q05331, Q05332, Q05333, Q05334, Q05335, Q05336; S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0; p. 1: Applications, six bullets, published bullet/heading 1; p. 1: Applications, six bullets, published bullet/heading 2; p. 1: Applications, six bullets, published bullet/heading 3; p. 1: Applications, six bullets, published bullet/heading 4; p. 1: Applications, six bullets, published bullet/heading 5; p. 1: Applications, six bullets, published bullet/heading 6). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded."
+      },
+      "supersede": []
+    }
+  ],
+  "ExpectedDecisionDelta": 0,
+  "SourceReadingBatches": "Same twelve-plus-six products as the recovery source packet; no additional product research batch"
+}

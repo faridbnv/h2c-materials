@@ -11,20 +11,20 @@ Database snapshot 2026-09-21 · build 2026-09-30
 | materials | 175 |
 | h2cRelevant | 136 |
 | familyEntries | 22 |
-| retiredDuplicates | measurements 299, evidence 16 |
+| retiredDuplicates | measurements 299, evidence 17 |
 | excluded | 17 |
 | grades | 1163 |
 | measurements | 11237 |
 | numericMeasurements | 11062 |
 | quarantined | 18 |
 | profiles | 1316 |
-| evidence | 625 |
+| evidence | 632 |
 | prices | 357 |
 | sources | 1828 |
-| coverage | 810 |
-| knowHow | 4665 |
+| coverage | 827 |
+| knowHow | 4692 |
 | polymerEnvironment | 353 |
-| polymerEvidence | 338 |
+| polymerEvidence | 332 |
 | coverageDerived | 1144 |
 
 ## Headline coverage
@@ -89,15 +89,15 @@ among them, so it can only show evidence and must never be offered as a hard con
 | water-solubility | verdict | 42 | 41 | 34 | 34 |
 | flammability | verdict | 42 | 36 | 34 | 13 |
 | food-contact | indicator | 2 | 0 | 2 | 0 |
-| uv-outdoor | verdict | 7 | 0 | 6 | 22 |
+| uv-outdoor | verdict | 9 | 0 | 7 | 22 |
 | moisture | verdict | 12 | 0 | 10 | 18 |
 | creep | indicator | 2 | 0 | 2 | 0 |
 | fatigue | indicator | 5 | 0 | 5 | 0 |
-| hydrolysis | verdict | 4 | 0 | 4 | 41 |
+| hydrolysis | verdict | 10 | 0 | 10 | 35 |
 
 ## Polymer-level behaviour
 
-353 rows of published base-polymer behaviour, attached as 338 inferred records to 82 materials
+353 rows of published base-polymer behaviour, attached as 332 inferred records to 81 materials
 with no grade-level record in the category (D64). A record is shown in the drawer, counted apart in the filter rail, may screen a
 material out under inference where the polymer is attacked or dissolved, and never passes a requirement.
 
@@ -106,7 +106,7 @@ material out under inference where the polymer is attacked or dissolved, and nev
 | acid | 21 | 94 | 52 | 15 |
 | alkali | 20 | 43 | 52 | 13 |
 | flammability | 4 | 4 | 13 | 11 |
-| hydrolysis | 12 | 19 | 41 | 10 |
+| hydrolysis | 12 | 19 | 35 | 10 |
 | moisture | 2 | 2 | 18 | 0 |
 | oil-grease | 20 | 78 | 50 | 0 |
 | organic-solvent | 23 | 87 | 56 | 18 |

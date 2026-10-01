@@ -1,0 +1,32 @@
+{
+  "release": "fab1eeb36d47",
+  "basis": "Original-source expectations from independently reviewed packets; not engine/render parity",
+  "checks": [
+    {
+      "grade": "G126-02",
+      "category": "hydrolysis",
+      "expected": "Narrative, no service qualification",
+      "actual": "UNKNOWN",
+      "evidence": "Q05337"
+    },
+    {
+      "grade": "G164-01",
+      "category": "hydrolysis",
+      "expected": "Narrative, no service qualification",
+      "actual": "UNKNOWN",
+      "evidence": "Q05338"
+    },
+    {
+      "grade": "G035-17",
+      "category": "hydrolysis",
+      "expected": "Narrative, no service qualification",
+      "actual": "UNKNOWN",
+      "evidence": "Q05341"
+    },
+    {
+      "identity": "G167-10",
+      "expectedMaterial": "M170",
+      "actualMaterial": "M170"
+    }
+  ]
+}

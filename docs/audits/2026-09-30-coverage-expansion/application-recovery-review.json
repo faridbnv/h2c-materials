@@ -1,0 +1,737 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/application-recovery-packet.json",
+  "input_sha256": "88432cdb25efb32fcc71f48d86fd602453a3a5c8a2987d80a8f0378bb9cebf99",
+  "signed_at_utc": "2026-10-01T02:53:41.913701+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 17,
+  "operations": [
+    {
+      "finding_id": "CE-APP-M038",
+      "material_id": "M038",
+      "grade_id": "G038-02",
+      "verdict": "APPROVE",
+      "operation_sha256": "6b0438291feac923b4b2451eeed7cee92771fbeff0af222ba3ae74b5ab8d78cb",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "R-BASF-PCGF30-TDS",
+          "source_digest": "bf1773381d166b1a930dd12be1164c3284b74bebfd4cc2894a8018cf8f3914a0",
+          "original_path": ".cache/sources/by-sha/bf1773381d166b1a930dd12be1164c3284b74bebfd4cc2894a8018cf8f3914a0.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q02891",
+          "source_id": "R-BASF-PCGF30-TDS",
+          "locator": "p. 1",
+          "raw_finding": "With its resilience to UV light and its flame retardancy and V0 verification it is perfectly suitable for various industrial applications.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M066",
+      "material_id": "M066",
+      "grade_id": "G066-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "7c2aea7cf5696fe8fbcda7de07a4ac012765b731622e10281cd98d8018876cef",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "S-PET-TDS",
+          "source_digest": "f04c5244e4400548198fe54348c625ec9926364e021f167ed74673b387dabd89",
+          "original_path": ".cache/sources/by-sha/f04c5244e4400548198fe54348c625ec9926364e021f167ed74673b387dabd89.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q00333",
+          "source_id": "S-PET-TDS",
+          "locator": "p. 1: Suitable applications; scanned original visually reread",
+          "raw_finding": "3D Prints details with a high resolution and high surface quality",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M077",
+      "material_id": "M077",
+      "grade_id": "G077-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "90dad8c9de1312ebc7d871bab00ed5fc39435e2d33d54d357af3f49666aadfac",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+          "source_digest": "4e070b33f2d0ff9c6169519635e7c2d508fd0760e2379dfc5cbd525ee89bdf2d",
+          "original_path": ".cache/sources/by-sha/4e070b33f2d0ff9c6169519635e7c2d508fd0760e2379dfc5cbd525ee89bdf2d.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q00363",
+          "source_id": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+          "locator": "p. 1: Basic Info, compatibility and removal sentence",
+          "raw_finding": "It is fully compatible with all Bambu Lab PLA filaments and Bambu Lab printers, offering effortless peel-off removal, smooth interface quality, with reliable performance.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q04194",
+          "source_id": "R-BAMBU-SUPPORT-PLA-NEW-TDS",
+          "locator": "p. 1",
+          "raw_finding": "It eliminates the need for post-processing, saving time while delivering flawless results.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M090",
+      "material_id": "M090",
+      "grade_id": "G090-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "e0ef83bbb08c179a7593d44da94eddcfd56320ec94aa120ca333691ff85ad21c",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "S-CPECF",
+          "source_digest": "3848af4a10ac9189899dea703d30d1abf6e5b95b1c66b9f6eaa49fc5cf248dca",
+          "original_path": ".cache/sources/by-sha/3848af4a10ac9189899dea703d30d1abf6e5b95b1c66b9f6eaa49fc5cf248dca.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q00255",
+          "source_id": "S-CPECF",
+          "locator": "p. 1: Description, electrical/electronic use sentence",
+          "raw_finding": "It may be used for production of electrical and electronic equipment.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q04449",
+          "source_id": "S-CPECF",
+          "locator": "p. 1",
+          "raw_finding": "This material is optimal for applications with long-term load.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q04451",
+          "source_id": "S-CPECF",
+          "locator": "p. 1",
+          "raw_finding": "The objects have nice smooth surface.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M086",
+      "material_id": "M086",
+      "grade_id": "G086-02",
+      "verdict": "APPROVE",
+      "operation_sha256": "0db32d99c383b904cb0b02984d13907a8ded8762adae5749f9c5d7cdf1d43da6",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI",
+          "source_digest": "c04d642ddc257c757ab51ef849e6017d6ba02d32b5bf05403739b53b6ab37a96",
+          "original_path": ".cache/sources/by-sha/c04d642ddc257c757ab51ef849e6017d6ba02d32b5bf05403739b53b6ab37a96.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05307",
+          "source_id": "R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI",
+          "locator": "p. 1: final paragraph",
+          "raw_finding": "This material can be used to produce electrical and electronic equipment.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M091",
+      "material_id": "M091",
+      "grade_id": "G091-02",
+      "verdict": "APPROVE",
+      "operation_sha256": "2e49b191c10d4ae3755ebefb5b4ba87fb97cfefd3cf8419e0cf58408f0b651a3",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "S-PANCHROMA-TM-COPE-PAGE",
+          "source_digest": "19064d746a3d2e0dff836783c1ecbd864277f75ab0e5b4b01ef06bb7c4e6923e",
+          "original_path": ".cache/sources/by-sha/19064d746a3d2e0dff836783c1ecbd864277f75ab0e5b4b01ef06bb7c4e6923e.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05308",
+          "source_id": "S-PANCHROMA-TM-COPE-PAGE",
+          "locator": "Specialized Compatibility, complete paragraph",
+          "raw_finding": "Panchroma™ CoPE does not bond well with standard PLA, making it unsuitable for multi-material prints combining PLA-based Panchroma effects. However, this low adhesion is an advantage when using CoPE as a breakaway support material for PLA, allowing for clean and easy support removal.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M108",
+      "material_id": "M108",
+      "grade_id": "G108-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "8dcf5aab7bac60ab03457da674840c73684b3b5f1013c0471b0cadd507ce1e68",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "source_digest": "e6a9efb894009a6e768bc934c9f9b8d3155ab5e27a10b4b849ce38982a4313c3",
+          "original_path": ".cache/sources/by-sha/e6a9efb894009a6e768bc934c9f9b8d3155ab5e27a10b4b849ce38982a4313c3.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05309",
+          "source_id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "locator": "Applications, all six bullets, published bullet/heading 1",
+          "raw_finding": "end-use parts",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05310",
+          "source_id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "locator": "Applications, all six bullets, published bullet/heading 2",
+          "raw_finding": "tooling",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05311",
+          "source_id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "locator": "Applications, all six bullets, published bullet/heading 3",
+          "raw_finding": "functional prototyping",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05312",
+          "source_id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "locator": "Applications, all six bullets, published bullet/heading 4",
+          "raw_finding": "industrial modelling",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05313",
+          "source_id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "locator": "Applications, all six bullets, published bullet/heading 5",
+          "raw_finding": "production of slide bearings, gear wheels and racks, sweep-off gears and guide rolls operated in elevated temperatures up to 120°C on a prolonged basis and up to 160°C on a short-time basis",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05314",
+          "source_id": "S-SPECTRUM-PRINT-20260928-e6a9efb89400",
+          "locator": "Applications, all six bullets, published bullet/heading 6",
+          "raw_finding": "all types of ring and plate seals with an increased chemical and corrosion resistance",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": [
+        "Maker duration/temperature context remains in exact underlying records, never service allowables."
+      ]
+    },
+    {
+      "finding_id": "CE-APP-M116",
+      "material_id": "M116",
+      "grade_id": "G116-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "a54dfd59132b9e00b73ea308cc2fbe4b5a71b9b91052be7321e3ff0df7ba4053",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "XP-3dxstat-esd-pc-1",
+          "source_digest": "46ce3632adc315c8659e3d593b2fecfa1d206349d8edd4cd3dde0d1c2241a8ea",
+          "original_path": ".cache/sources/by-sha/46ce3632adc315c8659e3d593b2fecfa1d206349d8edd4cd3dde0d1c2241a8ea.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05315",
+          "source_id": "XP-3dxstat-esd-pc-1",
+          "locator": "3DXSTAT ESD-PC description, first sentence",
+          "raw_finding": "3DXSTAT ESD PC is an advanced ESD-Safe compound designed for use in critical applications which require electrostatic discharge (ESD) protection.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M129",
+      "material_id": "M129",
+      "grade_id": "G129-07",
+      "verdict": "APPROVE",
+      "operation_sha256": "21e878f3c7af30a8aff46b60595be563e3878de4a6b3cdd4a82a443677e3cdf7",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE",
+          "source_digest": "900cb1aa1d935c7b3137a00984e5c0c2665c11565fd5ba8ce4be06f7d6e72979",
+          "original_path": ".cache/sources/by-sha/900cb1aa1d935c7b3137a00984e5c0c2665c11565fd5ba8ce4be06f7d6e72979.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05316",
+          "source_id": "D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE",
+          "locator": "Description, applications sentence",
+          "raw_finding": "FiberFlex CF is ideal for applications requiring a combination of flexibility and strength—such as shock absorbers, gaskets, protective components, industrial structures, or mechanical parts exposed to heavy loads and harsh conditions.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M130",
+      "material_id": "M130",
+      "grade_id": "G130-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "9bda68ef07a7475dcd215f0df0586dcc0c6dc043829acd7a36d5903e249a11d9",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "XP-thermax-ppe-ps-1",
+          "source_digest": "7060f33c20fb17d1a96bcf8861c918626c4cb83089f45e62e39bccd8e08c57e7",
+          "original_path": ".cache/sources/by-sha/7060f33c20fb17d1a96bcf8861c918626c4cb83089f45e62e39bccd8e08c57e7.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05317",
+          "source_id": "XP-thermax-ppe-ps-1",
+          "locator": "ThermaX PPE+PS description, final sentence",
+          "raw_finding": "ThermaX PPE has been an ideal material for a wide array of applications in demanding markets such as aerospace, automotive, industrial, electronics, and telecommunications.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": [
+        "UL94 V0 belongs to base resin statement; no printed-part certificate inferred."
+      ]
+    },
+    {
+      "finding_id": "CE-APP-M141",
+      "material_id": "M141",
+      "grade_id": "G141-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "78e41920b57c59fd5b7641a123d29e0b610eff33dd4accf52c09aedb6df165d0",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "D-COLORFABB-LW-PET-NATURAL-PAGE",
+          "source_digest": "608f3a2c763bbb4068dc3e2f547c82b793fdc05411ae39b5eea03cc0e6f1edd0",
+          "original_path": ".cache/sources/by-sha/608f3a2c763bbb4068dc3e2f547c82b793fdc05411ae39b5eea03cc0e6f1edd0.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05318",
+          "source_id": "D-COLORFABB-LW-PET-NATURAL-PAGE",
+          "locator": "Developed for lightweight applications, first paragraph",
+          "raw_finding": "LW-PET is particularly suitable for applications where every gram matters. Drones and RC components can benefit from reduced mass, while the adjustable density and flexibility make the material interesting for helmet padding and other lightweight structures.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": [
+        "Helmet padding is maker application suggestion, not protective-equipment certification."
+      ]
+    },
+    {
+      "finding_id": "CE-APP-M155",
+      "material_id": "M155",
+      "grade_id": "G155-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "42040f8ddb6adaa172aa1c66a497fa6a91a2c6877b7869b0ac2cdb094bcbed05",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+          "source_digest": "d216d53621a78a6ea1aedd3ebe038990215fb864f46b010c92be8553e9c21e79",
+          "original_path": ".cache/sources/by-sha/d216d53621a78a6ea1aedd3ebe038990215fb864f46b010c92be8553e9c21e79.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05319",
+          "source_id": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+          "locator": "p. 1: Processing Temperature Profile, Post-treatment row",
+          "raw_finding": "Painting",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": [
+        "Painting is only a suggested starting point; preparation/coating/conditions/results missing. No upgrade to demonstrated finishing evidence."
+      ]
+    },
+    {
+      "finding_id": "CE-APP-M158",
+      "material_id": "M158",
+      "grade_id": "G158-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "a32ae62da87839093defcf20396a20b9b3a722c553f727284749bda2f61cb73d",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE",
+          "source_digest": "f47f0af366f8004f1b3d7ef5a77ab3d522614ff70bd7e0e39326011415f4d60d",
+          "original_path": ".cache/sources/by-sha/f47f0af366f8004f1b3d7ef5a77ab3d522614ff70bd7e0e39326011415f4d60d.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05240",
+          "source_id": "D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE",
+          "locator": "p. 1",
+          "raw_finding": "Its plaster-like finish makes models look like traditional castings—with a natural, matte texture and clear reproduction of even the finest details.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05320",
+          "source_id": "D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE",
+          "locator": "Description, second paragraph",
+          "raw_finding": "Thanks to its high print resolution and dimensional stability, PLA MINERAL is an excellent choice for architectural, artistic, and model-making studios, as well as for all applications requiring faithful detail reproduction—from scale models and sculptures to precision prototypes. The material allows for aesthetic finishes: prints can be further processed, such as sanding or staining, which provides great freedom in creating a final effect reminiscent of a traditional plaster cast.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M166",
+      "material_id": "M166",
+      "grade_id": "G166-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "58ea9f5e467b2183b56b0eb6b778d89cc2d859caacd73b8bc9fd4967f4d5d703",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+          "source_digest": "2f2c62d7166497db6fcc363d56f8058f7262a67d9e52054ef4b71046e113b5dd",
+          "original_path": ".cache/sources/by-sha/2f2c62d7166497db6fcc363d56f8058f7262a67d9e52054ef4b71046e113b5dd.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05321",
+          "source_id": "R-MARKFORGED-Onyx-GF-Material-Datasheet",
+          "locator": "p. 1: HIGH-STRENGTH COLOR COMPOSITE, first sentence",
+          "raw_finding": "Onyx GF is a chopped-glass-fiber-filled nylon filament built for industrial tooling and end-use parts.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": [
+        "Source specimens are FX10, continuous reinforcement separate; no H2C property transfer."
+      ]
+    },
+    {
+      "finding_id": "CE-APP-M167",
+      "material_id": "M167",
+      "grade_id": "G167-07",
+      "verdict": "APPROVE",
+      "operation_sha256": "bcc311f3dfadcff89440fec5152039dd582ede2e2c2c4e30118c61ef89e6fb2a",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "R-NANOVIA-Flex-B4C",
+          "source_digest": "a1ce5f081e16739aa171a951d6bedf645a5b9d80ac03a94c4c7b1a5383962858",
+          "original_path": ".cache/sources/by-sha/a1ce5f081e16739aa171a951d6bedf645a5b9d80ac03a94c4c7b1a5383962858.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05322",
+          "source_id": "R-NANOVIA-Flex-B4C",
+          "locator": "Description, semi-rigid base paragraph",
+          "raw_finding": "Its semi-rigid base, allows for structural components, still able to deform when necessary and absorb shocks. This combination makes Nanovia Flex B4C particularly suited for tools, maintenance equipment, and transport vessels for fragile materials.",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": [
+        "Coverage basis is Flex B4C only; Flex VX references remain separately recorded and bounded. No shielding/medical certification."
+      ]
+    },
+    {
+      "finding_id": "CE-APP-M169",
+      "material_id": "M169",
+      "grade_id": "G169-01",
+      "verdict": "APPROVE",
+      "operation_sha256": "0763890dd7a876fd76703307caa01165e9aaa63841e123d5a9912011ae439130",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "source_digest": "463457967aab73c4a6f8c599b28f492d9fbed676861bbd966c4624389353cd28",
+          "original_path": ".cache/sources/by-sha/463457967aab73c4a6f8c599b28f492d9fbed676861bbd966c4624389353cd28.html",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05327",
+          "source_id": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "locator": "IDEAL FOR, four headings, published bullet/heading 1",
+          "raw_finding": "Rigid, Load-Bearing Parts",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05328",
+          "source_id": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "locator": "IDEAL FOR, four headings, published bullet/heading 2",
+          "raw_finding": "Weight-Critical Structural Components",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05329",
+          "source_id": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "locator": "IDEAL FOR, four headings, published bullet/heading 3",
+          "raw_finding": "Heat-Resistant Technical Parts",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05330",
+          "source_id": "R-EXTRUDR-PRINT-20260929-463457967aab",
+          "locator": "IDEAL FOR, four headings, published bullet/heading 4",
+          "raw_finding": "Motorsport Applications",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    },
+    {
+      "finding_id": "CE-APP-M170",
+      "material_id": "M170",
+      "grade_id": "G167-10",
+      "verdict": "APPROVE",
+      "operation_sha256": "7bacaf98e332e2350512c72c94f65bb30a0cb4f2f9337a4900fcc49b566530c8",
+      "reason": "Manually assessed exact-product maker use/removal/finishing claim; Reviewed with limitations correctly distinguishes source statement from validation and preserves product-specific scope. Coverage is terminal and does not establish a screening pass.",
+      "sources": [
+        {
+          "source_id": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "source_digest": "c645e2c9ce0e6bf4f8298da7f2a17c2ebe154c5758aed49aa6e5c4d84e298142",
+          "original_path": ".cache/sources/by-sha/c645e2c9ce0e6bf4f8298da7f2a17c2ebe154c5758aed49aa6e5c4d84e298142.pdf",
+          "hash_verified": true,
+          "ownership_verified": true,
+          "read_method": "Independent direct PDF/HTML original reread; High Precision PET previously visually verified scan reused where extraction is blank",
+          "custody": "Original still matches registered digest; prior recovery reread reused with fresh hash checks"
+        }
+      ],
+      "basis": [
+        {
+          "evidence_id": "Q05331",
+          "source_id": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "locator": "p. 1: Applications, six bullets, published bullet/heading 1",
+          "raw_finding": "Shoes materials",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05332",
+          "source_id": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "locator": "p. 1: Applications, six bullets, published bullet/heading 2",
+          "raw_finding": "Automobile",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05333",
+          "source_id": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "locator": "p. 1: Applications, six bullets, published bullet/heading 3",
+          "raw_finding": "Running piping",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05334",
+          "source_id": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "locator": "p. 1: Applications, six bullets, published bullet/heading 4",
+          "raw_finding": "Machinery",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05335",
+          "source_id": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "locator": "p. 1: Applications, six bullets, published bullet/heading 5",
+          "raw_finding": "Electric products",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        },
+        {
+          "evidence_id": "Q05336",
+          "source_id": "S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0",
+          "locator": "p. 1: Applications, six bullets, published bullet/heading 6",
+          "raw_finding": "Sporting goods",
+          "source_quote_verified": true,
+          "existing_row_matches_current": true,
+          "claim_type": "Manufacturer narrative; no demonstrated application suitability"
+        }
+      ],
+      "expected_coverage_guards_verified": true,
+      "caveats": []
+    }
+  ],
+  "source_reading_groups": "Reuse registered recovery originals from approved12+6 product reading groups; fresh hash/identity/row checks on each current basis. No added broad research.",
+  "scope_limits": [
+    "Only17 Application judgments in this recovered tranche approved; other material gaps still require work.",
+    "All new coverage judgments are Reviewed with limitations; no independent application validation or suitability follows.",
+    "Legacy Application-lane source statements remain maker claims even though they live in db.evidence for existing use citations.",
+    "Existing higher Evidence recorded coverage may be superseded when it rested on unsupported editorial claims.",
+    "No source-wide absence inferred and no manufacturer contacts or physical tests performed.",
+    "Full scenario replay/build/UI verification belongs to injector after these edits."
+  ],
+  "expected_decision_delta": 0,
+  "canonical_edits_performed": false,
+  "path_only_attestation": {
+    "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+    "previous_input_sha256": "d19d44432452d5eeb1d71c941b8c54ccf54b887383f91a4077cb06a124783d48",
+    "normalized_input_sha256": "88432cdb25efb32fcc71f48d86fd602453a3a5c8a2987d80a8f0378bb9cebf99",
+    "scope": "Compared complete JSON to independently approved immutable external packet after exact repository-root prefix removal and external campaign prefix replacement. All operation content, originals SHA256, expected values, wording, source locators and qualifiers are identical. No new fact or reading required. Only public path normalization approved."
+  },
+  "review_signature_sha256": "d114acf9c9e017810c02020ab4ae00a2e28ddb3da49fabeab5f66f224d74924e"
+}

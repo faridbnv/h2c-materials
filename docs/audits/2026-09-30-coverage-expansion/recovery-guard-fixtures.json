@@ -1,0 +1,17 @@
+{
+  "fixture": "Disposable copy; canonical files untouched",
+  "results": [
+    {
+      "migration": "m235-coverage-recovered-statements.mjs",
+      "changedGrade": "G038-02",
+      "refused": true,
+      "filesUnchanged": true
+    },
+    {
+      "migration": "m237-application-recovered-statements.mjs",
+      "changedGrade": "G038-02",
+      "refused": true,
+      "filesUnchanged": true
+    }
+  ]
+}

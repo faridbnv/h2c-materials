@@ -1,0 +1,23 @@
+{
+  "Change": "Relative private-cache paths and external campaign labels only. Independent reviewer attested equality under this normalization; finding operations and evidence unchanged.",
+  "packets": [
+    {
+      "name": "recovery",
+      "old": "ad5d71813b9f46f97c1dc850a0c2f7b57d2badcfe2c2538b2a78157c0442e737",
+      "new": "97cd8ee8dd0389e9c3e6759dfd9c56577e692da23e3c25d7663eb99d2c18bc75",
+      "migration": "m235-coverage-recovered-statements"
+    },
+    {
+      "name": "environment",
+      "old": "7f6443a1317b1ffa16bfe38d6ac9b511cb3faac90dfe49d54597aaf179edb920",
+      "new": "abd929f4a21bc17d95c0de5a55913feeeb690f117bc7135b88fd5bd281af0310",
+      "migration": "m236-coverage-hydrolysis-uv"
+    },
+    {
+      "name": "application-recovery",
+      "old": "d19d44432452d5eeb1d71c941b8c54ccf54b887383f91a4077cb06a124783d48",
+      "new": "88432cdb25efb32fcc71f48d86fd602453a3a5c8a2987d80a8f0378bb9cebf99",
+      "migration": "m237-application-recovered-statements"
+    }
+  ]
+}

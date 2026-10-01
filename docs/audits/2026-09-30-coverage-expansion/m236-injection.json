@@ -1,0 +1,57 @@
+{
+  "migration": "m236-coverage-hydrolysis-uv",
+  "packet": "7f6443a1317b1ffa16bfe38d6ac9b511cb3faac90dfe49d54597aaf179edb920",
+  "written": 8,
+  "records": [
+    {
+      "operation": "ENV-1",
+      "table": "evidence",
+      "id": "Q02929",
+      "kind": "edit"
+    },
+    {
+      "operation": "ENV-2",
+      "table": "evidence",
+      "id": "Q02936",
+      "kind": "edit"
+    },
+    {
+      "operation": "ENV-3",
+      "table": "evidence",
+      "id": "Q03093",
+      "kind": "edit"
+    },
+    {
+      "operation": "ENV-4",
+      "table": "evidence",
+      "id": "Q05337",
+      "kind": "append"
+    },
+    {
+      "operation": "ENV-5",
+      "table": "evidence",
+      "id": "Q05338",
+      "kind": "append"
+    },
+    {
+      "operation": "ENV-6",
+      "table": "evidence",
+      "id": "Q05339",
+      "kind": "append"
+    },
+    {
+      "operation": "ENV-7",
+      "table": "evidence",
+      "id": "Q05340",
+      "kind": "append"
+    },
+    {
+      "operation": "ENV-8",
+      "table": "evidence",
+      "id": "Q05341",
+      "kind": "append"
+    }
+  ],
+  "final_reviewed_packet_sha256": "abd929f4a21bc17d95c0de5a55913feeeb690f117bc7135b88fd5bd281af0310",
+  "path_normalization_prior_sha256": "7f6443a1317b1ffa16bfe38d6ac9b511cb3faac90dfe49d54597aaf179edb920"
+}
