@@ -1,0 +1,203 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T16:19:57.263504+00:00",
+  "overall_verdict": "APPROVE_MIGRATION_GUARDS_AND_COMPILED_CORRECTIONS",
+  "input_sha256": "03a1478473c795e974c3f40ee8d60fdedc8707eebf4a9faad014251989b79aaa",
+  "before_release": "05fe0c3368b0",
+  "after_release": "1cce208a3e15",
+  "head_at_review": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
+  "migration_path": "scripts/migrate/m268-coc-text-and-graphene-source-publishers.mjs",
+  "migration_sha256": "8ea8fc0faa2e1e1526a1e0aadd7079960fdb739334dfb4be56cc30773c82fe3f",
+  "source_operation_review": {
+    "path": "external-campaign/reviews/NINTH-SOURCE-CORRECTIONS-REVIEW.json",
+    "sha256": "f85cfb0834f467ae89edf9ef1489e542d326af3e0af35fb2f94cb0509645877d"
+  },
+  "artifacts": [
+    {
+      "path": "external-campaign/evidence/ninth-independent-guards.mjs",
+      "sha256": "5536ec7804614cb67b391a6855397e2538b70b53d542817615b9aab11868586e"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-independent-guards.json",
+      "sha256": "cb7b75706e4e18d87220aad43a8e1ddc5a6520f8ba80f58d5d3294d391d0dfe7"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-independent-source-drawer.mjs",
+      "sha256": "d2a7a15711c1d2fe8b92862f0ee5842bae9f3d64b31666a2dc321e708fe4b7ea"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-independent-source-drawer.json",
+      "sha256": "500bb77c676d2fce6988634dc7ed75f295693eee09d47fa228a76d6d4496d07a"
+    }
+  ],
+  "guard_review": {
+    "cases": 19,
+    "pass": true,
+    "test_scope": "Disposable private temporary canonical copy; four originals separately copied, no shared-cache writes. Root manifest digest unchanged before/after. Both already-applied and unapplied states tested.",
+    "cases_results": [
+      {
+        "case": "Current fully applied packet reruns zero",
+        "written": 0,
+        "noPartialWrites": true
+      },
+      {
+        "case": "applied: changed Q04832.Finding",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: Q04832 moved"
+      },
+      {
+        "case": "applied: changed G137-03.Composition / filler",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: G137-03 moved"
+      },
+      {
+        "case": "applied: changed R-3DJAKE-EN-TDS-PETG-Graphene-Strong.Publisher",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: R-3DJAKE-EN-TDS-PETG-Graphene-Strong moved"
+      },
+      {
+        "case": "applied: changed G137-01.Manufacturer",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: G137-01 moved"
+      },
+      {
+        "case": "applied: changed R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN.Title",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN moved"
+      },
+      {
+        "case": "unapplied: changed Q04832.Finding",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: Q04832 moved"
+      },
+      {
+        "case": "unapplied: changed G137-03.Composition / filler",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: G137-03 moved"
+      },
+      {
+        "case": "unapplied: changed R-3DJAKE-EN-TDS-PETG-Graphene-Strong.Publisher",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: R-3DJAKE-EN-TDS-PETG-Graphene-Strong moved"
+      },
+      {
+        "case": "unapplied: changed G137-01.Manufacturer",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: G137-01 moved"
+      },
+      {
+        "case": "unapplied: changed R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN.Title",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN moved"
+      },
+      {
+        "case": "unapplied: corrupted R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: original missing or changed"
+      },
+      {
+        "case": "unapplied: corrupted R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: original missing or changed"
+      },
+      {
+        "case": "unapplied: corrupted R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: original missing or changed"
+      },
+      {
+        "case": "unapplied: corrupted R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: original missing or changed"
+      },
+      {
+        "case": "unapplied: missing exact original",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: original missing or changed"
+      },
+      {
+        "case": "unapplied: changed packet bytes",
+        "refused": true,
+        "noPartialWrites": true,
+        "error": "Error: m268-coc-text-and-graphene-source-publishers: changed or unreviewed packet"
+      },
+      {
+        "case": "Valid unapplied copy applies exactly9records11fields",
+        "written": 9,
+        "fields": 11
+      },
+      {
+        "case": "Valid reapplication zero with data digest unchanged",
+        "written": 0,
+        "noPartialWrites": true
+      }
+    ],
+    "unedited_fields": "Changed G137-01.Manufacturer and COC-tough source.Title reject in both states. Undefined nextRow cannot become an empty expected object; explicit next&&agrees checks full expected/proposed rows. All packet guards and source hashes preflight before any table mutation.",
+    "atomicity": "Every rejection left full disposable source/grade/evidence plus manifest digest unchanged. Valid reset-to-Expected application produces9records11fields; immediate reapplication writes0. Changed packet bytes and corrupted/missing digest-addressed originals reject."
+  },
+  "compiled_source_and_drawer_review": {
+    "source_drawer_cases": 9,
+    "all_six_quotes_rendered_verbatim": true,
+    "publisher_corrections": 2,
+    "composition_correction": 1,
+    "complete_compiled_difference_paths": [
+      "db.meta.release.id",
+      "db.meta.release.digest",
+      "db.meta.release.inputs.data",
+      "db.grades[1025].composition",
+      "db.sources[1286].publisher",
+      "db.sources[1286].sourceNote",
+      "db.sources[1306].publisher",
+      "db.sources[1306].sourceNote",
+      "db.knowHow[4207].text",
+      "db.knowHow[4208].text",
+      "db.knowHow[4209].text",
+      "db.knowHow[4213].text",
+      "db.knowHow[4214].text",
+      "db.knowHow[4215].text"
+    ],
+    "unchanged_compiled_lanes": [
+      "materials",
+      "measurements",
+      "profiles",
+      "printGuide",
+      "evidence",
+      "prices",
+      "fxRates",
+      "coverage",
+      "method",
+      "polymers",
+      "registry",
+      "polymerEnvironment",
+      "polymerEvidence"
+    ],
+    "all_grade_headlines_states_print_and_identity_unchanged": true,
+    "all_material_objects_identical": true,
+    "estimate_model_identical": true,
+    "all_measurements_profiles_prices_coverage_and_environment_identical": true,
+    "source_basis": "Both complete COC original pages and visual glyphs reread in pinned initial operation review; both Graphene pp1–2 including printed SpectrumGroup Contact/Disclaimer reread. Same four hash-verified originals, unchanged source ownership. Fresh compiled phrases and actual M137 Grades drawer HTML compared to each exact proposed quote, with old glyph variants absent."
+  },
+  "code_issues": [],
+  "limitations": [
+    "This is bounded migration/compiled/display-content approval, not final full nativeQA/backup/diff/local commit release approval.",
+    "Actual renderDrawer content assertions do not themselves validate browser layout.",
+    "Medical/diagnostic/optical and generic industrial wording remains exact maker know-how, no suitability pass. Source publisher correction does not resolve held3DJake catalogue manufacturer identity.",
+    "No canonical repository edits or original modification by reviewer. Separate tested correction commit still requires final release gates."
+  ],
+  "review_signature_sha256": "919daaceeaebdc46b4056a5d440f0ae99535641c456a3b40af1a11f14792c2b1"
+}

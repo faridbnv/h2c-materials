@@ -1,0 +1,81 @@
+{
+  "release": "1cce208a3e15",
+  "parent_commit": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
+  "GOALS_steps": [
+    5
+  ],
+  "scorecard": [
+    "C3",
+    "C10",
+    "C11",
+    "C13",
+    "C15"
+  ],
+  "warm_verify_fast_seconds": 49.72,
+  "full_verify_seconds": 249.45,
+  "full_verify_exit": 0,
+  "interface_views": 69,
+  "rendered_scenarios": 300,
+  "readings": 2592,
+  "rendered_scenario_seconds": 53.1,
+  "compiled_difference_paths": 11,
+  "canonical_changed_records": 9,
+  "canonical_changed_fields": 11,
+  "automatic_estimate_changes": 0,
+  "ui_baseline_change": null,
+  "source_backup": {
+    "originals": 2390,
+    "new_originals": 0,
+    "derived_files": 2790,
+    "known_absent": 124
+  },
+  "review": "Independent AI; no human review",
+  "unchanged": "Measurements, profiles, product ownership/states/headlines/gates, coverage, environmental verdicts, prices and estimate model remain identical to committed eighth baseline.",
+  "logs": [
+    {
+      "name": "ninth-verify-fast.log",
+      "sha256": "959348b9c2d6758aa567153b388c89c489a01700be7d9cbad08cc443b530b7a4"
+    },
+    {
+      "name": "ninth-verify-full.log",
+      "sha256": "bb8c8d182e6e3f9d3eb3e09edaacbdad65c3e364de543b3d8ff69e25d241f7e5"
+    },
+    {
+      "name": "ninth-build-diff.log",
+      "sha256": "1a0781117fd3994423b7a2633fc9f02abf2f0fc5adaa70e96b4c6635ba47e088"
+    },
+    {
+      "name": "ninth-record-diff.log",
+      "sha256": "6c0165e31c97666abb38bf0d1b0796cefcc011b7d5504fb114cc02e2e289744f"
+    },
+    {
+      "name": "ninth-source-backup.log",
+      "sha256": "0a48571d34e62abe2fd82aa7f96dcfb01a7209cb1c5855312a7c181be1de92cd"
+    }
+  ],
+  "frozen_replay": {
+    "before_release": "05fe0c3368b0",
+    "after_release": "1cce208a3e15",
+    "questions": 15,
+    "evaluations": 18195,
+    "answer_changes": 0,
+    "changes": []
+  },
+  "environment_replay": {
+    "before_commit": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
+    "baseline_core": false,
+    "baseline_basis": "Frozen compiled database of the named committed baseline. Environment replay compares verdicts/screens; source-level changes are reviewed separately.",
+    "questions": 48,
+    "evaluations": 58224,
+    "answer_changes": 0,
+    "changes": []
+  },
+  "template_replay": {
+    "before_release": "05fe0c3368b0",
+    "after_release": "1cce208a3e15",
+    "question_modes": 24,
+    "evaluations": 30744,
+    "answer_changes": 0,
+    "changes": []
+  }
+}

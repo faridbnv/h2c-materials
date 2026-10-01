@@ -1,0 +1,61 @@
+{
+  "migration": "m268-coc-text-and-graphene-source-publishers",
+  "packet": "03a1478473c795e974c3f40ee8d60fdedc8707eebf4a9faad014251989b79aaa",
+  "written": 9,
+  "records": [
+    {
+      "operation": "COC-GLYPH-Q04832",
+      "table": "evidence",
+      "id": "Q04832",
+      "fields": 1
+    },
+    {
+      "operation": "COC-GLYPH-Q04833",
+      "table": "evidence",
+      "id": "Q04833",
+      "fields": 1
+    },
+    {
+      "operation": "COC-GLYPH-Q04834",
+      "table": "evidence",
+      "id": "Q04834",
+      "fields": 1
+    },
+    {
+      "operation": "COC-GLYPH-Q04838",
+      "table": "evidence",
+      "id": "Q04838",
+      "fields": 1
+    },
+    {
+      "operation": "COC-GLYPH-Q04839",
+      "table": "evidence",
+      "id": "Q04839",
+      "fields": 1
+    },
+    {
+      "operation": "COC-GLYPH-Q04840",
+      "table": "evidence",
+      "id": "Q04840",
+      "fields": 1
+    },
+    {
+      "operation": "COC-GLYPH-COMPOSITION",
+      "table": "grades",
+      "id": "G137-03",
+      "fields": 1
+    },
+    {
+      "operation": "PUBLISHER-R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "table": "sources",
+      "id": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "fields": 2
+    },
+    {
+      "operation": "PUBLISHER-R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "table": "sources",
+      "id": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "fields": 2
+    }
+  ]
+}

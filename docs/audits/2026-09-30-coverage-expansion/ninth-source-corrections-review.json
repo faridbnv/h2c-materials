@@ -1,0 +1,207 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T16:05:23.959414+00:00",
+  "input_path": "external-campaign/research/ninth-source-corrections-packet.json",
+  "input_sha256": "03a1478473c795e974c3f40ee8d60fdedc8707eebf4a9faad014251989b79aaa",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 9,
+  "head_at_review": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
+  "original_reread": [
+    {
+      "source_id": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+      "original_path": ".cache/sources/by-sha/bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83.pdf",
+      "sha256": "bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83",
+      "pages": 1,
+      "read_scope": "Complete one-page PDF text and1800px full-page rendered image, visually confirming each ti glyph and exact General wording."
+    },
+    {
+      "source_id": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "original_path": ".cache/sources/by-sha/ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a.pdf",
+      "sha256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a",
+      "pages": 1,
+      "read_scope": "Complete one-page PDF text and1800px full-page rendered image, visually confirming each ti glyph and exact General wording."
+    },
+    {
+      "source_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "original_path": ".cache/sources/by-sha/ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68.pdf",
+      "sha256": "ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68",
+      "pages": 2,
+      "read_scope": "Complete pp1–2 freshly extracted/read separately without truncation; own title/Application/Processing/Typical-properties and p2 Contact/Disclaimer/restrictions retained."
+    },
+    {
+      "source_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "original_path": ".cache/sources/by-sha/fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73.pdf",
+      "sha256": "fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73",
+      "pages": 2,
+      "read_scope": "Complete pp1–2 freshly extracted/read separately without truncation; own title/Application/Processing/Typical-properties and p2 Contact/Disclaimer/restrictions retained."
+    }
+  ],
+  "custody_and_identity": "All four original digests match registered unchanged sources. All four ExpectedSources, all four ExpectedGrades and all nine full Expected operation rows match current canonical tables. Evidence remains exact G137-01/G137-03; publisher metadata remains on exact G153-01/G153-02 sources. No grade transfer, catalogue attribution correction, new document revision or refetch.",
+  "operations": [
+    {
+      "operation_id": "COC-GLYPH-Q04832",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "record_id": "Q04832",
+      "changed_fields": [
+        "Finding"
+      ],
+      "source_id": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+      "original_path": ".cache/sources/by-sha/bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83.pdf",
+      "original_sha256": "bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83",
+      "source_locator": "p.1 General, first paragraph",
+      "wording": "COC Tough is a high-performance technical filament based on cyclo-olefin copolymer, specially developed for applications where mechanical strength, chemical resistance and optical neutrality are required.",
+      "limitations": "Exact own-grade Manufacturer statement in Makers’ know-how remains unchanged in type/topic/scope; quote recovery creates no measured application/environment verdict or medical qualification.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "COC-GLYPH-Q04833",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "record_id": "Q04833",
+      "changed_fields": [
+        "Finding"
+      ],
+      "source_id": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+      "original_path": ".cache/sources/by-sha/bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83.pdf",
+      "original_sha256": "bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83",
+      "source_locator": "p.1 General, second paragraph",
+      "wording": "The high temperature resistance makes the material ideally suited for industrial applications.",
+      "limitations": "Exact own-grade Manufacturer statement in Makers’ know-how remains unchanged in type/topic/scope; quote recovery creates no measured application/environment verdict or medical qualification.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "COC-GLYPH-Q04834",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "record_id": "Q04834",
+      "changed_fields": [
+        "Finding"
+      ],
+      "source_id": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+      "original_path": ".cache/sources/by-sha/bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83.pdf",
+      "original_sha256": "bf6b8ec56488b8357430755d7f8a6f7b8fb5c7bfdfed562d3ddd87bb3e5a2f83",
+      "source_locator": "p.1 General, first paragraph",
+      "wording": "Through targeted impact taming modification, the material offers an extraordinary combination of robustness and thermal stability - ideal for functional components with demanding requirements.",
+      "limitations": "Exact own-grade Manufacturer statement in Makers’ know-how remains unchanged in type/topic/scope; quote recovery creates no measured application/environment verdict or medical qualification.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "COC-GLYPH-Q04838",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "record_id": "Q04838",
+      "changed_fields": [
+        "Finding"
+      ],
+      "source_id": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "original_path": ".cache/sources/by-sha/ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a.pdf",
+      "original_sha256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a",
+      "source_locator": "p.1 General, second paragraph",
+      "wording": "This property makes the material particularly suitable for applications where elasticity and formal stability are required under changing climatic conditions.",
+      "limitations": "Exact own-grade Manufacturer statement in Makers’ know-how remains unchanged in type/topic/scope; quote recovery creates no measured application/environment verdict or medical qualification.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "COC-GLYPH-Q04839",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "record_id": "Q04839",
+      "changed_fields": [
+        "Finding"
+      ],
+      "source_id": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "original_path": ".cache/sources/by-sha/ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a.pdf",
+      "original_sha256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a",
+      "source_locator": "p.1 General, second paragraph",
+      "wording": "At the same time, the transparency of the material is maintained – a crucial advantage for medical, diagnostic or optical products.",
+      "limitations": "Exact own-grade Manufacturer statement in Makers’ know-how remains unchanged in type/topic/scope; quote recovery creates no measured application/environment verdict or medical qualification.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "COC-GLYPH-Q04840",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "record_id": "Q04840",
+      "changed_fields": [
+        "Finding"
+      ],
+      "source_id": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "original_path": ".cache/sources/by-sha/ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a.pdf",
+      "original_sha256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a",
+      "source_locator": "p.1 General, second paragraph",
+      "wording": "Due to the exceptionally low glass transition temperature below –90 °C, COC flex offers remarkable flexibility even at low temperatures.",
+      "limitations": "Exact own-grade Manufacturer statement in Makers’ know-how remains unchanged in type/topic/scope; quote recovery creates no measured application/environment verdict or medical qualification.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "COC-GLYPH-COMPOSITION",
+      "verdict": "APPROVE",
+      "table": "grades",
+      "record_id": "G137-03",
+      "changed_fields": [
+        "Composition / filler"
+      ],
+      "source_id": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "original_path": ".cache/sources/by-sha/ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a.pdf",
+      "original_sha256": "ee41623d140aaa0676ea8aeb7164004965dc0566953b82fc168358bc0935306a",
+      "source_locator": "p.1 General, first sentence",
+      "wording": "The sheet declares a softer grade: \"COC flex is an innovative, transparent thermoplastic elastomer based on cyclic olefin copolymers (COC)\". Its density of 940 kg/m³ is below what neat COC reaches (1010); recorded as a Variant under D57 (R098).",
+      "limitations": "Only innovative/thermoplastic glyph recovery inside composition quotation; existing940kg/m³/neat1010 rationale and declared-softer Variant retained, not newly independently adjudicated or recalculated in this packet.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "PUBLISHER-R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "verdict": "APPROVE",
+      "table": "sources",
+      "record_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "changed_fields": [
+        "Publisher",
+        "Source note"
+      ],
+      "source_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong",
+      "original_path": ".cache/sources/by-sha/ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68.pdf",
+      "original_sha256": "ae80ac654268fedd770f5b03038b46d7baceb66674d5b9ec23c6b2690e387c68",
+      "source_locator": "p.2 Contact and Disclaimer",
+      "wording": "Spectrum Group Sp. z o.o.",
+      "limitations": "Printed Contact Spectrum Group Sp. z o.o. and repeated document responsibility in Disclaimer support publisher metadata. Exact URL/digest/title/source ownership/Applicable grades unchanged. Catalogue grade Manufacturer3DJake remains held for separate exact-product/provider evidence.",
+      "expected_full_current_row_match": true
+    },
+    {
+      "operation_id": "PUBLISHER-R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "verdict": "APPROVE",
+      "table": "sources",
+      "record_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "changed_fields": [
+        "Publisher",
+        "Source note"
+      ],
+      "source_id": "R-3DJAKE-EN-TDS-PETG-Graphene-Light",
+      "original_path": ".cache/sources/by-sha/fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73.pdf",
+      "original_sha256": "fcab65f39d794b6ab43b7675556764be654686715026a4ed63116269afc35b73",
+      "source_locator": "p.2 Contact and Disclaimer",
+      "wording": "Spectrum Group Sp. z o.o.",
+      "limitations": "Printed Contact Spectrum Group Sp. z o.o. and repeated document responsibility in Disclaimer support publisher metadata. Exact URL/digest/title/source ownership/Applicable grades unchanged. Catalogue grade Manufacturer3DJake remains held for separate exact-product/provider evidence.",
+      "expected_full_current_row_match": true
+    }
+  ],
+  "scope_check": {
+    "evidence_quote_corrections": 6,
+    "composition_quote_corrections": 1,
+    "publisher_metadata_corrections": 2,
+    "new_records": 0,
+    "measurement_changes": 0,
+    "standards_or_state_changes": 0,
+    "evidence_domain_topic_type_changes": 0,
+    "variant_numeric_rationale_changes": 0,
+    "source_digest_revision_url_changes": 0
+  },
+  "held_identity": "GRAPHENE-CATALOGUE-MANUFACTURER hold is appropriate: Contact/Disclaimer establishes responsible document publisher, not complete procurement provider/formulation identity. Source correction cannot alone authorize grade manufacturer/product/value transfer.",
+  "limitations": [
+    "No human review or testing. Medical/diagnostic/optical intended-use wording remains a maker claim; no qualification.",
+    "COC Tough retains source’s optical-neutrality General claim beside its own opaque disadvantage. Text correction does not reconcile those statements or infer optical service behaviour.",
+    "No broad source search undertaken, no public absence conclusion.",
+    "This approves frozen operations only. Separate guarded migration and complete verification/local release review remain required before commit. No canonical changes by reviewer."
+  ],
+  "review_signature_sha256": "fe2cb4461c41f37b4581270afec786050096122624c27a0d231229f2ec4808ba"
+}

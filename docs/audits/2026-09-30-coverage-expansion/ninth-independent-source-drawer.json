@@ -1,0 +1,91 @@
+{
+  "basis": "Literal independently original-reviewed frozen corrections; actual renderDrawer HTML and complete before/after compiled comparison",
+  "beforeRelease": "05fe0c3368b0",
+  "afterRelease": "1cce208a3e15",
+  "packet_sha256": "03a1478473c795e974c3f40ee8d60fdedc8707eebf4a9faad014251989b79aaa",
+  "cases": [
+    {
+      "case": "Actual COC maker quote in Grades drawer",
+      "id": "Q04832",
+      "source": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+      "verbatim": true
+    },
+    {
+      "case": "Actual COC maker quote in Grades drawer",
+      "id": "Q04833",
+      "source": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+      "verbatim": true
+    },
+    {
+      "case": "Actual COC maker quote in Grades drawer",
+      "id": "Q04834",
+      "source": "R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN",
+      "verbatim": true
+    },
+    {
+      "case": "Actual COC maker quote in Grades drawer",
+      "id": "Q04838",
+      "source": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "verbatim": true
+    },
+    {
+      "case": "Actual COC maker quote in Grades drawer",
+      "id": "Q04839",
+      "source": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "verbatim": true
+    },
+    {
+      "case": "Actual COC maker quote in Grades drawer",
+      "id": "Q04840",
+      "source": "R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN",
+      "verbatim": true
+    },
+    {
+      "case": "Recovered composition quote, unchanged variant/numeric rationale",
+      "grade": "G137-03"
+    },
+    {
+      "case": "Publisher metadata matches own original p2 Contact/Disclaimer without identity transfer",
+      "source": "R-3DJAKE-EN-TDS-PETG-Graphene-Strong"
+    },
+    {
+      "case": "Publisher metadata matches own original p2 Contact/Disclaimer without identity transfer",
+      "source": "R-3DJAKE-EN-TDS-PETG-Graphene-Light"
+    }
+  ],
+  "unchangedCompiledLanes": [
+    "materials",
+    "measurements",
+    "profiles",
+    "printGuide",
+    "evidence",
+    "prices",
+    "fxRates",
+    "coverage",
+    "method",
+    "polymers",
+    "registry",
+    "polymerEnvironment",
+    "polymerEvidence"
+  ],
+  "allGradeStatesHeadlinesPrintAndIdentityUnchanged": true,
+  "estimateModelIdentical": true,
+  "completeCompiledDifferencePaths": [
+    "db.meta.release.id",
+    "db.meta.release.digest",
+    "db.meta.release.inputs.data",
+    "db.grades[1025].composition",
+    "db.sources[1286].publisher",
+    "db.sources[1286].sourceNote",
+    "db.sources[1306].publisher",
+    "db.sources[1306].sourceNote",
+    "db.knowHow[4207].text",
+    "db.knowHow[4208].text",
+    "db.knowHow[4209].text",
+    "db.knowHow[4213].text",
+    "db.knowHow[4214].text",
+    "db.knowHow[4215].text"
+  ],
+  "actualDrawerHTML": true,
+  "browserLayoutClaim": false
+}

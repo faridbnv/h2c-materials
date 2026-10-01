@@ -1,0 +1,167 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T16:24:53.797506+00:00",
+  "overall_verdict": "APPROVE_LOCAL_RELEASE",
+  "release": "1cce208a3e15",
+  "parent_commit": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
+  "input_packet_sha256": "03a1478473c795e974c3f40ee8d60fdedc8707eebf4a9faad014251989b79aaa",
+  "scope": "Bounded final release review of separate source-transcription/publisher correction m268, reusing unchanged independent original and19-case guard review. Approve verified local commit only; no push/publication. Campaign remains incomplete.",
+  "inputs": [
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-verification.json",
+      "sha256": "272ce7aea37da786953af158f5bb0c6efeef338bbb04bd39215f6d0249f63e2a"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/README.md",
+      "sha256": "f05fbe81bafc37b4967bfb1953567894be2e1747f6ca7fb5a04b4b8cb74f8c77"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-source-corrections-packet.json",
+      "sha256": "03a1478473c795e974c3f40ee8d60fdedc8707eebf4a9faad014251989b79aaa"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-source-corrections-review.json",
+      "sha256": "f85cfb0834f467ae89edf9ef1489e542d326af3e0af35fb2f94cb0509645877d"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-migration-guards-review.json",
+      "sha256": "d8df4ee9c24e1f916929c3b03392a9180fd795a109c6195b830bec6c49624e72"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-independent-guards.json",
+      "sha256": "cb7b75706e4e18d87220aad43a8e1ddc5a6520f8ba80f58d5d3294d391d0dfe7"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-independent-source-drawer.json",
+      "sha256": "500bb77c676d2fce6988634dc7ed75f295693eee09d47fa228a76d6d4496d07a"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-frozen-replay.json",
+      "sha256": "5a1b91cb8bafb12cb9c33638d68193699f14d1f461a5acb3ef9696dd09f0029b"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-environment-replay.json",
+      "sha256": "22838e3af736980f993092ac117e0121bab07014cad8e7fd872b56e01673288e"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/ninth-template-replay.json",
+      "sha256": "4a010fe62a3eba53bb9b4763aab06289d764677baded062243607895a8619c19"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/m268-injection.json",
+      "sha256": "5c4c0e3033956084223d881a32d0ea6e29b4ef7389b02f84b03670dcff1fe6c5"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/m268-rerun.json",
+      "sha256": "4a658ab5ff4024acd1e1b5cfd4dc3674c1b92a070c4a928b17442bc266f7a714"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-verify-fast.log",
+      "sha256": "959348b9c2d6758aa567153b388c89c489a01700be7d9cbad08cc443b530b7a4"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-verify-full.log",
+      "sha256": "bb8c8d182e6e3f9d3eb3e09edaacbdad65c3e364de543b3d8ff69e25d241f7e5"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-build-diff.log",
+      "sha256": "1a0781117fd3994423b7a2633fc9f02abf2f0fc5adaa70e96b4c6635ba47e088"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-record-diff.log",
+      "sha256": "6c0165e31c97666abb38bf0d1b0796cefcc011b7d5504fb114cc02e2e289744f"
+    },
+    {
+      "path": "external-campaign/evidence/ninth-source-backup.log",
+      "sha256": "0a48571d34e62abe2fd82aa7f96dcfb01a7209cb1c5855312a7c181be1de92cd"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/fixtures/ninth-independent-guards.mjs",
+      "sha256": "5536ec7804614cb67b391a6855397e2538b70b53d542817615b9aab11868586e"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/fixtures/ninth-independent-source-drawer.mjs",
+      "sha256": "d2a7a15711c1d2fe8b92862f0ee5842bae9f3d64b31666a2dc321e708fe4b7ea"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/fixtures/template-replay.mjs",
+      "sha256": "b20d66ca881fda141fb3adb5eb9107f6f6da9b66e8fe168df9ffa4487db4e6dc"
+    },
+    {
+      "path": "dist/db.json",
+      "sha256": "c0056890c983cdf185261808d529e054be433bd165f97b807c8965ff95052b11"
+    },
+    {
+      "path": "data/manifest.json",
+      "sha256": "5a8cc7543875cee556c6c4166a04c8514cc84f6b5c9dd1d969cfcb194c88e2b7"
+    }
+  ],
+  "verification": {
+    "warm_verify_fast_seconds": 49.72,
+    "warm_budget_seconds": 90,
+    "full_verify_seconds": 249.45,
+    "recorded_full_verify_exit": 0,
+    "unit_tests_pass": 450,
+    "import_tests_pass": 194,
+    "scale_tests_pass": 1,
+    "reproducible_tests_pass": 1,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "interface_views": 69,
+    "rendered_scenarios": 300,
+    "readings": 2592,
+    "rendered_scenario_seconds": 53.1,
+    "audit_errors": 0,
+    "snapshot_current": true,
+    "layout_failures": 0,
+    "ui_baseline_changed": false
+  },
+  "scope_and_diff": {
+    "canonical_changed_records": 9,
+    "canonical_changed_fields": 11,
+    "compiled_reviewed_paths": 11,
+    "complete_compiled_scalar_paths": 14,
+    "release_metadata_paths": 3,
+    "field_scope": "Six maker Finding glyph recoveries;one grade composition quotation glyph recovery;two source Publisher/Source-note corrections. No new record, quote expansion, numeric update, product ownership/Manufacturer transfer or source revision.",
+    "all_applied_full_rows_match_reviewed_proposed": true,
+    "migration_unchanged_since19case_guard_review": true,
+    "public_reviews_fixtures_receipts_identical_to_external_signed_inputs": true,
+    "measurements_profiles_states_headlines_print_gates_prices_coverage_environment_and_estimates_unchanged": true,
+    "engine_schema_test_changes": false,
+    "tracked_patch_sha256": "7db1de18506be9be68e27355ccc94aa3e2cff32d3a27bf109acbd1fa5bcb7eb4"
+  },
+  "replays": {
+    "frozen_questions": 15,
+    "frozen_evaluations": 18195,
+    "environment_questions": 48,
+    "environment_evaluations": 58224,
+    "template_question_modes": 24,
+    "template_evaluations": 30744,
+    "verdict_or_screen_changes": 0,
+    "final_template_reproduced_independently": true,
+    "template_population": "Same snapshot population excluding family entries. New public reproducer reviewed and directly run to private temporary output; exact final receipt match."
+  },
+  "source_backup": {
+    "originals": 2390,
+    "derived_files": 2790,
+    "new_original_bytes": 0,
+    "known_absent_inventory_entries": 124,
+    "basis": "Hash-pinned export refresh log;same unchanged original hashes as independently approved operation/guard review. Ninth correction changes source publisher metadata only;retains previously verified private bytes and derived custody.124knownabsent entries remain explicit,not newly concealed."
+  },
+  "release_conditions_satisfied": [
+    "Final five log hashes match public ninth-verification.json pins and support full format/schema/lint/generated-doc/unit/import/scale/repro/audit/snapshot/browser gates.",
+    "All nine canonical full Proposed rows and packet/migration bytes remain exactly as independently source/guard reviewed.",
+    "Six exact maker claims render in actual COC Grades drawer;quoted medical/diagnostic/optical words remain nondeciding maker know-how.",
+    "Graphene source publisher correction is source-supported;catalogue manufacturer identity remains held separately.",
+    "No original/19case retest was repeated unnecessarily after confirming unchanged inputs.",
+    "Final local commit and clean-tree identity are sole-writer post-approval actions;no push requested."
+  ],
+  "limitations": [
+    "Independent AI review only;no human validation or physical testing.",
+    "Full native browserQA is evidenced by retained final command log;the reviewer additionally reproduced exact source/guard/drawer and template checks in prior/current bounded reviews.",
+    "COC source unusual wording,opaque/optical context,variant rationale and Graphene identity limitations stay unaltered.",
+    "No claim this correction completes any remaining material/product research target.",
+    "No canonical files or source originals changed by reviewer."
+  ],
+  "review_signature_sha256": "e3149a99573374b8397e902b28d44ffc041425cb8cd5953ea73497c27cdd611d"
+}
