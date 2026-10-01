@@ -305,3 +305,27 @@ export contains 2,385 originals and2,785 derivatives, with three newly copied or
 124 known absent inventory entries remain. The compiled diff has 44 intentional paths. The release is f697953e97e5. Joined
 all-product research remains unfinished; these assessments finish only their named
 material Application questions.
+
+## Maker-statement qualifier display correction (2026-10-01)
+
+The separate compiler/schema/rendering change resolves the display limitation recorded
+in the seventh tranche. Canonical Exposure / conditions is retained as knowHow[].exposure
+and shown outside the quoted maker wording under “Scope and conditions”. Entire missing-state
+cells stay quiet; a longer “Not published; …” explanation remains visible. Both text
+and qualifiers are escaped. The non-deciding know-how lane and screening rules stay intact.
+
+The targeted tests check all 4,671 canonical qualifier values and exercise the actual
+product drawer with an HTML-like note and exact missing states; seven tests pass.
+Independent AI review also checks actual HIPS and Insublend drawer HTML: all nine new
+qualifier notes appear beside their unchanged quotes, including the general 24-hour
+claim and the conflicting processing guidance. This is content verification, not
+interactive browser inspection or human review. OPEN-PROBLEMS section25 is removed
+with that reproduced evidence; its history remains in the data commit.
+
+The compiled diff adds exactly 4,671 qualifier fields and changes no other database
+content. Warm verify:fast takes 66.0 seconds, within budget. Complete verification
+takes 236.6 seconds and passes import, scale, reproducibility, audit and snapshot
+gates, 69 interface views and 300 rendered scenarios with 2,592 readings (48.4 seconds).
+Existing UI baselines need no changes and all three screen sizes pass layout checks.
+The release is 62442c28a1c8. This code commit changes no canonical table or original;
+the seventh tranche's private source export remains current.

@@ -408,13 +408,14 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "materialId", "gradeId", "topic", "text", "sourceId", "locator"],
+        "required": ["id", "materialId", "gradeId", "topic", "text", "exposure", "sourceId", "locator"],
         "properties": {
           "id": { "type": "string", "pattern": "^Q\\d{5}$" },
           "materialId": { "type": "string" },
           "gradeId": { "type": "string" },
           "topic": { "type": "string" },
           "text": { "type": "string", "minLength": 1 },
+          "exposure": { "type": "string", "description": "Canonical Exposure / conditions qualifier, displayed separately from the maker's quoted words; never used for screening." },
           "sourceId": { "type": "string" },
           "locator": { "type": "string" }
         }

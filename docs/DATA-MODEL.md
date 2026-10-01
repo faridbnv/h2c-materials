@@ -688,6 +688,11 @@ sensitivity, Nozzle wear, Odour and emissions, Supports and removal, Printing ad
 `know-how`, which is not filterable. A statement from the maker's own product page is labelled by its source's class
 ("Manufacturer product page or guide") as the maker's marketing text, apart from a data sheet's.
 
+The row's `Exposure / conditions` becomes `knowHow[].exposure`. Its recorded scope, missing conditions and
+conflicts are shown beside the quote under “Scope and conditions”, outside the maker's quoted words.
+An entire missing-state cell is omitted; a longer explanation beginning “Not published; …” remains visible.
+Both the quote and note are escaped as text. This field does not enter the selection engine.
+
 They are the record tier (D85) made visible, and never decide anything. `build/src/know-how.js` moves them out of
 `db.evidence` into `db.knowHow`, so the engine's evidence, the environment criteria, the polymer-level layer (D64),
 coverage and the evidence counts are what they were without them; a scenario cannot name the category, because only

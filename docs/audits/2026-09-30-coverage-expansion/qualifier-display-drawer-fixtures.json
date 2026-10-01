@@ -1,0 +1,87 @@
+{
+  "basis": "Actual renderDrawer output with repository compiled database and literal independently reviewed source qualifications. HTML assertion verifies content, not browser layout or human review.",
+  "release": "62442c28a1c8",
+  "cases": [
+    {
+      "record": "Q05422",
+      "grade": "G081-10",
+      "quote": "Supports in 3D printing need to be removed manually a posteriori, which may leave marks and can take time for more complex structures.",
+      "scope": "General removal limitation in own HIPS article; no measured force/time or assurance on this exact geometry.",
+      "source": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "locator": "p. 1: Opening manual-removal limitation",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05423",
+      "grade": "G081-10",
+      "quote": "High Impact Polystyrene (HIPS), as its name indicates, has a very high shock resistance. This resistance also makes it suited as a base 3D printing material, especially for press tools.",
+      "scope": "General HIPS declarative maker context within own article; no exact-product press-tool load, impact/lifetime test or qualified use. Not a material suitability pass.",
+      "source": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "locator": "p. 1: General HIPS use paragraph",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05424",
+      "grade": "G081-10",
+      "quote": "When submerged in limonene, HIPS completely dissolves in about 24 hours, and doesn’t leave any residue.",
+      "scope": "Declarative general HIPS maker claim, not a described exact-product removal test. Approximate24hours; concentration, temperature, geometry and protocol missing. Does not turn prior exposure-only caption into a transferable complete-removal guarantee.",
+      "source": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "locator": "p. 1: Limonene dissolution paragraph",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05412",
+      "grade": "G081-06",
+      "quote": "commonly used in automotives (Li & MH batteries, connectors, electrical materials ...) and outdoor products (solar panels connections...).",
+      "scope": "Own electrical applications paragraph; maker claimed uses only, no automotive/battery/solar service protocol or qualification.",
+      "source": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "locator": "p. 1: Applications paragraph",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05413",
+      "grade": "G081-06",
+      "quote": "A heating plate is necessary during printing (between 100 and 140°C) and the filament is extruded at a temperature range from 260 to 280°C.",
+      "scope": "Internal conflict: own Properties table prints Plate Temp. 130–150 °C. Existing page profile P0721 retained; neither paragraph priority nor unprinted chronology settles the range.",
+      "source": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "locator": "p. 1: Applications paragraph, conflicting bed range",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05414",
+      "grade": "G081-06",
+      "quote": "Nozzle 0.5 (>0.4) mm",
+      "scope": "Own recommendation retains 0.5 mm and strict >0.4 mm wording; not a hardened-nozzle claim, not converted to >=0.4 or a profile scalar.",
+      "source": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "locator": "p. 1: 3D Printing table, Nozzle",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05418",
+      "grade": "G081-06",
+      "quote": "In order to guarantee good printing conditions dehydrate Nanovia Insublend at 60°c for 4 hours or longer, when the spools has been exposed to moisture for an extended period.",
+      "scope": "Own drying instruction, conditional on prolonged moisture exposure, lower bound4hours. Conflicts with current page/profile80 °C/4h. No replacement, narrowed time or service-moisture/hydrolysis result inferred.",
+      "source": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "locator": "p. 2: Storage drying bullet; French p1 corroborates",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05419",
+      "grade": "G081-06",
+      "quote": "For a better print quality, desactivate the retraction option on your 3D printer",
+      "scope": "Own printing advice; no printer/nozzle/path or quantified result. Preserve source spelling; not universally proven optimal settings.",
+      "source": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "locator": "p. 2: Printing retraction bullet; French p1 corroborates",
+      "drawerHTMLShowsQualifier": true
+    },
+    {
+      "record": "Q05420",
+      "grade": "G081-06",
+      "quote": "We recommend printing Nanovia Insublend in a room equipped with air extraction or by using appropriate breathing equipment. Whilst printing Nanovia Insublend produces a VOC derivative of styrene.",
+      "scope": "English own processing precaution; French p1 names generic COV only. No measured emissions, airborne concentration, validated ventilation or gas-limit qualification.",
+      "source": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "locator": "p. 2: Printing health and safety",
+      "drawerHTMLShowsQualifier": true
+    }
+  ]
+}

@@ -79,7 +79,7 @@ export function attachKnowHow(db, wb, issues) {
     const g = gradeById.get(e.gradeId);
     if (g && g.materialId !== e.materialId) issues.push(issue('OWN-GRADE-MATERIAL', `evidence ${e.id}`, `Filed under ${e.materialId} but its grade ${e.gradeId} belongs to ${g.materialId}`));
     if (g?.retired) issues.push(issue('OWN-RETIRED-GRADE', `evidence ${e.id}`, `A know-how statement on retired grade ${e.gradeId}`));
-    return { id: e.id, materialId: e.materialId, gradeId: e.gradeId, topic: e.topic, text: e.finding, sourceId: e.sourceId, locator: e.locator };
+    return { id: e.id, materialId: e.materialId, gradeId: e.gradeId, topic: e.topic, text: e.finding, exposure: e.exposure, sourceId: e.sourceId, locator: e.locator };
   });
   db.meta.counts.knowHow = db.knowHow.length;
 

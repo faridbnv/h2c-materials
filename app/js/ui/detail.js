@@ -757,6 +757,14 @@ function knowHowSource(k, c) {
   return `<span class="maker-src" title="${esc(sourceName(s, k.sourceId))}">${esc(kind)}, ${esc(k.locator)}</span>`;
 }
 
+/** A recorded qualification belongs beside its quote, outside the maker's quoted words. */
+function knowHowConditions(k) {
+  const note = String(k.exposure ?? '').trim();
+  // Only an entire missing-state cell is empty guidance. "Not published; ..." may explain a real limit.
+  return note && !/^(not published|not applicable|not stated|not recorded|n\/a)\.?$/i.test(note)
+    ? `<div class="fine maker-conditions">Scope and conditions: ${esc(note)}</div>` : '';
+}
+
 /** The sentence for what was not found: the maker, what its documents leave out, and whether its site was searched. */
 function knowHowGap(g, missingTopics, c) {
   const k = g.knowHow;
@@ -786,7 +794,7 @@ function makerSays(g, c) {
   if (!own.length) return `<div class="fine maker-says-gap">${esc(gap)}</div>${other}`;
   const groups = topics.map((t) => [t, own.filter((x) => x.topic === t)]).filter(([, list]) => list.length);
   return `<div class="maker-says"><div class="shared-head">What the maker says</div><dl class="kv small">
-    ${groups.map(([t, list]) => `<dt>${esc(t)}</dt><dd><ul class="maker-quotes">${list.map((x) => `<li>“${esc(x.text)}” ${knowHowSource(x, c)}</li>`).join('')}</ul></dd>`).join('')}
+    ${groups.map(([t, list]) => `<dt>${esc(t)}</dt><dd><ul class="maker-quotes">${list.map((x) => `<li>“${esc(x.text)}” ${knowHowSource(x, c)}${knowHowConditions(x)}</li>`).join('')}</ul></dd>`).join('')}
   </dl>${gap ? `<p class="fine">${esc(gap)}</p>` : ''}</div>${other}`;
 }
 

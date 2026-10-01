@@ -17,10 +17,35 @@ import { productsByMaterial } from '../app/js/engine/products.js';
 import { validateScenario } from '../app/js/engine/scenario.js';
 import { TEMPLATES } from '../app/js/ui/templates.js';
 import { worklist } from '../scripts/audit/know-how-worklist.mjs';
+import { renderDrawer } from '../app/js/ui/detail.js';
+import { useRegistry } from '../app/js/ui/registry.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
 const STATES = Object.values(STATE);
+
+test('maker statements retain canonical qualifiers and show them outside the escaped quote', () => {
+  const canonical = new Map(readCsv(join(root, 'data/tables/evidence.csv')).records.map((r) => [r.values.EvidenceID, r.values]));
+  for (const k of db.knowHow) assert.equal(k.exposure, canonical.get(k.id)['Exposure / conditions'], k.id);
+
+  // Exercise the actual drawer, including a note beginning with a missing-state phrase.
+  const original = db.knowHow.find((k) => k.gradeId !== 'Not applicable');
+  const sample = structuredClone(db);
+  const note = 'Not published; no exposure protocol. <img src=x onerror=alert(1)>';
+  sample.knowHow = sample.knowHow.map((k) => ({ ...k, exposure: k.id === original.id ? note : 'Not applicable' }));
+  useRegistry(sample.registry);
+  const group = (rows) => { const m = new Map(); for (const r of rows) { if (!m.has(r.materialId)) m.set(r.materialId, []); m.get(r.materialId).push(r); } return m; };
+  const host = { innerHTML: '', querySelectorAll: () => [], querySelector: (s) => ['#drawer-close', '#drawer-pin'].includes(s) ? { addEventListener() {} } : null };
+  const state = { db: sample, selectedMaterialId: original.materialId, drawerTab: 'Grades', selection: { evaluations: [] }, scenario: { shortlist: [], unknownPolicy: UNKNOWN_POLICY.STRICT }, ctx: { measurementsByMaterial: group(sample.measurements), evidenceByMaterial: group(sample.evidence), coverageByMaterial: group(sample.coverage) } };
+  renderDrawer(host, state, {});
+  const notes = host.innerHTML.match(/<div class="fine maker-conditions">[\s\S]*?<\/div>/g) ?? [];
+  assert.equal(notes.length, 1);
+  assert.match(notes[0], /Scope and conditions: Not published; no exposure protocol\. &lt;img src=x onerror=alert\(1\)&gt;/);
+  assert.doesNotMatch(notes[0], /<img src=x onerror/);
+  sample.knowHow.find((k) => k.id === original.id).exposure = 'Not published';
+  renderDrawer(host, state, {});
+  assert.ok(!host.innerHTML.includes('class="fine maker-conditions"'), 'an entire missing-state cell is omitted');
+});
 
 test('every know-how topic maps to the know-how category, which no filter can use', () => {
   assert.ok(KNOW_HOW_TOPICS.length >= 11, KNOW_HOW_TOPICS.join(', '));

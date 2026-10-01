@@ -1,0 +1,82 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T09:27:18.039628+00:00",
+  "overall_verdict": "APPROVE",
+  "input_files": [
+    {
+      "path": "build/src/know-how.js",
+      "sha256": "d8a07823eb5124f4ecdc3252f20f4edddb47d03a6fdae80c07e4231547809cd8"
+    },
+    {
+      "path": "schema/db.schema.json",
+      "sha256": "604211fffd0a11a428b5f684161731ae8ef11287b3fb4819202b3bbc5193b356"
+    },
+    {
+      "path": "app/js/ui/detail.js",
+      "sha256": "fc95bdbf3428a4524d66fb841eda20d8caba3f8b4d08912de10732df2de97603"
+    },
+    {
+      "path": "test/know-how.test.js",
+      "sha256": "8dce891f56a9ebbd0c139c6363dcd8349e4f390fd9579453a18cb4109f944924"
+    }
+  ],
+  "compiled_release_reviewed": "62442c28a1c8",
+  "code_review": [
+    {
+      "path": "build/src/know-how.js",
+      "verdict": "APPROVE",
+      "reason": "Copies existing canonical normalized exposure unchanged to own maker statements. Statements remain removed from db.evidence and no new selection input/category exists."
+    },
+    {
+      "path": "schema/db.schema.json",
+      "verdict": "APPROVE",
+      "reason": "Requires string exposure on every compiled knowHow record with additionalProperties false; compiler output and4671-row preservation test cover current population."
+    },
+    {
+      "path": "app/js/ui/detail.js",
+      "verdict": "APPROVE",
+      "reason": "Displays trimmed exposure outside raw maker quotation, escaped with existing esc helper. Omits only exact missing-state cells; longer Not published; qualification is retained. Maker label/source context stays intact; no suitability status or parsing introduced."
+    },
+    {
+      "path": "test/know-how.test.js",
+      "verdict": "APPROVE",
+      "reason": "Checks all4671 compiled qualifiers against canonical Exposure / conditions, real renderDrawer path escaping and exact missing-state suppression; existing isolation/no-template-answer tests remain intact."
+    }
+  ],
+  "independent_test_run": {
+    "command": "node --test test/know-how.test.js",
+    "exit_code": 0,
+    "tests": 7,
+    "passed": 7,
+    "failed": 0,
+    "duration_ms": 1329.339083
+  },
+  "source_grounded_drawer_reproduction": {
+    "method": "Read-only real renderDrawer invocation with current db, grade-tab state and minimal host; inspected generated HTML strings. No browser pixels claimed.",
+    "materials": [
+      "M081",
+      "M130"
+    ],
+    "record_ids": [
+      "Q05422",
+      "Q05423",
+      "Q05424",
+      "Q05412",
+      "Q05413",
+      "Q05414",
+      "Q05418",
+      "Q05419",
+      "Q05420"
+    ],
+    "results": "Allnine canonical conditions notes occur under Scope and conditions and every maker raw quote remains unchanged. Q05424 general24h/no-residue qualifier and Q05413/Q05418 unresolved processing qualifiers now survive actual drawer output."
+  },
+  "selection_semantics": "Display/provenance field only; source know-how remains outside db.evidence. Existing tests reject know-how scenario category and retain template answers. Full compiled diff/production replay still required as parent release gates.",
+  "prior_issue_status": "Confirmed code and real drawer-string reproduction repair the seventh review omission for allnine newly admitted know-how rows; full browser/layout verification is separate.",
+  "required_corrections": [],
+  "verification_limits": [
+    "Independent code/schema review, seven tests and source-grounded actual drawer HTML reproduction completed.",
+    "Does not substitute parent fullverify, browser/view baseline checks, snapshot and build:diff."
+  ],
+  "canonical_mutations": "None; external review report only.",
+  "review_signature_sha256": "ebed02eada290bec04b4854b5428a5f410843414f845c85c876838a72da781f9"
+}
