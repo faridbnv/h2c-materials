@@ -1,0 +1,16 @@
+{
+  "fixture": "Disposable copy; canonical files untouched",
+  "results": [
+    {
+      "case": "Two exclusions share topic and paragraph locator",
+      "written": 0,
+      "unchanged": true
+    },
+    {
+      "case": "A published clause wording changed",
+      "record": "Q05349",
+      "refused": true,
+      "unchanged": true
+    }
+  ]
+}

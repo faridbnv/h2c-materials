@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { openTables, nextId, projectRoot } from '../data/table-io.mjs';
 import { locate } from '../data/source-store.mjs';
+import { reviewedClause } from './coverage-clause.mjs';
 
 export function applyCoveragePacket(name, digest, migration) {
   const at = join(projectRoot, 'docs/audits/2026-09-30-coverage-expansion');
@@ -40,7 +41,7 @@ export function applyCoveragePacket(name, digest, migration) {
       assertRow(row, op.Expected, op.Expected[key]);
       work.push(op);
     } else {
-      const row = t.rows(op.Table).find((r) => r.GradeID === op.Proposed.GradeID && r.SourceID === op.Proposed.SourceID && r.Topic === op.Proposed.Topic && r.Locator === op.Proposed.Locator);
+      const row = reviewedClause(t.rows(op.Table), op.Proposed, packet.Operations, op.Table, key, migration);
       if (row) { assertRow(row, op.Proposed, row[key]); continue; }
       work.push(op);
     }
