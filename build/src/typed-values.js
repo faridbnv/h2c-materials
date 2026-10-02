@@ -89,6 +89,15 @@ export function reviewFields(r) {
 }
 const explains = (r, column) => reviewFields(r)?.has(column) ?? false;
 
+// The typed columns of a measurement that differ from the parser's reading, whether or not a review explains them, so
+// that a review naming a column that no longer differs can be found (PARSE-REVIEW-STALE). Kept per row object.
+const measurementDiffers = new WeakMap();
+function differs(r, column) {
+  if (!measurementDiffers.has(r)) measurementDiffers.set(r, new Set());
+  measurementDiffers.get(r).add(column);
+  return explains(r, column);
+}
+
 /** A Parse review must name the typed columns it explains, and only columns its row has. */
 export function checkReviewScope(r, issues, where, columns) {
   const fields = reviewFields(r);
@@ -176,7 +185,7 @@ export function applyAnnealTyped(r, parsed, issues) {
   const stateCell = (v, annealed) => (v != null ? String(v) : annealed ? NP : NA);
   for (const [k, column] of [['tempC', 'Anneal °C'], ['hours', 'Anneal h']]) {
     const expected = stateCell(read[k], !!parsed);
-    if (r[column] !== expected && typed[k] !== read[k] && !explains(r, column)) {
+    if (r[column] !== expected && typed[k] !== read[k] && !differs(r, column)) {
       issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `${column} is ${r[column] ?? 'empty'} but the parser reads "${r['Post-processing']}" as ${expected}; correct the typed value, or explain it in Parse review` });
     }
   }
@@ -193,7 +202,7 @@ export function applyStateTyped(r, issues) {
   checkReviewScope(r, issues, `measurements ${r.MeasurementID}`, MEASUREMENT_REVIEW_COLUMNS);
   for (const { typed, raw, read } of MEASUREMENT_STATES) {
     const expected = read(r[raw]);
-    if (expected != null && r[typed] !== expected && !explains(r, typed)) {
+    if (expected != null && r[typed] !== expected && !differs(r, typed)) {
       issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `${typed} is ${r[typed] ?? 'empty'} but the source's words "${r[raw]}" read as ${expected}; correct the typed value, or explain it in Parse review` });
     }
   }
@@ -206,7 +215,7 @@ export function applyStateTyped(r, issues) {
 export function applyStandardsTyped(r, issues) {
   const stored = r.Standards === NP ? [] : String(r.Standards ?? '').split(';').map((x) => x.trim()).filter(Boolean);
   const read = readStandards(r['Standard / load']);
-  if (stored.join('; ') !== read.join('; ') && !explains(r, 'Standards')) {
+  if (stored.join('; ') !== read.join('; ') && !differs(r, 'Standards')) {
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Standards is ${stored.join('; ') || NP} but the parser reads "${r['Standard / load']}" as ${read.join('; ') || 'no standard'}; correct the typed value, or explain it in Parse review` });
   }
   return stored;
@@ -215,7 +224,7 @@ export function applyStandardsTyped(r, issues) {
 /** Overlay the stored test load on the HDT parser's reading. */
 export function applyLoadTyped(r, h, issues) {
   const load = value(r['Test load MPa']);
-  if (load !== h.loadMPa && !explains(r, 'Test load MPa')) {
+  if (load !== h.loadMPa && !differs(r, 'Test load MPa')) {
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Test load MPa is ${load ?? 'Not published'} but the parser reads "${r['Standard / load']}" as ${h.loadMPa ?? 'no stated load'}; correct the typed value, or explain it in Parse review` });
   }
   return load === h.loadMPa ? h : { ...h, loadMPa: load, loadStated: load !== null, label: load === null ? 'load not stated' : `${load} MPa (reviewed)` };
@@ -231,8 +240,19 @@ export const testTemperatureCell = (text) => cell(readTestTemperature(text), NP)
 export function applyTestTemperatureTyped(r, issues) {
   const stored = value(r['Test temperature °C']);
   const read = readTestTemperature(r['Test temperature']);
-  if (stored !== read && !explains(r, 'Test temperature °C')) {
+  if (stored !== read && !differs(r, 'Test temperature °C')) {
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Test temperature °C is ${r['Test temperature °C'] ?? 'empty'} but the parser reads "${r['Test temperature']}" as ${read ?? NP}; correct the typed value, or explain it in Parse review` });
   }
   return stored;
+}
+
+/**
+ * A measurement's Parse review that names a column which agrees with the parser's reading explains a difference that is
+ * gone, and would silence the next one (D115, as for a print profile). Called once every typed check of the row has run.
+ */
+export function checkMeasurementReviewStale(r, issues) {
+  const seen = measurementDiffers.get(r) ?? new Set();
+  for (const c of reviewFields(r) ?? []) {
+    if (MEASUREMENT_REVIEW_COLUMNS.includes(c) && !seen.has(c)) issues.push({ level: 'error', code: 'PARSE-REVIEW-STALE', where: `measurements ${r.MeasurementID}`, message: `Parse review explains ${c}, which agrees with the parser's reading; take it out of the review's Fields` });
+  }
 }

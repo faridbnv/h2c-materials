@@ -15,7 +15,7 @@ import { classifyTopic, classifyFinding, countUsableByCategory } from './normali
 import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
-import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped, applyTestTemperatureTyped } from './typed-values.js';
+import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped, applyTestTemperatureTyped, checkMeasurementReviewStale } from './typed-values.js';
 import { readRecipe, checkMakerEnclosed } from './recipe.js';
 import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
@@ -94,6 +94,7 @@ function compileMeasurements(rows, fatigueRows, issues, pageContextRows = []) {
       const h = applyLoadTyped(r, parseHdtStandard(r['Standard / load']), issues);
       m.thermal = { standard: h.standard, loadMPa: h.loadMPa, loadStated: h.loadStated, label: h.label, origin: ORIGIN.PARSED };
     }
+    checkMeasurementReviewStale(r, issues);
     if (r.Property === 'Fatigue life') {
       // The loading lives in data/tables/fatigue_tests.csv, one row per fatigue measurement (m31).
       const f = fatigueById.get(r.MeasurementID);

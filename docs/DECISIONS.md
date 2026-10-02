@@ -3822,7 +3822,7 @@ Built by Claude (an agent).*
   the other's values where its own sheet is silent (D89). GRADE-KEY-PRODUCTS no longer flags a key whose products are
   linked twin by twin. A product reads a twin of its own maker before another maker's reprint. A key still never
   spans two materials (R166): 13 such pairs are accepted with that reason.
-- **Reviews (D115).** PARSE-REVIEW-STALE: a print profile's Parse review that names a column agreeing with the parser
+- **Reviews (D115).** PARSE-REVIEW-STALE: a print profile's or a measurement's Parse review that names a column agreeing with the parser
   stops the build, because it would silence the next difference in that column.
 - **Page statements (D116).** A page's specimen statement does not reach a melt flow rate, which is measured on the
   melt.

@@ -210,6 +210,16 @@ test('a review that explains a difference the parser no longer makes stops the b
   assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'Fields: none. A note about the sheet.'; }), []);
 });
 
+test('a measurement\'s review that explains a difference the parser no longer makes stops the build (PARSE-REVIEW-STALE)', () => {
+  const cold = base.Properties.rows.find((r) => r['Test temperature'] === '-30°C' && r['Parse review'] === 'Not applicable');
+  const issuesOf = (edit) => { const wb = structuredClone(base); edit(wb.Properties.rows.find((r) => r.MeasurementID === cold.MeasurementID)); return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).issues.filter((i) => i.code === 'PARSE-REVIEW-STALE').map((i) => `${i.where}: ${i.message}`); };
+  // The typed -30 agrees with the wording, so a review naming that column explains nothing.
+  assert.deepEqual(issuesOf((r) => { r['Parse review'] = 'Fields: Test temperature °C. Reviewed.'; }), [`measurements ${cold.MeasurementID}: Parse review explains Test temperature °C, which agrees with the parser's reading; take it out of the review's Fields`]);
+  // Where the column does differ, the review is doing its work; "Fields: none." silences nothing and is never stale.
+  assert.deepEqual(issuesOf((r) => { r['Test temperature °C'] = '23'; r['Parse review'] = 'Fields: Test temperature °C. Reviewed.'; }), []);
+  assert.deepEqual(issuesOf((r) => { r['Parse review'] = 'Fields: none. A note about the sheet.'; }), []);
+});
+
 test('a typed endpoint its cell does not state, and an open bound typed as a point, stop the build whatever a review says', () => {
   const issuesOf = (edit, code) => { const wb = structuredClone(base); edit(wb); return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).issues.filter((i) => i.code === code).map((i) => i.message); };
   // The data audit's case: a bed minimum of 3 read from "for 3D printers", behind a review about another column.

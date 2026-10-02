@@ -1100,8 +1100,7 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   or a statement that does not speak for the rows it flagged, or a standard printed without its letter, and 20 on print
   profiles, each a reading the profile is right to differ from (a test bar's single temperature under a heading the
   reader does not know, a neighbouring column, purefil's mislabelled bed row, a brass-wear caution, a decimal comma);
-  IMPACT-UNIT-STANDARD keeps 24, each a sheet that prints kJ/m² beside ASTM D256. PARSE-REVIEW-STALE checks print profiles only; a measurement's scoped
-  review is not yet checked for staleness.
+  IMPACT-UNIT-STANDARD keeps 24, each a sheet that prints kJ/m² beside ASTM D256. PARSE-REVIEW-STALE checks print profiles and measurements alike.
 - **What the independent review left open.** A page_context row speaks for a property class of a page, not for one
   table, so a statement that heads one of two tables on a page reaches the other (PC00012 and PC00041 were found and
   corrected in m286; a probe of all 88 found no other). The migrations' quote check proves a quote is on the cached
