@@ -813,8 +813,7 @@ narrower and more honest, and leave these, each with where it is counted:
   derivatives before source rereads. The existing test's partial-cache limitation remains: a fixture-created
   .cache/text is not a complete source library. Never query an old SQLite directly after a data change; npm run sql
   rebuilds it when its inputs/release are stale.
-- **What F14 and F13 left** (D104, D105): `ingest:fetch --refetch --recheck` still overwrites an applied document's
-  digest rather than recording a new revision; `audit:sources` has its own unbounded fetch; the reader was not split
+- **What F14 and F13 left** (D104, D105): `audit:sources` has its own unbounded fetch; the reader was not split
   into adapters; and a traced decision does not report its rank. The source bundle now preserves the cached text's
   reader/version metadata and hashes its derived files; it does not package executable OCR/parser environments.
 - **The frozen research worklist is dry/as-printed.** Additional S01/S03/S04 annealed and S05 conditioned policies

@@ -22,6 +22,8 @@
 //   npm run ingest:fetch -- --doc <doc_key>          one document
 //   npm run ingest:fetch -- --provider X --limit 5   the first few, to see what a library serves
 //   npm run ingest:fetch -- ... --refetch            fetch again even where a digest is recorded
+//   npm run ingest:fetch -- ... --refetch --recheck  and an applied or registered document too: its digest never changes;
+//                                                    other bytes are stored by their own digest and the note records a new revision
 //   npm run ingest:fetch -- ... --max-mb 200         accept a larger document than LIMITS.maxBytes, for this run
 //   npm run ingest:fetch -- ... --timeout-s 90       wait longer for a slow host's answer, for this run
 //   npm run ingest:fetch -- --compact                fold an interrupted run's journal into the ledger, and fetch nothing
@@ -188,29 +190,50 @@ export async function get(url, { accept = '*/*', limits = LIMITS, signal } = {})
   }
 }
 
-/** One document: fetch, hash, store, and say what happened in the ledger's words. */
-export async function fetchDocument(row, { digests, refetch = false, limits = LIMITS, signal } = {}) {
-  // A document already in the database is fetched again only to check it is still what it was: whatever comes
-  // back, the ledger goes on saying it was applied, because it was.
+/**
+ * A ledger note with one clause set: a clause that starts with `tag` is replaced (or dropped, for a null `clause`) and
+ * the rest are kept. Clauses are separated by "; ", so a row's own note survives what a recheck adds to it.
+ */
+const withClause = (note, tag, clause) => [...String(note ?? '').split('; ').filter((c) => c && !c.startsWith(tag)), ...(clause ? [clause] : [])].join('; ');
+
+/**
+ * One document: fetch, hash, store, and say what happened in the ledger's words.
+ *
+ * A document that has been applied or registered is its recorded bytes (D35): its digest never changes. A `recheck`
+ * fetches it again only to see whether the host still serves them. The same bytes change nothing but the date. Other
+ * bytes are stored under their own digest, the row keeps its digest and its status, and its note records that a new
+ * revision was served, with that digest and the date, for a later import to register as a source row of its own.
+ * A failed recheck is noted the same way and leaves the row as it was.
+ */
+export async function fetchDocument(row, { digests, refetch = false, recheck = process.argv.includes('--recheck'), limits = LIMITS, signal, store = storeBytes, today = new Date().toISOString().slice(0, 10) } = {}) {
   const entered = ['applied', 'registered'].includes(row.status);
   if (row.sha256 && !refetch) return { status: row.status === 'inventoried' ? 'fetched' : row.status, note: row.status_note };
-  if (entered && !process.argv.includes('--recheck')) return { status: row.status, note: row.status_note };
+  if (entered && !recheck) return { status: row.status, note: row.status_note };
   const how = adapter(row.url);
   if (how.kind === 'invalid' || how.kind === 'manual') return { status: how.kind === 'manual' ? 'needs-staging' : 'unreachable', note: how.reason };
 
+  // An entered document keeps its status and digest whatever the recheck finds; its note says what happened.
+  const recorded = entered && row.sha256;
+  const kept = (reason) => ({ status: row.status, note: withClause(row.status_note, 'recheck failed', `recheck failed ${today}: ${reason}`) });
   const got = await get(how.url, { limits, signal });
   // A document stopped in flight by the operator is not a document the host failed to serve: it is left as it was.
   if (got.state === 'cancelled') return { cancelled: true };
   // A document larger than a run accepts is the one fetch failure that more patience will not fix: it waits for a run
   // with a larger --max-mb, or for the owner to stage it.
-  if (got.error) return { status: got.state === 'too-large' ? 'too-large' : 'unreachable', note: `${got.error} on ${new Date().toISOString().slice(0, 10)}` };
+  if (got.error) return recorded ? kept(got.error) : { status: got.state === 'too-large' ? 'too-large' : 'unreachable', note: `${got.error} on ${today}` };
 
   const isPdf = got.bytes.subarray(0, 5).toString('latin1') === '%PDF-';
   if (how.kind === 'pdf' && !isPdf) {
     // A link that says .pdf and serves a page is a library that lost the file, or a consent wall.
-    return { status: 'unreachable', note: `served ${got.type || 'something'} rather than a PDF` };
+    const reason = `served ${got.type || 'something'} rather than a PDF`;
+    return recorded ? kept(reason) : { status: 'unreachable', note: reason };
   }
-  const { sha } = storeBytes(got.bytes);
+  const { sha } = store(got.bytes);
+  if (recorded) {
+    if (sha === row.sha256) return { status: row.status, note: withClause(row.status_note, 'recheck failed', null) };
+    const seen = row.status_note.includes(`new revision ${sha}`);
+    return { status: row.status, note: seen ? row.status_note : withClause(row.status_note, `new revision ${sha}`, `new revision ${sha} served ${today}, not registered (the recorded digest ${row.sha256} stands, D35)`) };
+  }
   const twin = digests.get(sha);
   if (twin && twin !== row.doc_key) return { sha256: sha, status: 'duplicate-of', duplicate_of: twin, duplicate_kind: 'identical-sha', note: '' };
   digests.set(sha, row.doc_key);

@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { csvText, readCsv } from '../build/src/csv.js';
-import { rowForStagedFile, adapter, request, get, fetchDocument, limiter, fold, retryAfterMs, LIMITS } from '../scripts/ingest/fetch.mjs';
+import { rowForStagedFile, adapter, request, get, fetchDocument, ledgerChange, limiter, fold, retryAfterMs, LIMITS } from '../scripts/ingest/fetch.mjs';
 import { HEADER } from '../scripts/ingest/inventory.mjs';
 
 const rows = [
@@ -246,4 +246,38 @@ test('a run killed part-way resumes without fetching again a document it finishe
     assert.equal(ledger.get('fixture-b').sha256, digest(pdf('document b')));
     assert.ok(!existsSync(journal), 'the journal is folded into the ledger and removed');
   } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('an applied document refetched with other bytes keeps its digest and records the new revision; the same bytes change only the date', async () => {
+  const served = pdf('document a');
+  const stored = new Map();
+  const store = (bytes) => { const sha = digest(bytes); stored.set(sha, bytes); return { sha, path: `by-sha/${sha}`, stored: true }; };
+  const row = { doc_key: 'x', url: `${base}/a.pdf`, status: 'applied', sha256: digest(served), status_note: 'applied in b01' };
+  const opts = { digests: new Map(), refetch: true, recheck: true, limits: quick, store, today: '2026-10-02' };
+  // The same bytes: the digest and status stand, the note is as it was, and the ledger change carries only the date.
+  const same = await fetchDocument(row, opts);
+  assert.equal(same.sha256, undefined);
+  assert.equal(same.status, 'applied');
+  assert.equal(same.note, 'applied in b01');
+  const unchanged = ledgerChange(same, '2026-10-02');
+  assert.deepEqual(unchanged, { status: 'applied', status_note: 'applied in b01', updated: '2026-10-02' });
+  // Other bytes: stored by their own digest, recorded on the note, the recorded digest and status untouched.
+  const revised = { ...row, sha256: digest(pdf('the sheet as it was applied')) };
+  const result = await fetchDocument(revised, opts);
+  assert.equal(result.sha256, undefined, 'a digest in the result would overwrite the recorded one');
+  assert.equal(result.status, 'applied');
+  assert.ok(stored.has(digest(served)), 'the new bytes are kept by their own digest');
+  assert.equal(result.note, `applied in b01; new revision ${digest(served)} served 2026-10-02, not registered (the recorded digest ${revised.sha256} stands, D35)`);
+  const change = ledgerChange(result, '2026-10-02');
+  assert.equal(change.sha256, undefined);
+  // Served again, the same revision is not noted twice; a host that fails leaves the row and says so.
+  assert.equal((await fetchDocument({ ...revised, status_note: result.note }, opts)).note, result.note);
+  const failed = await fetchDocument({ ...revised, url: `${base}/gone.pdf` }, opts);
+  assert.equal(failed.status, 'applied');
+  assert.equal(failed.sha256, undefined);
+  assert.equal(failed.note, 'applied in b01; recheck failed 2026-10-02: HTTP 404 Not Found');
+  // A document not yet applied is refetched and its digest updated, as before.
+  const open = await fetchDocument({ ...revised, status: 'fetched', status_note: '' }, opts);
+  assert.equal(open.sha256, digest(served));
+  assert.equal(open.status, 'fetched');
 });

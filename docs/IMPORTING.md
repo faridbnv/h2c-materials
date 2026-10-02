@@ -57,7 +57,11 @@ npm run data:sources -- --manifest | --export <dir> | --restore <dir>   # the ca
 A fetch is bounded (30 s to answer, 120 s for the body, 30 s of silence inside it, 64 MB) and tries a timeout, a
 reset, a 429 (after its Retry-After) or a 5xx four times; what still fails is `unreachable` or `too-large`, the reason
 first in its note. Each document is journalled as it finishes, so a run stopped with Ctrl-C, or killed, resumes without
-fetching it again. The live paths are named in `scripts/ingest/context.mjs`, and `H2C_INGEST_ROOT`, `H2C_PROPOSALS`
+fetching it again. `--refetch` fetches a document again where a digest is recorded; with `--recheck` it reaches an
+applied or registered one too, and that document's digest never changes (D35): the same bytes change only the date,
+other bytes are stored under their own digest and its note records "new revision <digest> served <date>" for a later
+import to register as a source row of its own, and a failed recheck leaves its status and digest and says why in the
+note. The live paths are named in `scripts/ingest/context.mjs`, and `H2C_INGEST_ROOT`, `H2C_PROPOSALS`
 and `H2C_DOCUMENT_CACHE` move them. `data:sources` never fetches: a restore takes back only bytes that hash to a
 registered or ledger digest, and names the digests still missing.
 
