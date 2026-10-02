@@ -180,10 +180,6 @@ export function shareMark(e) {
   return ` ${explainButton(text, title, { cls: 'share', head: 'Products that pass', action: 'products', id: e.materialId })}`;
 }
 
-/**
- * What an UNKNOWN rests on (the PM trial, PM-02): every product that could be measured fails, and the rest publish
- * nothing ("likely fails"), or nothing is published at all. D100 keeps both unresolved; a reader is told which.
- */
 /** A pass carried only by declared Variants (a foamed or densely filled grade) says so (PM-01, D57). */
 export function variantMark(m, e) {
   if (e?.verdict !== 'PASS') return '';
@@ -211,6 +207,10 @@ export function typicalStateMark(h, measurementState) {
   return words ? `<span class="row-sub typical-state" title="The typical value shown is a measurement taken ${words}; the verdict judges each product as printed and dry unless you allow otherwise.">typical: ${words}</span>` : '';
 }
 
+/**
+ * What an UNKNOWN rests on (the PM trial, PM-02): every product that could be measured fails, and the rest publish
+ * nothing ("likely fails"), or nothing is published at all. D100 keeps both unresolved; a reader is told which.
+ */
 export function unknownMark(e) {
   const c = e?.counts;
   if (!c || e.verdict !== 'UNKNOWN') return '';

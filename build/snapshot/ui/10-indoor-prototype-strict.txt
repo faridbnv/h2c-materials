@@ -246,7 +246,7 @@ Nylon / Polyamide
 PA12-CF
 Nylon / Polyamide
  PASS
-3 of 3 products
+4 of 4 products
  1,070
 1,030–1,230 · 12
  3.32
@@ -346,11 +346,11 @@ Nylon / Polyamide
 1,030–1,090 · 2
  4.88
 3.5–5.14 · 3
- 83.3
-68–91.9 · 3
+ 80
+68–91.9 · 2
 typical: annealed
- 3.16
-2.6–3.5 · 3
+ 3.05
+2.6–3.5 · 2
 typical: annealed
  175 170
 98–242 · 2
@@ -633,7 +633,7 @@ typical: annealed
 18–80 · 27
 ↗ ☆
 PLA Aero PASS
-6 of 6 products
+7 of 7 products
  1,150
 840–1,240 · 8
  1.52
@@ -663,7 +663,7 @@ PLA blend-CF PASS
 1,200–1,360 · 2
  7.12* 65* 2.5* 74 — ☆
 PLA Galaxy PASS
-2 of 2 products
+3 of 3 products
  1,225
 1,190–1,240 · 4
  1.79
@@ -695,7 +695,7 @@ typical: annealed
 32–40 · 2
 ↗ ☆
 PLA Marble PASS
-2 of 2 products
+3 of 3 products
  1,250
 1,220–1,260 · 5
  2.03
@@ -724,7 +724,7 @@ typical: annealed
 58–62 · 2
  32↗ ☆
 PLA Silk PASS
-16 of 16 products
+21 of 21 products
  1,240
 1,210–1,320 · 30
  1.72
@@ -740,7 +740,7 @@ typical: annealed
 29–48 · 6
 ↗ ☆
 PLA Sparkle PASS
-2 of 2 products
+3 of 3 products
  1,255
 1,240–1,410 · 4
  1.94
@@ -755,7 +755,7 @@ typical: annealed
 50.8–55 · 2
  32↗ ☆
 PLA Wood PASS
-7 of 7 products
+8 of 8 products
  1,200
 970–1,300 · 17
  1.68
@@ -811,7 +811,7 @@ PLA-NF PASS
 PP
 Polyolefins
  PASS
-2 of 2 products
+3 of 3 products
  900
 890–960 · 8
  1.2* 19 850 80
@@ -915,7 +915,7 @@ typical: annealed
 PVB
 PVB / Specialty Polymers
  PASS
-2 of 2 products
+3 of 3 products
  1,100
 1,080–1,100 · 6
  2.21
@@ -954,7 +954,7 @@ Flexible Elastomers
 TPU 90A class
 Flexible Elastomers
  PASS
-8 of 8 products
+9 of 9 products
  1,210
 1,120–1,240 · 10
  0.0162

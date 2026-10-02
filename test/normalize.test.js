@@ -331,3 +331,21 @@ test('the error-class sweep of 2026-10-01: the spellings the readers found unrea
   const kumovis = parseTemperature('160 - 230 °C', { plausible: [0, 250] });
   assert.deepEqual([kumovis.min, kumovis.max], [160, 230]);
 });
+
+test('the control re-read of 2026-10-01: an at-most bed, a conditional bed, an answered question in German', () => {
+  // "< 80°C" is at most 80, not the point 80.
+  const atMost = parseTemperature('< 80°C', { plausible: [0, 250] });
+  assert.deepEqual([atMost.min, atMost.max, atMost.openLow], [null, 80, true]);
+  // A window for a printer that has a heated bed is a recommendation.
+  assert.equal(parseTemperature('If you have a heated bed the recommended temperature is ± 35-60˚C').requirement, REQUIREMENT.RECOMMENDED);
+  assert.equal(parseAbrasion('Hardened Nozzle nein').requiresHardened, false);
+  assert.equal(parseAbrasion('Hardened Nozzle ja').requiresHardened, true);
+  // A recommended point inside a window is not one of its ends.
+  const flash = parseTemperature('Room temperature~60℃ (40℃ recommended)', { plausible: [0, 250] });
+  assert.deepEqual([flash.min, flash.max], [25, 60]);
+  // An at-least value with its plus before the unit.
+  assert.deepEqual([parseTemperature('100+ °C', { plausible: [0, 250] }).min, parseTemperature('100+ °C', { plausible: [0, 250] }).max], [100, null]);
+  const nozzle = parseTemperature('240~270°C (250°C recommended)', { plausible: [100, 500] });
+  assert.deepEqual([nozzle.min, nozzle.max], [240, 270]);
+});
+

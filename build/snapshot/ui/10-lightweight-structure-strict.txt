@@ -1,7 +1,7 @@
-COUNT 14 shown PASS
-STATUS ☑ PASS 14 | ☐ UNKNOWN 92 | ☐ FAIL 47
-14 of the 153 materials meet these requirements
-Lightweight structure template · 92 more could not be checked, left out under Confirmed only
+COUNT 15 shown PASS
+STATUS ☑ PASS 15 | ☐ UNKNOWN 91 | ☐ FAIL 47
+15 of the 153 materials meet these requirements
+Lightweight structure template · 91 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -196,6 +196,24 @@ typical: annealed
  33.3
 18–80 · 27
 ↗ ☆
+PLA Aero PASS
+1 of 5 products
+ passing: 840
+all products: 1,150
+840–1,240 · 8
+ passing: 3.1
+all products: 1.52
+0.893–3.1 · 6
+typical: annealed
+ 24
+10.4–39.2 · 7
+typical: annealed
+ 8.8
+2.6–16.9 · 6
+ 53
+48–59 · 7
+typical: annealed
+ 58↗ ☆
 PLA-CF PASS
 2 of 11 products
  passing: 1,240–1,250

@@ -1092,13 +1092,24 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   the opposite were corrected (m282); the rule belongs in `method.csv`, shown as a rule.
 - **Values never transcribed**, seen while re-reading: Raise3D Industrial PET-CF's table (5,731 / 3,270 MPa, 73 / 34
   MPa, 7.75 kJ/m²; only its prose "over 6 GPa" is recorded), BASF PET CF15's 63.2 MPa tensile strength, the 3D-printed
-  sections of colorFabb LW-PLA and LW-PLA-HT, and Stratasys PA6/66-GF30 FR's XZ heat deflections (185 and 153 °C).
+  sections of colorFabb LW-PLA and LW-PLA-HT, Stratasys PA6/66-GF30 FR's XZ heat deflections (185 and 153 °C), and
+  Polymaker PolyMide CoPA's "(Wet Status)" table.
   `npm run audit:sources` finds such values; the import pause keeps them out until it is lifted.
-- **Guard precision.** `audit:context` keeps 53 accepted findings where it matched a neighbouring line or a statement
-  that does not speak for the rows it flagged; IMPACT-UNIT-STANDARD keeps 28, each a sheet that prints kJ/m² beside ASTM
-  D256. PARSE-REVIEW-STALE checks print profiles only; a measurement's scoped review is not yet checked for staleness.
-- **Not yet measured.** The fresh random re-read that says how much the sweep removed (the audit's 6.3 % of deciding
-  measurements and 11.5 % of print profiles) is the next step.
+- **Guard precision.** `audit:context` keeps 62 accepted findings where it matched a neighbouring line, or a statement
+  that does not speak for the rows it flagged, or a standard printed without its letter; IMPACT-UNIT-STANDARD keeps 24,
+  each a sheet that prints kJ/m² beside ASTM D256. PARSE-REVIEW-STALE checks print profiles only; a measurement's scoped
+  review is not yet checked for staleness.
+- **What the independent review left open.** A page_context row speaks for a property class of a page, not for one
+  table, so a statement that heads one of two tables on a page reaches the other (PC00012 and PC00041 were found and
+  corrected in m286; a probe of all 88 found no other). The migrations' quote check proves a quote is on the cached
+  sheet, not that it applies to the rows it is used for. `audit:context` needs the text cache, so CI skips it and only a
+  contributor's `verify` runs it. The 147 reviews m274 scoped were scoped to the columns that differed, not re-read.
+- **Print profiles are not yet at their target.** Five fresh random re-reads after the sweep found 8 of 30, 8 of 40, 3
+  of 40, 9 of 40 and 3 of 40 profiles wrong (the target is under 3 %; deciding measurements met theirs, 1 of 70). Each
+  draw found a family of sheet layouts the import's reader did not know, and m285 to m289 swept each family; the last
+  draw's three are fixed. The import's reader is now the guard (`npm run audit:context`), so a family it learns is
+  checked on every profile, but a layout it cannot read is still found only by reading. The next measure is another
+  draw of 40; a full re-read of the 1,323 profiles would settle it.
 
 ```sh
 npm run data:lint && npm run audit:context

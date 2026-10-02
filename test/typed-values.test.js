@@ -215,6 +215,9 @@ test('a typed endpoint its cell does not state, and an open bound typed as a poi
   // The data audit's case: a bed minimum of 3 read from "for 3D printers", behind a review about another column.
   const bounds = issuesOf((wb) => { Object.assign(profile(wb, fixture.ProfileID), { 'Bed °C': '90 - 110°C', 'Bed state': 'range', 'Bed min °C': '3', 'Bed max °C': '110', 'Bed requirement': 'required', 'Parse review': 'Fields: Bed min °C. Reviewed.' }); }, 'PARSE-TEXT-BOUNDS');
   assert.deepEqual(bounds, ['Bed min °C is 3, a number "90 - 110°C" does not state']);
+  // A number inside a word is not a stated temperature: "3D" in the cell's own text does not make 3 a bed minimum.
+  const word = issuesOf((wb) => { Object.assign(profile(wb, fixture.ProfileID), { 'Bed °C': '90 - 110°C for 3D printers', 'Bed state': 'range', 'Bed min °C': '3', 'Bed max °C': '110', 'Bed requirement': 'required', 'Parse review': 'Fields: Bed min °C. Reviewed.' }); }, 'PARSE-TEXT-BOUNDS');
+  assert.deepEqual(word, ['Bed min °C is 3, a number "90 - 110°C for 3D printers" does not state']);
   const open = issuesOf((wb) => { Object.assign(profile(wb, fixture.ProfileID), { 'Bed °C': '> 80 °C recommended', 'Bed state': 'range', 'Bed min °C': '80', 'Bed max °C': '80', 'Bed requirement': 'required', 'Parse review': 'Fields: Bed max °C. Reviewed.' }); }, 'OPEN-BOUND-WINDOW');
   assert.deepEqual(open, ['Bed "> 80 °C recommended" is an open bound, but its typed window is the single point 80']);
 });

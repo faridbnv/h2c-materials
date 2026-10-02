@@ -1,0 +1,27 @@
+{
+  "release": "cc18ed47563c",
+  "parent_commit": "ed6f1823e447cb890e7185eca2f402d06d11cc5c",
+  "full_verify_exit": 0,
+  "full_verify_seconds": 253.7,
+  "unit_tests": 465,
+  "import_tests": 194,
+  "native_interface_views": 69,
+  "rendered_scenarios": 300,
+  "rendered_readings": 2596,
+  "audit_context": "76 findings, 76 accepted with a reason, 0 stale",
+  "data_lint": "268 findings, 268 accepted, 0 stale",
+  "compile_parse_checks": "no PARSE-MISMATCH, PARSE-TEXT-BOUNDS, OPEN-BOUND-WINDOW, PARSE-REVIEW-SCOPE or PARSE-REVIEW-STALE",
+  "migrations_reproduce": "m275–m289 rerun from the committed tables give byte-identical tables",
+  "pm_harness": "146 scenarios on this release: page and engine agree on all 118 with an engine answer; 0 of the 9 first-round confident wrong answers remain (Sonnet tester)",
+  "controls": {
+    "deciding_measurements": "1 of 70",
+    "print_profiles": [
+      "8 of 30 (after m284)",
+      "8 of 40 (after m286)",
+      "3 of 40 (after m287)",
+      "9 of 40 (after m287's second pass)",
+      "3 of 40 (after m288; fixed in m289)"
+    ]
+  },
+  "independent_review": "AI (Claude Sonnet); no human review; APPROVE_WITH_FINDINGS, none high; responses in review.json"
+}

@@ -97,3 +97,51 @@ environment, PETG 71 to 70), from twins reading their sibling's values and page 
 headline values moved (tensile modulus in 6 materials, tensile strength 5, glass transition 4, elongation 4, density
 3, heat deflection 3). `build:diff`: 20,139 paths, nearly all grade
 estimates refitted on the de-duplicated formulations.
+
+## Phase 4: measured again, reviewed, and what that found
+
+**The confident wrong answers.** The PM trial's 146 scenarios ran again on this build (`PM-TRIAL-2026-10-01/harness`):
+page and engine agree on all 118 that have an engine answer, as before; one scenario's step named the old "Heat
+resistance" label and was renamed. A Sonnet tester re-read the nine scenarios judged confidently wrong in the first
+round against their new screens: none is now (`verdicts-v2-confident-wrong.csv`). What it still found unclear: a pass
+via a declared variant does not name the variant's product; Compare shows a bare UNKNOWN.
+
+**Fresh random re-reads.** 100 records none of the earlier rounds had read (70 deciding measurements, 30 print profiles;
+`data-audit/control-v3.mjs`), then four more draws of 40 profiles none of the rounds had read (`control-v4` to `-v7`),
+each after the fixes the previous one led to. Two Sonnet readers for the first, one for each later draw; every
+non-correct verdict was re-read by Claude Opus against the cached sheet.
+
+| Population | Data audit, before | Control after m284 | Four profile controls, each after the fixes the last led to | Target |
+|---|---|---|---|---|
+| Deciding measurements | 6.3 % | 1 of 70 (1.4 %): a "(Dry Status)" heading not carried | | < 2 % |
+| Print profiles | 11.5 % | 8 of 30 (27 %) | 8 of 40, 3 of 40, 9 of 40, 3 of 40 (7.5 %) | < 3 % |
+
+The measurements met their target. The profiles did not, and each draw told why: the import read print settings with
+a label list and a value reader that each knew only what earlier sheets had taught them, so every draw found a new
+family of omissions and part-held cells. Each family was fixed where it lives and swept across every profile, not one
+by one: the guard now runs the import's own sheet reader over every profile's sheet, compares what each cell holds with
+what the reader reads there, and reads the sheet block by block (D119). What the draws found and the sweeps then fixed:
+
+| Migration | Family | Profiles |
+|---|---|---|
+| m285 | labels nobody had listed ("Hot pad", "Closure chamber", "Drying Preparation"), a question answered a line away (six Spectrum TPUs typed a hardened nozzle the sheet says No to), "< 80°C" as a point | 114 settings, 6 bounds |
+| m287 | part-held cells: drying cut before its hours, "140 ºC +" without its plus, a split number, a fragment of the sentence before; a recommended point read as a window's end; Polymaker's environmental temperature | 66 |
+| m288 | the test block taken for guidance (eSUN's "Print test condition", 3DXTECH's specimen conditions); SUNLU's "Room Temp." row; FIBERON's run-together chamber cell | 86 |
+| m289 | Polymaker's two-column drying, Creality's horizontal table, prose drying advice, a label split by the text layer | 17 |
+
+The last draw found 3 of 40 (7.5 %), each now fixed with its family; it is the figure to beat with the next draw.
+Among the profiles corrected: "TPU 85A class and softer" no longer asks for a hardened nozzle, and PLA Aero passes
+Lightweight structure and PP passes Flexible component, because a product of each now has its chamber recorded.
+
+**The independent review** (Claude Sonnet, `review.json`): approve with findings, none high. Acted on (m286): a page
+statement (PC00012) that gave QIDI PA12-CF's unannealed Z values the annealing of the column beside them, and one
+(PC00041) that reached a glass transition under another table's heading; five raw Standard / load cells that had a
+normalised standard written into them; nine 3DJake bed windows recorded as a fragment of "If you have a heated bed the
+recommended temperature is …" and so typed required; four Extrudr impact values printed in J/m-sized numbers under a
+"kj/m²" header beside ASTM D256, now held out; two measurement reviews made stale by the "℃" reader; PARSE-TEXT-BOUNDS
+counting "3D" as a stated 3. A probe of all 88 page statements for a page that holds a second, contrasting table found
+no other case. Left open and listed in OPEN-PROBLEMS §28: a page statement covers a property class of a page, not one
+table; the migrations' quote check proves a quote is on the sheet, not that it applies to the rows; `audit:context`
+runs only where the text cache is, so not in CI; the scoped reviews m274 wrote were scoped by their differences, and
+only the profile side is checked for staleness.
+

@@ -1,5 +1,5 @@
-COUNT 9 shown PASS
-STATUS ☑ PASS 9 | ☐ UNKNOWN 100 | ☐ FAIL 44
+COUNT 10 shown PASS
+STATUS ☑ PASS 10 | ☐ UNKNOWN 99 | ☐ FAIL 44
 GOAL
 None: compare two properties
 Tie, minimum mass, stiffness prescribed
@@ -39,7 +39,7 @@ LINE
 M =
 ▼
 ▲
-8 products from 5 materials above the line
+8 products from 6 materials above the line
 ↑
 Density
 Stiffness (tensile modulus, XY)
@@ -71,20 +71,18 @@ Material cost per volume
 kg/m³
 Lin
 Log
-PLA
+PLA Aero
 ABS-GF
 ASA-CF
 PA6-CF
 PPA-CF
 PP-CF
+800
+900
 1000
-1050
 1100
-1150
 1200
-1250
 1300
-1350
 3
 3.5
 4
@@ -97,7 +95,7 @@ PP-CF
 7.5
 8
 8.5
-E^(1/2) / ρ = 0.00173
+E^(1/2) / ρ = 0.00176
 Nylon / Polyamide
 PLA
 High-Performance Engineering
@@ -110,12 +108,13 @@ better: above the line ↖
 Carbon fibre
 Glass fibre
 Unfilled
+Foaming
 Filled: meets every requirement
 Whisker: the spread a sheet reports for that value
 Line: one value of M; above is better
 Red dashed: a requirement (press its label to change it)
 Colour is polymer family
-Drawn: 15 products from 9 materials, each meeting every requirement.
+Drawn: 16 products from 10 materials, each meeting every requirement.
 READING THIS CHART
 Ranking
 M = E^(1/2) / ρ
@@ -135,49 +134,56 @@ PP-CF
 best: 3DXTECH CarbonX CF PP
 1 product drawn
 3
+PLA Aero
+2.1 GPa^½/(Mg/m³) n=1 0.91×
+⤢
+☆
+best: SUNLU PLA-LW
+1 product drawn
+4
 ASA-CF
 2 GPa^½/(Mg/m³) n=3 0.87×
 ⤢
 ☆
 best: 3DXTECH CarbonX CF ASA
 3 products drawn
-4
+5
 PA6-CF
 1.76 GPa^½/(Mg/m³) n=4 0.76×
 ⤢
 ☆
 best: Eryone PA6-CF
 4 products drawn
-5
+line · M 0.00176
+6
 ABS-GF
 1.73 GPa^½/(Mg/m³) n=2 0.75×
 ⤢
 ☆
 best: 3DXTECH FibreX ABS+GF10 Glass Fiber ABS
 2 products drawn
-line · M 0.00173
-6
+7
 PLA
 1.64 GPa^½/(Mg/m³) n=1 0.71×
 ⤢
 ☆
 best: Nanovia PLA EF 3D850
 1 product drawn
-7
+8
 PLA-CF
 1.6 GPa^½/(Mg/m³) n=1 0.69×
 ⤢
 ☆
 best: QIDI PLA-CF
 1 product drawn
-8
+9
 Nylon, maker-undisclosed polyamide
 1.51 GPa^½/(Mg/m³) n=1 0.65×
 ⤢
 ☆
 best: CreatBot Ultra PA
 1 product drawn
-9
+10
 PAHT
 1.47 GPa^½/(Mg/m³) n=1 0.64×
 ⤢

@@ -13,11 +13,11 @@ rather than repeat a number.
 | … with a comparable value for at least one property | 1,023 | D84 |
 | … with a print profile of their own | 1,008 |  |
 | … reading values from a twin's sheet | 80 | the same table, recorded once (D89) |
-| … reading part of the print gate from a printer maker's guide | 466 | where their own sheet is silent (D88); 33 guide rows |
+| … reading part of the print gate from a printer maker's guide | 463 | where their own sheet is silent (D88); 33 guide rows |
 | … with a maker's know-how statement | 1,049 | lane 3 |
 | Measurements | 11,246 | active rows |
-| … with a usable number | 11,069 |  |
-| Product values | 4,608 | one per product and headline, chosen by rule (D83) |
+| … with a usable number | 11,065 |  |
+| Product values | 4,606 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 663 | headline cells of in-scope materials |
 | Material values estimated | 148 | where no product publishes (D43) |
 | Print profiles | 1,323 |  |

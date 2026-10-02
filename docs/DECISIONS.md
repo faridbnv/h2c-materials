@@ -3825,8 +3825,20 @@ Built by Claude (an agent).*
   stops the build, because it would silence the next difference in that column.
 - **Page statements (D116).** A page's specimen statement does not reach a melt flow rate, which is measured on the
   melt.
+- **Print settings are checked by the import's own reader.** `npm run audit:context` runs the importer's sheet reader
+  (`scripts/ingest/propose.mjs`, readSheet) over every profile's cached sheet and lists each setting it reads that the
+  profile does not hold; a label regex finds only the labels someone listed. A random re-read after the first sweep
+  found 8 of 30 profiles still missing a printed setting ("Hot pad", "Closure chamber", "Drying Preparation", a
+  question answered a line away); the reader-based check then found 117, and m285 records them. Each later control found
+  a further family, each fixed where it lives: the importer cut "º" degrees, a trailing "+" and the hours after a comma;
+  eSUN and 3DXTECH print the settings their test bars were made at beside their guidance, and the import took the test
+  block on 31 profiles. The check now compares the numbers each held cell states with the reader's, and reads a sheet
+  block by block: what sits under "Print test condition", "Printed Specimen Conditions" or "How to make specimens" is
+  not guidance (m170), and no longer hides the guidance beside it.
 - **Readers.** ISO 75's method letter in "HDT/A", "HDT-A" and "ISO 75: Method A", a stated load outranking a
   mislabelled letter ("Method A (0.45 MPa)"); "ISO-R 75"; DIN's five-digit standards ("DIN 53.504"); test temperatures
   printed "℃", "@23° C", "+24°C"; a window marked "(recommended)" after its numbers; an answered question ("Enclosed
-  chamber required No"); a build chamber up to 250 °C. Each was a spelling sheets print that a reader left unread.
+  chamber required No", "Hardened Nozzle nein"); a build chamber up to 250 °C; "< 80°C" as at most 80, not the point 80;
+  a bed window "if you have a heated bed" as a recommendation. Each was a spelling sheets print that a reader left unread.
+  PARSE-TEXT-BOUNDS no longer counts a number inside a word ("3D", "24 months") as a stated temperature.
 

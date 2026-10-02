@@ -1,13 +1,21 @@
 Label,Field,Topic,Note
 "^(nozzle|print(ing)?|extrusion|extruder|hot ?end)\s*temp\w*(\s*[-(]?\s*(standard|high)\s*speed\)?)?|^nozzle(?!\s*(material|type|diameter|size))\b",nozzle,,"a sheet that prints two speeds prints two nozzle rows; the first is the standard one. A table with a temperature column names the setting alone (""Nozzle 230-260°C""), and the value must still state a temperature"
+"^working\s+temp\w*",nozzle,,"Fillamentum's product pages print the nozzle as ""Working temperature: 235–260 °C"""
+"^printing\s+termperatures?",nozzle,,"Recreus misspells its nozzle row ""Printing termperatures 215 - 225°C"""
 "^(bed|heat ?bed|heated bed|build (plate|platform|surface)|platform|table|plate)\s*temp\w*|^heat ?bed\b",bed,,a table with a temperature column names the bed alone; a sheet may call the heated bed the plate: Plate Temp.
 "^print(ing)?\s+(platform|bed|plate)\s*temp\w*|^(hot ?bed|build plate|printing platform)\s*temperature|^(底板|热床|平台)温度",bed,,"SUNLU prints the bed as ""Print Platform Temp."", and a bilingual sheet labels it in Chinese; neither starts with the bed's name (data audit 2026-10-01, RC8)"
+"^hot ?pad\b|^print(ing)?\s+bed\s+temp\w*",bed,,"Fillamentum prints the heated bed as ""Hot pad 80–105 °C""; a control re-read of 2026-10-01 found it unread"
+"^bottom plate temp\w*",bed,,"Jamg He prints the bed as ""Bottom plate temperature 45-60 ºC"" (not Eryone's ""Bottom printing temperature"", the first layer's nozzle)"
 ^(chamber|enclosure|housing)\s*temp\w*,chamber,,
+"^(recommended\s+)?environment(al)?\s+temp\w*",chamber,,"Polymaker prints ""Recommended environmental temperature Room temperature - 45 (˚C)"": the air the part is printed in"
+"^ambient\s+temp\w*(\s+for\s+printing)?",chamber,,"Flashforge's ""Ambient Temperature for Printing Room temperature~40℃"""
 ^(closed|enclosed)\s*(chamber|space|build ?(chamber|volume))|^(chamber|enclosure|housing),enclosure,,a chamber statement with no temperature of its own is about the enclosure
+^closure\s+chamber\b,enclosure,,"Polymaker's row ""Closure chamber | Not needed"" (or ""Needed (100-110°C)"")"
+"^room temp\.?(?!\w)",chamber,,"SUNLU's table row ""Room Temp. | Room Temperature"": the temperature the printer stands in"
 ^(build plate|print(ing)? (surface|plate)|bed surface|plate)\s*(material|treatment|surface)?\b,plate,,the row may name what the plate is made of or what it is coated with: Plate Material / Plate Treatment
-^(drying|dry)\s*(temp\w*|conditions|settings|parameters|recommendations)|^dry(ing)? before,drying,,a sheet may abbreviate it: Drying Temp.
+^(drying|dry)\s*(temp\w*|conditions|settings|parameters|recommendations|preparation)|^dry(ing)? before,drying,,a sheet may abbreviate it: Drying Temp.
 "^trocknungs(temperatur|bedingungen)\b",drying,,the same row on a German sheet
-^(ruby or hardened nozzle|hardened nozzle|abrasion[- ]resistant nozzle|nozzle (type|material)),nozzle-material,,"'Abrasion resistance' is a measured property (ISO 4649), not a statement about the nozzle"
+^(ruby or hardened nozzle|hardened nozzle|hardened steel or ruby|abrasion[- ]resistant nozzle|nozzle (type|material)),nozzle-material,,"'Abrasion resistance' is a measured property (ISO 4649), not a statement about the nozzle"
 ^nozzle (diameter|size),nozzle-diameter,,
 ^(active )?cooling( fan| fan speed| rate)?|^(part(-| )?)?fan( speed)?,note,Cooling,
 "^l(ü|ue)ftergeschwindigkeit\b|^bauteilk(ü|ue)hlung\b",note,Cooling,the same row on a German sheet

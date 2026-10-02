@@ -1,5 +1,5 @@
-COUNT 89 shown PASS + UNKNOWN
-STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 24
+COUNT 90 shown PASS + UNKNOWN
+STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 23
 Requirements: In the H2C's scope; A build material, not a support; Nozzle temperature the H2C reaches; Bed temperature the H2C reaches; Chamber temperature the H2C reaches; Heat deflection (HDT, 0.45 MPa) at least 100 °C; Stiffness (tensile modulus, XY) at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials with missing data: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Release <id>, database snapshot 2026-09-21, build <date>. A material's values are its products' spread; check the exact product in its Products tab before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
@@ -80,7 +80,7 @@ ABS-CF
 1.8–2 · 2
 0.506
 log scale
-1,570
+1,560
 all 153 candidates
 Notched impact, Charpy kJ/m²
 ABS

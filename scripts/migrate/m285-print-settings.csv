@@ -1,0 +1,126 @@
+id,column,expect,value,quote
+P0002,Enclosure,Not published,No needed,Closure Chamber No needed
+P0030,Drying,Not published,65 (˚C),Drying temperature 65 (˚C)
+P0041,Abrasion / clogging,Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended
+P0046,Abrasion / clogging,Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.,Ruby or hardened nozzle Yes,Ruby or hardened nozzle Yes
+P0062,Abrasion / clogging,Not published,Ruby or hardened nozzle not necessary,Ruby or hardened nozzle not necessary
+P0070,Abrasion / clogging,Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.,Ruby or hardened nozzle Yes,Ruby or hardened nozzle Yes
+P0114,Abrasion / clogging,Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended
+P0180,Abrasion / clogging,Not published,Ruby or hardened nozzle not necessary,Ruby or hardened nozzle not necessary
+P0197,Abrasion / clogging,Not published,Ruby or hardened nozzle No,Ruby or hardened nozzle No
+P0279,Enclosure,Not published,Needed,Closure chamber Needed
+P0287,Enclosure,Not published,No Needed,Closure chamber No Needed
+P0289,Chamber °C,Not published,65˚C+,Chamber temperature 65˚C+
+P0291,Enclosure,Not published,Not needed,Closure chamber Not needed
+P0293,Enclosure,Not published,Yes,Closure chamber Yes
+P0295,Enclosure,Not published,Not needed,Closure chamber Not needed
+P0297,Enclosure,Not published,Not Needed,Closure chamber Not Needed Retraction Speed 20-40 (mm/s)
+P0299,Enclosure,Not published,Not needed,Closure chamber Not needed *Based on 0.4mm nozzle. Printing conditions
+P0301,Enclosure,Not published,Not needed,Closure chamber Not needed
+P0308,Chamber °C,Not published,Needed (90-100°C),Closure chamber Needed (90-100°C)
+P0313,Nozzle °C,Not published,250°C - 270°C,Nozzle temperature 250˚C - 270˚C
+P0313,Bed °C,Not published,90°C - 105°C,Bed temperature 90˚C - 105˚C
+P0318,Enclosure,Not published,Not needed,Closure chamber Not needed
+P0319,Nozzle °C,Not published,210°C - 230°C,Nozzle temperature 210˚C - 230˚C
+P0319,Bed °C,Not published,25°C - 60°C,Bed temperature 25˚C - 60˚C
+P0321,Enclosure,Not published,Not needed,Closure chamber Not needed
+P0324,Nozzle °C,Not published,250°C - 270°C,Nozzle temperature 250˚C - 270˚C
+P0324,Bed °C,Not published,25°C - 50°C,Bed temperature 25˚C - 50˚C
+P0326,Enclosure,Not published,Not Needed,Closure chamber Not Needed
+P0327,Enclosure,Not published,Needed (ambient temp.),Closure chamber Needed (ambient temp.)
+P0328,Enclosure,Not published,Needed (ambient temp.),Closure chamber Needed (ambient temp.)
+P0330,Enclosure,Not published,No Needed,Closure chamber No Needed
+P0332,Enclosure,Not published,Not Needed,Closure chamber Not Needed
+P0337,Enclosure,Not published,Not needed,Closure chamber Not needed *Based on 0.4mm nozzle. Printing conditions
+P0339,Enclosure,Not published,Needed,Closure chamber Needed
+P0341,Enclosure,Not published,No Needed,Closure chamber No Needed
+P0343,Enclosure,Not published,Not needed,Closure chamber Not needed
+P0350,Enclosure,Not published,Not needed,Closure chamber Not needed *Based on 0.4mm nozzle. Printing conditions
+P0351,Enclosure,Not published,Needed (ambient temperature),Closure Chamber Needed (ambient temperature)
+P0357,Enclosure,Not published,Needed,Closure chamber Needed
+P0359,Enclosure,Not published,Not needed,Closure chamber Not needed *Based on 0.4mm nozzle. Printing conditions
+P0388,Abrasion / clogging,Not published,Hardened Nozzle nein,Hardened Nozzle nein
+P0531,Bed °C,Not published,90–105 °C,Hot pad 90–105 °C
+P0532,Bed °C,Not published,50–60 °C,Hot pad 50–60 °C Try your own settings before printing.
+P0533,Bed °C,Not published,50–60 °C,Hot pad 50–60 °C
+P0534,Bed °C,Not published,90–105 °C,Hot pad 90–105 °C
+P0535,Bed °C,Not published,80–105 °C,Hot pad 80–105 °C
+P0536,Bed °C,Not published,50–60 °C,Hot pad 50–60 °C
+P0537,Bed °C,Not published,65–75 °C,Hot pad 65–75 °C
+P0539,Bed °C,Not published,80 °C,Hot pad 80 °C
+P0540,Bed °C,Not published,90–105 °C,Hot pad 90–105 °C
+P0541,Bed °C,Not published,50–60 °C,Hot pad 50–60 °C
+P0542,Bed °C,Not published,90–105 °C,Hot pad 90–105 °C
+P0578,Drying,Not published,50℃ >8H,Drying Preparation 50℃ ＞8H
+P0579,Bed °C,Not published,None needed (or 60℃ if applicable),Print Bed Temp None needed (or 60℃ if applicable)
+P0596,Drying,Not published,"50℃, 8~12h",Drying Preparation 50℃，8~12h
+P0602,Drying,Not published,"50℃, 8~12h",Drying Preparation 50℃，8~12h
+P0617,Drying,Not published,"50℃, 8~12h",Drying Preparation 50℃，8~12h
+P0630,Drying,Not published,50℃>8H,Drying Preparation 50℃＞8H
+P0640,Drying,Not published,50℃ >8H,Drying Preparation 50℃ ＞8H
+P0653,Drying,Not published,60℃ >8H,Drying Preparation 60℃ ＞8H
+P0679,Drying,Not published,85℃ > 8H,Drying Preparation 85℃ > 8H
+P0681,Drying,Not published,65℃ >8H,Drying Preparation 65℃ ＞8H
+P0688,Drying,Not published,60℃>8H,Drying Preparation 60℃＞8H
+P0691,Drying,Not published,60℃,Drying Preparation 60℃
+P0694,Drying,Not published,50℃ > 8H,Drying Preparation 50℃ > 8H
+P0700,Drying,Not published,"80℃,4-8H","Drying Preparation 80℃,4-8H"
+P0702,Drying,Not published,60℃,Drying Preparation 60℃
+P0930,Bed °C,Not published,0–50 °C,Hot pad 0–50 °C
+P0956,Bed °C,Not published,± 0 - 60 °C,PRINT BED TEMP. ± 0 - 60 °C
+P0973,Bed °C,Not published,45-55 ℃,45-55 | Hot bed temperature ℃
+P0974,Bed °C,Not published,35-60 ℃,35-60 | Printing platform temperature ℃
+P0993,Bed °C,Not published,80–105 °C,Hot pad 80–105 °C
+P0996,Enclosure,Not published,Not needed,Closure chamber Not needed
+P1002,Enclosure,Not published,Needed (ambient temp.),Closure chamber Needed (ambient temp.)
+P1018,Nozzle °C,Not published,230°C - 270°C,Nozzle Temperature 230°C - 270°C
+P1026,Bed °C,Not published,90–110 °C,Hot pad 90–110 °C
+P1140,Bed °C,Not published,70–90 °C,Hot pad 70–90 °C
+P1160,Bed °C,Not published,80–105 °C,Hot pad 80–105 °C
+P1162,Bed °C,Not published,50–60 °C,Hot pad 50–60 °C
+P1189,Bed °C,Not published,50–60 °C,Hot pad 50–60 °C
+P1198,Drying,Not published,50℃,Drying Temp. 50℃
+P1200,Drying,Not published,50℃,Drying Temp. 50℃
+P1206,Drying,Not published,"55-60℃, 6h","Drying conditions 55-60℃, 6h"
+P1207,Drying,Not published,50 °C for 4 - 6 hours,Drying recommendations 50 °C for 4 - 6 hours
+P1218,Drying,Not published,50℃,Drying Temp. 50℃
+P1221,Drying,Not published,"50℃-60℃, 6h",Drying conditions 50℃-60℃，6h
+P1223,Drying,Not published,50℃,Drying Temp | 50℃
+P1224,Drying,Not published,50℃,Drying Temp. 50℃
+P1225,Drying,Not published,50℃,Drying Temp | 50℃
+P1242,Bed °C,Not published,80°C,Bed temperature 80°C
+P1266,Enclosure,Not published,for printing recommended,Closed chamber for printing recommended
+P1267,Bed °C,Not published,Not required when using a packing,Bed Temperature: Not required when using a packing
+P1285,Drying,Not published,"100 – 130 °C, 10 – 14 h (Blast drying oven)","Drying Settings Before Printing 100 – 130 °C, 10 – 14 h (Blast drying oven)"
+P1288,Enclosure,Not published,recommended for larger prints,Enclosure recommended for larger prints
+P1288,Abrasion / clogging,Not published,Ruby or hardened nozzle recommended Yes,Ruby or hardened nozzle recommended
+P1291,Abrasion / clogging,Not published,Hardened nozzle required Yes,Hardened nozzle required Yes
+P1294,Bed °C,Not published,110°C,Bed temperature: 110°C
+P1294,Enclosure,Not published,not required,Enclosed chamber: not required
+P1301,Bed °C,Not published,110 °C,Build plate temperature 110 °C
+P1301,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P1301,Drying,Not published,65 °C,Drying temperature 65 °C
+P1305,Enclosure,Not published,recommended,Enclosure recommended
+P1305,Abrasion / clogging,Not published,Ruby or hardened nozzle recommended No,Ruby or hardened nozzle recommended
+P1307,Bed °C,Not published,50 °C,Build plate temperature 50 °C
+P1307,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P1308,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P1309,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P1310,Bed °C,Not published,50 °C,Build plate temperature 50 °C
+P1310,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P1311,Abrasion / clogging,Not published,Hardened nozzle required Yes,Hardened nozzle required Yes
+P1312,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P1314,Abrasion / clogging,Not published,Hardened nozzle required Yes,Hardened nozzle required Yes
+P1315,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P1316,Abrasion / clogging,Not published,Hardened nozzle required No,Hardened nozzle required No
+P0188,Abrasion / clogging,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended No,Dry box recommended | Yes | No | Ruby or hardened nozzle recommended
+P0194,Abrasion / clogging,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended No,Dry box recommended | Yes | No | Ruby or hardened nozzle recommended
+P0229,Abrasion / clogging,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended No,Dry box recommended | Yes | No | Ruby or hardened nozzle recommended
+P0833,Abrasion / clogging,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended No,Dry box recommended | Yes | No | Ruby or hardened nozzle recommended
+P0838,Abrasion / clogging,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended No,Dry box recommended | Yes | No | Ruby or hardened nozzle recommended
+P0855,Abrasion / clogging,Ruby or hardened nozzle recommended,Ruby or hardened nozzle recommended No,Dry box recommended | Yes | No | Ruby or hardened nozzle recommended
+P0863,Nozzle °C,Not published,190-230,Nozzle Temperature 190-230
+P0863,Bed °C,Not published,55-65,Bed Temperature 55-65
+P0818,Nozzle °C,Not published,190-230,Nozzle Temperature 190-230
+P0818,Bed °C,Not published,55-65,Bed Temperature 55-65
+P0433,Drying,50℃-60℃,"50℃-60℃, 6h",Drying conditions | 50℃-60℃，6h

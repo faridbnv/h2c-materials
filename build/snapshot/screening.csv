@@ -12,11 +12,11 @@ tensileModulusXY,this-material,bottom,66,0,4,0.025,yes
 tensileModulusXY,family,top,83,1,5,0.975,yes
 tensileModulusXY,family,bottom,83,2,5,0.025,yes
 tensileStrengthXY,this-grade,top,56,0,3,0.975,yes
-tensileStrengthXY,this-grade,bottom,56,3,3,0.0219975,yes
+tensileStrengthXY,this-grade,bottom,56,3,3,0.0215628,yes
 tensileStrengthXY,this-material,top,57,0,3,0.975,yes
 tensileStrengthXY,this-material,bottom,57,1,3,0.025,yes
 tensileStrengthXY,family,top,67,0,4,0.975,yes
-tensileStrengthXY,family,bottom,67,4,4,0.0215895,yes
+tensileStrengthXY,family,bottom,67,4,4,0.0215911,yes
 elongationXY,this-grade,top,40,1,2,0.975,yes
 elongationXY,this-grade,bottom,40,0,2,0.025,yes
 elongationXY,this-material,top,66,1,4,0.975,yes

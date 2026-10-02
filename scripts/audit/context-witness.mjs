@@ -81,7 +81,7 @@ for (const r of live) { const pg = pageOf(r.Locator); if (pg == null) continue; 
 // version's statements were such.
 const STATEMENTS = [
   ['Specimen type', /non-?injection mou?lded|printed specimens?|printed samples?|3d[- ]printed (test )?(specimens?|samples?)\b(?! at \d+ different angles)|specimens? (were )?printed|typical material properties\s*[–-]\s*3d printed/, (r) => /^Not published|Raw material value/.test(r['Specimen type'])],
-  ['Moisture state', /\(dry state\)|dry state|\bdry,? @ ?\d+ ?mm\/min|\(dry, at \d+|dry as mou?lded|\(dry\)|in dry condition|conditioned (?:at|in)[^.]{0,40}(?:% ?r\.?h|humidity|standard climate)|\(conditioned\b/, (r) => r['Moisture state'] === 'not-stated'],
+  ['Moisture state', /\(dry state\)|dry state|dry status|\bdry,? @ ?\d+ ?mm\/min|\(dry, at \d+|dry as mou?lded|\(dry\)|in dry condition|conditioned (?:at|in)[^.]{0,40}(?:% ?r\.?h|humidity|standard climate)|\(conditioned\b/, (r) => r['Moisture state'] === 'not-stated'],
   ['Post-processing state', /(all )?(specimens?|samples?) (were )?annealed|annealed at \d+|\(after annealing\)|退火/, (r) => r['Post-processing state'] === 'not-stated'],
 ];
 const ADVICE = /\b(store|stored|storage|keep|transport|ensure the filament)\b[^.]{0,60}$/;
@@ -130,10 +130,78 @@ for (const r of rows('Print setup')) {
     if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Drying', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r.Drying}`);
   }
   // "Hardened Nozzle no" printed on the profile's own sheet against a typed TRUE, or the reverse.
+  // A sheet laid out as question and answer in two columns prints the answer a line away from its question: Spectrum's
+  // TPU sheets read "Dry box recommended / Yes / No / Ruby or hardened nozzle recommended", where "No" answers the nozzle
+  // question; the bare question was read as a recommendation (the control re-read of 2026-10-01).
+  if (/^Ruby or hardened nozzle recommended$/i.test(r['Abrasion / clogging'])) {
+    const lines = pages.flatMap((p) => p.lines.map((l) => l.trim()));
+    const i = lines.findIndex((l) => /^Ruby or hardened nozzle recommended$/i.test(l));
+    const near = i < 0 ? [] : [lines[i - 1], lines[i + 1]].filter((l) => /^(yes|no)$/i.test(l ?? ''));
+    if (near.length) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its sheet answers the question on the next line ("${near.join('" / "')}"); the profile holds the bare question as ${r['Hardened nozzle']}`);
+  }
   // A sheet may ask the question and answer it ("Ruby or hardened nozzle recommended No"), or deny it ("no hardened nozzle
   // required").
   const hn = text.match(/(\bno\s+)?hardened nozzle\s*(?:(?:recommended|required)\s*\??\s*[:\-]?\s*(no|yes)\b|[:\-]?\s*(no|yes|not (?:required|necessary)|required|recommended)\b)/i);
-  if (hn) { const says = hn[1] || /^(no|not)/i.test(hn[2] ?? hn[3]) ? 'FALSE' : 'TRUE'; if (r['Hardened nozzle'] !== says && r['Hardened nozzle'] !== 'Not published') add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its own sheet prints "${hn[0]}"; the profile holds ${r['Hardened nozzle']}`); }
+  // A profile whose cell holds the sheet's question with its answer has been read from its own words; the text layer
+  // can run a neighbouring answer into the question ("No Hardened nozzle required Yes").
+  const answered = /\b(yes|no|nein|not necessary|not required)\s*$/i.test(r['Abrasion / clogging']);
+  if (hn && !answered) { const says = hn[1] || /^(no|not)/i.test(hn[2] ?? hn[3]) ? 'FALSE' : 'TRUE'; if (r['Hardened nozzle'] !== says && r['Hardened nozzle'] !== 'Not published') add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its own sheet prints "${hn[0]}"; the profile holds ${r['Hardened nozzle']}`); }
+}
+
+// ---- what the importer's own sheet reader finds on a profile's sheet and the profile does not hold (RC8, the control
+// re-read of 2026-10-01: the label regexes above find the labels someone thought of; the reader finds every label its
+// lexicon knows, in every layout it reads). A sheet that prints how its test bars were printed, or a line that states
+// an infill, describes specimens, not guidance (m170).
+const { readSheet } = await import('../ingest/propose.mjs');
+const registry = new Map(rows('Property registry').map((p) => [p.Property, p]));
+const SPECIMENS = /printed specimen conditions|specimen (preparation|conditions)[:\s]|test specimens?( were)? (3d )?printed|print test condition|specimens were printed at the following/i;
+// The numbers a cell states, and an open end's sign: what two readings of one setting must share.
+const statedOf = (v) => (String(v).match(/\d+(?:[.,]\d+)?|[+<>＞≥≤]/g) ?? []).map((n) => n.replace(',', '.').replace('＞', '>'));
+const READ_COLUMN = { nozzle: 'Nozzle °C', bed: 'Bed °C', chamber: 'Chamber °C', enclosure: 'Enclosure', drying: 'Drying', 'nozzle-material': 'Abrasion / clogging' };
+const sheetSettings = new Map();
+// A setting a few lines under "How to make specimens", "printed under the following conditions" or a line that states an
+// infill is the setting the test bars were printed at, not guidance: Polymaker's "Environmental Temperature 90°C" (m170).
+const SPECIMEN_BLOCK = /h\s*o\s*w\s+t\s*o\s+m\s*a\s*k\s*e\s+s\s*p\s*e\s*c\s*i\s*m\s*e\s*n|specimens? (were|was) printed|printed (under|at) the following|printed specimen conditions|print test condition|test equipment|\binfill\s*[:=]?\s*\d|\bshell\s+\d|top\s*&\s*bottom\s+layer/i;
+// The reader may have joined a label to the value on the line below it ("Extruder Temperature" / "275℃"), so the setting is
+// found by its whole line or by its label with its value just below.
+const inSpecimenBlock = (pages, x) => {
+  const line = x.line.replace(/\s+/g, ' ').trim(); const raw = String(x.raw ?? '').replace(/\s+/g, ' ').trim();
+  for (const p of pages ?? []) {
+    for (let i = 0; i < p.lines.length; i++) {
+      const own = p.lines[i] === line || p.lines[i].includes(line.slice(0, 40));
+      const below = x.label && p.lines[i].toLowerCase().startsWith(x.label.toLowerCase()) && raw && (p.lines[i + 1] ?? '').includes(raw.slice(0, 12));
+      if (own || below) return p.lines.slice(Math.max(0, i - 8), i + 1).some((l) => SPECIMEN_BLOCK.test(l));
+    }
+  }
+  return false;
+};
+for (const r of rows('Print setup')) {
+  if (/not printing guidance/.test(r.Locator)) continue;
+  const h = sha.get(r.SourceID); if (!h || !/^[0-9a-f]{64}$/.test(h)) continue;
+  if (!sheetSettings.has(r.SourceID)) {
+    const c = cachedText(h);
+    let settings = [];
+    if (c) { try { settings = readSheet(c, registry).settings; } catch { settings = []; } }
+    const pg = pagesOf(r.SourceID);
+    // A sheet that prints test-bar settings beside its guidance (eSUN's "Print test condition", 3DXTECH's "Printed Specimen
+    // Conditions") is read block by block: what sits under such a heading is not guidance, what sits elsewhere is.
+    sheetSettings.set(r.SourceID, settings.filter((x) => !/infill/i.test(x.line) && !inSpecimenBlock(pg, x)));
+  }
+  for (const x of sheetSettings.get(r.SourceID)) {
+    const column = READ_COLUMN[x.field]; if (!column) continue;
+    const held = r[column];
+    // Polymaker's "Closure chamber | Needed (90-100°C)" states a chamber, and a profile may hold it there.
+    const asChamber = x.field === 'enclosure' && r['Chamber °C'] === x.raw;
+    const silent = !asChamber && (held === 'Not published' || (x.field === 'nozzle-material' && /verify minimum orifice/.test(held)));
+    if (silent && /\d|\b(yes|no|nein|not|required|recommended|needed|necessary|room|ambient)\b/i.test(x.raw)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `the import's sheet reader finds "${x.line.slice(0, 80)}"; the profile holds ${held.slice(0, 40)}`);
+    // A cell that holds part of what the sheet prints: a drying schedule without its hours, a window without its open
+    // end's "+", a typo that split a number ("240 - 28 0 °C"), a specimen's print temperature for the guidance.
+    const numeric = ['nozzle', 'bed', 'chamber', 'drying'].includes(x.field);
+    const read = statedOf(x.raw);
+    if (!silent && !asChamber && numeric && read.some((v) => /\d/.test(v)) && !sheetSettings.get(r.SourceID).some((y) => y.field === x.field && statedOf(y.raw).every((v) => statedOf(held).includes(v)))) {
+      add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `the import's sheet reader finds "${x.line.slice(0, 80)}"; the profile holds "${held.slice(0, 50)}"`);
+    }
+  }
 }
 
 // ---- the baseline

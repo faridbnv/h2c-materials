@@ -1,7 +1,7 @@
-COUNT 6 shown PASS
-STATUS ☑ PASS 6 | ☐ UNKNOWN 109 | ☐ FAIL 38
-6 of the 153 materials meet these requirements
-Flexible component template · 109 more could not be checked, left out under Confirmed only
+COUNT 7 shown PASS
+STATUS ☑ PASS 7 | ☐ UNKNOWN 108 | ☐ FAIL 38
+7 of the 153 materials meet these requirements
+Flexible component template · 108 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -78,6 +78,19 @@ PVB / Specialty Polymers
  1,250 0.006 27 passing: 400
 all products: 400
  90 — ☆
+PP
+Polyolefins
+ PASS
+1 of 1 product
+ 900
+890–960 · 8
+ 1.2* 19 passing: 850
+all products: 850
+ 80
+58.5–85 · 3
+ 77.5
+62.5–92.5 · 2
+¤ ☆
 TPU 85A class and softer
 Flexible Elastomers
  PASS
@@ -97,14 +110,14 @@ all products: 585
 TPU 90A class
 Flexible Elastomers
  PASS
-3 of 3 products
+4 of 4 products
  1,210
 1,120–1,240 · 10
  0.0162
 0.0053–0.027 · 2
  26.9
 12.5–30 · 4
- passing: 574–650
+ passing: 574–1,000
 all products: 618
 574–1,000 · 4
  n/a 75

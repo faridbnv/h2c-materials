@@ -1,0 +1,18 @@
+id,column,expect,value,quote
+P0271,Drying,Not published,65°C/6H,Build plate temperature 70-80°C 65°C/6H
+P0272,Drying,Not published,65°C/6H,Build plate temperature 70-80°C 65°C/6H
+P0288,Drying,Not published,70°C/6H,Build plate temperature 120°C 70°C/6H
+P0292,Drying,Not published,70°C/6H,Build plate temperature 100-110°C 70°C/6H
+P0293,Drying,Not published,70°C/6H,Build plate temperature 100-110°C 70°C/6H
+P0347,Drying,Not published,60°C/6H,Build plate temperature 25-65°C 60°C/6H
+P0348,Drying,Not published,60°C/6H,Build plate temperature 25-65°C 60°C/6H
+P0820,Chamber °C,Not published,0-50°C,Print Hotbed Ambient | 190-230°C 25-60°C 0-50°C
+P0843,Chamber °C,Not published,0-50℃,Print Hotbed Ambient | 190-230℃ 25-60℃ 0-50℃
+P0845,Chamber °C,Not published,0-50°C,Print Hotbed Ambient | 240 - 300°C 70 - 90°C 0-50°C
+P0860,Chamber °C,Not published,0-50℃,Print Hotbed Ambient | 190-230℃ 45-60℃ 0-50℃
+P0457,Chamber °C,Not published,Room temperature~40℃,Ambient Temperature for Printing Room temperature~40℃
+P0657,Drying,Not published,70-80°C for 8-12 hours before printing,Dry PET CF at 70-80°C for 8-12 hours before printing
+P0675,Drying,Not published,70-80°C for 8-12 hours before printing,Dry PET CF at 70-80°C for 8-12 hours before printing
+P1265,Drying,Not published,70 - 80°C for 4-6 hours before printing,Dry PET Support at 70 - 80°C for 4-6 hours before printing
+P0986,Bed °C,Not published,60-100°C,B ed Temperature 60-100°C
+P0986,Drying,Not published,50-60°C for at least 4-6 hours,convection oven at 50-60°C for at least 4-6 hours

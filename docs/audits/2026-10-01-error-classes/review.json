@@ -1,0 +1,469 @@
+{
+  "overall_verdict": "APPROVE_WITH_FINDINGS",
+  "reviewer": "Independent AI agent (Claude Sonnet); no human review",
+  "reviewed_at_utc": "2026-10-01T00:00:00Z",
+  "baseline_commit": "5491505",
+  "head_commit": "ed6f182",
+  "code_findings": [
+    {
+      "severity": "medium",
+      "file": "build/src/page-context.js",
+      "line": "22, 46, 80",
+      "finding": "A page_context row speaks for a property class (all/tensile/flexural/impact/thermal/physical) of a whole page, not for one table. A statement that heads only one table is inherited by every row of that class on the page, including rows from a different table that does not carry it.",
+      "evidence": "PC00041 (data/tables/page_context.csv:42; I-ESD-ABS-TDS p1, scope thermal, annealed) comes from the heading 'Thermal Properties Standard Test Test Data (After Annealing)', which sits over the heat-distortion rows only. The glass transition 80 C (V000605) is printed under 'Physical Properties Standard Test Test Data' and now compiles as postProcessingState=annealed with pageContext PC00041 (dist/db.json). Only V000605 is hit in the current data (the only non-HDT/Vicat thermal row inheriting a treatment), but the design cannot express a per-table statement."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/audit/context-witness.mjs",
+      "line": 21,
+      "finding": "audit:context, the guard that keeps RC3, RC4 and RC8 removed, exits 0 ('skipped') when .cache/text is absent, so CI (Linux, empty cache) never runs it. The README and D116 present it as part of verify; the claim holds only on a contributor checkout.",
+      "evidence": "Line 21: if (!existsSync(cacheDir('text'))) { console.log('audit:context skipped: no text cache ...'); process.exit(0); }. The header comment says 'runs where the cache is (a contributor's checkout) and says so where it is not (CI)'. The baseline context-witness-accepted.csv is therefore not checked in CI either; a stale or new finding cannot fail the pipeline."
+    },
+    {
+      "severity": "medium",
+      "file": "build/src/typed-values.js",
+      "line": "106-113, 138",
+      "finding": "PARSE-TEXT-BOUNDS accepts any digit string in the cell as a 'stated' number, plus the Fahrenheit conversion of every number and 20/23/25 when 'room/ambient/RT' occurs. It is a necessary check, not a sufficient one: it cannot see the m08 failure it was written for (3 from 'for 3D printers', 24 from 'shelf life of 24 months' are digits the cell contains).",
+      "evidence": "statedNumbers() uses /\\d+(?:\\.\\d+)?/g over the whole raw text and pushes round((x-32)*5/9) for each number. The real protection against the original error is the scoped PARSE-MISMATCH, not PARSE-TEXT-BOUNDS; D115's wording 'a typed endpoint must be a number its own cell prints' overstates what is enforced."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/migrate/m274-parse-reviews-name-their-columns.mjs",
+      "line": "62-77",
+      "finding": "Step 2 scopes each of the 147 existing Parse reviews to 'exactly the columns whose stored value still differs from the parser'. This mechanically blesses every existing difference without re-reading whether the review's text explains it; it re-creates, one column at a time, the silencing D115 removes.",
+      "evidence": "m282 later found P0795 (SUNLU ABS-GF bed state 'unknown', scoped to Bed state by m274 although the review explained joined digits, not the state). The sweep states this was the only such case but the 109 other scoped reviews were not individually re-read in the audit trail."
+    },
+    {
+      "severity": "low",
+      "file": "build/src/typed-values.js",
+      "line": "161-163",
+      "finding": "PARSE-REVIEW-STALE checks print profiles only; D119 ('a review note that no longer explains anything stops the build') is stated without that limit. Two measurement reviews are stale today. OPEN-PROBLEMS section 28 does disclose the limit.",
+      "evidence": "Replaying applyStateTyped/applyStandardsTyped/applyTestTemperatureTyped on all 19 measurement reviews that name columns: V011542 and V011543 (data/tables/measurements.csv:11543-11544) name 'Test temperature C', which now agrees with the parser (readTestTemperature learned the degree-Celsius glyph in this sweep), so the reviews would silence the next difference."
+    },
+    {
+      "severity": "low",
+      "file": "build/src/page-context.js",
+      "line": "80-104",
+      "finding": "inheritPageContext takes the first matching page_context row per field in file order; an 'all' row and a scoped row with different values on one page would resolve by CSV order, not by specificity. The lint (CONTEXT-ROW-CONTRADICTS-PAGE) compares only specimen, moisture and treatment; a contradicting standard or test temperature is not flagged although D116 says a contradicting row is flagged.",
+      "evidence": "No page in the 88 rows has both 'all' and a scoped row today (checked), so the latent order dependence has no current effect. lint-rules.js lists only [specimen, moisture, treatment] in its loop."
+    },
+    {
+      "severity": "low",
+      "file": "build/src/normalize/process.js",
+      "line": "66, 94",
+      "finding": "AT_LEAST_LEAD_RE types '> 80 C recommended' as an open bound with requirement 'required'; the trailing word 'recommended' is dropped from the requirement (the open-bound branch returns before RECOMMENDED_RE is read). No regression versus before (it was required then too), but the new reader could have kept it.",
+      "evidence": "Line 94-99: the atLeast branch returns requirement: REQUIREMENT.REQUIRED unconditionally."
+    },
+    {
+      "severity": "low",
+      "file": "app/js/engine/constraints.js",
+      "line": "244-249",
+      "finding": "h2cStatusOf promotes every Bambu Lab spool to 'Official Bambu product' regardless of the material's recorded status. 15 active Bambu Lab grades sit under materials recorded as 'Officially listed family' or 'Theoretical' (e.g. G009-01 PLA Silk+ and G010-01 under M008 PLA Silk, 'Theoretical', whose vocabulary meaning is 'Not listed by Bambu'). This is what D118 says, but it contradicts the data for M008.",
+      "evidence": "grades.csv Manufacturer 'Bambu Lab' x42; 15 of them under non-Official materials (G002-01.., G021-01.., G040-01..G043-01, G009-01, G010-01, G001-183)."
+    },
+    {
+      "severity": "low",
+      "file": "build/src/products.js",
+      "line": "461-466",
+      "finding": "twinsOf orders by 'holds values' first, then same maker by exact manufacturer string equality, then ID. A same-maker twin without measurements loses to another maker's reprint that has them (correct), but 'Spectrum' vs 'Spectrum Filaments' style spellings would defeat the same-maker rule silently.",
+      "evidence": "sameMaker = (x.manufacturer === g.manufacturer ? 0 : 1)."
+    },
+    {
+      "severity": "low",
+      "file": "app/js/ui/table.js",
+      "line": "183-190",
+      "finding": "Orphaned doc comment: the block 'What an UNKNOWN rests on (PM-02)' sits above variantMark, while unknownMark (which it describes) is defined later. Cosmetic.",
+      "evidence": "table.js:183-190 vs unknownMark further down."
+    }
+  ],
+  "migration_findings": [
+    {
+      "severity": "medium",
+      "file": "scripts/migrate/m277-page-context.csv (PC00012) / data/tables/page_context.csv:13",
+      "line": "13",
+      "finding": "Wrong page statement. QIDI PA12-CF p3 is the continuation of a two-column Unannealed | Annealed table; the three Z values sit in the Unannealed column (annealed column '/'). The footnote 'Post-processing: 100 C Annealing 8 hours' describes the annealed column. PC00012 (scope all, annealed 100 C / 8 h) makes V009358, V009359, V009360 (G059-02, Z tensile strength 38.61, modulus 2892.15, elongation 1.63) compile as annealed 100/8.",
+      "evidence": "p2: '未退火 退火后 / Unannealed Annealed' with pairs such as '76.95±1.17 MPa 83.34±0.30 MPa'; p3: '38.61±2.19 MPa /', 'ISO 527 2892.15±46.60 MPa /', '1.63±0.10 % /'. dist/db.json: V009358-60 postProcessingState annealed, pageContext PC00012. The sibling QIDI PET-GF page (PC00085) has a single column and its annealed reading is right."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/migrate/m277-m279-sweep-shared.mjs",
+      "line": "14-23",
+      "finding": "onSheet() proves only that the quote occurs somewhere in the whole source (all pages joined and stripped to alphanumerics), not on the cited page, near the row, or that it applies to it. The 'guard-checked' claim therefore does not catch a correct quote attached to the wrong rows (as with PC00012 and PC00041).",
+      "evidence": "texts.set(sourceId, squash(c.pages.map(p => p.lines...join(' ')).join(' '))); includes(squash(q)). The PC00012 quote 'Post-processing : 100C Annealing 8hours' is on the sheet, and passed."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/migrate/m278-row-context.csv",
+      "line": "rows 7, 112, 162, 199, 201",
+      "finding": "Raw column 'Standard / load' receives words the sheet does not print: V007432 and V011163 '... ASTM 648; ASTM D648', V008886 'HDT A; ISO 75' (sheet: 'ISO-R 75 Method A'), V008914 'ASTM256; ASTM D256', V009856 'ASTM 3418; ASTM D3418'. The normalised name belongs in Standards; AGENTS.md says raw columns keep the source's text and never write a standard the sheet does not print (same standard family, so the reading is right, the raw cell is not verbatim).",
+      "evidence": "Sheet lines: 'Heat Deflection (ASTM 648, 66 psi)', 'ASTM 3418 145- 160 C', 'Izod ... ASTM256', 'HDT-A ... ISO-R 75 Method A'."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/migrate/m279-print-settings.csv",
+      "line": "rows 22, 23, 57-59, 79, 104, 105, 114",
+      "finding": "Nine 3DJake profiles get Bed C '+- 35-60 C' (or 60-90/60-100): a fragment of 'If you have a heated bed the recommended temperature is +- 35-60 C'. The qualifiers are dropped, so the parser types the bed window as 'required'; the same sheet says the product 'can also be printed without a heated bed'. No gate effect (within the H2C), but the printing tab will say required.",
+      "evidence": "P0878 (G008-18): Bed state range 35-60, Bed requirement 'required'; sheet p1: 'can also be printed without a heated bed. If you have a heated bed the recommended temperature is +- 35-60 C.'"
+    },
+    {
+      "severity": "low",
+      "file": "data/review/accepted-findings.csv (IMPACT-UNIT-STANDARD, 28 rows)",
+      "line": "",
+      "finding": "28 impact rows whose unit disagrees with their standard are accepted in bulk with one reason ('the sheet prints it that way'). Seven Extrudr values (V004094 100, V004095 20, V004148/49, V004270/71 kJ/m2 beside ASTM D256) are physically implausible as kJ/m2 (notched 100 > unnotched 20; 220 kJ/m2) and almost surely J/m, while the same family's V004210/V004211 were set 'Unresolved unit / layout' in m280. Inconsistent handling. Headline impact is protected because izodNotched needs ISO 180 (D94), so these show only as related evidence.",
+      "evidence": "V004094 100 kj/m2 Notched, V004095 20 kj/m2 Unnotched (G033-05), both ASTM D256; Extrudr sheet 'Notched impact strength ASTM D256 kj/m2 100 @ 23C'."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/migrate/m281-twin-keys.csv",
+      "line": "G031-15",
+      "finding": "Spectrum FlameGuard ASA 275 (UL 94 V0 flame retardant, density 1080 vs 1070) is put under the plain ASA 275 key because the mechanical tables match. Different formulation; the estimate model now counts them once and each reads the other's values/evidence where its own is silent (D89/D98).",
+      "evidence": "G031-03 vs G031-15: HDT 86, Izod 435|60, tensile 42, flexural 64/1.9 identical; density 1070 vs 1080; Q02498 'Designed to meet UL 94 V0 standards' exists only on G031-15."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/migrate/m280-sweep-decisions.mjs",
+      "line": "LW-PLA-HT block",
+      "finding": "The six LW-PLA-HT rows (V005969-V005974) are typed 'Printed off the product's recipe' from a footnote that says 'printed samples of UNFOAMED PLA-HP', i.e. the base filament PLA-HP, not stated to be this product printed unfoamed. Defensible under D95, but it is an inference beyond the sheet's words.",
+      "evidence": "Sheet footnote: '*These results are obtained from printed samples of UNFOAMED PLA-HP'; tables headed 'Injection Molded*' and 'Thermal Properties*'."
+    }
+  ],
+  "spot_check": [
+    {
+      "migration": "m278",
+      "record": "V005865",
+      "field": "Notch -> Notched; Specimen type -> Raw material value",
+      "recorded": "Notched; Raw material value",
+      "sheet_quote": "p1 'Mechanical Properties - Injection Molded*' ... 'Izod Impact Strength Izod Notch, ISO 179 40 J/m' (the 3D Printed table above has only a Charpy line)",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V009654",
+      "field": "Test temperature / Test temperature C",
+      "recorded": "23 C (73 F) -> 23",
+      "sheet_quote": "p1 'Impact strength 7.2 KJ/m2 ASTM D256 Izod Notched @23 C (73 F)'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V007432",
+      "field": "Standards / Standard / load",
+      "recorded": "ASTM D648; raw '66 psi 204F ASTM 648; ASTM D648'",
+      "sheet_quote": "p2 'Heat Deflection (ASTM 648, 66 psi) 204F 96C'",
+      "verdict": "correct (value); raw cell adds 'ASTM D648' the sheet does not print"
+    },
+    {
+      "migration": "m278",
+      "record": "V001248",
+      "field": "Standard / load, Standards",
+      "recorded": "ISO 179, GB/T 1043",
+      "sheet_quote": "p1 'Charpy impact strength (X-Y) notched / 5.9 +- 0.4 kJ/m2' with the method 'ISO 179, GB/T 1043' printed once on the group's unnotched line",
+      "verdict": "correct (block standard)"
+    },
+    {
+      "migration": "m278",
+      "record": "V010036",
+      "field": "Raw unit kj/m2 -> J/m",
+      "recorded": "12 J/m",
+      "sheet_quote": "p1 'Impact resistance ASTM D256 kj/m2 12 J/m'",
+      "verdict": "correct (value cell prints J/m under a kj/m2 header)"
+    },
+    {
+      "migration": "m278",
+      "record": "V008743",
+      "field": "Standard / load D792 -> D1238",
+      "recorded": "ASTM D1238 for Melting Point 165-180 C",
+      "sheet_quote": "p1 'Melting Point 165-180 C' then 'D1238'; 'Heat deflection temp. HDT/A 75-80 C' then 'D3418'; Impact 160 J/m then 'D256'",
+      "verdict": "correct (each method is on the line after its value; the sheet's own pairing is physically odd, kept as printed)"
+    },
+    {
+      "migration": "m278",
+      "record": "V009198",
+      "field": "Notch Not published -> Unnotched",
+      "recorded": "Unnotched",
+      "sheet_quote": "p1 'Impact strength (Charpy) 55,0 kJ/m2' ... 'max. 7,5J - 23C DIN EN ISO 179-1eU 13)'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V002741",
+      "field": "Direction Unstated -> Along flow",
+      "recorded": "Along flow",
+      "sheet_quote": "p1 'Tensile Strength (Machine Direction) 35 MPa DIN 53504'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V009129",
+      "field": "Specimen type Raw material value -> Printed specimen",
+      "recorded": "Printed specimen",
+      "sheet_quote": "p1 line 2 '(Printed, non-injection molded)' above all tables of ecoPLA Silk Rainbow",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V007190",
+      "field": "Operator = -> >",
+      "recorded": ">",
+      "sheet_quote": "p1 'tensile modulus and strength of over 6 GPa and 80 MPa respectively.'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V003912",
+      "field": "Direction XY -> Z",
+      "recorded": "Z",
+      "sheet_quote": "p1 'Unnotched charpy impact strength (Z) 10.3+-2.1 kJ/m2' (XY line is 45.7+-7.3)",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V003894",
+      "field": "Direction Z -> XY; Standard / load",
+      "recorded": "XY; ISO 179-1 / 1eA:2010, -30C",
+      "sheet_quote": "p1 'Low temp. impact strength (X-Y) ISO 179-1 / 1eA:2010, -30C 7.5 +- 1.6 kJ/m2'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V007403",
+      "field": "Standard / load",
+      "recorded": "ASTM D648 @0.455 MPa (74 C)",
+      "sheet_quote": "p2 'ASTM D648 C 74/64' over '@0.455 MPa/@ 1.82 MPa'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m278",
+      "record": "V007630 / V007631 / V007627",
+      "field": "Moisture, Direction",
+      "recorded": "conditioned XZ 3.6 %; dry XY 2.4 %; ZX 50.8 MPa dry",
+      "sheet_quote": "BASF PAHT CF15 p6: conditioned 'No break 3.6 % 4.0 %' (XY/XZ/ZX), dry '2.4 % 2.8 % 1.8 %'; 'Flexural Strength dry ... 160.7 171.8 ... 50.8 MPa'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m279",
+      "record": "P1305",
+      "field": "Bed C / Nozzle C",
+      "recorded": "90-130C / 270-320C",
+      "sheet_quote": "'Nozzle temperature [C]' '270-320C' 'Bed temperature [C]' '90-130C'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m279",
+      "record": "P0573",
+      "field": "Nozzle C",
+      "recorded": "255-290C",
+      "sheet_quote": "'Nozzle temperature - standard speed 255-290C'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m279",
+      "record": "P0888",
+      "field": "Bed C / Chamber C",
+      "recorded": "160 - 250 C / 160 - 230 C",
+      "sheet_quote": "'Print bed temperature 160 - 250 C' / 'Build chamber temperature 160 - 230 C'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m279",
+      "record": "P1293",
+      "field": "Nozzle C",
+      "recorded": "215-195 C (typed 195-215)",
+      "sheet_quote": "'Printing temperature: 215-195 C'",
+      "verdict": "correct as printed (reversed range is the sheet's)"
+    },
+    {
+      "migration": "m279",
+      "record": "P0707",
+      "field": "Bed C",
+      "recorded": "> 50 C (min 50, max Not published)",
+      "sheet_quote": "p2 'print bed temperature: > 50 C'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m279",
+      "record": "P0878",
+      "field": "Bed C",
+      "recorded": "+- 35-60 C, requirement required",
+      "sheet_quote": "'can also be printed without a heated bed ... If you have a heated bed the recommended temperature is +- 35-60 C'",
+      "verdict": "unclear (window right; 'required' not what the sheet says)"
+    },
+    {
+      "migration": "m279",
+      "record": "P1283",
+      "field": "Drying / Abrasion",
+      "recorded": "100 - 140 C / 10 - 14 h; Hardened Steel Nozzle Recommended",
+      "sheet_quote": "'Dry at 100 - 140 C for 10 - 14 h'; 'Hardened Steel Nozzle Recommended'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m279",
+      "record": "P0888 (profile)",
+      "field": "Chamber C max",
+      "recorded": "230 (was typed 160)",
+      "sheet_quote": "'Build chamber temperature 160 - 230 C'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m277",
+      "record": "PC00012 (QIDI PA12-CF p3)",
+      "field": "annealed 100 C / 8 h, scope all",
+      "recorded": "annealed 100/8 for every row of p3",
+      "sheet_quote": "p3 '38.61+-2.19 MPa /' (annealed column '/'), 'Post-processing : 100 C Annealing 8hours'; p2 header 'Unannealed Annealed'",
+      "verdict": "wrong (Z values are unannealed)"
+    },
+    {
+      "migration": "m277",
+      "record": "PC00013 (Raise3D Hyper Speed ABS p2)",
+      "field": "Printed specimen",
+      "recorded": "Printed specimen",
+      "sheet_quote": "'All testing specimens were printed under the following conditions: Nozzle diameter=0.4mm ... infill = 100%.'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m277",
+      "record": "PC00014 (Fiberon PA612-ESD p1)",
+      "field": "annealed 100 C / 16 h",
+      "recorded": "annealed 100/16",
+      "sheet_quote": "'*All specimens were annealed at 100 C for 16h.'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m277",
+      "record": "PC00026 (BASF Ultrafuse ASA p5)",
+      "field": "conditioned, 23 C",
+      "recorded": "conditioned; 23 C",
+      "sheet_quote": "p5 'Samples were conditioned in standard climate (23 C, 50% RH 72h)' (markers 5) on tensile, flexural, impact)",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m277",
+      "record": "PC00048-52 (Filament2Print Tecafil PEKK p1)",
+      "field": "specimen per scope",
+      "recorded": "tensile Printed; flexural/impact/thermal/physical Raw material value",
+      "sheet_quote": "rows (1)-(12) '(*5),(*6)' = 'tested on printed specimens'; (13)-(15) '(*1)' = 'injection moulded'; thermal/other '(*2)' = 'raw material'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m277",
+      "record": "PC00041 (I-ESD-ABS-TDS p1)",
+      "field": "annealed, scope thermal",
+      "recorded": "annealed",
+      "sheet_quote": "'Thermal Properties Standard Test Test Data (After Annealing)' over HDT only; 'Glass Transition Temperature ISO 11357 80C' is under 'Physical Properties'",
+      "verdict": "wrong for V000605 (Tg inherits annealed); right for the two HDT rows"
+    },
+    {
+      "migration": "m277",
+      "record": "PC00085 (QIDI PET-GF p3)",
+      "field": "annealed 100 C / 8 h",
+      "recorded": "annealed 100/8",
+      "sheet_quote": "'Specimens printed under the following conditions: ... Post-processing: 100 C Annealing 8 hours' (single value column)",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m280",
+      "record": "V007403 / V007413 + new V011544 / V011545 (3D-Fuel Pro PCTG)",
+      "field": "Test load, second HDT value",
+      "recorded": "0.45 MPa 74 / 76; new 64 C at 1.8 MPa on p2 (ASTM) and p3 (ISO 75)",
+      "sheet_quote": "p2 'ASTM D648 C 74/64 @0.455 MPa/@ 1.82 MPa'; p3 'ISO 75 C 76/64 @0.455 MPa/@ 1.82 MPa'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m280",
+      "record": "V008748 (MatterHackers Tough PLA)",
+      "field": "Data status -> physically implausible",
+      "recorded": "flexural modulus 350 MPa flagged",
+      "sheet_quote": "'Flexural Strength 73 MPa D790', 'Flexural Modulus 350 MPa D790', 'Tensile Modulus 2,865 MPa'",
+      "verdict": "correct (value kept, flagged)"
+    },
+    {
+      "migration": "m280",
+      "record": "V004210 / V004211 (Extrudr DuraPro ABS CF)",
+      "field": "Data status -> Unresolved unit / layout",
+      "recorded": "250 / 110 kj/m2 unresolved",
+      "sheet_quote": "'Notched impact strength ASTM D256 kj/m2 250C'; 'Unnotched impact strength ASTM D256 kj/m2 110C' (siblings print '220 / 23C')",
+      "verdict": "unclear but conservative; defensible"
+    },
+    {
+      "migration": "m280",
+      "record": "V005969-V005974 (colorFabb LW-PLA-HT)",
+      "field": "Specimen type -> Printed off the product's recipe",
+      "recorded": "six starred rows",
+      "sheet_quote": "'Mechanical Properties - Injection Molded*' / 'Thermal Properties*' / '*These results are obtained from printed samples of UNFOAMED PLA-HP'",
+      "verdict": "correct under D95 (infers PLA-HP = the unfoamed base)"
+    },
+    {
+      "migration": "m280",
+      "record": "V008785.. / V009127 etc. (3DJake ecoPLA, magicPLA)",
+      "field": "Specimen type Raw -> Printed specimen",
+      "recorded": "Printed specimen",
+      "sheet_quote": "'(Printed, non-injection molded)' under 'Technical Data Sheet'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m280",
+      "record": "G164-02 (colorFabb PA Blue Metal Detectable)",
+      "field": "Variant -> declared dense filler",
+      "recorded": "declared dense filler",
+      "sheet_quote": "'is a 3D printing filament infused with metal detectable particles'; 'Specific Gravity g/cm 1,25 ISO 1183-3'",
+      "verdict": "correct"
+    },
+    {
+      "migration": "m280",
+      "record": "V000417 (I-PETG-TDS) and V010673 (S-PCGF-ASA-TDS)",
+      "field": "Data status -> physically implausible",
+      "recorded": "flexural strength 171 MPa over modulus 2040 MPa; modulus 850-900 under strength 80-82.5",
+      "sheet_quote": "'Flexural Modulus 2040 MPa' 'ISO 178 171 MPa Flexural Stress'; 'Flexural Modulus ISO 527 Mpa 850~900' 'Flexural Strength ISO178 Mpa 80~82.5'",
+      "verdict": "correct (values kept, flagged)"
+    }
+  ],
+  "twin_check": [
+    {
+      "cluster": "G001-69 / G001-31 / G001-64 / G001-162 / G001-165 (PLA, Spectrum, Fillamentum, FormFutura)",
+      "verdict": "justified",
+      "evidence": "9 of 11 shared properties identical (density 1240, yield 60, elongation 6, Izod 16, flexural strength 83, Tg 55, HDT 55, tensile 53/3.5). Only flexural modulus differs, 3800 MPa on G001-64 versus the sheet's printed '3.8 MPa' on G001-69 and G001-162 (0.0038 GPa, a misprint recorded as printed)."
+    },
+    {
+      "cluster": "G088-02 / G088-04 / G088-05 / G088-08 (PCTG: Spectrum, 3D-Fuel, FormFutura AthenaX, 3DJake)",
+      "verdict": "justified",
+      "evidence": "Density 1230, hardness 105, Vicat 88, HDT 76/64, tensile 44/46, elongation 4.4/220, flexural 60/1.6 are the same on the sheets that print them; 3D-Fuel carries the same ISO table beside its own ASTM one (74/64, 44/46)."
+    },
+    {
+      "cluster": "G033-04 / G033-12 (Spectrum ASA-X CF10, FormFutura ApolloX CF10)",
+      "verdict": "justified",
+      "evidence": "5 of 5 shared values identical: density 1100, elongation 1.8, Vicat 101.6, HDT 100.5 / 95; identical to 0.1 C, which only one source table produces."
+    },
+    {
+      "cluster": "G031-03 / G031-15 / G031-36 / G031-42 (ASA 275, FlameGuard ASA 275, ApolloX, ReForm rApollo)",
+      "verdict": "partly justified",
+      "evidence": "11 shared properties, 5 identical (modulus 1.8, flexural 1.9, Vicat 94, hardness 92, HDT 86). FlameGuard differs in density (1080 vs 1070) and is a UL 94 V0 flame-retardant formulation with its own flame claims (Q02498); the plain ASA 275 now shares its key and can read its evidence."
+    },
+    {
+      "cluster": "G094-06 / G094-11 (Fillamentum PC/ABS, Fiberlogy PC/ABS)",
+      "verdict": "justified",
+      "evidence": "6 of 7 shared values identical (yield 42, elongation 7, modulus 2.0, flexural 68/2.0, Izod 55, Charpy 53); two makers printing seven matching numbers share a source table. Density and Vicat appear on one sheet only."
+    },
+    {
+      "cluster": "G001-16 / G001-115 / G001-55 (tough PLA: Spectrum PLA Pro, MatterHackers, Fiberlogy Impact)",
+      "verdict": "justified",
+      "evidence": "Density 1220 in all three; tensile 40, tensile modulus 2.865 vs 2.87, flexural 73, Tg 55 / melting 165 / HDT 75 match; Fiberlogy rounds; MatterHackers' misprinted flexural modulus (0.35) is flagged in m280. Decided by Opus from the values (no reader card)."
+    }
+  ],
+  "notes": "Scope read: the four commits 5360e2a, da1d280, 5283894, ed6f182 (118 files). No record was removed from any source table (measurements +2, all other tables same row count); every migration edit I read names the value it replaces ('expect') and re-checks a quote on the cached sheet. The 36 spot_check entries (covering about 70 records and statements) read: 32 correct or defensible, 2 wrong (PC00012 for V009358-V009360; PC00041 for V000605) and 2 unclear (P0878 requirement; V004210/V004211 left unresolved). Both wrong cases come from one mechanism: a page_context row is a page-and-class statement, and the migration guard (onSheet) checks a quote exists anywhere in the source, not that it applies to the rows. No finding is high severity; the wrong inheritances touch 4 measurements, none of which is a headline pick I could confirm. Not run (read-only brief): build, verify, snapshot, the UI fuzz. I did not review the 300-scenario fuzz result, snapshot diffs, or UI copy beyond table.js and constraints.js. I did not independently check m275 label renames, the lexicon addition, or the print_guide.csv scoping beyond the m274 logic. The reviewer is an AI; no human reviewed these records.",
+  "responses": {
+    "PC00012 (QIDI PA12-CF)": "fixed in m286: the page statement states no treatment; the three Z rows say \"Unannealed\".",
+    "PC00041 (I-ESD-ABS)": "fixed in m286: the page statement states no treatment; the two HDT rows state it themselves.",
+    "page_context scope is per page and class": "kept as designed (D116); a probe of all 88 statements for a contrasting second table found no other case; listed in OPEN-PROBLEMS §28.",
+    "onSheet proves a quote is on the sheet, not that it applies": "agreed; listed in OPEN-PROBLEMS §28. Each migration names the rows a quote is for, and the controls re-read them.",
+    "audit:context skipped in CI": "agreed; listed in OPEN-PROBLEMS §28 (the text cache is not in CI).",
+    "PARSE-TEXT-BOUNDS counts any digit": "fixed: a number inside a word (\"3D\", \"24 months\") is no longer a stated temperature; tested.",
+    "m274 scoped reviews mechanically": "agreed; PARSE-REVIEW-STALE checks profile reviews; P0795 was the one that hid an unexplained difference (m282); listed in OPEN-PROBLEMS §28.",
+    "stale measurement reviews V011542, V011543": "fixed in m286.",
+    "raw Standard / load cells with normalised names": "fixed in m286 (five rows keep the sheet's words).",
+    "3DJake bed fragments typed required": "fixed in m286 (the sentence is kept; the parser reads \"if you have a heated bed\" as a recommendation).",
+    "Extrudr impact values in kj/m² beside ASTM D256": "four held out as an unresolved unit in m286.",
+    "FlameGuard ASA 275 under the ASA 275 key": "kept: R053 keys products whose sheets print one table; evidence stays each product's own (D98).",
+    "h2cStatusOf promotes Bambu spools under Theoretical materials": "kept: D118 judges the product; a material's recorded status is a separate question for the owner.",
+    "orphaned comment in table.js": "fixed."
+  }
+}

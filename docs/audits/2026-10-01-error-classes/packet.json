@@ -1,0 +1,429 @@
+{
+  "Kind": "Error-class sweep: mechanisms, guards and the data they found",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scorecard": [
+    "C1",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C9",
+    "C15"
+  ],
+  "BaseCommit": "5491505",
+  "Decisions": [
+    "D115",
+    "D116",
+    "D117",
+    "D118",
+    "D119"
+  ],
+  "Migrations": [
+    "m274",
+    "m275",
+    "m276",
+    "m277",
+    "m278",
+    "m279",
+    "m280",
+    "m281",
+    "m282",
+    "m283",
+    "m284",
+    "m285",
+    "m286",
+    "m287",
+    "m288",
+    "m289"
+  ],
+  "Rule": "Every root cause of the data audit is removed at its mechanism and kept removed by a guard that reads the cached sheets; each guard is at zero unreviewed findings.",
+  "Files": [
+    {
+      "File": "app/index.html",
+      "SHA256": "7ea75b7ad8fa5c1d78d1ad10ab4da4c55630fc9278c996575788092ebe93f2bd"
+    },
+    {
+      "File": "app/js/engine/constraints.js",
+      "SHA256": "8603865536853b2da540a768804ddb6e99ab5ff9aa82219e2eef672c6e1602a0"
+    },
+    {
+      "File": "app/js/engine/indices.js",
+      "SHA256": "f8cf3a4e539c9f11297f81c19a16949c744dbb41a218a732d063eeecf904422e"
+    },
+    {
+      "File": "app/js/engine/products.js",
+      "SHA256": "d37ebc223106931d286647e941fc07c0601564d1eafb35e7195e0e2c9533ab2a"
+    },
+    {
+      "File": "app/js/ui/compare.js",
+      "SHA256": "8354021455c50dc9eff167fc16e816f66843dcb541bbb57564d20803500af930"
+    },
+    {
+      "File": "app/js/ui/decision.js",
+      "SHA256": "deae670db563191c9e1fa1fec5dc1e2a2d5ceca72a42aba2d586970a6a9a8585"
+    },
+    {
+      "File": "app/js/ui/detail.js",
+      "SHA256": "118a00daff10c1902fff628dbceba4bc4a0b553f32b9d212c6eb27fc58b60023"
+    },
+    {
+      "File": "app/js/ui/filters.js",
+      "SHA256": "d06a4530492570c3072dea4f6032bd0299be3606d2343b11a8df5f8f71920e45"
+    },
+    {
+      "File": "app/js/ui/labels.js",
+      "SHA256": "f67efacb43bf3896b5c3cb3551b54908033983b91d17f75fb8987064dda5e974"
+    },
+    {
+      "File": "app/js/ui/start.js",
+      "SHA256": "33407a14668185930fcb40d2bd52f11689ddd0ca5f0b7605d9c4c0f451ec491c"
+    },
+    {
+      "File": "app/js/ui/table.js",
+      "SHA256": "2ef8b1c59cc63ab1e0b916c1fc41ac05fa905359f0e1b2801b37e73a59412072"
+    },
+    {
+      "File": "build/reports/validation-report.md",
+      "SHA256": "35a06f1e29d08149e749c0c63af1b41e60059317d2e16ce6db7110ea7b660679"
+    },
+    {
+      "File": "build/src/chamber-estimates.js",
+      "SHA256": "595480e89db7f6130309c8f07e4fa31c2ab6f760e71cb24439b0f5856453e3ab"
+    },
+    {
+      "File": "build/src/compile.js",
+      "SHA256": "d6203118a60d55969f2239559d0aba03d1b45a0db4d619e964c5f2c6f848857d"
+    },
+    {
+      "File": "build/src/lint-rules.js",
+      "SHA256": "83b6b6bbde06a5424f14b18d3cf39f9a6e971b180cd320abecc48b5ac13f9954"
+    },
+    {
+      "File": "build/src/load.js",
+      "SHA256": "2d27145fa34787c8055b876ce0f9c8ae559ebcda8815e3eb91bbfe6be8cba7ca"
+    },
+    {
+      "File": "build/src/normalize/process.js",
+      "SHA256": "07e203baaf4a7da2e468c3e74bfee76b1ee7fe7d3a8770d72940efd687b2aedc"
+    },
+    {
+      "File": "build/src/normalize/standards.js",
+      "SHA256": "02217001a1397b467589d404f5345121575ed5e6248c9826666c889d4965da5f"
+    },
+    {
+      "File": "build/src/normalize/thermal.js",
+      "SHA256": "e32ce4bca2f345d4c653b4606b652a8f61669f769c15ab87b3f86d2e37d8a572"
+    },
+    {
+      "File": "build/src/page-context.js",
+      "SHA256": "1284ab5c2ddacb2efd7c7e1e0a94bfa77848337199794c23593953f0db2c8aaf"
+    },
+    {
+      "File": "build/src/products.js",
+      "SHA256": "4db6509a0015e439727645c4788f915a58356fa0f85300cae1fa967c49dfb73c"
+    },
+    {
+      "File": "build/src/recipe.js",
+      "SHA256": "3d42927215b8b22fc73e1f063fcd94782139c4ff4f15161f23985025b1ac95ec"
+    },
+    {
+      "File": "build/src/rules.js",
+      "SHA256": "5c9126c4fd1a69e1fda1252de48298aa9460d84d4b720132cbd547106cda2111"
+    },
+    {
+      "File": "build/src/schema.js",
+      "SHA256": "7c87364f11d8cd13f90f64b2bbee753aa4e3d24d7faf378d5fbc7531c16eb352"
+    },
+    {
+      "File": "build/src/typed-values.js",
+      "SHA256": "24528714f05a29d8c432a5d77113a525d9c55afcc9531d32b87c56350789c7f1"
+    },
+    {
+      "File": "data/manifest.json",
+      "SHA256": "91a66501bd40d6baaec6b64647243116c2323ff2e3b2e3e94b40d663373bfaba"
+    },
+    {
+      "File": "data/review/accepted-findings.csv",
+      "SHA256": "2f89d8573f6af898b6f35c737b3f8dae1e53c69a7f22f1e4c84edb22d2c9d422"
+    },
+    {
+      "File": "data/review/context-witness-accepted.csv",
+      "SHA256": "28fefaa219ce8509c9c8785252e3a5a34a52f1440af5f7aeb42eab72706ea8ee"
+    },
+    {
+      "File": "data/tables/evidence.csv",
+      "SHA256": "e58a63613afdef5506a0f46d79297e634c6582249c6a22eed6f03f4d8f667f7a"
+    },
+    {
+      "File": "data/tables/grades.csv",
+      "SHA256": "7bb68668b6d0fef329b3c3fef2812b433f3fb65bd2e461943094a94f762beb04"
+    },
+    {
+      "File": "data/tables/headline_definitions.csv",
+      "SHA256": "8e507e30a0d8f0a5b4405f36ba64cdb923be636dbac4543e646069c0cca381de"
+    },
+    {
+      "File": "data/tables/measurements.csv",
+      "SHA256": "28d99b1c98492766ce5a9445898748aadf8298ba3fef021abb60672e61e30f20"
+    },
+    {
+      "File": "data/tables/page_context.csv",
+      "SHA256": "6c177996a7eba728e4cf9e0a301db86236e70d284aab149e27d0892f5c87f298"
+    },
+    {
+      "File": "data/tables/print_guide.csv",
+      "SHA256": "2de3350ceabe0481c690bde48ea1fcf538779f743f2eee0f88a742c325f73d74"
+    },
+    {
+      "File": "data/tables/profiles.csv",
+      "SHA256": "247b71a1f8600e7a52a435a31b7ddb0b97dd794f71c40ddb066a152b27e08642"
+    },
+    {
+      "File": "docs/DATA-DICTIONARY.md",
+      "SHA256": "127e42bc98911ebbcfb6e94babdc4b23312b6bc07372ea7121dabc2164fb7723"
+    },
+    {
+      "File": "docs/DECISIONS.md",
+      "SHA256": "8026b398a28d656f45cd5c47176d8d23745cb84912ff4e0ade53e70ae9f2fab5"
+    },
+    {
+      "File": "docs/OPEN-PROBLEMS.md",
+      "SHA256": "30128291d16004167da42bf2d898adcf1e2edb9873a29eccc2e92e1c8d5965cd"
+    },
+    {
+      "File": "docs/RULES.md",
+      "SHA256": "8c57993f18df2a787015f2e2d1ef75664c4ba3b401181d338d02e523530d4e4f"
+    },
+    {
+      "File": "docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md",
+      "SHA256": "f0e07d7dc01006c18d5dee669bba63eed9e6d96754db44c69d74cc240c860c6b"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/STATUS.json",
+      "SHA256": "67f9ecad9d5f6c7607a7fda0bf1b10d94c61195b41ec1470235e136b88984fdb"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/STATUS.md",
+      "SHA256": "a84eb2aef97dedb07d540265a974401bc3e0e196c4e7da5fc9108ad9f5a202ab"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/remaining-targets.csv",
+      "SHA256": "8ee5aa76c0ad6a138591407d2e76e9f29ba18191e762f9081d22caef18fd8e88"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/table-delta.json",
+      "SHA256": "21a8928fc3ccda966bc35c6b3856272383d3cc868a33f3d535828b6dc420102a"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/task-status.csv",
+      "SHA256": "3d37d7f300204eff0e8a444f0c3819b39d64a86aa9b2c1ba136e874aebb379c3"
+    },
+    {
+      "File": "docs/audits/2026-10-01-error-classes/README.md",
+      "SHA256": "2ffc16d54e1042aaaed0b9be7634b1402e600f2c39fb9b9648572081a5273700"
+    },
+    {
+      "File": "package.json",
+      "SHA256": "aae82e37956acea540bb1505622123c0d9d18b11a5c8eea03ed37a22ff89e6c1"
+    },
+    {
+      "File": "schema/db.schema.json",
+      "SHA256": "097d43081ff8d1b525cbcc522a0c85bd30751deaeb60e9f02f455f6776d5060c"
+    },
+    {
+      "File": "schema/tables/measurements.schema.json",
+      "SHA256": "7b2a7ea4e2d942fb9701be8d2e8beb73a9bdaef13502c6b35f156d0ecde4cab2"
+    },
+    {
+      "File": "schema/tables/page_context.schema.json",
+      "SHA256": "a2d78c94c5dc9343943f205ed32c8b7449d37959f7eaf3565ea97fcce1fce605"
+    },
+    {
+      "File": "schema/tables/print_guide.schema.json",
+      "SHA256": "b4edc62fb1e49df105935d25ecdf661e041accb89a55a10b6496d3036ce1e9c7"
+    },
+    {
+      "File": "schema/tables/profiles.schema.json",
+      "SHA256": "34145fa43abbb23ed7c159ab609ca661511437725aada88fd1e27b3eddc7e9b8"
+    },
+    {
+      "File": "schema/vocab/context-scopes.csv",
+      "SHA256": "4d7ba6035efa2a996ace05b55d28650322d2ac238f741b0042b9aa6f7d1c2c29"
+    },
+    {
+      "File": "schema/vocab/h2c-status.csv",
+      "SHA256": "6e64cb2cde30e6bf861d5529021bd85334bee5d8c1e256a294585f4cf3da7220"
+    },
+    {
+      "File": "schema/vocab/standards.csv",
+      "SHA256": "96cdf85af806624a3e77403cfb3356fb35636dc239942823f2c40cd9e0f784b9"
+    },
+    {
+      "File": "scripts/audit/context-witness.mjs",
+      "SHA256": "2b0b139185f79715a9472fde9bbd5b73d9e88d5b6f8f9c6342d54703763959bb"
+    },
+    {
+      "File": "scripts/audit/coverage-campaign-status.mjs",
+      "SHA256": "e9ab98f191b5aec5306be662426af2feb7f5c52e1f09073a42a36389936a132a"
+    },
+    {
+      "File": "scripts/data/table-io.mjs",
+      "SHA256": "a8ae4596233071e53745b1adc4e49ccda1c08f84f565db4234162d59c8cc29aa"
+    },
+    {
+      "File": "scripts/ingest/lexicon/setting-labels.csv",
+      "SHA256": "2c778ac08651aba8cb670338a1295fe5d30dde6b74c0497720f256d9a35184d3"
+    },
+    {
+      "File": "scripts/ingest/propose.mjs",
+      "SHA256": "878adc90670d172946dd983094e20336a57ec1bc088ef33043df55f995db2758"
+    },
+    {
+      "File": "scripts/migrate/m274-parse-reviews-name-their-columns.mjs",
+      "SHA256": "e978580d5d9daf65a2cf833a8b0cb8b4f76ed6438604a74eb1218cbca5934e1f"
+    },
+    {
+      "File": "scripts/migrate/m275-names-that-say-what-is-measured.mjs",
+      "SHA256": "1ea46fb70f840bc2a800a54a65a2a10b1ef5c02e3de7bf6b4aff4b1cfaf315fe"
+    },
+    {
+      "File": "scripts/migrate/m276-din-standards-read.mjs",
+      "SHA256": "fb509d7ab925bd5a0bf01d23050c5111fca9e89dce6b661c62c703390ddc9f81"
+    },
+    {
+      "File": "scripts/migrate/m277-m279-sweep-shared.mjs",
+      "SHA256": "f4ac014e637df507a608b1f3995dfbced93014f1d41a0ee4b0981087448d215a"
+    },
+    {
+      "File": "scripts/migrate/m277-page-context.csv",
+      "SHA256": "3f0f8e92eafd31974365012f3a2ff7c45a04768cd2c093c50b3c38b99790e3c7"
+    },
+    {
+      "File": "scripts/migrate/m277-page-context.mjs",
+      "SHA256": "66ef64d3783bdc2de70d6356387f9f5b5a7d19505655e11a80c8ef3423b2b134"
+    },
+    {
+      "File": "scripts/migrate/m278-row-context.csv",
+      "SHA256": "80a03ad21972b1938f22efae787bfd82d471fca88b5b45dcc57bd77396b0887a"
+    },
+    {
+      "File": "scripts/migrate/m278-row-context.mjs",
+      "SHA256": "3c7efd8dbb971f12adc7130e94e097262f95829bff1a8c402665caa96b501210"
+    },
+    {
+      "File": "scripts/migrate/m279-print-settings.csv",
+      "SHA256": "30f813d81aa484fb270526b388749fe44bfcdb819bd90e6119555f378b71d24a"
+    },
+    {
+      "File": "scripts/migrate/m279-print-settings.mjs",
+      "SHA256": "e6fc4490a2a343f8d16a6f5e041fcc97ac6328814758c451ca760d98137662e5"
+    },
+    {
+      "File": "scripts/migrate/m280-sweep-decisions.mjs",
+      "SHA256": "a5fff3d2b2114787e5db293e8fdce5ffd3d15b163d2e107b3f21826003eba6ca"
+    },
+    {
+      "File": "scripts/migrate/m281-twin-keys.csv",
+      "SHA256": "0d8cf27f88db2e056406662cdcc964851eab7bf2c0316c4c25380ed0399acba6"
+    },
+    {
+      "File": "scripts/migrate/m281-twin-keys.mjs",
+      "SHA256": "7561e8d6a3f55f26378947cbfd865c9f33523e9c5772707e7429cbefa3e7044d"
+    },
+    {
+      "File": "scripts/migrate/m282-context-leftovers.mjs",
+      "SHA256": "5c4743b9651719543121fe49cf3af5053261596df792a730633b31953973c7ff"
+    },
+    {
+      "File": "scripts/migrate/m283-print-settings.csv",
+      "SHA256": "11cd161dcbc9c50013898a528dcfd0b49f21bcaeb123e393189c5ee5a271e12d"
+    },
+    {
+      "File": "scripts/migrate/m283-print-settings.mjs",
+      "SHA256": "3609a942d96d445e4ab021816ee754f5844b6e1ccfc29cdc0e05074dccd4ea3f"
+    },
+    {
+      "File": "scripts/migrate/m284-test-temperatures.csv",
+      "SHA256": "357041fefca3109a46348a291b96ee080079b31c9a251809e151ba9b2b0384cb"
+    },
+    {
+      "File": "scripts/migrate/m284-test-temperatures.mjs",
+      "SHA256": "4b340d80b4ad15d2f5ce960cbee82440e428525fdabc36b108c84f92aeb5108c"
+    },
+    {
+      "File": "scripts/migrate/m285-print-settings-the-reader-finds.mjs",
+      "SHA256": "48cffc1b2d97de0fc8afc85b4525c8ea6428cd4cb2a16426b6c59fd95652fb7a"
+    },
+    {
+      "File": "scripts/migrate/m285-print-settings.csv",
+      "SHA256": "7dd656d920b83cbf18bd56fb652d8a0a30c499422535cc9b7d9da76c1a20c0c6"
+    },
+    {
+      "File": "scripts/migrate/m286-review-findings.mjs",
+      "SHA256": "1b1672f5fc292820debc5cb202f394ca50837f3f4f4ab0a3f7d6ffd806593551"
+    },
+    {
+      "File": "scripts/migrate/m287-print-settings-whole.mjs",
+      "SHA256": "7f09bf4168b14e35cf31c6bf0502aaf8f91007c178d13fc4334b561ac744fa87"
+    },
+    {
+      "File": "scripts/migrate/m287-print-settings.csv",
+      "SHA256": "03a9d8da98dc47e42da4d90cce75bf5de99705557f4687c479962f8559f8c59e"
+    },
+    {
+      "File": "scripts/migrate/m288-print-settings-guidance-not-tests.mjs",
+      "SHA256": "f23464ae53007fede60d3a018432d69299c8ac4ea1e0a8cfef1ccb4ca4d54184"
+    },
+    {
+      "File": "scripts/migrate/m288-print-settings.csv",
+      "SHA256": "6de6f48691b9e0762e12108dab4d804150862f0904876d4a124f4c72a20536ea"
+    },
+    {
+      "File": "scripts/migrate/m289-print-settings-tail.mjs",
+      "SHA256": "1aa08878aef8e12657d3f657b67b986ba219f5abfbddd308584db29f9c3d2ad7"
+    },
+    {
+      "File": "scripts/migrate/m289-print-settings.csv",
+      "SHA256": "cdb5c690471c9425cb6c3002f14556a0509ab984f26aaf5391294b99f8be5c08"
+    },
+    {
+      "File": "test/acceptance/ashby-workspace.json",
+      "SHA256": "ddc8248e964f08d124de6cfcef3c3620664eb0f3400615517d999eb951262f79"
+    },
+    {
+      "File": "test/database.test.js",
+      "SHA256": "87349ca59cc583ecbc457192c442d61b5a47a26409d2846438f9125f6e5991fe"
+    },
+    {
+      "File": "test/ingest-propose.test.js",
+      "SHA256": "23661f0df1788a7f6bc128cb72555d6fe1dd364aeff17638178ad31caae32308"
+    },
+    {
+      "File": "test/lint.test.js",
+      "SHA256": "6bd3287d6e0165b93e8b27448da6dd0021affa3ad6792b02928356dd3ff07dfc"
+    },
+    {
+      "File": "test/normalize.test.js",
+      "SHA256": "1732f7a66abc31dbd13a9384fafe3a2ecb01c29fcf48b2c5a38ef1b10bfcda5d"
+    },
+    {
+      "File": "test/page-context.test.js",
+      "SHA256": "3a42b7d3f84d21171e580f67572458831fe7a8f745fb7ea4dde632bc94996411"
+    },
+    {
+      "File": "test/registry-ui.test.js",
+      "SHA256": "408c1eaa07aed4894181c8f215e77ae5759b38bcf443631ddf1916e4f14bb13c"
+    },
+    {
+      "File": "test/templates.test.js",
+      "SHA256": "bff4d7e8a5e2423733cb1407f8c863354e4dd0aa035fa653538f1a2574ace59d"
+    },
+    {
+      "File": "test/typed-values.test.js",
+      "SHA256": "3b5f8863c2beb09dd8c3a1d3199897e9af4ceb8dda7e825e189c2595654c217c"
+    }
+  ]
+}

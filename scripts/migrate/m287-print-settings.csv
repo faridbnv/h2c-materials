@@ -1,0 +1,54 @@
+id,column,expect,value,quote
+P0407,Drying,110-140℃,"110-140℃, 4-6H",Drying Temp. 110-140℃，4-6H
+P0428,Drying,50-60℃,"50-60℃, 6h","Drying conditions 50-60℃, 6h"
+P0431,Drying,80~85℃,"80~85℃, 12h","Drying conditions 80~85℃, 12h"
+P0434,Drying,75-85℃,"75-85℃, 6h","Drying conditions 75-85℃, 6h"
+P0436,Drying,50℃-60℃,"50℃-60℃, 6H",Drying conditions 50℃-60℃，6H
+P0437,Drying,65℃,"65℃, 8H","Drying conditions 65℃, 8H"
+P0438,Drying,75-85℃,"75-85℃, 6h","Drying conditions 75-85℃, 6h"
+P0439,Drying,50-60℃,"50-60℃, 6h","Drying conditions 50-60℃, 6h"
+P0440,Drying,50-60℃,"50-60℃, 6h","Drying conditions 50-60℃, 6h"
+P0442,Drying,70℃,"70℃, 8H","Drying conditions 70℃, 8H"
+P0443,Drying,75-85℃,"75-85℃, 6h",Drying conditions 75-85℃，6h
+P0446,Drying,60-65℃,"60-65℃, 6-8h","Drying conditions 60-65℃, 6-8h"
+P0447,Drying,80℃,"80℃, 12h","Drying conditions 80℃, 12h"
+P0448,Drying,65-75℃,"65-75℃, 6-8h","Drying conditions 65-75℃, 6-8h"
+P0449,Drying,50-60℃,"50-60℃, 6h",Drying conditions 50-60℃，6h
+P0452,Drying,55-60℃,"55-60℃, 6h","Drying conditions 55-60℃, 6h"
+P0453,Drying,75-85℃,"75-85℃, 6h","Drying conditions 75-85℃, 6h"
+P0454,Drying,85℃,"85℃, 12h","Drying conditions 85℃, 12h"
+P0455,Drying,75-85℃,"75-85℃, 6h",Drying conditions 75-85℃，6h
+P0636,Bed °C,140 °C,140 ºC +,Bed Temperature 140 ºC +
+P0778,Chamber °C,Not published,Room temperature,Room Temp. Room temperature
+P0781,Chamber °C,Not published,90-100℃,Room Temp. 90-100℃
+P0799,Chamber °C,Not published,Room temperature,Room Temp. Room temperature
+P0810,Chamber °C,Not published,50-100℃,Room Temp. 50-100℃
+P0848,Bed °C,Not published,45-60 ºC,Bottom plate temperature 45-60 ºC
+P0905,Drying,50-60℃,"50-60℃, 6h","Drying conditions 50-60℃, 6h"
+P1243,Abrasion / clogging,Not published,Hardened steel or ruby-type (avoid brass) of 0.50 mm and never of smaller diameter,Hardened steel or ruby-type (avoid brass) of 0.50 mm and never | of smaller diameter
+P0039,Nozzle °C,240 - 28 0 °C,240 - 280 °C,Nozzle Temperature 240 - 280 °C
+P1001,Nozzle °C,140°C,130-170°C,NozzleTemperature 130-170°C
+P0559,Chamber °C,Room Temp. Cooling fan OFF Recommended,Room Temp.,Chamber temperature Room Temp.
+P0276,Enclosure,. For large part it is recommended to use a heated chamber.,it is recommended to use an enclosure,it is recommended to use an | enclosure
+P0277,Enclosure,. For large part it is recommended to use a heated chamber.,it is recommended to use an enclosure,it is recommended to use an | enclosure
+P0352,Enclosure,". For large part, it is recommended to use a heated chamber.",it is recommended to use an enclosure,it is recommended to use an | enclosure
+P0353,Enclosure,". For large part, it is recommended to use a heated chamber.",it is recommended to use an enclosure,it is recommended to use an | enclosure
+P1218,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0275,Chamber °C,Not published,Recommended environmental temperature Room temperature - 45 (˚C),Recommended environmental temperature Room temperature - 45 (˚C)
+P0280,Chamber °C,Not published,Recommended environmental temperature Room temperature - 45 (˚C),Recommended environmental temperature Room temperature - 45 (˚C)
+P0281,Chamber °C,Not published,Recommended environmental temperature Room temperature - 45 (˚C),Recommended environmental temperature Room temperature - 45 (˚C)
+P0284,Chamber °C,Not published,Recommended environmental temperature Room temperature - 45 (˚C),Recommended environmental temperature Room temperature - 45 (˚C)
+P0285,Chamber °C,Not published,Recommended environmental temperature Room temperature - 45 (˚C),Recommended environmental temperature Room temperature - 45 (˚C)
+P0306,Chamber °C,Not published,Recommended environmental temperature Room temperature - 45 (˚C),Recommended environmental temperature Room temperature - 45 (˚C)
+P0309,Chamber °C,Not published,Recommended environmental temperature Room temperature,Recommended environmental temperature Room temperature
+P0310,Chamber °C,Not published,Recommended environmental temperature Room temperature,Recommended environmental temperature Room temperature
+P0316,Chamber °C,Not published,Room temperature – 45 (˚C),Environmental temperature Room temperature – 45 (˚C)
+P0323,Chamber °C,Not published,Recommended environmental temperature 25 (˚C),Recommended environmental temperature 25 (˚C)
+P0355,Chamber °C,Not published,Room temperature,Environmental temperature Room temperature
+P0615,Chamber °C,Not published,Recommended environmental temperature (°C) Room temperature - 45,Recommended environmental temperature (°C) Room temperature - 45
+P1006,Chamber °C,Not published,Room temperature - 45 (˚C),Environmental temperature Room temperature - 45 (˚C)
+P1015,Chamber °C,Not published,Room temperature,Environmental temperature Room temperature
+P1038,Chamber °C,Not published,0 - 40 (˚C),Environmental temperature 0 - 40 (˚C)
+P1237,Chamber °C,Not published,Recommended environmental temperature Room temperature,Recommended environmental temperature Room temperature
+P1260,Nozzle °C,Not published,235–260 °C,Working temperature: 235–260 °C
+P0994,Drying,Not published,50-60°C for 6+ hours,Drying 5 0-6 0°C for 6+ hours

@@ -52,6 +52,9 @@ const RECOMMENDED_RE = /^recommended\b/i;
 // Polymaker marks the whole window after its numbers: "70 – 80 (recommended) (˚C)", "70-80 (˚C)(Recommended)". A bracket
 // holding a number as well ("230~260 ℃ (recommended: 240℃)") recommends a point inside a window, which stays required.
 const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
+// 3DJake's sheets say a filament "can also be printed without a heated bed. If you have a heated bed the recommended
+// temperature is ± 35-60˚C": a window for a printer that has one, not one the filament needs.
+const RECOMMENDED_IF_RE = /\bif you have a heated bed\b|\brecommended temperature is\b/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
 // BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT.
 const DASH_RE = /^-$/;
@@ -62,8 +65,12 @@ const OFF_RE = /^off$/i;
 const NON_HEATED_RE = /\bnon-?heated\s+chambers?\b/i;
 // "65˚C+" (Polymaker ABS Max's chamber), "140 ºC +" and LEHVOSS's "> 120 °C" are at-least values: a lower end, with no
 // upper end published.
-const AT_LEAST_RE = /^(?:(\d+(?:\.\d+)?)\s*[^\d\s+]{0,3}\s*\+|(?:>|≥|>=)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3})$/;
+// Fillamentum prints the plus before the unit: "Hot pad 100+ °C".
+const AT_LEAST_RE = /^(?:(\d+(?:\.\d+)?)\s*[^\d\s+]{0,3}\s*\+|(?:>|≥|>=)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}|(\d+(?:\.\d+)?)\s*\+\s*[^\d\s]{1,3})$/;
 const AT_LEAST_LEAD_RE = /^(?:>|≥|>=)\s*(\d+(?:\.\d+)?)()\s*[^\d\s]{0,3}\s+[^\d]*$/;
+// "< 80°C" (Spectrum's PA6 Low Warp GF30 bed) and "≤ 60 °C" are at-most values: an upper end, with no lower end
+// published. Read as a number, "< 80°C" was the single point 80 (the control re-read of 2026-10-01).
+const AT_MOST_RE = /^(?:<|≤|<=|＜)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}(?:\s+[^\d]*)?$/;
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?)\b/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
 
@@ -91,8 +98,15 @@ export function parseTemperature(raw, opts = {}) {
   const atLeast = s.match(AT_LEAST_RE) ?? s.match(AT_LEAST_LEAD_RE);
   if (atLeast) {
     const [lo, hi] = opts.plausible || [0, 500];
-    const min = Number(atLeast[1] ?? atLeast[2]);
+    const min = Number(atLeast[1] ?? atLeast[2] ?? atLeast[3]);
     if (min >= lo && min <= hi) return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min, max: null, openHigh: true };
+  }
+
+  const atMost = s.match(AT_MOST_RE);
+  if (atMost) {
+    const [lo, hi] = opts.plausible || [0, 500];
+    const max = Number(atMost[1]);
+    if (max >= lo && max <= hi) return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min: null, max, openLow: true };
   }
 
   // Cut trailing clauses that are not about this process parameter.
@@ -102,7 +116,7 @@ export function parseTemperature(raw, opts = {}) {
 
   let requirement = REQUIREMENT.REQUIRED;
   if (NOT_REQUIRED_RE.test(s)) requirement = REQUIREMENT.NONE;
-  else if (RECOMMENDED_RE.test(s) || RECOMMENDED_MARK_RE.test(s)) requirement = REQUIREMENT.RECOMMENDED;
+  else if (RECOMMENDED_RE.test(s) || RECOMMENDED_MARK_RE.test(s) || RECOMMENDED_IF_RE.test(s)) requirement = REQUIREMENT.RECOMMENDED;
 
   const ambient = AMBIENT_RE.test(s);
   const [lo, hi] = opts.plausible || [0, 500];
@@ -118,6 +132,10 @@ export function parseTemperature(raw, opts = {}) {
     if (min < lo || max > hi) return { text, state: PROCESS_STATE.UNKNOWN, requirement, min: null, max: null, unparsed: true };
     return { text, state: PROCESS_STATE.RANGE, requirement, min, max, tolerance: delta };
   }
+
+  // A point the maker recommends inside a window is not one of its ends: Flashforge prints "Room temperature~60℃ (40℃
+  // recommended)", and read as numbers the window became 40–60 (the control re-read of 2026-10-01).
+  s = s.replace(/\(\s*(?:recommended\s*:?\s*)?\d+(?:\.\d+)?\s*[°º˚]?\s*C?\s*(?:recommended)?\s*\)/gi, (m) => (/recommended/i.test(m) ? ' ' : m));
 
   // No leading minus in the pattern. These temperatures are never negative, and accepting one
   // makes the range dash in "255-275C" read as the sign of -275, which then fails the plausibility
@@ -310,10 +328,11 @@ export function parseAbrasion(raw) {
   // silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer."
   if (/\b(is|are)\s+not\s+abrasive\b|\bnon-?abrasive\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   if (/(harden\w*|ruby|abrasi\w*)[^.;]*\bnot\s+(needed|required|necessary)\b|\bno\s+(harden\w*|ruby|abrasi\w*)\b[^.;]*\b(required|needed|necessary)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
-  const answer = /\b(yes|no|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
+  // A German sheet answers "Hardened Nozzle nein" (or "ja").
+  const answer = /\b(yes|ja|no|nein|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
   if (answer && /abrasi|hardened|carbide|diamond|ruby/i.test(text)) {
     const says = answer[1].toLowerCase();
-    if (says === 'no' || says === 'not necessary' || says === 'none') return { text, requiresHardened: false, state: 'stated' };
+    if (says === 'no' || says === 'nein' || says === 'not necessary' || says === 'none') return { text, requiresHardened: false, state: 'stated' };
     return { text, requiresHardened: true, state: 'stated' };
   }
   // Polymaker asks for "a wear resistant nozzle" where others say hardened; Raise3D writes "hardening steel".

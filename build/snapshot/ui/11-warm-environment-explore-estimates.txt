@@ -281,7 +281,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,140 ~4.9–8.3† ~37–63† ~2.5–8.0† 142 — ☆
+ 1,140 ~4.9–8.3† ~37–63† ~2.5–7.9† 142 — ☆
 PA12
 Nylon / Polyamide
  UNKNOWN
@@ -303,7 +303,7 @@ nothing published to judge
 PA12-CF
 Nylon / Polyamide
  PASS
-1 of 2 products
+2 of 3 products
  1,070
 1,030–1,230 · 12
  3.32
@@ -314,7 +314,7 @@ typical: annealed
  3.6
 2.1–14.8 · 7
 typical: annealed
- passing: 90
+ passing: 90–175
 all products: 159
 48–185 · 10
  300↗ ☆
@@ -387,7 +387,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,010 ~3.1–5.3† ~58–103† ~2.9–12.5† ~89–174† 180↗ ☆
+ 1,010 ~3.1–5.3† ~58–104† ~2.9–12.4† ~89–174† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -427,11 +427,11 @@ Nylon / Polyamide
 1,030–1,090 · 2
  4.88
 3.5–5.14 · 3
- 83.3
-68–91.9 · 3
+ 80
+68–91.9 · 2
 typical: annealed
- 3.16
-2.6–3.5 · 3
+ 3.05
+2.6–3.5 · 2
 typical: annealed
  passing: 175
 all products: 175
@@ -453,7 +453,7 @@ all products: 157
  178↗ ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,040–1,270† ~2.0–8.7† ~54–129† ~1–12† ~146–213† — ☆
+ UNKNOWN ~1,040–1,270† ~2.0–8.7† ~54–128† ~1–12† ~146–213† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN
@@ -476,7 +476,7 @@ none judged
 nothing published to judge
  1,370
 1,250–1,490 · 2
- ~1.6–5.9† ~46–115† ~2–23† ~70–180† — ☆
+ ~1.6–5.9† ~46–116† ~2–23† ~70–180† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS
@@ -505,7 +505,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,310 ~1.1–4.3† ~29–71† ~5–47† 180
+ 1,310 ~1.1–4.3† ~29–72† ~5–47† 180
 180–180 · 2
  — ☆
 PBT-GF
@@ -636,7 +636,7 @@ Polycarbonate
 likely fails: 1 measured below, 1 unpublished
  1,290
 1,260–1,320 · 2
- ~1.0–3.6† ~33–76† ~5–22† 140
+ ~1.0–3.6† ~33–76† ~5–21† 140
 typical: annealed
  — ☆
 PCL
@@ -664,7 +664,7 @@ Copolyesters
 likely fails: 2 measured below, 1 unpublished
  1,280
 1,280–1,280 · 2
- ~1.6–6.1† ~42–80† ~9–27† 77
+ ~1.6–6.0† ~42–80† ~9–27† 77
 76–78 · 2
  138¤ ☆
 PE
@@ -1253,7 +1253,7 @@ none judged
 nothing published to judge
  1,080
 1,080–1,080 · 2
- ~1.0–4.3† ~24–57† ~3–31† ~79–109† — ☆
+ ~1.0–4.3† ~24–58† ~3–31† ~79–109† — ☆
 SBC
 Styrenics
  UNKNOWN

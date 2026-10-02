@@ -1,5 +1,5 @@
 {
-  "dataRelease": "056a6ca3d696",
+  "dataRelease": "cc18ed47563c",
   "latestCompletedDataCommit": "955a51b02ce7139c5f61b105c533fa167a08c3f0",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -34,9 +34,9 @@
   "allCataloguePrintGates": {
     "products": 1128,
     "nozzleKnown": 1018,
-    "chamberKnown": 765,
-    "chamberUnknown": 363,
-    "dryingRequired": 482
+    "chamberKnown": 781,
+    "chamberUnknown": 347,
+    "dryingRequired": 492
   },
   "databaseCounts": {
     "materials": 175,
@@ -49,8 +49,8 @@
     "excluded": 17,
     "grades": 1163,
     "measurements": 11246,
-    "numericMeasurements": 11069,
-    "quarantined": 20,
+    "numericMeasurements": 11065,
+    "quarantined": 24,
     "profiles": 1323,
     "evidence": 770,
     "prices": 357,
@@ -101,7 +101,7 @@
       "baseline": 11536,
       "current": 11545,
       "added": 9,
-      "edited_existing": 283,
+      "edited_existing": 295,
       "removed": 0
     },
     "page_context": {
@@ -122,7 +122,7 @@
       "baseline": 1316,
       "current": 1323,
       "added": 7,
-      "edited_existing": 218,
+      "edited_existing": 416,
       "removed": 0
     },
     "sources": {

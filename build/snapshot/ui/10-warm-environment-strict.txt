@@ -181,7 +181,7 @@ all products: 88
 PA12-CF
 Nylon / Polyamide
  PASS
-1 of 2 products
+2 of 3 products
  1,070
 1,030–1,230 · 12
  3.32
@@ -192,7 +192,7 @@ typical: annealed
  3.6
 2.1–14.8 · 7
 typical: annealed
- passing: 90
+ passing: 90–175
 all products: 159
 48–185 · 10
  300↗ ☆
@@ -282,11 +282,11 @@ Nylon / Polyamide
 1,030–1,090 · 2
  4.88
 3.5–5.14 · 3
- 83.3
-68–91.9 · 3
+ 80
+68–91.9 · 2
 typical: annealed
- 3.16
-2.6–3.5 · 3
+ 3.05
+2.6–3.5 · 2
 typical: annealed
  passing: 175
 all products: 175

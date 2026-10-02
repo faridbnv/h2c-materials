@@ -1,7 +1,7 @@
 COUNT 90 shown PASS + UNKNOWN
-STATUS ☑ PASS 6 | ☑ UNKNOWN 109 | ☐ FAIL 38 | ☐ SCREENED 25
-6 of the 153 materials meet these requirements
-Flexible component template · 109 more could not be checked, listed flagged, except 25 screened out
+STATUS ☑ PASS 7 | ☑ UNKNOWN 108 | ☐ FAIL 38 | ☐ SCREENED 25
+7 of the 153 materials meet these requirements
+Flexible component template · 108 more could not be checked, listed flagged, except 25 screened out
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -376,11 +376,11 @@ nothing published to judge
 1,030–1,090 · 2
  4.88
 3.5–5.14 · 3
- 83.3
-68–91.9 · 3
+ 80
+68–91.9 · 2
 typical: annealed
- 3.16
-2.6–3.5 · 3
+ 3.05
+2.6–3.5 · 2
 typical: annealed
  175 170
 98–242 · 2
@@ -431,7 +431,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,310 ~1.1–4.3† ~29–71† ~5–47† 180
+ 1,310 ~1.1–4.3† ~29–72† ~5–47† 180
 180–180 · 2
  — ☆
 PC
@@ -883,12 +883,13 @@ likely fails: 2 measured below, 2 unpublished
  1.87 50 11 100 — ☆
 PP
 Polyolefins
- UNKNOWN
-none judged
-nothing published to judge
+ PASS
+1 of 1 product
  900
 890–960 · 8
- ~0.41–1.29† 19 850 80
+ ~0.41–1.29† 19 passing: 850
+all products: 850
+ 80
 58.5–85 · 3
  77.5
 62.5–92.5 · 2
@@ -1070,7 +1071,7 @@ Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,280 1.4 70 ~70–630† n/a — ☆
+ 1,280 1.4 70 ~70–620† n/a — ☆
 TPE, maker-undisclosed elastomer
 Flexible Elastomers
  UNKNOWN
@@ -1106,14 +1107,14 @@ all products: 585
 TPU 90A class
 Flexible Elastomers
  PASS
-3 of 3 products
+4 of 4 products
  1,210
 1,120–1,240 · 10
  0.0162
 0.0053–0.027 · 2
  26.9
 12.5–30 · 4
- passing: 574–650
+ passing: 574–1,000
 all products: 618
 574–1,000 · 4
  n/a 75
@@ -1154,7 +1155,7 @@ none judged
 nothing published to judge
  1,230
 1,220–1,230 · 3
- ~0.01–0.74† ~18–98† ~15–61† n/a 189
+ ~0.01–0.74† ~17–98† ~15–61† n/a 189
 150–227 · 2
 ¤↗
 out of stock

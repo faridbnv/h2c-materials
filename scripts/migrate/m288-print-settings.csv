@@ -1,0 +1,81 @@
+id,column,expect,value,quote
+P0585,Nozzle °C,190-230℃,210- 230℃,Extruder Temperature | 210- 230℃
+P0585,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0587,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0589,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0594,Bed °C,95℃,95-110°C,Build Platform Temperature | 95-110°C
+P0598,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0599,Nozzle °C,240-290℃,260 - 290℃,Extruder Temperature | 260 - 290℃
+P0599,Bed °C,80℃,70-90°C,Build Platform Temperature | 70-90°C
+P0604,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0606,Nozzle °C,190-280℃,190-270℃,Extruder Temperature | 190-270℃
+P0606,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0613,Nozzle °C,240-290℃,250 - 290℃,Extruder Temperature | 250 - 290℃
+P0621,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0627,Nozzle °C,215-230℃,210 - 230℃,Extruder Temperature | 210 - 230℃
+P0627,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0650,Nozzle °C,210-250℃,220 - 250℃,Extruder Temperature | 220 - 250℃
+P0650,Bed °C,60℃,45-60°C,Build Platform Temperature | 45-60°C
+P0665,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0668,Nozzle °C,230-270℃,240 - 270℃,Extruder Temperature | 240 - 270℃
+P0668,Bed °C,100℃,95 - 110°C,Build Platform Temperature | 95 - 110°C
+P0676,Bed °C,100℃,100 - 115°C,Build Platform Temperature | 100 - 115°C
+P0705,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0752,Nozzle °C,210-250℃,220 - 250℃,Extruder Temperature | 220 - 250℃
+P0752,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0754,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0756,Nozzle °C,190-230℃,200- 230℃,Extruder Temperature | 200- 230℃
+P0756,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P0757,Bed °C,75℃,75-90°C,Build Platform Temperature | 75-90°C
+P0884,Bed °C,45℃,60°C,Build Platform Temperature | 60°C
+P0887,Nozzle °C,190-230℃,200- 230℃,Extruder Temperature | 200- 230℃
+P0979,Bed °C,45℃,45-60°C,Build Platform Temperature | 45-60°C
+P1029,Nozzle °C,240-300℃,260 - 300℃,Extruder Temperature | 260 - 300℃
+P1029,Bed °C,80℃,45-60°C,Build Platform Temperature | 45-60°C
+P1187,Nozzle °C,210-250℃,220 - 250℃,Extruder Temperature | 220 - 250℃
+P1187,Bed °C,45℃,45 - 60°C,Build Platform Temperature | 45 - 60°C
+P0396,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0397,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0398,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0399,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0400,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0401,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0403,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0404,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0405,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0406,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0407,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0408,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0409,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0410,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0411,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0413,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0414,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0415,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0416,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0417,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0418,Chamber °C,Not published,Room Temperture,Room Temp. Room Temperture
+P0419,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0420,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0421,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0422,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0423,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0424,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0425,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0426,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0427,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0903,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P1198,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P1200,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P1223,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P1224,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P1225,Chamber °C,Not published,Room Temperature,Room Temp. Room Temperature
+P0558,Chamber °C,Room Temp. Cooling fan OFF Recommended,Room Temp.,Chamber temperature Room Temp.
+P0567,Chamber °C,Room Temp. Cooling fan OFF Recommended,Room Temp.,Chamber temperature Room Temp.
+P0568,Chamber °C,Room Temp. Cooling fan OFF Recommended,Room Temp.,Chamber temperature Room Temp.
+P0575,Chamber °C,Room Temp. Cooling fan OFF Recommended,Room Temp.,Chamber temperature Room Temp.
+P0576,Chamber °C,Room Temp. Cooling fan OFF Recommended,Room Temp.,Chamber temperature Room Temp.
+P1208,Nozzle °C,Not published,215 - 225°C,Printing termperatures 215 - 225°C
+P1295,Abrasion / clogging,Not published,Strongly recommend this material to be printed through a hardened steel nozzle rather than a softer metal.,Strongly recommend this material to be printed through a hardened steel nozzle rather than a softer metal.
+P0538,Bed °C,Not published,100+ °C,Hot pad 100+ °C
+P0289,Drying,Not published,70°C/6H,Build plate temperature 120°C 70°C/6H

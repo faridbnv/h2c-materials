@@ -78,8 +78,8 @@
       "policy": { "unknownPolicy": "strict" },
       "rankBy": "beam-stiffness",
       "expect": {
-        "passMaterials": 9,
-        "because": "The original eight materials remain passing. Campaign m271 adds M147 / G147-01 after independently re-reading exact PAHT9825 FFF guide bed<80C and non-heated-chamber instructions; its existing comparable stiffness/density and270-290C nozzle are unchanged. No application or environmental claim establishes this pass. The decision set is every passing product whose own judged state publishes both values, re-derived in the test from the products' states, not from the workspace."
+        "passMaterials": 10,
+        "because": "The original eight materials remain passing. Campaign m271 adds M147 / G147-01 after independently re-reading exact PAHT9825 FFF guide bed<80C and non-heated-chamber instructions; its existing comparable stiffness/density and270-290C nozzle are unchanged. No application or environmental claim establishes this pass. The decision set is every passing product whose own judged state publishes both values, re-derived in the test from the products' states, not from the workspace. The error-class sweep (m288) adds M017 / G017-05: its own sheet's row \"Room Temp. | Room Temperature\", which the import had not read, settles its chamber gate; its stiffness and density are unchanged."
       }
     }
   ]

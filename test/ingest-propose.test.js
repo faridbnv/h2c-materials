@@ -140,6 +140,22 @@ test('a printing setting is read by its own label, wherever the page puts it', (
   // SUNLU's "Print Platform Temp." is the bed (the data audit of 2026-10-01, RC8): it starts with neither the bed's name nor the nozzle's.
   const platform = readSetting({ text: 'Print Platform Temp. 50-60℃' });
   assert.deepEqual([platform?.field, platform?.raw], ['bed', '50-60℃']);
+  // The labels the control re-read of the swept database found unread: Fillamentum's "Hot pad", Polymaker's "Closure
+  // chamber" and eSUN's "Drying Preparation".
+  assert.deepEqual([readSetting({ text: 'Hot pad 80–105 °C' })?.field, readSetting({ text: 'Hot pad 80–105 °C' })?.raw], ['bed', '80–105 °C']);
+  assert.equal(readSetting({ text: 'Closure chamber Not needed' })?.field, 'enclosure');
+  assert.equal(readSetting({ text: 'Drying Preparation 50℃ ＞8H' })?.field, 'drying');
+  assert.equal(readSetting({ text: 'Bottom plate temperature 45-60 ºC' })?.field, 'bed');
+  assert.equal(readSetting({ text: 'Room Temp. Room Temperature' })?.field, 'chamber');
+  assert.equal(readSetting({ text: 'Hardened steel or ruby-type (avoid brass) of 0.50 mm' })?.field, 'nozzle-material');
+  // A value keeps its "º" degree, its at-least "+" and the hours after a comma (the second control of 2026-10-01).
+  assert.equal(settingValue('140 ºC +'), '140 ºC +');
+  assert.equal(settingValue('80~85℃, 12h'), '80~85℃, 12h');
+  assert.equal(settingValue('50℃-60℃，6h'), '50℃-60℃，6h');
+  assert.equal(settingValue('100+ °C'), '100+ °C');
+  assert.equal(readSetting({ text: 'Printing termperatures 215 - 225°C' })?.field, 'nozzle');
+  assert.equal(readSetting({ text: 'Working temperature: 235–260 °C' })?.field, 'nozzle');
+  assert.equal(readSetting({ text: 'Recommended environmental temperature Room temperature - 45 (˚C)' })?.field, 'chamber');
 });
 
 test("a setting's value stops where the next column begins", () => {

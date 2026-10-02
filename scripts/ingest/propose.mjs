@@ -1008,8 +1008,12 @@ export function readRow(text, registry, held = null) {
 // A range may be written with a tilde, which is how Flashforge and every sheet typeset in China write one
 // ("240~270°C", "0~40%", "0.12~0.3mm"). Cut at the dash alone, such a setting kept its first number and
 // lost the window, and a nozzle row that no longer stated a temperature was thrown away altogether.
-const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:°\s?C|℃|%|mm)?\s*(?:[-–—~～]|to)\s*)?\d+(?:[.,]\d+)?\s*(?:°\s?C|°C|℃|C\b|%|mm[³3]\/s|mm\/s|mm\/min|mm|m\/s)?/i;
-const CONTINUES = /^(\(|up to\b|max\b|min\b|or\b|and\b|±)/i;
+// The degree may be printed as the ordinal "º" or the ring "˚" ("140 ºC +"), and an at-least value ends in "+": read
+// without them the value was "140", a point where the sheet states a lower end (the control re-read of 2026-10-01).
+const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:[°º˚]\s?C|℃|%|mm)?\s*(?:[-–—~～]|to)\s*)?\d+(?:[.,]\d+)?\s*\+?\s*(?:[°º˚]\s?C|℃|C\b|%|mm[³3]\/s|mm\/s|mm\/min|mm|m\/s)?(?:\s*\+)?/i;
+// A drying temperature is followed by its hours after a comma ("80~85℃, 12h", "50℃-60℃，6h"); cut there, the hours were
+// lost on every Eryone sheet.
+const CONTINUES = /^(\(|up to\b|max\b|min\b|or\b|and\b|±|[,，]\s*[\d.]+(?:\s*[-–~]\s*[\d.]+)?\s*(?:h|hrs?|hours?)\b)/i;
 // Where a neighbouring column's sentence begins: a run of capitals, or a sentence's subject and verb.
 const FOREIGN = /\s(?=[A-Z]{2,}(?:\s+[A-Z&]{2,})+)|\s(?=[A-Z][a-z]+\s+(?:should|is|are|has|have|may|shall|can|will|must)\b)/;
 

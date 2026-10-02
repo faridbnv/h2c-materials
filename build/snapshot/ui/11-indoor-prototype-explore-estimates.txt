@@ -306,7 +306,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,140 ~4.9–8.3† ~37–63† ~2.5–8.0† 142 — ☆
+ 1,140 ~4.9–8.3† ~37–63† ~2.5–7.9† 142 — ☆
 PA12
 Nylon / Polyamide
  PASS
@@ -327,7 +327,7 @@ nothing published to judge
 PA12-CF
 Nylon / Polyamide
  PASS
-3 of 3 products
+4 of 4 products
  1,070
 1,030–1,230 · 12
  3.32
@@ -405,7 +405,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,010 ~3.1–5.3† ~58–103† ~2.9–12.5† ~89–174† 180↗ ☆
+ 1,010 ~3.1–5.3† ~58–104† ~2.9–12.4† ~89–174† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -444,11 +444,11 @@ Nylon / Polyamide
 1,030–1,090 · 2
  4.88
 3.5–5.14 · 3
- 83.3
-68–91.9 · 3
+ 80
+68–91.9 · 2
 typical: annealed
- 3.16
-2.6–3.5 · 3
+ 3.05
+2.6–3.5 · 2
 typical: annealed
  175 170
 98–242 · 2
@@ -466,7 +466,7 @@ typical: annealed
  157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,040–1,270† ~2.0–8.7† ~54–129† ~1–12† ~146–213† — ☆
+ UNKNOWN ~1,040–1,270† ~2.0–8.7† ~54–128† ~1–12† ~146–213† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN
@@ -488,7 +488,7 @@ none judged
 nothing published to judge
  1,370
 1,250–1,490 · 2
- ~1.6–5.9† ~46–115† ~2–23† ~70–180† — ☆
+ ~1.6–5.9† ~46–116† ~2–23† ~70–180† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS
@@ -514,7 +514,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,310 ~1.1–4.3† ~29–71† ~5–47† 180
+ 1,310 ~1.1–4.3† ~29–72† ~5–47† 180
 180–180 · 2
  — ☆
 PBT-GF
@@ -641,7 +641,7 @@ Polycarbonate
 likely fails: 1 measured below, 1 unpublished
  1,290
 1,260–1,320 · 2
- ~1.0–3.6† ~33–76† ~5–22† 140
+ ~1.0–3.6† ~33–76† ~5–21† 140
 typical: annealed
  — ☆
 PCL
@@ -667,7 +667,7 @@ Copolyesters
 2 of 2 products
  1,280
 1,280–1,280 · 2
- ~1.6–6.1† ~42–80† ~9–27† 77
+ ~1.6–6.0† ~42–80† ~9–27† 77
 76–78 · 2
  138¤ ☆
 PCTG-GF
@@ -676,7 +676,7 @@ Copolyesters
 2 of 2 products
  1,310
 1,310–1,310 · 2
- ~1.3–5.0† ~33–76† ~2–21† 78
+ ~1.3–5.0† ~32–76† ~2–21† 78
 76–78 · 3
  165¤↗
 out of stock
@@ -859,7 +859,7 @@ typical: annealed
 18–80 · 27
 ↗ ☆
 PLA Aero PASS
-6 of 6 products
+7 of 7 products
  1,150
 840–1,240 · 8
  1.52
@@ -889,7 +889,7 @@ PLA blend-CF PASS
 1,200–1,360 · 2
  7.12* 65* 2.5* 74 — ☆
 PLA Galaxy PASS
-2 of 2 products
+3 of 3 products
  1,225
 1,190–1,240 · 4
  1.79
@@ -921,7 +921,7 @@ typical: annealed
 32–40 · 2
 ↗ ☆
 PLA Marble PASS
-2 of 2 products
+3 of 3 products
  1,250
 1,220–1,260 · 5
  2.03
@@ -950,7 +950,7 @@ typical: annealed
 58–62 · 2
  32↗ ☆
 PLA Silk PASS
-16 of 16 products
+21 of 21 products
  1,240
 1,210–1,320 · 30
  1.72
@@ -966,7 +966,7 @@ typical: annealed
 29–48 · 6
 ↗ ☆
 PLA Sparkle PASS
-2 of 2 products
+3 of 3 products
  1,255
 1,240–1,410 · 4
  1.94
@@ -981,7 +981,7 @@ typical: annealed
 50.8–55 · 2
  32↗ ☆
 PLA Wood PASS
-7 of 7 products
+8 of 8 products
  1,200
 970–1,300 · 17
  1.68
@@ -1065,7 +1065,7 @@ likely fails: 2 measured below, 2 unpublished
 PP
 Polyolefins
  PASS
-2 of 2 products
+3 of 3 products
  900
 890–960 · 8
  ~0.41–1.29† 19 850 80
@@ -1201,7 +1201,7 @@ typical: annealed
 PVB
 PVB / Specialty Polymers
  PASS
-2 of 2 products
+3 of 3 products
  1,100
 1,080–1,100 · 6
  2.21
@@ -1246,7 +1246,7 @@ none judged
 nothing published to judge
  1,080
 1,080–1,080 · 2
- ~1.0–4.3† ~24–57† ~3–31† ~79–109† — ☆
+ ~1.0–4.3† ~24–58† ~3–31† ~79–109† — ☆
 SBC
 Styrenics
  UNKNOWN
@@ -1276,7 +1276,7 @@ Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,280 1.4 70 ~70–630† n/a — ☆
+ 1,280 1.4 70 ~70–620† n/a — ☆
 TPE, maker-undisclosed elastomer
 Flexible Elastomers
  PASS
@@ -1310,7 +1310,7 @@ Flexible Elastomers
 TPU 90A class
 Flexible Elastomers
  PASS
-8 of 8 products
+9 of 9 products
  1,210
 1,120–1,240 · 10
  0.0162
@@ -1354,7 +1354,7 @@ Flexible Elastomers
 2 of 2 products
  1,230
 1,220–1,230 · 3
- ~0.01–0.74† ~18–98† ~15–61† n/a 189
+ ~0.01–0.74† ~17–98† ~15–61† n/a 189
 150–227 · 2
 ¤↗
 out of stock
