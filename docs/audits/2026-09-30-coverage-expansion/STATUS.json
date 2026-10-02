@@ -1,11 +1,11 @@
 {
   "dataRelease": "b27dc24f7147",
-  "latestCompletedDataCommit": "955a51b02ce7139c5f61b105c533fa167a08c3f0",
+  "latestCompletedDataCommit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
     "total": 136,
-    "completed": 75,
-    "remaining": 61
+    "completed": 136,
+    "remaining": 0
   },
   "productPasses": {
     "total": 1051,
@@ -230,16 +230,80 @@
     {
       "hash": "955a51b02ce7139c5f61b105c533fa167a08c3f0",
       "subject": "Assess the remaining nine blank Application coverage cells"
+    },
+    {
+      "hash": "5491505aafc4d77346e3796cb846b7d9598eeb23",
+      "subject": "Reconcile coverage campaign documentation and guard current worklists"
+    },
+    {
+      "hash": "5360e2a2904f34431fe3a09354ad39a3a7d137e1",
+      "subject": "Name the columns a Parse review explains, and keep open print windows open (D115, m274)"
+    },
+    {
+      "hash": "da1d280156605ef3cea63f2928efd35aa003b118",
+      "subject": "Carry what a page states once to its values, and guard the context the import lost (D116)"
+    },
+    {
+      "hash": "528389498329839beed537a716c3af9f1a436301",
+      "subject": "Say how many products pass, and judge \"Official Bambu product\" per product (D117, D118)"
+    },
+    {
+      "hash": "ed6f1823e447cb890e7185eca2f402d06d11cc5c",
+      "subject": "Clear the error-class guards: page statements, row context, print settings, twins (D119, m276-m284)"
+    },
+    {
+      "hash": "4031312b5e2ebb30463377381bbed30961e84b2f",
+      "subject": "Measure the sweep again, act on its review, and read print settings with the import's own reader (D119, m285-m289)"
+    },
+    {
+      "hash": "37d722b8f741c40d20938f065a8094988916ac65",
+      "subject": "Document the error-class sweep where a reader looks first (D115-D119)"
+    },
+    {
+      "hash": "c56ba48968c6b3c75fb91a93e61bb7fa6e20fb9d",
+      "subject": "Judge a context acceptance only where its sheet is cached"
+    },
+    {
+      "hash": "cd8a7eed01e36a50993ec5512c40a8943981540b",
+      "subject": "Fix print profiles by cause, not by re-reading each one (D120, m290-m295)"
+    },
+    {
+      "hash": "44adc678bad0da985f5fe56ccd7e493ab4b36434",
+      "subject": "Read LUVOCOM's slash-separated beds, keep another product's sentence out, and bring the docs up to the sweep (D120)"
+    },
+    {
+      "hash": "1f95b2876e69f2a1aea645406639bcc198cc61e9",
+      "subject": "Keep an applied document's digest when a recheck is served other bytes, and record the new revision (D104)"
+    },
+    {
+      "hash": "11be72184382152b113d242ab07408dc787a35a2",
+      "subject": "Bring the profile-error detectors into the repository as npm run audit:profile-marks (D120)"
+    },
+    {
+      "hash": "8e614b65e7222d6c0ce10ffc1af301564b29f639",
+      "subject": "Check a measurement's Parse review for staleness as a print profile's already is (D115, D119)"
+    },
+    {
+      "hash": "55b1589d3be1c7dff3d10f3221bfdd8f5d9aa153",
+      "subject": "Show a published bound as a bound wherever a value is read (OPEN-PROBLEMS: a published bound shows as its number)"
+    },
+    {
+      "hash": "20b4a6a5ead70a88c9d72c499b65a75dfb9a8176",
+      "subject": "Fix what the open problems ranked first that an agent can fix, with the owner's rulings (D121-D123, m296-m304)"
+    },
+    {
+      "hash": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
+      "subject": "Review all remaining material Application judgments against originals"
     }
   ],
   "resumedScope": {
     "authorizationDate": "2026-10-02",
     "materialTargets": 61,
-    "materialCompleted": 0,
+    "materialCompleted": 61,
     "targetAdditionalProducts": 100,
-    "selectedProducts": 0,
+    "selectedProducts": 100,
     "completedSelectedProducts": 0,
-    "selectionState": "Pending material completion; no product passes closed by material judgments."
+    "selectionState": "100 live priority products frozen after all 136 material assessments completed; nine maker batches of at most12."
   },
   "completionMeaning": "Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes."
 }
