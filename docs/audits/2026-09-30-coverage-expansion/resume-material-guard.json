@@ -1,0 +1,8 @@
+{
+  "fixture": "An isolated table copy changed G001-115 Product name after the approved packet was frozen.",
+  "expected": "Migration rejects changed current row before any write.",
+  "result": "PASS",
+  "error": "m305-resume-material-01: G001-115 moved",
+  "data_files_unchanged_after_rejection": true,
+  "canonical_repository_modified": false
+}

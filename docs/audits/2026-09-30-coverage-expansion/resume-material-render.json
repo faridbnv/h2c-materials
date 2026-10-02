@@ -1,0 +1,11 @@
+{
+  "release": "b27dc24f7147",
+  "complete_grid_rows": 153,
+  "in_scope_rows": 136,
+  "changed_coverage_drawers_inspected": 61,
+  "all_individual_findings_match": true,
+  "private_actual_dom_sha256": "617a845e4e43f5816609494d9783c35705d31f4d5279740b16d5cd395eb10ee7",
+  "qa_script_sha256": "ac953e8c958eaf9794e81b90c05bc31ab149119bd320840133264390f96ab56f",
+  "method": "Actual headless Chrome rendered complete coverage grid; every changed Application cell opened its Coverage drawer; individual actual DOM text matched its approved finding. Full private DOM text and script are retained in the resumed campaign package.",
+  "first_run_cleanup_limitation": "Initial checks passed but Chrome profile cleanup raced shutdown. Script now waits for process exit; final run exited zero."
+}

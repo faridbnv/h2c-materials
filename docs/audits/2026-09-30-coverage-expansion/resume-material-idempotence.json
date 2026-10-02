@@ -1,0 +1,32 @@
+[
+  {
+    "migration": "m305-resume-material-01",
+    "packet": "42dc5e7176ecda49651d06109d163c60420c4b9fcfa74143a22817c06295b96d",
+    "written": 0,
+    "records": []
+  },
+  {
+    "migration": "m306-resume-material-02",
+    "packet": "8a97fd7a4dfe6df663698431c1feb50209bf1ff9e29190d027f74a2e4850973e",
+    "written": 0,
+    "records": []
+  },
+  {
+    "migration": "m307-resume-material-03",
+    "packet": "00994aa5f0f2018eba527a497318832b7de66394987f7c35c42d32d4b536ff69",
+    "written": 0,
+    "records": []
+  },
+  {
+    "migration": "m308-resume-material-04",
+    "packet": "8a5e7a381eeffc168e5f81e8eda325dda250b23bab7dd9e9b30bcc6cb4c16322",
+    "written": 0,
+    "records": []
+  },
+  {
+    "migration": "m309-resume-material-05",
+    "packet": "9594e581427397b8ee8dd6536a7bd5d533abe63c3ef524856361f50771d5290e",
+    "written": 0,
+    "records": []
+  }
+]

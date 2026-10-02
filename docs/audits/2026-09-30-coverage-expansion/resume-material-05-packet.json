@@ -1,0 +1,1441 @@
+{
+  "PacketID": "RESUME-MATERIAL-05",
+  "BaselineHEAD": "20b4a6a",
+  "BaselineRelease": "0571af6d609e",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scope": "Manual material Application judgments only. No joined-product closure, new measurements, source admissions or environmental verdicts. Existing evidence is reused, not duplicated.",
+  "MakerBatches": [
+    {
+      "Maker": "iSANMATE",
+      "GradeIDs": [
+        "G082-02"
+      ]
+    },
+    {
+      "Maker": "Nanovia",
+      "GradeIDs": [
+        "G083-04"
+      ]
+    },
+    {
+      "Maker": "Braskem",
+      "GradeIDs": [
+        "G085-02"
+      ]
+    },
+    {
+      "Maker": "Fabru / purefil",
+      "GradeIDs": [
+        "G087-04"
+      ]
+    },
+    {
+      "Maker": "FormFutura",
+      "GradeIDs": [
+        "G088-05"
+      ]
+    },
+    {
+      "Maker": "Fillamentum",
+      "GradeIDs": [
+        "G089-01"
+      ]
+    },
+    {
+      "Maker": "colorFabb",
+      "GradeIDs": [
+        "G092-02"
+      ]
+    },
+    {
+      "Maker": "SUNLU",
+      "GradeIDs": [
+        "G093-03"
+      ]
+    },
+    {
+      "Maker": "Polymaker",
+      "GradeIDs": [
+        "G094-02",
+        "G095-01"
+      ]
+    },
+    {
+      "Maker": "3DXTECH",
+      "GradeIDs": [
+        "G103-01"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M082",
+      "TaskID": "APP-M082",
+      "MaterialID": "M082",
+      "ActiveGradeIDs": [
+        "G082-02",
+        "G082-03",
+        "G082-04",
+        "G082-05",
+        "G082-06",
+        "G082-07",
+        "G082-08",
+        "G082-09",
+        "G082-10",
+        "G082-11",
+        "G082-12",
+        "G082-13"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G082-02",
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "PP",
+        "Shared formulation key": "I-PP-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-PP-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04285",
+          "MaterialID": "M082",
+          "GradeID": "G082-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Cultural and creative, Toys, Gifts and Industrial.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "I-PP-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "I-PP-TDS",
+            "Publisher": "iSANMATE",
+            "Title": "PP Filament Technical Data Sheet",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-14",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.isanmate.com/wp-content/uploads/2025/08/PP_TDS.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G082-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "a87bbb34447729466765245f2bd6e58387f78cd34ff67f2e60ea9f4606995d86"
+          },
+          "OriginalPath": ".cache/sources/by-sha/a87bbb34447729466765245f2bd6e58387f78cd34ff67f2e60ea9f4606995d86.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/a87bbb34447729466765245f2bd6e58387f78cd34ff67f2e60ea9f4606995d86.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q04285",
+          "SourceID": "I-PP-TDS",
+          "Locator": "p. 1",
+          "Wording": "Cultural and creative, Toys, Gifts and Industrial."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00883",
+          "MaterialID": "M082",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M082",
+        "GradeID": "G082-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: iSANMATE PP names cultural/creative, toy and industrial uses. Its packaging/automotive/medical examples refer to industrial injection moulding context, not an approved printed medical application; no finishing method or printed application test is established. Reviewed product: iSANMATE PP (G082-02). Source basis: I-PP-TDS. The other 11 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M083",
+      "TaskID": "APP-M083",
+      "MaterialID": "M083",
+      "ActiveGradeIDs": [
+        "G083-01",
+        "G083-02",
+        "G083-03",
+        "G083-04",
+        "G083-05"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G083-04",
+        "MaterialID": "M083",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PP CF",
+        "Shared formulation key": "R-NANOVIA-PP-CF",
+        "Composition / filler": "Nanovia PP CF : Carbon fiber reinforced Starting at : 79,38 &euro; ex. VAT / kg Thanks to polypropylene’s close to zero water absorption rate, high chemical res (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PP-CF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05425",
+          "MaterialID": "M083",
+          "GradeID": "G083-04",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "Nanovia PP CF V-Slot real connectors after limonene submesion",
+          "Exposure / conditions": "Own pictured exact Nanovia PP-CF connector exposure caption; no performance result, immersion time, concentration, temperature, geometry or retained strength inferred. Not a chemical-service or functional-load qualification.",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+          "Locator": "p. 1: PP-CF connector figure caption"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+            "Publisher": "Nanovia",
+            "Title": "Nanovia HIPS as a soluble support material for 3D printing",
+            "Revision": "Not published",
+            "Publication date": "2023-04-06",
+            "Access date": "2026-09-30",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Separate witnessed own-source edition, original digest retained. Chronology/formulation continuity not inferred. Narrative scope and unresolved cross-source differences retained; no numeric, profile, certificate or suitability operation admitted. Independent AI review; no human review.",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/nanovia-hips-as-a-soluble-support-material-for-3d-printing/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G081-10;G083-04",
+            "Access state": "retrieved",
+            "Access note": "Saved during bounded campaign search on 2026-09-30; staged from hash-verified private original, never refetched over an applied digest.",
+            "SHA256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669"
+          },
+          "OriginalPath": ".cache/sources/by-sha/bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669.html",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q05425",
+          "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+          "Locator": "p. 1: PP-CF connector figure caption",
+          "Wording": "Nanovia PP CF V-Slot real connectors after limonene submesion"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00893",
+          "MaterialID": "M083",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M083",
+        "GradeID": "G083-04",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The Nanovia HIPS-support article names PP CF V-slot connectors after limonene submersion (Q05425). This is a published pictured application/support-removal observation; do not assign the HIPS 24-hour dissolution statement to PP CF or infer chemical service performance. Reviewed product: Nanovia PP CF (G083-04). Source basis: R-NANOVIA-COVERAGE-20261001-bb1289b8f753. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M085",
+      "TaskID": "APP-M085",
+      "MaterialID": "M085",
+      "ActiveGradeIDs": [
+        "G085-01",
+        "G085-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G085-02",
+        "MaterialID": "M085",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Braskem",
+        "Product name": "FL300PE",
+        "Shared formulation key": "R-BRASKEM-FL300PE-PDS",
+        "Composition / filler": "100% polyethylene filament (sheet); \"anywhere traditional HDPE resins are typically required\"",
+        "Variant": "Not applicable",
+        "Colour caveat": "Natural (sheet does not list colours)",
+        "Availability": "Braskem USA 3D printing products page; data sheet retrieved 2026-09-16",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Second PE manufacturer, added 2026-09-16 (m35): an unfilled polyethylene whose sheet publishes printed part properties for specimens printed in the X-Y direction, beside the filled Spectrum grade",
+        "SourceID": "R-BRASKEM-FL300PE-PDS",
+        "Source locator": "p. 1: Printed Part Properties",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04365",
+          "MaterialID": "M085",
+          "GradeID": "G085-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This filament is ideal for packaging, prototyping, and consumer goods applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-BRASKEM-FL300PE-PDS",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04366",
+          "MaterialID": "M085",
+          "GradeID": "G085-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "FL300PE is an excellent solution anywhere traditional HDPE resins are typically required.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-BRASKEM-FL300PE-PDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-BRASKEM-FL300PE-PDS",
+            "Publisher": "Braskem",
+            "Title": "FL300PE Product Data Sheet",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-16",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.braskem.com.br/portal/usa/arquivos/3DPrinting/Product-Data-Sheet-FL300PE.pdf",
+            "Locator": "p. 1: Printed Part Properties and its note (test specimens printed in X-Y direction)",
+            "Applicable grades": "G085-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ab3c807e5dd2ad621b42205cbf2207658fac0fb8f4d1f5981173ea9741fafff5"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ab3c807e5dd2ad621b42205cbf2207658fac0fb8f4d1f5981173ea9741fafff5.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/ab3c807e5dd2ad621b42205cbf2207658fac0fb8f4d1f5981173ea9741fafff5.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q04365",
+          "SourceID": "R-BRASKEM-FL300PE-PDS",
+          "Locator": "p. 1",
+          "Wording": "This filament is ideal for packaging, prototyping, and consumer goods applications."
+        },
+        {
+          "EvidenceID": "Q04366",
+          "SourceID": "R-BRASKEM-FL300PE-PDS",
+          "Locator": "p. 1",
+          "Wording": "FL300PE is an excellent solution anywhere traditional HDPE resins are typically required."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00913",
+          "MaterialID": "M085",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M085",
+        "GradeID": "G085-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Braskem FL300PE suggests packaging, prototyping and consumer goods. Its HDPE-resin comparison and adhesive-dependent print settings do not establish food/medical approval, service performance or a post-print finishing method. Reviewed product: Braskem FL300PE (G085-02). Source basis: R-BRASKEM-FL300PE-PDS. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M087",
+      "TaskID": "APP-M087",
+      "MaterialID": "M087",
+      "ActiveGradeIDs": [
+        "G087-01",
+        "G087-02",
+        "G087-03",
+        "G087-04"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G087-04",
+        "MaterialID": "M087",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Polyoxymethylen (POM)",
+        "Shared formulation key": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04381",
+          "MaterialID": "M087",
+          "GradeID": "G087-04",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "POM filament is therefore one of the preferred construction materials, e.g. B. for snap connections and gears.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04382",
+          "MaterialID": "M087",
+          "GradeID": "G087-04",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "optimal for snap connections",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Polyoxymethylen (POM)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/3519%2FMaterial+data+sheet+POM+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G087-04",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "48a79a77ec7b5bfb23930600942d1a037afbb1578397a5b70fc85353da10f2d6"
+          },
+          "OriginalPath": ".cache/sources/by-sha/48a79a77ec7b5bfb23930600942d1a037afbb1578397a5b70fc85353da10f2d6.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/48a79a77ec7b5bfb23930600942d1a037afbb1578397a5b70fc85353da10f2d6.json"
+        }
+      ],
+      "MissingHistoricalSources": [
+        "S-POM"
+      ],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q04381",
+          "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+          "Locator": "p. 1",
+          "Wording": "POM filament is therefore one of the preferred construction materials, e.g. B. for snap connections and gears."
+        },
+        {
+          "EvidenceID": "Q04382",
+          "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+          "Locator": "p. 1",
+          "Wording": "optimal for snap connections"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00934",
+          "MaterialID": "M087",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M087",
+        "GradeID": "G087-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fabru/purefil POM suggests snap connections and gears and states poor weather resistance. These are maker context, with no component-life test or finishing operation. The missing S-POM original is not used; the unresolved duplicate-product question remains open. Reviewed product: Fabru / purefil Polyoxymethylen (POM) (G087-04). Source basis: R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M088",
+      "TaskID": "APP-M088",
+      "MaterialID": "M088",
+      "ActiveGradeIDs": [
+        "G088-01",
+        "G088-02",
+        "G088-03",
+        "G088-04",
+        "G088-05",
+        "G088-06",
+        "G088-07",
+        "G088-08"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G088-05",
+        "MaterialID": "M088",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "AthenaX",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pctg",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-formfutura-tds-athenax",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04413",
+          "MaterialID": "M088",
+          "GradeID": "G088-05",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "3D printing end-use parts.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PET-formfutura-tds-athenax",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04414",
+          "MaterialID": "M088",
+          "GradeID": "G088-05",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "It is suitable for (food) packaging, electronic housings and even biomedical applications.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PET-formfutura-tds-athenax",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PET-formfutura-tds-athenax",
+            "Publisher": "FormFutura",
+            "Title": "TECHNICAL DATA SHEET AthenaX",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is FormFutura's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/formfutura-tds-athenax.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G088-05",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d3a0348248ae4e4ed93081e75f9e665c0eba74a943fe9608f1bd5f9bbd4188ae"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d3a0348248ae4e4ed93081e75f9e665c0eba74a943fe9608f1bd5f9bbd4188ae.pdf",
+          "OriginalPagesReread": "all 3 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/d3a0348248ae4e4ed93081e75f9e665c0eba74a943fe9608f1bd5f9bbd4188ae.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q04413",
+          "SourceID": "S-PET-formfutura-tds-athenax",
+          "Locator": "p. 1",
+          "Wording": "3D printing end-use parts."
+        },
+        {
+          "EvidenceID": "Q04414",
+          "SourceID": "S-PET-formfutura-tds-athenax",
+          "Locator": "p. 1",
+          "Wording": "It is suitable for (food) packaging, electronic housings and even biomedical applications."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00944",
+          "MaterialID": "M088",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M088",
+        "GradeID": "G088-05",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: FormFutura AthenaX names packaging, housings and tooling; food/biomedical use remains a maker suggestion. No retrieved printed-product certification, controlled application result or finishing procedure establishes those uses. Reviewed product: FormFutura AthenaX (G088-05). Source basis: S-PET-formfutura-tds-athenax. The other 7 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M089",
+      "TaskID": "APP-M089",
+      "MaterialID": "M089",
+      "ActiveGradeIDs": [
+        "G089-01",
+        "G089-02",
+        "G089-03",
+        "G089-04",
+        "G089-05"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G089-01",
+        "MaterialID": "M089",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "CPE HG100",
+        "Shared formulation key": "S-FILLAMENTUM",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-FILLAMENTUM",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04427",
+          "MaterialID": "M089",
+          "GradeID": "G089-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "For all the colours we guaran-tee the certificate for food contact.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-CPE-HG100-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FILLAMENTUM-CPE-HG100-TDS",
+            "Publisher": "Fillamentum",
+            "Title": "CPE HG100 Datasheet",
+            "Revision": "2019-01-03",
+            "Publication date": "Not published",
+            "Access date": "2026-09-13",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_CPE-HG100_03012019.pdf",
+            "Locator": "Physical, mechanical and thermal properties",
+            "Applicable grades": "M089 / G089-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ad4f1420c47b40cc8972c202724dae27c1718c9070938e077c6150f33071f495"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ad4f1420c47b40cc8972c202724dae27c1718c9070938e077c6150f33071f495.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/ad4f1420c47b40cc8972c202724dae27c1718c9070938e077c6150f33071f495.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q04427",
+          "SourceID": "R-FILLAMENTUM-CPE-HG100-TDS",
+          "Locator": "p. 1",
+          "Wording": "For all the colours we guaran-tee the certificate for food contact."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00954",
+          "MaterialID": "M089",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M089",
+        "GradeID": "G089-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fillamentum CPE HG100 promises a food-contact certificate but the reviewed sheet is not that certificate. Keep its optical/context claims limited; no whole printed-object food approval or post-print finishing method follows. Other CPE products are not covered by this judgment. Reviewed product: Fillamentum CPE HG100 (G089-01). Source basis: R-FILLAMENTUM-CPE-HG100-TDS. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M092",
+      "TaskID": "APP-M092",
+      "MaterialID": "M092",
+      "ActiveGradeIDs": [
+        "G092-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G092-02",
+        "MaterialID": "M092",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "nGen",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-nGen",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v2.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen",
+            "Publisher": "colorFabb",
+            "Title": "Technical datasheet colorFabb_nGen",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/colorFabb%20nGen/TDS_E_ColorFabb_nGen.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G092-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "8a00bee123cbc525e1902ce0362ed4875e567716722957a1f329b789c8c3fc55"
+          },
+          "OriginalPath": ".cache/sources/by-sha/8a00bee123cbc525e1902ce0362ed4875e567716722957a1f329b789c8c3fc55.pdf",
+          "OriginalPagesReread": "all 2 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/8a00bee123cbc525e1902ce0362ed4875e567716722957a1f329b789c8c3fc55.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00982",
+          "MaterialID": "M092",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M092",
+        "GradeID": "G092-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: colorFabb nGen describes appearance, overhangs and durable/useful items, with printed-property tables and processing settings. This is bounded product context; no named tested application or finishing procedure supports the old broad Evidence recorded judgment. Reviewed product: colorFabb nGen (G092-02). Source basis: R-COLORFABB-TDS-E-ColorFabb-nGen."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M093",
+      "TaskID": "APP-M093",
+      "MaterialID": "M093",
+      "ActiveGradeIDs": [
+        "G093-01",
+        "G093-02",
+        "G093-03",
+        "G093-04",
+        "G093-05",
+        "G093-06"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G093-03",
+        "MaterialID": "M093",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PVB",
+        "Shared formulation key": "R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability UL 94 1.5 mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04480",
+          "MaterialID": "M093",
+          "GradeID": "G093-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Ornaments, toys, ornaments, handcrafts",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-SUNLU-PVB-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-SUNLU-PVB-TDS",
+            "Publisher": "SUNLU",
+            "Title": "PVB",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is SUNLU's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/PVB-TDS.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G093-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8"
+          },
+          "OriginalPath": ".cache/sources/by-sha/6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8.pdf",
+          "OriginalPagesReread": "all 4 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q04480",
+          "SourceID": "R-SUNLU-PVB-TDS",
+          "Locator": "p. 1",
+          "Wording": "Ornaments, toys, ornaments, handcrafts"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00991",
+          "MaterialID": "M093",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M093",
+        "GradeID": "G093-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: SUNLU PVB states that it can be polished and suggests ornaments/handcrafts without a polishing method. Other PVB products are outside this source basis; no family-wide alcohol-smoothing or burnout schedule follows. Reviewed product: SUNLU PVB (G093-03). Source basis: R-SUNLU-PVB-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M094",
+      "TaskID": "APP-M094",
+      "MaterialID": "M094",
+      "ActiveGradeIDs": [
+        "G094-01",
+        "G094-02",
+        "G094-03",
+        "G094-04",
+        "G094-05",
+        "G094-06",
+        "G094-07",
+        "G094-08",
+        "G094-09",
+        "G094-10",
+        "G094-11",
+        "G094-12",
+        "G094-13"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G094-02",
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker PC ABS",
+        "Shared formulation key": "S-POLYCN-Polymaker-PC-ABS-TDS-V5-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-Polymaker-PC-ABS-TDS-V5-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00557",
+          "MaterialID": "M094",
+          "GradeID": "G094-02",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "Annealing settings: 90˚C for 2h",
+          "Exposure / conditions": "Annealing the printed part: 90˚C for 2h",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-POLYCN-Polymaker-PC-ABS-TDS-V5-1",
+          "Locator": "p. 4: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-POLYCN-Polymaker-PC-ABS-TDS-V5-1",
+            "Publisher": "Polymaker",
+            "Title": "Polymaker PC ABS",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/Polymaker_PC_ABS_TDS_V5.1.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G094-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "b85d00a14b3a1c90afe510c4f1d58d7fab8fb69660eaee79c7420b1b7f8c4058"
+          },
+          "OriginalPath": ".cache/sources/by-sha/b85d00a14b3a1c90afe510c4f1d58d7fab8fb69660eaee79c7420b1b7f8c4058.pdf",
+          "OriginalPagesReread": "all 7 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/b85d00a14b3a1c90afe510c4f1d58d7fab8fb69660eaee79c7420b1b7f8c4058.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00557",
+          "SourceID": "S-POLYCN-Polymaker-PC-ABS-TDS-V5-1",
+          "Locator": "p. 4: Annealing note",
+          "Wording": "Annealing settings: 90˚C for 2h"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C01001",
+          "MaterialID": "M094",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M094",
+        "GradeID": "G094-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00557. Its own wording is retained: Annealing settings: 90˚C for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC ABS (G094-02). Source basis: S-POLYCN-Polymaker-PC-ABS-TDS-V5-1. The other 12 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M095",
+      "TaskID": "APP-M095",
+      "MaterialID": "M095",
+      "ActiveGradeIDs": [
+        "G095-01",
+        "G095-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G095-01",
+        "MaterialID": "M095",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker PC PBT",
+        "Shared formulation key": "S-POLYCN-Polymaker-PC-PBT-TDS-V5-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-Polymaker-PC-PBT-TDS-V5-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00558",
+          "MaterialID": "M095",
+          "GradeID": "G095-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "Annealing settings: 90˚C for 2h",
+          "Exposure / conditions": "Annealing the printed part: 90˚C for 2h",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-POLYCN-Polymaker-PC-PBT-TDS-V5-1",
+          "Locator": "p. 4: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-POLYCN-Polymaker-PC-PBT-TDS-V5-1",
+            "Publisher": "Polymaker",
+            "Title": "Polymaker PC PBT",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/Polymaker_PC_PBT_TDS_V5.1.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G095-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "422bebbd0afd300415532d7d089877fb734d51316e877a54f4c00c806ca1570e"
+          },
+          "OriginalPath": ".cache/sources/by-sha/422bebbd0afd300415532d7d089877fb734d51316e877a54f4c00c806ca1570e.pdf",
+          "OriginalPagesReread": "all 7 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/422bebbd0afd300415532d7d089877fb734d51316e877a54f4c00c806ca1570e.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00558",
+          "SourceID": "S-POLYCN-Polymaker-PC-PBT-TDS-V5-1",
+          "Locator": "p. 4: Annealing note",
+          "Wording": "Annealing settings: 90˚C for 2h"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C01011",
+          "MaterialID": "M095",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M095",
+        "GradeID": "G095-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00558. Its own wording is retained: Annealing settings: 90˚C for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC PBT (G095-01). Source basis: S-POLYCN-Polymaker-PC-PBT-TDS-V5-1. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M103",
+      "TaskID": "APP-M103",
+      "MaterialID": "M103",
+      "ActiveGradeIDs": [
+        "G103-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G103-01",
+        "MaterialID": "M103",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "Hyperlite PP",
+        "Shared formulation key": "X-Hyperlite-PP-TDS-v1",
+        "Composition / filler": "Specialty additive for ultra low density; the manufacturer states 0.75 g/cc (\"HyperLite PP HGB1\", R-TRINITY3DS-HYPERLITE-PP). A lightweight variant, not unfilled PP.",
+        "Variant": "lightweight additive",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-Hyperlite-PP-TDS-v1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-Hyperlite-PP-TDS-v1",
+            "Publisher": "3DXTECH",
+            "Title": "Technical Data Sheet: HyperLite™ PP 3D Printing Filament",
+            "Revision": "TDS Rev 1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-14",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/Hyperlite_PP_TDS_v1.pdf?v=1723942768",
+            "Locator": "Document / product page",
+            "Applicable grades": "G103-01; G082-01 until 2026-09-15",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "fbf9839fbe6ca6e41e74e9b5da7ead3a15416aa273cae4b3841a5a3c413c7476"
+          },
+          "OriginalPath": ".cache/sources/by-sha/fbf9839fbe6ca6e41e74e9b5da7ead3a15416aa273cae4b3841a5a3c413c7476.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/fbf9839fbe6ca6e41e74e9b5da7ead3a15416aa273cae4b3841a5a3c413c7476.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C01196",
+          "MaterialID": "M103",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M103",
+        "GradeID": "G103-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The complete one-page Hyperlite PP sheet gives property and printed-specimen preparation tables, without a named end use or post-print finishing method. Lightweight identity alone does not support the old Evidence recorded judgment. Reviewed product: 3DXTECH Hyperlite PP (G103-01). Source basis: X-Hyperlite-PP-TDS-v1. This is a gap in the reviewed original, not universal public-source absence."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-RESUME-APP-M082",
+      "append": {
+        "MaterialID": "M082",
+        "GradeID": "G082-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: iSANMATE PP names cultural/creative, toy and industrial uses. Its packaging/automotive/medical examples refer to industrial injection moulding context, not an approved printed medical application; no finishing method or printed application test is established. Reviewed product: iSANMATE PP (G082-02). Source basis: I-PP-TDS. The other 11 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00883",
+          "MaterialID": "M082",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M083",
+      "append": {
+        "MaterialID": "M083",
+        "GradeID": "G083-04",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The Nanovia HIPS-support article names PP CF V-slot connectors after limonene submersion (Q05425). This is a published pictured application/support-removal observation; do not assign the HIPS 24-hour dissolution statement to PP CF or infer chemical service performance. Reviewed product: Nanovia PP CF (G083-04). Source basis: R-NANOVIA-COVERAGE-20261001-bb1289b8f753. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00893",
+          "MaterialID": "M083",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M085",
+      "append": {
+        "MaterialID": "M085",
+        "GradeID": "G085-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Braskem FL300PE suggests packaging, prototyping and consumer goods. Its HDPE-resin comparison and adhesive-dependent print settings do not establish food/medical approval, service performance or a post-print finishing method. Reviewed product: Braskem FL300PE (G085-02). Source basis: R-BRASKEM-FL300PE-PDS. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00913",
+          "MaterialID": "M085",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M087",
+      "append": {
+        "MaterialID": "M087",
+        "GradeID": "G087-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fabru/purefil POM suggests snap connections and gears and states poor weather resistance. These are maker context, with no component-life test or finishing operation. The missing S-POM original is not used; the unresolved duplicate-product question remains open. Reviewed product: Fabru / purefil Polyoxymethylen (POM) (G087-04). Source basis: R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00934",
+          "MaterialID": "M087",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M088",
+      "append": {
+        "MaterialID": "M088",
+        "GradeID": "G088-05",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: FormFutura AthenaX names packaging, housings and tooling; food/biomedical use remains a maker suggestion. No retrieved printed-product certification, controlled application result or finishing procedure establishes those uses. Reviewed product: FormFutura AthenaX (G088-05). Source basis: S-PET-formfutura-tds-athenax. The other 7 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00944",
+          "MaterialID": "M088",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M089",
+      "append": {
+        "MaterialID": "M089",
+        "GradeID": "G089-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fillamentum CPE HG100 promises a food-contact certificate but the reviewed sheet is not that certificate. Keep its optical/context claims limited; no whole printed-object food approval or post-print finishing method follows. Other CPE products are not covered by this judgment. Reviewed product: Fillamentum CPE HG100 (G089-01). Source basis: R-FILLAMENTUM-CPE-HG100-TDS. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00954",
+          "MaterialID": "M089",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M092",
+      "append": {
+        "MaterialID": "M092",
+        "GradeID": "G092-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: colorFabb nGen describes appearance, overhangs and durable/useful items, with printed-property tables and processing settings. This is bounded product context; no named tested application or finishing procedure supports the old broad Evidence recorded judgment. Reviewed product: colorFabb nGen (G092-02). Source basis: R-COLORFABB-TDS-E-ColorFabb-nGen."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00982",
+          "MaterialID": "M092",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M093",
+      "append": {
+        "MaterialID": "M093",
+        "GradeID": "G093-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: SUNLU PVB states that it can be polished and suggests ornaments/handcrafts without a polishing method. Other PVB products are outside this source basis; no family-wide alcohol-smoothing or burnout schedule follows. Reviewed product: SUNLU PVB (G093-03). Source basis: R-SUNLU-PVB-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00991",
+          "MaterialID": "M093",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M094",
+      "append": {
+        "MaterialID": "M094",
+        "GradeID": "G094-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00557. Its own wording is retained: Annealing settings: 90˚C for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC ABS (G094-02). Source basis: S-POLYCN-Polymaker-PC-ABS-TDS-V5-1. The other 12 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C01001",
+          "MaterialID": "M094",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M095",
+      "append": {
+        "MaterialID": "M095",
+        "GradeID": "G095-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00558. Its own wording is retained: Annealing settings: 90˚C for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC PBT (G095-01). Source basis: S-POLYCN-Polymaker-PC-PBT-TDS-V5-1. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C01011",
+          "MaterialID": "M095",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M103",
+      "append": {
+        "MaterialID": "M103",
+        "GradeID": "G103-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The complete one-page Hyperlite PP sheet gives property and printed-specimen preparation tables, without a named end use or post-print finishing method. Lightweight identity alone does not support the old Evidence recorded judgment. Reviewed product: 3DXTECH Hyperlite PP (G103-01). Source basis: X-Hyperlite-PP-TDS-v1. This is a gap in the reviewed original, not universal public-source absence."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C01196",
+          "MaterialID": "M103",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    }
+  ]
+}

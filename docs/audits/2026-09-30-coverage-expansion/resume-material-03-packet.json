@@ -1,0 +1,1685 @@
+{
+  "PacketID": "RESUME-MATERIAL-03",
+  "BaselineHEAD": "20b4a6a",
+  "BaselineRelease": "0571af6d609e",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scope": "Manual material Application judgments only. No joined-product closure, new measurements, source admissions or environmental verdicts. Existing evidence is reused, not duplicated.",
+  "MakerBatches": [
+    {
+      "Maker": "Fillamentum",
+      "GradeIDs": [
+        "G045-04"
+      ]
+    },
+    {
+      "Maker": "Fabru / purefil",
+      "GradeIDs": [
+        "G046-04",
+        "G052-03"
+      ]
+    },
+    {
+      "Maker": "Bambu Lab",
+      "GradeIDs": [
+        "G048-01",
+        "G050-01"
+      ]
+    },
+    {
+      "Maker": "FormFutura",
+      "GradeIDs": [
+        "G049-02"
+      ]
+    },
+    {
+      "Maker": "Polymaker",
+      "GradeIDs": [
+        "G053-02",
+        "G057-03",
+        "G059-01"
+      ]
+    },
+    {
+      "Maker": "MatterHackers",
+      "GradeIDs": [
+        "G054-02"
+      ]
+    },
+    {
+      "Maker": "DuPont",
+      "GradeIDs": [
+        "G058-R1"
+      ]
+    },
+    {
+      "Maker": "3DXTECH",
+      "GradeIDs": [
+        "G064-01"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M045",
+      "TaskID": "APP-M045",
+      "MaterialID": "M045",
+      "ActiveGradeIDs": [
+        "G045-01",
+        "G045-02",
+        "G045-03",
+        "G045-04",
+        "G045-05",
+        "G045-06",
+        "G045-07",
+        "G045-08",
+        "G045-09",
+        "G045-10"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G045-04",
+        "MaterialID": "M045",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Flexfill PEBA 90A",
+        "Shared formulation key": "R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS",
+        "Composition / filler": "Polyether-block-amide (PEBA), no plasticizer (TDS)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Current Fillamentum collection page; TDS retrieved 2026-09-16",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Fourth PEBA manufacturer, added 2026-09-16 (m35): flexural modulus and hardness for the stiffness estimate. Direction not stated; no PEBA sheet with a printed XY tensile modulus was found",
+        "SourceID": "R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS",
+        "Source locator": "p. 1: Mechanical properties",
+        "Diameter compatibility": "1.75 mm and 2.85 mm, ± 0.10 mm (TDS); select 1.75 mm"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q03316",
+          "MaterialID": "M045",
+          "GradeID": "G045-04",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The application for shoe outsoles is possible thanks to high energy return, abrasion resistance and low density.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS",
+            "Publisher": "Fillamentum Manufacturing Czech",
+            "Title": "Technical Data Sheet Flexfill PEBA 90A",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-16",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_Flexfill-PEBA-90A_EN.pdf",
+            "Locator": "p. 1: Physical, mechanical and printing properties",
+            "Applicable grades": "G045-04",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "58a32db0852fe8899985e64ab7895bee8c4e66cecd399fa9b967e732d5b51c79"
+          },
+          "OriginalPath": ".cache/sources/by-sha/58a32db0852fe8899985e64ab7895bee8c4e66cecd399fa9b967e732d5b51c79.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/58a32db0852fe8899985e64ab7895bee8c4e66cecd399fa9b967e732d5b51c79.json"
+        }
+      ],
+      "MissingHistoricalSources": [
+        "R-KIMYA-PEBA-S-TDS"
+      ],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q03316",
+          "SourceID": "R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS",
+          "Locator": "p. 1",
+          "Wording": "The application for shoe outsoles is possible thanks to high energy return, abrasion resistance and low density."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00509",
+          "MaterialID": "M045",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M045",
+        "GradeID": "G045-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fillamentum Flexfill PEBA 90A names ski-boot parts and possible shoe outsoles, and tells users to try a small piece for chemical exposure. These are bounded suggestions; no shoe qualification, repeated-impact service result or finishing method is established. The unavailable Kimya PEBA-S original is not used. The source does not recommend food-contact applications and states the material should not be used for medical applications. Reviewed product: Fillamentum Flexfill PEBA 90A (G045-04). Source basis: R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M046",
+      "TaskID": "APP-M046",
+      "MaterialID": "M046",
+      "ActiveGradeIDs": [
+        "G046-01",
+        "G046-02",
+        "G046-03",
+        "G046-04",
+        "G046-05",
+        "G046-06",
+        "G046-07",
+        "G167-03",
+        "G167-04",
+        "G167-05",
+        "G167-06"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G046-04",
+        "MaterialID": "M046",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Thermoplastic polyester elastomer (TPC)",
+        "Shared formulation key": "R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q03378",
+          "MaterialID": "M046",
+          "GradeID": "G046-04",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The TPC is used in dynamic applications where prolonged constant flexibility is required, such as applications where material is continuously bent becomes.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q03379",
+          "MaterialID": "M046",
+          "GradeID": "G046-04",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "TPC is ideal for dual extrusion printing, for example in combination with PETG to print sealing areas and other areas that require high elasticity.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Thermoplastic polyester elastomer (TPC)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/233%2FMaterial+data+sheet+TPC+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G046-04",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "6c5ed66b76bc5149aca0bb7bcc02e1399caa42bfdcc962aea18364d6c8fdf2ca"
+          },
+          "OriginalPath": ".cache/sources/by-sha/6c5ed66b76bc5149aca0bb7bcc02e1399caa42bfdcc962aea18364d6c8fdf2ca.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/6c5ed66b76bc5149aca0bb7bcc02e1399caa42bfdcc962aea18364d6c8fdf2ca.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q03378",
+          "SourceID": "R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil",
+          "Locator": "p. 1",
+          "Wording": "The TPC is used in dynamic applications where prolonged constant flexibility is required, such as applications where material is continuously bent becomes."
+        },
+        {
+          "EvidenceID": "Q03379",
+          "SourceID": "R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil",
+          "Locator": "p. 1",
+          "Wording": "TPC is ideal for dual extrusion printing, for example in combination with PETG to print sealing areas and other areas that require high elasticity."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00519",
+          "MaterialID": "M046",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M046",
+        "GradeID": "G046-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fabru/purefil TPC describes repeated-flex uses and dual-extrusion sealing areas with PETG. Its infill dependence is retained; the suggestions do not establish a fatigue life, seal compatibility or finishing procedure. Reviewed product: Fabru / purefil Thermoplastic polyester elastomer (TPC) (G046-04). Source basis: R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M048",
+      "TaskID": "APP-M048",
+      "MaterialID": "M048",
+      "ActiveGradeIDs": [
+        "G048-01",
+        "G048-02",
+        "G048-03",
+        "G048-04",
+        "G048-05"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G048-01",
+        "MaterialID": "M048",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PAHT-CF",
+        "Shared formulation key": "B-paht-cf-TDS",
+        "Composition / filler": "PA 12 and other long-chain PA, carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-paht-cf-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00532",
+          "MaterialID": "M048",
+          "GradeID": "G048-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PAHT-CF is 80 to 130 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80 to 130 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-paht-cf-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-paht-cf-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PAHT-CF",
+            "Revision": "Technical Data Sheet V3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/7166b20bc68f4c87b32c972b856eeb4b.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G048-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11"
+          },
+          "OriginalPath": ".cache/sources/by-sha/6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00532",
+          "SourceID": "B-paht-cf-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PAHT-CF is 80 to 130 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00539",
+          "MaterialID": "M048",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M048",
+        "GradeID": "G048-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00532. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PAHT-CF is 80 to 130 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PAHT-CF (G048-01). Source basis: B-paht-cf-TDS. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M049",
+      "TaskID": "APP-M049",
+      "MaterialID": "M049",
+      "ActiveGradeIDs": [
+        "G049-01",
+        "G049-02",
+        "G049-03",
+        "G049-04",
+        "G049-05",
+        "G049-06",
+        "G049-07",
+        "G049-08",
+        "G049-09"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G049-02",
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "STYX PA6",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pa6-low-warp",
+        "Composition / filler": "PA6 (nylon) filament, \"Low warping PA6 filament\" (TDS); no filler or additive disclosed, and its 1.15 g/cm³ and 2.9 GPa are within neat PA6",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope (the sheet names no colour)",
+        "Availability": "Current FormFutura product; TDS served from formfutura.com, retrieved 2026-09-16",
+        "Certification claims": "Flammability UL-94 V2 at 1.5 mm (TDS \"Flammability\" row); a typical value, not a certificate: verify grade, thickness and certificate",
+        "Selected-grade rationale": "Second PA6 manufacturer, added 2026-09-16 (m37, owner ruling): an unfilled PA6 whose sheet publishes ISO 527-1/-2 tensile values, ISO 178 flexural values, Charpy impact, Tm and an HDT with no load stated. Direction and specimen not stated, so it backs no XY headline; Spectrum PA6 Neat (G049-01, a declared undisclosed dense filler) stays the representative grade",
+        "SourceID": "R-FORMFUTURA-STYX-PA6-TDS",
+        "Source locator": "Version 1.0, p. 1",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance (the sheet states no diameter)"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q03433",
+          "MaterialID": "M049",
+          "GradeID": "G049-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This makes STYX PA6 a versatile nylon filament for 3D printing end-use parts.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FORMFUTURA-STYX-PA6-TDS",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q03434",
+          "MaterialID": "M049",
+          "GradeID": "G049-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This makes STYX PA6 a great filament for 3D printing functional engineering parts.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FORMFUTURA-STYX-PA6-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FORMFUTURA-STYX-PA6-TDS",
+            "Publisher": "FormFutura",
+            "Title": "Technical Data Sheet STYX PA6",
+            "Revision": "Version: 1.0; print date 28-02-2023",
+            "Publication date": "2023-02-28",
+            "Access date": "2026-09-16",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.formfutura.com/web/content/281451?download=true",
+            "Locator": "p. 1: Material properties, Mechanical properties, Thermal properties (typical value and test method; no specimen, direction or print settings stated); Storage and handling; p. 2: Disclaimer",
+            "Applicable grades": "G049-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "5202ff7a803935abd6b61daa5b25dfa389515abd1a1ff0e1944fad91068b381c"
+          },
+          "OriginalPath": ".cache/sources/by-sha/5202ff7a803935abd6b61daa5b25dfa389515abd1a1ff0e1944fad91068b381c.pdf",
+          "OriginalPagesReread": "all 2 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/5202ff7a803935abd6b61daa5b25dfa389515abd1a1ff0e1944fad91068b381c.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q03433",
+          "SourceID": "R-FORMFUTURA-STYX-PA6-TDS",
+          "Locator": "p. 1",
+          "Wording": "This makes STYX PA6 a versatile nylon filament for 3D printing end-use parts."
+        },
+        {
+          "EvidenceID": "Q03434",
+          "SourceID": "R-FORMFUTURA-STYX-PA6-TDS",
+          "Locator": "p. 1",
+          "Wording": "This makes STYX PA6 a great filament for 3D printing functional engineering parts."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00549",
+          "MaterialID": "M049",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M049",
+        "GradeID": "G049-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: FormFutura STYX PA6 lists electrical insulating parts, wear parts and jigs/fixtures. The source gives suggestions and disclaims binding specifications; no tested electrical component or qualified oil/fuel exposure is established. Reviewed product: FormFutura STYX PA6 (G049-02). Source basis: R-FORMFUTURA-STYX-PA6-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M050",
+      "TaskID": "APP-M050",
+      "MaterialID": "M050",
+      "ActiveGradeIDs": [
+        "G050-01",
+        "G050-02",
+        "G050-03",
+        "G050-04",
+        "G050-05",
+        "G050-06",
+        "G050-07",
+        "G050-08",
+        "G050-09",
+        "G050-10",
+        "G050-11",
+        "G050-12",
+        "G050-13",
+        "G050-14"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G050-01",
+        "MaterialID": "M050",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PA6-CF",
+        "Shared formulation key": "B-pa6-cf-TDS",
+        "Composition / filler": "Nylon 6, carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pa6-cf-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00533",
+          "MaterialID": "M050",
+          "GradeID": "G050-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PA6-CF is 80 to 130 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80 to 130 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pa6-cf-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pa6-cf-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PA6-CF",
+            "Revision": "Technical Data Sheet V3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/b2abc59ac250492b979a52f1ce3e61b3.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G050-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e"
+          },
+          "OriginalPath": ".cache/sources/by-sha/9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00533",
+          "SourceID": "B-pa6-cf-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PA6-CF is 80 to 130 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00559",
+          "MaterialID": "M050",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M050",
+        "GradeID": "G050-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00533. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PA6-CF is 80 to 130 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PA6-CF (G050-01). Source basis: B-pa6-cf-TDS. The other 13 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M052",
+      "TaskID": "APP-M052",
+      "MaterialID": "M052",
+      "ActiveGradeIDs": [
+        "G052-01",
+        "G052-02",
+        "G052-03",
+        "G052-04",
+        "G052-05",
+        "G052-06",
+        "G052-07",
+        "G164-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G052-03",
+        "MaterialID": "M052",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru / purefil",
+        "Product name": "Polyamide 12 (PA12)",
+        "Shared formulation key": "R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (IEC 60695-11-10) HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q03632",
+          "MaterialID": "M052",
+          "GradeID": "G052-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This makes PA12 the ideal material in humid environments where high impact strength, good sliding friction properties and good wear resistance are required.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Polyamide 12 (PA12)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/3514%2FMaterial+data+sheet+PA12+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G052-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "eec3bd2ca6186e45a5aed5ce47267301cfb7a3c9d5aaa8c2cbceb8946579f848"
+          },
+          "OriginalPath": ".cache/sources/by-sha/eec3bd2ca6186e45a5aed5ce47267301cfb7a3c9d5aaa8c2cbceb8946579f848.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/eec3bd2ca6186e45a5aed5ce47267301cfb7a3c9d5aaa8c2cbceb8946579f848.json"
+        }
+      ],
+      "MissingHistoricalSources": [
+        "S-PA12"
+      ],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q03632",
+          "SourceID": "R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil",
+          "Locator": "p. 1",
+          "Wording": "This makes PA12 the ideal material in humid environments where high impact strength, good sliding friction properties and good wear resistance are required."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00579",
+          "MaterialID": "M052",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M052",
+        "GradeID": "G052-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fabru/purefil PA12 describes humid-environment uses and wear/sliding behavior. The composition statement about EU food-contact regulations is not printed-product certification; the missing AMIDEX source is not used, and no PA12 finishing method is established. Reviewed product: Fabru / purefil Polyamide 12 (PA12) (G052-03). Source basis: R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil. The other 7 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M053",
+      "TaskID": "APP-M053",
+      "MaterialID": "M053",
+      "ActiveGradeIDs": [
+        "G053-01",
+        "G053-02",
+        "G053-03",
+        "G053-04",
+        "G053-05",
+        "G053-06",
+        "G053-08",
+        "G053-09",
+        "G053-10",
+        "G053-11",
+        "G053-12",
+        "G053-13",
+        "G053-14",
+        "G053-15",
+        "G053-16"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G053-02",
+        "MaterialID": "M053",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyMide PA12 CF",
+        "Shared formulation key": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00538",
+          "MaterialID": "M053",
+          "GradeID": "G053-02",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80°C for 6 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+          "Locator": "p. 5: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+            "Publisher": "Polymaker",
+            "Title": "PolyMide PA12 CF",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-14",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyMide_PA12_CF_TDS_V5.1.1.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G053-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "9fcb5693449b1f7cf4af84dc3a0f25753fb71476848ca24fd3b3a90c24c446db"
+          },
+          "OriginalPath": ".cache/sources/by-sha/9fcb5693449b1f7cf4af84dc3a0f25753fb71476848ca24fd3b3a90c24c446db.pdf",
+          "OriginalPagesReread": "all 7 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/9fcb5693449b1f7cf4af84dc3a0f25753fb71476848ca24fd3b3a90c24c446db.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00538",
+          "SourceID": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+          "Locator": "p. 5: Annealing note",
+          "Wording": "After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00588",
+          "MaterialID": "M053",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M053",
+        "GradeID": "G053-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00538. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker PolyMide PA12 CF (G053-02). Source basis: S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1. The other 14 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M054",
+      "TaskID": "APP-M054",
+      "MaterialID": "M054",
+      "ActiveGradeIDs": [
+        "G054-01",
+        "G054-02",
+        "G054-03"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G054-02",
+        "MaterialID": "M054",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "MatterHackers",
+        "Product name": "NylonG",
+        "Shared formulation key": "R-MATTERHACKERS-eZ4iY1",
+        "Composition / filler": "Raw material: Glass fiber reinforced polyamide (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability HB 1210 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MATTERHACKERS-eZ4iY1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q03745",
+          "MaterialID": "M054",
+          "GradeID": "G054-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "NylonG is excellent for parts that need to absorb large amounts of kinetic energy.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-MATTERHACKERS-NYLONG-PAGE",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q03746",
+          "MaterialID": "M054",
+          "GradeID": "G054-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "NylonG Impact Resistance Parts subjected to repeated shock",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-MATTERHACKERS-NYLONG-PAGE",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-MATTERHACKERS-NYLONG-PAGE",
+            "Publisher": "MatterHackers",
+            "Title": "White NylonG Glass Fiber Filament - 1.75mm (0.5kg) | MatterHackers",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, fetched as a witness in the V2 import (ledger, duplicate kind product-page); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://www.matterhackers.com/store/l/nylong-glass-fiber-filament/sk/M34G0FP3",
+            "Locator": "Product page",
+            "Applicable grades": "G054-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ab7a3732b5bb357bdc3a8eac7ddfc3b04b3447e1a5449f66bbae326f4eeb0be3"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ab7a3732b5bb357bdc3a8eac7ddfc3b04b3447e1a5449f66bbae326f4eeb0be3.html",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/ab7a3732b5bb357bdc3a8eac7ddfc3b04b3447e1a5449f66bbae326f4eeb0be3.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q03745",
+          "SourceID": "D-MATTERHACKERS-NYLONG-PAGE",
+          "Locator": "p. 1",
+          "Wording": "NylonG is excellent for parts that need to absorb large amounts of kinetic energy."
+        },
+        {
+          "EvidenceID": "Q03746",
+          "SourceID": "D-MATTERHACKERS-NYLONG-PAGE",
+          "Locator": "p. 1",
+          "Wording": "NylonG Impact Resistance Parts subjected to repeated shock"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00598",
+          "MaterialID": "M054",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M054",
+        "GradeID": "G054-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: MatterHackers NylonG suggests repeated-shock parts and shows a printed extruder; no-post-processing-needed is an appearance/processing claim, not a controlled component test or prescribed finishing operation. Reviewed product: MatterHackers NylonG (G054-02). Source basis: D-MATTERHACKERS-NYLONG-PAGE. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M056",
+      "TaskID": "APP-M056",
+      "MaterialID": "M056",
+      "ActiveGradeIDs": [],
+      "ExpectedGrade": null,
+      "ExistingEvidence": [],
+      "Sources": [],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00618",
+          "MaterialID": "M056",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M056",
+        "GradeID": "Not applicable",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: This material has no active procurement or reference grade in the current tables. No product-specific application/finishing original can be attached; the material-level entry remains an explicit evidence gap, without inventing a product."
+      },
+      "PrimaryReview": "AI injector inspected current canonical material/grade records; no grade or product original is available. No human review.",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M057",
+      "TaskID": "APP-M057",
+      "MaterialID": "M057",
+      "ActiveGradeIDs": [
+        "G057-02",
+        "G057-03",
+        "G057-04",
+        "G057-05",
+        "G057-06",
+        "G057-07",
+        "G164-04"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G057-03",
+        "MaterialID": "M057",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker PolyMide CoPA",
+        "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00541",
+          "MaterialID": "M057",
+          "GradeID": "G057-03",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80°C for 6 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+          "Locator": "p. 5: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "Publisher": "Polymaker",
+            "Title": "PolyMide CoPA",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-14",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyMide_CoPA_TDS_V5.2.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G047-01; G057-03; G061-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee"
+          },
+          "OriginalPath": ".cache/sources/by-sha/21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee.pdf",
+          "OriginalPagesReread": "all 7 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00541",
+          "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+          "Locator": "p. 5: Annealing note",
+          "Wording": "After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00628",
+          "MaterialID": "M057",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M057",
+        "GradeID": "G057-03",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00541. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Polymaker PolyMide CoPA (G057-03). Source basis: S-POLYCN-PolyMide-CoPA-TDS-V5-2. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M058",
+      "TaskID": "APP-M058",
+      "MaterialID": "M058",
+      "ActiveGradeIDs": [],
+      "ExpectedGrade": {
+        "GradeID": "G058-R1",
+        "MaterialID": "M058",
+        "Role": "reference",
+        "Status": "active",
+        "Manufacturer": "DuPont",
+        "Product name": "Zytel 151L NC010 (PA612 resin)",
+        "Shared formulation key": "R-DUPONT-ZYTEL-GUIDE",
+        "Composition / filler": "Unfilled lubricated PA612 injection-moulding resin",
+        "Variant": "Not applicable",
+        "Colour caveat": "NC010 natural",
+        "Availability": "Resin reference only; not a filament and not an H2C feeding approval",
+        "Certification claims": "Not applicable",
+        "Selected-grade rationale": "Resin reference recorded 2026-09-13 to anchor PA612 estimates: no unfilled PA612 filament data was found. Moulded values are raw-material values, never headlines",
+        "SourceID": "R-DUPONT-ZYTEL-GUIDE",
+        "Source locator": "p. 8, Zytel 151L DAM column",
+        "Diameter compatibility": "Not applicable (resin)"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-DUPONT-ZYTEL-GUIDE",
+            "Publisher": "DuPont",
+            "Title": "DuPont Zytel nylon resin: product guide and properties",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-13",
+            "Source class": "Resin supplier data sheet",
+            "Source note": "Document mirrored by T-Link.",
+            "Citation role": "cited",
+            "URL": "https://t-link.com.hk/MaterialSpec/Nylon66/ALL%20Zytel.pdf",
+            "Locator": "p. 8 Unreinforced PA612, Zytel 151L, DAM column",
+            "Applicable grades": "M058 / G058-R1",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092"
+          },
+          "OriginalPath": ".cache/sources/by-sha/4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092.pdf",
+          "OriginalPagesReread": "all 24 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00638",
+          "MaterialID": "M058",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M058",
+        "GradeID": "G058-R1",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The DuPont Zytel guide is a nylon-resin reference and includes PA612 Zytel 158. Its automotive/electrical/moulded-resin context is not evidence for a printed filament product or an H2C finishing method. Reviewed product: DuPont Zytel 151L NC010 (PA612 resin) (G058-R1). Source basis: R-DUPONT-ZYTEL-GUIDE."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M059",
+      "TaskID": "APP-M059",
+      "MaterialID": "M059",
+      "ActiveGradeIDs": [
+        "G059-01",
+        "G059-02",
+        "G059-03"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G059-01",
+        "MaterialID": "M059",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Fiberon PA612-CF15",
+        "Shared formulation key": "S-FIBER-PA612",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-FIBER-PA612",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00543",
+          "MaterialID": "M059",
+          "GradeID": "G059-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "Annealing temp. and time 100 °C/16H",
+          "Exposure / conditions": "Annealing the printed part: 100 °C/16H",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-FIBER-PA612",
+          "Locator": "p. 1: Annealing temp. and time"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-FIBER-PA612",
+            "Publisher": "Polymaker",
+            "Title": "Fiberon™ PA612-CF15 Technical Data Sheet",
+            "Revision": "V1.1",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fiberon.polymaker.com/wp-content/uploads/TDS_FIBERON-PA612-CF15_V1.1_EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G059-01; G062-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f"
+          },
+          "OriginalPath": ".cache/sources/by-sha/11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00543",
+          "SourceID": "S-FIBER-PA612",
+          "Locator": "p. 1: Annealing temp. and time",
+          "Wording": "Annealing temp. and time 100 °C/16H"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00648",
+          "MaterialID": "M059",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M059",
+        "GradeID": "G059-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00543. Its own wording is retained: Annealing temp. and time 100 °C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-CF15 (G059-01). Source basis: S-FIBER-PA612. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M060",
+      "TaskID": "APP-M060",
+      "MaterialID": "M060",
+      "ActiveGradeIDs": [],
+      "ExpectedGrade": null,
+      "ExistingEvidence": [],
+      "Sources": [],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00658",
+          "MaterialID": "M060",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M060",
+        "GradeID": "Not applicable",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: This material has no active procurement or reference grade in the current tables. No product-specific application/finishing original can be attached; polymer context cannot supply a procurement product or printed-use result."
+      },
+      "PrimaryReview": "AI injector inspected current canonical material/grade records; no grade or product original is available. No human review.",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M064",
+      "TaskID": "APP-M064",
+      "MaterialID": "M064",
+      "ActiveGradeIDs": [
+        "G064-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G064-01",
+        "MaterialID": "M064",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD PA12",
+        "Shared formulation key": "X-3DXSTAT-ESD-PA12-TDS-v1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-3DXSTAT-ESD-PA12-TDS-v1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-3DXSTAT-ESD-PA12-TDS-v1",
+            "Publisher": "3DXTECH",
+            "Title": "3DXSTAT™ ESD-Safe Nylon 12 (PA12) 3D Filament",
+            "Revision": "Rev 1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/3DXSTAT_ESD_PA12_TDS_v1.pdf?v=1723942768",
+            "Locator": "Document / product page",
+            "Applicable grades": "G064-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "1a5a0d4890826119d1df768ca9990db4b83ccbfd1635a65299d4ae6b2cfaff56"
+          },
+          "OriginalPath": ".cache/sources/by-sha/1a5a0d4890826119d1df768ca9990db4b83ccbfd1635a65299d4ae6b2cfaff56.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/1a5a0d4890826119d1df768ca9990db4b83ccbfd1635a65299d4ae6b2cfaff56.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00698",
+          "MaterialID": "M064",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M064",
+        "GradeID": "G064-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The complete exact 3DXSTAT ESD-PA12 one-page sheet gives property tables and basic printing recommendations, without a named end use or post-print finishing method. ESD identity and specimen settings alone do not supply an application basis. Reviewed product: 3DXTECH 3DXSTAT ESD PA12 (G064-01). Source basis: X-3DXSTAT-ESD-PA12-TDS-v1. This is a gap in the reviewed original, not universal public-source absence."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-RESUME-APP-M045",
+      "append": {
+        "MaterialID": "M045",
+        "GradeID": "G045-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fillamentum Flexfill PEBA 90A names ski-boot parts and possible shoe outsoles, and tells users to try a small piece for chemical exposure. These are bounded suggestions; no shoe qualification, repeated-impact service result or finishing method is established. The unavailable Kimya PEBA-S original is not used. The source does not recommend food-contact applications and states the material should not be used for medical applications. Reviewed product: Fillamentum Flexfill PEBA 90A (G045-04). Source basis: R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00509",
+          "MaterialID": "M045",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M046",
+      "append": {
+        "MaterialID": "M046",
+        "GradeID": "G046-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fabru/purefil TPC describes repeated-flex uses and dual-extrusion sealing areas with PETG. Its infill dependence is retained; the suggestions do not establish a fatigue life, seal compatibility or finishing procedure. Reviewed product: Fabru / purefil Thermoplastic polyester elastomer (TPC) (G046-04). Source basis: R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00519",
+          "MaterialID": "M046",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M048",
+      "append": {
+        "MaterialID": "M048",
+        "GradeID": "G048-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00532. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PAHT-CF is 80 to 130 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PAHT-CF (G048-01). Source basis: B-paht-cf-TDS. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00539",
+          "MaterialID": "M048",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M049",
+      "append": {
+        "MaterialID": "M049",
+        "GradeID": "G049-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: FormFutura STYX PA6 lists electrical insulating parts, wear parts and jigs/fixtures. The source gives suggestions and disclaims binding specifications; no tested electrical component or qualified oil/fuel exposure is established. Reviewed product: FormFutura STYX PA6 (G049-02). Source basis: R-FORMFUTURA-STYX-PA6-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00549",
+          "MaterialID": "M049",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M050",
+      "append": {
+        "MaterialID": "M050",
+        "GradeID": "G050-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00533. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PA6-CF is 80 to 130 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PA6-CF (G050-01). Source basis: B-pa6-cf-TDS. The other 13 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00559",
+          "MaterialID": "M050",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M052",
+      "append": {
+        "MaterialID": "M052",
+        "GradeID": "G052-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Fabru/purefil PA12 describes humid-environment uses and wear/sliding behavior. The composition statement about EU food-contact regulations is not printed-product certification; the missing AMIDEX source is not used, and no PA12 finishing method is established. Reviewed product: Fabru / purefil Polyamide 12 (PA12) (G052-03). Source basis: R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil. The other 7 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00579",
+          "MaterialID": "M052",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M053",
+      "append": {
+        "MaterialID": "M053",
+        "GradeID": "G053-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00538. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker PolyMide PA12 CF (G053-02). Source basis: S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1. The other 14 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00588",
+          "MaterialID": "M053",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M054",
+      "append": {
+        "MaterialID": "M054",
+        "GradeID": "G054-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: MatterHackers NylonG suggests repeated-shock parts and shows a printed extruder; no-post-processing-needed is an appearance/processing claim, not a controlled component test or prescribed finishing operation. Reviewed product: MatterHackers NylonG (G054-02). Source basis: D-MATTERHACKERS-NYLONG-PAGE. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00598",
+          "MaterialID": "M054",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M056",
+      "append": {
+        "MaterialID": "M056",
+        "GradeID": "Not applicable",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: This material has no active procurement or reference grade in the current tables. No product-specific application/finishing original can be attached; the material-level entry remains an explicit evidence gap, without inventing a product."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00618",
+          "MaterialID": "M056",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M057",
+      "append": {
+        "MaterialID": "M057",
+        "GradeID": "G057-03",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00541. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Polymaker PolyMide CoPA (G057-03). Source basis: S-POLYCN-PolyMide-CoPA-TDS-V5-2. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00628",
+          "MaterialID": "M057",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M058",
+      "append": {
+        "MaterialID": "M058",
+        "GradeID": "G058-R1",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The DuPont Zytel guide is a nylon-resin reference and includes PA612 Zytel 158. Its automotive/electrical/moulded-resin context is not evidence for a printed filament product or an H2C finishing method. Reviewed product: DuPont Zytel 151L NC010 (PA612 resin) (G058-R1). Source basis: R-DUPONT-ZYTEL-GUIDE."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00638",
+          "MaterialID": "M058",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M059",
+      "append": {
+        "MaterialID": "M059",
+        "GradeID": "G059-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00543. Its own wording is retained: Annealing temp. and time 100 °C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-CF15 (G059-01). Source basis: S-FIBER-PA612. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00648",
+          "MaterialID": "M059",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M060",
+      "append": {
+        "MaterialID": "M060",
+        "GradeID": "Not applicable",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: This material has no active procurement or reference grade in the current tables. No product-specific application/finishing original can be attached; polymer context cannot supply a procurement product or printed-use result."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00658",
+          "MaterialID": "M060",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M064",
+      "append": {
+        "MaterialID": "M064",
+        "GradeID": "G064-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The complete exact 3DXSTAT ESD-PA12 one-page sheet gives property tables and basic printing recommendations, without a named end use or post-print finishing method. ESD identity and specimen settings alone do not supply an application basis. Reviewed product: 3DXTECH 3DXSTAT ESD PA12 (G064-01). Source basis: X-3DXSTAT-ESD-PA12-TDS-v1. This is a gap in the reviewed original, not universal public-source absence."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00698",
+          "MaterialID": "M064",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    }
+  ]
+}

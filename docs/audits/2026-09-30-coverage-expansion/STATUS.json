@@ -1,5 +1,5 @@
 {
-  "dataRelease": "0571af6d609e",
+  "dataRelease": "b27dc24f7147",
   "latestCompletedDataCommit": "955a51b02ce7139c5f61b105c533fa167a08c3f0",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -14,9 +14,9 @@
     "mergedIntoAnother": 26
   },
   "applicationCells": {
-    "Evidence recorded": 45,
-    "Reviewed with limitations": 57,
-    "Gap": 34,
+    "Evidence recorded": 43,
+    "Reviewed with limitations": 80,
+    "Gap": 13,
     "Unassessed": 0
   },
   "environmentalRecordPresence": {
@@ -57,7 +57,7 @@
     "evidence": 770,
     "prices": 357,
     "sources": 1846,
-    "coverage": 885,
+    "coverage": 946,
     "knowHow": 4698,
     "polymerEnvironment": 353,
     "polymerEvidence": 325,
@@ -73,9 +73,9 @@
     },
     "coverage": {
       "baseline": 805,
-      "current": 885,
-      "added": 80,
-      "edited_existing": 17,
+      "current": 946,
+      "added": 141,
+      "edited_existing": 78,
       "removed": 0
     },
     "evidence": {
@@ -232,5 +232,14 @@
       "subject": "Assess the remaining nine blank Application coverage cells"
     }
   ],
+  "resumedScope": {
+    "authorizationDate": "2026-10-02",
+    "materialTargets": 61,
+    "materialCompleted": 0,
+    "targetAdditionalProducts": 100,
+    "selectedProducts": 0,
+    "completedSelectedProducts": 0,
+    "selectionState": "Pending material completion; no product passes closed by material judgments."
+  },
   "completionMeaning": "Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes."
 }

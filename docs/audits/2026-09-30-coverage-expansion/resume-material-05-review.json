@@ -1,0 +1,319 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "review_date": "2026-10-02",
+  "input_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-05-packet.json",
+  "input_sha256": "9594e581427397b8ee8dd6536a7bd5d533abe63c3ef524856361f50771d5290e",
+  "baseline_HEAD": "20b4a6a",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 11,
+  "review_scope": "All proposed manual Application assessments, ownership and historical supersessions. Actual reading pages specified per finding, not a whole-document claim for longer sources. Canonical data and packets were not edited.",
+  "findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M082",
+      "MaterialID": "M082",
+      "GradeID": "G082-02",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "I-PP-TDS",
+          "SHA256": "a87bbb34447729466765245f2bd6e58387f78cd34ff67f2e60ea9f4606995d86",
+          "OriginalPath": ".cache/sources/by-sha/a87bbb34447729466765245f2bd6e58387f78cd34ff67f2e60ea9f4606995d86.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M083",
+      "MaterialID": "M083",
+      "GradeID": "G083-04",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+          "SHA256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+          "OriginalPath": ".cache/sources/by-sha/bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669.html",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation.",
+        "PP CF connector caption was reread in the own Nanovia HIPS article. HIPS about-24-hour dissolution/no-residue wording is not transferred to PP CF; no chemical-service verdict follows."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M085",
+      "MaterialID": "M085",
+      "GradeID": "G085-02",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "R-BRASKEM-FL300PE-PDS",
+          "SHA256": "ab3c807e5dd2ad621b42205cbf2207658fac0fb8f4d1f5981173ea9741fafff5",
+          "OriginalPath": ".cache/sources/by-sha/ab3c807e5dd2ad621b42205cbf2207658fac0fb8f4d1f5981173ea9741fafff5.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M087",
+      "MaterialID": "M087",
+      "GradeID": "G087-04",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil",
+          "SHA256": "48a79a77ec7b5bfb23930600942d1a037afbb1578397a5b70fc85353da10f2d6",
+          "OriginalPath": ".cache/sources/by-sha/48a79a77ec7b5bfb23930600942d1a037afbb1578397a5b70fc85353da10f2d6.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M088",
+      "MaterialID": "M088",
+      "GradeID": "G088-05",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "S-PET-formfutura-tds-athenax",
+          "SHA256": "d3a0348248ae4e4ed93081e75f9e665c0eba74a943fe9608f1bd5f9bbd4188ae",
+          "OriginalPath": ".cache/sources/by-sha/d3a0348248ae4e4ed93081e75f9e665c0eba74a943fe9608f1bd5f9bbd4188ae.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M089",
+      "MaterialID": "M089",
+      "GradeID": "G089-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "R-FILLAMENTUM-CPE-HG100-TDS",
+          "SHA256": "ad4f1420c47b40cc8972c202724dae27c1718c9070938e077c6150f33071f495",
+          "OriginalPath": ".cache/sources/by-sha/ad4f1420c47b40cc8972c202724dae27c1718c9070938e077c6150f33071f495.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M092",
+      "MaterialID": "M092",
+      "GradeID": "G092-02",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "R-COLORFABB-TDS-E-ColorFabb-nGen",
+          "SHA256": "8a00bee123cbc525e1902ce0362ed4875e567716722957a1f329b789c8c3fc55",
+          "OriginalPath": ".cache/sources/by-sha/8a00bee123cbc525e1902ce0362ed4875e567716722957a1f329b789c8c3fc55.pdf",
+          "PagesActuallyReread": [
+            1,
+            2
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M093",
+      "MaterialID": "M093",
+      "GradeID": "G093-03",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "R-SUNLU-PVB-TDS",
+          "SHA256": "6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8",
+          "OriginalPath": ".cache/sources/by-sha/6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8.pdf",
+          "PagesActuallyReread": [
+            1,
+            4
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M094",
+      "MaterialID": "M094",
+      "GradeID": "G094-02",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "S-POLYCN-Polymaker-PC-ABS-TDS-V5-1",
+          "SHA256": "b85d00a14b3a1c90afe510c4f1d58d7fab8fb69660eaee79c7420b1b7f8c4058",
+          "OriginalPath": ".cache/sources/by-sha/b85d00a14b3a1c90afe510c4f1d58d7fab8fb69660eaee79c7420b1b7f8c4058.pdf",
+          "PagesActuallyReread": [
+            2,
+            4,
+            6,
+            7
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "PriorRequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and corresponding serialized append when applicable",
+          "RequiredAdditionOrReplacement": "The source recommends this anneal right after printing to release residual internal stress.",
+          "SourceLocator": "p. 4, printing-condition notes",
+          "Reason": "Retain exact source scope, practical qualifier or reading-custody truth without upgrading published claims."
+        }
+      ],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M095",
+      "MaterialID": "M095",
+      "GradeID": "G095-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "S-POLYCN-Polymaker-PC-PBT-TDS-V5-1",
+          "SHA256": "422bebbd0afd300415532d7d089877fb734d51316e877a54f4c00c806ca1570e",
+          "OriginalPath": ".cache/sources/by-sha/422bebbd0afd300415532d7d089877fb734d51316e877a54f4c00c806ca1570e.pdf",
+          "PagesActuallyReread": [
+            2,
+            4,
+            6,
+            7
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "PriorRequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and corresponding serialized append when applicable",
+          "RequiredAdditionOrReplacement": "The source recommends this anneal right after printing to release residual internal stress.",
+          "SourceLocator": "p. 4, printing-condition notes",
+          "Reason": "Retain exact source scope, practical qualifier or reading-custody truth without upgrading published claims."
+        }
+      ],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M103",
+      "MaterialID": "M103",
+      "GradeID": "G103-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Gap",
+      "SourcesReread": [
+        {
+          "SourceID": "X-Hyperlite-PP-TDS-v1",
+          "SHA256": "fbf9839fbe6ca6e41e74e9b5da7ead3a15416aa273cae4b3841a5a3c413c7476",
+          "OriginalPath": ".cache/sources/by-sha/fbf9839fbe6ca6e41e74e9b5da7ead3a15416aa273cae4b3841a5a3c413c7476.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "The reviewed original or current no-grade custody lacks an application basis. This is not proof of universal public-source absence or exhaustion of official routes."
+      ],
+      "PriorRequiredCorrections": [],
+      "CorrectionAttestation": "All identified practical/custody/raw-basis changes are explicit in this final packet; matching serialized operations agree. Previously independently reread source facts are unchanged, and no repeat reading is claimed for this editorial delta."
+    }
+  ],
+  "prior_review": {
+    "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-05-review-before-correction.json",
+    "input_sha256": "6fb5142554dc06ea44cdbbb6f57834bfa5f424edb773892d73d598d0af3ea3d9",
+    "verdict": "CHANGES_REQUIRED"
+  },
+  "review_signature_sha256": "621b3b79994be08b04ffe0774a93bee32a19590ee36cd1d9644c04007e5d4e8a"
+}

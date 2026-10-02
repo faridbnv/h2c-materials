@@ -1,0 +1,1686 @@
+{
+  "PacketID": "RESUME-MATERIAL-02",
+  "BaselineHEAD": "20b4a6a",
+  "BaselineRelease": "0571af6d609e",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scope": "Manual material Application judgments only. No joined-product closure, new measurements, source admissions or environmental verdicts. Existing evidence is reused, not duplicated.",
+  "MakerBatches": [
+    {
+      "Maker": "Eryone",
+      "GradeIDs": [
+        "G025-02"
+      ]
+    },
+    {
+      "Maker": "Polymaker",
+      "GradeIDs": [
+        "G026-02"
+      ]
+    },
+    {
+      "Maker": "Bambu Lab",
+      "GradeIDs": [
+        "G027-01",
+        "G028-01",
+        "G031-01",
+        "G032-01",
+        "G035-01"
+      ]
+    },
+    {
+      "Maker": "Extrudr",
+      "GradeIDs": [
+        "G029-03"
+      ]
+    },
+    {
+      "Maker": "iSANMATE",
+      "GradeIDs": [
+        "G030-02"
+      ]
+    },
+    {
+      "Maker": "Flashforge",
+      "GradeIDs": [
+        "G033-07",
+        "G034-04",
+        "G037-05"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M025",
+      "TaskID": "APP-M025",
+      "MaterialID": "M025",
+      "ActiveGradeIDs": [
+        "G025-01",
+        "G025-02",
+        "G025-03",
+        "G025-04",
+        "G025-05"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G025-02",
+        "MaterialID": "M025",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Eryone",
+        "Product name": "PETG-GF",
+        "Shared formulation key": "R-ERYONE-PETG-GF-TDS",
+        "Composition / filler": "PETG with 10% glass fibre (TDS)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Official Eryone TDS retrieved 2026-09-13",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Representative grade from 2026-09-13: the only PETG-GF found with printed X-Y tensile data. iSANMATE PETG Glass Fiber (G025-01) publishes no specimen direction and is kept",
+        "SourceID": "R-ERYONE-PETG-GF-TDS",
+        "Source locator": "TDS version 1.0, pp. 1-2",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02071",
+          "MaterialID": "M025",
+          "GradeID": "G025-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "It is particularly suitable for manufacturing structural components or outdoor models that require high impact resistance and durability against drops.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5",
+            "Publisher": "Eryone",
+            "Title": "Technical Data Sheet (TDS) PETG-GF",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://hub.globalso.com/b/file_manager_downLoad?path=/file_manage/3828/20250903/eryone-petg-gf-tds.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G025-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "881af59128ba4fc9549c0c7ccb93848944b39e81523d7507a538192282fae1b4"
+          },
+          "OriginalPath": ".cache/sources/by-sha/881af59128ba4fc9549c0c7ccb93848944b39e81523d7507a538192282fae1b4.pdf",
+          "OriginalPagesReread": "all 4 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/881af59128ba4fc9549c0c7ccb93848944b39e81523d7507a538192282fae1b4.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q02071",
+          "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5",
+          "Locator": "p. 1",
+          "Wording": "It is particularly suitable for manufacturing structural components or outdoor models that require high impact resistance and durability against drops."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00309",
+          "MaterialID": "M025",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M025",
+        "GradeID": "G025-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Eryone PETG-GF describes structural/outdoor models. The reviewed judgment cites this product only: neither impact/weather claims nor a matte surface qualify a particular outdoor component. Reviewed product: Eryone PETG-GF (G025-02). Source basis: R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M026",
+      "TaskID": "APP-M026",
+      "MaterialID": "M026",
+      "ActiveGradeIDs": [
+        "G026-01",
+        "G026-02",
+        "G026-03",
+        "G026-04",
+        "G026-05",
+        "G026-06",
+        "G026-07",
+        "G026-08",
+        "G026-09",
+        "G026-10"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G026-02",
+        "MaterialID": "M026",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyMax PETG ESD",
+        "Shared formulation key": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02086",
+          "MaterialID": "M026",
+          "GradeID": "G026-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "PolyMax™ PETG-ESD offers electrostatic discharge (ESD) safety with improved toughness making it a good candidate for applications in electronics industry.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+          "Locator": "p. 2"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+            "Publisher": "Polymaker",
+            "Title": "PolyMax™ PETG-ESD Technical Data Sheet",
+            "Revision": "Technical Data Sheet V5.3",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyMax_PETG-ESD_TDS_V5.3.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G026-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "ea8f37d8be896751c9f054abaac5848adc686c42964922f95f62259261aa404e"
+          },
+          "OriginalPath": ".cache/sources/by-sha/ea8f37d8be896751c9f054abaac5848adc686c42964922f95f62259261aa404e.pdf",
+          "OriginalPagesReread": "all 7 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/ea8f37d8be896751c9f054abaac5848adc686c42964922f95f62259261aa404e.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q02086",
+          "SourceID": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+          "Locator": "p. 2",
+          "Wording": "PolyMax™ PETG-ESD offers electrostatic discharge (ESD) safety with improved toughness making it a good candidate for applications in electronics industry."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00319",
+          "MaterialID": "M026",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M026",
+        "GradeID": "G026-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: PolyMax PETG-ESD names electronics-industry uses; ESD safety remains a bounded maker claim, with no assembly-level certification or specific application test supplied. Reviewed product: Polymaker PolyMax PETG ESD (G026-02). Source basis: S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M027",
+      "TaskID": "APP-M027",
+      "MaterialID": "M027",
+      "ActiveGradeIDs": [
+        "G027-01",
+        "G027-03",
+        "G027-04",
+        "G027-05",
+        "G027-06",
+        "G027-07",
+        "G027-08",
+        "G027-09",
+        "G027-11",
+        "G027-12",
+        "G027-13",
+        "G027-14",
+        "G027-15",
+        "G027-16",
+        "G027-17",
+        "G027-18",
+        "G027-19",
+        "G027-20",
+        "G027-21",
+        "G027-22",
+        "G027-23",
+        "G027-24",
+        "G027-25",
+        "G027-26",
+        "G027-27",
+        "G027-28",
+        "G027-29",
+        "G027-30",
+        "G027-31",
+        "G027-32",
+        "G027-33",
+        "G027-34",
+        "G027-35",
+        "G027-36",
+        "G027-37",
+        "G027-38",
+        "G027-39",
+        "G027-40",
+        "G027-41",
+        "G027-42",
+        "G027-43",
+        "G027-44",
+        "G027-45",
+        "G027-46",
+        "G027-47",
+        "G027-48",
+        "G027-49",
+        "G027-50",
+        "G027-51",
+        "G027-52",
+        "G027-53",
+        "G027-54",
+        "G027-55",
+        "G027-56",
+        "G027-57",
+        "G027-58"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G027-01",
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ABS",
+        "Shared formulation key": "B-abs-filament-TDS",
+        "Composition / filler": "ABS",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-abs-filament-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00518",
+          "MaterialID": "M027",
+          "GradeID": "G027-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu ABS is 80 to 90 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80 to 90 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-abs-filament-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-abs-filament-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - ABS",
+            "Revision": "Technical Data Sheet V3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/s7/default/23b4cf2b83d5470bb96d19970b5f3ae8/Bambu_ABS_Technical_Data_Sheet_V3.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G027-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "371323063447db7c7c390bdcf66ef6e902a680bafa0f757b75c417c26cae3fb5"
+          },
+          "OriginalPath": ".cache/sources/by-sha/371323063447db7c7c390bdcf66ef6e902a680bafa0f757b75c417c26cae3fb5.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/371323063447db7c7c390bdcf66ef6e902a680bafa0f757b75c417c26cae3fb5.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00518",
+          "SourceID": "B-abs-filament-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu ABS is 80 to 90 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00329",
+          "MaterialID": "M027",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M027",
+        "GradeID": "G027-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00518. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS (G027-01). Source basis: B-abs-filament-TDS. The other 55 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M028",
+      "TaskID": "APP-M028",
+      "MaterialID": "M028",
+      "ActiveGradeIDs": [
+        "G028-01",
+        "G028-02",
+        "G028-03",
+        "G028-04",
+        "G028-05",
+        "G028-06",
+        "G028-07",
+        "G028-09",
+        "G028-10",
+        "G028-11",
+        "G028-12"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G028-01",
+        "MaterialID": "M028",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ABS-GF",
+        "Shared formulation key": "B-abs-gf-TDS",
+        "Composition / filler": "Acrylonitrile - butadiene - styrene, glass fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-abs-gf-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00520",
+          "MaterialID": "M028",
+          "GradeID": "G028-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu ABS-GF is 80 to 90 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80 to 90 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-abs-gf-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-abs-gf-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - ABS-GF",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/69f0758087c943f8a0a87bffa6dc901b.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G028-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "0d506ed63d1c831a9cb0645ecba3fc0ec4cba09614df2d0f3a957f00cb103b44"
+          },
+          "OriginalPath": ".cache/sources/by-sha/0d506ed63d1c831a9cb0645ecba3fc0ec4cba09614df2d0f3a957f00cb103b44.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/0d506ed63d1c831a9cb0645ecba3fc0ec4cba09614df2d0f3a957f00cb103b44.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00520",
+          "SourceID": "B-abs-gf-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu ABS-GF is 80 to 90 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00339",
+          "MaterialID": "M028",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M028",
+        "GradeID": "G028-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00520. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS-GF is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS-GF (G028-01). Source basis: B-abs-gf-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M029",
+      "TaskID": "APP-M029",
+      "MaterialID": "M029",
+      "ActiveGradeIDs": [
+        "G029-01",
+        "G029-02",
+        "G029-03",
+        "G029-04",
+        "G029-05",
+        "G029-06",
+        "G029-07",
+        "G029-08",
+        "G029-09",
+        "G029-10",
+        "G029-11"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G029-03",
+        "MaterialID": "M029",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "DURAPRO ABS CF",
+        "Shared formulation key": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+        "Composition / filler": "DuraPro ABS CF is a carbon fiber-reinforced high-performance ABS filament designed for technical applications where maximum (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02380",
+          "MaterialID": "M029",
+          "GradeID": "G029-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "DuraPro ABS CF is a carbon fiber-reinforced high-performance ABS filament designed for technical applications where maximum stiffness, dimensional stability, and heat resistance are required.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q02381",
+          "MaterialID": "M029",
+          "GradeID": "G029-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Thanks to its low warping tendency, DuraPro ABS CF is ideal for functional parts, prototypes, and use in mechanical engineering.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+            "Publisher": "Extrudr",
+            "Title": "TECHNICAL DATA SHEET DURAPRO ABS CF",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-abs-cf-TDS-en.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G029-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b"
+          },
+          "OriginalPath": ".cache/sources/by-sha/63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q02380",
+          "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+          "Locator": "p. 1",
+          "Wording": "DuraPro ABS CF is a carbon fiber-reinforced high-performance ABS filament designed for technical applications where maximum stiffness, dimensional stability, and heat resistance are required."
+        },
+        {
+          "EvidenceID": "Q02381",
+          "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+          "Locator": "p. 1",
+          "Wording": "Thanks to its low warping tendency, DuraPro ABS CF is ideal for functional parts, prototypes, and use in mechanical engineering."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00349",
+          "MaterialID": "M029",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M029",
+        "GradeID": "G029-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Extrudr DuraPro ABS CF names functional parts, prototypes and mechanical engineering; its matte appearance and stiffness claims are context, with no validated structural use or post-print finishing method. Reviewed product: Extrudr DURAPRO ABS CF (G029-03). Source basis: R-EXTRUDR-durapro-abs-cf-TDS-en. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M030",
+      "TaskID": "APP-M030",
+      "MaterialID": "M030",
+      "ActiveGradeIDs": [
+        "G030-01",
+        "G030-02",
+        "G030-03",
+        "G030-04",
+        "G030-05",
+        "G030-06",
+        "G030-07",
+        "G030-08",
+        "G030-09",
+        "G030-10",
+        "G030-11"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G030-02",
+        "MaterialID": "M030",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "ESD ABS",
+        "Shared formulation key": "I-ESD-ABS-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-ESD-ABS-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02426",
+          "MaterialID": "M030",
+          "GradeID": "G030-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Thanks to the material's excellent printability and static dissipation properties, ESD-ABS is suitable for general manufacturing and electronic industries.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "I-ESD-ABS-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "I-ESD-ABS-TDS",
+            "Publisher": "iSANMATE",
+            "Title": "ESD ABS",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.isanmate.com/wp-content/uploads/2024/09/ESD-ABS_TDS.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G030-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "821d1a6b61e180865743990dcc664de686fde4b3c1d37361a7a69ffc46778a9c"
+          },
+          "OriginalPath": ".cache/sources/by-sha/821d1a6b61e180865743990dcc664de686fde4b3c1d37361a7a69ffc46778a9c.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/821d1a6b61e180865743990dcc664de686fde4b3c1d37361a7a69ffc46778a9c.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q02426",
+          "SourceID": "I-ESD-ABS-TDS",
+          "Locator": "p. 1",
+          "Wording": "Thanks to the material's excellent printability and static dissipation properties, ESD-ABS is suitable for general manufacturing and electronic industries."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00359",
+          "MaterialID": "M030",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M030",
+        "GradeID": "G030-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: IPCON ESD-ABS names general manufacturing/electronics uses. Its after-annealing heat table states no repeatable annealing schedule and does not establish electrical assembly suitability. Reviewed product: iSANMATE ESD ABS (G030-02). Source basis: I-ESD-ABS-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M031",
+      "TaskID": "APP-M031",
+      "MaterialID": "M031",
+      "ActiveGradeIDs": [
+        "G031-01",
+        "G031-03",
+        "G031-04",
+        "G031-05",
+        "G031-06",
+        "G031-07",
+        "G031-08",
+        "G031-09",
+        "G031-10",
+        "G031-11",
+        "G031-13",
+        "G031-14",
+        "G031-15",
+        "G031-16",
+        "G031-17",
+        "G031-18",
+        "G031-19",
+        "G031-20",
+        "G031-21",
+        "G031-22",
+        "G031-23",
+        "G031-24",
+        "G031-25",
+        "G031-26",
+        "G031-27",
+        "G031-28",
+        "G031-29",
+        "G031-30",
+        "G031-31",
+        "G031-32",
+        "G031-33",
+        "G031-34",
+        "G031-35",
+        "G031-36",
+        "G031-37",
+        "G031-38",
+        "G031-39",
+        "G031-40",
+        "G031-41",
+        "G031-42",
+        "G031-43"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G031-01",
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ASA",
+        "Shared formulation key": "B-asa-filament-TDS",
+        "Composition / filler": "acrylonitrile - styrene - acrylate",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-asa-filament-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00521",
+          "MaterialID": "M031",
+          "GradeID": "G031-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80 to 90 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-asa-filament-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-asa-filament-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - ASA",
+            "Revision": "Technical Data Sheet V3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/ad7b08230c164e72856cffbe06bb7dc9.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G031-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "9927eba5def39ebb3ffe7e7d2f99aafc6784b654371adca35d55f81bea4eacf0"
+          },
+          "OriginalPath": ".cache/sources/by-sha/9927eba5def39ebb3ffe7e7d2f99aafc6784b654371adca35d55f81bea4eacf0.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/9927eba5def39ebb3ffe7e7d2f99aafc6784b654371adca35d55f81bea4eacf0.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00521",
+          "SourceID": "B-asa-filament-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00369",
+          "MaterialID": "M031",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M031",
+        "GradeID": "G031-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00521. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ASA (G031-01). Source basis: B-asa-filament-TDS. The other 40 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M032",
+      "TaskID": "APP-M032",
+      "MaterialID": "M032",
+      "ActiveGradeIDs": [
+        "G032-01",
+        "G032-02",
+        "G032-03",
+        "G032-04"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G032-01",
+        "MaterialID": "M032",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ASA Aero",
+        "Shared formulation key": "B-asa-aero-TDS",
+        "Composition / filler": "acrylonitrile - styrene - acrylate",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-asa-aero-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02580",
+          "MaterialID": "M032",
+          "GradeID": "G032-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "With these unique properties, it is ideal for printing long-lasting outdoor models and weight-sensitive projects, such as RC planes.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-asa-aero-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-asa-aero-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - ASA Aero",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/s1/default/02b005fdf02d450084e3128f7cf0c36f/Bambu_ASA_Aero_Technical_Data_Sheet.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G032-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q02580",
+          "SourceID": "B-asa-aero-TDS",
+          "Locator": "p. 1",
+          "Wording": "With these unique properties, it is ideal for printing long-lasting outdoor models and weight-sensitive projects, such as RC planes."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00379",
+          "MaterialID": "M032",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M032",
+        "GradeID": "G032-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu ASA Aero names outdoor models and RC planes. Its treatment paragraph calls the product Bambu ASA, while the sheet is ASA Aero; keep that wording limited rather than transfer a schedule silently. Foaming/weight and outdoor claims do not establish a qualified airframe or exposure result. Reviewed product: Bambu Lab ASA Aero (G032-01). Source basis: B-asa-aero-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M033",
+      "TaskID": "APP-M033",
+      "MaterialID": "M033",
+      "ActiveGradeIDs": [
+        "G033-01",
+        "G033-02",
+        "G033-03",
+        "G033-04",
+        "G033-05",
+        "G033-06",
+        "G033-07",
+        "G033-08",
+        "G033-09",
+        "G033-11",
+        "G033-12",
+        "G033-13",
+        "G033-14",
+        "G033-15",
+        "G033-16",
+        "G033-17",
+        "G033-18"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G033-07",
+        "MaterialID": "M033",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "ASACF10",
+        "Shared formulation key": "D-FLASH-ASA-CF-TDS-EN",
+        "Composition / filler": "material containing 10% carbon fiber. ASACF10 has excellent dimensional stability, (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-ASA-CF-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05065",
+          "MaterialID": "M033",
+          "GradeID": "G033-07",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.",
+          "Exposure / conditions": "Drying the printed part in an oven, to increase its strength: 80°C for 1-3 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FLASH-ASA-CF-TDS-EN",
+          "Locator": "p. 3: Post-processing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-FLASH-ASA-CF-TDS-EN",
+            "Publisher": "Flashforge",
+            "Title": "Technical Data Sheet ASACF10 Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/ASA_CF_TDS_EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G033-07",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "174ca50eef981c2a3242b0fd5d1649866b0056506b183bdac79b1529fa455ad1"
+          },
+          "OriginalPath": ".cache/sources/by-sha/174ca50eef981c2a3242b0fd5d1649866b0056506b183bdac79b1529fa455ad1.pdf",
+          "OriginalPagesReread": "all 4 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/174ca50eef981c2a3242b0fd5d1649866b0056506b183bdac79b1529fa455ad1.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q05065",
+          "SourceID": "D-FLASH-ASA-CF-TDS-EN",
+          "Locator": "p. 3: Post-processing note",
+          "Wording": "After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00389",
+          "MaterialID": "M033",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M033",
+        "GradeID": "G033-07",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05065. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASACF10 (G033-07). Source basis: D-FLASH-ASA-CF-TDS-EN. The other 16 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M034",
+      "TaskID": "APP-M034",
+      "MaterialID": "M034",
+      "ActiveGradeIDs": [
+        "G034-01",
+        "G034-02",
+        "G034-03",
+        "G034-04",
+        "G034-05",
+        "G034-06"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G034-04",
+        "MaterialID": "M034",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "ASAGF10",
+        "Shared formulation key": "R-FLASHFORGE-ASA-GF10-TDS",
+        "Composition / filler": "Modified ASA with 10% glass fibre (TDS)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Official Flashforge TDS retrieved 2026-09-13",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Additional ASA-GF formulation with printed X-Y strength and elongation, recorded 2026-09-13",
+        "SourceID": "R-FLASHFORGE-ASA-GF10-TDS",
+        "Source locator": "TDS pp. 1-2",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05062",
+          "MaterialID": "M034",
+          "GradeID": "G034-04",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.",
+          "Exposure / conditions": "Drying the printed part in an oven, to increase its strength: 80°C for 1-3 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FLASHFORGE-ASA-GF10-TDS",
+          "Locator": "p. 3: Post-processing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FLASHFORGE-ASA-GF10-TDS",
+            "Publisher": "Flashforge",
+            "Title": "Technical Data Sheet ASAGF10 Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-13",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/ASA_GF_TDS_EN.pdf",
+            "Locator": "Properties; Recommended printing conditions",
+            "Applicable grades": "M034 / G034-04",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "b82515bd92eec4b61acc1fe20ff4145407644964a73d0fdfea4f9306744a49c3"
+          },
+          "OriginalPath": ".cache/sources/by-sha/b82515bd92eec4b61acc1fe20ff4145407644964a73d0fdfea4f9306744a49c3.pdf",
+          "OriginalPagesReread": "all 4 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/b82515bd92eec4b61acc1fe20ff4145407644964a73d0fdfea4f9306744a49c3.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q05062",
+          "SourceID": "R-FLASHFORGE-ASA-GF10-TDS",
+          "Locator": "p. 3: Post-processing note",
+          "Wording": "After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00399",
+          "MaterialID": "M034",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M034",
+        "GradeID": "G034-04",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05062. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASAGF10 (G034-04). Source basis: R-FLASHFORGE-ASA-GF10-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M035",
+      "TaskID": "APP-M035",
+      "MaterialID": "M035",
+      "ActiveGradeIDs": [
+        "G035-01",
+        "G035-03",
+        "G035-04",
+        "G035-05",
+        "G035-06",
+        "G035-09",
+        "G035-10",
+        "G035-11",
+        "G035-12",
+        "G035-13",
+        "G035-14",
+        "G035-15",
+        "G035-16",
+        "G035-17",
+        "G035-18",
+        "G035-19",
+        "G035-20",
+        "G035-21",
+        "G035-23",
+        "G035-24",
+        "G035-25",
+        "G035-26"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G035-01",
+        "MaterialID": "M035",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PC",
+        "Shared formulation key": "B-PC-TDS",
+        "Composition / filler": "PC",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable and self-extinguishing in the air — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-PC-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00522",
+          "MaterialID": "M035",
+          "GradeID": "G035-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PC is 85 to 100 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 85 to 100 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-PC-Bambu-PC-Technical-Data-Sheet",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-PC-Bambu-PC-Technical-Data-Sheet",
+            "Publisher": "Bambu Lab",
+            "Title": "Technical Data Sheet V3.0 PC",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Bambu Lab's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/Bambu_PC_Technical_Data_Sheet.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G035-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "f0d45692b13f8b602267c0ca40db67d496ad74487681ec67e98a2df9e5b6af7c"
+          },
+          "OriginalPath": ".cache/sources/by-sha/f0d45692b13f8b602267c0ca40db67d496ad74487681ec67e98a2df9e5b6af7c.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/f0d45692b13f8b602267c0ca40db67d496ad74487681ec67e98a2df9e5b6af7c.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00522",
+          "SourceID": "B-PC-Bambu-PC-Technical-Data-Sheet",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PC is 85 to 100 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00409",
+          "MaterialID": "M035",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M035",
+        "GradeID": "G035-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00522. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PC is 85 to 100 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PC (G035-01). Source basis: B-PC-Bambu-PC-Technical-Data-Sheet. The other 21 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M037",
+      "TaskID": "APP-M037",
+      "MaterialID": "M037",
+      "ActiveGradeIDs": [
+        "G037-01",
+        "G037-02",
+        "G037-03",
+        "G037-04",
+        "G037-05",
+        "G037-06",
+        "G037-07",
+        "G037-08",
+        "G037-09",
+        "G037-10"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G037-05",
+        "MaterialID": "M037",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "PCCF10",
+        "Shared formulation key": "D-FLASH-PC-CF-TDS-EN",
+        "Composition / filler": "reinforced with 10% carbon fiber. It offers excellent dimensional stability, bending (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-PC-CF-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05063",
+          "MaterialID": "M037",
+          "GradeID": "G037-05",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to dry the model in the oven at 100°C for 1- 3 hours to increase the strength of the model.",
+          "Exposure / conditions": "Drying the printed part in an oven, to increase its strength: 100°C for 1-3 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FLASH-PC-CF-TDS-EN",
+          "Locator": "p. 3: Post-processing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-FLASH-PC-CF-TDS-EN",
+            "Publisher": "Flashforge",
+            "Title": "Technical Data Sheet PCCF10 Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/PC_CF_TDS_EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G037-05",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "03d0a687859a8c50e3abd8a10a2e2b680ecf0ed8c36ff2fefcb6bf22b553efa3"
+          },
+          "OriginalPath": ".cache/sources/by-sha/03d0a687859a8c50e3abd8a10a2e2b680ecf0ed8c36ff2fefcb6bf22b553efa3.pdf",
+          "OriginalPagesReread": "all 4 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/03d0a687859a8c50e3abd8a10a2e2b680ecf0ed8c36ff2fefcb6bf22b553efa3.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q05063",
+          "SourceID": "D-FLASH-PC-CF-TDS-EN",
+          "Locator": "p. 3: Post-processing note",
+          "Wording": "After the printing process, it is recommended to dry the model in the oven at 100°C for 1- 3 hours to increase the strength of the model."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00429",
+          "MaterialID": "M037",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M037",
+        "GradeID": "G037-05",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05063. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 100°C for 1- 3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PCCF10 (G037-05). Source basis: D-FLASH-PC-CF-TDS-EN. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-RESUME-APP-M025",
+      "append": {
+        "MaterialID": "M025",
+        "GradeID": "G025-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Eryone PETG-GF describes structural/outdoor models. The reviewed judgment cites this product only: neither impact/weather claims nor a matte surface qualify a particular outdoor component. Reviewed product: Eryone PETG-GF (G025-02). Source basis: R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00309",
+          "MaterialID": "M025",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M026",
+      "append": {
+        "MaterialID": "M026",
+        "GradeID": "G026-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: PolyMax PETG-ESD names electronics-industry uses; ESD safety remains a bounded maker claim, with no assembly-level certification or specific application test supplied. Reviewed product: Polymaker PolyMax PETG ESD (G026-02). Source basis: S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00319",
+          "MaterialID": "M026",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M027",
+      "append": {
+        "MaterialID": "M027",
+        "GradeID": "G027-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00518. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS (G027-01). Source basis: B-abs-filament-TDS. The other 55 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00329",
+          "MaterialID": "M027",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M028",
+      "append": {
+        "MaterialID": "M028",
+        "GradeID": "G028-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00520. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS-GF is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS-GF (G028-01). Source basis: B-abs-gf-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00339",
+          "MaterialID": "M028",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M029",
+      "append": {
+        "MaterialID": "M029",
+        "GradeID": "G029-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Extrudr DuraPro ABS CF names functional parts, prototypes and mechanical engineering; its matte appearance and stiffness claims are context, with no validated structural use or post-print finishing method. Reviewed product: Extrudr DURAPRO ABS CF (G029-03). Source basis: R-EXTRUDR-durapro-abs-cf-TDS-en. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00349",
+          "MaterialID": "M029",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M030",
+      "append": {
+        "MaterialID": "M030",
+        "GradeID": "G030-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: IPCON ESD-ABS names general manufacturing/electronics uses. Its after-annealing heat table states no repeatable annealing schedule and does not establish electrical assembly suitability. Reviewed product: iSANMATE ESD ABS (G030-02). Source basis: I-ESD-ABS-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00359",
+          "MaterialID": "M030",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M031",
+      "append": {
+        "MaterialID": "M031",
+        "GradeID": "G031-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00521. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ASA (G031-01). Source basis: B-asa-filament-TDS. The other 40 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00369",
+          "MaterialID": "M031",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M032",
+      "append": {
+        "MaterialID": "M032",
+        "GradeID": "G032-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu ASA Aero names outdoor models and RC planes. Its treatment paragraph calls the product Bambu ASA, while the sheet is ASA Aero; keep that wording limited rather than transfer a schedule silently. Foaming/weight and outdoor claims do not establish a qualified airframe or exposure result. Reviewed product: Bambu Lab ASA Aero (G032-01). Source basis: B-asa-aero-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00379",
+          "MaterialID": "M032",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M033",
+      "append": {
+        "MaterialID": "M033",
+        "GradeID": "G033-07",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05065. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASACF10 (G033-07). Source basis: D-FLASH-ASA-CF-TDS-EN. The other 16 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00389",
+          "MaterialID": "M033",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M034",
+      "append": {
+        "MaterialID": "M034",
+        "GradeID": "G034-04",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05062. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASAGF10 (G034-04). Source basis: R-FLASHFORGE-ASA-GF10-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00399",
+          "MaterialID": "M034",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M035",
+      "append": {
+        "MaterialID": "M035",
+        "GradeID": "G035-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00522. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PC is 85 to 100 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PC (G035-01). Source basis: B-PC-Bambu-PC-Technical-Data-Sheet. The other 21 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00409",
+          "MaterialID": "M035",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M037",
+      "append": {
+        "MaterialID": "M037",
+        "GradeID": "G037-05",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05063. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 100°C for 1- 3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PCCF10 (G037-05). Source basis: D-FLASH-PC-CF-TDS-EN. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00429",
+          "MaterialID": "M037",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    }
+  ]
+}

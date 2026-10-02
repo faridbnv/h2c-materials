@@ -9,7 +9,7 @@ exposure-specific screening, manufacturer messaging and physical testing remain 
 **Read [STATUS.md](STATUS.md) for the current counts, completed commits and every remaining target.**
 The sections below are the historical tranche record: their “now” counts describe that tranche's
 release, not today's build. [EFFORT-AND-VALUE.md](EFFORT-AND-VALUE.md) gives estimates and a proposed
-allocation; it does not change the approved all-target campaign. The [documentation reconciliation](DOCUMENTATION-RECONCILIATION.md) records the freshness checks and publication boundary.
+allocation; the owner accepted its material-first/priority-product recommendations on 2026-10-02. [RESUME-2026-10-02.md](RESUME-2026-10-02.md) reconciles current main and narrows this run to material assessment followed by 100 additional priority products, with up to 150 dependent on yield. The [documentation reconciliation](DOCUMENTATION-RECONCILIATION.md) records the freshness checks and publication boundary.
 
 ## First twelve products
 

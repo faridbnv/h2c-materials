@@ -1,0 +1,18 @@
+{
+  "Date": "2026-10-02",
+  "MainBaseline": "20b4a6a5ead70a88c9d72c499b65a75dfb9a8176",
+  "Release": "0571af6d609e",
+  "FullVerifySeconds": 300.46,
+  "SourceContextFindings": {
+    "accepted": 76,
+    "new": 0,
+    "stale": 0
+  },
+  "BrowserViews": 69,
+  "RenderedScenarios": 300,
+  "ScenarioReadings": 2594,
+  "LogSHA256": "ff5d3dac2fbf776c6d778da6db58451feabfea6cc623f690969a44c7f4aa63d2",
+  "Scope": "Finish remaining material judgments, then 100 priority live-product passes; existing merged and completed targets reconciled.",
+  "UnitTests": 481,
+  "ImportTests": 204
+}

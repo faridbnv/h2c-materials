@@ -1,0 +1,1387 @@
+{
+  "PacketID": "RESUME-MATERIAL-04",
+  "BaselineHEAD": "20b4a6a",
+  "BaselineRelease": "0571af6d609e",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scope": "Manual material Application judgments only. No joined-product closure, new measurements, source admissions or environmental verdicts. Existing evidence is reused, not duplicated.",
+  "MakerBatches": [
+    {
+      "Maker": "Polymaker",
+      "GradeIDs": [
+        "G065-01",
+        "G068-02"
+      ]
+    },
+    {
+      "Maker": "IPCON",
+      "GradeIDs": [
+        "G069-01"
+      ]
+    },
+    {
+      "Maker": "Bambu Lab",
+      "GradeIDs": [
+        "G070-01",
+        "G073-01",
+        "G075-01",
+        "G078-01",
+        "G079-01",
+        "G080-01"
+      ]
+    },
+    {
+      "Maker": "Raise3D",
+      "GradeIDs": [
+        "G071-04"
+      ]
+    },
+    {
+      "Maker": "3DXTECH",
+      "GradeIDs": [
+        "G072-01"
+      ]
+    },
+    {
+      "Maker": "BigRep",
+      "GradeIDs": [
+        "G076-01"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M065",
+      "TaskID": "APP-M065",
+      "MaterialID": "M065",
+      "ActiveGradeIDs": [
+        "G065-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G065-01",
+        "MaterialID": "M065",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Fiberon PA612-ESD",
+        "Shared formulation key": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00545",
+          "MaterialID": "M065",
+          "GradeID": "G065-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "Annealing temp. and time 100 °C/16H",
+          "Exposure / conditions": "Annealing the printed part: 100 °C/16H",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+          "Locator": "p. 1: Annealing temp. and time"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+            "Publisher": "Polymaker",
+            "Title": "Fiberon™ PA612-ESD Technical Data Sheet",
+            "Revision": "V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/TDS_FIBERON-PA612-ESD_V1.0_EN-1.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G064-02; G065-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f"
+          },
+          "OriginalPath": ".cache/sources/by-sha/02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00545",
+          "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+          "Locator": "p. 1: Annealing temp. and time",
+          "Wording": "Annealing temp. and time 100 °C/16H"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00708",
+          "MaterialID": "M065",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00545. Its own wording is retained: Annealing temp. and time 100 °C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-ESD (G065-01). Source basis: S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M068",
+      "TaskID": "APP-M068",
+      "MaterialID": "M068",
+      "ActiveGradeIDs": [
+        "G068-01",
+        "G068-02",
+        "G068-04",
+        "G068-05"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G068-02",
+        "MaterialID": "M068",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Fiberon PET-GF15",
+        "Shared formulation key": "R-FIBERON-PETGF15-TDS",
+        "Composition / filler": "PET, glass fibre (GF15 product designation)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Use exact TDS scope",
+        "Availability": "Official Fiberon TDS retrieved 2026-09-13; product page returned HTTP 403",
+        "Certification claims": "UL 94 HB at 1.5 mm per TDS; not printed-part certification",
+        "Selected-grade rationale": "Second exact PET-GF formulation, recorded 2026-09-13 because it publishes printed XY and Z test data. Flashforge PET-GF (G068-01) is retained unchanged; its values were not overwritten",
+        "SourceID": "R-FIBERON-PETGF15-TDS",
+        "Source locator": "TDS V1.0, p. 1",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00549",
+          "MaterialID": "M068",
+          "GradeID": "G068-02",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "Annealing temp. and time 120°C/16H",
+          "Exposure / conditions": "Annealing the printed part: 120°C/16H",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FIBERON-PETGF15-TDS",
+          "Locator": "p. 1: Annealing temp. and time"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FIBERON-PETGF15-TDS",
+            "Publisher": "Polymaker",
+            "Title": "Fiberon PET-GF15 Technical Data Sheet",
+            "Revision": "V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-13",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Published under Polymaker's Fiberon brand line.",
+            "Citation role": "cited",
+            "URL": "https://fiberon.polymaker.com/wp-content/uploads/TDS_FIBERON-PET-GF15_V1.0_EN.pdf",
+            "Locator": "Physical, thermal and mechanical properties; recommended printing conditions; how to make specimens",
+            "Applicable grades": "M068 / G068-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "cdb81cbccd54e790038caf17353bd91172713cb7d35f7d8e16f919124923b37b"
+          },
+          "OriginalPath": ".cache/sources/by-sha/cdb81cbccd54e790038caf17353bd91172713cb7d35f7d8e16f919124923b37b.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/cdb81cbccd54e790038caf17353bd91172713cb7d35f7d8e16f919124923b37b.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00549",
+          "SourceID": "R-FIBERON-PETGF15-TDS",
+          "Locator": "p. 1: Annealing temp. and time",
+          "Wording": "Annealing temp. and time 120°C/16H"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00738",
+          "MaterialID": "M068",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M068",
+        "GradeID": "G068-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00549. Its own wording is retained: Annealing temp. and time 120°C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends using the print without annealing when temperature resistance above 80°C is unnecessary. If annealed, avoid touching/loading the print, ensure uniform oven heating, retain support for bridges over 3 cm and specified overhang geometries, and consider ribs/increased wall thickness below 4 mm to limit deformation; keep the printing placement, preferably on its base plate. Colour may become lighter. Reviewed product: Polymaker Fiberon PET-GF15 (G068-02). Source basis: R-FIBERON-PETGF15-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M069",
+      "TaskID": "APP-M069",
+      "MaterialID": "M069",
+      "ActiveGradeIDs": [
+        "G069-01",
+        "G069-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G069-01",
+        "MaterialID": "M069",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "IPCON",
+        "Product name": "PPA Pure Resin",
+        "Shared formulation key": "S-PPA-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PPA-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00328",
+          "MaterialID": "M069",
+          "GradeID": "G069-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "Long-term heat claim of 120°C is tied to annealing, not a universal as-printed limit.",
+          "Exposure / conditions": "Not published",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PPA-TDS",
+          "Locator": "Post-processing"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PPA-TDS",
+            "Publisher": "IPCON",
+            "Title": "PPA Pure Resin",
+            "Revision": "Version: 1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.ipconpolymer.com/wp-content/uploads/2025/11/IPCON-PPA_TDS-Technical-Data-Sheet.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G069-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b"
+          },
+          "OriginalPath": ".cache/sources/by-sha/86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b.pdf",
+          "OriginalPagesReread": "all 2 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00328",
+          "SourceID": "S-PPA-TDS",
+          "Locator": "Post-processing",
+          "Wording": "Long-term heat claim of 120°C is tied to annealing, not a universal as-printed limit.",
+          "WordingKind": "Existing editorial summary, not verbatim source wording"
+        },
+        {
+          "SourceID": "S-PPA-TDS",
+          "Locator": "p. 2, Main Features and Application Scenarios, item 1",
+          "Wording": "Long-term heat resistance of 120 °C (after annealing)",
+          "WordingKind": "Original reread wording"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00747",
+          "MaterialID": "M069",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M069",
+        "GradeID": "G069-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: IPCON FILA PPA proposes bicycle accessories, insulating parts, gears and slide rails. Its long-term heat statement depends on annealing but gives no treatment schedule; preserve the application suggestions and missing schedule without qualifying those parts. Reviewed product: IPCON PPA Pure Resin (G069-01). Source basis: S-PPA-TDS. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M070",
+      "TaskID": "APP-M070",
+      "MaterialID": "M070",
+      "ActiveGradeIDs": [
+        "G070-01",
+        "G070-02",
+        "G070-03",
+        "G070-04",
+        "G070-05",
+        "G070-06",
+        "G070-07",
+        "G070-08",
+        "G070-09"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G070-01",
+        "MaterialID": "M070",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PPA-CF",
+        "Shared formulation key": "B-ppa-cf-TDS",
+        "Composition / filler": "Semi-aromatic Nylon, carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-ppa-cf-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00551",
+          "MaterialID": "M070",
+          "GradeID": "G070-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PPA-CF is 120 to 140 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 120 to 140 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-ppa-cf-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-ppa-cf-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PPA-CF",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/05b0e4ca5ee14a4cb378cfa48df24f91.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G070-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951"
+          },
+          "OriginalPath": ".cache/sources/by-sha/bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00551",
+          "SourceID": "B-ppa-cf-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PPA-CF is 120 to 140 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00758",
+          "MaterialID": "M070",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M070",
+        "GradeID": "G070-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00551. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPA-CF is 120 to 140 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPA-CF (G070-01). Source basis: B-ppa-cf-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M071",
+      "TaskID": "APP-M071",
+      "MaterialID": "M071",
+      "ActiveGradeIDs": [
+        "G071-01",
+        "G071-02",
+        "G071-03",
+        "G071-04",
+        "G071-05"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G071-04",
+        "MaterialID": "M071",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Industrial PPA GF",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+        "Composition / filler": "incorporation of short glass fibers (15wt.%) further improves upon the properties of PPA matrix, which makes PPA (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00553",
+          "MaterialID": "M071",
+          "GradeID": "G071-04",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing, it is recommended to anneal the printed part at 80-100°C for 8 hours.",
+          "Exposure / conditions": "Annealing the printed part: 80-100°C for 8 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+          "Locator": "p. 2: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+            "Publisher": "Raise3D",
+            "Title": "Raise3D Industrial PPA GF Technical Data Sheet",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://s1.raise3d.com/2023/02/Raise3D-Industrial-PPA-GF-TDS_v2.1.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G071-04",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "9227cd4e0122d07070b11bcacceaef5baaff1a22ac66392e40ff744a64af908a"
+          },
+          "OriginalPath": ".cache/sources/by-sha/9227cd4e0122d07070b11bcacceaef5baaff1a22ac66392e40ff744a64af908a.pdf",
+          "OriginalPagesReread": "all 3 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/9227cd4e0122d07070b11bcacceaef5baaff1a22ac66392e40ff744a64af908a.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00553",
+          "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+          "Locator": "p. 2: Annealing note",
+          "Wording": "After the printing, it is recommended to anneal the printed part at 80-100°C for 8 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00768",
+          "MaterialID": "M071",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M071",
+        "GradeID": "G071-04",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00553. Its own wording is retained: After the printing, it is recommended to anneal the printed part at 80-100°C for 8 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source notes up to 0.5% Z-axis shrinkage depending on infill and layer height. When used as its own support, remove support after annealing; moisture absorption can otherwise permanently bond it to the model. Reviewed product: Raise3D Industrial PPA GF (G071-04). Source basis: D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M072",
+      "TaskID": "APP-M072",
+      "MaterialID": "M072",
+      "ActiveGradeIDs": [
+        "G072-01",
+        "G072-02"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G072-01",
+        "MaterialID": "M072",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "THERMAX PPS",
+        "Shared formulation key": "X-THERMAX-PPS-TDS-v3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Current official product listing retrieved",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-THERMAX-PPS-TDS-v3",
+        "Source locator": "TDS / official product page; current product: XP-thermax-pps",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "X-THERMAX-PPS-TDS-v3",
+            "Publisher": "3DXTECH",
+            "Title": "THERMAX PPS",
+            "Revision": "TDS Rev 3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0625/4185/6821/files/THERMAX_PPS_TDS_v3.pdf?v=1723942766",
+            "Locator": "Document / product page",
+            "Applicable grades": "G072-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "becbd47e43bc1eeee0ad62ffd51f579b771a91f4eabf4ac0d3fc1386f12e3491"
+          },
+          "OriginalPath": ".cache/sources/by-sha/becbd47e43bc1eeee0ad62ffd51f579b771a91f4eabf4ac0d3fc1386f12e3491.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/becbd47e43bc1eeee0ad62ffd51f579b771a91f4eabf4ac0d3fc1386f12e3491.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00778",
+          "MaterialID": "M072",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M072",
+        "GradeID": "G072-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The complete one-page ThermaX PPS sheet gives property and printed-specimen preparation tables, with no named end-use or post-print finishing method. PPS identity and thermal values alone do not establish an application. Reviewed product: 3DXTECH THERMAX PPS (G072-01). Source basis: X-THERMAX-PPS-TDS-v3. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate. This is a gap in the reviewed original, not universal public-source absence."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M073",
+      "TaskID": "APP-M073",
+      "MaterialID": "M073",
+      "ActiveGradeIDs": [
+        "G073-01",
+        "G073-02",
+        "G073-03",
+        "G073-04",
+        "G073-05",
+        "G073-06",
+        "G073-07"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G073-01",
+        "MaterialID": "M073",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PPS-CF",
+        "Shared formulation key": "B-pps-cf-TDS",
+        "Composition / filler": "Polyphenylene sulfide (PPS), carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pps-cf-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00554",
+          "MaterialID": "M073",
+          "GradeID": "G073-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PPS-CF is 180 to 220 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 180 to 220 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pps-cf-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pps-cf-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PPS-CF",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/26f4f40359484040a8660c9150a90fc0.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G073-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d0246a1d2acd61802385e8f9d8a1e3a3e6db5b426337f6c56993402d4c2f2cd0"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d0246a1d2acd61802385e8f9d8a1e3a3e6db5b426337f6c56993402d4c2f2cd0.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/d0246a1d2acd61802385e8f9d8a1e3a3e6db5b426337f6c56993402d4c2f2cd0.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00554",
+          "SourceID": "B-pps-cf-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PPS-CF is 180 to 220 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00788",
+          "MaterialID": "M073",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M073",
+        "GradeID": "G073-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00554. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPS-CF is 180 to 220 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPS-CF (G073-01). Source basis: B-pps-cf-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M075",
+      "TaskID": "APP-M075",
+      "MaterialID": "M075",
+      "ActiveGradeIDs": [
+        "G075-01",
+        "G075-02",
+        "G075-03",
+        "G075-04",
+        "G075-05",
+        "G075-06",
+        "G075-07",
+        "G075-08",
+        "G075-09",
+        "G075-10",
+        "G075-11"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G075-01",
+        "MaterialID": "M075",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PVA",
+        "Shared formulation key": "B-pva-TDS",
+        "Composition / filler": "Polyvinyl alcohol",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pva-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pva-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PVA",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/s7/default/868930e5a44944258586caa250cc8143/Bambu_PVA_Technical_Data_Sheet.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G075-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "7ca185263fec71442794b3f34409233557bd30995613b759e810532616fe955b"
+          },
+          "OriginalPath": ".cache/sources/by-sha/7ca185263fec71442794b3f34409233557bd30995613b759e810532616fe955b.pdf",
+          "OriginalPagesReread": "all 3 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/7ca185263fec71442794b3f34409233557bd30995613b759e810532616fe955b.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00808",
+          "MaterialID": "M075",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M075",
+        "GradeID": "G075-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu PVA explicitly describes dissolving the printed support in water after printing. This is a product-specific support-removal method; no bath temperature, duration, structural end-use performance or compatibility qualification is supplied. Reviewed product: Bambu Lab PVA (G075-01). Source basis: B-pva-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M076",
+      "TaskID": "APP-M076",
+      "MaterialID": "M076",
+      "ActiveGradeIDs": [
+        "G076-01",
+        "G076-02",
+        "G076-03",
+        "G076-04"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G076-01",
+        "MaterialID": "M076",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BigRep",
+        "Product name": "BVOH",
+        "Shared formulation key": "S-BVOH",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-BVOH",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-BVOH",
+            "Publisher": "BigRep",
+            "Title": "BVOH Water Soluble Support",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://bigrep.com/wp-content/uploads/2023/06/TDS-BigRep-BVOH-web.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G076-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d539e76c38536ed5276b8f349dd26fcbf80caec3a65b2b0584dca896e57d28f3"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d539e76c38536ed5276b8f349dd26fcbf80caec3a65b2b0584dca896e57d28f3.pdf",
+          "OriginalPagesReread": "all 2 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/d539e76c38536ed5276b8f349dd26fcbf80caec3a65b2b0584dca896e57d28f3.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00819",
+          "MaterialID": "M076",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M076",
+        "GradeID": "G076-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: BigRep BVOH describes dissolving support in water; removal time depends on geometry/slicing and increases in water temperature speed dissolution, without a quantified bath schedule. Its support/post-processing method does not qualify the base printed part. Reviewed product: BigRep BVOH (G076-01). Source basis: S-BVOH. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M078",
+      "TaskID": "APP-M078",
+      "MaterialID": "M078",
+      "ActiveGradeIDs": [
+        "G078-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G078-01",
+        "MaterialID": "M078",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Support for PLA/PETG",
+        "Shared formulation key": "B-support-for-pla-petg-TDS",
+        "Composition / filler": "Polylactic acid",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-support-for-pla-petg-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-support-for-pla-petg-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - Support for PLA/PETG",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/d09d55778d42495db121e28a3b04a4c5.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G078-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "a2f6e88e520e18592333c35da3fd43b89838d14ee6934b617b326fd017e62d54"
+          },
+          "OriginalPath": ".cache/sources/by-sha/a2f6e88e520e18592333c35da3fd43b89838d14ee6934b617b326fd017e62d54.pdf",
+          "OriginalPagesReread": "all 3 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/a2f6e88e520e18592333c35da3fd43b89838d14ee6934b617b326fd017e62d54.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00840",
+          "MaterialID": "M078",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M078",
+        "GradeID": "G078-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu Support for PLA/PETG claims tool-free removal for the named pair of polymers. Treat this as bounded support/removal guidance, with no quantified removal conditions, demonstrated surface quality or structural application. Reviewed product: Bambu Lab Support for PLA/PETG (G078-01). Source basis: B-support-for-pla-petg-TDS."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M079",
+      "TaskID": "APP-M079",
+      "MaterialID": "M079",
+      "ActiveGradeIDs": [
+        "G079-01"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G079-01",
+        "MaterialID": "M079",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Support for ABS",
+        "Shared formulation key": "B-support-for-abs-TDS",
+        "Composition / filler": "HIPS",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-support-for-abs-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-support-for-abs-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - Support for ABS",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/4ea7b59ca78c485f828115735ed35050.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G079-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "35f3f69ae2f5097c2d9ef0d7a928a48dc25b478fb01d8b5cf0ac2a9d9904e655"
+          },
+          "OriginalPath": ".cache/sources/by-sha/35f3f69ae2f5097c2d9ef0d7a928a48dc25b478fb01d8b5cf0ac2a9d9904e655.pdf",
+          "OriginalPagesReread": "all 3 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/35f3f69ae2f5097c2d9ef0d7a928a48dc25b478fb01d8b5cf0ac2a9d9904e655.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00851",
+          "MaterialID": "M079",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M079",
+        "GradeID": "G079-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu Support for ABS claims easy support-interface removal and AMS compatibility. This is bounded support use context; no qualified removal procedure, complete-part application or universal printer compatibility follows. Reviewed product: Bambu Lab Support for ABS (G079-01). Source basis: B-support-for-abs-TDS."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M080",
+      "TaskID": "APP-M080",
+      "MaterialID": "M080",
+      "ActiveGradeIDs": [
+        "G080-01",
+        "G080-02",
+        "G080-03"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G080-01",
+        "MaterialID": "M080",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Support for PA/PET",
+        "Shared formulation key": "B-support-for-pa-pet-TDS",
+        "Composition / filler": "Nylon",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-support-for-pa-pet-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-support-for-pa-pet-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - Support for PA/PET",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/7e83189be1eb4a3dab8ce9b9a7b2065a.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G080-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "8aa9c8a2a4572bf5e15ae2b4752254b498449e55cab8bc1628f9cf9f024994b7"
+          },
+          "OriginalPath": ".cache/sources/by-sha/8aa9c8a2a4572bf5e15ae2b4752254b498449e55cab8bc1628f9cf9f024994b7.pdf",
+          "OriginalPagesReread": "all 3 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/8aa9c8a2a4572bf5e15ae2b4752254b498449e55cab8bc1628f9cf9f024994b7.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00862",
+          "MaterialID": "M080",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M080",
+        "GradeID": "G080-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu Support for PA/PET is explicitly a breakaway interface for PA/PET and their CF composites, peeled by hand or tools; the sheet says it is for supporting structures rather than a complete print. Keep that restricted support use and do not infer structural part properties. Reviewed product: Bambu Lab Support for PA/PET (G080-01). Source basis: B-support-for-pa-pet-TDS. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-RESUME-APP-M065",
+      "append": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00545. Its own wording is retained: Annealing temp. and time 100 °C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-ESD (G065-01). Source basis: S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00708",
+          "MaterialID": "M065",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M068",
+      "append": {
+        "MaterialID": "M068",
+        "GradeID": "G068-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00549. Its own wording is retained: Annealing temp. and time 120°C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends using the print without annealing when temperature resistance above 80°C is unnecessary. If annealed, avoid touching/loading the print, ensure uniform oven heating, retain support for bridges over 3 cm and specified overhang geometries, and consider ribs/increased wall thickness below 4 mm to limit deformation; keep the printing placement, preferably on its base plate. Colour may become lighter. Reviewed product: Polymaker Fiberon PET-GF15 (G068-02). Source basis: R-FIBERON-PETGF15-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00738",
+          "MaterialID": "M068",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M069",
+      "append": {
+        "MaterialID": "M069",
+        "GradeID": "G069-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: IPCON FILA PPA proposes bicycle accessories, insulating parts, gears and slide rails. Its long-term heat statement depends on annealing but gives no treatment schedule; preserve the application suggestions and missing schedule without qualifying those parts. Reviewed product: IPCON PPA Pure Resin (G069-01). Source basis: S-PPA-TDS. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00747",
+          "MaterialID": "M069",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M070",
+      "append": {
+        "MaterialID": "M070",
+        "GradeID": "G070-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00551. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPA-CF is 120 to 140 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPA-CF (G070-01). Source basis: B-ppa-cf-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00758",
+          "MaterialID": "M070",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M071",
+      "append": {
+        "MaterialID": "M071",
+        "GradeID": "G071-04",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00553. Its own wording is retained: After the printing, it is recommended to anneal the printed part at 80-100°C for 8 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source notes up to 0.5% Z-axis shrinkage depending on infill and layer height. When used as its own support, remove support after annealing; moisture absorption can otherwise permanently bond it to the model. Reviewed product: Raise3D Industrial PPA GF (G071-04). Source basis: D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00768",
+          "MaterialID": "M071",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M072",
+      "append": {
+        "MaterialID": "M072",
+        "GradeID": "G072-01",
+        "Domain": "Post-processing / application",
+        "Status": "Gap",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: The complete one-page ThermaX PPS sheet gives property and printed-specimen preparation tables, with no named end-use or post-print finishing method. PPS identity and thermal values alone do not establish an application. Reviewed product: 3DXTECH THERMAX PPS (G072-01). Source basis: X-THERMAX-PPS-TDS-v3. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate. This is a gap in the reviewed original, not universal public-source absence."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00778",
+          "MaterialID": "M072",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M073",
+      "append": {
+        "MaterialID": "M073",
+        "GradeID": "G073-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00554. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPS-CF is 180 to 220 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPS-CF (G073-01). Source basis: B-pps-cf-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00788",
+          "MaterialID": "M073",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M075",
+      "append": {
+        "MaterialID": "M075",
+        "GradeID": "G075-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu PVA explicitly describes dissolving the printed support in water after printing. This is a product-specific support-removal method; no bath temperature, duration, structural end-use performance or compatibility qualification is supplied. Reviewed product: Bambu Lab PVA (G075-01). Source basis: B-pva-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00808",
+          "MaterialID": "M075",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M076",
+      "append": {
+        "MaterialID": "M076",
+        "GradeID": "G076-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: BigRep BVOH describes dissolving support in water; removal time depends on geometry/slicing and increases in water temperature speed dissolution, without a quantified bath schedule. Its support/post-processing method does not qualify the base printed part. Reviewed product: BigRep BVOH (G076-01). Source basis: S-BVOH. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00819",
+          "MaterialID": "M076",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M078",
+      "append": {
+        "MaterialID": "M078",
+        "GradeID": "G078-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu Support for PLA/PETG claims tool-free removal for the named pair of polymers. Treat this as bounded support/removal guidance, with no quantified removal conditions, demonstrated surface quality or structural application. Reviewed product: Bambu Lab Support for PLA/PETG (G078-01). Source basis: B-support-for-pla-petg-TDS."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00840",
+          "MaterialID": "M078",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M079",
+      "append": {
+        "MaterialID": "M079",
+        "GradeID": "G079-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu Support for ABS claims easy support-interface removal and AMS compatibility. This is bounded support use context; no qualified removal procedure, complete-part application or universal printer compatibility follows. Reviewed product: Bambu Lab Support for ABS (G079-01). Source basis: B-support-for-abs-TDS."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00851",
+          "MaterialID": "M079",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M080",
+      "append": {
+        "MaterialID": "M080",
+        "GradeID": "G080-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Bambu Support for PA/PET is explicitly a breakaway interface for PA/PET and their CF composites, peeled by hand or tools; the sheet says it is for supporting structures rather than a complete print. Keep that restricted support use and do not infer structural part properties. Reviewed product: Bambu Lab Support for PA/PET (G080-01). Source basis: B-support-for-pa-pet-TDS. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00862",
+          "MaterialID": "M080",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    }
+  ]
+}

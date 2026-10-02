@@ -20,6 +20,10 @@ const frozen = read('frozen-targets.json'), completed = read('completed-outcomes
 const targets = new Map(frozen.Targets.map(t => [t.TaskID, t]));
 assert.equal(targets.size, frozen.Targets.length, 'Duplicate frozen target');
 const outcomes = new Map(completed.Outcomes.map(o => [o.TaskID, o]));
+const resumed = read('resume-scope.json');
+assert.equal(new Set(resumed.MaterialTaskIDs).size, resumed.MaterialTaskIDs.length, 'Duplicate resumed material target');
+assert.equal(new Set(resumed.SelectedProductTaskIDs).size, resumed.SelectedProductTaskIDs.length, 'Duplicate priority product');
+for (const k of [...resumed.MaterialTaskIDs, ...resumed.SelectedProductTaskIDs]) assert.ok(targets.has(k), 'Resumed target outside frozen catalogue: ' + k);
 assert.equal(outcomes.size, completed.Outcomes.length, 'Duplicate completed target');
 const mats = db.materials.filter(m => !m.excluded && !m.familyEntry);
 const materialById = new Map(db.materials.map(m => [m.id, m]));
@@ -92,6 +96,7 @@ const status = {
   environmentalRecordPresence: { scope: 'Seven exposure categories; exact grade records only, not polymer context or approvals', materials: new Set(env.map(e => e.materialId)).size, byCategory: Object.fromEntries(categories.map(c => [c, new Set(env.filter(e => e.category === c).map(e => e.materialId)).size])) },
   allCataloguePrintGates: { products: grades.length, nozzleKnown: gateRows.filter(g => g.nozzle.verdict !== 'unknown').length, chamberKnown: gateRows.filter(g => g.chamber.verdict !== 'unknown').length, chamberUnknown: gateRows.filter(g => g.chamber.verdict === 'unknown').length, dryingRequired: gateRows.filter(g => g.drying === 'required').length },
   databaseCounts: db.meta.counts, canonicalTableDelta: delta, commits,
+  resumedScope: { authorizationDate: resumed.AuthorizationDate, materialTargets: resumed.MaterialTaskIDs.length, materialCompleted: resumed.MaterialTaskIDs.filter(k => outcomes.has(k)).length, targetAdditionalProducts: resumed.TargetAdditionalProducts, selectedProducts: resumed.SelectedProductTaskIDs.length, completedSelectedProducts: resumed.SelectedProductTaskIDs.filter(k => outcomes.has(k)).length, selectionState: resumed.SelectionState },
   completionMeaning: 'Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes.'
 };
 const targetRows = frozen.Targets.map(t => {
@@ -112,7 +117,9 @@ Data release: **${status.dataRelease}**. Latest completed data commit: **${statu
 | Material Application assessments | ${status.materialAssessments.completed}/${status.materialAssessments.total} | ${status.materialAssessments.remaining} |
 | Joined product research passes | ${status.productPasses.completed}/${status.productPasses.total} | ${status.productPasses.remaining} |
 ${status.productPasses.mergedIntoAnother ? `\n${status.productPasses.mergedIntoAnother} frozen product targets were a second grade of one product (a revision or language each) and are merged into the kept product's target (m302); their questions go on there.${mergedDone ? ` ${mergedDone} more such targets already had a completed outcome, which stands; the total counts them.` : ''}\n` : ''}
-The campaign is incomplete. Every assigned target is in [task-status.csv](task-status.csv); the exact pending subset is [remaining-targets.csv](remaining-targets.csv). The original questions, baseline record/source references, prior searches, dependencies and stopping rules are in [frozen-targets.json](frozen-targets.json). Current owners and names are resolved in the CSV; historical names remain in the frozen input. [completed-outcomes.json](completed-outcomes.json) retains each final outcome and its committing evidence packet. Originals stay private.
+The original full-catalogue campaign remains incomplete. The owner narrowed the current run on 2026-10-02 to finish material assessment first, then 100 additional priority products (up to 150 only if yield supports it). Current resumed material targets: **${status.resumedScope.materialCompleted}/${status.resumedScope.materialTargets}**; priority products selected: **${status.resumedScope.selectedProducts}/${status.resumedScope.targetAdditionalProducts}**, completed: **${status.resumedScope.completedSelectedProducts}**. [RESUME-2026-10-02.md](RESUME-2026-10-02.md) records current-main reconciliation; [resume-scope.json](resume-scope.json) owns this run. Unselected product targets remain a catalogue backlog outside this run.
+
+Every assigned target is in [task-status.csv](task-status.csv); the exact pending subset is [remaining-targets.csv](remaining-targets.csv). The original questions, baseline record/source references, prior searches, dependencies and stopping rules are in [frozen-targets.json](frozen-targets.json). Current owners and names are resolved in the CSV; historical names remain in the frozen input. [completed-outcomes.json](completed-outcomes.json) retains each final outcome and its committing evidence packet. Originals stay private.
 
 ## What coverage means now
 
@@ -136,7 +143,7 @@ Rows are not unique useful findings or completed research targets. In particular
 |---|---|
 ${commits.map(c => `| \`${c.hash.slice(0, 7)}\` | ${c.subject} |`).join('\n')}
 
-The full source operations, corrections, holds and verification receipts are in [README.md](README.md) and its per-tranche packets/reviews. The latest two data commits passed 69 browser views and 300 rendered scenarios: [tenth-verification.json](tenth-verification.json) and [eleventh-verification.json](eleventh-verification.json). Independent review was AI, not human. Historical active-time/token use was not reliably measured.
+The full source operations, corrections, holds and verification receipts are in [README.md](README.md) and its per-tranche packets/reviews. The prior two campaign data commits passed 69 browser views and 300 rendered scenarios: [tenth-verification.json](tenth-verification.json) and [eleventh-verification.json](eleventh-verification.json). Current-main verification is pinned in [resume-baseline.json](resume-baseline.json). Independent review was AI, not human. Historical active-time/token use was not reliably measured.
 
 ## Changed answers across the whole campaign
 
@@ -147,11 +154,11 @@ Receipts: [frozen](campaign-frozen-replay.json), [environment](campaign-environm
 ## What remains
 
 1. Review the remaining ${status.materialAssessments.remaining} historical Application judgments against their named originals; update only when the evidence supports it. Completing these does not search every product.
-2. Finish ${status.productPasses.remaining} joined product passes: application/finishing, twelve environmental categories, missing properties/comparison conditions, printer gates/drying/treatment/moisture states, source conflicts and reuse of prior price outcomes. Baseline missing fields are questions to reconcile, not claims they remain missing today.
+2. Complete the selected 100 additional priority joined product passes after material assessment; ${status.productPasses.remaining} product targets remain in the full catalogue backlog: application/finishing, twelve environmental categories, missing properties/comparison conditions, printer gates/drying/treatment/moisture states, source conflicts and reuse of prior price outcomes. Baseline missing fields are questions to reconcile, not claims they remain missing today.
 3. Keep unreconciled identity/revision/specimen claims, printed certification scope, colour/recipe conflicts, coupled foaming states and other held findings in [OPEN-PROBLEMS.md](../../OPEN-PROBLEMS.md). Admission still needs original custody, independent deciding-evidence review, guarded injection, full verification and backup.
-4. Human source spot-checks, team trial, physical tests, cold-check performance and partial private full-text/custody remain explicit limitations. The general import pause remains outside this bounded campaign; no manufacturer messages, catalogue growth or price refresh routine is authorized.
+4. Human source spot-checks, team trial, physical tests and partial private full-text/custody remain explicit limitations. Main resolved the historical cold-check overrun (OPEN-PROBLEMS §19). The general import pause remains outside this bounded campaign; no manufacturer messages, catalogue growth or price refresh routine is authorized.
 
-Continue in maker batches of at most 12 products, at most 5 reviewed batches per coherent tranche. Reuse originals and exact prior routes before new searches; do not reopen a completed search without a new source/revision or materially different question. Maintain each task's outcome in completed-outcomes.json after its verified commit, then regenerate this status. The effort recommendation is in [EFFORT-AND-VALUE.md](EFFORT-AND-VALUE.md); it is advice, not a change to the authorized scope.
+Continue in maker batches of at most 12 products, at most 5 reviewed batches per coherent tranche. Reuse originals and exact prior routes before new searches; do not reopen a completed search without a new source/revision or materially different question. Maintain each task's outcome in completed-outcomes.json after its verified commit, then regenerate this status. The effort recommendation is in [EFFORT-AND-VALUE.md](EFFORT-AND-VALUE.md); its two near-term recommendations are now the owner-authorized resumed scope in GOALS.
 `;
 const outputs = new Map([
   ['STATUS.md', md], ['STATUS.json', JSON.stringify(status, null, 2) + '\n'],

@@ -1,0 +1,355 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "review_date": "2026-10-02",
+  "input_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-04-packet.json",
+  "input_sha256": "4344e0e0d23b1d7f4da57afcdd5ebef9e069478d9929e8c2416e335b664cbd11",
+  "baseline_HEAD": "20b4a6a",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_operations": 12,
+  "review_scope": "All proposed manual Application assessments, ownership and historical supersessions. Actual reading pages specified per finding, not a whole-document claim for longer sources. Canonical data and packets were not edited.",
+  "findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M065",
+      "MaterialID": "M065",
+      "GradeID": "G065-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+          "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f",
+          "OriginalPath": ".cache/sources/by-sha/02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation.",
+        "The original separately states a post-print annealing recommendation, so the judgment does not rest on All specimens wording alone. Its own-support removal-before-excessive-moisture warning is separately present; no complete universal procedure is inferred."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M068",
+      "MaterialID": "M068",
+      "GradeID": "G068-02",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "R-FIBERON-PETGF15-TDS",
+          "SHA256": "cdb81cbccd54e790038caf17353bd91172713cb7d35f7d8e16f919124923b37b",
+          "OriginalPath": ".cache/sources/by-sha/cdb81cbccd54e790038caf17353bd91172713cb7d35f7d8e16f919124923b37b.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and corresponding serialized append when applicable",
+          "RequiredAdditionOrReplacement": "The source recommends using the print without annealing when temperature resistance above 80\u00b0C is unnecessary. If annealed, avoid touching/loading the print, ensure uniform oven heating, retain support for bridges over 3 cm and specified overhang geometries, and consider ribs/increased wall thickness below 4 mm to limit deformation; keep the printing placement, preferably on its base plate. Colour may become lighter.",
+          "SourceLocator": "p. 1, Note, annealing tips 1\u20136",
+          "Reason": "Retain exact source scope, practical qualifier or reading-custody truth without upgrading published claims."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M069",
+      "MaterialID": "M069",
+      "GradeID": "G069-01",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "S-PPA-TDS",
+          "SHA256": "86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b",
+          "OriginalPath": ".cache/sources/by-sha/86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b.pdf",
+          "PagesActuallyReread": [
+            1,
+            2
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "RawBasis and corresponding serialized append when applicable",
+          "RequiredAdditionOrReplacement": "Label Q00328 Wording as an existing editorial summary rather than verbatim source wording; add exact reread wording 'Long-term heat resistance of 120 \u00b0C (after annealing)' with p. 2 Main Features and Application Scenarios item 1 locator.",
+          "SourceLocator": "p. 2, Main Features and Application Scenarios, item 1",
+          "Reason": "Retain exact source scope, practical qualifier or reading-custody truth without upgrading published claims."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M070",
+      "MaterialID": "M070",
+      "GradeID": "G070-01",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "B-ppa-cf-TDS",
+          "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+          "OriginalPath": ".cache/sources/by-sha/bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and corresponding serialized append when applicable",
+          "RequiredAdditionOrReplacement": "The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing.",
+          "SourceLocator": "p. 3, annealing paragraph",
+          "Reason": "Retain exact source scope, practical qualifier or reading-custody truth without upgrading published claims."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M071",
+      "MaterialID": "M071",
+      "GradeID": "G071-04",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+          "SHA256": "9227cd4e0122d07070b11bcacceaef5baaff1a22ac66392e40ff744a64af908a",
+          "OriginalPath": ".cache/sources/by-sha/9227cd4e0122d07070b11bcacceaef5baaff1a22ac66392e40ff744a64af908a.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and corresponding serialized append when applicable",
+          "RequiredAdditionOrReplacement": "The source notes up to 0.5% Z-axis shrinkage depending on infill and layer height. When used as its own support, remove support after annealing; moisture absorption can otherwise permanently bond it to the model.",
+          "SourceLocator": "p. 2, notes 5\u20136",
+          "Reason": "Retain exact source scope, practical qualifier or reading-custody truth without upgrading published claims."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M072",
+      "MaterialID": "M072",
+      "GradeID": "G072-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Gap",
+      "SourcesReread": [
+        {
+          "SourceID": "X-THERMAX-PPS-TDS-v3",
+          "SHA256": "becbd47e43bc1eeee0ad62ffd51f579b771a91f4eabf4ac0d3fc1386f12e3491",
+          "OriginalPath": ".cache/sources/by-sha/becbd47e43bc1eeee0ad62ffd51f579b771a91f4eabf4ac0d3fc1386f12e3491.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "The reviewed original or current no-grade custody lacks an application basis. This is not proof of universal public-source absence or exhaustion of official routes."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M073",
+      "MaterialID": "M073",
+      "GradeID": "G073-01",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "B-pps-cf-TDS",
+          "SHA256": "d0246a1d2acd61802385e8f9d8a1e3a3e6db5b426337f6c56993402d4c2f2cd0",
+          "OriginalPath": ".cache/sources/by-sha/d0246a1d2acd61802385e8f9d8a1e3a3e6db5b426337f6c56993402d4c2f2cd0.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and corresponding serialized append when applicable",
+          "RequiredAdditionOrReplacement": "The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing.",
+          "SourceLocator": "p. 3, annealing paragraph",
+          "Reason": "Retain exact source scope, practical qualifier or reading-custody truth without upgrading published claims."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M075",
+      "MaterialID": "M075",
+      "GradeID": "G075-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "B-pva-TDS",
+          "SHA256": "7ca185263fec71442794b3f34409233557bd30995613b759e810532616fe955b",
+          "OriginalPath": ".cache/sources/by-sha/7ca185263fec71442794b3f34409233557bd30995613b759e810532616fe955b.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M076",
+      "MaterialID": "M076",
+      "GradeID": "G076-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "S-BVOH",
+          "SHA256": "d539e76c38536ed5276b8f349dd26fcbf80caec3a65b2b0584dca896e57d28f3",
+          "OriginalPath": ".cache/sources/by-sha/d539e76c38536ed5276b8f349dd26fcbf80caec3a65b2b0584dca896e57d28f3.pdf",
+          "PagesActuallyReread": [
+            1,
+            2
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Supported by actual exact-product post-print guidance or published pictured observation. This does not establish suitability or guaranteed performance. Product treatment/removal wording was distinguished from specimen preparation."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M078",
+      "MaterialID": "M078",
+      "GradeID": "G078-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "B-support-for-pla-petg-TDS",
+          "SHA256": "a2f6e88e520e18592333c35da3fd43b89838d14ee6934b617b326fd017e62d54",
+          "OriginalPath": ".cache/sources/by-sha/a2f6e88e520e18592333c35da3fd43b89838d14ee6934b617b326fd017e62d54.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass.",
+        "Conservative RWL retains breakaway-support use/removal claims rather than treating ease-of-removal marketing as demonstrated results. M080 explicit hand/tool removal and support-only scope are retained."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M079",
+      "MaterialID": "M079",
+      "GradeID": "G079-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "B-support-for-abs-TDS",
+          "SHA256": "35f3f69ae2f5097c2d9ef0d7a928a48dc25b478fb01d8b5cf0ac2a9d9904e655",
+          "OriginalPath": ".cache/sources/by-sha/35f3f69ae2f5097c2d9ef0d7a928a48dc25b478fb01d8b5cf0ac2a9d9904e655.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass.",
+        "Conservative RWL retains breakaway-support use/removal claims rather than treating ease-of-removal marketing as demonstrated results. M080 explicit hand/tool removal and support-only scope are retained."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M080",
+      "MaterialID": "M080",
+      "GradeID": "G080-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "B-support-for-pa-pet-TDS",
+          "SHA256": "8aa9c8a2a4572bf5e15ae2b4752254b498449e55cab8bc1628f9cf9f024994b7",
+          "OriginalPath": ".cache/sources/by-sha/8aa9c8a2a4572bf5e15ae2b4752254b498449e55cab8bc1628f9cf9f024994b7.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3
+          ],
+          "Method": "Fresh pdfPages/htmlText on hash-verified actual bytes; relevant source identity/use/treatment paragraphs read independently. No source snippets or cached extraction were treated as originals."
+        }
+      ],
+      "CurrentRowGuards": "All expected grade/source/evidence/coverage rows match canonical CSVs; active procurement grade population matches; matching append/supersede operations match proposed findings. M056/M060 have no canonical grade rows at all.",
+      "Limitations": [
+        "Manual coverage assessment only; no new product target pass, source admission, measurement/profile or environmental judgment is approved. Other named live products stay outside this exact-source scope.",
+        "Maker suggestions, generic appearance claims or bounded resin context remain limited, with no qualification or selection pass.",
+        "Conservative RWL retains breakaway-support use/removal claims rather than treating ease-of-removal marketing as demonstrated results. M080 explicit hand/tool removal and support-only scope are retained."
+      ],
+      "RequiredCorrections": []
+    }
+  ],
+  "review_signature_sha256": "3960676edcc0034d8e1f09b4d098987f6b1788ef543eaa1e1d6c16334858792c"
+}

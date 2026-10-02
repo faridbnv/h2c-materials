@@ -1,0 +1,353 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "review_date": "2026-10-02",
+  "input_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-02-packet.json",
+  "input_sha256": "3d57c781228d4f801a282ba4b6cd59aaef989b9b7be5620241dcbcc66bc4aa75",
+  "baseline_HEAD": "20b4a6a",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_operations": 12,
+  "review_scope": "All proposed Application judgments and historical supersessions reviewed. Originals were independently freshly extracted from verified bytes once per shared source; source-reading pages specified per finding. Canonical repository data and frozen proposals were not edited.",
+  "source_contract": "GOALS steps 2 and 5; exact-product finishing procedures may support Evidence recorded. Maker use suggestions remain Reviewed with limitations. No numerical, environmental, engine or product-pass change is approved here.",
+  "findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M025",
+      "MaterialID": "M025",
+      "GradeID": "G025-02",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5",
+          "SHA256": "881af59128ba4fc9549c0c7ccb93848944b39e81523d7507a538192282fae1b4",
+          "OriginalPath": ".cache/sources/by-sha/881af59128ba4fc9549c0c7ccb93848944b39e81523d7507a538192282fae1b4.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Maker intended-use statements only: Reviewed with limitations; no demonstrated application performance, certification or selection pass."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M026",
+      "MaterialID": "M026",
+      "GradeID": "G026-02",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+          "SHA256": "ea8f37d8be896751c9f054abaac5848adc686c42964922f95f62259261aa404e",
+          "OriginalPath": ".cache/sources/by-sha/ea8f37d8be896751c9f054abaac5848adc686c42964922f95f62259261aa404e.pdf",
+          "PagesActuallyReread": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Maker intended-use statements only: Reviewed with limitations; no demonstrated application performance, certification or selection pass."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M027",
+      "MaterialID": "M027",
+      "GradeID": "G027-01",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "B-abs-filament-TDS",
+          "SHA256": "371323063447db7c7c390bdcf66ef6e902a680bafa0f757b75c417c26cae3fb5",
+          "OriginalPath": ".cache/sources/by-sha/371323063447db7c7c390bdcf66ef6e902a680bafa0f757b75c417c26cae3fb5.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Evidence recorded denotes an explicit published exact-product post-print procedure or treatment guidance; it is not application validation, guaranteed improvement or a selection pass. Specimen-preparation and product-treatment passages were read separately."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and matching Operations.append.Finding",
+          "RequiredAddition": "The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens.",
+          "SourceLocator": "p. 3, paragraph following Specimen Printing Conditions",
+          "Reason": "The proposed temperature/time sentence retains the recipe but omits the source practical deformation and oven constraints. A generic no-guaranteed-improvement sentence does not retain these limits."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M028",
+      "MaterialID": "M028",
+      "GradeID": "G028-01",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "B-abs-gf-TDS",
+          "SHA256": "0d506ed63d1c831a9cb0645ecba3fc0ec4cba09614df2d0f3a957f00cb103b44",
+          "OriginalPath": ".cache/sources/by-sha/0d506ed63d1c831a9cb0645ecba3fc0ec4cba09614df2d0f3a957f00cb103b44.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Evidence recorded denotes an explicit published exact-product post-print procedure or treatment guidance; it is not application validation, guaranteed improvement or a selection pass. Specimen-preparation and product-treatment passages were read separately."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and matching Operations.append.Finding",
+          "RequiredAddition": "The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens.",
+          "SourceLocator": "p. 3, paragraph following Specimen Printing Conditions",
+          "Reason": "The proposed temperature/time sentence retains the recipe but omits the source practical deformation and oven constraints. A generic no-guaranteed-improvement sentence does not retain these limits."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M029",
+      "MaterialID": "M029",
+      "GradeID": "G029-03",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+          "SHA256": "63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b",
+          "OriginalPath": ".cache/sources/by-sha/63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Maker intended-use statements only: Reviewed with limitations; no demonstrated application performance, certification or selection pass."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M030",
+      "MaterialID": "M030",
+      "GradeID": "G030-02",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "I-ESD-ABS-TDS",
+          "SHA256": "821d1a6b61e180865743990dcc664de686fde4b3c1d37361a7a69ffc46778a9c",
+          "OriginalPath": ".cache/sources/by-sha/821d1a6b61e180865743990dcc664de686fde4b3c1d37361a7a69ffc46778a9c.pdf",
+          "PagesActuallyReread": [
+            1
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Maker intended-use statements only: Reviewed with limitations; no demonstrated application performance, certification or selection pass.",
+        "The table says After Annealing without a repeatable schedule; appropriate RWL. ESD raw claims do not qualify an assembly."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M031",
+      "MaterialID": "M031",
+      "GradeID": "G031-01",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "B-asa-filament-TDS",
+          "SHA256": "9927eba5def39ebb3ffe7e7d2f99aafc6784b654371adca35d55f81bea4eacf0",
+          "OriginalPath": ".cache/sources/by-sha/9927eba5def39ebb3ffe7e7d2f99aafc6784b654371adca35d55f81bea4eacf0.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Evidence recorded denotes an explicit published exact-product post-print procedure or treatment guidance; it is not application validation, guaranteed improvement or a selection pass. Specimen-preparation and product-treatment passages were read separately."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and matching Operations.append.Finding",
+          "RequiredAddition": "The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens.",
+          "SourceLocator": "p. 3, paragraph following Specimen Printing Conditions",
+          "Reason": "The proposed temperature/time sentence retains the recipe but omits the source practical deformation and oven constraints. A generic no-guaranteed-improvement sentence does not retain these limits."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M032",
+      "MaterialID": "M032",
+      "GradeID": "G032-01",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Reviewed with limitations",
+      "SourcesReread": [
+        {
+          "SourceID": "B-asa-aero-TDS",
+          "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+          "OriginalPath": ".cache/sources/by-sha/c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Maker intended-use statements only: Reviewed with limitations; no demonstrated application performance, certification or selection pass.",
+        "ASA Aero sheet p. 3 names Bambu ASA for the suggested treatment. The proposed limitation correctly avoids silently treating that schedule as exact Aero guidance; the explicit specimen annealing is not an application procedure."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M033",
+      "MaterialID": "M033",
+      "GradeID": "G033-07",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "D-FLASH-ASA-CF-TDS-EN",
+          "SHA256": "174ca50eef981c2a3242b0fd5d1649866b0056506b183bdac79b1529fa455ad1",
+          "OriginalPath": ".cache/sources/by-sha/174ca50eef981c2a3242b0fd5d1649866b0056506b183bdac79b1529fa455ad1.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Evidence recorded denotes an explicit published exact-product post-print procedure or treatment guidance; it is not application validation, guaranteed improvement or a selection pass. Specimen-preparation and product-treatment passages were read separately.",
+        "The post-print model-drying sentence is explicit. It is distinct from pre-print filament drying and from measured strength; no anneal-state or measured improvement inferred."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M034",
+      "MaterialID": "M034",
+      "GradeID": "G034-04",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "R-FLASHFORGE-ASA-GF10-TDS",
+          "SHA256": "b82515bd92eec4b61acc1fe20ff4145407644964a73d0fdfea4f9306744a49c3",
+          "OriginalPath": ".cache/sources/by-sha/b82515bd92eec4b61acc1fe20ff4145407644964a73d0fdfea4f9306744a49c3.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Evidence recorded denotes an explicit published exact-product post-print procedure or treatment guidance; it is not application validation, guaranteed improvement or a selection pass. Specimen-preparation and product-treatment passages were read separately.",
+        "The post-print model-drying sentence is explicit. It is distinct from pre-print filament drying and from measured strength; no anneal-state or measured improvement inferred."
+      ],
+      "RequiredCorrections": []
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M035",
+      "MaterialID": "M035",
+      "GradeID": "G035-01",
+      "Verdict": "CHANGES_REQUIRED",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "B-PC-Bambu-PC-Technical-Data-Sheet",
+          "SHA256": "f0d45692b13f8b602267c0ca40db67d496ad74487681ec67e98a2df9e5b6af7c",
+          "OriginalPath": ".cache/sources/by-sha/f0d45692b13f8b602267c0ca40db67d496ad74487681ec67e98a2df9e5b6af7c.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Evidence recorded denotes an explicit published exact-product post-print procedure or treatment guidance; it is not application validation, guaranteed improvement or a selection pass. Specimen-preparation and product-treatment passages were read separately."
+      ],
+      "RequiredCorrections": [
+        {
+          "Field": "ProposedCoverage.Finding and matching Operations.append.Finding",
+          "RequiredAddition": "The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens.",
+          "SourceLocator": "p. 3, paragraph following Specimen Printing Conditions",
+          "Reason": "The proposed temperature/time sentence retains the recipe but omits the source practical deformation and oven constraints. A generic no-guaranteed-improvement sentence does not retain these limits."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M037",
+      "MaterialID": "M037",
+      "GradeID": "G037-05",
+      "Verdict": "APPROVE",
+      "StatusReviewed": "Evidence recorded",
+      "SourcesReread": [
+        {
+          "SourceID": "D-FLASH-PC-CF-TDS-EN",
+          "SHA256": "03d0a687859a8c50e3abd8a10a2e2b680ecf0ed8c36ff2fefcb6bf22b553efa3",
+          "OriginalPath": ".cache/sources/by-sha/03d0a687859a8c50e3abd8a10a2e2b680ecf0ed8c36ff2fefcb6bf22b553efa3.pdf",
+          "PagesActuallyReread": [
+            1,
+            3
+          ],
+          "Method": "Fresh pdfPages extraction from SHA-256-verified actual PDF bytes; original identity and relevant application/treatment context read independently."
+        }
+      ],
+      "CurrentRowGuards": "Exact ExpectedGrade, RegisteredSource, ExistingEvidence and ExpectedCoverage dictionaries match current canonical CSV rows; ActiveGradeIDs match current active procurement population; proposed append/supersede operations match finding packet.",
+      "OwnershipAndSupersession": "Exact selected grade/source and linked evidence are owned by this material. The old material-wide coverage judgment is superseded by a bounded judgment explicitly excluding the other active products. No product outcome is closed.",
+      "Limitations": [
+        "Evidence recorded denotes an explicit published exact-product post-print procedure or treatment guidance; it is not application validation, guaranteed improvement or a selection pass. Specimen-preparation and product-treatment passages were read separately.",
+        "The post-print model-drying sentence is explicit. It is distinct from pre-print filament drying and from measured strength; no anneal-state or measured improvement inferred."
+      ],
+      "RequiredCorrections": []
+    }
+  ],
+  "review_signature_sha256": "82bcf20efc405786e1fe490ab1758c3aee409a3bb70f400c410f48ab80e14c5b"
+}

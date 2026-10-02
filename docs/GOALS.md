@@ -71,7 +71,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | Current statement/product counts are in [counts.md](../build/snapshot/counts.md), with silent recipes/products in the generated [worklist](audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md). Literal claims now show their recorded scope/conditions separately; no suitability verdict follows |
 | C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | Unmapped facts and cached page text in release-stamped dist/h2c.sqlite (D105). The local full-text index remains partial; the dated current custody/index receipt and limitations are in OPEN-PROBLEMS §19. Private originals/text are not shipped to CI or Pages |
 | C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | 3 | Estimated only where no product publishes (148 material cells, `build/snapshot/counts.md`); the special cases went with the representative grade |
-| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | Latest committed data warm checks: 27.48 s and 51.57 s, within 90 s, with complete browser QA; [receipts](audits/2026-09-30-coverage-expansion/STATUS.md). The historical 106.7 s cold overrun is gone: 29.6 s warm and 68.2 s with the build cache off, measured 2026-10-02 (OPEN-PROBLEMS §19). Campaign docs are generated and checked in verify:fast; imports stay paused outside named exceptions |
+| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | Campaign warm checks: 27.48 s and 51.57 s previously; the resumed material tranche passed in 50.6 s, within 90 s, with complete browser QA; [receipts](audits/2026-09-30-coverage-expansion/STATUS.md). The historical 106.7 s cold overrun is gone: 29.6 s warm and 68.2 s with the build cache off, measured 2026-10-02 (OPEN-PROBLEMS §19). Campaign docs are generated and checked in verify:fast; imports stay paused outside named exceptions |
 | C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | 2 | A chosen product keeps its state, release, note and the team's own test results with the scenario, and its brief is written (D103); no shared list, account or server, as decided |
 | C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | 4 | An independent acceptance portfolio (46 expectations) and seven metamorphic relations guard the decisions; a release is its content (D96); `verify` fails without Chrome; `npm run doctor` and three routes start a reader. The audit record is still long. Since 2026-10-01 `audit:context` checks each value, page statement and print setting against its cached sheet in `verify`, and a Parse review names the columns it explains (D115) |
 | C16 | Price (a CAD/kg for each material, each product's own where it has one) | – | – | – | Added with the price pass of 2026-09-30, not yet scored; price was 33 materials and 38 products until then. Now 101 of 136 materials and 214 of 1,049 products priced (1,077 before m302 merged 28 in-scope products held on two grades), 30 materials from a converted foreign listing (D113); 35 unpriced with why (OPEN-PROBLEMS §22); a snapshot of two days, with no refresh routine |
@@ -403,6 +403,23 @@ or people's: FiberFlex Aero's filing, retiring profile notes, a twin's additive-
 questions, the next campaign tranche, the spot-check and the team trial (OPEN-PROBLEMS §29). Built on a branch; the
 owner then asked for the documents to be made consistent and the work pushed to main the same day. The record is
 [the open-problems pass](audits/2026-10-02-open-problems-pass/README.md).
+
+## Authorized on 2026-10-02: finish material assessment, then priority products
+
+The owner resumed the coverage campaign after requesting reconciliation with current main. The current tranche
+finishes the 61 remaining material Application assessments first, then completes 100 additional priority live-product
+passes, with an optional expansion to 150 only if the measured benefit supports it. It replaces the previous requirement
+to finish every catalogue product in this run. Unselected products remain explicitly pending, never silently closed.
+
+The product-owner aim is better defensible shortlists and useful product guidance (steps 2 and 5, C3/C6/C9/C10/C13),
+not a higher percentage obtained by duplicating maker claims. Rank the live products using freshly replayed scenario
+gaps, practical print/state blockers and unresolved source/identity defects; favour reusable maker documents and
+products with a credible evidence route. Reuse the error-class/profile/open-problem sweeps of D115–D123 rather than
+repeating them. Preserve source conditions and pending owner/vendor/test decisions. Use one writer and the campaign's
+independent AI review gates, maker batches of at most 12 products and coherent verified commits. Reassess yield after
+five batches and shorten low-return routes without dropping assigned targets. Existing no-contact/no-testing/no-price-
+refresh and no-catalogue-expansion boundaries remain. This resumed tranche ends in verified local commits,
+as the original research plan states; the earlier publication receipt covers the work already published on 2026-10-01.
 
 ## Working rules
 

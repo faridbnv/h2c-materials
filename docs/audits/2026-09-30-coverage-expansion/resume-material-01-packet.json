@@ -1,0 +1,1867 @@
+{
+  "PacketID": "RESUME-MATERIAL-01",
+  "BaselineHEAD": "20b4a6a",
+  "BaselineRelease": "0571af6d609e",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scope": "Manual material Application judgments only. No joined-product closure, new measurements, source admissions or environmental verdicts. Existing evidence is reused, not duplicated.",
+  "MakerBatches": [
+    {
+      "Maker": "MatterHackers",
+      "GradeIDs": [
+        "G001-115"
+      ]
+    },
+    {
+      "Maker": "Bambu Lab",
+      "GradeIDs": [
+        "G009-01",
+        "G011-01",
+        "G012-01",
+        "G014-01",
+        "G015-01",
+        "G016-01",
+        "G017-01",
+        "G018-01",
+        "G021-01"
+      ]
+    },
+    {
+      "Maker": "eSUN",
+      "GradeIDs": [
+        "G013-04"
+      ]
+    },
+    {
+      "Maker": "Flashforge",
+      "GradeIDs": [
+        "G024-08"
+      ]
+    }
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-RESUME-APP-M001",
+      "TaskID": "APP-M001",
+      "MaterialID": "M001",
+      "ActiveGradeIDs": [
+        "G001-01",
+        "G001-03",
+        "G002-01",
+        "G003-01",
+        "G005-01",
+        "G006-01",
+        "G007-01",
+        "G004-01",
+        "G001-04",
+        "G001-05",
+        "G001-06",
+        "G001-07",
+        "G001-08",
+        "G001-09",
+        "G001-10",
+        "G001-11",
+        "G001-12",
+        "G001-13",
+        "G001-14",
+        "G001-15",
+        "G001-16",
+        "G001-17",
+        "G001-18",
+        "G001-19",
+        "G001-20",
+        "G001-21",
+        "G001-22",
+        "G001-23",
+        "G001-24",
+        "G001-25",
+        "G001-27",
+        "G001-28",
+        "G001-29",
+        "G001-30",
+        "G001-31",
+        "G001-32",
+        "G001-33",
+        "G001-34",
+        "G001-35",
+        "G001-36",
+        "G001-37",
+        "G001-38",
+        "G001-39",
+        "G001-40",
+        "G001-41",
+        "G001-42",
+        "G001-43",
+        "G001-44",
+        "G001-45",
+        "G001-46",
+        "G001-47",
+        "G001-48",
+        "G001-49",
+        "G001-50",
+        "G001-51",
+        "G001-52",
+        "G001-53",
+        "G001-54",
+        "G001-55",
+        "G001-56",
+        "G001-58",
+        "G001-59",
+        "G001-60",
+        "G001-61",
+        "G001-62",
+        "G001-63",
+        "G001-64",
+        "G001-65",
+        "G001-67",
+        "G001-68",
+        "G001-69",
+        "G001-70",
+        "G001-71",
+        "G001-72",
+        "G001-73",
+        "G001-74",
+        "G001-75",
+        "G001-76",
+        "G001-77",
+        "G001-78",
+        "G001-79",
+        "G001-80",
+        "G001-81",
+        "G001-82",
+        "G001-83",
+        "G001-84",
+        "G001-85",
+        "G001-86",
+        "G001-87",
+        "G001-88",
+        "G001-89",
+        "G001-90",
+        "G001-91",
+        "G001-92",
+        "G001-93",
+        "G001-94",
+        "G001-95",
+        "G001-96",
+        "G001-97",
+        "G001-98",
+        "G001-99",
+        "G001-100",
+        "G001-101",
+        "G001-102",
+        "G001-103",
+        "G001-104",
+        "G001-105",
+        "G001-106",
+        "G001-107",
+        "G001-108",
+        "G001-109",
+        "G001-111",
+        "G001-112",
+        "G001-113",
+        "G001-114",
+        "G001-115",
+        "G001-116",
+        "G001-117",
+        "G001-118",
+        "G001-119",
+        "G001-120",
+        "G001-121",
+        "G001-122",
+        "G001-123",
+        "G001-124",
+        "G001-125",
+        "G001-126",
+        "G001-127",
+        "G001-128",
+        "G001-129",
+        "G001-130",
+        "G001-131",
+        "G001-132",
+        "G001-133",
+        "G001-135",
+        "G001-136",
+        "G001-137",
+        "G001-138",
+        "G001-139",
+        "G001-140",
+        "G001-141",
+        "G001-143",
+        "G001-144",
+        "G001-145",
+        "G001-146",
+        "G001-147",
+        "G001-148",
+        "G001-149",
+        "G001-150",
+        "G001-151",
+        "G001-152",
+        "G001-153",
+        "G001-154",
+        "G001-155",
+        "G001-156",
+        "G001-157",
+        "G001-158",
+        "G001-159",
+        "G001-160",
+        "G001-161",
+        "G001-162",
+        "G001-163",
+        "G001-164",
+        "G001-165",
+        "G001-166",
+        "G001-167",
+        "G001-168",
+        "G001-169",
+        "G001-170",
+        "G001-171",
+        "G001-172",
+        "G001-173",
+        "G001-174",
+        "G001-175",
+        "G001-176",
+        "G001-177",
+        "G001-178",
+        "G001-179",
+        "G001-180",
+        "G001-182",
+        "G001-183",
+        "G001-184",
+        "G001-185",
+        "G001-186",
+        "G001-187",
+        "G001-188",
+        "G001-189",
+        "G001-190",
+        "G001-191",
+        "G001-192",
+        "G001-193",
+        "G001-194",
+        "G001-195",
+        "G001-196",
+        "G001-197",
+        "G001-198",
+        "G001-199"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G001-115",
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "MatterHackers",
+        "Product name": "Tough PLA",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-pla-pro",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MATTERHACKERS-PRO-SERIES-8AWUF9",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00498",
+          "MaterialID": "M001",
+          "GradeID": "G001-115",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "Preheat the oven to an anneal temperature range of (110°C-120°C).",
+          "Exposure / conditions": "Annealing the printed part: 110°C-120°C",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-MATTERHACKERS-PRO-SERIES-8AWUF9",
+          "Locator": "p. 1: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-MATTERHACKERS-PRO-SERIES-8AWUF9",
+            "Publisher": "MatterHackers / PRO Series",
+            "Title": "TECHNICAL DATA SHEET - PRO Series Tough PLA",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.matterhackers.com/r/8AWUF9",
+            "Locator": "Document / product page",
+            "Applicable grades": "G001-115",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "0bc1547b4a32238fb4c7279753594cf3915c98cde7ce7208b3270553eb52b830"
+          },
+          "OriginalPath": ".cache/sources/by-sha/0bc1547b4a32238fb4c7279753594cf3915c98cde7ce7208b3270553eb52b830.pdf",
+          "OriginalPagesReread": "all 1 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/0bc1547b4a32238fb4c7279753594cf3915c98cde7ce7208b3270553eb52b830.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00498",
+          "SourceID": "R-MATTERHACKERS-PRO-SERIES-8AWUF9",
+          "Locator": "p. 1: Annealing note",
+          "Wording": "Preheat the oven to an anneal temperature range of (110°C-120°C)."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00071",
+          "MaterialID": "M001",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M001",
+        "GradeID": "G001-115",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00498. Its own wording is retained: Preheat the oven to an anneal temperature range of (110°C-120°C).. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: MatterHackers Tough PLA (G001-115). Source basis: R-MATTERHACKERS-PRO-SERIES-8AWUF9. The other 196 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M008",
+      "TaskID": "APP-M008",
+      "MaterialID": "M008",
+      "ActiveGradeIDs": [
+        "G009-01",
+        "G010-01",
+        "G008-01",
+        "G008-02",
+        "G008-03",
+        "G008-04",
+        "G008-05",
+        "G008-06",
+        "G008-07",
+        "G008-08",
+        "G008-09",
+        "G008-10",
+        "G008-12",
+        "G008-13",
+        "G008-14",
+        "G008-15",
+        "G008-16",
+        "G008-17",
+        "G008-18",
+        "G008-19",
+        "G008-20",
+        "G008-21",
+        "G008-22",
+        "G008-23",
+        "G008-24",
+        "G008-25",
+        "G008-26",
+        "G008-27",
+        "G008-28",
+        "G008-29",
+        "G008-30",
+        "G008-31",
+        "G008-32",
+        "G008-33"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G009-01",
+        "MaterialID": "M008",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Silk+",
+        "Shared formulation key": "B-pla-silk-upgrade-TDS",
+        "Composition / filler": "Polylactic acid",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-silk-upgrade-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00506",
+          "MaterialID": "M008",
+          "GradeID": "G009-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA Silk+ is 50 to 55 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 50 to 55 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-silk-upgrade-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-silk-upgrade-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA Silk+",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn.shopify.com/s/files/1/0584/7236/6216/files/Bambu_PLA_Silk__Technical_Data_Sheet.pdf?v=1733472353",
+            "Locator": "Document / product page",
+            "Applicable grades": "G009-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "336eab9b2bd1b8e1768880cc82b44da4ab16f8de4ccc434d9d47b2beebb22ea6"
+          },
+          "OriginalPath": ".cache/sources/by-sha/336eab9b2bd1b8e1768880cc82b44da4ab16f8de4ccc434d9d47b2beebb22ea6.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/336eab9b2bd1b8e1768880cc82b44da4ab16f8de4ccc434d9d47b2beebb22ea6.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00506",
+          "SourceID": "B-pla-silk-upgrade-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA Silk+ is 50 to 55 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00140",
+          "MaterialID": "M008",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M008",
+        "GradeID": "G009-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00506. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Silk+ is 50 to 55 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Silk+ (G009-01). Source basis: B-pla-silk-upgrade-TDS. The other 33 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M011",
+      "TaskID": "APP-M011",
+      "MaterialID": "M011",
+      "ActiveGradeIDs": [
+        "G011-01",
+        "G011-02",
+        "G011-03",
+        "G011-04",
+        "G011-05",
+        "G011-06",
+        "G011-07",
+        "G011-08",
+        "G011-09"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G011-01",
+        "MaterialID": "M011",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Metal",
+        "Shared formulation key": "B-pla-metal-TDS",
+        "Composition / filler": "PLA",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-metal-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00507",
+          "MaterialID": "M011",
+          "GradeID": "G011-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA Metal is 50 to 60 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 50 to 60 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-metal-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-metal-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA Metal",
+            "Revision": "Technical Data Sheet V3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/c6c28a13ba294c6f9fe62755ec9188fa.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G011-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "89844096f35cf7a7bf44b8ac80cfd7f191b99fbcf8b839a4fa24bcb712e3f161"
+          },
+          "OriginalPath": ".cache/sources/by-sha/89844096f35cf7a7bf44b8ac80cfd7f191b99fbcf8b839a4fa24bcb712e3f161.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/89844096f35cf7a7bf44b8ac80cfd7f191b99fbcf8b839a4fa24bcb712e3f161.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00507",
+          "SourceID": "B-pla-metal-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA Metal is 50 to 60 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00169",
+          "MaterialID": "M011",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M011",
+        "GradeID": "G011-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00507. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Metal is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Metal (G011-01). Source basis: B-pla-metal-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M012",
+      "TaskID": "APP-M012",
+      "MaterialID": "M012",
+      "ActiveGradeIDs": [
+        "G012-01",
+        "G012-02",
+        "G012-03",
+        "G012-04",
+        "G012-06",
+        "G012-07"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G012-01",
+        "MaterialID": "M012",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Marble",
+        "Shared formulation key": "B-pla-marble-TDS",
+        "Composition / filler": "PLA",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-marble-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00508",
+          "MaterialID": "M012",
+          "GradeID": "G012-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA Marble is 50 to 60 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 50 to 60 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-marble-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-marble-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA Marble",
+            "Revision": "Technical Data Sheet V3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/b81e083c7d1f4e2182ef749d48f9ec86.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G012-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "5e5b81ceef7fe995c3e31e42ee6e12f79606619eabdd6d4438f00bb797bbdcf1"
+          },
+          "OriginalPath": ".cache/sources/by-sha/5e5b81ceef7fe995c3e31e42ee6e12f79606619eabdd6d4438f00bb797bbdcf1.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/5e5b81ceef7fe995c3e31e42ee6e12f79606619eabdd6d4438f00bb797bbdcf1.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00508",
+          "SourceID": "B-pla-marble-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA Marble is 50 to 60 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00179",
+          "MaterialID": "M012",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M012",
+        "GradeID": "G012-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00508. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Marble is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Marble (G012-01). Source basis: B-pla-marble-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M013",
+      "TaskID": "APP-M013",
+      "MaterialID": "M013",
+      "ActiveGradeIDs": [
+        "G013-01",
+        "G013-02",
+        "G013-03",
+        "G013-04"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G013-04",
+        "MaterialID": "M013",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "Twinkling",
+        "Shared formulation key": "S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q01463",
+          "MaterialID": "M013",
+          "GradeID": "G013-04",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Toys",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0",
+            "Publisher": "eSUN",
+            "Title": "Technical Data Sheet",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.esun3d.com/media/esun/catalog/certification/product/PLA-Twinkling/eSUN_Twinkling_Filament_TDS_V4.0.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G013-04",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "37e1bc7f692d8d088c525b2eed20fccf7bef55cc7f441b9b53357c50a9bba92f"
+          },
+          "OriginalPath": ".cache/sources/by-sha/37e1bc7f692d8d088c525b2eed20fccf7bef55cc7f441b9b53357c50a9bba92f.pdf",
+          "OriginalPagesReread": "all 2 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/37e1bc7f692d8d088c525b2eed20fccf7bef55cc7f441b9b53357c50a9bba92f.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q01463",
+          "SourceID": "S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0",
+          "Locator": "p. 1",
+          "Wording": "Toys"
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00189",
+          "MaterialID": "M013",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M013",
+        "GradeID": "G013-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: eSUN Twinkling names toys and decoration as applications; these are maker use suggestions without a finishing procedure or demonstrated application performance. Reviewed product: eSUN Twinkling (G013-04). Source basis: S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M014",
+      "TaskID": "APP-M014",
+      "MaterialID": "M014",
+      "ActiveGradeIDs": [
+        "G014-01",
+        "G014-02",
+        "G014-03",
+        "G014-04",
+        "G014-05",
+        "G014-06",
+        "G014-07",
+        "G014-08",
+        "G014-09",
+        "G014-10",
+        "G014-11",
+        "G014-12",
+        "G014-13",
+        "G014-14",
+        "G014-15",
+        "G014-16",
+        "G014-17",
+        "G014-18",
+        "G014-19",
+        "G014-20",
+        "G014-21"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G014-01",
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Wood",
+        "Shared formulation key": "B-pla-wood-TDS",
+        "Composition / filler": "Polylactic acid",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-wood-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00509",
+          "MaterialID": "M014",
+          "GradeID": "G014-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA Wood is 50 to 60 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 50 to 60 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-wood-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-wood-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA Wood",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/s4/default/6fda0ae88e5a4e66bb5d58f2968eee42/Bambus_PLA_Wood_Technical_Data_Sheet.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G014-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "0d4a7db697bb84866f7852860a81035d5329a645008844ba0f39a03d80bddf52"
+          },
+          "OriginalPath": ".cache/sources/by-sha/0d4a7db697bb84866f7852860a81035d5329a645008844ba0f39a03d80bddf52.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/0d4a7db697bb84866f7852860a81035d5329a645008844ba0f39a03d80bddf52.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00509",
+          "SourceID": "B-pla-wood-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA Wood is 50 to 60 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00199",
+          "MaterialID": "M014",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M014",
+        "GradeID": "G014-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00509. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Wood is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Wood (G014-01). Source basis: B-pla-wood-TDS. The other 20 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M015",
+      "TaskID": "APP-M015",
+      "MaterialID": "M015",
+      "ActiveGradeIDs": [
+        "G015-01",
+        "G015-02",
+        "G015-03",
+        "G015-04"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G015-01",
+        "MaterialID": "M015",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Galaxy",
+        "Shared formulation key": "B-pla-galaxy-TDS",
+        "Composition / filler": "Polylactic acid",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-galaxy-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00510",
+          "MaterialID": "M015",
+          "GradeID": "G015-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 50 to 60 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-galaxy-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-galaxy-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA Galaxy",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/8f0b6b2741e3498689c2c7706374c482.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G015-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "75cfdf621cfe629d80e0bffcad327c5088a1ddcd891cfb24cac0cc717cf63e21"
+          },
+          "OriginalPath": ".cache/sources/by-sha/75cfdf621cfe629d80e0bffcad327c5088a1ddcd891cfb24cac0cc717cf63e21.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/75cfdf621cfe629d80e0bffcad327c5088a1ddcd891cfb24cac0cc717cf63e21.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00510",
+          "SourceID": "B-pla-galaxy-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00209",
+          "MaterialID": "M015",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M015",
+        "GradeID": "G015-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00510. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Galaxy (G015-01). Source basis: B-pla-galaxy-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M016",
+      "TaskID": "APP-M016",
+      "MaterialID": "M016",
+      "ActiveGradeIDs": [
+        "G016-01",
+        "G016-02",
+        "G016-03",
+        "G016-04",
+        "G016-05",
+        "G016-06",
+        "G016-07"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G016-01",
+        "MaterialID": "M016",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Glow",
+        "Shared formulation key": "B-pla-glow-TDS",
+        "Composition / filler": "Polylactic acid",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-glow-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00511",
+          "MaterialID": "M016",
+          "GradeID": "G016-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA Glow is 50 to 60 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 50 to 60 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-glow-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-glow-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA Glow",
+            "Revision": "Technical Data Sheet V1.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/cd34cf072d14484bbf027290d16abe9b.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G016-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "7ebb92f0abcb8ebfe225d1fda4556454eaaf20bc27c42a06831d67d56e3ae919"
+          },
+          "OriginalPath": ".cache/sources/by-sha/7ebb92f0abcb8ebfe225d1fda4556454eaaf20bc27c42a06831d67d56e3ae919.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/7ebb92f0abcb8ebfe225d1fda4556454eaaf20bc27c42a06831d67d56e3ae919.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00511",
+          "SourceID": "B-pla-glow-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA Glow is 50 to 60 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00219",
+          "MaterialID": "M016",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M016",
+        "GradeID": "G016-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00511. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Glow is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Glow (G016-01). Source basis: B-pla-glow-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M017",
+      "TaskID": "APP-M017",
+      "MaterialID": "M017",
+      "ActiveGradeIDs": [
+        "G017-01",
+        "G017-02",
+        "G017-03",
+        "G017-05",
+        "G017-06",
+        "G017-07",
+        "G017-08",
+        "G017-09",
+        "G017-11",
+        "G017-12",
+        "G017-13",
+        "G017-14"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G017-01",
+        "MaterialID": "M017",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA Aero",
+        "Shared formulation key": "B-pla-aero-TDS",
+        "Composition / filler": "Polylactic acid",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-aero-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00512",
+          "MaterialID": "M017",
+          "GradeID": "G017-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA Aero is 50 to 55 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 50 to 55 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-aero-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-aero-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA Aero",
+            "Revision": "Technical Data Sheet V4.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/cbc8b808aaf84ead9bb3b0b9b43e66af.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G017-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c7730c4bac6f58d8660bbc5bd580fa00f18b956033b9768a5a543d546d15c592"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c7730c4bac6f58d8660bbc5bd580fa00f18b956033b9768a5a543d546d15c592.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/c7730c4bac6f58d8660bbc5bd580fa00f18b956033b9768a5a543d546d15c592.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00512",
+          "SourceID": "B-pla-aero-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA Aero is 50 to 55 °C, and the time is 6 to 12 hours."
+        },
+        {
+          "SourceID": "B-pla-aero-TDS",
+          "Locator": "B-pla-aero-TDS, p. 3, annealing paragraph",
+          "Wording": "However, for very light and thin prints with few walls and low infill density, annealing is not recommended，or they can deform and get damaged."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00229",
+          "MaterialID": "M017",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M017",
+        "GradeID": "G017-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00512. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Aero is 50 to 55 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source does not recommend annealing very light and thin prints with few walls and low infill density because they can deform and be damaged. Reviewed product: Bambu Lab PLA Aero (G017-01). Source basis: B-pla-aero-TDS. The other 11 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M018",
+      "TaskID": "APP-M018",
+      "MaterialID": "M018",
+      "ActiveGradeIDs": [
+        "G018-01",
+        "G018-02",
+        "G018-03",
+        "G018-04",
+        "G018-05",
+        "G018-07",
+        "G018-08",
+        "G018-09",
+        "G018-10",
+        "G018-11",
+        "G018-12",
+        "G018-13",
+        "G018-14",
+        "G018-15",
+        "G018-16",
+        "G018-17",
+        "G018-18",
+        "G018-19"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G018-01",
+        "MaterialID": "M018",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PLA-CF",
+        "Shared formulation key": "B-pla-cf-TDS",
+        "Composition / filler": "Polylactic acid, carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-pla-cf-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00513",
+          "MaterialID": "M018",
+          "GradeID": "G018-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "the suggested annealing temperature of models printed with Bambu PLA-CF is 55 to 60 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part: 55 to 60 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-pla-cf-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-pla-cf-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PLA-CF",
+            "Revision": "Technical Data Sheet V2.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/842f399d4e274507953a5231126ec8c1.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G018-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "1939edfb494813529cd5324854975b0248e662af8adc11045599257f08bffae3"
+          },
+          "OriginalPath": ".cache/sources/by-sha/1939edfb494813529cd5324854975b0248e662af8adc11045599257f08bffae3.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/1939edfb494813529cd5324854975b0248e662af8adc11045599257f08bffae3.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00513",
+          "SourceID": "B-pla-cf-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "the suggested annealing temperature of models printed with Bambu PLA-CF is 55 to 60 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00239",
+          "MaterialID": "M018",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M018",
+        "GradeID": "G018-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00513. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA-CF is 55 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA-CF (G018-01). Source basis: B-pla-cf-TDS. The other 17 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M020",
+      "TaskID": "APP-M020",
+      "MaterialID": "M020",
+      "ActiveGradeIDs": [
+        "G020-01",
+        "G020-03",
+        "G021-01",
+        "G022-01",
+        "G023-01",
+        "G020-04",
+        "G020-05",
+        "G020-06",
+        "G020-07",
+        "G020-08",
+        "G020-09",
+        "G020-10",
+        "G020-11",
+        "G020-12",
+        "G020-13",
+        "G020-15",
+        "G020-16",
+        "G020-17",
+        "G020-18",
+        "G020-19",
+        "G020-20",
+        "G020-21",
+        "G020-22",
+        "G020-23",
+        "G020-24",
+        "G020-25",
+        "G020-27",
+        "G020-28",
+        "G020-29",
+        "G020-30",
+        "G020-31",
+        "G020-32",
+        "G020-33",
+        "G020-34",
+        "G020-35",
+        "G020-36",
+        "G020-37",
+        "G020-38",
+        "G020-39",
+        "G020-40",
+        "G020-41",
+        "G020-42",
+        "G020-43",
+        "G020-44",
+        "G020-45",
+        "G020-46",
+        "G020-47",
+        "G020-48",
+        "G020-49",
+        "G020-50",
+        "G020-51",
+        "G020-52",
+        "G020-53",
+        "G020-54",
+        "G020-55",
+        "G020-56",
+        "G020-57",
+        "G020-58",
+        "G020-59",
+        "G020-60",
+        "G020-61",
+        "G020-62",
+        "G020-63",
+        "G020-64",
+        "G020-65",
+        "G020-66",
+        "G020-67",
+        "G020-68",
+        "G020-69",
+        "G020-70",
+        "G020-71",
+        "G020-72",
+        "G020-73",
+        "G020-74"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G021-01",
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PETG Basic",
+        "Shared formulation key": "B-petg-basic-TDS",
+        "Composition / filler": "PETG",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "B-petg-basic-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q00515",
+          "MaterialID": "M020",
+          "GradeID": "G021-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "It's not recommended to anneal prints of PETG Basic, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 °C, and the time is 6 to 12 hours.",
+          "Exposure / conditions": "Annealing the printed part, which the sheet does not recommend: 60 to 70 °C, 6 to 12 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "B-petg-basic-TDS",
+          "Locator": "p. 3: Annealing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "B-petg-basic-TDS",
+            "Publisher": "Bambu Lab",
+            "Title": "Bambu Filament Technical Data Sheet - PETG Basic",
+            "Revision": "Technical Data Sheet V3.0",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://store.bblcdn.com/s1/default/cb94589bf7994fdcbfa833badefae9cd/Bambu_PETG_Basic_Technical_Data_Sheet.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G021-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6"
+          },
+          "OriginalPath": ".cache/sources/by-sha/fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6.pdf",
+          "OriginalPagesReread": "all 5 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q00515",
+          "SourceID": "B-petg-basic-TDS",
+          "Locator": "p. 3: Annealing note",
+          "Wording": "It's not recommended to anneal prints of PETG Basic, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 °C, and the time is 6 to 12 hours."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00259",
+          "MaterialID": "M020",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M020",
+        "GradeID": "G021-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00515. Its own wording is retained: It's not recommended to anneal prints of PETG Basic, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PETG Basic (G021-01). Source basis: B-petg-basic-TDS. The other 73 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M024",
+      "TaskID": "APP-M024",
+      "MaterialID": "M024",
+      "ActiveGradeIDs": [
+        "G024-01",
+        "G024-02",
+        "G024-03",
+        "G024-04",
+        "G024-05",
+        "G024-06",
+        "G024-07",
+        "G024-08",
+        "G024-09",
+        "G024-10",
+        "G024-11",
+        "G024-12",
+        "G024-13",
+        "G024-14",
+        "G024-15",
+        "G024-16",
+        "G024-17",
+        "G024-18",
+        "G024-19",
+        "G024-20",
+        "G024-21",
+        "G024-22",
+        "G024-23",
+        "G024-24"
+      ],
+      "ExpectedGrade": {
+        "GradeID": "G024-08",
+        "MaterialID": "M024",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "PETGCF10",
+        "Shared formulation key": "D-FLASH-PETG-CF-TDS-EN",
+        "Composition / filler": "containing 10% carbon fiber. PETGCF10 has excellent dimensional stability and rigidity (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-PETG-CF-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05069",
+          "MaterialID": "M024",
+          "GradeID": "G024-08",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to dry the model in an oven at 70°C for 1-3 hours in order to increase the strength of the model.",
+          "Exposure / conditions": "Drying the printed part in an oven, to increase its strength: 70°C for 1-3 hours",
+          "Rating 1–5": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FLASH-PETG-CF-TDS-EN",
+          "Locator": "p. 3: Post-processing note"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "D-FLASH-PETG-CF-TDS-EN",
+            "Publisher": "Flashforge",
+            "Title": "Technical Data Sheet PETGCF10 Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/PETG_CF_TDS_EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G024-08",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "7854ff3c76a5fb1eaf6b2058d2ade8baa606edb007402e7df3bf6fe1ea1f32ab"
+          },
+          "OriginalPath": ".cache/sources/by-sha/7854ff3c76a5fb1eaf6b2058d2ade8baa606edb007402e7df3bf6fe1ea1f32ab.pdf",
+          "OriginalPagesReread": "all 4 pages",
+          "PrivateReadingFile": "resume-2026-10-02/private/reads/7854ff3c76a5fb1eaf6b2058d2ade8baa606edb007402e7df3bf6fe1ea1f32ab.json"
+        }
+      ],
+      "MissingHistoricalSources": [],
+      "RawBasis": [
+        {
+          "EvidenceID": "Q05069",
+          "SourceID": "D-FLASH-PETG-CF-TDS-EN",
+          "Locator": "p. 3: Post-processing note",
+          "Wording": "After the printing process, it is recommended to dry the model in an oven at 70°C for 1-3 hours in order to increase the strength of the model."
+        }
+      ],
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00299",
+          "MaterialID": "M024",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M024",
+        "GradeID": "G024-08",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05069. Its own wording is retained: After the printing process, it is recommended to dry the model in an oven at 70°C for 1-3 hours in order to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PETGCF10 (G024-08). Source basis: D-FLASH-PETG-CF-TDS-EN. The other 23 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "PrimaryReview": "AI injector reread hash-verified original; no human review",
+      "IndependentReview": "Pending original-grounded AI review"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-RESUME-APP-M001",
+      "append": {
+        "MaterialID": "M001",
+        "GradeID": "G001-115",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00498. Its own wording is retained: Preheat the oven to an anneal temperature range of (110°C-120°C).. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: MatterHackers Tough PLA (G001-115). Source basis: R-MATTERHACKERS-PRO-SERIES-8AWUF9. The other 196 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00071",
+          "MaterialID": "M001",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M008",
+      "append": {
+        "MaterialID": "M008",
+        "GradeID": "G009-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00506. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Silk+ is 50 to 55 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Silk+ (G009-01). Source basis: B-pla-silk-upgrade-TDS. The other 33 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00140",
+          "MaterialID": "M008",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M011",
+      "append": {
+        "MaterialID": "M011",
+        "GradeID": "G011-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00507. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Metal is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Metal (G011-01). Source basis: B-pla-metal-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00169",
+          "MaterialID": "M011",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M012",
+      "append": {
+        "MaterialID": "M012",
+        "GradeID": "G012-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00508. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Marble is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Marble (G012-01). Source basis: B-pla-marble-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00179",
+          "MaterialID": "M012",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M013",
+      "append": {
+        "MaterialID": "M013",
+        "GradeID": "G013-04",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: eSUN Twinkling names toys and decoration as applications; these are maker use suggestions without a finishing procedure or demonstrated application performance. Reviewed product: eSUN Twinkling (G013-04). Source basis: S-PEBA-eSUN-Twinkling-Filament-TDS-V4-0. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00189",
+          "MaterialID": "M013",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M014",
+      "append": {
+        "MaterialID": "M014",
+        "GradeID": "G014-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00509. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Wood is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Wood (G014-01). Source basis: B-pla-wood-TDS. The other 20 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00199",
+          "MaterialID": "M014",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M015",
+      "append": {
+        "MaterialID": "M015",
+        "GradeID": "G015-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00510. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Galaxy (G015-01). Source basis: B-pla-galaxy-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00209",
+          "MaterialID": "M015",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M016",
+      "append": {
+        "MaterialID": "M016",
+        "GradeID": "G016-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00511. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Glow is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Glow (G016-01). Source basis: B-pla-glow-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00219",
+          "MaterialID": "M016",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M017",
+      "append": {
+        "MaterialID": "M017",
+        "GradeID": "G017-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00512. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Aero is 50 to 55 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source does not recommend annealing very light and thin prints with few walls and low infill density because they can deform and be damaged. Reviewed product: Bambu Lab PLA Aero (G017-01). Source basis: B-pla-aero-TDS. The other 11 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00229",
+          "MaterialID": "M017",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M018",
+      "append": {
+        "MaterialID": "M018",
+        "GradeID": "G018-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00513. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA-CF is 55 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA-CF (G018-01). Source basis: B-pla-cf-TDS. The other 17 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00239",
+          "MaterialID": "M018",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M020",
+      "append": {
+        "MaterialID": "M020",
+        "GradeID": "G021-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00515. Its own wording is retained: It's not recommended to anneal prints of PETG Basic, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PETG Basic (G021-01). Source basis: B-petg-basic-TDS. The other 73 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00259",
+          "MaterialID": "M020",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-RESUME-APP-M024",
+      "append": {
+        "MaterialID": "M024",
+        "GradeID": "G024-08",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05069. Its own wording is retained: After the printing process, it is recommended to dry the model in an oven at 70°C for 1-3 hours in order to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PETGCF10 (G024-08). Source basis: D-FLASH-PETG-CF-TDS-EN. The other 23 active procurement products are outside this bounded material judgment; their individual passes remain separate."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00299",
+          "MaterialID": "M024",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    }
+  ]
+}

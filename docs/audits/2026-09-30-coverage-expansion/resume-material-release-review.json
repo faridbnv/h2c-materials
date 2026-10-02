@@ -1,0 +1,208 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "review_date": "2026-10-02",
+  "release": "b27dc24f7147",
+  "baseline_head": "20b4a6a5ead70a88c9d72c499b65a75dfb9a8176",
+  "baseline_release": "0571af6d609e",
+  "overall_verdict": "APPROVE",
+  "data_and_render_verdict": "APPROVE",
+  "packet_inputs": [
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-01-packet.json",
+      "sha256": "42dc5e7176ecda49651d06109d163c60420c4b9fcfa74143a22817c06295b96d",
+      "review_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-01-review.json",
+      "operations": 12
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-02-packet.json",
+      "sha256": "8a97fd7a4dfe6df663698431c1feb50209bf1ff9e29190d027f74a2e4850973e",
+      "review_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-02-review.json",
+      "operations": 12
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-03-packet.json",
+      "sha256": "00994aa5f0f2018eba527a497318832b7de66394987f7c35c42d32d4b536ff69",
+      "review_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-03-review.json",
+      "operations": 14
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-04-packet.json",
+      "sha256": "8a5e7a381eeffc168e5f81e8eda325dda250b23bab7dd9e9b30bcc6cb4c16322",
+      "review_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-04-review.json",
+      "operations": 12
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-05-packet.json",
+      "sha256": "9594e581427397b8ee8dd6536a7bd5d533abe63c3ef524856361f50771d5290e",
+      "review_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-05-review.json",
+      "operations": 11
+    }
+  ],
+  "evidence_inputs": [
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-injection.json",
+      "sha256": "3767454ed4786f22f0f77d26fcf4bb7e1f5c936b0e8bb07c68aa8b6b5c1781c8"
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-idempotence.json",
+      "sha256": "fe37829bca76d7bf5895ffcb7e8c4740e417e989ec6dee01eb2da1462a36384d"
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-guard.json",
+      "sha256": "7923394fc5141ff29e921861c3c1e0e7b8ba0f5171483d7b485e5a81452d694f"
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-material-replay.json",
+      "sha256": "06cfc3e88fb10b6b14ccf08fd2ed917fc69d3b86b36d398babba334d21141946"
+    },
+    {
+      "file": "external-campaign/resume-2026-10-02/evidence/material-render.json",
+      "sha256": "617a845e4e43f5816609494d9783c35705d31f4d5279740b16d5cd395eb10ee7"
+    },
+    {
+      "file": "external-campaign/resume-2026-10-02/scripts/verify_material_render.mjs",
+      "sha256": "ac953e8c958eaf9794e81b90c05bc31ab149119bd320840133264390f96ab56f"
+    }
+  ],
+  "canonical_delta": {
+    "changed_data_tables": [
+      "coverage"
+    ],
+    "new_coverage_records": 61,
+    "superseded_coverage_records": 61,
+    "removed_records": 0,
+    "all_record_operations_exact": true,
+    "status_counts_in_new_judgments": {
+      "Evidence recorded": 33,
+      "Reviewed with limitations": 23,
+      "Gap": 5
+    }
+  },
+  "compiled_delta": {
+    "changed_top_level": [
+      "coverage",
+      "meta"
+    ],
+    "changed_meta_paths": [
+      "counts.coverage",
+      "release.id",
+      "release.digest",
+      "release.inputs.data"
+    ],
+    "measurements_profiles_products_materials_selection_inputs_estimate_models_unchanged": true
+  },
+  "migration_verification": {
+    "five_reruns_zero_records": true,
+    "changed_current_grade_refused": true,
+    "refusal_preserved_data_bytes": true,
+    "review_method": "Read immutable receipts and actual migration helper guard/order logic; no canonical migration rerun executed by reviewer."
+  },
+  "decision_replay": {
+    "reviewer_reproduced": true,
+    "questions": 15,
+    "evaluations": 17775,
+    "verdict_screen_changes": 0,
+    "independent_output_sha256": "06cfc3e88fb10b6b14ccf08fd2ed917fc69d3b86b36d398babba334d21141946"
+  },
+  "actual_render_review": {
+    "complete_grid_rows": 153,
+    "unique_in_scope_rows": 136,
+    "full_coverage_drawers_checked": 61,
+    "all_exact_approved_findings_present": true,
+    "script_reviewed": true,
+    "salient_constraints_checked": [
+      "M017 thin/light low-infill contraindication",
+      "M020 PETG recommendation against annealing",
+      "Bambu deformation/oven warnings",
+      "M045 food/medical exclusions",
+      "M068 optional anneal and geometric/load precautions",
+      "M070/M073 possible toughness reduction",
+      "M071 Z shrinkage/support order",
+      "M094/M095 immediate-after-print timing"
+    ],
+    "tooltip_limit": "Grid tooltips retain a truncated finding prefix; the full scoped judgment and source qualifiers are available in the actual Coverage drawer."
+  },
+  "retained_limits": {
+    "no_active_product_materials": [
+      "M056",
+      "M060"
+    ],
+    "reference_only_context": [
+      "M058 / G058-R1: DuPont nylon resin guide; not printed-product evidence"
+    ],
+    "missing_historical_originals": {
+      "M045": "R-KIMYA-PEBA-S-TDS",
+      "M052": "S-PA12",
+      "M087": "S-POM"
+    },
+    "product_passes_closed": 0,
+    "scope": "Coverage judgments only. Exact maker intended-use statements remain limited; finishing/removal guidance does not establish suitability or measured improvement. Gaps are bounded to current custody/reviewed originals, not public-source absence."
+  },
+  "pending_release_gates": [],
+  "prior_pending_review_signature": "83a2c572374422329ffb161fb0ca6ade4367fc365fc5ff2f0d77563e7260a429",
+  "final_verification": {
+    "receipt_file": "docs/audits/2026-09-30-coverage-expansion/resume-material-verification.json",
+    "receipt_sha256": "95df0dccace428ec8e889210e911d139e5a2bdea272693655ef439c12122f698",
+    "actual_logs_read_and_hash_verified": [
+      {
+        "kind": "verify",
+        "private_file_label": "h2c-resume-material-verify.log",
+        "sha256": "cb3c2e9bf402f3e8419e442a9e018061f1f44c6d72c8a5ae6cc01b7764664b1f",
+        "hash_verified": true
+      },
+      {
+        "kind": "verify-fast",
+        "private_file_label": "h2c-resume-material-verify-fast.log",
+        "sha256": "be439c76e5a78eebe42c215ef1b397ada42fe5c874c0732b7b6dbc0d1a13cf93",
+        "hash_verified": true
+      },
+      {
+        "kind": "build-diff",
+        "private_file_label": "h2c-resume-material-build-diff.log",
+        "sha256": "37777a5b9babdc9e2ac2d01730924653b6576af18e4b6985a3a69770c794e73d",
+        "hash_verified": true
+      },
+      {
+        "kind": "backup",
+        "private_file_label": "h2c-resume-material-backup.log",
+        "sha256": "96b590c23d4b09bab4caed3bf4cd8612e5a450b96fa2134b31ac65367ea00df9",
+        "hash_verified": true
+      },
+      {
+        "kind": "data-diff",
+        "private_file_label": "h2c-resume-material-data-diff.log",
+        "sha256": "6eaf25e1be6ccda26465699a4d1646cc5dbb8e82c7a91cfc60eb3afdafe088af",
+        "hash_verified": true
+      }
+    ],
+    "verify_full": "PASS",
+    "full_seconds_reported": 264.42,
+    "warm_fast_seconds_reported": 50.78,
+    "warm_fast_log_total_seconds": 50.6,
+    "fast_budget_seconds": 90,
+    "unit_tests": 481,
+    "import_tests": 204,
+    "source_context": {
+      "accepted": 76,
+      "new": 0,
+      "stale": 0
+    },
+    "scale_reproducible_audit_snapshot": "PASS",
+    "native_views": 69,
+    "rendered_scenarios": 300,
+    "rendered_readings": 2594,
+    "build_differences": 184,
+    "deciding_data_changes": 0,
+    "backup": {
+      "originals": 2397,
+      "new_copies": 0,
+      "derived_files": 2800,
+      "known_absent_inventory_entries": 124,
+      "newly_admitted_originals": 0,
+      "judgment_sources_verified": true
+    },
+    "review_limit": "Final attestation checks retained logs, receipts and unchanged release identity. It reuses the earlier independent original/DOM/record/replay reviews; no repeat source reading or new product-pass review is claimed."
+  },
+  "review_signature_sha256": "66517e589d15393ec747ff04932494879004beef2ae01fab3dc5497bdfafcec1"
+}

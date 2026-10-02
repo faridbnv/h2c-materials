@@ -1,0 +1,68 @@
+{
+  "baseline_commit": "20b4a6a5ead70a88c9d72c499b65a75dfb9a8176",
+  "release": "b27dc24f7147",
+  "date": "2026-10-02",
+  "verify_fast_seconds": 50.78,
+  "verify_seconds": 264.42,
+  "unit_tests": 481,
+  "import_tests": 204,
+  "scale_and_reproducible": "PASS",
+  "source_context": {
+    "accepted": 76,
+    "new": 0,
+    "stale": 0
+  },
+  "browser_views": 69,
+  "rendered_scenarios": 300,
+  "rendered_readings": 2594,
+  "schema_rows": 29825,
+  "schema_issues": 0,
+  "lint_accepted": 300,
+  "lint_new": 0,
+  "lint_stale": 0,
+  "build_diff": {
+    "differences": 184,
+    "changed_paths": [
+      "61 coverage statuses",
+      "61 coverage findings",
+      "61 added coverage rows",
+      "coverage count"
+    ],
+    "deciding_data_changes": 0
+  },
+  "replay": {
+    "questions": 15,
+    "evaluations": 17775,
+    "answer_changes": 0
+  },
+  "private_backup": {
+    "originals": 2397,
+    "new_copies": 0,
+    "derived_files": 2800,
+    "known_absent_inventory_entries": 124,
+    "newly_admitted_originals": 0,
+    "judgment_sources_verified": true
+  },
+  "logs": {
+    "verify": {
+      "sha256": "cb3c2e9bf402f3e8419e442a9e018061f1f44c6d72c8a5ae6cc01b7764664b1f",
+      "private_file": "h2c-resume-material-verify.log"
+    },
+    "verify-fast": {
+      "sha256": "be439c76e5a78eebe42c215ef1b397ada42fe5c874c0732b7b6dbc0d1a13cf93",
+      "private_file": "h2c-resume-material-verify-fast.log"
+    },
+    "build-diff": {
+      "sha256": "37777a5b9babdc9e2ac2d01730924653b6576af18e4b6985a3a69770c794e73d",
+      "private_file": "h2c-resume-material-build-diff.log"
+    },
+    "backup": {
+      "sha256": "96b590c23d4b09bab4caed3bf4cd8612e5a450b96fa2134b31ac65367ea00df9",
+      "private_file": "h2c-resume-material-backup.log"
+    },
+    "data-diff": {
+      "sha256": "6eaf25e1be6ccda26465699a4d1646cc5dbb8e82c7a91cfc60eb3afdafe088af",
+      "private_file": "h2c-resume-material-data-diff.log"
+    }
+  }
+}
