@@ -64,7 +64,8 @@
     "ingest:harvest": "node scripts/ingest/harvest.mjs",
     "ingest:second-read": "node scripts/ingest/second-read.mjs",
     "audit:coverage-status": "node scripts/audit/coverage-campaign-status.mjs",
-    "audit:context": "node scripts/audit/context-witness.mjs"
+    "audit:context": "node scripts/audit/context-witness.mjs",
+    "audit:profile-marks": "node scripts/audit/profile-marks.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38",

@@ -1128,8 +1128,11 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
     fill (Siraya's other Fibreheart filaments are carbon-filled).
   - Nozzle sizes a sheet lists ("0.2, 0.4, 0.6, 0.8 mm") are held as their first on some profiles, and a minimum
     ("Nozzle ≥ 0.2 mm") is not held on others; the nozzle size decides nothing today.
-  - The detectors that found the causes (`PM-TRIAL-2026-10-01/data-audit/profiles/detect.mjs`) live outside the
-    repository; the guard keeps each cause out, but a layout neither has seen is still found only by reading.
+  - The detectors that found the causes are in the repository now: `npm run audit:profile-marks` (needs the text cache,
+    not in `verify`) marks every line of a profile's cached sheet where an error could hide, grouped by template, into
+    `build/reports/profile-marks/marks.csv`. The guard keeps each cause out; a layout neither has seen is still found
+    by reading the marks, not by a gate: the marks are leads (1,844 on 745 sheets today), most of them a sheet's own
+    storage, property or test lines.
 
 ```sh
 npm run data:lint && npm run audit:context
