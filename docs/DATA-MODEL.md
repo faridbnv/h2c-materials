@@ -13,7 +13,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 |---|---|
 | `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, and the prose that is true of this material alone |
 | `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status |
-| `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion |
+| `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion. One setup a sheet prints, or one row of it (a print speed, a nozzle size); a copy is retired ("Retired duplicate record", D120) and never reaches the database |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
 | `page_context.csv` | What a source page states once for the values printed on it ("Mechanical properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded"): specimen type, moisture state, treatment and schedule, standard and test temperature, per page and scope (all, tensile, flexural, impact, thermal, physical). A measurement on that page that states nothing of its own inherits it, and a row that states the opposite is flagged (D116) |

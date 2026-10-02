@@ -129,6 +129,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D117 | A row says how many products pass, and shows the passing products' own values | A material's row now says "PASS · 7 of 200 products" instead of a bare PASS, shows the range of the products that pass beside the range of all of them, says when a pass rests on a declared variant or on a value with no test direction or treatment stated, splits an UNKNOWN into how many products measure below and how many publish nothing, and gives every material-level fact (a hardened nozzle, a typical value's state) the count of products it is true of. | In force; it amends D83 (how a material's verdict is shown, not how it is decided) |
 | D118 | "Official Bambu product" passes Bambu Lab's own spools | The requirement "Official Bambu product" used to pass every product of a material Bambu sells, so a third-party PLA passed it because Bambu sells a PLA. It now passes only products Bambu Lab makes; the others of that material are "Officially listed family". | In force |
 | D119 | What the error-class sweep changed in the rules | Clearing the data audit's error classes changed a few rules: products of one material that print one table share one formulation key even when two makers sell them, and each reads its own maker's sheet first; a review note that no longer explains anything stops the build; a page's statement about specimens never covers a melt flow rate; and the readers learned the spellings the sheets used that they could not read. | In force; it amends D89 and D115 |
+| D120 | One setup, one profile: a copy retires, a row per speed or nozzle size is its own, a dry box is a note | A print profile is one setup a data sheet prints for one product. 79 profiles were a second reading of one product's setup from one sheet, mostly because the settings their test bars were printed at were taken for a second setup; the copy is now retired, as a duplicate measurement is, and the build leaves it out. A sheet that prints a nozzle temperature per print speed or per nozzle size gives a profile per row, as the import already did for Spectrum's and Polymaker's speeds. A dry-box recommendation says where the filament is kept while it prints; it is a profile note, not a drying schedule. And the import's sheet reader, which the build's check of every profile runs, reads what the sweep found it missing. | In force; it extends D72's retired duplicates to profiles and amends D119 (what the import's reader reads) |
 
 <!-- end index -->
 
@@ -3842,3 +3843,63 @@ Built by Claude (an agent).*
   a bed window "if you have a heated bed" as a recommendation. Each was a spelling sheets print that a reader left unread.
   PARSE-TEXT-BOUNDS no longer counts a number inside a word ("3D", "24 months") as a stated temperature.
 
+
+## D120. One setup, one profile: a copy retires, a row per speed or nozzle size is its own, a dry box is a note
+
+> **In plain words:** A print profile is one setup a data sheet prints for one product. 79 profiles were a second reading of one product's setup from one sheet, mostly because the settings their test bars were printed at were taken for a second setup; the copy is now retired, as a duplicate measurement is, and the build leaves it out. A sheet that prints a nozzle temperature per print speed or per nozzle size gives a profile per row, as the import already did for Spectrum's and Polymaker's speeds. A dry-box recommendation says where the filament is kept while it prints; it is a profile note, not a drying schedule. And the import's sheet reader, which the build's check of every profile runs, reads what the sweep found it missing.
+> **Status:** In force; it extends D72's retired duplicates to profiles and amends D119 (what the import's reader reads).
+
+*Built by Claude (an agent) in the profile root-cause sweep of 2026-10-02, which the owner asked for in place of a
+re-read of every profile; the record is [the profile root-cause sweep](audits/2026-10-02-profile-root-causes/README.md).*
+
+- **How the causes were found.** Five random draws after the error-class sweep still found 3 to 9 profiles in 40 wrong,
+  a different layout each time. A script marked every line of every guidance sheet where such an error leaves a trace
+  a script can see without understanding the layout: a setting-like number or statement no profile of the sheet holds,
+  a held number found only under a test-specimen heading or beside another setting's label, a cell not printed as one
+  run of words, two profiles of one product that disagree. On the tables before m285 it marked 27 of the 27 known
+  errors of those kinds (the other three were typed readings, which PARSE-MISMATCH checks). Six Claude Sonnet readers
+  judged the 1,412 marks on 681 sheets; 359 were errors, on 267 profiles, and grouped by cause they were a dozen
+  mechanisms, each fixed where it lives and swept across every profile (m290 to m295).
+- **Copies (m292; PROFILE-DUPLICATE, PROFILE-SIBLING-SILENT).** Two live profiles of one product from one sheet must name
+  different rows of it (a print speed, a nozzle size) in their Locators; otherwise one is a copy. The copy keeps its
+  cells with Profile "Retired duplicate record" and a Locator naming the profile that stays, and never reaches the
+  database (`meta.counts.retiredDuplicates.profiles`). Rows of one sheet share what it prints once for every row: a
+  chamber, enclosure, drying or nozzle statement one row holds, every row holds.
+- **Rows (m291).** SUNLU's "Zonal Temperature" windows per speed band, Recreus's blocks per nozzle size and PolyTerra's
+  high-speed line are profiles of their own, each naming its row; the one that was there keeps the general or the 0.4 mm
+  row.
+- **Dry box (m293).** "Dry box recommended: No" and FormFutura's "Drybox: Not necessary" are notes (topic Storage
+  humidity), as P0085's "Dry box required" already was; on 43 profiles the dry-box row had run into the nozzle cell.
+- **What the import's reader reads now** (`scripts/ingest/propose.mjs`, guidanceBeyondLabels; the lexicon). A setting
+  under a test-bar heading, in a block that ends by stating an infill, or in a pellet-processing table (LUVOCOM 3F's
+  extrusion "Processing" table, "predry the granulate") is not guidance: six LUVOCOM profiles held the extrusion
+  nozzle window instead of the printing one (P0632 held 350–400 °C, its sheet prints 400–450 °C to print). A drying row's hours on the row below ("Minimum Time 1
+  hour") are one schedule. A drying schedule stated only in a sentence is read. New labels: "Extruder:", "Bed:",
+  "Heizbett Temperatur", "Recommended heat bed temperature to print …", "Blast Drying Oven", "Dring Conditions",
+  "Pre-printing Drying Conditions", "Compatible Nozzle Material".
+- **What the parsers read now** (`build/src/normalize/process.js`). SUNLU's "Normal temperature", "Normal" and 常温 as room
+  temperature; "no need of temperature chamber", "no heating chamber are required", "does not require a heated
+  (building, print) chamber" as no heated chamber; "recommended to print using a heated chamber"; "works best with an
+  enclosed print area", "Printing in an enclosed printer", "At least closed chamber", "enclosed-chamber printing" as an
+  enclosure recommended, and "ideal for use in open desktop 3D printers" as none needed; "Compatible Nozzle Material Any
+  common material" and "use of brass nozzle" as no hardened nozzle, "recommended to use steel or ruby nozzles" as one.
+  Nine wordings the build had warned it could not read (PARSE-UNREAD) are read, and the reviews that explained them
+  name nothing now (m290). A negation reads as one: "not recommended to print using a heated chamber", "do not
+  recommend … brass nozzle", "no need to use a steel nozzle"; a stainless or "brass or steel" nozzle is not a hardened
+  one.
+- **What the guard found next (m295).** With the reader taught, `audit:context` checks every profile again, and a fresh
+  draw of 40 after m294 found three more families: a table row "Nozzle" answered with the nozzle a product needs
+  ("Standard brass or higher grade will work", "Nozzle hardened"), where profiles held the import's fibre sentence, two
+  Siraya TPUs against their sheet's brass; m170's "not printing guidance" profiles whose sheets' numbered notes are
+  guidance (Raise3D's "2. Please dry the filament … at least 8 hours at 80-100°C"), five of them copies; and nozzle sizes
+  and notes taken from a test-bar block. The reader now drops every kind of setting under a test-bar heading, not only
+  temperatures, and a block ends where a numbered note or a guidance heading begins. The guard also flags a held setting
+  its sheet prints only under such a heading (LUVOCOM 3F PP-CF's extrusion nozzle), since the reader no longer reads it.
+- **Three more draws, each swept.** Draws of 40 after each round found 4, 2 and 2 deciding errors, each a family:
+  Raise3D's "Recommended environmental" split around its value, purefil's value two lines under its label, enclosure
+  statements in prose (about 30 profiles: "printable without an enclosure", "Please keep the chamber closed"),
+  SIDDAMENT's "Seal the Box: No" (18), SUNLU's unit-less speed bands, and a drying window read at whichever end carried
+  the unit ("90℃-100℃" gave 90, "70-80℃" gave 80; now the upper end, and a cell joining two methods by its first, 19
+  profiles retyped). The reader learned each and the guard swept it (m295).
+- **Which profile decides.** A product with several rows (speeds, nozzle sizes, foamed and unfoamed) is judged across
+  all of them, as before (`products.js`, aggregateGate): the profile a gate cites is the one that decides it.

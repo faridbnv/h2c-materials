@@ -2060,3 +2060,111 @@ P1190,Cooling,50%
 P1190,Speed,30 – 40 mm/s
 P1193,Speed,10 - 30 mm/s
 P1194,Speed,30-200 mm/s
+P0064,Storage humidity,Dry box recommended
+P0092,Storage humidity,Dry box not necessary
+P0102,Storage humidity,Dry box not necessary
+P0111,Storage humidity,Dry box not necessary
+P0173,Storage humidity,Dry box not necessary
+P0177,Storage humidity,Dry box not necessary
+P0179,Storage humidity,Dry box not necessary
+P0185,Storage humidity,Dry box recommended
+P0189,Storage humidity,Dry box not necessary
+P0190,Storage humidity,Dry box not necessary
+P0191,Storage humidity,Dry box not necessary
+P0192,Storage humidity,Dry box not necessary
+P0198,Storage humidity,Dry box not necessary
+P0199,Storage humidity,Dry box not necessary
+P0203,Storage humidity,Dry box not necessary
+P0204,Storage humidity,Dry box not necessary
+P0205,Storage humidity,Dry box not necessary
+P0206,Storage humidity,Dry box not necessary
+P0207,Storage humidity,Dry box not necessary
+P0208,Storage humidity,Dry box not necessary
+P0214,Storage humidity,Dry box not necessary
+P0215,Storage humidity,Dry box recommended
+P0218,Storage humidity,Dry box recommended
+P0220,Storage humidity,Dry box not necessary
+P0221,Storage humidity,Dry box recommended
+P0223,Storage humidity,Dry box not necessary
+P0226,Storage humidity,Dry box recommended
+P0231,Storage humidity,Dry box not necessary
+P0234,Storage humidity,Dry box not necessary
+P0235,Storage humidity,Dry box not necessary
+P0237,Storage humidity,Dry box not necessary
+P0360,Storage humidity,Dry box not necessary
+P0361,Storage humidity,Dry box not necessary
+P0546,Storage humidity,Dry box recommended
+P0555,Storage humidity,Dry box not necessary
+P0557,Storage humidity,Dry box not necessary
+P0572,Storage humidity,Dry box recommended
+P0776,Storage humidity,Dry box not necessary
+P1163,Storage humidity,Dry box not necessary
+P1182,Storage humidity,Dry box not necessary
+P1202,Storage humidity,Dry box not necessary
+P1220,Storage humidity,Dry box not necessary
+P1242,Storage humidity,Dry box not necessary
+P0031,Storage humidity,Dry box recommended No
+P0041,Storage humidity,Dry box not necessary
+P0058,Storage humidity,Dry box recommended Yes
+P0107,Storage humidity,Dry box recommended No
+P0114,Storage humidity,Dry box not necessary
+P0120,Storage humidity,Dry box not necessary
+P0174,Storage humidity,Dry box recommended No
+P0175,Storage humidity,Dry box not necessary
+P0176,Storage humidity,Dry box not necessary
+P0178,Storage humidity,Dry box not necessary
+P0180,Storage humidity,Dry box not necessary
+P0181,Storage humidity,Dry box recommended if wet
+P0187,Storage humidity,Dry box not necessary
+P0188,Storage humidity,Dry box recommended
+P0193,Storage humidity,Dry box recommended No
+P0194,Storage humidity,Dry box recommended
+P0195,Storage humidity,Dry box not necessary
+P0201,Storage humidity,Dry box recommended No
+P0202,Storage humidity,Dry box recommended No
+P0209,Storage humidity,Dry box not necessary
+P0211,Storage humidity,Dry box recommended No
+P0212,Storage humidity,Dry box recommended No
+P0213,Storage humidity,Dry box recommended No
+P0216,Storage humidity,Dry box recommended No
+P0219,Storage humidity,Dry box recommended No
+P0222,Storage humidity,Dry box recommended No
+P0224,Storage humidity,Dry box recommended
+P0228,Storage humidity,Dry box not necessary
+P0229,Storage humidity,Dry box recommended
+P0230,Storage humidity,Dry box recommended No
+P0232,Storage humidity,Dry box recommended No
+P0233,Storage humidity,Dry box not necessary
+P0236,Storage humidity,Dry box not necessary
+P0362,Storage humidity,Dry box no
+P0363,Storage humidity,Dry box no
+P0365,Storage humidity,Dry box no
+P0366,Storage humidity,Dry box no
+P0367,Storage humidity,Dry box no
+P0368,Storage humidity,Dry box no
+P0545,Storage humidity,Dry box recommended No
+P0549,Storage humidity,Dry box recommended Yes
+P0550,Storage humidity,Dry box recommended No
+P0554,Storage humidity,Dry box recommended No
+P0556,Storage humidity,Dry box recommended No
+P0725,Storage humidity,Drybox: Not necessary
+P0727,Storage humidity,Dry box recommended No
+P0728,Storage humidity,Drybox: Not necessary
+P0734,Storage humidity,Dry box recommended No
+P0738,Storage humidity,Drybox: Not necessary
+P0833,Storage humidity,Dry box recommended
+P0838,Storage humidity,Dry box recommended
+P0855,Storage humidity,Dry box recommended
+P0889,Storage humidity,Dry box not necessary
+P0900,Storage humidity,Dry box recommended No
+P1205,Storage humidity,Dry box No
+P1214,Storage humidity,Dry box recommended No
+P1215,Storage humidity,Dry box recommended No
+P1216,Storage humidity,Dry box recommended No
+P1231,Storage humidity,Dry box not necessary
+P1241,Storage humidity,Dry box recommended if wet
+P1247,Storage humidity,Dry box recommended No
+P1249,Storage humidity,Dry box recommended No
+P1266,Storage humidity,Dry box recommended No
+P1288,Storage humidity,Drybox recommended
+P1305,Storage humidity,Drybox recommended

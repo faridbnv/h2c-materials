@@ -1,0 +1,166 @@
+id,column,expect,value,quote,marks
+P0048,Drying,Not published,90–100°C for 6–8 hours,at 90–100°C for 6–8 hours before use,M0876
+P0057,Drying,Not published,"70~75 ℃, 6-8 h",Dring Conditions 70~75 ℃，6-8 h,M0889
+P0070,Enclosure,"recommended for larger prints sunlight and direct heat. When stored properly,",recommended for larger prints,Closed chamber recommended for larger prints,M1312
+P0088,Abrasion / clogging,Not published,Compatible Nozzle Material Any common material,Compatible Nozzle Material Any common material,M1207
+P0176,Abrasion / clogging,"If you have any questions or experience any issues, Ruby or hardened nozzle not necessary",Ruby or hardened nozzle not necessary,Ruby or hardened nozzle not necessary,M1285
+P0228,Abrasion / clogging,"If you have any questions or experience any issues, Ruby or hardened nozzle not necessary",Ruby or hardened nozzle not necessary,Ruby or hardened nozzle not necessary,M1318
+P0273,Drying,Not published,55°C/6H,Build plate temperature 55°C/6H,M1199
+P0311,Nozzle °C,200 ° C,190 – 230 (℃),Nozzle temperature 190 – 230 (℃),M1143
+P0412,Chamber °C,Not published,常温,Room Temp. 常温,M0791
+P0417,Enclosure,Not published,Printing in an enclosed printer,Printing in an enclosed printer,M0741
+P0445,Drying,"75℃-85,6","75℃-85, 6h","75℃-85, 6h",M0436
+P0466,Drying,Not published,Using a hot dry air oven at 90℃-100℃ for at least 12 hours is recommended,at 90℃-100℃ for at least 12 hours is recommended,M0062 M0064
+P0539,Abrasion / clogging,Not published,use of brass nozzle,with air filtration and use of brass nozzle.,M0514
+P0560,Bed °C,Not published,80,Recommended Bed Temperature / Substrate ℃ / Type 80,M0352
+P0593,Drying,Not published,"4 hours, 110°C","4 hours, 110°C",M0210
+P0594,Enclosure,Not published,print in a printer with a closed chamber,with a closed chamber,M0914
+P0603,Drying,80 °C,80 °C for 4 - 6 hours,Drying Recommendations 80 °C for 4 - 6 hours,M0343
+P0605,Drying,80 °C,80 °C for 4 - 6 hours,Drying Recommendations 80 °C for 4 - 6 hours,M0349
+P0612,Drying,55 °C,55 °C; Minimum Time 1 hour,Drying Temperature 55 °C | Minimum Time 1 hour,M0672
+P0612,Bed °C,Not published,Small parts Room temperature (no heating); Large parts 45–50 °C,Large parts 45–50 °C,M0674
+P0619,Drying,Not published,60 BA for 4 - 6 hours,Drying ^ecommendations 60 BA for 4 - 6 hours,M0348
+P0621,Abrasion / clogging,Not published,"it is recommended to use steel nozzle or ruby nozzle, hardened steel extruder gear will be perfect","it is recommended to use steel nozzle or ruby nozzle, hardened steel extruder | gear will be perfect",M0962
+P0632,Nozzle °C,350 - 400 °C,400 - 450 °C,temperature: 400 - 450 °C,M0204
+P0638,Bed °C,Not published,None needed(or 60℃ if applicable),None needed(or 60℃ if applicable),M0810
+P0643,Drying,71 °C (160 °F),71 °C (160 °F); Drying Time 4-6 hrs,71 °C (160 °F) | Drying Time 4-6 hrs,M0162
+P0648,Chamber °C,Not published,Room temperature,Room temperature,M0095
+P0649,Chamber °C,Not published,Room temperature,Room temperature,M0095
+P0662,Bed °C,20 °C,"20 °C (50 - 80 °C recommended for the first layer, 100 – 110 °C for non-destructive removal after completion)",Bed temperature 20 °C (50 - 80 °C recommended for the,M0072 M0073
+P0664,Drying,80 °C,80 °C for 6 - 8 hours,Drying Recommendations 80 °C for 6 - 8 hours,M0344
+P0668,Drying,Not published,65℃/> 3h,Dry the filaments (65℃/> 3h) before printing,M0934 M0936
+P0669,Nozzle °C,320 - 340 °C,310 - 340 °C,temperature: 310 - 340 °C,M0235
+P0677,Drying,80 °C,80 °C for 6 - 8 hours,Drying Recommendations 80 °C for 6 - 8 hours,M0345
+P0684,Drying,55 °C,55 °C; Minimum Time 1 hour,Drying Temperature 55 °C | Minimum Time 1 hour,M0688
+P0684,Bed °C,Not published,Small parts Room temperature (no heating); Large parts 50–55 °C,Large parts 50–55 °C,M0692
+P0686,Drying,55 °C,55 °C; Minimum Time 1 hour,Drying Temperature 55 °C | Minimum Time 1 hour,M0664
+P0686,Bed °C,Not published,Small parts Room temperature (no heating); Large parts 40–45 °C,Large parts 40–45 °C,M0666
+P0692,Drying,55 °C,55 °C; Minimum Time 1 hour,Drying Temperature 55 °C | Minimum Time 1 hour,M0679
+P0692,Bed °C,Not published,Small parts Room temperature (no heating); Large parts 45–50 °C,Large parts 45–50 °C,M0684
+P0703,Bed °C,Not published,None needed(or 60℃ if applicable),None needed(or 60℃ if applicable),M0806
+P0706,Chamber °C,Not published,around 100 ºC,around 100 ºC for the,M0214
+P0709,Drying,80°C (176°F),80°C (176°F); Drying Time 2-4 hrs,80°C (176°F) | Drying Time 2-4 hrs,M0169
+P0709,Nozzle °C,Not published,240 - 260ºC,Extruder: 240 - 260ºC,M0172
+P0709,Bed °C,Not published,100 - 110ºC,Bed: 100 - 110ºC,M0173
+P0709,Enclosure,Not published,works best with an enclosed print area,works best with an enclosed print area,M0174
+P0747,Chamber °C,Not published,"At least closed chamber, 65°C active heated","Build Chamber Temper- At least closed chamber, 65°C active heated",M0317
+P0747,Enclosure,Not published,At least closed chamber,"Build Chamber Temper- At least closed chamber, 65°C active heated",M0318
+P0751,Drying,Not published,"80 °C, 8 h","Blast Drying Oven: 80 °C, 8 h",M0001 M0003
+P0752,Drying,Not published,55℃/>4H,dry (55℃/>4H) before printing,M0937 M0939
+P0757,Chamber °C,Not published,no need of temperature chamber,no need of temperature chamber,M0917
+P0765,Chamber °C,Not published,常温,Room Temp. 常温,M0759
+P0768,Chamber °C,Not published,Normal temperature,Room Temp. Normal temperature,M0764
+P0773,Chamber °C,Not published,Normal temperature,Room Temp. Normal temperature,M0769
+P0779,Drying,Not published,does not require drying before using,PLA does not require drying before using,M1252
+P0782,Drying,Not published,"may require drying before use, although usually it is not necessary","PET-G may require drying before use, although usually it is not necessary",M1255
+P0786,Chamber °C,Not published,Normal temperature,Room Temp. Normal temperature,M0752
+P0793,Chamber °C,Not published,Normal temperature,Room Temp. Normal temperature,M0775
+P0795,Chamber °C,Not published,Normal,Room Temp. Normal,M0745
+P0798,Chamber °C,Not published,Normal temperature,Room Temp. Normal temperature,M0743
+P0801,Chamber °C,Not published,常温,Room Temp. 常温,M0762
+P0802,Chamber °C,Not published,Normal temperature,Room Temp. Normal temperature,M0785
+P0808,Chamber °C,Not published,Normal temperature,Room Temp. Normal temperature,M0748
+P0817,Bed °C,Not published,± 100 – 110 ˚C,Recommended heat bed temperature to print 3DJAKE ABS: ± 100 – 110 ˚C,M0253
+P0820,Nozzle °C,220°C,190-230°C,190-230°C 25-60°C 0-50°C,M0248
+P0832,Drying,Not published,"70-80℃, 8-12h",70-80℃，8-12h,M0255
+P0837,Drying,120 °C,120 °C; Drying time 8 h,120 °C | Drying time 8 h,M0502
+P0843,Nozzle °C,220℃,190-230℃,190-230℃ 25-60℃ 0-50℃,M0241
+P0850,Drying,120 °C,120 °C; Drying time 8 h,120 °C | Drying time 8 h,M0506
+P0858,Drying,Not published,We do not recommend drying our PLA-based materials,We do not recommend drying our PLA-based materials,M0278
+P0864,Drying,Not published,"70-80℃, 8-12h",70-80℃，8-12h,M0256
+P0867,Chamber °C,Not published,0-50˚C,220-260˚C 70-80˚C 0-50˚C,M0251
+P0882,Bed °C,Not published,20°C and 50°C,heated bed temperature between 20°C and 50°C,M0124
+P0888,Drying,120 °C,120 °C; Drying time 8 h,120 °C | Drying time 8 h,M0499
+P0900,Enclosure,Not published,recommended for larger prints,Closed chamber for printing recommended for larger prints,M1256
+P0904,Drying,Not published,50-60°C for at least 4-6 hours,oven at 5 0-60°C for at least 4-6 hours,M0115 M0120
+P0931,Drying,70°C,70°C for 6 hours,70°C for 6 hours,M0496
+P0940,Nozzle °C,360 - 380 °C,450 - 520 °C,temperature: 450 - 520 °C,M0998 M1000
+P0946,Bed °C,Not published,> 50 °C,Print Bed Temperature: > 50 °C,M0983
+P0950,Drying,60°C,60°C for 6 hours,Drying Conditions 60°C for 6 hours,M0497
+P0952,Drying,Not published,"Blast Drying Oven: 80 °C, 8 h","Drying Settings before Printing Blast Drying Oven: 80 °C, 8 h",M0293 M0294
+P0953,Nozzle °C,250 - 290 °C,265 - 290 °C,temperature: 265 - 290 °C,M0985 M0988
+P0954,Nozzle °C,250 - 290 °C,265 - 290 °C,temperature: 265 - 290 °C,M0197
+P0965,Nozzle °C,250 - 290 °C,265 - 290 °C,temperature: 265 - 290 °C,M0992 M0995
+P0975,Bed °C,Not published,20°C and 50°C,heated bed temperature between 20°C and 50°C,M0124
+P0976,Drying,Not published,50-60°C for at least 4-6 hours,oven at 5 0-60°C for at least 4-6 hours,M0115 M0120
+P0981,Drying,55 °C,55 °C; Minimum Time 1 hour,Drying Temperature 55 °C | Minimum Time 1 hour,M0702
+P0981,Bed °C,Not published,Small parts Room temperature (no heating); Large parts 50–55 °C,Large parts 50–55 °C,M0706
+P0998,Bed °C,Not published,± 0 – 60 ˚C,Recommended heat bed temperature to print 3DJAKE mattePLA: ± 0 – 60 ˚C,M0286
+P0999,Drying,55 °C,55 °C; Minimum Time 1 hour,Drying Temperature 55 °C | Minimum Time 1 hour,M0695
+P0999,Bed °C,Not published,Small parts Room temperature (no heating); Large parts 50–55 °C,Large parts 50–55 °C,M0699
+P1019,Drying,50 °C,50 °C for 4 - 6 hours,Drying Recommendations 50 °C for 4 - 6 hours,M0346
+P1022,Bed °C,60°C,60°C / 70°C,Suggested bed temperature 60°C / 70°C,M0559
+P1029,Drying,Not published,70℃/> 12h,Dry the filaments (70℃/> 12h) before printing,M0941 M0943
+P1030,Bed °C,Not published,± 60 – 90 ˚C,Recommended heat bed temperature to print 3DJAKE easyPETG: ± 60 – 90 ˚C,M0285
+P1032,Drying,55 °C,55 °C; Minimum Time 1 hour,Drying Temperature 55 °C | Minimum Time 1 hour,M0656
+P1032,Bed °C,Not published,Small parts Room temperature (no heating); Large parts 50–55 °C,Large parts 50–55 °C,M0660
+P1092,Bed °C,Not published,± 90 – 110 ˚C,Recommended heat bed temperature to print 3DJAKE PCTG: ± 90 – 110 ˚C,M0311
+P1103,Chamber °C,Not published,常温,环境温度 Room Temp. 常温,M0726
+P1105,Chamber °C,Not published,常温,环境温度 Room Temp. 常温,M0734
+P1108,Chamber °C,Not published,常温,Room Temp. 常温,M0789
+P1113,Abrasion / clogging,Not published,Phaetus hardened steel and above grade nozzles shall be selected,Phaetus hardened steel and above grade nozzles shall be selected,M0649
+P1114,Chamber °C,Not published,常温,环境温度 Room Temp. 常温,M0730
+P1124,Drying,Not published,Not necessary,Drying Not necessary Print with,M1043
+P1125,Bed °C,Not published,100°C to 110°C,from 100°C to 110°C,M0101
+P1125,Chamber °C,Not published,50°C,"50°C, to significantly reduce issues",M0102
+P1125,Nozzle °C,Not published,250°C to 270°C,Ideal extrusion nozzle temperatures range from 250°C to 270°C,M0103
+P1139,Bed °C,Not published,20°C to 50°C,heated bed temperature ranging from 20°C to 50°C,M0123
+P1145,Chamber °C,Not published,no heating chamber are required,no heating chamber are required during the printing process,M0640
+P1148,Abrasion / clogging,Not published,Hardened steel or higher grade,Nozzle Hardened steel or higher grade,M0105
+P1152,Drying,Not published,60 °C in a hot air dryer or vacuum oven for 4 to 16 hours,Drying recommendations to 60 °C in a hot air dryer or vacuum oven for 4 to 16 hours,M0813 M0814 M0815
+P1153,Chamber °C,Not published,常温,环境温度 Room Temp. 常温,M0729
+P1163,Drying,Not published,at least 6h at 85°C using a hot dry air oven,at least 6h at 85°C using a hot dry air oven,M1372 M1373 M1374
+P1165,Bed °C,Not published,± 0-60˚C,If you have a heated bed the recommended temperature is ± 0-60˚C,M0313
+P1166,Drying,75°C,75°C for 8 hours,Suggested drying temperature 75°C for 8 hours,M0556
+P1170,Drying,Not published,70-80C for 4-6 hours,drying temperature set at 70-80C for 4-6 hours,M0379
+P1171,Bed °C,Not published,Cold bed / 40-50,Bed Temp. ˚C Cold bed / 40-50,M0388
+P1176,Drying,Not published,Dehydrate for 6h at 60°C prior to printing after prolonged exposure to humidity.,Dehydrate for 6h at 60°C prior to printing after prolonged exposure to humidity.,M0574 M0576
+P1187,Drying,Not published,55℃/> 4h,dry the filaments (55℃/> 4h) before printing,M0925 M0927
+P1188,Drying,60 °C,60 °C for 6 - 8 hours,Drying Recommendations 60 °C for 6 - 8 hours,M0347
+P1194,Drying,Not published,"80-100℃, 6-8 H",80-100℃，6-8 H,M0495
+P1195,Drying,Not published,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,M0602 M0604
+P1219,Drying,Not published,"50-60℃, 6h","50-60℃, 6h",M0434
+P1222,Drying,Not published,"50-60℃, 6h","50-60℃, 6h",M0433
+P1235,Drying,Not published,60-65℃,Drying Temp. 60-65℃,M0798
+P1235,Chamber °C,Not published,常温,Room Temp. 常温,M0799
+P1240,Drying,Not published,"Blast Drying Oven: 65 °C, 8 h",Drying Settings before Printing Blast Drying Oven: 65 °C，8 h,M0296 M0297
+P1244,Chamber °C,Not published,常温,环境温度 Room Temp. 常温,M0732
+P1245,Nozzle °C,Not published,240-260 °C,240-260 °C,M0459
+P1245,Bed °C,Not published,80-110 °C,80-110 °C,M0460
+P1245,Drying,Not published,80°C,80°C,M0461
+P1246,Drying,Not published,70-80°C for 4-6h,filament at 70-80°C for 4-6h,M0621 M0622
+P1252,Drying,Not published,55℃/>4H,dry the printing (55℃/＞4H),M0929 M0931
+P1256,Drying,Not published,dry the filament before usage,recommended to dry the filament before usage,M1053 M1054 M1055
+P1257,Bed °C,Not published,120-140 °C,120-140 °C,M0467
+P1257,Drying,Not published,pre-dried using a suitable filament dryer before 3D printing,pre-dried using a suitable filament dryer before 3D printing,M0469
+P1258,Drying,Not published,dry the filament before usage,recommended to dry the filament before usage,M1057 M1058 M1059
+P1259,Nozzle °C,Not published,255-275 °C,255-275 °C,M0462
+P1259,Bed °C,Not published,100-120 °C,100-120 °C,M0463
+P1259,Drying,Not published,80°C,80°C,M0464
+P1261,Drying,Not published,70℃/> 12 h,Drying (70℃/> 12 h) before printing,M0946 M0948
+P1262,Drying,Not published,120°C for at least 8 hours,dry the filaments in a hot air oven at 120°C for at least 8 hours,M0865 M0867 M0868
+P1264,Drying,Not published,120°C for at least 8 hours,dry the filaments in a hot air oven at 120°C for at least 8 hours,M0871 M0873 M0874
+P1268,Bed °C,Not published,60-80 (110),Bed Temperature / Substrate (First Layer) ℃ / Type 60-80 (110),M0356
+P1271,Bed °C,Not published,120-150°C,120-150°C,M0472
+P1271,Drying,Not published,80°C,80°C,M0473
+P1272,Drying,Not published,Dehydrate for 6 h at 100 °C prior to printing after prolonged exposure to humidity.,Dehydrate for 6 h at 100 °C prior to printing after prolonged exposure to humidity.,M0591 M0593
+P1273,Enclosure,Not published,"No enclosure, or heated chamber needed","No enclosure, or heated chamber",M0966
+P1284,Abrasion / clogging,Not published,Requires hardened nozzle,Requires hardened nozzle,M1210
+P1284,Bed °C,Not published,95 ± 10 °C,Bed Temperature: 95 ± 10 °C,M1213
+P1284,Nozzle °C,Not published,245 ± 10 °C,Extruder Temperature: 245 ± 10 °C,M1214
+P1284,Drying,Not published,not necessary,Drying not necessary,M1215
+P1286,Drying,Not published,"80-100℃, 6-8 H (Convection drying oven)","Pre-printing Drying Conditions 80-100℃, 6-8 H",M0428
+P1290,Drying,Not published,No drying needed!,No drying needed!,M1403 M1404
+P1294,Abrasion / clogging,Not published,it is recommended to use steel or ruby nozzles during printing,it is recommended to use steel or ruby nozzles during printing,M0485
+P1295,Drying,Not published,120C for 4 hours,120C for 4 hours,M1411
+P1298,Drying,Not published,Dry at70℃/>8h,Dry at70℃/>8h,M0824
+P1300,Nozzle °C,Not published,265°C ± 10,Print temperature: 265°C ± 10,M0607
+P1300,Bed °C,Not published,85°C ± 10,Bed temp: 85°C ± 10,M0608
+P1300,Abrasion / clogging,Not published,hardened,Nozzle - hardened!,M0609
+P1301,Drying,65 °C,8–12 hours at 65°C,drying for 8–12 hours at 65°C,M0450 M0451
+P1304,Drying,Not published,50-60°C for 6+ hours,Drying 5 0-6 0°C for 6+ hours,M0109
+P1304,Abrasion / clogging,Not published,"Carbon-hardened, hardened steel or higher-grade nozzles","Nozzle material Carbon- hardened, hardene d ste el or higher- grade nozzles",M0110
+P1313,Abrasion / clogging,Not published,No hardened nozzle needed,Easy Printing: No hardened nozzle needed,M0710
+P0624,Nozzle °C,280-310℃,280-310℃ (Recommended temperature 290-300℃),Extruder Temperature 280-310℃（Recommended temperature 290-300℃）,M0885
+P0882,Drying,Not published,50°C - 65°C for 4-6 hours,please dry the Flex TPU 95A filament at 50°C - 65°C for 4-6 hours,guard
+P0906,Drying,Not published,4-6 hours at 70°C - 80°C before printing,Dry 4-6 hours at 70°C - 80°C before printing,guard

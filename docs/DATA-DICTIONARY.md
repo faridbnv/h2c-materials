@@ -1262,6 +1262,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|
 | Current manufacturer product guidance |  |
 | Manufacturer published guidance |  |
+| Retired duplicate record | A second profile of one product read from the same sheet (D120): kept as an audit trail and left out of the database; its Locator names the profile that stays. |
 
 <a id="vocab-profile-topics"></a>
 ### profile-topics

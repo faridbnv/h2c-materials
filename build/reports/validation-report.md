@@ -11,13 +11,13 @@ Database snapshot 2026-09-21 · build 2026-10-01
 | materials | 175 |
 | h2cRelevant | 136 |
 | familyEntries | 22 |
-| retiredDuplicates | measurements 299, evidence 17 |
+| retiredDuplicates | measurements 299, evidence 17, profiles 79 |
 | excluded | 17 |
 | grades | 1163 |
 | measurements | 11246 |
 | numericMeasurements | 11065 |
 | quarantined | 24 |
-| profiles | 1323 |
+| profiles | 1285 |
 | evidence | 770 |
 | prices | 357 |
 | sources | 1846 |
@@ -410,16 +410,8 @@ Every one of the 175 materials was checked, and any failure below stops the buil
 These are not defects. They record what the compiled database cannot support, so the
 interface can say so rather than implying a certainty it does not have.
 
-- `PARSE-UNREAD` **Print setup row 176** — Chamber text not parsed: "material does not require a heated building chamber"
 - `PARSE-UNREAD` **Print setup row 1284** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
 - `PARSE-UNREAD` **Print setup row 1286** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
-- `PARSE-UNREAD` **Print setup row 1288** — Enclosure text not parsed: "enclosed-chamber printing"
-- `PARSE-UNREAD` **Print setup row 1289** — Chamber text not parsed: "does not require a heated chamber"
-- `PARSE-UNREAD` **Print setup row 1295** — Chamber text not parsed: "does not require a heated print chamber"
-- `PARSE-UNREAD` **Print setup row 1299** — Enclosure text not parsed: "enclosed-chamber printing"
-- `PARSE-UNREAD` **Print setup row 1301** — Enclosure text not parsed: "It is ideal for use in open desktop 3D printers."
-- `PARSE-UNREAD` **Print setup row 1306** — Chamber text not parsed: "It is recommended to print using a heated chamber."
-- `PARSE-UNREAD` **profiles** — 4 process temperature cells were not parsed: P0175 chamber: "material does not require a heated building chamber" | P1288 chamber: "does not require a heated chamber" | P1294 chamber: "does not require a heated print chamber" | P1305 chamber: "It is recommended to print using a heated chamber."
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 8 values are physically impossible for their property and were kept out of the estimate model: V009231 PLA Density 3900 kg/m³; V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009275 PLA Density 3130 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
 - `EST-OUTLIER` **materials** — 6 measured headlines sit far outside what every other observation predicts; check the source and the grade: PA6-GS density 1010 (expected about 1400); PLA-EC density 1240 (expected about 1520); PBAT tensileModulusXY 0.006 (expected about 0.968); nGen-CF tensileStrengthXY 44.7 (expected about 54.1); PA6 hdt045 140 (expected about 94.2); PA12 hdt045 135 (expected about 91.6)

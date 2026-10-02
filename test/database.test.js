@@ -104,7 +104,9 @@ test('a derived coverage row speaks only where no stored row does, and only for 
 test('every profile note reaches the reader: the table and the compiled profiles hold the same rows', () => {
   // The notes were columns of profiles.csv until m44, where most were empty on most rows and three were empty on
   // every row. They are rows now, and a note that never reaches a profile is a note nobody reads.
-  const stored = readFileSync(join(root, 'data/tables/profile_notes.csv'), 'utf8').trim().split('\n').length - 1;
+  // A retired duplicate's notes stay beside it in the table, as its cells do, and the profile that stays holds the same (D120).
+  const retiredProfiles = new Set(readFileSync(join(root, 'data/tables/profiles.csv'), 'utf8').split('\n').filter((l) => /,Retired duplicate record,/.test(l)).map((l) => l.split(',')[0]));
+  const stored = readFileSync(join(root, 'data/tables/profile_notes.csv'), 'utf8').trim().split('\n').slice(1).filter((l) => !retiredProfiles.has(l.split(',')[0])).length;
   const compiled = db.profiles.flatMap((p) => p.notes);
   assert.equal(compiled.length, stored, 'profile_notes.csv rows and compiled profile notes disagree');
   assert.ok(compiled.length >= 363, 'profile notes have gone missing since m44 moved 363 of them');
@@ -339,6 +341,10 @@ test('every record moves with its product: it sits under its grade\'s material, 
   assert.equal(db.meta.counts.retiredDuplicates.measurements, retiredIn('measurements'));
   assert.ok(db.meta.counts.retiredDuplicates.measurements >= 175);
   assert.equal(db.meta.counts.retiredDuplicates.evidence, retiredIn('evidence'));
+  // A profile read twice from one sheet (D120) stays in the table and never reaches the database.
+  assert.equal(db.meta.counts.retiredDuplicates.profiles, retiredIn('profiles'));
+  assert.ok(db.meta.counts.retiredDuplicates.profiles >= 74);
+  assert.ok(!db.profiles.some((p) => p.profile === 'Retired duplicate record'));
 });
 
 // Regression: Zytel 101L's moulded 3.1 GPa vetoed screening PA66 out of "stiffness at least 3 GPa".

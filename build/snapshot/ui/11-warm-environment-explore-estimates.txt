@@ -365,7 +365,7 @@ all products: 185
 PA6-GF
 Nylon / Polyamide
  PASS
-6 of 6 products
+5 of 6 products
  1,310
 1,140–1,370 · 9
  4.35
@@ -375,7 +375,7 @@ Nylon / Polyamide
 typical: annealed
  4.95
 2.4–12.5 · 6
- passing: 161–210
+ passing: 161–205
 all products: 184
 161–210 · 10
 typical: annealed
@@ -517,7 +517,7 @@ nothing published to judge
 PC
 Polycarbonate
  PASS
-6 of 10 products
+5 of 9 products
  1,200
 1,150–1,230 · 18
  2.15
@@ -1055,8 +1055,8 @@ nothing published to judge
 POM
 also called Acetal · Acetals
  UNKNOWN
-0 of 2 products
-likely fails: 2 measured below, 2 unpublished
+0 of 3 products
+likely fails: 3 measured below, 1 unpublished
  1,340
 1,140–1,420 · 3
  1.87 50 11 100 — ☆

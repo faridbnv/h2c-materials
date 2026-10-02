@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION, standardsOnly } from '../scripts/ingest/propose.mjs';
+import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION, standardsOnly, guidanceBeyondLabels } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -1393,3 +1393,61 @@ test('a notch is what the row says, in its method column too, and nothing where 
   assert.equal(notchOf('ISO 180/A'), 'Notched');
   assert.equal(notchOf('ISO 180/U'), 'Unnotched');
 });
+
+// The profile root-cause sweep of 2026-10-02: what a sheet says about printing beyond its labelled rows.
+const sheetOf = (...lines) => ({ pages: [{ page: 1, lines: lines.map((text) => ({ text })) }] });
+const setting = (field, raw, line) => ({ page: 1, field, topic: '', label: field, raw, fromBelow: false, line });
+
+test('a setting under a test-bar or pellet-processing heading is not printing guidance', () => {
+  const text = sheetOf('Recommended processing parameters', 'nozzle temperature: 265 - 290 °C', 'Processing', 'Nozzle °C 250 - 290',
+    'Printing parameters and styles of printing conditions:', 'Nozzle Temperature 220°C', 'Printing Speed 300mm/s', 'Infill 100%');
+  const kept = guidanceBeyondLabels(text, [setting('nozzle', '265 - 290 °C', 'nozzle temperature: 265 - 290 °C'), setting('nozzle', '250 - 290', 'Nozzle °C 250 - 290'), setting('nozzle', '220°C', 'Nozzle Temperature 220°C')]);
+  assert.deepEqual(kept.map((x) => x.raw), ['265 - 290 °C']);
+});
+
+test('a drying temperature takes its hours from the row below it', () => {
+  const text = sheetOf('Drying Temperature 55 °C', 'Minimum Time 1 hour', 'Note Drying is crucial for optimal results');
+  const [drying] = guidanceBeyondLabels(text, [setting('drying', '55 °C', 'Drying Temperature 55 °C')]);
+  assert.equal(drying.raw, '55 °C; Minimum Time 1 hour');
+});
+
+test("SUNLU's zonal windows and Recreus's nozzle-size blocks are nozzle rows of their own", () => {
+  const sunlu = guidanceBeyondLabels(sheetOf('Nozzle Print Temp.', '205-215℃', '50- 150mm/s', '190-210℃', 'Zonal Temperature', '300-600mm/s', '230-260℃', 'Print Platform Temp. 50-60℃'), []);
+  assert.deepEqual(sunlu.map((x) => x.raw), ['205-215℃', '190-210℃', '230-260℃']);
+  assert.match(sunlu[2].label, /Zonal Temperature, 300-600mm\/s/);
+  const recreus = guidanceBeyondLabels(sheetOf('Nozzle 0.4 mm', 'Layer Height 0.2 mm', 'Temperature 240 °C', 'Nozzle 0.6 mm', 'Temperature 242 °C'), []);
+  assert.deepEqual(recreus.map((x) => `${x.label} ${x.raw}`), ['Nozzle 0.4 mm 240 °C', 'Nozzle 0.6 mm 242 °C']);
+});
+
+test('a drying schedule stated only in a sentence is read; a specimen or storage sentence is not', () => {
+  const read = (...lines) => guidanceBeyondLabels(sheetOf(...lines), []).filter((x) => x.field === 'drying').map((x) => x.raw);
+  assert.deepEqual(read('we recommend to dry the filaments in a hot air oven at 120°C for at least 8 hours'), ['120°C for at least 8 hours']);
+  assert.deepEqual(read('Dehydrate for 6h at 60°C prior to printing after prolonged exposure to humidity'), ['6h at 60°C']);
+  assert.deepEqual(read('It is recommended to dry the printing (55℃/> 4h) before use'), ['55℃/> 4h']);
+  assert.deepEqual(read('All specimens were annealed at 80˚C for 24h and dried for 48h prior to testing.'), []);
+  assert.deepEqual(guidanceBeyondLabels(sheetOf('Dry at 70°C for 6 h'), [setting('drying', '80 °C', 'Drying 80 °C')]).filter((x) => x.field === 'drying').length, 1, 'a sheet with a labelled drying row is not read for sentences');
+});
+
+test('a test-bar block ends where a numbered note or a guidance heading begins; drying the printed part is not a schedule', () => {
+  const kept = (...lines) => guidanceBeyondLabels(sheetOf(...lines), []).filter((x) => x.field === 'drying').map((x) => x.raw);
+  assert.deepEqual(kept('All the specimens were printed at the following settings:', 'Nozzle temp. = 340 ºC; Bed temp.= 80 ºC; Infill= 100%', '1. Abrasion of the brass nozzle happens frequently.', '2. Please dry the filament for a long time, at least 8 hours at 80-100°C or more'), ['8 hours at 80-100°C']);
+  const nozzle = guidanceBeyondLabels(sheetOf('Test specimens were printed at 45 mm/s', 'Recommended Printing Settings', 'Nozzle Temperature 200-220 °C'), [setting('nozzle', '200-220 °C', 'Nozzle Temperature 200-220 °C')]);
+  assert.deepEqual(nozzle.map((x) => x.raw), ['200-220 °C']);
+  assert.deepEqual(kept('After printing, dry the model in an oven at 80-100°C for 1-3 h'), []);
+  assert.deepEqual(kept('please dry the Flex TPU 95A filament at 50°C - 65°C for 4-6 hours'), ['50°C - 65°C for 4-6 hours']);
+});
+
+test("a label the text layer set apart from its value is read: two lines down, or split around it (the second draw's families)", () => {
+  const read = (...lines) => guidanceBeyondLabels(sheetOf(...lines), []).map((x) => `${x.field}: ${x.raw}`);
+  assert.deepEqual(read('Printing temperature', 'Shrinkage (ISO 294-4, 2577) 0.2-0.4 %', '240-260 °C', 'Drying temperature', 'Elongation at break (ISO 527-1,2) 3 %', '80°C', 'Drying time', 'Heat deflection temperature 100 °C', '2-4h'),
+    ['nozzle: 240-260 °C', 'drying: 80°C; Drying time 2-4h']);
+  assert.deepEqual(read('Recommended environmental', '70 – 80 (recommended) (°C)', 'temperature'), ['chamber: 70 – 80 (recommended) (°C)']);
+  assert.deepEqual(read('help release the residual stress. Please keep the printer chamber closed'), ['enclosure: Please keep the printer chamber closed']);
+  assert.deepEqual(read('*** at least 12h at 80 using a hot dry air oven'), ['drying: 12h at 80']);
+});
+
+test('a nozzle named in a run-together list of recommendations is read (the third draw)', () => {
+  const read = guidanceBeyondLabels(sheetOf('Printing Recommendation', 'Dry at70℃/>8h，0.4，0.6hardened steel nozzle enclosed-chamber printing'), []);
+  assert.deepEqual(read.filter((x) => x.field === 'nozzle-material').map((x) => x.raw), ['hardened steel nozzle']);
+});
+

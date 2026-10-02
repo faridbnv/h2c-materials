@@ -548,10 +548,11 @@ export function compile(wb, { snapshot, build }) {
   const retiredDuplicates = {
     measurements: wb.Properties.rows.filter((r) => isRetiredDuplicate(r['Data status'])).length,
     evidence: wb['Use & durability'].rows.filter((r) => isRetiredDuplicate(r['Evidence type'])).length,
+    profiles: wb['Print setup'].rows.filter((r) => isRetiredDuplicate(r.Profile)).length,
   };
   const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues, wb['Page context']?.rows ?? []);
 
-  const profiles = compileProfiles(wb['Print setup'].rows, wb['Print setup notes'].rows, issues);
+  const profiles = compileProfiles(wb['Print setup'].rows.filter((r) => !isRetiredDuplicate(r.Profile)), wb['Print setup notes'].rows, issues);
   const retiredGrades = new Set(grades.filter((g) => g.retired).map((g) => g.id));
   for (const p of profiles) p.retired = retiredGrades.has(p.gradeId);
   const profilesByMaterial = new Map();

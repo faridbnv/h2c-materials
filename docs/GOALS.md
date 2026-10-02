@@ -67,7 +67,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | Product/state-owned evidence decides (D98–D100); the current [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) and frozen replay show answer changes. The v2.1 audit's scenario-gap count describes that release; rerun its generator after data changes. Application judgments and narrative claims never create passes. A row says how many products pass and shows the passing products' range; an unknown says how many measure below and how many publish nothing (D117) |
 | C7 | Rank and trade-offs (goal ordering, material ranges, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); since 2026-09-29 the chart draws and counts exact product states (D107), its controls and views reworked after the owner used it (D108 to D112), not re-scored; untested with the team (TEAM-TRIAL.md) |
 | C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | 4 | Passing products first, in the drawer's first view on a laptop; a product can be chosen, with its state, and its decision brief written (D103) |
-| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks nozzle, bed and chamber against the H2C, from own evidence, permitted twin, then labelled Bambu guide (D101). Current known/unknown counts are generated in [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) and [print.csv](../build/snapshot/print.csv); drying and bounded windows retain source limits, and annealing remains a repeatable state. Print settings are checked against what the import's own reader reads on every profile's sheet (D119); the last fresh draw after the sweep still found 3 of 40 profiles wrong (target under 3 %, OPEN-PROBLEMS §28) |
+| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks nozzle, bed and chamber against the H2C, from own evidence, permitted twin, then labelled Bambu guide (D101). Current known/unknown counts are generated in [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) and [print.csv](../build/snapshot/print.csv); drying and bounded windows retain source limits, and annealing remains a repeatable state. Print settings are checked against what the import's own reader reads on every profile's sheet (D119); the last fresh draw after the sweep still found 3 of 40 profiles wrong (target under 3 %, OPEN-PROBLEMS §28). On 2026-10-02 the profiles were fixed by cause rather than re-read (D120, [sweep](audits/2026-10-02-profile-root-causes/README.md)): every line where an error could hide was marked and read, each cause was taught to the import's reader that checks every profile, and four fresh draws found 4, 4, 2 and 2 deciding errors in 40, each family then swept |
 | C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | Current statement/product counts are in [counts.md](../build/snapshot/counts.md), with silent recipes/products in the generated [worklist](audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md). Literal claims now show their recorded scope/conditions separately; no suitability verdict follows |
 | C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | Unmapped facts and cached page text in release-stamped dist/h2c.sqlite (D105). The local full-text index remains partial; the dated current custody/index receipt and limitations are in OPEN-PROBLEMS §19. Private originals/text are not shipped to CI or Pages |
 | C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | 3 | Estimated only where no product publishes (148 material cells, `build/snapshot/counts.md`); the special cases went with the representative grade |
@@ -381,6 +381,15 @@ sample; agent-read corrections enter by migration, guard-checked against the cac
 spot-check. Work on a branch, one verified commit per phase, pushed when the owner says. The record is
 [the error-class sweep](audits/2026-10-01-error-classes/README.md); on 2026-10-01 the owner asked for it to be
 documented and pushed to main.
+
+## Decided on 2026-10-02, print profiles by cause
+
+The owner asked for a middle ground between another random draw of profiles and a re-read of all of them: find the
+root causes, fix every profile each cause touched, and have Claude Sonnet read wherever reading is needed. A script
+marks every line where a profile error could hide; Sonnet readers judge only the marks; each cause is fixed in the
+import's sheet reader and the parsers, which the guard runs over every profile; fresh draws measure what is left, and
+each family they find is taught and swept the same way. The record is
+[the profile root-cause sweep](audits/2026-10-02-profile-root-causes/README.md) (D120).
 
 ## Working rules
 

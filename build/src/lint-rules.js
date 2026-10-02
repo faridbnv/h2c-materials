@@ -29,6 +29,8 @@ export const LINT_RULES = {
   'GRADE-VALUES-TWIN': 'Two active grades share at least 80 % of at least five published values with no Shared formulation key between them: one table printed under two products (a reseller, a rebrand, a second-language sheet). Record it as R053 says (one formulation key, the values once) or accept with why the two are separate products (data audit 2026-10-01, RC5).',
   'FILING-FILLER-WORD': 'A product name names a filler or polymer its material does not have (CF, GF, metal, wood, ESD; PETG under PLA), and no Variant explains it. File the product under the material it is, or set its Variant (data audit 2026-10-01, RC9).',
   'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
+  'PROFILE-DUPLICATE': 'Two live profiles of one product from one sheet that do not name different rows of it (a print speed, a nozzle size): one is a copy, usually of a test bar\'s settings read as a second setup and later made to match (D120). Retire the copy (Profile "Retired duplicate record", its Locator naming the profile that stays) after moving anything only it holds.',
+  'PROFILE-SIBLING-SILENT': 'Two profiles of one product from one sheet, rows of it (a print speed, a nozzle size), where one holds a chamber, enclosure, drying or nozzle statement the other does not: the sheet prints it once for every row (D120). Copy it to the silent one.',
   'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
   'FORMULATION-KEY-SPANS-MATERIALS': 'One Shared formulation key on active grades of more than one material. The estimate model reads a key as one product and predicts it once, so two materials cannot both own it (D12, D44); file the product under the material it is.',
   'GRADE-KEY-PRODUCTS': 'One Shared formulation key on active grades with different product names. A sheet that prints several products gives each its own key (SourceID#product), or the model reads two products as one.',
@@ -535,6 +537,29 @@ export function lintData(tables, schemas) {
           if (own[field] && page[field] && own[field] !== page[field]) add('CONTEXT-ROW-CONTRADICTS-PAGE', 'measurements', r.MeasurementID, label, `the row says ${own[field]}; p. ${c.Page} of ${c.SourceID} says ${page[field]} (${c.PageContextID}: "${String(c.Statement).slice(0, 80)}")`);
         }
       }
+    }
+  }
+  // Two profiles of one product from one sheet (D120). A sheet that prints a row per print speed or nozzle size gives a
+  // profile per row, and its Locator names the row; any other pair is one setup read twice.
+  const ROW = /\b(standard|high)[- ]speed\b|\(high speed\)|\bclassic\b|zonal temperature|\bnozzle\s+(diameter\s+)?\d\.\d|\bnozzle \d\.\dmm row\b|\bfoamed column\b|\d+-\s*\d+mm\/s/i;
+  const SHEET_WIDE = ['Chamber °C', 'Enclosure', 'Drying', 'Abrasion / clogging'];
+  const stated = (v) => v != null && v !== '' && !/^Not (published|applicable)/.test(v);
+  const byProductSheet = new Map();
+  for (const r of tables.profiles?.rows ?? []) {
+    if (r.Profile === 'Retired duplicate record' || /not printing guidance/.test(r.Locator ?? '')) continue;
+    const k = `${r.GradeID}\u0000${r.SourceID}`;
+    if (!byProductSheet.has(k)) byProductSheet.set(k, []);
+    byProductSheet.get(k).push(r);
+  }
+  for (const ps of byProductSheet.values()) {
+    if (ps.length < 2) continue;
+    if (!ps.some((p) => ROW.test(p.Locator))) {
+      for (const p of ps.slice(1)) add('PROFILE-DUPLICATE', 'profiles', p.ProfileID, '', `${ps.length} profiles of ${p.GradeID} from ${p.SourceID} (${ps.map((x) => x.ProfileID).join(', ')}) name no row of the sheet between them`);
+      continue;
+    }
+    for (const col of SHEET_WIDE) {
+      const holder = ps.find((p) => stated(p[col])); if (!holder) continue;
+      for (const p of ps) if (!stated(p[col])) add('PROFILE-SIBLING-SILENT', 'profiles', p.ProfileID, col, `${holder.ProfileID}, another row of the same sheet, holds "${String(holder[col]).slice(0, 60)}"`);
     }
   }
   return findings;

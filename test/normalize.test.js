@@ -349,3 +349,40 @@ test('the control re-read of 2026-10-01: an at-most bed, a conditional bed, an a
   assert.deepEqual([nozzle.min, nozzle.max], [240, 270]);
 });
 
+test('the wordings the profile root-cause sweep found are read (2026-10-02)', () => {
+  const chamber = (v) => parseTemperature(v, { plausible: [0, 250] });
+  for (const v of ['Normal temperature', 'Normal', '常温']) assert.equal(chamber(v).state, PROCESS_STATE.AMBIENT, v);
+  for (const v of ['no need of temperature chamber', 'no heating chamber are required during the printing process', 'material does not require a heated building chamber', 'does not require a heated print chamber']) {
+    assert.equal(chamber(v).requirement, REQUIREMENT.NONE, v);
+  }
+  assert.equal(chamber('It is recommended to print using a heated chamber.').requirement, REQUIREMENT.RECOMMENDED);
+  for (const v of ['works best with an enclosed print area', 'Printing in an enclosed printer', 'At least closed chamber', 'enclosed-chamber printing']) assert.equal(parseEnclosure(v).state, 'recommended', v);
+  assert.equal(parseEnclosure('It is ideal for use in open desktop 3D printers.').state, 'not-needed');
+  assert.equal(parseEnclosure('keep the printer chamber closed').state, 'recommended');
+  assert.equal(parseEnclosure('Seal the Box: No').state, 'not-needed');
+  assert.equal(parseEnclosure('Seal the Box: Yes').state, 'recommended');
+  assert.equal(parseEnclosure('Seal the Box: Yes/No').state, 'not-needed', 'either: the printer decides');
+  assert.equal(parseEnclosure('printable without an enclosure').state, 'not-needed');
+  assert.equal(parseEnclosure('an enclosed printer is recommended for printing').state, 'recommended');
+  assert.equal(parseEnclosure('Enclosed-frame (rec.), open-frame').state, 'unknown', 'it allows both; a reviewer reads it');
+  assert.equal(parseAbrasion('Compatible Nozzle Material Any common material').requiresHardened, false);
+  assert.equal(parseAbrasion('with air filtration and use of brass nozzle.').requiresHardened, false);
+  assert.equal(parseAbrasion('it is recommended to use steel or ruby nozzles during printing').requiresHardened, true);
+});
+
+test('a negation is read as one (the independent review of the profile root-cause sweep)', () => {
+  assert.notEqual(parseTemperature('It is not recommended to print using a heated chamber.', { plausible: [0, 250] }).requirement, REQUIREMENT.RECOMMENDED);
+  assert.equal(parseAbrasion('We do not recommend using a brass nozzle').requiresHardened, true);
+  assert.equal(parseAbrasion('No need to use a steel nozzle').requiresHardened, false);
+  assert.notEqual(parseAbrasion('Use a brass or steel nozzle').requiresHardened, true);
+  assert.notEqual(parseAbrasion('recommended to use a stainless steel nozzle').requiresHardened, true);
+});
+
+test('a drying window is read at its upper end however its unit is printed, and the first schedule in a cell decides', () => {
+  for (const [v, tempC, hours] of [['70-80℃, 8-12h', 80, 12], ['50℃-60℃, 6h', 60, 6], ['at 90℃-100℃ for at least 12 hours', 100, 12], ['70℃-80℃,8h-12h', 80, 12],
+    ['50°C - 65°C for 4-6 hours', 65, 6], ['Blast Drying Oven: 55 °C, 8 h X1 Series Heatbed: 65 - 75 °C, 12 h', 55, 8], ['55 °C; Minimum Time 1 hour', 55, 1]]) {
+    const d = parseDrying(v);
+    assert.deepEqual([d.tempC, d.hours], [tempC, hours], v);
+  }
+});
+

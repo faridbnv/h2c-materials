@@ -327,8 +327,8 @@ typical: annealed
 PA6-GF
 Nylon / Polyamide
  UNKNOWN
-0 of 3 products
-likely fails: 3 measured below, 8 unpublished
+0 of 4 products
+likely fails: 4 measured below, 7 unpublished
  1,310
 1,140–1,370 · 9
  4.35
@@ -876,18 +876,18 @@ likely fails: 1 measured below, 3 unpublished
 POM
 also called Acetal · Acetals
  UNKNOWN
-0 of 2 products
-likely fails: 2 measured below, 2 unpublished
+0 of 3 products
+likely fails: 3 measured below, 1 unpublished
  1,340
 1,140–1,420 · 3
  1.87 50 11 100 — ☆
 PP
 Polyolefins
  PASS
-1 of 1 product
+2 of 2 products
  900
 890–960 · 8
- ~0.41–1.29† 19 passing: 850
+ ~0.41–1.29† 19 passing: 850–900
 all products: 850
  80
 58.5–85 · 3

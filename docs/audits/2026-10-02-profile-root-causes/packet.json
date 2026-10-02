@@ -1,0 +1,206 @@
+{
+  "Kind": "Print profiles fixed by cause: the causes found by marking every line an error could hide, fixed in the import's reader and swept across every profile",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scorecard": [
+    "C9",
+    "C15"
+  ],
+  "BaseCommit": "c56ba48",
+  "Decisions": [
+    "D120"
+  ],
+  "Migrations": [
+    "m290",
+    "m291",
+    "m292",
+    "m293",
+    "m294",
+    "m295"
+  ],
+  "Rule": "A print profile holds one setup its sheet prints, in the sheet's words; the import's reader reads every layout the sweep found, and the guard checks every profile against it.",
+  "Files": [
+    {
+      "File": "AGENTS.md",
+      "SHA256": "ec7aee4e2b370ac0c9781b539f39df2675713bf64b9e30d746bbde0ae5d85279"
+    },
+    {
+      "File": "build/reports/validation-report.md",
+      "SHA256": "3b4796e2af59e6e5edfca5cadbc2753c11579875f73a65ff7420ef5010979e86"
+    },
+    {
+      "File": "build/snapshot/counts.md",
+      "SHA256": "9d908a994aa0f83cabf44da3618bad6205917173beb11baad25c775fe4a686fd"
+    },
+    {
+      "File": "build/snapshot/gates.csv",
+      "SHA256": "95d3b56c8653bad65f143f030ccb2207a91a959a4533561993c6ba50c19294d4"
+    },
+    {
+      "File": "build/snapshot/print.csv",
+      "SHA256": "bddceb2f6af1024b39a87e831abe324c762a7eb7c408ada312589135a3eb15e8"
+    },
+    {
+      "File": "build/snapshot/templates.csv",
+      "SHA256": "a29faefc288de49038ac9c4ca312c902b278626f4d5745db8558e837aa320d6d"
+    },
+    {
+      "File": "build/snapshot/warnings.csv",
+      "SHA256": "7de66fa766b3959b2ec4a77caa881c48dc0ce75c204ca84c784f8741e6ec6012"
+    },
+    {
+      "File": "build/src/compile.js",
+      "SHA256": "c9d1fa6d9ee009908742df502133b886ea9cb58c087f5ab4e7d4cbc189a48cc4"
+    },
+    {
+      "File": "build/src/lint-rules.js",
+      "SHA256": "9c2ca2dcab6aabd29764686f7c09eaa0a038436525bebf21295f1d25f8108d6c"
+    },
+    {
+      "File": "build/src/normalize/process.js",
+      "SHA256": "fa25e5b59c7c2962b6c9ff89da26a340bb5d9d63d345cdb13ee79875ceb084c1"
+    },
+    {
+      "File": "data/manifest.json",
+      "SHA256": "652cea85a743fc718f7ea470c3516f5f43fa32e5dd76f5e74fed2eb30215e148"
+    },
+    {
+      "File": "data/review/context-witness-accepted.csv",
+      "SHA256": "8c2979d6a609460604d467d6c3cb23b8724dda6d65376ec50c222fca33b1ede2"
+    },
+    {
+      "File": "data/tables/profile_notes.csv",
+      "SHA256": "60afb7ab477d16980be2fa975fd78b0095c8e62dffe4cba4ab1d141a61075341"
+    },
+    {
+      "File": "data/tables/profiles.csv",
+      "SHA256": "6b3fc15d5e1d92360a7443b4bc858de325973d28808ec5051cdceb9997cf241d"
+    },
+    {
+      "File": "docs/ARCHITECTURE.md",
+      "SHA256": "3027f2fbf9701cd8fb1317e86068a29341ee76f44a3d920fe81b71226030db55"
+    },
+    {
+      "File": "docs/DATA-DICTIONARY.md",
+      "SHA256": "37a00d6ae383634fdbdf17d8321531cfe8d28716f0ea8c2c9e4baab925b08704"
+    },
+    {
+      "File": "docs/DATA-MODEL.md",
+      "SHA256": "6734bed425fd6ee6f216ba2a78f230499e8839213d464e09fdefd28c0b015357"
+    },
+    {
+      "File": "docs/DECISIONS.md",
+      "SHA256": "90c0f516227378d4ecdef959342e57e293e48cf8071914f2b9f391ea049f5f2e"
+    },
+    {
+      "File": "docs/GOALS.md",
+      "SHA256": "43baeb170ff4870086e9f2f3800bd9972d06d8368c1d4f1ce762b6bac151e039"
+    },
+    {
+      "File": "docs/IMPORTING.md",
+      "SHA256": "b91084bd285087bf47117b820b9e19f133a372929015566e6ec1dd54827f4256"
+    },
+    {
+      "File": "docs/OPEN-PROBLEMS.md",
+      "SHA256": "eefd4e91d980d18a52c04d0b716756bc86beda1a0550ff7c99b6e9e0f5e4a126"
+    },
+    {
+      "File": "docs/RULES.md",
+      "SHA256": "4e79e99240f85e4eacc61dd37ee63344fa17b83286cb910deae4e92f7cf67144"
+    },
+    {
+      "File": "docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md",
+      "SHA256": "dcf4593397fd91365c561c7a6487cc03d4b5666326f13ed46821a03ce597ea6b"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/STATUS.json",
+      "SHA256": "59ffbc08f9c65d7282fd8a04f8f076139e77ee760dbc99e90984342d8ad86343"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/STATUS.md",
+      "SHA256": "818112a5ab66fd5e8a6f24b60c20ff703f094ddb758917d26cb648c250db7e8b"
+    },
+    {
+      "File": "docs/audits/2026-09-30-coverage-expansion/table-delta.json",
+      "SHA256": "732a101933b9c263c2653fd2686c62fdcf08c39f6d1e1411dd4fbf5bdf10d10f"
+    },
+    {
+      "File": "schema/vocab/profile-kinds.csv",
+      "SHA256": "fc2342a5126f112a44885102854e1f02eec862010db9ca37fc7fbab1b71a6078"
+    },
+    {
+      "File": "scripts/audit/context-witness.mjs",
+      "SHA256": "60f51164ed508a699dc3cca5705469e16a985adb87523cf79b9568b278da822b"
+    },
+    {
+      "File": "scripts/ingest/lexicon/setting-labels.csv",
+      "SHA256": "2320e5a2a6f405a99efebdc7d44901c65ef431009c3f5b0ebf054db1e3796c2d"
+    },
+    {
+      "File": "scripts/ingest/propose.mjs",
+      "SHA256": "d899e632edff950d9c8775df0fdced373b31461adfba26ab1e826bc76858b1a8"
+    },
+    {
+      "File": "scripts/migrate/m290-profile-settings.csv",
+      "SHA256": "db4f4fadbad214c5d2a905d942b37154c8a82cc029f2347dd3d18b871b7a3c5c"
+    },
+    {
+      "File": "scripts/migrate/m290-profile-settings.mjs",
+      "SHA256": "5316d25fc3c440a8fdc637f25336aa6e433b1a431c2e9625727a94cc066339dd"
+    },
+    {
+      "File": "scripts/migrate/m291-profile-per-row.mjs",
+      "SHA256": "fdd6c73fc0fa5ea59788d0e1391dbf49be693c32fcc93492d6b11262faecbc25"
+    },
+    {
+      "File": "scripts/migrate/m292-retire-duplicate-profiles.mjs",
+      "SHA256": "2d74ab6d3862ea8c25f2a15eab88d275ade33eea13ec8809b3b594b1039ee82a"
+    },
+    {
+      "File": "scripts/migrate/m293-dry-box.csv",
+      "SHA256": "a4d6cd6decfb26c423d70efe4dd457699af2a074cf5d2e6527403e01bbd286a3"
+    },
+    {
+      "File": "scripts/migrate/m293-dry-box.mjs",
+      "SHA256": "ba3a7ebaaf2e5eb37965dae2337f67b72a3b6d64591023901a8f402f185dadbd"
+    },
+    {
+      "File": "scripts/migrate/m294-enclosure-d93.mjs",
+      "SHA256": "74fd0da1aa1d965aed6c839b12e0460b34811408c8fc435e3bd7f49921ad9b53"
+    },
+    {
+      "File": "scripts/migrate/m295-what-the-guard-found.csv",
+      "SHA256": "5b89e426bb77a9bcbc2f2ec7d78d19753e3d31a4f72df6a568ff41c28abae1f5"
+    },
+    {
+      "File": "scripts/migrate/m295-what-the-guard-found.mjs",
+      "SHA256": "d328b7d9b9228fdcd97f76c3decb04562268d51c566490d1a4847a4ea7db080c"
+    },
+    {
+      "File": "test/database.test.js",
+      "SHA256": "0a685781cfafcd9ea0fbcc38775446369316daf603f1280b5f26c74bd0bb0214"
+    },
+    {
+      "File": "test/ingest-propose.test.js",
+      "SHA256": "0cd3b2da3e2c2c66d8e7afee722871819b618a8bb8f78c3c1836a9e07f69e0ac"
+    },
+    {
+      "File": "test/lint.test.js",
+      "SHA256": "f49631bafe1d6ab6518e8a813be4500fe267a1a65cc91def13d04ffed25d8188"
+    },
+    {
+      "File": "test/normalize.test.js",
+      "SHA256": "5e967a5a6048d5c152de81c65938faa6c9746d9cd936c108470acfe1069c7ad6"
+    },
+    {
+      "File": "test/products.test.js",
+      "SHA256": "f5a32d959d50af729d9a9f0d22a155cd7d85d5644c30d4078b5bca25e12793a6"
+    },
+    {
+      "File": "test/rules.test.js",
+      "SHA256": "a1c57242e3b7e972074aa6a8f1eef136878a60e6932af4c09e93732f12285271"
+    }
+  ]
+}

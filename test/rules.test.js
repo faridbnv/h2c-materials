@@ -89,8 +89,9 @@ test('provoked errors carry the code a reader looks up', () => {
   // where another profile of its product states the chamber: the first such profile the tables hold.
   const guideEnclosed = new Set(wb['Print guide'].rows.filter((r) => r['Chamber state'] === 'enclosed').map((r) => r.PrintGuideID));
   const enclosedTypes = new Set(wb['Print guide materials'].rows.filter((r) => guideEnclosed.has(r.PrintGuideID)).map((r) => r.MaterialID));
-  const stating = wb['Print setup'].rows.filter((r) => enclosedTypes.has(r.MaterialID) && r['Chamber state'] === 'range');
-  const beside = wb['Print setup'].rows.find((r) => r['Enclosure state'] === 'recommended' && r['Chamber °C'] === 'Not published'
+  const live = wb['Print setup'].rows.filter((r) => r.Profile !== 'Retired duplicate record');
+  const stating = live.filter((r) => enclosedTypes.has(r.MaterialID) && r['Chamber state'] === 'range');
+  const beside = live.find((r) => r['Enclosure state'] === 'recommended' && r['Chamber °C'] === 'Not published'
     && stating.some((s) => s.GradeID === r.GradeID && s !== r));
   Object.assign(beside, enclosed);
   // The core database: these codes are the compiler's, which the estimate stage cannot remove.

@@ -1,0 +1,73 @@
+id,column,value,quote
+P0074,Abrasion / clogging,"A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended to be used with Fiberon™ PA612-CF15.","A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly | recommended to be used with Fiberon™ PA612-CF15."
+P0078,Abrasion / clogging,"A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended to be used with Fiberon™ PA612-CF15.","A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly | recommended to be used with Fiberon™ PA612-CF15."
+P0083,Abrasion / clogging,"A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended to be used with Fiberon™ PA612-ESD.","A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly | recommended to be used with Fiberon™ PA612-ESD."
+P0558,Abrasion / clogging,"A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended to be used with Fiberon™ PA12-CF10.","A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly | recommended to be used with Fiberon™ PA12-CF10."
+P0633,Abrasion / clogging,"Using abrasion resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended.","Using abrasion resistance nozzle, | such as hardened steel and ruby nozzle, is highly recommended."
+P0642,Abrasion / clogging,"Using abrasion resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended.","Using abrasion resistance | nozzle, such as hardened steel and ruby nozzle, is highly recommended."
+P0656,Abrasion / clogging,"Using an abrasion-resistant nozzle, such as hardened steel or a ruby nozzle, is highly recommended.","Using an abrasion-resistant | nozzle, such as hardened steel or a ruby nozzle, is highly recommended."
+P0657,Abrasion / clogging,"Using an abrasion-resistant nozzle, such as hardened steel or a ruby nozzle, is highly recommended.","Using an abrasion-resistant | nozzle, such as hardened steel or a ruby nozzle, is highly recommended."
+P0673,Abrasion / clogging,"Using abrasion resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended.","Using abrasion resistance | nozzle, such as hardened steel and ruby nozzle, is highly recommended."
+P0675,Abrasion / clogging,"Using abrasion resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended.","Using abrasion resistance | nozzle, such as hardened steel and ruby nozzle, is highly recommended."
+P0835,Abrasion / clogging,Nozzle hardened,Nozzle hardened
+P0839,Abrasion / clogging,Nozzle hardened,Nozzle hardened
+P0844,Abrasion / clogging,Nozzle hardened,Nozzle hardened
+P0846,Abrasion / clogging,Nozzle hardened,Nozzle hardened
+P0856,Abrasion / clogging,Nozzle hardened,Nozzle hardened
+P0870,Abrasion / clogging,Nozzle hardened,Nozzle hardened
+P0873,Abrasion / clogging,Nozzle hardened,Nozzle hardened
+P0904,Abrasion / clogging,Standard brass or higher grade will work,Nozzle S tandard brass or higher grad e will work
+P0912,Abrasion / clogging,"Using abrasion resistance nozzle, as hardened steel and above grade nozzle is highly recommended.","Using | abrasion resistance nozzle, as hardened steel and above grade nozzle is highly recommended."
+P0912,Drying,"at least 8 hours at 80-100°C or more","Please dry the filament for a long time, at least 8 hours at 80-100°C or more"
+P0918,Abrasion / clogging,"Using abrasion resistance nozzle, as hardened steel and above grade nozzle is highly recommended.","Using | abrasion resistance nozzle, as hardened steel and above grade nozzle is highly recommended."
+P0925,Abrasion / clogging,Use a hardened steel nozzle or higher grade,Nozzle Use a hardened steel nozzle or higher grade
+P0976,Abrasion / clogging,Standard brass or higher grade will work,Nozzle S tandard brass or higher grad e will work
+P1286,Enclosure,strongly recommend using an enclosed or semi-enclosed printing chamber,we strongly recommend using an enclosed or semi-enclosed printing chamber
+P0941,Nozzle °C,Not published,Processing | Nozzle °C 220 - 250
+P0062,Drying,at least 12h at 80 using a hot dry air oven,*** at least 12h at 80 using a hot dry air oven
+P0582,Chamber °C,50 - 70 (˚C),Recommended environmental | 50 - 70 (˚C) | temperature
+P0622,Chamber °C,70 – 80 (recommended) (°C),Recommended environmental | 70 – 80 (recommended) (°C) | temperature
+P0671,Chamber °C,70 – 80 (recommended) (°C),Recommended environmental | 70 – 80 (recommended) (°C) | temperature
+P1122,Enclosure,keep the printer chamber closed,Please keep the printer chamber closed
+P1245,Drying,80°C; Drying time 2-4h,Drying temperature | 80°C | Drying time | 2-4h
+P1259,Drying,80°C; Drying time 4-16h,Drying temperature | 80°C | Drying time | 4-16h
+P1271,Drying,80°C; Drying time 2-4h,Drying temperature | 80°C | Drying time | 2-4h
+P0094,Enclosure,Enclosed-frame,Enclosed-frame | Compatible Printer Type
+P0119,Enclosure,it is recommended to use an enclosure,it is recommended to use an | enclosure
+P0121,Enclosure,it is recommended to use an enclosure,it is recommended to use an | enclosure
+P0402,Enclosure,Enclosed-chamber printing with a chamber temperature of 90–100 °C,Enclosed-chamber printing with a chamber | temperature of 90–100 °C
+P0419,Enclosure,Enclosed-chamber printing using LAC spray,Enclosed-chamber printing using LAC spray
+P0569,Enclosure,an enclosed printer is recommended for printing,an enclosed printer is recommended for printing
+P0680,Enclosure,we highly recommend printing ABS-CF material within a closed chamber printer,we highly recommend printing ABS-CF material within a closed chamber printer
+P0699,Enclosure,we highly recommend printing ABS-CF material within a closed chamber printer,we highly recommend printing ABS-CF material within a closed chamber printer
+P0705,Enclosure,not required a closed cavity,not required a closed cavity
+P0722,Enclosure,doesn’t require a 3D printer with a closed/heated enclosure,doesn’t require a 3D printer with a closed/heated enclosure
+P0729,Enclosure,printable without a heated enclosure,is printable without a heated enclosure
+P0730,Enclosure,does not require a heated enclosure,and does not require a heated enclosure
+P0898,Enclosure,it does not require an enclosure,it does not require an enclosure
+P1172,Enclosure,can be 3D printed without an enclosure,can be 3D printed without an enclosure
+P1183,Enclosure,printable without an enclosure,is printable without an enclosure
+P1245,Enclosure,"Needs a warm room, or closed pressure","- Needs a warm room, or closed pressure"
+P1246,Enclosure,Please keep the chamber closed to avoid warping and layer separation issues,Please keep the chamber closed to avoid warping and layer separation issues
+P1257,Enclosure,"Needs a warm room, or closed pressure","- Needs a warm room, or closed pressure"
+P1293,Enclosure,"Heated chamber/enclosure: not required, but it helps","Heated chamber/enclosure: not required, but it helps"
+P1098,Enclosure,Seal the Box: No,- Seal the Box: No
+P1099,Enclosure,Seal the Box: No,- Seal the Box: No
+P1106,Enclosure,Seal the Box: No,- Seal the Box: No
+P1107,Enclosure,Seal the Box: No,- Seal the Box: No
+P1109,Enclosure,Seal the Box: No,- Seal the Box: No
+P1111,Enclosure,Seal the Box: No,- Seal the Box: No
+P1112,Enclosure,Seal the Box: No,- Seal the Box: No
+P1115,Enclosure,Seal the Box: Yes/No,- Seal the Box: Yes/No
+P1116,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1119,Enclosure,Seal the Box: Yes/No,- Seal the Box: Yes/No
+P1121,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1127,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1128,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1132,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1134,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1136,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1137,Enclosure,Seal the Box: No,- Seal the Box: No
+P1141,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
+P1190,Abrasion / clogging,"recommend users to use abrasive resistant nozzles, such as E3D hardened steel nozzles or Olsson Ruby nozzle","recommend users to use abrasive resistant nozzles, such as E3D hardened steel nozzles or Olsson | Ruby nozzle."
+P1298,Abrasion / clogging,"0.4, 0.6 hardened steel nozzle","0.6hardened steel nozzle"

@@ -1,0 +1,106 @@
+id,kind,expect,value,quote
+P0031,note,,Dry box recommended No,Dry box recommended No
+P0041,note,,Dry box not necessary,Dry box not necessary
+P0058,note,,Dry box recommended Yes,Dry box recommended Yes
+P0102,note,,Dry box not necessary,Dry box not necessary
+P0107,note,,Dry box recommended No,Dry box recommended No
+P0111,note,,Dry box not necessary,Dry box not necessary
+P0114,note,,Dry box not necessary,Dry box not necessary
+P0120,note,,Dry box not necessary,Dry box not necessary
+P0173,note,,Dry box not necessary,Dry box not necessary
+P0174,note,,Dry box recommended No,Dry box recommended No
+P0175,note,,Dry box not necessary,Dry box not necessary
+P0176,note,,Dry box not necessary,Dry box not necessary
+P0177,note,,Dry box not necessary,Dry box not necessary
+P0178,note,,Dry box not necessary,Dry box not necessary
+P0179,note,,Dry box not necessary,Dry box not necessary
+P0180,note,,Dry box not necessary,Dry box not necessary
+P0181,note,,Dry box recommended if wet,Dry box recommended if wet
+P0187,note,,Dry box not necessary,Dry box not necessary
+P0188,note,,Dry box recommended,Dry box recommended
+P0189,note,,Dry box not necessary,Dry box not necessary
+P0190,note,,Dry box not necessary,Dry box not necessary
+P0191,note,,Dry box not necessary,Dry box not necessary
+P0192,note,,Dry box not necessary,Dry box not necessary
+P0193,note,,Dry box recommended No,Dry box recommended No
+P0194,note,,Dry box recommended,Dry box recommended
+P0195,note,,Dry box not necessary,Dry box not necessary
+P0198,note,,Dry box not necessary,Dry box not necessary
+P0199,note,,Dry box not necessary,Dry box not necessary
+P0201,note,,Dry box recommended No,Dry box recommended No
+P0202,note,,Dry box recommended No,Dry box recommended No
+P0204,note,,Dry box not necessary,Dry box not necessary
+P0205,note,,Dry box not necessary,Dry box not necessary
+P0206,note,,Dry box not necessary,Dry box not necessary
+P0207,note,,Dry box not necessary,Dry box not necessary
+P0208,note,,Dry box not necessary,Dry box not necessary
+P0209,note,,Dry box not necessary,Dry box not necessary
+P0211,note,,Dry box recommended No,Dry box recommended No
+P0212,note,,Dry box recommended No,Dry box recommended No
+P0213,note,,Dry box recommended No,Dry box recommended No
+P0214,note,,Dry box not necessary,Dry box not necessary
+P0215,note,,Dry box recommended,Dry box recommended
+P0216,note,,Dry box recommended No,Dry box recommended No
+P0219,note,,Dry box recommended No,Dry box recommended No
+P0220,note,,Dry box not necessary,Dry box not necessary
+P0222,note,,Dry box recommended No,Dry box recommended No
+P0223,note,,Dry box not necessary,Dry box not necessary
+P0224,note,,Dry box recommended,Dry box recommended
+P0226,note,,Dry box recommended,Dry box recommended
+P0228,note,,Dry box not necessary,Dry box not necessary
+P0229,note,,Dry box recommended,Dry box recommended
+P0230,note,,Dry box recommended No,Dry box recommended No
+P0231,note,,Dry box not necessary,Dry box not necessary
+P0232,note,,Dry box recommended No,Dry box recommended No
+P0233,note,,Dry box not necessary,Dry box not necessary
+P0234,note,,Dry box not necessary,Dry box not necessary
+P0235,note,,Dry box not necessary,Dry box not necessary
+P0236,note,,Dry box not necessary,Dry box not necessary
+P0237,note,,Dry box not necessary,Dry box not necessary
+P0360,note,,Dry box not necessary,Dry box not necessary
+P0361,note,,Dry box not necessary,Dry box not necessary
+P0362,note,,Dry box no,Dry box no
+P0363,note,,Dry box no,Dry box no
+P0365,note,,Dry box no,Dry box no
+P0366,note,,Dry box no,Dry box no
+P0367,note,,Dry box no,Dry box no
+P0368,note,,Dry box no,Dry box no
+P0545,note,,Dry box recommended No,Dry box recommended No
+P0546,note,,Dry box recommended,Dry box recommended
+P0549,note,,Dry box recommended Yes,Dry box recommended Yes
+P0550,note,,Dry box recommended No,Dry box recommended No
+P0554,note,,Dry box recommended No,Dry box recommended No
+P0555,note,,Dry box not necessary,Dry box not necessary
+P0556,note,,Dry box recommended No,Dry box recommended No
+P0557,note,,Dry box not necessary,Dry box not necessary
+P0725,drying,Not published,Not necessary,Drying: Not necessary
+P0725,note,,Drybox: Not necessary,Drybox: Not necessary
+P0727,note,,Dry box recommended No,Dry box recommended No
+P0728,drying,Not published,Not necessary,Drying: Not necessary
+P0728,note,,Drybox: Not necessary,Drybox: Not necessary
+P0734,note,,Dry box recommended No,Dry box recommended No
+P0738,drying,Not published,Recommended,Drying: Recommended
+P0738,note,,Drybox: Not necessary,Drybox: Not necessary
+P0776,note,,Dry box not necessary,Dry box not necessary
+P0833,note,,Dry box recommended,Dry box recommended
+P0838,note,,Dry box recommended,Dry box recommended
+P0855,note,,Dry box recommended,Dry box recommended
+P0889,note,,Dry box not necessary,Dry box not necessary
+P0900,note,,Dry box recommended No,Dry box recommended No
+P1131,drying,Not published,it is recommended to dry the material prior to usage,it is recommended to dry the material prior to usage
+P1157,drying,Not published,it is recommended to dry the material prior to usage,it is recommended to dry the material prior to usage
+P1182,note,,Dry box not necessary,Dry box not necessary
+P1202,note,,Dry box not necessary,Dry box not necessary
+P1205,note,,Dry box No,Dry box No
+P1214,note,,Dry box recommended No,Dry box recommended No
+P1215,note,,Dry box recommended No,Dry box recommended No
+P1216,note,,Dry box recommended No,Dry box recommended No
+P1220,note,,Dry box not necessary,Dry box not necessary
+P1231,note,,Dry box not necessary,Dry box not necessary
+P1241,note,,Dry box recommended if wet,Dry box recommended if wet
+P1242,note,,Dry box not necessary,Dry box not necessary
+P1247,note,,Dry box recommended No,Dry box recommended No
+P1249,note,,Dry box recommended No,Dry box recommended No
+P1266,note,,Dry box recommended No,Dry box recommended No
+P1288,note,,Drybox recommended,Drybox recommended
+P1305,note,,Drybox recommended,Drybox recommended

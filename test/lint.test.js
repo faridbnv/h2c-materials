@@ -327,3 +327,20 @@ test('a Shore number whose scale the sheet does not publish is judged against bo
     assert.deepEqual(['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => n(w, f)), [lowest('Hard low'), lowest('Soft low'), highest('Soft high'), highest('Hard high')], w.WindowID);
   }
 });
+
+test("one product's setup read twice from one sheet is a duplicate; rows of the sheet are not, but share its statements (D120)", () => {
+  const profile = (id, locator, cells = {}) => ({ ProfileID: id, GradeID: 'G001-01', SourceID: 'S-X', Profile: 'Manufacturer published guidance', Locator: locator,
+    'Chamber °C': 'Not published', Enclosure: 'Not published', Drying: 'Not published', 'Abrasion / clogging': 'Not published', ...cells });
+  const run = (rows) => lintData({ profiles: { header: Object.keys(rows[0]), rows } }, schemas).filter((f) => f.code.startsWith('PROFILE-')).map((f) => `${f.code} ${f.record} ${f.field}`.trim());
+  assert.deepEqual(run([profile('P1', 'p. 1: Nozzle temperature'), profile('P2', 'p. 1: Printing temperature')]), ['PROFILE-DUPLICATE P2']);
+  assert.deepEqual(run([profile('P1', 'p. 1: Nozzle temperature'), profile('P2', 'Retired duplicate of P1 (D120): p. 1', { Profile: 'Retired duplicate record' })]), []);
+  assert.deepEqual(run([profile('P1', 'p. 1: Nozzle temperature - standard speed', { Drying: '60 °C, 6 h' }), profile('P2', 'p. 1: Nozzle temperature - high speed')]), ['PROFILE-SIBLING-SILENT P2 Drying']);
+});
+
+test('a row of the sheet is named by its row, not by any word "speed" (D120)', () => {
+  const profile = (id, locator) => ({ ProfileID: id, GradeID: 'G001-01', SourceID: 'S-X', Profile: 'Manufacturer published guidance', Locator: locator, 'Chamber °C': 'Not published', Enclosure: 'Not published', Drying: 'Not published', 'Abrasion / clogging': 'Not published' });
+  const run = (rows) => lintData({ profiles: { header: Object.keys(rows[0]), rows } }, schemas).filter((f) => f.code === 'PROFILE-DUPLICATE').map((f) => f.record);
+  assert.deepEqual(run([profile('P1', 'p. 1: Nozzle temperature; p. 1: Print speed'), profile('P2', 'p. 1: Nozzle temperature')]), ['P2']);
+  assert.deepEqual(run([profile('P1', 'p. 1: Nozzle diameter 0.4 mm'), profile('P2', 'p. 1: Nozzle diameter 0.6 mm')]), []);
+});
+

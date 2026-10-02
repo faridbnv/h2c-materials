@@ -92,7 +92,7 @@ all products: 185
 PA6-GF
 Nylon / Polyamide
  PASS
-1 of 1 product
+1 of 2 products
  passing: 1,350
 all products: 1,310
 1,140–1,370 · 9

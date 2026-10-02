@@ -105,8 +105,8 @@ for (const [k, list] of byPage) {
 
 // ---- print settings a sheet prints and its profile does not hold
 const LABEL = { Bed: /(?:platform temp|print platform|bed temp(?:erature)?|heated bed|hot ?bed temp|build plate temp(?:erature)?|plate temp|底板温度|热床)[^0-9]{0,40}?(\d{2,3})\s*(?:-|–|~|to)\s*(\d{2,3})\s*(?:°|℃|˚|c\b)/i, Nozzle: /(?:nozzle temp(?:erature)?|print(?:ing)? temp(?:erature)?|extru(?:der|sion) temp(?:erature)?|喷嘴温度|打印温度)[^0-9]{0,40}?(\d{3})\s*(?:-|–|~|to)\s*(\d{3})\s*(?:°|℃|˚|c\b)/i };
-const profilesByGrade = new Map(); for (const r of rows('Print setup')) { if (!profilesByGrade.has(r.GradeID)) profilesByGrade.set(r.GradeID, []); profilesByGrade.get(r.GradeID).push(r); }
-for (const r of rows('Print setup')) {
+const profilesByGrade = new Map(); for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record')) { if (!profilesByGrade.has(r.GradeID)) profilesByGrade.set(r.GradeID, []); profilesByGrade.get(r.GradeID).push(r); }
+for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record')) {
   // A profile that records how a sheet's test bars were printed holds no guidance by design (m170).
   if (/not printing guidance/.test(r.Locator)) continue;
   const pages = pagesOf(r.SourceID); if (!pages) continue;
@@ -154,11 +154,12 @@ for (const r of rows('Print setup')) {
 // re-read of 2026-10-01: the label regexes above find the labels someone thought of; the reader finds every label its
 // lexicon knows, in every layout it reads). A sheet that prints how its test bars were printed, or a line that states
 // an infill, describes specimens, not guidance (m170).
-const { readSheet } = await import('../ingest/propose.mjs');
+const { readSheet, testBlockAt } = await import('../ingest/propose.mjs');
 const registry = new Map(rows('Property registry').map((p) => [p.Property, p]));
 const SPECIMENS = /printed specimen conditions|specimen (preparation|conditions)[:\s]|test specimens?( were)? (3d )?printed|print test condition|specimens were printed at the following/i;
 // The numbers a cell states, and an open end's sign: what two readings of one setting must share.
-const statedOf = (v) => (String(v).match(/\d+(?:[.,]\d+)?|[+<>＞≥≤]/g) ?? []).map((n) => n.replace(',', '.').replace('＞', '>'));
+// "for more than 4 hours" states the open end ">4h" states (Siraya Tech's two wordings of one schedule).
+const statedOf = (v) => (String(v).replace(/\b(?:more than|at least|over|above)\b\s*/gi, '> ').match(/\d+(?:[.,]\d+)?|[+<>＞≥≤]/g) ?? []).map((n) => n.replace(',', '.').replace('＞', '>'));
 const READ_COLUMN = { nozzle: 'Nozzle °C', bed: 'Bed °C', chamber: 'Chamber °C', enclosure: 'Enclosure', drying: 'Drying', 'nozzle-material': 'Abrasion / clogging' };
 const sheetSettings = new Map();
 // A setting a few lines under "How to make specimens", "printed under the following conditions" or a line that states an
@@ -172,13 +173,19 @@ const inSpecimenBlock = (pages, x) => {
     for (let i = 0; i < p.lines.length; i++) {
       const own = p.lines[i] === line || p.lines[i].includes(line.slice(0, 40));
       const below = x.label && p.lines[i].toLowerCase().startsWith(x.label.toLowerCase()) && raw && (p.lines[i + 1] ?? '').includes(raw.slice(0, 12));
-      if (own || below) return p.lines.slice(Math.max(0, i - 8), i + 1).some((l) => SPECIMEN_BLOCK.test(l));
+      // A numbered note or a notes heading after the test block begins guidance again (Raise3D's "2. Please dry …").
+      if (own || below) {
+        for (let k = i; k >= Math.max(0, i - 8); k--) {
+          if (k < i && /^\s*\d+\.\s+\S|^(notes?|precautions?|tips?)\b/i.test(p.lines[k + 1] ?? '')) return false;
+          if (SPECIMEN_BLOCK.test(p.lines[k] ?? '')) return true;
+        }
+        return false;
+      }
     }
   }
   return false;
 };
-for (const r of rows('Print setup')) {
-  if (/not printing guidance/.test(r.Locator)) continue;
+for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record')) {
   const h = sha.get(r.SourceID); if (!h || !/^[0-9a-f]{64}$/.test(h)) continue;
   if (!sheetSettings.has(r.SourceID)) {
     const c = cachedText(h);
@@ -189,13 +196,19 @@ for (const r of rows('Print setup')) {
     // Conditions") is read block by block: what sits under such a heading is not guidance, what sits elsewhere is.
     sheetSettings.set(r.SourceID, settings.filter((x) => !/infill/i.test(x.line) && !inSpecimenBlock(pg, x)));
   }
+  // A profile that says its sheet prints no guidance (m170: only how the test bars were printed) is checked too: the
+  // reader may find guidance in the notes beside them (Raise3D's "2. Please dry the filament … at least 8 hours").
+  if (/not printing guidance/.test(r.Locator)) {
+    for (const x of sheetSettings.get(r.SourceID)) if (READ_COLUMN[x.field] && /\d|\b(yes|no|not|required|recommended|needed|necessary|hardened|brass|steel|ruby)\b/i.test(x.raw)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, READ_COLUMN[x.field], `the profile says its sheet prints no guidance; the import's sheet reader finds "${x.line.slice(0, 80)}"`);
+    continue;
+  }
   for (const x of sheetSettings.get(r.SourceID)) {
     const column = READ_COLUMN[x.field]; if (!column) continue;
     const held = r[column];
     // Polymaker's "Closure chamber | Needed (90-100°C)" states a chamber, and a profile may hold it there.
     const asChamber = x.field === 'enclosure' && r['Chamber °C'] === x.raw;
     const silent = !asChamber && (held === 'Not published' || (x.field === 'nozzle-material' && /verify minimum orifice/.test(held)));
-    if (silent && /\d|\b(yes|no|nein|not|required|recommended|needed|necessary|room|ambient)\b/i.test(x.raw)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `the import's sheet reader finds "${x.line.slice(0, 80)}"; the profile holds ${held.slice(0, 40)}`);
+    if (silent && /\d|\b(yes|no|nein|not|required|recommend\w*|needed|necessary|room|ambient|brass|steel|hardened|ruby|closed|enclosed)\b/i.test(x.raw)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `the import's sheet reader finds "${x.line.slice(0, 80)}"; the profile holds ${held.slice(0, 40)}`);
     // A cell that holds part of what the sheet prints: a drying schedule without its hours, a window without its open
     // end's "+", a typo that split a number ("240 - 28 0 °C"), a specimen's print temperature for the guidance.
     const numeric = ['nozzle', 'bed', 'chamber', 'drying'].includes(x.field);
@@ -203,6 +216,19 @@ for (const r of rows('Print setup')) {
     if (!silent && !asChamber && numeric && read.some((v) => /\d/.test(v)) && !sheetSettings.get(r.SourceID).some((y) => y.field === x.field && statedOf(y.raw).every((v) => statedOf(held).includes(v)))) {
       add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `the import's sheet reader finds "${x.line.slice(0, 80)}"; the profile holds "${held.slice(0, 50)}"`);
     }
+  }
+}
+
+// ---- a held setting the sheet prints only where the reader does not read guidance: under a test-bar heading or in a
+// pellet-processing table (the independent review of the profile root-cause sweep: the reader drops what sits there, so
+// a profile that holds it is otherwise invisible to the check above).
+const tempsOf = (v) => (String(v).match(/\d+(?:[.,]\d+)?/g) ?? []).map((n) => Number(n.replace(',', '.'))).filter((n) => n >= 15 && n <= 450);
+for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record' && !/not printing guidance/.test(x.Locator))) {
+  const pages = pagesOf(r.SourceID); if (!pages) continue;
+  for (const column of ['Nozzle °C', 'Bed °C', 'Chamber °C']) {
+    const want = tempsOf(r[column]); if (!want.length || /^Not published/.test(r[column])) continue;
+    const at = pages.flatMap((p) => p.lines.flatMap((l, i) => (want.every((v) => tempsOf(l).includes(v)) ? [testBlockAt(p.lines, i)] : [])));
+    if (at.length && at.every(Boolean)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `"${r[column].slice(0, 40)}" is printed on its sheet only under a test-bar or pellet-processing heading`);
   }
 }
 

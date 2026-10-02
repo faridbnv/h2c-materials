@@ -1086,10 +1086,11 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   ("CPE ANTIBAC filament") while its values are FiberFlex 40D's elastomer table and its maker's page calls it "from the
   elastomer family". Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for value and
   sit under PA6-CE and PA6 while the LUVOCOM grades sit under PAHT-CE. 13 cross-material twin pairs are accepted (R166).
-- **The import's fibre sentence.** 209 profiles hold "Use abrasion-resistant nozzle; verify minimum orifice …" in their
-  raw Abrasion column (`scripts/ingest/propose.mjs`, ABRASIVE), the register's rule for a fibre-filled filament, not the
-  sheet's words; the engine says "a source states it needs an abrasion-resistant nozzle" for them. Two whose sheets say
-  the opposite were corrected (m282); the rule belongs in `method.csv`, shown as a rule.
+- **The import's fibre sentence.** 175 live profiles hold "Use abrasion-resistant nozzle; verify minimum orifice …" in
+  their raw Abrasion column (`scripts/ingest/propose.mjs`, ABRASIVE), the register's rule for a fibre-filled filament,
+  not the sheet's words; the engine says "a source states it needs an abrasion-resistant nozzle" for them. Where the
+  sheet states its own nozzle, the profile now holds the sheet's words (m282, m290, m295: 32, two of them Siraya TPUs
+  whose sheet says brass will work); the rule belongs in `method.csv`, shown as a rule.
 - **Values never transcribed**, seen while re-reading: Raise3D Industrial PET-CF's table (5,731 / 3,270 MPa, 73 / 34
   MPa, 7.75 kJ/m²; only its prose "over 6 GPa" is recorded), BASF PET CF15's 63.2 MPa tensile strength, the 3D-printed
   sections of colorFabb LW-PLA and LW-PLA-HT, Stratasys PA6/66-GF30 FR's XZ heat deflections (185 and 153 °C), and
@@ -1104,12 +1105,28 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   corrected in m286; a probe of all 88 found no other). The migrations' quote check proves a quote is on the cached
   sheet, not that it applies to the rows it is used for. `audit:context` needs the text cache, so CI skips it and only a
   contributor's `verify` runs it. The 147 reviews m274 scoped were scoped to the columns that differed, not re-read.
-- **Print profiles are not yet at their target.** Five fresh random re-reads after the sweep found 8 of 30, 8 of 40, 3
-  of 40, 9 of 40 and 3 of 40 profiles wrong (the target is under 3 %; deciding measurements met theirs, 1 of 70). Each
-  draw found a family of sheet layouts the import's reader did not know, and m285 to m289 swept each family; the last
-  draw's three are fixed. The import's reader is now the guard (`npm run audit:context`), so a family it learns is
-  checked on every profile, but a layout it cannot read is still found only by reading. The next measure is another
-  draw of 40; a full re-read of the 1,323 profiles would settle it.
+- **Print profiles, after the root-cause sweep of 2026-10-02** ([record](audits/2026-10-02-profile-root-causes/README.md),
+  D120). The causes were found by marking every line where an error could hide and reading only those, and each was
+  fixed in the import's reader, which the guard runs on every profile. Four fresh draws of 40 after it found 4, 4, 2
+  and 2 profiles wrong in a deciding field (from 10 % to 5 %), each a layout family the reader then learned and the
+  guard swept (m295). The target, under 3 %, is not yet shown; the next draw of 40 measures it. Left open:
+  - 56 profile notes (34 layer heights, 12 wall counts, 10 speeds) were taken from a test-bar block before the reader
+    learned to drop it. A note cannot be retired, and a removal is refused (D72): the owner decides whether notes get a
+    way to retire.
+  - A twin reads its sibling's nozzle statement even where it names the sibling's own additive: eSUN PLA Clear asks for
+    a hardened nozzle because eStars-PLA's sheet says its luminous pigment wears brass (D89).
+  - purefil's PA6 GF10 sheet prints its bed twice, "Heizbett Temperatur 120-140 °C" and "Heated bed temperature 80°C" in
+    the slot where every purefil sheet prints its drying temperature; the profile holds the first, which is above the
+    H2C's 120 °C and turns G051-08's bed gate to exceeds. The maker could settle it.
+  - "Enclosed-frame (rec.), open-frame" stays a reviewer's reading; the reader joins "85, 6h" into a decimal (P0445);
+    SUNLU PLA Basic's bed row is garbled in the text layer ("Hot-bed temperature 40-FOPC", P1239), so nothing reads it.
+  - Siraya Tech's Fibreheart Flex TPU 95A sheet is filed as two products under two materials (G129-03 under TPU-CF,
+    G039-66 under TPU 95A class); one is a copy, and which material it is depends on whether "Fibreheart" means a fibre
+    fill (Siraya's other Fibreheart filaments are carbon-filled).
+  - Nozzle sizes a sheet lists ("0.2, 0.4, 0.6, 0.8 mm") are held as their first on some profiles, and a minimum
+    ("Nozzle ≥ 0.2 mm") is not held on others; the nozzle size decides nothing today.
+  - The detectors that found the causes (`PM-TRIAL-2026-10-01/data-audit/profiles/detect.mjs`) live outside the
+    repository; the guard keeps each cause out, but a layout neither has seen is still found only by reading.
 
 ```sh
 npm run data:lint && npm run audit:context

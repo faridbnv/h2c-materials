@@ -10,8 +10,12 @@ Label,Field,Topic,Note
 "^(recommended\s+)?environment(al)?\s+temp\w*",chamber,,"Polymaker prints ""Recommended environmental temperature Room temperature - 45 (˚C)"": the air the part is printed in"
 "^ambient\s+temp\w*(\s+for\s+printing)?",chamber,,"Flashforge's ""Ambient Temperature for Printing Room temperature~40℃"""
 ^(closed|enclosed)\s*(chamber|space|build ?(chamber|volume))|^(chamber|enclosure|housing),enclosure,,a chamber statement with no temperature of its own is about the enclosure
-^closure\s+chamber\b,enclosure,,"Polymaker's row ""Closure chamber | Not needed"" (or ""Needed (100-110°C)"")"
+"^closure\s+chamber\b|^compatible\s+printer\s+type\b|^-?\s*seal\s+the\s+box\b",enclosure,,"Polymaker's row ""Closure chamber | Not needed"" (or ""Needed (100-110°C)""); a table's ""Compatible Printer Type | Enclosed-frame"" and SIDDAMENT's ""Seal the Box: No"" (2026-10-02)"
 "^room temp\.?(?!\w)",chamber,,"SUNLU's table row ""Room Temp. | Room Temperature"": the temperature the printer stands in"
+"^extruder\s*[:：]",nozzle,,"3D-Fuel prints the nozzle as ""Extruder: 240 - 260ºC"" (the profile root-cause sweep of 2026-10-02)"
+"^bed\s*[:：]|^heizbett(temperatur)?\b|^recommended\s+heat\s*bed\s+temp\w*(\s+to\s+print\s+[^:]{1,40}:)?",bed,,"3D-Fuel's ""Bed: 100 - 110ºC"", purefil's German ""Heizbett Temperatur"" and 3DJake's ""Recommended heat bed temperature to print …"" (2026-10-02)"
+"^blast\s+drying\s+oven\b|^dring\s+conditions?\b|^pre-?printing\s+drying(\s+conditions)?\b",drying,,"Bambu Lab's and Kingroon's ""Blast Drying Oven: 80 °C, 8 h"", eSUN's misspelt ""Dring Conditions"" and CreatBot's ""Pre-printing Drying Conditions"" (2026-10-02)"
+"^compatible\s+nozzle\s+material\b|^(using\s+)?(an?\s+)?abrasion[- ]resist\w*\s+nozzle\b",nozzle-material,,"IPCON's ""Compatible Nozzle Material Any common material"" and Raise3D's ""Using abrasion resistance nozzle, such as hardened steel …"" (2026-10-02)"
 ^(build plate|print(ing)? (surface|plate)|bed surface|plate)\s*(material|treatment|surface)?\b,plate,,the row may name what the plate is made of or what it is coated with: Plate Material / Plate Treatment
 ^(drying|dry)\s*(temp\w*|conditions|settings|parameters|recommendations|preparation)|^dry(ing)? before,drying,,a sheet may abbreviate it: Drying Temp.
 "^trocknungs(temperatur|bedingungen)\b",drying,,the same row on a German sheet

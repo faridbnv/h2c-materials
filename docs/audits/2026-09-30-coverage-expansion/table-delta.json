@@ -55,11 +55,18 @@
     "edited_existing": 20,
     "removed": 0
   },
+  "profile_notes": {
+    "baseline": 2061,
+    "current": 2169,
+    "added": 108,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "profiles": {
     "baseline": 1316,
-    "current": 1323,
-    "added": 7,
-    "edited_existing": 416,
+    "current": 1364,
+    "added": 48,
+    "edited_existing": 635,
     "removed": 0
   },
   "sources": {

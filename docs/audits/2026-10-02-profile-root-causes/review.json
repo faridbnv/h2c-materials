@@ -1,0 +1,156 @@
+{
+  "overall_verdict": "APPROVE_WITH_FINDINGS",
+  "reviewer": "Independent AI agent (Claude Sonnet); no human review",
+  "reviewed_at_utc": "2026-10-02T08:10:00Z",
+  "baseline_commit": "c56ba48",
+  "scope_note": "Reviewed the working tree as it stood during the review (propose.mjs gained testBlockAt, m291 gained the colorFabb foamed/unfoamed split, m292 and lint-rules.js gained 'foamed' in ROW, process.js gained a brass alternative while the review ran). Findings are against the files as last read. Method beyond reading: (a) the five migrations were replayed m290 to m294 on a scratch copy of the repo carrying HEAD's profiles.csv and profile_notes.csv, with the working tree's code and the real document cache; the result was byte-identical to the working tree's two tables, and a second pass wrote nothing (0 cells, 0 profiles, 0 notes in every migration). (b) readSheet was run over every cached sheet with a hook that exposes the settings before and after guidanceBeyondLabels, to see what the filter drops and what the sentence reader adds. (c) the parsers were run on negated wordings. (d) node --test on lint, normalize and ingest-propose: 142 pass; npm run data:lint: 268 findings, 268 accepted, 0 new.",
+  "code_findings": [
+    {
+      "severity": "medium",
+      "file": "scripts/ingest/propose.mjs",
+      "line": 1845,
+      "finding": "The test-block look-back (testBlockAt, 8 lines) crosses a 'Recommended ...' heading and drops real guidance that sits under a test-bar heading in the same column. The new numbered-note / 'Notes' stop does not cover 'Recommended printing conditions' or 'Recommended Setting'.",
+      "evidence": "Raise3D Premium TPU95A (D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2, profile P0648) prints 'All testing specimens were printed under the following conditions: ...', then 'Recommended printing conditions / Parameter / Recommended Setting / Nozzle temperature 200 - 220 (°C)'. The settings hook shows 'nozzle 200 - 220 (°C)' dropped by TEST_BLOCK ('printed under the following'). Same for D-RAISE3D-Raise3d-Premium-PC-Transparent (250 - 270 (°C)) and Flashforge PETG-HS (D-FLASH-PETG-HS-TDS-EN p. 2: 'Test Equipment Adventurer 5M' at line 1, 'Recommended Printing Conditions:' at line 8, 'Nozzle Temperature 220~260℃' at line 9). All three profiles hold the value, so the import's reader no longer finds guidance the profile (correctly) holds.",
+      "suggestion": "Add a stop to testBlockAt for a line that starts a guidance block: /^recommended\\s+(printing|print|processing)?\\s*(conditions|settings|parameters)/i (and 'Recommended Printing Parameters'), as the numbered-note stop already does. Add Raise3D TPU95A and Flashforge PETG-HS as test cases."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/ingest/propose.mjs",
+      "line": 1861,
+      "finding": "The infill look-ahead (a setting with a line 'Infill N%' within the next 3 lines is a test bar) drops range windows that are the maker's recommendation, not a specimen's single value.",
+      "evidence": "3DJake's Hyper-ABS, Hyper-PLA-CF and Hyper-PETG sheets print 'Printing parameters and styles of printing conditions: Nozzle Temperature 240 - 300°C / Hot Bed Temperature 70 - 90°C / Printing Speed 30 - 300mm/s / Infill 0%' and repeat the same ranges on p. 2 as '4. Recommended printing conditions'. The hook shows nozzle 240 - 300°C, bed 70 - 90°C (ABS), 190 - 230℃ and 45-60℃ (PLA-CF), 220-260 °C (PETG) dropped, and the profiles hold them. The p. 2 table is a row of numbers with no label, so nothing else reads them. The look-ahead also drops 3DJake ABS-P 'Nozzle temperature: 260 °C ... Infill: 20 %', which may or may not be a specimen.",
+      "suggestion": "Apply the infill rule only to single-point values (no range), or only when a test-bar heading is also in the look-back, or require the block to carry a speed/layer line that the sheet's own guidance table does not repeat. At minimum record in D120 that ranges under the 3DJake heading are guidance."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/audit/context-witness.mjs",
+      "line": 193,
+      "finding": "The guard now reads each sheet with the same reader that drops test-block settings, so a value the reader wrongly drops (previous two findings) or a profile that holds a dropped pellet-table number can no longer be flagged: the check is partly circular.",
+      "evidence": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK: profile P0941 holds Nozzle '220 - 250 °C' (Locator 'p. 2: Recommended printing settings'). The sheet prints only the pellet 'Processing' table (Zone 1-3 / 'Nozzle °C 220 - 250' / Mold °C) under 'predry the granulate', and no 3D printing line at all (no '3D' or 'nozzle temperature' text on the sheet). This is exactly the extrusion-table error D120 says it removed from six other LUVOCOM profiles; with the new reader the dropped line is invisible to CONTEXT-PROFILE-SETTING and the profile is not flagged. The hook found no other LUVOCOM profile in this state.",
+      "suggestion": "Decide P0941 explicitly (retire it, or mark it as a pellet-processing reading with a Parse review / 'not printing guidance' Locator) and add it to OPEN-PROBLEMS if not fixed now. For the guard, add a second pass that flags a profile whose held number is found ONLY in lines the filter dropped (so the filter can narrow what the import writes without hiding what a profile holds)."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/ingest/propose.mjs",
+      "line": 1901,
+      "finding": "The sentence-level drying reader (PROSE_DRYING / PROSE_SCHEDULE) reads post-print drying of the finished model as the filament's drying schedule. It is added alongside the real one because the duplicate check is on the raw text only.",
+      "evidence": "26 cached sheets (Flashforge D-FLASH-*, PCGF S-PCGF-PA12-CF / PPS-CF / PA6CF / ASA / PET-CF / PETG-CF / PC-ABS, R-FLASHFORGE-ASA-GF10) yield a second 'drying' setting such as 'After the printing process, it is recommended to dry the model in the oven at 80-100°C for 1-3 hours to increase the strength of the model.' -> raw '80-100°C for 1-3 hours'. That is an annealing step. The existing exclusion list ('stor*', granulate, pellet, specimen, prior to test, anneal) does not cover it. On D-FLASH-PC-CF-TDS-EN the profile (P0456) correctly holds the pre-print 'at 100°C for at least 4 hours'; the audit does not complain only because one of the two reads matches. A future import of such a sheet gets two drying values, and a sheet that prints only the post-print sentence would be recorded with a drying schedule it does not state.",
+      "suggestion": "Exclude sentences with /\\b(model|part|print)s?\\b[^.]{0,40}\\b(after|once)\\b|after (the )?(printing|model is printed)|to (increase|improve) the (strength|quality of the model)/i, or require a before-printing cue (before|prior to printing|before use|re-dry|moisture). Add a test with the Flashforge wording."
+    },
+    {
+      "severity": "medium",
+      "file": "build/src/normalize/process.js",
+      "line": 53,
+      "finding": "The new RECOMMENDED_RE alternative has no negation guard: 'not recommended to print using a heated chamber' is read as recommended.",
+      "evidence": "parseTemperature('It is not recommended to print using a heated chamber.', {plausible:[0,250]}) returns state 'recommended', requirement 'recommended' (run against the working tree). The alternative is unanchored (\\brecommended\\s+to\\s+print\\s+(?:using|with|in)\\s+an?\\s+heated\\s+chamber) and 'not' before it is not examined.",
+      "suggestion": "Prefix with (?<!not\\s)(?<!n['’]t\\s) or test /\\bnot\\s+recommended\\b|\\bdo(es)?\\s+not\\s+recommend/ first and return the not-recommended / unknown state. Add the negated sentence to normalize.test.js."
+    },
+    {
+      "severity": "medium",
+      "file": "build/src/normalize/process.js",
+      "line": 353,
+      "finding": "parseAbrasion's two new nozzle rules read negations the wrong way round and treat any 'steel' nozzle as hardened.",
+      "evidence": "Run against the working tree: 'we do not recommend the use of brass nozzle' -> requiresHardened false (it says brass is not fine); 'Use of brass nozzle not recommended' -> false; 'No need to use a steel nozzle' -> true; 'Standard brass will not work, use ruby nozzle' -> true (correct only by luck of the ruby word); 'We recommend using a stainless steel nozzle' -> true, although stainless is the standard non-hardened nozzle; 'It is recommended to use brass or steel nozzles' -> true although brass is allowed. The second rule's [^.;]* spans any words between the verb and 'steel nozzle', so 'brass or steel' and 'stainless steel' both match.",
+      "suggestion": "Guard both rules with a negation test (not|no|n't|without within the matched span) and fall through to 'unparsed' when present; require 'hardened|ruby|tungsten|wear' for the hardened reading, or exclude 'stainless' and 'brass or'. Add the negated and 'brass or steel' wordings to normalize.test.js."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/ingest/propose.mjs",
+      "line": 1855,
+      "finding": "PROSE_SCHEDULE cuts a window printed with the unit on both numbers, and its exclusion list misses 'granules' (conditioning for a melt-flow test).",
+      "evidence": "'dry the Flex TPU 95A filament at 50°C - 65°C for 4-6 hours' is read as '65°C for 4-6 hours' (D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds, twice) and '4-6 hours at 70°C - 80°C' as '4-6 hours at 70°C' (flex-tpu-air); profiles P0882, P0975, P1139, P0906, P0977 hold the full windows by hand. I-PLA-PLA-Wood-TDS yields 'granules should be dried for 5 hours at 80℃' from 'for the MFR measurement' (the exclusion has 'granulate|pellet' but not 'granule'), beside the real 'Effective drying takes place at 60°C for 5 hours'.",
+      "suggestion": "Allow an optional second unit in the window (\\d{2,3}\\s*(°C|℃)?\\s*[-–~]\\s*\\d{2,3}\\s*°C) in both alternatives; add granules?, 'MFR', 'MVR' and 'measurement' to the exclusion."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/migrate/m293-dry-box.mjs",
+      "line": 31,
+      "finding": "m293 does not stop when the data moved: setCell takes the cell's current value as 'expect', and the CSV's own 'expect' column is read and ignored.",
+      "evidence": "On the scratch copy I set P0725 Drying to 'Moved value' (the CSV row says expect 'Not published'), ran m290 to m293: m293 overwrote it with 'Not necessary' without complaint. m290 on the same moved data (P0594 Enclosure) did stop with 'the data moved since this change was written'. AGENTS.md asks a migration to name the value it replaces. Only 5 CSV rows are cell edits; the 100 note rows are additive.",
+      "suggestion": "Pass e.expect through to setCell and throw when r[column] is neither e.expect nor e.value. Likewise m291.mjs line 28 (setCell for the Recreus 0.4 mm window and diameter) writes whatever is there; give it an expect from the sheet reading."
+    },
+    {
+      "severity": "low",
+      "file": "build/src/lint-rules.js",
+      "line": 544,
+      "finding": "The ROW regex decides 'these two profiles are rows of the sheet' from free text in the Locator, so it can be satisfied by an unrelated segment and let a true copy escape (or, in the other direction, flag a legitimate pair). Same regex in m292:28.",
+      "evidence": "Locators accumulate segments ('p. 1: Recommended printing settings: Nozzle temperature; p. 1: Closure chamber; ...'); any segment containing 'speed' (e.g. '...; p. 1: Print speed') makes ps.some(ROW) true, so the pair is treated as rows, never flagged, and m292 would copy statements instead of retiring. Conversely a pair that differs by nozzle size recorded as 'Nozzle diameter 0.6 mm' or 'Nozzle size 0.6' does not match nozzle\\s+\\d and would be flagged PROFILE-DUPLICATE. Today none occurs: all 31 multi-profile groups are explained and every retired pair was a true copy (74 pairs, 25 differ in a cell, and in each of those the profile that stays holds the sheet-guidance value or more: e.g. P0646 240°C vs P0645 240-250°C, P1008 200°C vs P1007 180-210°C, P0609 260°C vs P0608 250-270°C).",
+      "suggestion": "Decide 'row' from the data: a pair is rows when the stated Nozzle diameter differs, or when the Nozzle windows differ and the Locator names the row label (tested on the last segment only). Keep the regex as a hint."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/audit/context-witness.mjs",
+      "line": 162,
+      "finding": "statedOf rewrites 'over' and 'above' without a trailing word boundary, so 'overnight' becomes '> night'; a '>' token then exists on one side only.",
+      "evidence": "regex /\\b(?:more than|at least|over|above)\\s*/gi: 'dry overnight at 60°C' -> 'dry > night at 60°C' adds a '>' to the sheet's tokens that a held '60°C' lacks, yielding a spurious CONTEXT-PROFILE-SETTING. No such sheet was found in the current cache.",
+      "suggestion": "Add \\b after the alternation: /\\b(?:more than|at least|over|above)\\b\\s*/gi."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/migrate/m291-profile-per-row.mjs",
+      "line": 89,
+      "finding": "For colorFabb's foaming lightweight filaments the profile that was there keeps the UNFOAMED column (210 °C) and the foamed one (260 °C) becomes the added profile, while the migration's own comment says the product is meant to foam (D95).",
+      "evidence": "P0495, P0498, P0508, P0511 hold 'Value unfoamed @ 210' with Locator 'unfoamed column'; P1356 to P1359 hold the foamed temperatures. Which of the two the build treats as the product's print gate (first profile, union, or the max) is not stated in D120.",
+      "suggestion": "State in D120 which profile the print gate and the headline read for a grade with two row-profiles, and confirm for these four that the gate is not the unfoamed 210 °C setup (the sheet's own recipe is foamed)."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/migrate/m293-dry-box.mjs",
+      "line": 21,
+      "finding": "A dry-box note is silently skipped when the profile already has any 'Storage humidity' note, and for retired profiles; a different existing note is not compared.",
+      "evidence": "hasNote(id) tests only the topic. All 100 CSV note rows were checked against the working tree: every one has its note, none targets a retired profile, so nothing was lost today. The Spectrum TPU notes ('Dry box recommended') drop the answer word 'Yes' that the sheet prints one row below (the layout maps Yes to the dry box and No to the nozzle row, which is correct, but the note no longer says it was an answer).",
+      "suggestion": "Compare text, not topic, and print the skipped ids. For the two-line layouts write 'Dry box recommended: Yes'."
+    }
+  ],
+  "migration_rerun": {
+    "m290": "No-op on a second run (0 cells, 0 retyped, 0 reviews). Stops when data moved (verified: expect mismatch on P0594 raised 'the data moved since this change was written'). The global retype and the review-rescoping loops are not keyed to the CSV, so a later parser change would make a re-run rewrite other profiles; harmless today, worth a comment.",
+    "m291": "No-op on a second run (0 added, 0 written) because addRow tests (grade, source, Locator) and setCell skips equal values. The colorFabb block throws when the base no longer holds the unfoamed value; the Recreus block and the SUNLU block do not check what they replace (low finding above).",
+    "m292": "No-op on a second run. Never touches a retired profile. The profile that stays is the one holding more recipe cells, else the lowest ID; it refuses (throws) if the copy holds a cell the keeper lacks. All 74 retired copies point at a live keeper of the same grade and source.",
+    "m293": "No-op on a second run (idempotent through hasNote and value equality), but does NOT stop when the data moved for its 5 Drying edits (low finding above).",
+    "m294": "No-op on a second run (condition requires Chamber state 'unknown'); skips retired profiles; defers to a sibling profile that states a chamber.",
+    "chain": "Replay from HEAD's profiles.csv and profile_notes.csv through m290-m294 reproduced the working tree's two tables byte for byte (165+3 cells, 36 profiles added, 74 retired, 108 notes, 2 D93 declarations), with the real document cache."
+  },
+  "spot_check": [
+    {"card": "S01", "verdict": "supported", "note": "SUNLU 'Room Temp. 常温' (p. 2): the chamber row answered in Chinese for 'normal temperature'; AMBIENT_RE now reads it."},
+    {"card": "S02", "verdict": "supported", "note": "eSUN ABS+ precaution 'print in a printer with a closed chamber' is a recommendation to enclose, read as Enclosure recommended."},
+    {"card": "S03", "verdict": "supported", "note": "LUVOCOM 3F PAHT: the 3D-printing line says 'nozzle temperature: 265 - 290 °C'; 250 - 290 was the extrusion table."},
+    {"card": "S04", "verdict": "supported", "note": "Bambu PC: 'Blast Drying Oven: 80 °C, 8 h' printed in the settings table."},
+    {"card": "S05", "verdict": "supported", "note": "purefil: two-column text interleaves, but label order (Printing temperature, Heated bed temperature) matches value order (240-260 °C, 80-110 °C)."},
+    {"card": "S06", "verdict": "supported", "note": "Siraya: 'filament d ryer or convection oven at 5 0-60°C for at least 4-6 hours' (letter-spaced PDF text); the cell restores the printed window. Note that the new sentence reader itself returns only '60°C for at least 4-6 hours' on this line (see low finding on truncated windows)."},
+    {"card": "S07", "verdict": "supported", "note": "3D-Fuel 'Extruder: 240 - 260ºC / Bed: 100 - 110ºC'."},
+    {"card": "S08", "verdict": "supported", "note": "The printed row is 'Nozzle Temp. 210 260 ˚C' under 'Value unfoamed @ 210 / Value foamed @ 260'; the raw cell is verbatim. As a single typed window it read 210-260 continuously, which the sheet does not say. The card predates the working tree: P0508 now holds 210 °C (unfoamed) with P1358 holding 260 ˚C (foamed), which is the correct reading."},
+    {"card": "S09", "verdict": "supported", "note": "Braskem FL900PP-CF: 'Recommended Bed Temperature / Substrate ... 80 / PP bed adhesion solution stick'; the cell is '80' without the unit, as the column header carries ℃."},
+    {"card": "S10", "verdict": "supported", "note": "LUVOCOM PAHT 9825: 'Print Bed Temperature: > 50 °C'."},
+    {"card": "S11", "verdict": "supported", "note": "BigRep: 'Drying Recommendations 50 °C for 4 - 6 hours'."},
+    {"card": "S12", "verdict": "supported", "note": "Fillamentum Vinyl 303: 'We recommend the 3D printer with air filtration and use of brass nozzle.' reads as no hardened nozzle needed."},
+    {"card": "S13", "verdict": "supported", "note": "Recreus Filaflex 70A: 'Drying Temperature 55 °C / Minimum Time 1 hour'."},
+    {"card": "S14", "verdict": "supported", "note": "Recreus Foamy: the cell is the sheet's two lines verbatim. The typed reading is a required 50-55 °C window although small parts need no bed heating; the raw column carries the full statement."},
+    {"card": "S15", "verdict": "supported", "note": "Conductive Filaflex: 'Nozzle 0.8 mm ... Temperature 252 °C' block on p. 3."},
+    {"card": "S16", "verdict": "supported", "note": "SUNLU PLA Wood: Zonal Temperature band 100-200mm/s is 215-235℃; the base profile keeps the general 205-215℃."},
+    {"card": "S17", "verdict": "supported", "note": "SUNLU PLA Meta: 100-200mm/s band 195-225℃."},
+    {"card": "S18", "verdict": "supported", "note": "Filaflex 60A: 'Nozzle 0.4 mm ... Temperature 235 °C'; the base profile gains the 0.4 mm row and its diameter."},
+    {"card": "S19", "verdict": "supported", "note": "SUNLU PLA+ Vivid Yellow: 100-300mm/s band 205-220℃ (the 50-100 band, 195-205℃, is its own profile P1328)."},
+    {"card": "S20", "verdict": "supported", "note": "SUNLU Silk PLA: 100-200mm/s band 215-235℃."},
+    {"card": "S21", "verdict": "supported", "note": "P0332 and P0331 hold identical nozzle, bed, chamber and drying cells; the sheet prints one guidance block (210-230, 25-60, 60°C/6H); the keeper is the sheet's guidance."},
+    {"card": "S22", "verdict": "supported", "note": "eSUN PLA Basic: the two profiles differ only in the spacing of '50℃,8~12h'; the keeper matches the sheet's guidance."},
+    {"card": "S23", "verdict": "supported", "note": "P0300 holds the drying the copy lacks ('60°C for 6h', Locator 'p. 5: Drying setting'); the excerpt shows the other settings identical. The keeper holds everything the copy held."},
+    {"card": "S24", "verdict": "supported", "note": "Facilan HT: the sheet's print recommendations say 240-250°C; the copy's 240°C was the test setting. Keeper has the range, copy holds nothing the keeper lacks."},
+    {"card": "S25", "verdict": "supported", "note": "PolyMax PC: keeper P0276 holds the 'Closure chamber Not needed (70°C-100°C)' text the copy lacks; every other cell is equal."},
+    {"card": "S26", "verdict": "supported", "note": "Spectrum PP: 'Dry box recommended No' becomes a Storage humidity note. The nozzle cell was already 'Ruby or hardened nozzle not necessary' at HEAD (this edit did not change it); it paraphrases the sheet's 'recommended No'."},
+    {"card": "S27", "verdict": "supported", "note": "Spectrum ASA: 'Dry box not necessary' and 'Ruby or hardened nozzle not necessary' printed on adjacent lines."},
+    {"card": "S28", "verdict": "supported", "note": "Spectrum TPU 82A: the answers 'not necessary / Yes / No / not necessary (adhesion ...)' map by order to chamber, dry box, ruby nozzle, adhesive; the last answer is plainly the adhesive row. So dry box is Yes and the nozzle row is No. The note says 'Dry box recommended' and omits 'Yes', which reads correctly."},
+    {"card": "S29", "verdict": "supported", "note": "Same layout and reading as S28 (TPU 87A)."},
+    {"card": "S30", "verdict": "supported", "note": "Spectrum PCTG-CF10: 'Dry box not necessary' and 'Ruby or hardened nozzle recommended' on adjacent lines."}
+  ],
+  "spot_check_summary": {"cards": 30, "supported": 30, "not_supported": 0, "unclear": 0},
+  "residual_risks": [
+    "The import's reader (guidanceBeyondLabels) is now what the guard compares profiles with, so what it drops is no longer audited; three drop classes found here (Raise3D/Flashforge 'Recommended' blocks under a test heading, 3DJake infill ranges, LUVOCOM PP-CF pellet table) are invisible to CONTEXT-PROFILE-SETTING until the filter or the guard is changed.",
+    "The sentence-level drying reader adds a second drying value on 26 cached sheets (post-print drying of the model); the profiles are correct today, a future import is not.",
+    "Parsers read some negations the wrong way (heated chamber 'not recommended'; 'do not recommend ... brass nozzle'; 'No need to use a steel nozzle'); none occurs in the current cache, so no existing profile is wrong because of it, but a later sheet could be.",
+    "P0941 (LUVOCOM 3F PP CF 9928 BK) holds the pellet-processing nozzle window as printing guidance; the sheet prints no 3D-printing setting.",
+    "The sweep verified 30 of 359 error cells by sheet text here; all 30 held. The 74 retired copies were checked structurally (same grade and source, live keeper, keeper holds at least what the copy held, differing cells favour the keeper) but not each against its sheet.",
+    "The spot-check card file predates the latest m291 (colorFabb split); S08 is judged on the card's own wording.",
+    "The repository was being edited while this review ran; findings are against the files as last read and the replay used the code at that moment.",
+    "npm run verify and the rendered-scenario checks were not run by the reviewer; only the three unit test files and data:lint were."
+  ]
+}

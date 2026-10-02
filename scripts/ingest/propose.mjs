@@ -1111,6 +1111,12 @@ export function readSetting(line, page = 1, below = '') {
     const rejoined = own && column && !/[a-z°º˚℃%]/i.test(own) ? `${own} ${column}` : own;
     const raw = rejoined || under;
     if (!raw || !/[a-z0-9]/i.test(raw)) return null;
+    // Siraya Tech's table answers its "Nozzle" row with the nozzle it needs, not a temperature: "Standard brass or higher
+    // grade will work", "Hardened steel or higher grade" (the profile root-cause sweep of 2026-10-02).
+    if (match.Field === 'nozzle' && !/[°º˚]\s?[cf]|℃|\d{3}/i.test(raw) && /\b(brass|steel|hardened?|ruby|tungsten|carbide|wear[- ]resist\w*)\b/i.test(raw)) {
+      const said = raw.split(/\s+(?=size\b|diameter\b)/i)[0];
+      return { page, field: 'nozzle-material', topic: '', label: m[0].trim(), raw: `${m[0].trim()} ${said}`.replace(/\s+/g, ' ').trim(), fromBelow: !rejoined, line: String(line.text ?? '').slice(0, 200) };
+    }
     // A setting is a value, not a sentence. Raise3D wraps "A wear-resistant nozzle, such as hardened steel and
     // ruby nozzle, is highly recommended." so that the word nozzle begins a line, and the rest of the sentence
     // was recorded as a nozzle temperature; 3D4Makers runs a paragraph together with no spaces at all and its
@@ -1134,7 +1140,8 @@ export function readSetting(line, page = 1, below = '') {
     if (match.Field === 'note' && !/\d|\b(not|no|yes|necessary|required|recommended|needed)\b/i.test(raw)) return null;
     // A temperature setting states a temperature. A table whose cells the page ran together offered
     // "Nozzle temperature 50-300mm/s", which is the print speed from the column beside it.
-    if (['nozzle', 'bed', 'chamber'].includes(match.Field) && !/[°º˚]\s?[cf]|℃|℉|\d\s?c\b|\b(not|no|yes|necessary|required|recommended|needed|ambient|room)\b/i.test(raw)) return null;
+    // SUNLU answers its "Room Temp." row "Normal temperature", "Normal" or 常温.
+    if (['nozzle', 'bed', 'chamber'].includes(match.Field) && !/[°º˚]\s?[cf]|℃|℉|\d\s?c\b|\b(not|no|yes|necessary|required|recommended|needed|ambient|room|normal)\b|常温/i.test(raw)) return null;
     return { page, field: match.Field, topic: match.Topic || '', label: m[0].trim(), raw, fromBelow: !rejoined,
       line: `${String(line.text ?? '')}${own ? '' : ` ${below}`}`.slice(0, 200) };
   }
@@ -1817,7 +1824,151 @@ export function readSheet(text, registry) {
     }
     dropHeld();
   }
-  return { values, settings, skipped };
+  return { values, settings: guidanceBeyondLabels(text, settings), skipped };
+}
+
+// What a sheet says about printing that its labelled rows do not carry, found by the profile root-cause sweep of
+// 2026-10-02 (PM-TRIAL-2026-10-01/data-audit/profiles): read here so the import and the guard that checks every
+// profile against its sheet (scripts/audit/context-witness.mjs) read it alike.
+//
+// - A setting under a heading that says how the test bars were made ("How to make specimens", "Print test condition",
+//   "Test specimens were printed at …") or how the compound is processed as pellets (LUVOCOM's "Processing" table for
+//   extrusion machines, "predry the granulate") is not the filament's printing guidance (m170, m288).
+// - A drying temperature whose hours are the next row ("Drying Time 4-6 hrs", "Minimum Time 1 hour") is one schedule.
+// - SUNLU prints a "Zonal Temperature" window per print speed under its nozzle row, and Recreus a block per nozzle size
+//   ("Nozzle 0.6 mm … Temperature 242 °C"): each is a nozzle row, so profilesFor gives each its own profile.
+// - A sheet that states its drying schedule only in a sentence ("dry the filaments in a hot air oven at 120°C for at
+//   least 8 hours", "Dehydrate for 6h at 60°C prior to printing", "(55℃/> 4h) before printing") states it.
+export const TEST_BLOCK = /h\s*o\s*w\s+t\s*o\s+m\s*a\s*k\s*e\s+s\s*p\s*e\s*c\s*i\s*m\s*e\s*n|specimens? (were|was|are) (3d )?printed|styles of printing conditions|printed (under|at) the following|printed specimen conditions|print test condition|test (the )?spline|splines are printed|test equipment|试样打印|测试样条|^processing$|\bgranulate\b|extrusion machines?/i;
+// A test-bar heading governs the lines under it until a numbered note, a notes heading or a guidance heading begins:
+// Raise3D prints its specimens' settings and then "1. Abrasion of the brass nozzle …", "2. Please dry the filament … at
+// least 8 hours at 80-100°C", which is guidance, and on other sheets its "Recommended Printing Settings" table a few
+// lines under the specimens' (the independent review of the sweep).
+const BLOCK_ENDS = /^\s*\d+\.\s+\S|^(notes?|precautions?|tips?)\b|^(recommended|suggested|advised)\b.{0,40}\b(print\w*|processing|settings|parameters|conditions)\b|^print(ing)?\s+(settings|parameters|guide|recommendations)\b|^guideline/i;
+export function testBlockAt(lines, i) {
+  for (let k = i; k >= Math.max(0, i - 8); k--) {
+    if (k < i && BLOCK_ENDS.test(lines[k + 1] ?? '')) return false;
+    if (TEST_BLOCK.test(lines[k] ?? '')) return true;
+  }
+  return false;
+}
+const DRYING_HOURS = /^(?:drying\s+time|minimum\s+time|time)\s*[:：]?\s*\d+(?:[.,]\d+)?(?:\s*[-–~]\s*\d+(?:[.,]\d+)?)?\s*\+?\s*(?:h|hrs?|hours?)\b/i;
+const PROSE_DRYING = /\b(?:dry|dried|drying|dehydrate)\b/i;
+// Spectrum's footnote prints the temperature without its unit: "at least 12h at 80 using a hot dry air oven".
+const PROSE_SCHEDULE_NO_UNIT = /\b(\d+(?:\s*[-–~]\s*\d+)?\s*(?:h|hrs?|hours?)\s+at\s+\d{2,3})\s+using\b/i;
+const PROSE_SCHEDULE = /(\d{2,3}(?:\s*(?:°\s?C|℃|º\s?C|˚\s?C)?\s*[-–~]\s*\d{2,3})?\s*(?:°\s?C|℃|º\s?C|˚\s?C)\s*(?:\/\s*[>＞]?\s*|,\s*|\s+for\s+(?:at\s+least\s+)?)\d+(?:\s*[-–~]\s*\d+)?\s*\+?\s*(?:h|hrs?|hours?)\b|\b\d+(?:\s*[-–~]\s*\d+)?\s*(?:h|hrs?|hours?)\s+at\s+\d{2,3}(?:\s*[-–~]\s*\d{2,3})?\s*(?:°\s?C|℃|º\s?C|˚\s?C))/i;
+export function guidanceBeyondLabels(text, settings) {
+  const pages = new Map(text.pages.map((p) => [p.page, (p.lines ?? []).map((l) => String(l.text ?? '').replace(/\s+/g, ' ').trim())]));
+  const at = (x) => { const lines = pages.get(x.page) ?? []; const line = String(x.line ?? '').replace(/\s+/g, ' ').trim(); return lines.findIndex((l) => l === line || (line.length >= 12 && l.includes(line.slice(0, 40)))); };
+  const inTestBlock = (x) => { const lines = pages.get(x.page) ?? []; const i = at(x); return i >= 0 && testBlockAt(lines, i); };
+  // Every setting, notes included: a test bar's layer height, wall count or nozzle size is not guidance either (the
+  // control re-read after the sweep found seven profile notes and eleven nozzle sizes taken from such a block).
+  const out = settings.filter((x) => !inTestBlock(x));
+  for (const x of out) {
+    if (x.field !== 'drying' || /\d\s*(?:h|hrs?|hours?)\b/i.test(x.raw)) continue;
+    const lines = pages.get(x.page) ?? []; const i = at(x); if (i < 0) continue;
+    const time = lines.slice(i + 1, i + 3).find((l) => DRYING_HOURS.test(l));
+    if (time) { x.raw = `${x.raw}; ${DRYING_HOURS.exec(time)[0]}`; x.line = `${x.line} | ${time}`.slice(0, 200); }
+  }
+  // colorFabb's lightweight sheets print a column per state ("Value unfoamed @ 210 Value foamed @ 260 Unit", then
+  // "Nozzle Temp. 210 260 ˚C"): two setups, not one window (D95, m291).
+  for (const x of [...out]) {
+    const lines = pages.get(x.page) ?? [];
+    const head = lines.map((l) => /^Value unfoamed @ (\d{3}) Value foamed @ (\d{3})\b/.exec(l)).find(Boolean);
+    const two = x.field === 'nozzle' && /(\d{3}) (\d{3}) ˚C$/.exec(String(x.line ?? '').replace(/\s+/g, ' ').trim());
+    if (!head || !two) continue;
+    out.splice(out.indexOf(x), 1, { ...x, label: `${x.label}, unfoamed`, raw: `${two[1]} ˚C` }, { ...x, label: `${x.label}, foamed`, raw: `${two[2]} ˚C` });
+  }
+  for (const [page, lines] of pages) {
+    // SUNLU: "Nozzle Print Temp." then (speed, window) pairs, one of them headed "Zonal Temperature".
+    const a = lines.findIndex((l) => /^nozzle print temp\.?$/i.test(l));
+    if (a >= 0 && lines.slice(a, a + 12).some((l) => /^zonal temperature$/i.test(l))) {
+      const temps = [], speeds = [];
+      for (const l of lines.slice(a + 2, a + 14)) {
+        if (/^print platform/i.test(l)) break;
+        const t = /^(\d+-\s*\d+℃)(?:\s+(\d+-\s*\d+mm\/s))?$/.exec(l), sp = /^(\d+-\s*\d+mm\/s)(?:\s+(\d+-\s*\d+℃))?$/.exec(l);
+        if (t) { temps.push(t[1]); if (t[2]) speeds.push(t[2]); } else if (sp) { speeds.push(sp[1]); if (sp[2]) temps.push(sp[2]); }
+      }
+      const general = String(lines[a + 1] ?? '');
+      if (/^\d+-\s*\d+℃$/.test(general) && !out.some((x) => x.field === 'nozzle' && x.raw.replace(/\s/g, '') === general.replace(/\s/g, ''))) out.push({ page, field: 'nozzle', topic: '', label: 'Nozzle Print Temp.', raw: general, fromBelow: true, line: `Nozzle Print Temp. ${general}` });
+      if (temps.length === speeds.length) temps.forEach((raw, k) => { if (raw.replace(/\s/g, '') !== String(lines[a + 1]).replace(/\s/g, '')) out.push({ page, field: 'nozzle', topic: '', label: `Zonal Temperature, ${speeds[k]}`, raw, fromBelow: false, line: `Zonal Temperature ${speeds[k]} ${raw}` }); });
+    }
+    // SUNLU's other layout: a "Temperature ℃ | Speed mm/s" table whose rows print a window and a speed band with no
+    // unit, one above or under the label ("230-240 50-100", "Nozzle Print Temp.", "240-255 100-300").
+    const b = lines.findIndex((l) => /^nozzle (print )?temp\.?$/i.test(l));
+    if (b >= 0 && !lines.slice(b, b + 12).some((l) => /^zonal temperature$/i.test(l))) {
+      const bands = lines.slice(Math.max(0, b - 1), b + 6).map((l) => /^(\d{3}-\s*\d{3})℃?\s+(\d{2,3}-\s*\d{3})(?:mm\/s)?$/.exec(l)).filter(Boolean);
+      if (bands.length > 1) for (const [, raw, speed] of bands) if (!out.some((x) => x.field === 'nozzle' && x.raw.replace(/[\s℃]/g, '') === raw.replace(/\s/g, ''))) out.push({ page, field: 'nozzle', topic: '', label: `Nozzle temperature, ${speed}mm/s`, raw, fromBelow: true, line: `${lines[b]} ${raw} ${speed}` });
+    }
+    // Recreus: "Nozzle 0.6 mm" … "Temperature 242 °C".
+    let size = null;
+    for (const l of lines) {
+      const n = /^Nozzle (\d\.\d) mm$/.exec(l); if (n) { size = n[1]; continue; }
+      const t = /^Temperature (\d{3} °C)$/.exec(l);
+      if (t && size) { out.push({ page, field: 'nozzle', topic: '', label: `Nozzle ${size} mm`, raw: t[1], fromBelow: false, line: `Nozzle ${size} mm | ${l}` }); size = null; }
+    }
+  }
+  // A label alone on its line, its value two lines down past a property row of the column beside it: Fabru prints
+  // "Printing temperature" | "Shrinkage (ISO 294-4, 2577) 0.2-0.4 %" | "240-260 °C".
+  const BARE = /^[<>≥≤~±]?\s*\d{1,3}(?:[.,]\d+)?(?:\s*(?:°\s?C|℃|º\s?C|˚\s?C))?(?:\s*[-–~]\s*\d{1,3}(?:[.,]\d+)?)?\s*(?:°\s?C|℃|º\s?C|˚\s?C)\s*\+?$/i;
+  for (const [page, lines] of pages) lines.forEach((l, i) => {
+    const label = SETTINGS.find((s) => ['nozzle', 'bed', 'chamber', 'drying'].includes(s.Field) && s.re.test(l) && !l.replace(s.re, '').trim());
+    if (!label || out.some((x) => x.page === page && x.field === label.Field)) return;
+    const value = BARE.test(lines[i + 1] ?? '') ? lines[i + 1] : /\d/.test(lines[i + 1] ?? '') && BARE.test(lines[i + 2] ?? '') ? lines[i + 2] : null;
+    if (value && !testBlockAt(lines, i)) out.push({ page, field: label.Field, topic: label.Topic || '', label: l, raw: value, fromBelow: true, line: `${l} | ${value}` });
+  });
+  // A label the text layer split from its value. Fabru interleaves its processing column with its property column:
+  // "Drying time" | "Elongation at break … 3 %" | "2-4h". Raise3D splits "Recommended environmental" | "70 – 80
+  // (recommended) (°C)" | "temperature".
+  for (const [page, lines] of pages) lines.forEach((l, i) => {
+    const time = /^drying time$/i.test(l) && /^(\d+(?:\s*[-–~]\s*\d+)?\s*\+?\s*(?:h|hrs?|hours?))$/i.exec(lines[i + 2] ?? '');
+    if (time) { const d = out.find((x) => x.page === page && x.field === 'drying' && !/\d\s*(?:h|hrs?|hours?)\b/i.test(x.raw)); if (d) { d.raw = `${d.raw}; Drying time ${time[1]}`; d.line = `${d.line} | Drying time ${time[1]}`.slice(0, 200); } }
+    if (/^recommended environmental$/i.test(l) && /^temperature$/i.test(lines[i + 2] ?? '') && /\d/.test(lines[i + 1] ?? '') && !out.some((x) => x.field === 'chamber')) {
+      out.push({ page, field: 'chamber', topic: '', label: 'Recommended environmental temperature', raw: lines[i + 1], fromBelow: true, line: `${l} ${lines[i + 1]} ${lines[i + 2]}` });
+    }
+  });
+  // A nozzle statement in a run-together list of recommendations: eSUN's product pages print "Dry at70℃/>8h，0.4，0.6
+  // hardened steel nozzle enclosed-chamber printing" on one line.
+  if (!out.some((x) => x.field === 'nozzle-material')) {
+    for (const [page, lines] of pages) lines.forEach((l, i) => {
+      if (testBlockAt(lines, i)) return;
+      for (const clause of l.split(/[，,;]\s*/)) {
+        const m = /((?:\d\.\d\s*)?(?:hardened\s+steel|ruby|tungsten\s+carbide)\s+nozzles?)\b/i.exec(clause);
+        if (m && /^\s*(?:\d\.\d\s*)?(?:hardened|ruby|tungsten)/i.test(clause) && !out.some((x) => x.field === 'nozzle-material' && x.raw === m[1])) out.push({ page, field: 'nozzle-material', topic: '', label: 'a list of recommendations', raw: m[1].replace(/^\d\.\d\s*/, ''), fromBelow: false, line: l.slice(0, 200) });
+      }
+    });
+  }
+  // A drying schedule stated only in a sentence.
+  if (!out.some((x) => x.field === 'drying')) {
+    for (const [page, lines] of pages) lines.forEach((l, i) => {
+      const sentence = `${l} ${lines[i + 1] ?? ''}`;
+      // Drying the printed part ("after printing, dry the model …") is a treatment of the part, and dried granules are a
+      // melt flow test's.
+      if (!PROSE_DRYING.test(l) || /\bstor(e|ed|age)\b|granul|pellet|specimen|prior to test|anneal|after print|the (model|part|print)s?\b|melt flow|\bMFR\b|\bMVR\b/i.test(sentence) || testBlockAt(lines, i)) return;
+      const m = PROSE_SCHEDULE.exec(sentence) ?? (/oven|dryer/i.test(sentence) ? PROSE_SCHEDULE_NO_UNIT.exec(sentence) : null);
+      if (m && !out.some((x) => x.field === 'drying' && x.raw === m[1])) out.push({ page, field: 'drying', topic: '', label: 'a sentence', raw: m[1].replace(/\s+/g, ' ').trim(), fromBelow: false, line: sentence.slice(0, 200) });
+    });
+  }
+  // An enclosure recommended in a sentence: CreatBot's "we strongly recommend using an enclosed or semi-enclosed printing
+  // chamber for optimal results".
+  if (!out.some((x) => x.field === 'enclosure')) {
+    for (const [page, lines] of pages) lines.forEach((l, i) => {
+      // Any other clause about an enclosure the parser reads ("printable without an enclosure", "an enclosed printer is
+      // recommended for printing", "Please keep the chamber closed", Fabru's "Needs a warm room, or closed pressure room").
+      for (const clause of `${l}`.split(/(?<=[.;!])\s+|\s+-\s+/)) {
+        if (!/enclos|closed|warm room/i.test(clause) || /\bstor|packag|bag|spool|keep\s+(it|the\s+(filament|spool|bag))/i.test(clause) || testBlockAt(lines, i)) continue;
+        const said = clause.replace(/^[\s\-•*]+/, '').trim().slice(0, 120);
+        if (said.length > 6 && parseEnclosure(said).state !== 'unknown' && !out.some((x) => x.field === 'enclosure' && (x.raw.includes(said) || said.includes(x.raw)))) out.push({ page, field: 'enclosure', topic: '', label: 'a sentence', raw: said, fromBelow: false, line: l.slice(0, 200) });
+      }
+      // Polymaker's "it is recommended to use an enclosure" and eSUN's "not required a closed cavity" say it either way.
+      const sentence = `${l} ${lines[i + 1] ?? ''}`;
+      const m = /\b((?:strongly\s+)?recommend\w*\s+(?:using|to\s+use|printing\s+in|to\s+print\s+in)\s+an?\s+(?:enclosed|closed)\b[^.]{0,40}?\b(?:chamber|printer|enclosure)|keep\s+the\s+printer(?:'s)?\s+(?:chamber|enclosure|door)\s+closed|recommended\s+to\s+use\s+an\s+enclosure|not\s+required\s+a\s+closed\s+cavity)\b/i.exec(sentence);
+      if (!m || (/\bno\s+need/i.test(m[1])) || (/\bnot\b/i.test(m[1]) && !/^not\s+required\s+a\s+closed/i.test(m[1])) || testBlockAt(lines, i)) return;
+      const raw = m[1].replace(/\s+/g, ' ').trim();
+      if (!out.some((x) => x.field === 'enclosure' && (x.raw.includes(raw) || raw.includes(x.raw)))) out.push({ page, field: 'enclosure', topic: '', label: 'a sentence', raw, fromBelow: false, line: l.slice(0, 200) });
+    });
+  }
+  return out;
 }
 
 // An impact result is named by its method, not by the word above it. ISO 180, ASTM D256 and GB/T 1843 are Izod;

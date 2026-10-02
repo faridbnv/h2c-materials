@@ -81,10 +81,10 @@ all products: 400
 PP
 Polyolefins
  PASS
-1 of 1 product
+2 of 2 products
  900
 890–960 · 8
- 1.2* 19 passing: 850
+ 1.2* 19 passing: 850–900
 all products: 850
  80
 58.5–85 · 3

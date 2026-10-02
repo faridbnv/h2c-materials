@@ -417,7 +417,9 @@ test("a guide's enclosure is the H2C's chamber only where its row declares it, a
       }
     }
   }
-  assert.ok(read > 100, `only ${read} products read the guide's enclosure as the H2C's chamber`);
+  // A floor, so the rule is exercised: it falls as products' own sheets are read, since their own statement wins (the
+  // profile root-cause sweep of 2026-10-02 moved it from over 100 to 96).
+  assert.ok(read > 80, `only ${read} products read the guide's enclosure as the H2C's chamber`);
 });
 
 // D93: a maker's own "enclosure needed" or "recommended", with no temperature, reads as the guide's tick does, for the

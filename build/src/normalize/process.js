@@ -48,7 +48,9 @@ export const REQUIREMENT = {
 
 // Yousu and 3D-Fuel print the bed as "None needed (or 50-70°C if applicable)": not required, with the window if one is used.
 const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary)\b/i;
-const RECOMMENDED_RE = /^recommended\b/i;
+// "It is recommended to print using a heated chamber." recommends one without a temperature (the profile root-cause
+// sweep of 2026-10-02).
+const RECOMMENDED_RE = /^recommended\b|(?<!\bnot\s)\brecommended\s+to\s+print\s+(?:using|with|in)\s+an?\s+heated\s+chamber\b/i;
 // Polymaker marks the whole window after its numbers: "70 – 80 (recommended) (˚C)", "70-80 (˚C)(Recommended)". A bracket
 // holding a number as well ("230~260 ℃ (recommended: 240℃)") recommends a point inside a window, which stays required.
 const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
@@ -62,7 +64,9 @@ const DASH_RE = /^-$/;
 const OFF_RE = /^off$/i;
 // Flashforge, SIDDAMENT and LEHVOSS say a filament prints "on non-heated chamber FFF 3D printers" or "in non-heated
 // chambers" in their prose. It is read before any number, because "3D" would otherwise be taken for a 3 °C chamber.
-const NON_HEATED_RE = /\bnon-?heated\s+chambers?\b/i;
+// Siraya Tech's "no need of temperature chamber" and IPCON's "no heating chamber are required during the printing
+// process" say the same in other words (the profile root-cause sweep of 2026-10-02).
+const NON_HEATED_RE = /\bnon-?heated\s+chambers?\b|\b(?:does\s+not|doesn['’]t)\s+require\s+an?\s+heated\s+(?:building\s+|build\s+|print\s+)?chambers?\b|\bno\s+need\s+(?:of|for)\s+(?:an?\s+)?(?:temperature|heated|heating)\s+chambers?\b|\bno\s+(?:heated|heating)\s+chambers?\s+(?:is|are)\s+(?:required|needed|necessary)\b/i;
 // "65˚C+" (Polymaker ABS Max's chamber), "140 ºC +" and LEHVOSS's "> 120 °C" are at-least values: a lower end, with no
 // upper end published.
 // Fillamentum prints the plus before the unit: "Hot pad 100+ °C".
@@ -71,7 +75,8 @@ const AT_LEAST_LEAD_RE = /^(?:>|≥|>=)\s*(\d+(?:\.\d+)?)()\s*[^\d\s]{0,3}\s+[^\
 // "< 80°C" (Spectrum's PA6 Low Warp GF30 bed) and "≤ 60 °C" are at-most values: an upper end, with no lower end
 // published. Read as a number, "< 80°C" was the single point 80 (the control re-read of 2026-10-01).
 const AT_MOST_RE = /^(?:<|≤|<=|＜)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}(?:\s+[^\d]*)?$/;
-const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?)\b/i;
+// SUNLU answers its "Room Temp." row "Normal temperature", "Normal" or 常温 (normal temperature) on other sheets.
+const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?|normal\s+temp\w*)\b|常温|^normal$/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
 
 /**
@@ -273,7 +278,23 @@ export function parseEnclosure(raw) {
   if (/^needed\b/i.test(text)) return { text, state: 'recommended' };
   // A sentence that recommends printing in a closed printer: eSUN's "we highly recommend printing PC-HT material within
   // a closed chamber printer", or "print in a printer with a closed chamber".
-  if (/\brecommend\w*\b[^.]*\b(closed|enclosed)\s+(chamber|printer)|\bprint\w*\s+in\s+a\s+printer\s+with\s+(a\s+)?closed\s+chamber/i.test(text)) return { text, state: 'recommended' };
+  if (/\brecommend\w*\b[^.]*\b(closed|enclosed)(\s+or\s+semi-enclosed)?\s+(print(ing)?\s+)?(chamber|printer)|\bprint\w*\s+in\s+a\s+printer\s+with\s+(a\s+)?closed\s+chamber/i.test(text)) return { text, state: 'recommended' };
+  // A sentence that says the filament prints best enclosed: 3D-Fuel's "works best with an enclosed print area", SUNLU's
+  // "Printing in an enclosed printer", BASF's "At least closed chamber" (the profile root-cause sweep of 2026-10-02).
+  // A cell that names the printing it is for ("enclosed-chamber printing"); a filament "ideal for use in open desktop 3D
+  // printers" needs none. ("Enclosed-frame (rec.), open-frame" stays a reviewer's reading: it allows both.)
+  // A filament printable without one says it needs none: "printable without an enclosure", "Can be printed without a
+  // heated enclosure", "doesn't require a 3D printer with a closed/heated enclosure" (the delta re-read of 2026-10-02).
+  if (/\b(printable|printed|print)\s+without\s+an?\s+(heated\s+)?enclosure\b|\b(does\s+not|doesn[’']t)\s+require\s+a\s+(3d\s+)?printer\s+with\s+a\s+closed/i.test(text)) return { text, state: 'not-needed' };
+  if (/^enclosed[- ]chamber\s+printing\b|\bkeep\s+the\s+(?:printer(?:'s)?\s+)?(?:chamber|enclosure|door)\s+closed\b|^enclosed[- ]frame$|\ban?\s+enclosed\s+printer\s+is\s+recommended\b|\bneeds\s+a\s+warm\s+room\b|\bclosed\s+pressure\s+room\b/i.test(text)) return { text, state: 'recommended' };
+  // SIDDAMENT's "Seal the Box: No" (or "Yes"): whether the printer must be closed.
+  // "Yes/No" leaves it to the printer: optional, which needs none (D88's "Optional").
+  const sealed = /\bseal\s+the\s+box\s*[:：]?\s*(yes\s*\/\s*no|yes|no)\b/i.exec(text);
+  if (sealed) return { text, state: /^yes$/i.test(sealed[1]) ? 'recommended' : 'not-needed' };
+  // A printer type a table answers with ("Compatible Printer Type | Open-frame").
+  if (/^open[- ]frame$/i.test(text)) return { text, state: 'not-needed' };
+  if (/\bideal\s+for\s+use\s+in\s+open\b/i.test(text)) return { text, state: 'not-needed' };
+  if (/\b(best|better)\s+with\s+an?\s+enclosed\s+(print\s+area|printer|build\s+(area|volume|space))\b|^print(ing)?\s+in\s+an?\s+(enclosed|closed)\s+printer\b|^at\s+least\s+(a\s+)?closed\s+chamber\b/i.test(text)) return { text, state: 'recommended' };
   // Advice to use one, with no temperature: Siraya Tech's "Use an enclosure to maintain consistent temperature and reduce
   // potential warping, especially for larger prints."
   if (/^use\s+an?\s+(enclosure|enclosed\s+printer)\b/i.test(text)) return { text, state: 'recommended' };
@@ -335,6 +356,15 @@ export function parseAbrasion(raw) {
     if (says === 'no' || says === 'nein' || says === 'not necessary' || says === 'none') return { text, requiresHardened: false, state: 'stated' };
     return { text, requiresHardened: true, state: 'stated' };
   }
+  // A sheet that names the nozzles it prints on: IPCON's "Compatible Nozzle Material Any common material" and BASF's "use
+  // of brass nozzle" allow brass; "recommended to use steel or ruby nozzles" (Fiberlogy, QIDI) does not (the profile
+  // root-cause sweep of 2026-10-02).
+  // A sentence that warns against brass ("do not recommend … brass nozzle") says the opposite, and "no need to use a steel
+  // nozzle" allows brass; a stainless or "brass or steel" nozzle is not a hardened one (the independent review).
+  const against = /\b(do\s+not|don[’']t|not)\s+(recommend\w*|use)\b[^.;]*\bbrass\b/i.test(text);
+  if (/\bno\s+need\s+(?:to\s+use\s+|for\s+)?(?:an?\s+)?(?:hardened\s+|stainless\s+)?(?:steel|ruby|hardened)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  if (!against && /\bany\s+common\s+(nozzle\s+)?material\b|\buse\s+of\s+(an?\s+)?brass\s+nozzles?\b|\bbrass\b[^.;]{0,40}\b(will\s+work|works|is\s+fine|is\s+sufficient|is\s+suitable)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  if (against || /\b(use|using|recommend\w*)\b[^.;]*\b(hardened\s+steel|steel\s+or\s+(?:a\s+)?ruby|ruby)\b[^.;]*\bnozzles?\b/i.test(text)) return { text, requiresHardened: true, state: 'stated' };
   // Polymaker asks for "a wear resistant nozzle" where others say hardened; Raise3D writes "hardening steel".
   if (/abb?rasi|harden|carbide|diamond|wear[- ]resist\w*\s+nozzle/i.test(text)) return { text, requiresHardened: true, state: 'stated' };
   return { text, requiresHardened: null, state: PROCESS_STATE.UNKNOWN, unparsed: true };
@@ -345,8 +375,17 @@ export function parseDrying(raw) {
   const text = raw == null ? '' : String(raw).trim();
   if (!text || /^not published$/i.test(text)) return { text, required: null, tempC: null, hours: null, state: PROCESS_STATE.UNKNOWN };
   const s = clean(text);
-  const tempMatch = s.match(/(\d{2,3})\s*C/i) || s.match(/:\s*(\d{2,3})/);
-  const hourMatch = s.match(/(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
+  // A window is read at its upper end, however its unit is printed: "70-80℃" gave 80 but "90℃-100℃" gave 90 and
+  // "8h-12h" gave 8 (the fourth control draw of the profile root-cause sweep, 2026-10-02).
+  // A cell that joins two methods ("Blast drying oven 55 °C, 8 h; X1 heatbed 65-75 °C, 12 h") is read by its first.
+  const first = /\d/.test(s.split(/;\s*/)[0]) ? s.split(/;\s*/)[0] : s;
+  const tempRange = first.match(/(\d{2,3})\s*C?\s*[-–~]\s*(\d{2,3})\s*C/i);
+  const hourRange = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hours?|hrs)?\s*[-–~]\s*(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
+  // The first schedule the cell states decides: Bambu Lab's guide prints "Blast Drying Oven: 55 °C, 8 h X1 Series
+  // Heatbed: 65 - 75 °C, 12 h", and a window further on is the other method's.
+  const single = first.match(/(\d{2,3})\s*C/i), singleHours = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
+  const tempMatch = tempRange && (!single || tempRange.index <= single.index + single[0].length) ? [null, tempRange[2]] : single || first.match(/:\s*(\d{2,3})/) || s.match(/(\d{2,3})\s*C/i);
+  const hourMatch = hourRange && (!singleHours || hourRange.index <= singleHours.index + singleHours[0].length) ? [null, hourRange[2]] : singleHours || s.match(/(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
   return {
     text,
     required: true,
