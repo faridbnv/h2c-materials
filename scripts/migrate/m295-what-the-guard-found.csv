@@ -38,8 +38,6 @@ P0121,Enclosure,it is recommended to use an enclosure,it is recommended to use a
 P0402,Enclosure,Enclosed-chamber printing with a chamber temperature of 90–100 °C,Enclosed-chamber printing with a chamber | temperature of 90–100 °C
 P0419,Enclosure,Enclosed-chamber printing using LAC spray,Enclosed-chamber printing using LAC spray
 P0569,Enclosure,an enclosed printer is recommended for printing,an enclosed printer is recommended for printing
-P0680,Enclosure,we highly recommend printing ABS-CF material within a closed chamber printer,we highly recommend printing ABS-CF material within a closed chamber printer
-P0699,Enclosure,we highly recommend printing ABS-CF material within a closed chamber printer,we highly recommend printing ABS-CF material within a closed chamber printer
 P0705,Enclosure,not required a closed cavity,not required a closed cavity
 P0722,Enclosure,doesn’t require a 3D printer with a closed/heated enclosure,doesn’t require a 3D printer with a closed/heated enclosure
 P0729,Enclosure,printable without a heated enclosure,is printable without a heated enclosure
@@ -71,3 +69,9 @@ P1137,Enclosure,Seal the Box: No,- Seal the Box: No
 P1141,Enclosure,Seal the Box: Yes,- Seal the Box: Yes
 P1190,Abrasion / clogging,"recommend users to use abrasive resistant nozzles, such as E3D hardened steel nozzles or Olsson Ruby nozzle","recommend users to use abrasive resistant nozzles, such as E3D hardened steel nozzles or Olsson | Ruby nozzle."
 P1298,Abrasion / clogging,"0.4, 0.6 hardened steel nozzle","0.6hardened steel nozzle"
+P0632,Bed °C,> 120 °C,print bed temperature: > 120 °C
+P0669,Bed °C,> 50 °C,print bed temperature: > 50 °C
+P0940,Bed °C,> 50 °C,print bed temperature: > 50 °C
+P0953,Bed °C,> 50 °C,print bed temperature: > 50 °C
+P0954,Bed °C,> 50 °C,print bed temperature: > 50 °C
+P0965,Bed °C,> 50 °C,print bed temperature: > 50 °C

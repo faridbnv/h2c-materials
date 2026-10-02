@@ -215,12 +215,14 @@ Every column the copy brings is Spectrum's until you set it from your sheet, wit
 where your sheet is silent. (`--material` names a grade's material only; a profile takes its MaterialID from the copy
 or from `--set`.) Each temperature axis has the sheet's own words and the typed window the build decides on: P0064's
 nozzle is `250-280°C` in its words and `range`, 250 to 280, in its window, and the parser checks the two agree.
-Qualitative guidance is not a column: it is a row of `profile_notes.csv` per topic (D69). P0064 has two:
+Qualitative guidance is not a column: it is a row of `profile_notes.csv` per topic (D69). P0064 has three; the third is
+the sheet's dry-box advice, which says where the filament is kept while it prints, not how to dry it (D120):
 
 ```csv
 ProfileID,Topic,Text
 P0064,Cooling,0 - 10%
 P0064,Speed,** 30-70 mm/s
+P0064,Storage humidity,Dry box recommended
 ```
 
 What a maker says about its product in words (good for, benefits, warping) is makers' know-how, shown in the panel in

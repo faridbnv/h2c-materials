@@ -1451,3 +1451,14 @@ test('a nozzle named in a run-together list of recommendations is read (the thir
   assert.deepEqual(read.filter((x) => x.field === 'nozzle-material').map((x) => x.raw), ['hardened steel nozzle']);
 });
 
+test("a sentence about another product is not this one's guidance (eSUN's carried-over ABS-CF line)", () => {
+  const read = (...lines) => guidanceBeyondLabels(sheetOf(...lines), []).filter((x) => x.field === 'enclosure').map((x) => x.raw);
+  assert.deepEqual(read('PETG-ESD', 'Precautions:', '2. Due to its significant shrinkage rate, we highly recommend printing ABS-CF material within a closed chamber printer.'), []);
+  assert.equal(read('ABS-CF', 'Precautions:', '2. Due to its significant shrinkage rate, we highly recommend printing ABS-CF material within a closed chamber printer.').length, 1);
+});
+
+test('settings run together on one line with slashes are read one by one (LUVOCOM 3F)', () => {
+  const read = guidanceBeyondLabels(sheetOf('temperature: 265 - 290 °C / nozzle material: abbrasion resistant / print bed temperature: > 50 °C / layer thickness: > 0,2mm /'), []);
+  assert.deepEqual(read.filter((x) => ['bed', 'nozzle-material'].includes(x.field)).map((x) => `${x.field}: ${x.raw}`).sort(), ['bed: > 50 °C', 'nozzle-material: abbrasion resistant']);
+});
+

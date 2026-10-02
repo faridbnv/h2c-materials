@@ -24,11 +24,11 @@
   "Files": [
     {
       "File": "AGENTS.md",
-      "SHA256": "ec7aee4e2b370ac0c9781b539f39df2675713bf64b9e30d746bbde0ae5d85279"
+      "SHA256": "13c1f1b8d7dbc3bc877d1e9327135abdfb8b0ce12bf3d4e57c9b9f4e669b4515"
     },
     {
       "File": "build/reports/validation-report.md",
-      "SHA256": "3b4796e2af59e6e5edfca5cadbc2753c11579875f73a65ff7420ef5010979e86"
+      "SHA256": "d2bd78a8ca298683815a14b208fe32a47e13446bd57ce78e67d5c01d86169b5a"
     },
     {
       "File": "build/snapshot/counts.md",
@@ -36,11 +36,11 @@
     },
     {
       "File": "build/snapshot/gates.csv",
-      "SHA256": "95d3b56c8653bad65f143f030ccb2207a91a959a4533561993c6ba50c19294d4"
+      "SHA256": "cb17639e0957be19892ec5a83ca963905809e1ea2484def7f02d395038badc44"
     },
     {
       "File": "build/snapshot/print.csv",
-      "SHA256": "bddceb2f6af1024b39a87e831abe324c762a7eb7c408ada312589135a3eb15e8"
+      "SHA256": "1cd110049704df32a0c50a9752feeadf4bdc223b40d017a05395d9428cf6b2a0"
     },
     {
       "File": "build/snapshot/templates.csv",
@@ -64,7 +64,7 @@
     },
     {
       "File": "data/manifest.json",
-      "SHA256": "652cea85a743fc718f7ea470c3516f5f43fa32e5dd76f5e74fed2eb30215e148"
+      "SHA256": "00153f76b5a781a3c67f1e14603c343f9418c44d22cf26eb9ca6af9208c94f4c"
     },
     {
       "File": "data/review/context-witness-accepted.csv",
@@ -76,15 +76,15 @@
     },
     {
       "File": "data/tables/profiles.csv",
-      "SHA256": "6b3fc15d5e1d92360a7443b4bc858de325973d28808ec5051cdceb9997cf241d"
+      "SHA256": "97e89fba46095bc3a8a1b3f0f96d031a0663370204e3fd395dfe1b6850ae5be3"
     },
     {
       "File": "docs/ARCHITECTURE.md",
-      "SHA256": "3027f2fbf9701cd8fb1317e86068a29341ee76f44a3d920fe81b71226030db55"
+      "SHA256": "f23f8d75b3ef505f7b7d2acf1cccf75d0f49488d41f36fb1f03bdfb34e62ae88"
     },
     {
       "File": "docs/DATA-DICTIONARY.md",
-      "SHA256": "37a00d6ae383634fdbdf17d8321531cfe8d28716f0ea8c2c9e4baab925b08704"
+      "SHA256": "2df229e06ad80f0c23e9434c55dbb93fa655785e2188cd992a5e7c7a685ebec2"
     },
     {
       "File": "docs/DATA-MODEL.md",
@@ -92,7 +92,7 @@
     },
     {
       "File": "docs/DECISIONS.md",
-      "SHA256": "90c0f516227378d4ecdef959342e57e293e48cf8071914f2b9f391ea049f5f2e"
+      "SHA256": "d4d7e6692324413d6bb97d1ff28374535165f424de5713822194fb83eadf89af"
     },
     {
       "File": "docs/GOALS.md",
@@ -100,35 +100,43 @@
     },
     {
       "File": "docs/IMPORTING.md",
-      "SHA256": "b91084bd285087bf47117b820b9e19f133a372929015566e6ec1dd54827f4256"
+      "SHA256": "4be32222e1ed6068a076b56db50e5573e8b8aa2d94cd55ccd96954fde84e7eb9"
     },
     {
       "File": "docs/OPEN-PROBLEMS.md",
-      "SHA256": "eefd4e91d980d18a52c04d0b716756bc86beda1a0550ff7c99b6e9e0f5e4a126"
+      "SHA256": "9f7e9494621273a1e6f88b0c08bf60330a8e89c36665e855eb2a7c9ac126e451"
     },
     {
       "File": "docs/RULES.md",
       "SHA256": "4e79e99240f85e4eacc61dd37ee63344fa17b83286cb910deae4e92f7cf67144"
     },
     {
+      "File": "docs/WALKTHROUGH-ADD-A-MATERIAL.md",
+      "SHA256": "1f9e8d0eb2f404ae2a8f5144a258ebe3ae702e072fc862a8dcaccfeb10f837d9"
+    },
+    {
       "File": "docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md",
-      "SHA256": "dcf4593397fd91365c561c7a6487cc03d4b5666326f13ed46821a03ce597ea6b"
+      "SHA256": "bef0dec38b223ea3f4f88feb63f3098874f05dd04c91ec2a1babfcb9ad048087"
     },
     {
       "File": "docs/audits/2026-09-30-coverage-expansion/STATUS.json",
-      "SHA256": "59ffbc08f9c65d7282fd8a04f8f076139e77ee760dbc99e90984342d8ad86343"
+      "SHA256": "6f71f5a857cf1ac1c512c7f2bccb30225881b62f2d4e5aaf4bcf27a1a8eb393c"
     },
     {
       "File": "docs/audits/2026-09-30-coverage-expansion/STATUS.md",
-      "SHA256": "818112a5ab66fd5e8a6f24b60c20ff703f094ddb758917d26cb648c250db7e8b"
+      "SHA256": "05ffe24dc1f3f625c6887e6c4ed0e761cea5fe2114cb99daa3b771ecb24f6c00"
     },
     {
       "File": "docs/audits/2026-09-30-coverage-expansion/table-delta.json",
-      "SHA256": "732a101933b9c263c2653fd2686c62fdcf08c39f6d1e1411dd4fbf5bdf10d10f"
+      "SHA256": "f20e0499db85a81d1540fecf3b573daa7443d1c571353083db66e4d0f9a96c21"
     },
     {
       "File": "schema/vocab/profile-kinds.csv",
       "SHA256": "fc2342a5126f112a44885102854e1f02eec862010db9ca37fc7fbab1b71a6078"
+    },
+    {
+      "File": "schema/vocab/profile-topics.csv",
+      "SHA256": "c5b2f79544a2df232091ac43d6c0974635c238f36155bf00af9dd70637070600"
     },
     {
       "File": "scripts/audit/context-witness.mjs",
@@ -140,7 +148,7 @@
     },
     {
       "File": "scripts/ingest/propose.mjs",
-      "SHA256": "d899e632edff950d9c8775df0fdced373b31461adfba26ab1e826bc76858b1a8"
+      "SHA256": "7491d6d0d6303f9a567713bb371ed1e592c4e3d830cfd7fbbf87ba3254a2a925"
     },
     {
       "File": "scripts/migrate/m290-profile-settings.csv",
@@ -172,11 +180,11 @@
     },
     {
       "File": "scripts/migrate/m295-what-the-guard-found.csv",
-      "SHA256": "5b89e426bb77a9bcbc2f2ec7d78d19753e3d31a4f72df6a568ff41c28abae1f5"
+      "SHA256": "538953d0ad08dc645d10f1bd264a53cb10d1b4b5e18e979b296a95cdf92bea18"
     },
     {
       "File": "scripts/migrate/m295-what-the-guard-found.mjs",
-      "SHA256": "d328b7d9b9228fdcd97f76c3decb04562268d51c566490d1a4847a4ea7db080c"
+      "SHA256": "159e8da6cd711c51530a07837a424f8d363cbde07363b2896652c6a098c71932"
     },
     {
       "File": "test/database.test.js",
@@ -184,7 +192,7 @@
     },
     {
       "File": "test/ingest-propose.test.js",
-      "SHA256": "0cd3b2da3e2c2c66d8e7afee722871819b618a8bb8f78c3c1836a9e07f69e0ac"
+      "SHA256": "23b1dcc054d05e53bf802cf9798bfd4b9472b747aa995e82b0ac65a271dea624"
     },
     {
       "File": "test/lint.test.js",

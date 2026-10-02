@@ -215,8 +215,8 @@ edited (m141 is the example).
 
 **Retire a duplicate record.** Data status (measurements), Evidence type (evidence) or Profile (profiles) "Retired
 duplicate record", with a note naming the twin that stays (a profile names it in its Locator: "Retired duplicate of
-P0349 (D120): …"). Two profiles of one product from one sheet are a copy unless their Locators name different rows of
-it, a print speed or a nozzle size, which are a profile each (PROFILE-DUPLICATE, D120); a dry-box recommendation is a
+P0349 (D120): …"). Profiles of one product from one sheet are copies unless a Locator among them names a row of the
+sheet (a print speed, a nozzle size, a foamed column), which is a profile each (PROFILE-DUPLICATE, D120); a dry-box recommendation is a
 profile note (Storage humidity), not a Drying cell. Quarantine a wrong price listing by
 setting Quarantined `TRUE` and saying why in its Regular price basis. A coverage finding a later row replaces gets Status
 "Superseded" and a Finding that starts "Superseded by C#####".

@@ -76,7 +76,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PCTG-CF (M144) | Indoor prototype | collected | 0 of 3 | 0 / 0 / 1 | — |
 | PCTG-GF (M110) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 | PEBA (M045) | Indoor prototype | collected | 0 of 10 | 3 / 3 / 5 | — |
-| PETG-ESD (M026) | Indoor prototype | collected | 0 of 10 | 1 / 2 / 7 | — |
+| PETG-ESD (M026) | Indoor prototype | collected | 0 of 10 | 2 / 2 / 7 | — |
 | PETG-GF (M025) | Indoor prototype | collected | 0 of 5 | 3 / 2 / 4 | — |
 | PETG-GR (M153) | Indoor prototype | collected | 0 of 2 | 0 / 2 / 2 | — |
 | PETG-PTFE (M109) | Indoor prototype | collected | 0 of 2 | 0 / 1 / 1 | — |

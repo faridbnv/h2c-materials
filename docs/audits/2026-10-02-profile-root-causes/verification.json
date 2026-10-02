@@ -1,10 +1,10 @@
 {
-  "release": "b6846155aed7",
+  "release": "6f7fd639272a",
   "parent_commit": "c56ba48",
   "full_verify_exit": 0,
-  "full_verify_seconds": 274.1,
+  "full_verify_seconds": 275.5,
   "unit_tests": 470,
-  "import_tests": 201,
+  "import_tests": 203,
   "native_interface_views": 69,
   "rendered_scenarios": 300,
   "rendered_readings": 2596,
@@ -12,9 +12,10 @@
   "data_lint": "268 findings, 268 accepted, 0 stale; no PROFILE-DUPLICATE or PROFILE-SIBLING-SILENT finding",
   "compile_parse_checks": "no PARSE-MISMATCH, PARSE-TEXT-BOUNDS, OPEN-BOUND-WINDOW, PARSE-REVIEW-SCOPE or PARSE-REVIEW-STALE; nine PARSE-UNREAD warnings fewer",
   "migrations_reproduce": "m290-m295 rerun from the tables of c56ba48 give byte-identical profiles.csv and profile_notes.csv, and a second run writes nothing",
-  "build_diff": "3,482 differences against HEAD; no template verdict changed; 72 template rows changed product counts",
+  "build_diff": "against c56ba48: no template verdict changed; 72 template rows changed product counts",
   "detector_recall": "27 of 27 known omission, part-held, specimen and copy errors marked on the tables before m285 (profiles/recall.mjs)",
   "mark_reading": "1,412 marks on 681 sheets read by six Claude Sonnet readers: 359 errors on 267 profiles; then 204 delta marks read by two: 15 errors",
-  "control_draws": "four fresh draws of 40 profiles none read before: 4, 4, 2 and 2 with a deciding field wrong, each family then fixed and swept",
-  "independent_review": "Claude Sonnet: APPROVE_WITH_FINDINGS, none high; 30 of 30 spot-checked edits supported; every finding acted on"
+  "control_draws": "four fresh draws of 40 profiles none read before: 4, 4, 2 and 2 with a deciding field wrong (12 of 160; 31 of 190 in the five draws before the sweep), each family then fixed and swept",
+  "independent_review": "Claude Sonnet, on the change after the first control draw: APPROVE_WITH_FINDINGS, none high; 30 of 30 spot-checked edits supported; every finding acted on. The later parts of m295 were checked by the guard, the replay and verify, not by a second review",
+  "docs_audit": "Claude Sonnet read AGENTS, README, GOALS, DATA-MODEL, ARCHITECTURE, IMPORTING, OPEN-PROBLEMS §28, D119-D120, the walkthrough and this packet against the code and data; every stale or conflicting statement it found was corrected"
 }

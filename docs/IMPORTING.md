@@ -100,10 +100,11 @@ The rules that differ from editing a table by hand:
   condition", "Printed Specimen Conditions", "How to make specimens") are not guidance (m170) and never fill a profile.
   The setting labels the reader knows are `scripts/ingest/lexicon/setting-labels.csv`; `npm run audit:context` runs
   the same reader over every profile already recorded, so a label it learns is checked on every sheet (D119). Beyond
-  its labels (`guidanceBeyondLabels`, D120) it drops what sits under a test-bar heading, in a block that ends by stating
-  an infill, or in a pellet-processing table; joins a drying row to the hours printed on the row below; reads a nozzle
-  window per speed band or nozzle size as a row of its own (a profile each); and reads a drying schedule stated only in
-  a sentence.
+  its labels (`guidanceBeyondLabels`, D120) it drops every setting under a test-bar heading or in a pellet-processing
+  table, until a numbered note or a guidance heading begins; joins a drying row to the hours printed below it; reads a
+  value the text layer set apart from its label, and settings run together with slashes; reads a nozzle window per speed
+  band, nozzle size or foamed state as a row of its own (a profile each); and reads a drying schedule, an enclosure or a
+  nozzle stated only in a sentence, unless the sentence names another product's type.
 - **A later original at the same URL keeps the earlier source.** Its proposal records `review.retrievalRevision` with `previousSourceID`, `previousSHA256`, `accessed` and `by`; the guard checks those pins and the later access date. A metadata-only earlier entry with no digest also needs `previousDigestNotRecorded`, and remains explicitly missing. Neither its SourceID nor its digest is overwritten.
 - **A copy is not a source.** A document is its bytes; the same file from a maker and a retailer is one document.
   Where two sheets print the same numbers under different product names, the ledger queues them rather than

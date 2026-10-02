@@ -436,7 +436,7 @@ G026-03,M026,petg esd,within,within,within,not-needed,no-special-concern,unknown
 G026-04,M026,ESD PETG,within,within,within,unknown,unknown,required,
 G026-05,M026,PETG ESD,within,within,within,unknown,unknown,required,
 G026-06,M026,Industrial PETG ESD,unknown,unknown,unknown,unknown,unknown,unknown,
-G026-07,M026,PETG-ESD,within,within,unknown,recommended,unknown,required,
+G026-07,M026,PETG-ESD,within,within,unknown,unknown,unknown,required,
 G026-08,M026,PETG ESD,within,within,within,not-needed,unknown,required,
 G026-09,M026,ESD-Safe PETG,within,within,within,unknown,unknown,required,nozzle: twin G026-01; bed: twin G026-01; chamber: twin G026-01; drying: twin G026-01
 G026-10,M026,ESD PET-G,within,within,unknown,unknown,unknown,unknown,
@@ -685,7 +685,7 @@ G039-40,M161,95A,within,within,within,not-needed,unknown,required,chamber: guide
 G039-41,M159,60A,within,within,unknown,unknown,unknown,required,
 G039-42,M161,RECIFLEX,within,within,within,not-needed,unknown,unknown,chamber: guide PG024; enclosure: guide PG024
 G039-43,M159,82A,within,within,unknown,unknown,unknown,required,
-G039-44,M162,TPU-64D,within,within,unknown,recommended,unknown,required,
+G039-44,M162,TPU-64D,within,within,unknown,unknown,unknown,required,
 G039-45,M162,TPU 70D,within,within,within,unknown,unknown,required,
 G039-46,M161,ReForm rTPU 95A,within,within,within,not-needed,unknown,required,
 G039-47,M162,Python Flex,within,unknown,unknown,unknown,unknown,unknown,
@@ -736,7 +736,7 @@ G046-07,M046,FlexiFil,within,unknown,unknown,unknown,unknown,unknown,
 G048-01,M048,PAHT-CF,within,within,within,recommended,requires-hardened,required,enclosure: guide PG029
 G048-02,M048,Ultrafuse PAHT CF15,within,within,within,recommended,requires-hardened,required,chamber: guide PG029; enclosure: guide PG029
 G048-03,M048,LUVOCOM 3F PA CF 9742 BK,within,within,within,recommended,requires-hardened,unknown,chamber: guide PG029; enclosure: guide PG029
-G048-04,M048,LUVOCOM 3F PAHT CF 9891 BK,within,within,within,recommended,requires-hardened,unknown,bed: guide PG029; chamber: guide PG029; enclosure: guide PG029
+G048-04,M048,LUVOCOM 3F PAHT CF 9891 BK,within,within,within,recommended,requires-hardened,unknown,chamber: guide PG029; enclosure: guide PG029
 G048-05,M048,PAHT CF,within,within,within,recommended,requires-hardened,unknown,nozzle: guide PG029; bed: guide PG029; chamber: guide PG029; enclosure: guide PG029; hardenedNozzle: guide PG029
 G049-01,M049,pa6 neat bk,within,within,unknown,recommended,no-special-concern,required,
 G049-02,M049,STYX PA6,within,within,unknown,recommended,no-special-concern,required,nozzle: twin G049-03; bed: twin G049-03; chamber: twin G049-03; enclosure: twin G049-03; hardenedNozzle: twin G049-03; drying: twin G049-03
@@ -851,7 +851,7 @@ G073-01,M073,PPS-CF,within,within,partial,recommended,requires-hardened,required
 G073-02,M073,Essentium PPS-CF,exceeds,within,within,recommended,requires-hardened,required,chamber: guide PG033; enclosure: guide PG033
 G073-03,M073,PPS-CF,within,within,partial,recommended,requires-hardened,required,enclosure: guide PG033
 G073-04,M073,FIBERON PPS CF10,within,within,within,recommended,requires-hardened,required,enclosure: guide PG033
-G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,within,within,within,recommended,requires-hardened,unknown,bed: guide PG033; chamber: guide PG033; enclosure: guide PG033
+G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,within,within,within,recommended,requires-hardened,unknown,chamber: guide PG033; enclosure: guide PG033
 G073-06,M073,PPS CF,within,within,partial,recommended,requires-hardened,required,enclosure: guide PG033; hardenedNozzle: twin G073-03
 G073-07,M073,Industrial PPS CF,within,within,within,recommended,requires-hardened,unknown,nozzle: guide PG033; bed: guide PG033; chamber: guide PG033; enclosure: guide PG033
 G074-01,M074,PPS-GF,exceeds,within,partial,recommended,requires-hardened,required,
@@ -976,7 +976,7 @@ G099-01,M099,THERMAX PEI 1010,exceeds,exceeds,unknown,unknown,unknown,required,
 G099-02,M099,PEI 9085,exceeds,exceeds,exceeds,unknown,unknown,unknown,
 G099-03,M099,ThermaX PEI,unknown,unknown,unknown,unknown,unknown,unknown,
 G099-04,M099,PEI Filament Ultem 1010,exceeds,within,unknown,unknown,unknown,unknown,
-G099-05,M099,LUVOCOM 3F PEI 50236 GY,exceeds,unknown,unknown,unknown,requires-hardened,unknown,
+G099-05,M099,LUVOCOM 3F PEI 50236 GY,exceeds,within,unknown,unknown,requires-hardened,unknown,
 G099-06,M099,PEI Filament Ultem 9085,exceeds,exceeds,unknown,unknown,unknown,unknown,
 G099-07,M099,Prusament PEI 1010 by Prusa Polymers,exceeds,exceeds,exceeds,unknown,unknown,required,
 G099-08,M099,ULTEM,unknown,unknown,unknown,unknown,unknown,unknown,
@@ -1031,7 +1031,7 @@ G124-01,M124,3DXSTAT ESD-PPS,unknown,unknown,unknown,unknown,unknown,unknown,
 G125-01,M125,CarbonX Carbon Fiber PEEK,unknown,unknown,unknown,unknown,requires-hardened,unknown,
 G125-02,M125,CarbonX 20% Carbon Fiber PEEK,unknown,unknown,unknown,unknown,requires-hardened,unknown,
 G125-03,M125,TECAFIL PEEK EV CF30 black - 1.75 mm,exceeds,exceeds,exceeds,unknown,requires-hardened,required,
-G125-04,M125,LUVOCOM 3F PEEK CF 9676 BK,exceeds,unknown,unknown,unknown,requires-hardened,unknown,
+G125-04,M125,LUVOCOM 3F PEEK CF 9676 BK,exceeds,within,unknown,unknown,requires-hardened,unknown,
 G125-05,M125,CF PEEK,exceeds,exceeds,exceeds,unknown,requires-hardened,unknown,
 G126-01,M126,3DXSTAT ESD-TPU (90A),unknown,unknown,unknown,unknown,unknown,unknown,
 G126-02,M126,FLEX MEDIUM ESD,within,within,within,not-needed,no-special-concern,required,
@@ -1067,8 +1067,8 @@ G144-03,M144,PCTG+CF10,within,within,within,not-needed,requires-hardened,require
 G145-01,M145,PLA/PHA,within,within,unknown,unknown,unknown,required,
 G146-01,M146,NonOilen,within,within,unknown,unknown,unknown,required,
 G147-01,M147,LUVOCOM 3F PAHT 9825 NT,within,within,within,unknown,no-special-concern,required,
-G148-01,M148,LUVOCOM 3F PAHT 9936 BK,within,unknown,unknown,unknown,requires-hardened,unknown,
-G148-02,M148,LUVOCOM 3F PAHT KK 50056 BK,within,unknown,unknown,unknown,requires-hardened,unknown,
+G148-01,M148,LUVOCOM 3F PAHT 9936 BK,within,within,unknown,unknown,requires-hardened,unknown,
+G148-02,M148,LUVOCOM 3F PAHT KK 50056 BK,within,within,unknown,unknown,requires-hardened,unknown,
 G149-01,M149,Capa 6500 Polycaprolactone,unknown,unknown,unknown,unknown,unknown,unknown,
 G149-02,M149,Facilan PCL100,within,within,unknown,unknown,unknown,unknown,
 G149-03,M149,PCL,unknown,unknown,unknown,unknown,unknown,unknown,

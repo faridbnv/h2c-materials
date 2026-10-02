@@ -29,6 +29,9 @@
 //   - The third draw's families: SIDDAMENT's "Seal the Box: No" (or "Yes", or "Yes/No", which leaves it to the printer)
 //     on 18 profiles, with D93 where it applies; a nozzle named in eSUN's run-together list of recommendations
 //     ("0.4，0.6hardened steel nozzle") and in colorFabb's prose.
+//   - LUVOCOM 3F's 3D printing line runs its settings together with slashes ("… / nozzle material: abbrasion resistant
+//     / print bed temperature: > 50 °C / …"): six profiles lacked the bed. (Its ABS-CF line on eSUN's PETG-ESD and
+//     TPU-64D sheets names another product and is left out, as OPEN-PROBLEMS §12 says.)
 //   - An enclosure recommended in a sentence: CreatBot's "we strongly recommend using an enclosed or semi-enclosed
 //     printing chamber" (P1286, which the control draw found).
 //

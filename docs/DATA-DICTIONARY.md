@@ -1274,7 +1274,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Adhesion / release | How the source says to make the first layer stick and the part come off. |
 | Cooling | Part cooling fan guidance. |
 | Speed | Print speed guidance. |
-| Storage humidity | The humidity the source says to store the filament at. |
+| Storage humidity | The humidity the source says to store the filament at, or whether it should print from a dry box (D120). |
 | Warping / shrinkage | What the source says about warping and shrinkage. |
 | Bridging | Bridging guidance. |
 | Overhang | Overhang guidance. |

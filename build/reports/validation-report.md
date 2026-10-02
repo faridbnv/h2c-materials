@@ -1,6 +1,6 @@
 # Validation report
 
-Database snapshot 2026-09-21 · build 2026-10-01
+Database snapshot 2026-09-21 · build 2026-10-02
 
 **No errors.**
 
@@ -51,7 +51,7 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
 | nozzle | 120 | n/a | 9 | 0 | 46 |
-| bed | 119 | n/a | 8 | 0 | 48 |
+| bed | 121 | n/a | 7 | 0 | 47 |
 | chamber | 89 | 4 | 9 | 0 | 73 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.

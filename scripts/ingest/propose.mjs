@@ -1908,6 +1908,16 @@ export function guidanceBeyondLabels(text, settings) {
       if (t && size) { out.push({ page, field: 'nozzle', topic: '', label: `Nozzle ${size} mm`, raw: t[1], fromBelow: false, line: `Nozzle ${size} mm | ${l}` }); size = null; }
     }
   }
+  // Settings run together on one line, slash between them: LEHVOSS's "temperature: 265 - 290 °C / nozzle material:
+  // abbrasion resistant / print bed temperature: > 50 °C / layer thickness: > 0,2mm /". Each segment is read as a line.
+  for (const [page, lines] of pages) lines.forEach((l, i) => {
+    const segments = l.split(/\s+\/\s+/).filter((s) => /:\s*\S/.test(s));
+    if (segments.length < 2 || testBlockAt(lines, i)) return;
+    for (const seg of segments) {
+      const x = readSetting({ text: seg, spans: [{ x: 0, w: seg.length * 5, str: seg }] }, page);
+      if (x && ['nozzle', 'bed', 'chamber', 'enclosure', 'drying', 'nozzle-material'].includes(x.field) && !out.some((y) => y.page === page && y.field === x.field)) out.push({ ...x, line: l.slice(0, 200) });
+    }
+  });
   // A label alone on its line, its value two lines down past a property row of the column beside it: Fabru prints
   // "Printing temperature" | "Shrinkage (ISO 294-4, 2577) 0.2-0.4 %" | "240-260 °C".
   const BARE = /^[<>≥≤~±]?\s*\d{1,3}(?:[.,]\d+)?(?:\s*(?:°\s?C|℃|º\s?C|˚\s?C))?(?:\s*[-–~]\s*\d{1,3}(?:[.,]\d+)?)?\s*(?:°\s?C|℃|º\s?C|˚\s?C)\s*\+?$/i;
@@ -1951,19 +1961,24 @@ export function guidanceBeyondLabels(text, settings) {
   }
   // An enclosure recommended in a sentence: CreatBot's "we strongly recommend using an enclosed or semi-enclosed printing
   // chamber for optimal results".
+  // A sentence about another product is that product's: eSUN's PETG-ESD and TPU-64D sheets print "we highly recommend
+  // printing ABS-CF material within a closed chamber printer", a line carried over from the ABS-CF sheet (OPEN-PROBLEMS
+  // §12). A clause that names "<type> material" its sheet's title does not name is left out.
+  const title = (pages.get(text.pages[0]?.page) ?? []).slice(0, 4).filter((l) => l.length <= 40).join(' ');
+  const another = (clause) => { const m = /\b(?:printing|print)\s+([A-Z][A-Za-z0-9+-]{1,12})\s+material\b/.exec(clause); return !!m && !title.includes(m[1]); };
   if (!out.some((x) => x.field === 'enclosure')) {
     for (const [page, lines] of pages) lines.forEach((l, i) => {
       // Any other clause about an enclosure the parser reads ("printable without an enclosure", "an enclosed printer is
       // recommended for printing", "Please keep the chamber closed", Fabru's "Needs a warm room, or closed pressure room").
       for (const clause of `${l}`.split(/(?<=[.;!])\s+|\s+-\s+/)) {
-        if (!/enclos|closed|warm room/i.test(clause) || /\bstor|packag|bag|spool|keep\s+(it|the\s+(filament|spool|bag))/i.test(clause) || testBlockAt(lines, i)) continue;
+        if (!/enclos|closed|warm room/i.test(clause) || /\bstor|packag|bag|spool|keep\s+(it|the\s+(filament|spool|bag))/i.test(clause) || another(clause) || testBlockAt(lines, i)) continue;
         const said = clause.replace(/^[\s\-•*]+/, '').trim().slice(0, 120);
         if (said.length > 6 && parseEnclosure(said).state !== 'unknown' && !out.some((x) => x.field === 'enclosure' && (x.raw.includes(said) || said.includes(x.raw)))) out.push({ page, field: 'enclosure', topic: '', label: 'a sentence', raw: said, fromBelow: false, line: l.slice(0, 200) });
       }
       // Polymaker's "it is recommended to use an enclosure" and eSUN's "not required a closed cavity" say it either way.
       const sentence = `${l} ${lines[i + 1] ?? ''}`;
       const m = /\b((?:strongly\s+)?recommend\w*\s+(?:using|to\s+use|printing\s+in|to\s+print\s+in)\s+an?\s+(?:enclosed|closed)\b[^.]{0,40}?\b(?:chamber|printer|enclosure)|keep\s+the\s+printer(?:'s)?\s+(?:chamber|enclosure|door)\s+closed|recommended\s+to\s+use\s+an\s+enclosure|not\s+required\s+a\s+closed\s+cavity)\b/i.exec(sentence);
-      if (!m || (/\bno\s+need/i.test(m[1])) || (/\bnot\b/i.test(m[1]) && !/^not\s+required\s+a\s+closed/i.test(m[1])) || testBlockAt(lines, i)) return;
+      if (!m || (/\bno\s+need/i.test(m[1])) || (/\bnot\b/i.test(m[1]) && !/^not\s+required\s+a\s+closed/i.test(m[1])) || another(sentence) || testBlockAt(lines, i)) return;
       const raw = m[1].replace(/\s+/g, ' ').trim();
       if (!out.some((x) => x.field === 'enclosure' && (x.raw.includes(raw) || raw.includes(x.raw)))) out.push({ page, field: 'enclosure', topic: '', label: 'a sentence', raw, fromBelow: false, line: l.slice(0, 200) });
     });

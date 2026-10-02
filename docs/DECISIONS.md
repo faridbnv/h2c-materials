@@ -3860,23 +3860,27 @@ re-read of every profile; the record is [the profile root-cause sweep](audits/20
   errors of those kinds (the other three were typed readings, which PARSE-MISMATCH checks). Six Claude Sonnet readers
   judged the 1,412 marks on 681 sheets; 359 were errors, on 267 profiles, and grouped by cause they were a dozen
   mechanisms, each fixed where it lives and swept across every profile (m290 to m295).
-- **Copies (m292; PROFILE-DUPLICATE, PROFILE-SIBLING-SILENT).** Two live profiles of one product from one sheet must name
-  different rows of it (a print speed, a nozzle size) in their Locators; otherwise one is a copy. The copy keeps its
+- **Copies (m292; PROFILE-DUPLICATE, PROFILE-SIBLING-SILENT).** Live profiles of one product from one sheet are rows of
+  it when a Locator among them names a row (a print speed or speed band, a nozzle size, a foamed column); otherwise all
+  but one are copies. A profile that says its sheet prints no guidance (m170) is not compared. The copy keeps its
   cells with Profile "Retired duplicate record" and a Locator naming the profile that stays, and never reaches the
   database (`meta.counts.retiredDuplicates.profiles`). Rows of one sheet share what it prints once for every row: a
   chamber, enclosure, drying or nozzle statement one row holds, every row holds.
-- **Rows (m291).** SUNLU's "Zonal Temperature" windows per speed band, Recreus's blocks per nozzle size and PolyTerra's
-  high-speed line are profiles of their own, each naming its row; the one that was there keeps the general or the 0.4 mm
-  row.
+- **Rows (m291, m295).** SUNLU's "Zonal Temperature" windows and its unit-less speed bands, Recreus's blocks per nozzle
+  size, colorFabb's unfoamed and foamed columns and PolyTerra's high-speed line are profiles of their own, each naming its
+  row; the one that was there keeps the general, the first, the 0.4 mm or the unfoamed row.
 - **Dry box (m293).** "Dry box recommended: No" and FormFutura's "Drybox: Not necessary" are notes (topic Storage
   humidity), as P0085's "Dry box required" already was; on 43 profiles the dry-box row had run into the nozzle cell.
 - **What the import's reader reads now** (`scripts/ingest/propose.mjs`, guidanceBeyondLabels; the lexicon). A setting
-  under a test-bar heading, in a block that ends by stating an infill, or in a pellet-processing table (LUVOCOM 3F's
-  extrusion "Processing" table, "predry the granulate") is not guidance: six LUVOCOM profiles held the extrusion
-  nozzle window instead of the printing one (P0632 held 350–400 °C, its sheet prints 400–450 °C to print). A drying row's hours on the row below ("Minimum Time 1
-  hour") are one schedule. A drying schedule stated only in a sentence is read. New labels: "Extruder:", "Bed:",
-  "Heizbett Temperatur", "Recommended heat bed temperature to print …", "Blast Drying Oven", "Dring Conditions",
-  "Pre-printing Drying Conditions", "Compatible Nozzle Material".
+  of any kind under a test-bar heading (3DJake's "styles of printing conditions" among them) or in a pellet-processing
+  table (LUVOCOM 3F's extrusion "Processing" table, "predry the granulate") is not guidance, and such a block ends where
+  a numbered note or a guidance heading begins: six LUVOCOM profiles held the extrusion nozzle window instead of the
+  printing one (P0632 held 350–400 °C; its sheet prints 400–450 °C to print). A drying row's hours on the row below
+  ("Minimum Time 1 hour") or two rows down are one schedule. Settings run together on one line with slashes are read
+  one by one. A drying schedule, an enclosure or a nozzle stated only in a sentence is read, unless the sentence names
+  "<type> material" its sheet's title does not (eSUN's carried-over ABS-CF line on its PETG-ESD and TPU-64D sheets). New labels: "Extruder:", "Bed:", "Heizbett Temperatur", "Recommended heat bed temperature to print
+  …", "Blast Drying Oven", "Dring Conditions", "Pre-printing Drying Conditions", "Compatible Nozzle Material",
+  "Compatible Printer Type", "Seal the Box".
 - **What the parsers read now** (`build/src/normalize/process.js`). SUNLU's "Normal temperature", "Normal" and 常温 as room
   temperature; "no need of temperature chamber", "no heating chamber are required", "does not require a heated
   (building, print) chamber" as no heated chamber; "recommended to print using a heated chamber"; "works best with an

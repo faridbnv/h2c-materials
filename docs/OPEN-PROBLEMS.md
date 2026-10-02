@@ -1,6 +1,6 @@
 # Open problems
 
-What is known to be wrong or missing in this database, reconciled on 2026-10-01. What it holds is counted in
+What is known to be wrong or missing in this database, reconciled on 2026-10-02. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
 
@@ -407,14 +407,15 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   ("Hardened Steel / Stainless Steel") settle no hardened-nozzle question.
 - **A PolyTerra PLA+ sheet** (S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1) is cited by a PolyTerra PLA profile (P0316).
 - **What the finishing reads (m170 to m173) left** (RESPONSE.md, "Phase 6, lane 2, finished"):
-  - *Rows the rules did not reach with confidence.* Fabru / purefil's and iSANMATE's two-column tables, where a value
-    cannot be placed beside its label from the text alone ("Hea5ng bed temperature" with no value on its line);
-    LEHVOSS's "print bed temperature: > 50 °C" beds; Siraya Tech's "An enclosure is crucial …" and Fabru's "Needs a warm
-    room, or closed pressure" (the lane 3 know-how quotes them; no profile reads them); Siraya Tech Rebound PEBA's
-    "0.4mm brass nozzle works well".
+  - *Rows the rules did not reach with confidence.* iSANMATE's two-column tables, and purefil's where the text layer
+    garbles the label ("Hea5ng bed temperature" with no value on its line); Siraya Tech's "An enclosure is crucial …";
+    Siraya Tech Rebound PEBA's "0.4mm brass nozzle works well". Since the profile root-cause sweep (D120) the reader
+    reads purefil's value two lines under its label, LEHVOSS's "print bed temperature: > 50 °C" (six profiles) and
+    Fabru's "Needs a warm room, or closed pressure" (P1245, P1257).
   - *Sentences on a sheet that name another product,* left out: eSUN's PETG-ESD and TPU-64D sheets print "we highly
-    recommend printing ABS-CF material within a closed chamber printer", and the eStars-PLA sheet the Luminous PLA
-    nozzle advice.
+    recommend printing ABS-CF material within a closed chamber printer", and the reader leaves out a clause that names
+    "<type> material" its sheet's title does not (D120). The eStars-PLA sheet's Luminous PLA nozzle advice is now held
+    (P0621): eStars-PLA is itself a luminous PLA ("gorgeous luminous star appearance effect"), so the advice is its own.
   - *One cell recorded unread:* PolyMax PC's "Closure chamber | Not needed (70°C-100°C)", beside a note that recommends an
     enclosure and a heated chamber for large parts (P0276, Parse review).
   - *A drying cell that says drying is not needed* ("Not needed", "drying is not necessary", 4 profiles) counts as
@@ -1086,19 +1087,21 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   ("CPE ANTIBAC filament") while its values are FiberFlex 40D's elastomer table and its maker's page calls it "from the
   elastomer family". Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for value and
   sit under PA6-CE and PA6 while the LUVOCOM grades sit under PAHT-CE. 13 cross-material twin pairs are accepted (R166).
-- **The import's fibre sentence.** 175 live profiles hold "Use abrasion-resistant nozzle; verify minimum orifice …" in
+- **The import's fibre sentence.** 174 live profiles hold "Use abrasion-resistant nozzle; verify minimum orifice …" in
   their raw Abrasion column (`scripts/ingest/propose.mjs`, ABRASIVE), the register's rule for a fibre-filled filament,
   not the sheet's words; the engine says "a source states it needs an abrasion-resistant nozzle" for them. Where the
-  sheet states its own nozzle, the profile now holds the sheet's words (m282, m290, m295: 32, two of them Siraya TPUs
-  whose sheet says brass will work); the rule belongs in `method.csv`, shown as a rule.
+  sheet states its own nozzle, the profile now holds the sheet's words: 26 since 2026-10-01 (m282, m285, m290, m295),
+  two of them Siraya TPUs whose sheet says brass will work. The rule belongs in `method.csv`, shown as a rule.
 - **Values never transcribed**, seen while re-reading: Raise3D Industrial PET-CF's table (5,731 / 3,270 MPa, 73 / 34
   MPa, 7.75 kJ/m²; only its prose "over 6 GPa" is recorded), BASF PET CF15's 63.2 MPa tensile strength, the 3D-printed
   sections of colorFabb LW-PLA and LW-PLA-HT, Stratasys PA6/66-GF30 FR's XZ heat deflections (185 and 153 °C), and
   Polymaker PolyMide CoPA's "(Wet Status)" table.
   `npm run audit:sources` finds such values; the import pause keeps them out until it is lifted.
-- **Guard precision.** `audit:context` keeps 62 accepted findings where it matched a neighbouring line, or a statement
-  that does not speak for the rows it flagged, or a standard printed without its letter; IMPACT-UNIT-STANDARD keeps 24,
-  each a sheet that prints kJ/m² beside ASTM D256. PARSE-REVIEW-STALE checks print profiles only; a measurement's scoped
+- **Guard precision.** `audit:context` keeps 58 accepted findings on measurements, where it matched a neighbouring line,
+  or a statement that does not speak for the rows it flagged, or a standard printed without its letter, and 20 on print
+  profiles, each a reading the profile is right to differ from (a test bar's single temperature under a heading the
+  reader does not know, a neighbouring column, purefil's mislabelled bed row, a brass-wear caution, a decimal comma);
+  IMPACT-UNIT-STANDARD keeps 24, each a sheet that prints kJ/m² beside ASTM D256. PARSE-REVIEW-STALE checks print profiles only; a measurement's scoped
   review is not yet checked for staleness.
 - **What the independent review left open.** A page_context row speaks for a property class of a page, not for one
   table, so a statement that heads one of two tables on a page reaches the other (PC00012 and PC00041 were found and
@@ -1108,8 +1111,9 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
 - **Print profiles, after the root-cause sweep of 2026-10-02** ([record](audits/2026-10-02-profile-root-causes/README.md),
   D120). The causes were found by marking every line where an error could hide and reading only those, and each was
   fixed in the import's reader, which the guard runs on every profile. Four fresh draws of 40 after it found 4, 4, 2
-  and 2 profiles wrong in a deciding field (from 10 % to 5 %), each a layout family the reader then learned and the
-  guard swept (m295). The target, under 3 %, is not yet shown; the next draw of 40 measures it. Left open:
+  and 2 profiles wrong in a deciding field (12 of 160, 7.5 %; the five draws before it found 31 of 190, 16 %), each a
+  layout family the reader then learned and the guard swept (m295). The last two draws found 2 of 40 each (5 %); the
+  target, under 3 %, is not yet shown, and the next draw of 40 measures it. Left open:
   - 56 profile notes (34 layer heights, 12 wall counts, 10 speeds) were taken from a test-bar block before the reader
     learned to drop it. A note cannot be retired, and a removal is refused (D72): the owner decides whether notes get a
     way to retire.
