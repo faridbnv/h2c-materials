@@ -1,6 +1,6 @@
 # Removing the data audit's error classes
 
-GOALS steps 2 and 5; C3, C4, C9, C15. The owner's PM trial and data audit of 2026-10-01 (an external package,
+GOALS steps 2 and 5; C1, C3, C4, C5, C6, C9, C15. The owner's PM trial and data audit of 2026-10-01 (an external package,
 `PM-TRIAL-2026-10-01`, kept beside the gap-fill packages) re-read 502 records against their cached sheets. They found
 the numbers faithful (97.7% printed on the cited page) and the errors in the context around them, from nine
 mechanisms, RC1 to RC9. This sweep removes each mechanism and adds a guard that keeps it removed; the 54 confirmed
@@ -145,3 +145,9 @@ table; the migrations' quote check proves a quote is on the sheet, not that it a
 runs only where the text cache is, so not in CI; the scoped reviews m274 wrote were scoped by their differences, and
 only the profile side is checked for staleness.
 
+## Shipped
+
+Five verified commits on a branch, one per phase (5360e2a, da1d280, 5283894, ed6f182, 4031312), and a sixth that
+brings AGENTS, GOALS, DATA-MODEL, ARCHITECTURE and IMPORTING up to them; on 2026-10-01 the owner asked for the sweep to
+be documented and pushed to main. What the trial found that the sweep did not build is the trial package's
+`BACKLOG.md`, and what is still wrong in the data is OPEN-PROBLEMS §28.

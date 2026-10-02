@@ -87,13 +87,14 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `registry.js` | The property registry: what each property and headline means, which materials it applies to (Applies to may test the material's columns and its polymer's Morphology), and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57). |
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
 | `normalize/direction.js` | Twelve spellings of build direction onto ten canonical values (a source's own label and a ±45° raster get their own values; three spellings are unknown), and which may be compared with which. |
-| `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text, MPa, psi and kgf/cm²; a text naming both loads states neither. |
-| `normalize/standards.js` | The standards a Standard / load text names, at family level and one spelling each; it checks the typed Standards column (D76). |
+| `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text, MPa, psi and kgf/cm², ISO 75's method letter ("HDT/A", "Method B") among them; a load stated as a number outranks a letter beside it, and a text naming both loads states neither. The test temperature a wording states ("23 °C", "@23° C", "+24°C", "150℃"). |
+| `normalize/standards.js` | The standards a Standard / load text names, at family level and one spelling each (DIN's five-digit numbers and ISO's "ISO-R" among them); it checks the typed Standards column (D76). |
 | `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying, abrasion. The chamber's partial window, its answers in words, and an enclosure the H2C's chamber meets (`enclosed`, D90, D93). |
 | `normalize/chemical.js` | Environment topics onto canonical categories (`schema/vocab/environment-topics.csv`); findings onto verdicts. |
 | `normalize/moisture.js` | The moisture state at test (dry, conditioned, not-stated): the typed Moisture state column, and a reader of what the Moisture condition wording plainly says, which checks it (D53, D68). |
 | `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament, off-recipe), the typed Post-processing state (as-printed, annealed, not-stated) and anneal schedule with the readers that check them, and whether an annealed value has an as-printed twin (D56, D68, D95). |
-| `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). |
+| `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). A Parse review silences only the columns it names (PARSE-REVIEW-SCOPE, D115), and a profile review naming a column that agrees with the parser stops the build (PARSE-REVIEW-STALE, D119); a typed endpoint is a number its cell states and an open bound stays open, whatever a review says (PARSE-TEXT-BOUNDS, OPEN-BOUND-WINDOW). |
+| `page-context.js` | What a source page states once (`page_context.csv`): the rows that speak for a measurement by page and scope, and the inheritance compile applies where the row states nothing of its own (D116). |
 | `recipe.js` | One print recipe read from a profile's or a guide row's columns: the typed windows, enclosure, drying and hardened nozzle checked against the raw text, the chamber a "no enclosure needed" clears, where a chamber may be declared `enclosed` (PROCESS-ENCLOSED, D90, D93), and the gates against the H2C. |
 | `print-guide.js` | A printer maker's filament guide (D88): its rows of `print_guide.csv` read as recipes, the material each speaks for (`print_guide_materials.csv`), and the refusals (PRINT-GUIDE-REFERENCE, PRINT-GUIDE-MATERIAL). `products.js` reads a material's row where a product and its twin are silent. |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
@@ -112,7 +113,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `reference-properties.js` | The reference envelopes' properties and units, read from `schema/vocab/reference-properties.csv` (D67). |
 | `validate.js` | Every invariant, plus the human-readable report. |
 | `rules.js` | The catalogue of every issue code, its level (error, warn, info, lint), meaning and fix (D50); generates `docs/RULES.md`. |
-| `lint-rules.js` | Data quality the schema cannot express, as coded findings with a record each (D50): text artefacts, duplicates, indistinct conditions, directions named in locators, and physics one sheet must not contradict (MEAS-PHYSICS-*, D55). |
+| `lint-rules.js` | Data quality the schema cannot express, as coded findings with a record each (D50): text artefacts, duplicates, indistinct conditions, directions named in locators, and physics one sheet must not contradict (MEAS-PHYSICS-*, D55); one table under two products with no shared key (GRADE-VALUES-TWIN), an impact unit its standard does not report, a filler a product's name has and its material does not, and a row that contradicts its page (CONTEXT-ROW-CONTRADICTS-PAGE). |
 | `property-references.js` | Property names the code relies on, checked against the registry, and the estimate model's references (D51). |
 | `measurement-rules.js` | Independent raw-value, uncertainty, upper-bound, unit and endpoint checks, and no use of a replaced property, used by validation and the systematic audit. |
 | `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
@@ -141,6 +142,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
 | `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
+| `audit/context-witness.mjs` | `npm run audit:context` (in `verify`, where the text cache is): each value's own line on its cached sheet against its row (direction, notch, bound sign, test temperature, standard), every page statement no `page_context.csv` row carries, and every print setting the import's own sheet reader finds on a profile's sheet that the profile does not hold or holds in part, read block by block so a sheet's test-bar settings are never taken for guidance (D116, D119). Its baseline is `data/review/context-witness-accepted.csv`, each finding with a reason. |
 | `audit/blocking-gaps.mjs` | `npm run audit:gaps`: what keeps a material from an answer in each template, and what could turn one, into `docs/audits/2026-09-25-re-center/BLOCKING-GAPS.md`. |
 | `audit/scenario-gaps.mjs` | `npm run audit:scenario-gaps`: every product one fact from an answer in the templates and the acceptance questions, with the work that would settle it and when to stop (F08), into `docs/audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md`. |
 | `audit/witness-binding.mjs` | `npm run audit:witness`: the evidence binding (D97) asked of the rows already recorded, into `docs/audits/2026-09-27-v2.1-review/WITNESS-BINDING.md`. |
@@ -174,7 +176,8 @@ time against the budget: about 75 seconds after a change and 25 to 30 when nothi
 (`build/src/build-cache.js`, `.cache/build/`); its budget is 90 seconds (docs/GOALS.md). The import pipeline's tests
 run in `verify` (`npm run test:ingest`), not here, while imports are paused.
 `npm run verify` adds the import tests, the scale and reproducible-build checks (`npm run scale`, `npm run
-reproducible`), the audit, review snapshot, interface views and 300 rendered scenarios, before a commit. The
+reproducible`), the audits (`audit:data`, and `audit:context` where the text cache is), review snapshot, interface
+views and 300 rendered scenarios, before a commit. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, CI runs `verify` on every push and 2,000 rendered scenarios on a new seed every night, and
 `npm run build:diff` shows what a change did to the compiled database. `AGENTS.md` is the editing guide.
@@ -298,7 +301,7 @@ category without importing anything from `ui/`.
 ```
 npm run verify:fast    while you work: format, schema, lint, generated docs, build and tests
 npm run verify         before a commit: verify:fast, the import tests, the scale and reproducible-build checks,
-                       audit, review snapshot, interface views, 300 rendered scenarios
+                       audit, context audit, review snapshot, interface views, 300 rendered scenarios
 npm run ui:fuzz:full   2,000 random scenarios through the built page, compared with the engine (nightly in CI)
 npm run build:diff     every difference a change made to dist/db.json, against HEAD or --ref
 npm run data:check     the schema gate alone, in about a second
@@ -418,8 +421,9 @@ the product's recipe, D95), not conditioned, not flagged physically implausible,
 publishes the property as printed, of the headline's notch and at its test temperature where it sets them (D92), to
 its standard where it names one and the value names others (D94), and in the headline's direction and at its load
 ("comparable"), or with either unstated ("as published", D84). The layer strength takes no value whose direction is
-unstated: its Unstated direction is `excluded`. Where a product has no value of its own and its twin does, it reads the
-twin's, labelled (D89). A material's
+unstated: its Unstated direction is `excluded`. A measurement that states no specimen, moisture, treatment, standard or
+test temperature of its own takes what its page states once (`page_context.csv`, `page-context.js`, D116). Where a
+product has no value of its own and its twin does, it reads the twin's, labelled (D89), its own maker's first (D119). A material's
 headline is its products' spread: the median of their comparable values, their range and count, and the typical
 product (D83). `headlines.csv` only pins one product's value where the rule chooses wrongly, and the build checks a pin
 against the same definition. Until m137 the table held 477 hand picks on each material's "representative grade"; the
@@ -597,8 +601,8 @@ output. Pages publishes it beside the page.
 ### Verifying a build
 
 ```bash
-npm run verify                   # verify:fast, import tests, scale and reproducible-build checks, audit, review
-                                 # snapshot, interface views, 300 rendered scenarios
+npm run verify                   # verify:fast, import tests, scale and reproducible-build checks, audit, context
+                                 # audit, review snapshot, interface views, 300 rendered scenarios
 npm run build:diff               # what the change did to dist/db.json
 open dist/H2C_Material_Selector_*.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source

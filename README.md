@@ -143,6 +143,7 @@ test/                                   engine, data gate, registry, contract, d
                                         the scale and reproducible-build checks (*.check.js), which verify runs
 scripts/data/                           fmt, check, lint and build-finding review, new, new-material, retire, new-id, diff, the edit API, review workbook, scale data
 scripts/audit/                          source completeness (every PDF source re-read for values not in the tables),
+                                        each value's context and print setting against its cached sheet (audit:context),
                                         blocking gaps, the know-how worklist, the spot-check and final-round samples
 scripts/build-diff.mjs                  what a change did to the compiled database, against HEAD
 scripts/snapshot.mjs, ui-probe.mjs      the committed review snapshot and interface views (build/snapshot/)

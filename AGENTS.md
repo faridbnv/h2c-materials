@@ -26,7 +26,9 @@ npm run verify        # verify:fast, then the import tests, the scale and reprod
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
-`verify` fails on a new lint finding, on an unreviewed build finding, on a stale `docs/RULES.md` or
+`verify` fails on a new lint finding, on an unreviewed build finding, on a context-audit finding without a reason
+(`npm run audit:context`: each value's line, page and print settings against its cached sheet, where the text cache is),
+on a stale `docs/RULES.md` or
 `docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
 engine over 300 random scenarios (about three minutes more than `verify:fast`, as GOALS C13 measures it: the interface
 views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests
@@ -113,7 +115,9 @@ Rules the tooling enforces:
   writes `data/review/accepted-findings.csv`; an accepted finding that no longer occurs must be removed.
 - **Raw columns keep the source's own text.** Typed columns beside them (Test load MPa, Test temperature °C, the profile
   windows) carry the value the build uses, and the parser checks they agree (PARSE-MISMATCH); a deliberate
-  difference is explained in Parse review.
+  difference is explained in Parse review, which opens by naming the typed columns it explains ("Fields: Bed min °C."
+  or "Fields: none.") and silences the check for those alone (D115). A typed endpoint must be a number its own cell
+  prints, an open bound stays open, and a review left naming a column the parser now agrees with stops the build.
 
 ## Recipes
 
@@ -137,6 +141,14 @@ Standard / load is the sheet's own words and Standards beside it lists the stand
 published where they name none); the parser checks that too. Never write a standard the sheet does not print. A Fatigue life measurement
 also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
+
+**Record what a page states once.** A heading or footnote that speaks for every value of a table ("Mechanical
+properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded") is a row of
+`page_context.csv`: the source, page and scope (all, tensile, flexural, impact, thermal, physical), the page's words in
+Statement and what they state in the typed columns. Every measurement on that page and scope that states nothing of
+its own inherits it in compile, and one that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE, D116). A
+statement that heads only one of two tables on a page (a "Dry" and a "Wet" table) belongs in each row of its table
+instead: a page row would reach the other table too.
 
 **A product's own values need no row.** The build chooses every product's value per headline by rule from its own
 measurements (`build/src/products.js`, `docs/DATA-MODEL.md`), and a material's headline is its products' spread: the

@@ -94,6 +94,12 @@ The rules that differ from editing a table by hand:
   or the 527 of "ISO 527", is not), and a number the line prints once has one role, so "annealed (4h @ 90°C)" cannot be
   both an anneal and a test temperature. A layout the reader cannot bind enters when a person read the row on the page
   image and says so (`review.visual`). `npm run audit:witness` asks the same of the rows already recorded.
+- **A page's statement, a test block and a print setting are read, not lost.** A heading or footnote that speaks for
+  a whole table ("Mechanical properties (dry state)", "all specimens were annealed") enters as a `page_context.csv` row
+  the page's measurements inherit (D116), never as one guess per row. Settings printed for the test bars ("Print test
+  condition", "Printed Specimen Conditions", "How to make specimens") are not guidance (m170) and never fill a profile.
+  The setting labels the reader knows are `scripts/ingest/lexicon/setting-labels.csv`; `npm run audit:context` runs
+  the same reader over every profile already recorded, so a label it learns is checked on every sheet (D119).
 - **A later original at the same URL keeps the earlier source.** Its proposal records `review.retrievalRevision` with `previousSourceID`, `previousSHA256`, `accessed` and `by`; the guard checks those pins and the later access date. A metadata-only earlier entry with no digest also needs `previousDigestNotRecorded`, and remains explicitly missing. Neither its SourceID nor its digest is overwritten.
 - **A copy is not a source.** A document is its bytes; the same file from a maker and a retailer is one document.
   Where two sheets print the same numbers under different product names, the ledger queues them rather than

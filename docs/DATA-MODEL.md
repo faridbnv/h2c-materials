@@ -16,6 +16,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
+| `page_context.csv` | What a source page states once for the values printed on it ("Mechanical properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded"): specimen type, moisture state, treatment and schedule, standard and test temperature, per page and scope (all, tensile, flexural, impact, thermal, physical). A measurement on that page that states nothing of its own inherits it, and a row that states the opposite is flagged (D116) |
 | `evidence.csv` | Chemical, environmental and application evidence; and makers' know-how, a maker's statements about printing and using its product in its own words (Domain "Makers' know-how"), which the build keeps out of everything that screens (below, "Makers' know-how") |
 | `know_how_reads.csv` | Which sources were read for makers' know-how, how (a document held, or the maker's site searched), when and by whom: the one fact about know-how the build cannot derive |
 | `prices.csv` | price observations: Canadian listings in CAD, and foreign ones in their own currency (D113) |
@@ -98,7 +99,10 @@ the source's words ("Classic: 190 - 210 °C") and the state, minimum, maximum an
 enclosure and the hardened-nozzle requirement likewise; a measurement carries its Standard / load text and Test load
 MPa, and its Test temperature text and Test temperature °C (m175: the number the wording states, Not published where it
 states none or only in words). The parsers check every typed value against its raw text on every build, and Parse
-review explains a deliberate difference. A vocabulary carries what the build needs only about a wording the database
+review explains a deliberate difference: it names the typed columns it explains ("Fields: Bed min °C, Bed max °C.",
+or "Fields: none.") and silences the check for those alone, and a review naming a column that agrees with the parser
+stops the build, since it would silence the next difference (D115, D119). A typed temperature endpoint is a number its
+own cell states, and an open bound ("> 80 °C", "< 80°C", "65˚C+") keeps its other end open, whatever a review says. A vocabulary carries what the build needs only about a wording the database
 itself owns: each Specimen type declares its Form. A source's sentence is data, not a vocabulary: Moisture condition
 and Post-processing are the source's words, and Moisture state and Post-processing state beside them are what the
 build reads (D68).
@@ -275,9 +279,10 @@ a material's headline is derived from them, and no product stands for a material
   annealed part carries the schedule (`anneal`). `priceCADkg` is the median of the product's own sample listings.
   Where the product has no value of its own for a headline and a **twin** does, it reads the twin's own value, marked
   `from: { origin: "twin", gradeId, label }` (D89). A twin is another active product of the same material under the
-  same Shared formulation key: the products whose sheets print one table the import recorded once (R053). It is
-  derived; no table holds it. A price is never read from a twin, and a product that reprints another material's table
-  (R166) has no twin.
+  same Shared formulation key: the products whose sheets print one table (R053), whether one maker prints it under two
+  names, one product has two sheets, or another maker reprints it (D119). It is derived; no table holds it. A product
+  reads a twin of its own maker before another maker's reprint. A price is never read from a twin, and a product that
+  reprints another material's table (R166) has no twin.
 - **`grades[].print`**: the product's own recipe from its own profiles, never a union across a material: per axis the
   gate against the H2C and the window of the profile that decided it, the enclosure, whether it wants a hardened
   nozzle, drying, and the annealing its sheets state. Where its own profiles say nothing on a part, its twin's own
@@ -306,7 +311,8 @@ a material's headline is derived from them, and no product stands for a material
   annealing", "Changes with moisture"). A value in one state is never another's: the engine judges a product in each
   state the scenario permits and answers with the best. `grades[].headline` stays the product's published value, which
   the table and the spread show, labelled with its annealing. Every value carries `admitted` (the conditions that could
-  change it and its source left unstated) and `standards`.
+  change it and its source left unstated) and `standards`. A measurement that took a statement from its page (`page_context.csv`, D116) says which
+  in `measurements[].pageContext`, by PageContextID per field.
 - **`grades[].buy`** (D98): the product's own sampled offers; **`grades[].twins`**: the products that print its sheet.
 
 `build/snapshot/products.csv` and `summaries.csv` hold every value (their From and Twins columns name a twin's reading),
