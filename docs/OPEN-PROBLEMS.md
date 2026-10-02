@@ -192,20 +192,23 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `MEAS-PHYSICS-WINDOW` | 152 | See item 2. |
+| `MEAS-PHYSICS-WINDOW` | 165 | See item 2. Ten since 2026-10-02 are BASF's ISO 180 Izod values printed in J/m (m298), shown and never compared (D94). |
+| `IMPACT-UNIT-STANDARD` | 45 | A sheet that prints an impact unit beside a standard that reports another (kJ/m² beside ASTM D256; BASF's J/m beside ISO 180); kept as printed, compared only in its own unit. |
 | `MEAS-PHYSICS-STRAIN` | 31 | See item 2. |
 | `MEAS-PHYSICS-ORDER` | 21 | See item 2. |
+| `GRADE-VALUES-TWIN` | 13 | Two products whose sheets print one table, accepted as the separate products they are (R166 and its like). |
 | `MEAS-CROSS-SOURCE-TWIN` | 6 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). |
+| `EST-OUTLIER` | 5 | Five reviewed material/headline findings: PA6 and PA12 heat deflection, PA6-GS density, PLA-EC density and PBAT XY modulus. Each acceptance names the original value and why the model differs; nGen-CF's XY strength stopped being one when the model recalibrated on 2026-10-02. |
 | `MEAS-PHYSICS-Z-ABOVE-XY` | 5 | Polymaker prints a Z stiffness 15 to 26 % above XY (two rows), and three sheets a Z strength or impact above their own X-Y one. Unusual at 100 % infill but not impossible; whether a sheet swapped its labels cannot be settled from the table. |
+| `EST-FAMILY-ORDER` | 5 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C; Nylon-GF's one product's modulus. The per-record reasons preserve the sheets' values and conditions. |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
-| `EST-FAMILY-ORDER` | 4 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C. The per-record reasons preserve the sheets' values and conditions. |
-| `EST-OUTLIER` | 5 | Five reviewed material/headline findings: PA6 heat deflection, PA6-GS density, PLA-EC density, PBAT XY modulus and nGen-CF XY strength. Making the PBAT and nGen-CF observations comparable in m218/m219 changed the fit; it did not justify replacing their exact published values. Each acceptance names the original value and why the model differs. |
-| `NO-MEASUREMENTS` | 2 | See item 5. |
+| `TEXT-FULLWIDTH` | 4 | Full-width punctuation a sheet prints inside Chinese text, kept as printed. |
 | `GRADE-PRODUCT-DUPLICATE` | 3 | Three pairs whose distinct names the rule reads as one: Anycubic PLA+ beside Anycubic PLA, eSUN PETG+ beside PETG, and Raise3D Industrial PA12 CF+ beside Industrial PA12 CF (m171, m174, m205). The rule's key drops the "+" that tells them apart. |
-| `COVERAGE-SUPERSEDED` | 1 | Two "Evidence recorded" rows for PA6-GF's grades, each a separate re-filing (C01184, C01185). Several Resolved rows in one domain are a log of closed events and no longer a finding (phase 5, part 4). |
+| `NO-MEASUREMENTS` | 2 | See item 5. |
+| `COVERAGE-SUPERSEDED` | 2 | "Evidence recorded" rows each a separate re-filing (C01184, C01185). Several Resolved rows in one domain are a log of closed events and no longer a finding (phase 5, part 4). |
 | `HEADLINE-FAMILY-UNLISTED` | 1 | Heat deflection does not name Flexible Elastomers, on purpose (D56). |
 
-Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-09-28, 235 in all, and
+Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-02, 312 in all, and
 the command below counts them again. `npm run audit:data` refuses stale acceptances in the data; this documentation
 table must also be refreshed when the accepted rows change.
 
@@ -314,44 +317,21 @@ The sweep (PLAN-REMAINING 2.3) read the 200 values furthest from their material'
 `docs/audits/2026-09-18-v2-import/sweep/sweep-200.csv`, each verdict with the line quoted, and m126 to m133 fixed
 each class it named across the whole table (the record: `sweep/README.md`). Still open:
 
-- **Stresses at a stated elongation have no property.** An elastomer sheet's "Tensile stress at 100 % / 200 % /
-  300 %" (and FiberFlex Aero's "@ 5 % / 10 % Strain") are filed as tensile strength (endpoint unspecified): the first
-  query lists them, retired duplicates among them. Where a sheet prints no other strength, one is its product's
-  in-plane strength by the rule (the second query): QIDI PEBA 95A's 9.17 MPa stress at 100 % (V008146) states its
-  direction, so it is comparable and decides; Fiberlogy FiberFlex Aero's and Siraya Tech Flex TPU 95A's and 85A's
-  state none and are counted apart (D84). They need a property that carries its elongation, which is a design
-  decision, not a re-read. Nanovia Flex V0's page (R-NANOVIA-Flex) prints three of the kind and none is recorded:
-  "Tensile resistance 27 MPa", "Resistance at 100% elongation 7 MPa" and "at 300% elongation 10 MPa", all to "VDE282
-  part 10", a cable-insulation test the standards vocabulary does not hold. The gap-fill research held the first
-  (GF-RB043-0008) for the same reason, and the tranche of 2026-09-29 kept it held.
+- **Stresses at a stated elongation have their own property since m297** (D122, 2026-10-02): "Tensile stress at 100 %
+  elongation" and its siblings, which no headline reads. QIDI PEBA 95A's 9.17 MPa at 100 % (V008146) was its comparable XY
+  strength until then. Nanovia Flex V0's "Resistance at 100% elongation 7 MPa" and "at 300% elongation 10 MPa" and its
+  "Tensile resistance 27 MPa", to "VDE282 part 10", are recorded (m298); the standards vocabulary does not hold VDE 0282,
+  so their Standards say Not published beside the sheet's words.
 
-```sql
-select measurementid, property, raw_value, data_status, locator from measurements
-where property like 'Tensile%'
-  and (locator like '%stress at %0\%%' escape '\' or locator like '%@ %\% Strain%' escape '\');
-select gradeid, product, value, level from products_compiled
-where measurementid in (select measurementid from measurements where property like 'Tensile%'
-  and (locator like '%stress at %0\%%' escape '\' or locator like '%@ %\% Strain%' escape '\'));
-```
-
-- **Nobufil's printed column was never transcribed on twelve of its thirteen sheets.** Thirteen Nobufil sheets
-  (3DJake copies) print one table with two value columns, "FDM H" and "Injection". The reader took only the rows with
-  one value, which stand in the Injection column (m128 marks them moulded); the tensile, elongation and Izod rows that
-  carry both a printed and a moulded value were never read, so the printed values these sheets exist to give are
-  missing. It is a several-values layout (a transcription of both columns per row), not a correction. The gap-fill
-  tranche (m225, 2026-09-29) transcribed PCTG CF's both columns, read on its page image, and found its one-value HDT
-  row under FDM H, not Injection (V008864, corrected); the other twelve sheets' HDT rows stand under Injection, as
-  m128 has them. None of them says what H is, so a printed value records "Stated, not a usable direction" and decides
-  only as published (D84).
-
-```bash
-grep -l "FDM H[^I]" .cache/text/*.json | wc -l     # the sheets ("FDM H" alone also finds FDM HIPS); their rows:
-npm run sql --silent -- "select * from measurements where sourceid like 'R-3DJAKE-3DJAKE-%'"
-```
-
-- **BASF's extended sheets print a value per print direction, by column.** The applied rows (V010063's class) record
-  neither the direction the column names nor the printed specimen the table describes. It needs each page image read
-  per column, not a rule.
+- **Nobufil's printed column is transcribed since m298** (2026-10-02): every two-value row of the twelve sheets m225 did
+  not reach, read per column on the page (FDM H a printed bar whose direction no sheet states, Injection a moulded one).
+  None of the sheets says what H is. Two Injection cells print "n. B." and "no break" and stay unrecorded; ABSx ESD's
+  surface resistivity ("10^7 - 10^9 Ω") stands under Injection and is recorded as "do not assume printed".
+- **BASF's extended sheets are read per column since m298** (PET CF15, PAHT CF15, ASA): each value in the direction its
+  column names, the impact tables in full, dry or conditioned as each heading's footnote says. Left: BVOH's Extended TDS
+  prints the same values as the BVOH sheet the database holds, with the specimen printer, conditioning and test speeds;
+  they are recorded once, under the other sheet, which states no conditioning. BASF prints its ISO 180 Izod values in
+  J/m (5.7 J/m on PET CF15): recorded as printed, never compared (D94), accepted with that reason.
 - **The values beyond |z| 3 the 200 did not reach** stay in `v_measurement_z` (405 of the 530 the query lists on
   2026-09-27; the rest are the sweep's own); EST-GRADE-OUTLIER raises the worst of them at grade level.
 
@@ -366,19 +346,12 @@ select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;
 Found by re-center lane 2 (m136, 2026-09-25), which filled what the products' own cached sheets state and the parsers
 read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". Still open:
 
-- **Three products state a recipe part only in words.** The query below recounted them on 2026-09-27:
-  - 10 before m204, which typed Siraya Tech Fibreheart PPA's enclosure, 3D-Fuel Pro PCTG's and Raise3D's drying
-    schedules from their own sheets;
-  - then m205 and m211 gave both Raise3D PA12 sheets their "Dry ... at 80°C for 12 hours".
-
-  The three left have chamber words in their know-how:
-  - SUNLU PP;
-  - QIDI ASA-Aero;
-  - 3DXTECH 3DXSTAT ESD-PLA, whose statement comes from its maker's site (m206), not a sheet.
-
-  The chamber gate reads the profiles, so these products stay unknown on it. Query: products whose
-  `knowHow.recipe.chamber` or `.drying` is `collected` while `print.chamber.state` and `print.enclosure`, or
-  `print.drying`, are unknown.
+- **Two products state a recipe part only in words** (three before 2026-10-02): SUNLU PP ("Requires a PP build plate for
+  optimal enclosed-chamber printing results", which asks for nothing) and QIDI ASA-Aero ("please place the enclosed printer
+  in a ventilated environment", about ventilation as much as an enclosure). 3DXTECH's 3DXSTAT ESD-PLA has a profile of its
+  maker's page now (P1365, m299): 215-250C, 40-70C, "Heated Chamber | Not required", "no enclosure required", dried at
+  65C for 4 hours. Query: products whose `knowHow.recipe.chamber` or `.drying` is `collected` while `print.chamber.state`
+  and `print.enclosure`, or `print.drying`, are unknown.
 
 - **Twenty-nine products with no value of their own have no twin to read.** D89 lets a product whose sheet prints a
   same-material sibling's table (R053) read that sibling's values and recipe; the twins now do
@@ -420,31 +393,30 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
     enclosure and a heated chamber for large parts (P0276, Parse review).
   - *A drying cell that says drying is not needed* ("Not needed", "drying is not necessary", 4 profiles) counts as
     drying stated, with no schedule: the drying states are stated or unknown, and nothing says "not needed".
-  - *The specimen blocks on the other sheets are not yet on their measurements.* D63 puts a sheet's specimen printing
+  - *The specimen blocks on some other sheets are not yet on their measurements.* D63 puts a sheet's specimen printing
     conditions in its measurements' Specimen / print parameters. m192 wrote them on 310 of the 332 measurements of the
     50 sheets whose profiles m170 left with no value (3DXTECH's "Printed Specimen Conditions", Raise3D's "All testing
     specimens were printed under the following conditions", Polymaker PC-PBT's "How to make specimens"); the other 22
     are density, DSC, melt flow, water uptake or moisture, not measured on the bar the block describes, and one 6 GPa
     modulus Raise3D's PET CF prose claims. The 122 other sheets m170 read a specimen block on (their profiles kept a
-    recommended row) hold 1,390 measurements still Not published there, 1,016 of them bars or printed specimens:
-    Polymaker's, Flashforge's, eSUN's, Raise3D Premium's, 3DJake's and Fiberon's blocks. m192's CSV and check take them
-    sheet by sheet. Five excluded high-temperature materials (PEKK-ESD, PEI-GF, PEI-ESD, TPI, PEEK-GF) now publish no
+    recommended row) held 1,390 measurements Not published there on 2026-09-27, 1,016 of them bars or printed specimens:
+    Polymaker's, Flashforge's, eSUN's, Raise3D Premium's, 3DJake's and Fiberon's blocks. m300 (2026-10-02) wrote
+    Polymaker's and Fiberon's letter-spaced blocks, and Eryone's and SUNLU's notes, on 626 bar rows (below; §18); the
+    others' blocks still wait, and m192's CSV and check take them sheet by sheet. Five excluded high-temperature materials (PEKK-ESD, PEI-GF, PEI-ESD, TPI, PEEK-GF) now publish no
     nozzle window at all; their exclusion is their H2C status.
-  - *Polymaker's newer sheets set "How to make specimens" letter by letter* ("H O W T O M A K E S P E C I M E N S" in
-    their text), which m128's reader did not match, so 376 bar rows on 37 of them say "do not assume printed" although
-    the block says the test bars were printed. It decides where a product holds two sheets: the rule prefers a printed
-    specimen, so merged PolyMax PC (m193) and m174's merges take the older sheet's values. m192's "bars" reading,
-    with this heading, fixes both columns; its decision diff needs its own look.
+  - *Polymaker's newer sheets set "How to make specimens" letter by letter* ("H O W T O M A K E S P E C I M E N S"),
+    which m128's reader did not match. Since m300 (2026-10-02) a page_context row per sheet and scope the block names says
+    the bars were printed (34 sheets; 90 rows beside the three PLA Pro already had), and its conditions are each bar row's
+    print parameters. The blocks name
+    no heat-deflection bar, so a sheet's heat deflection stays "do not assume printed"; Fiberon PANCHROMA's and PETGF15's
+    rows name no page in their Locator, so no page_context row reaches them.
   - *The specimens' nozzle diameter* is still the profile's on Flashforge's, AzureFilm's and SIDDAMENT's sheets ("0.4mm"
     where the recommended row prints "φ0.4/0.6mm (φ0.4mm recommended)"). It decides no gate; the Printing tab shows it.
   - *A part-drying schedule that may be another sheet's:* Flashforge's PET-GF and TPU 64D and SIDDAMENT's PET CF all say
     to dry the printed model at 120-130°C for 6-8 hours, a schedule that would soften a TPU part; recorded as printed
     (m173).
-- **Five aliases still carry a researched chamber band.** PLA Basic, PLA Matte, PLA Lite, PETG Basic and PETG HF became
-  aliases of PLA and PETG in m141, and their rows in `chamber_bands.csv` stayed; the build refuses a band only on an
-  excluded material, not on a family entry or alias. An alias is never a candidate, so no answer depends on it, and a
-  band decides nothing anyway (D34). The rows should leave through the removal ledger, and the build should refuse a
-  band on a family entry as it does on an excluded material.
+- **No alias carries a chamber band since m303** (2026-10-02): the five rows left through the removal ledger, and the
+  build refuses a band on a family entry or an alias as it does on an excluded material (CHAMBER-BAND).
 
 ```bash
 npm run sql --silent -- "select profileid, drying from profiles where drying_state = 'stated' and drying_c_state = 'Not published' and drying_hours_state = 'Not published'"
@@ -465,26 +437,19 @@ was chosen by an agent and none by a person; a sample of 50 was read against the
   - **Moved:** products with a maker's statement went from 881 to 1,039, and sheet-silent products from 198 to 45.
   - **The 45 left:** its handoffs ask the owner about 31 (a renamed product line, a 60D sheet on a 90A product, pages
     that name another product) and the maker about 14. They are in `archive/research-2026-09-26/owner-handoffs.csv`.
-  - **No product remains "searched, nothing published" for general know-how.** b39's chamber searches initially
-    labelled six products this way even though their captured pages contained maker claims. m222 records those
-    six exact paragraphs as record-tier know-how, without numeric/environmental decisions. The chamber-specific outcomes on
+  - **One product is "searched, nothing published" for general know-how** (3DJake's ASA, G031-37). b39's chamber
+    searches initially labelled six more this way even though their captured pages contained maker claims; m222
+    records those six exact paragraphs as record-tier know-how, without numeric/environmental decisions. The chamber-specific outcomes on
     63 products (60 maker searches and three access/identity limits) are in
     `docs/audits/2026-09-28-gap-closing/C-SITE-OUTCOMES.csv`; qualitative heating advice without a setpoint remains
     unresolved. Re-derive the general counts with `npm run audit:know-how`.
-  - **38 products have no document read** (state no-document-read), down from 44 after b39. Most came in with
-    batches b34, b35 and b37 after lane 3 had read.
+  - **31 products have no document read** (state no-document-read; 44 before b39, and 31 on 2026-10-02 by the
+    worklist). Most came in with batches b34, b35 and b37 after lane 3 had read.
   - **Where the lists are:** `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md` (`npm run audit:know-how`), and
     `archive/research-2026-09-26/disposition.csv` for what became of each research finding.
-- **"Fabru" and "Fabru / purefil" hold some products twice.** The makers' pages (m206) put one statement on both
-  grades of five pairs:
-  - G001-57 and G001-68;
-  - G008-11 and G008-10;
-  - G028-08 and G028-11;
-  - G136-01 and G136-02;
-  - G031-12 and G031-26.
+- **"Fabru" and "Fabru / purefil" held some products twice**; since m302 (D123) each such product is one grade, its
+  language editions' records on it. Fabru's POM (G087-01, G087-04) is not confirmed: G087-01's sheet has no cached text.
 
-  Some of these are twins (D89) and some are separate grades of one product under two manufacturer names. Not merged
-  here.
 - **The Panchroma TDS that covers Silk PLA and CoPE** was left out whole by lane 3. The makers' pages gave both
   products a statement (m206). The Raise3D sheet that was PA12 CF+ is that product's own now: G059-03, under PA612-CF
   (m205), with its statements.
@@ -567,9 +532,10 @@ found: Fillamentum Timberfill (PLA Wood, R203) and NinjaTek Eel (TPU-EC, R204). 
   laurolactam and MXDA monomers; ISTROFLEX's "modified polyester alloy") and what would settle it are in
   `docs/audits/2026-09-28-polymer-names/README.md`. ISTROFLEX, like Multi3D Electrifi, waits on the owner's word on a
   biodegradable-polyester home.
-- **SUNLU TPU (G039-51) is most likely an earlier sheet of SUNLU TPU 95A (G039-19).** Its figures are SUNLU's 2024
-  sheet's; the 95A product's current sheet prints newer ones. Both are in the TPU 95A class as two products since m223;
-  merging them is a decision of its own.
+- **SUNLU TPU (G039-51) is SUNLU TPU 95A (G039-19)** on SUNLU's own 2024-06 sheet ("Product Name:TPU", Shore 95) and
+  the 95A product page, and is merged into it (m302); its 2024 values are a re-test, not a second formulation. The
+  3DJake copy prints no hardness, so the identity rests on SUNLU's own documents.
+
 - **Heat deflection names its families** (hdt045 Applies to, D87). A new family of rigid polymers must be added there,
   or heat deflection will not apply to it. `data:lint` now names every family with candidate materials that the list
   leaves out (HEADLINE-FAMILY-UNLISTED); Flexible Elastomers is accepted with its reason, so a new family fails verify
@@ -638,12 +604,9 @@ it was given:
 - **Values a cached sheet prints and nobody read, behind a "not published" blocker.** colorFabb's Lightweight PET and
   Lightweight PET FLEX sheets print their mechanical table in two columns, unfoamed and foamed; the owner ruled the
   foamed one the product's (D95), and m197 recorded both columns of all six rows, the unfoamed one as "Printed off the
-  product's recipe". PET-LW (M141) now fails the three stiffness templates rather than being unknown. Left: colorFabb's
-  LW-PLA and LW-PLA-HT sheets print the same two columns ("Value @ 210˚C; 100%" and "foaming 230%; 60%"), and
-  source_facts holds their seven rows; D95 reads them the same way, and a migration like m197 would record them. The
-  two PET products' profiles (P0495, P0508) took the unfoamed column's 210 °C as their nozzle window, where the sheet's
-  print guideline gives 210 °C unfoamed and 260 °C foamed: the H2C reaches both, so no gate moves, but the recipe should
-  read 260 °C. FormFutura's ApolloX Kevlar prints "Elastic tensile modulus 2200 MPa ISO 527-1", a label the lexicon
+  product's recipe". PET-LW (M141) now fails the three stiffness templates rather than being unknown. colorFabb's
+  LW-PLA and LW-PLA-HT sheets print the same two columns, and m298 recorded both as m197 did (2026-10-02). The PETs'
+  foamed 260 °C nozzle row is a profile of its own since m291 (P1356, P1358). FormFutura's ApolloX Kevlar prints "Elastic tensile modulus 2200 MPa ISO 527-1", a label the lexicon
   lacks; with no direction it would be as published and settle nothing. The four graphene sheets' specific gravity was
   the same kind of gap and m181 recorded it.
 - **Copies registered beside the maker's own sheet hid behind a count.** MEAS-CROSS-SOURCE-TWIN ignores a value more
@@ -680,12 +643,11 @@ and PolyMax PC each sit on one grade). Still open:
 - **Other revisions of one sheet may still sit on two grades.** m174 and m193 merged seven pairs found by reading
   (m193: eSUN PLA+, whose 2021 Version 4.0 and 2026 Version 1.0 sheets print the same product, since eSUN's 2024
   template restarts every sheet at 1.0; and Polymaker's PolyMax PC, 2018 Version 4.1 and V5.5). No rule finds them:
-  GRADE-PRODUCT-DUPLICATE compares names, and a revision often carries the maker's name before the product's. One
-  candidate: m174 merged PolyLite ABS V5.6 into Polymaker ABS (G027-09), and PolyLite ABS V5.3 is still a grade of its
-  own (G027-02), with a density of 1,120 kg/m³ where V6.0 prints 1,040 (§17).
-- **3D-Fuel's Pro PCTG is named "3D"** (G088-04): its sheet prints "3D-Fuel Pro PCTG" on page 1, and its Title reads
-  "TECHNICAL DATA SHEETTECHNICAL DATA SHEET 3D-Fuel", a heading read twice. The grade holds no profile, so each of its
-  print gates is unknown, although its know-how quotes a chamber (§12).
+  GRADE-PRODUCT-DUPLICATE compares names, and a revision often carries the maker's name before the product's. m302
+  (2026-10-02) merged 29 more, PolyLite ABS V5.3 into Polymaker ABS (G027-09) among them, each confirmed on both sheets;
+  more may wait where the names differ by more than a revision.
+- **3D-Fuel's Pro PCTG is named "Pro PCTG" since m299** (G088-04); its one profile (P1279) publishes no setting, so its
+  print gates are unknown although its know-how quotes a chamber (§12).
 - **A title that is only the kind of document is not flagged**: "Technical Data Sheet" on some forty sources, a few
   "Technical Specifications" and "TECHNICAL DATA SHEET", and Polymaker's slogan "Innovators in 3D printing"; the query
   lists them. Some sheets print exactly that as their heading, so a rule would not be precise; the product name beside
@@ -703,9 +665,10 @@ Phase 5, part 4 rewrote the tests that named records as rules over every record.
 today, so they are recorded here rather than asserted (RESPONSE.md, phase 5, part 4):
 
 - **Unfilled products publish a density outside their polymer's neat range and declare no Variant**, which R078 asks
-  for where a density is beyond the neat polymer; the query lists them (20 on 2026-09-27): PolyLite ABS 1,120 on its
-  V5.3 sheet (G027-02, neat ABS to 1,110), Spectrum PET-G MATT and eSUN PETG-Matte 1,350 (neat PETG to 1,300), SUNLU
-  PVA 1,010 and PolyDissolve S1 1,370 (neat PVA 1,180 to 1,340), Recreus RECIFLEX 1,000, and the rest. Some neat
+  for where a density is beyond the neat polymer; the query lists them (20 on 2026-09-27, 19 on 2026-10-02): Spectrum
+  PET-G MATT and eSUN PETG-Matte 1,350 (neat PETG to 1,300), Polymaker ASA 1,130 (neat ASA to 1,110), SUNLU PVA 1,010 and
+  PolyDissolve S1 1,370 (neat PVA 1,180 to 1,340), Recreus RECIFLEX 1,000, and the rest. PolyLite ABS left the list when
+  its V5.3 sheet's 1,120 joined Polymaker ABS's grade (m302), whose value is V6.0's 1,040. Some neat
   ranges are narrow (ABS, ASA), so each needs its sheet re-read before it is declared, not a bulk Variant.
 - **A heat deflection estimate reaches past its polymer's melting point** at the upper end, with its centre below it:
   PA612-GF (plausible to 220 °C, melting 218). PCL's was the other; it now shows its product's own 57 °C.
@@ -732,7 +695,7 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
   stay as they are. colorFabb's Economy PLA prints "Impact Strength (Ch-N 23ºC)": Ch-N is commonly Charpy notched, but
   no colorFabb page spells it out, so it is left for a reader who can confirm it. BASF's three extended sheets print a
   full impact table (Charpy and Izod, notched and unnotched, dry and conditioned, in XY, XZ and ZX) of which the import
-  kept one number each; the others are in the record tier and wait for a re-read.
+  kept one number each; m298 (2026-10-02) recorded every cell of it in its column.
 - **Notched Izod is its own filter now** (D94, m195), because many products publish a notched Izod value and no
   notched Charpy one (izod_only in the query, 160 on 2026-09-27): 116 products have a notched Izod value in kJ/m², 45
   of them comparable, and 26 materials a spread. Still without a notched impact value of either test: **47 products
@@ -744,18 +707,16 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
 - **Products that publish their across-layer tensile strength only under an XZ or ZX label** (xz_zx_only: 33 on
   2026-09-27, 38 before m191, which made Z the tensile rows of six whose sheets show or say the bar stood upright:
   BASF's "ZX | Upright" columns, Essentium's drawing, two Eryone sentences naming the "X-Z" value the "Z-axis tensile
-  strength"). Left, because nothing on the page says how the bar stood: 25 more Eryone "X-Z" sheets of the same
-  template (8.7 to 47 MPa), SUNLU's two "(Z-X)" sheets (their drawings show only flat bars), Flashforge HS PLA's
+  strength"). Since m301 (2026-10-02) the owner's ruling makes the other Eryone "X-Z" sheets of that template Z too
+  (D123; 27 sheets, 8.7 to 47 MPa). Left, because nothing on the page says how the bar stood: SUNLU's two "(Z-X)" sheets
+  (their drawings show only flat bars), Flashforge HS PLA's
   "(X-Z)", iSANMATE PEI 9085's "ZX Orientation", Prusament PVB's "Vertical xz" (49 MPa beside a horizontal 50 MPa, and
   a separate interlayer adhesion of 9 MPa, so not across the layers), Markforged Onyx GF's XZ (73.7 MPa, above its
   XY), Stratasys ABS-M30i's XZ ("on side long edge") and LEHVOSS's LUVOCOM 3F PAHT 9825 NT's "100% infill - ZX"
-  (m198). The
-  Direction vocabulary gives ISO/ASTM 52921's meanings now (XZ on its edge, ZX upright). Eryone's own two sentences
-  suggest its template's "X-Z" is always the Z-axis bar; applying that to the other 25 is a ruling, not a reading.
-- **Eryone's sheets state their test bars' printing conditions** ("Note: All splines are printed under the following
-  conditions: printing temperature=210° C, printing speed=80mm/s, base plate 60 ° C, filling=100%, nozzle
-  diameter=0.4mm") and their rows' Specimen / print parameters say Not published; so do SUNLU's ("测试样条打印速度 45 mm/s，
-  打印温度 255 ℃。填充 100%"). These sheets were not among m170's, so m192 did not reach them (§12).
+  (m198). The Direction vocabulary gives ISO/ASTM 52921's meanings now (XZ on its edge, ZX upright).
+- **Eryone's and SUNLU's test bars' printing conditions are on their rows since m300** ("All splines are printed under
+  the following conditions: …" on 30 Eryone sheets, 测试样条 on 7 SUNLU sheets), with a page_context row saying the bars
+  were printed. Eryone's heat deflection sits in another table of the page and stays as it was.
 - **Nine notched Charpy rows cite the unnotched method** (ISO 179/1eU): Spectrum's PA6 Low Warp and PA12-CF15 sheets,
   FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. m196 re-read each: every page labels the row notched,
   and all but Nanovia PLA VX print an unnotched row beside it several times higher, so the label stands and the method
@@ -822,11 +783,11 @@ narrower and more honest, and leave these, each with where it is counted:
   four policy variants and their 1,538 current one-fact gaps in
   `docs/audits/2026-09-28-gap-closing/STATE-VARIANTS-FOLLOWUP.csv`. This is a queue, not completed source research;
   re-run it after a build when the data changes. Acceptance tests already cover the named expectation examples.
-- **Cold fast-check timing needs a performance follow-up.** After the gap-closing data changed the cached test
-  builds, `verify:fast` took 106.7 s against the 90 s goal (VERIFY-C.txt in the gap-closing audit). Functional checks
-  passed. The owner chose to record this for follow-up, rather than investigate performance in this source-research
-  run. VERIFY-FAST-C-WARM.txt records the separate isolated warm run with `--enforce-budget`; neither timing is
-  represented as the other. Reproduce cold and warm timings with stable inputs and no competing build work.
+- **Cold fast-check timing is within budget again, measured 2026-10-02.** After the gap-closing data changed the cached
+  test builds, `verify:fast` had taken 106.7 s against the 90 s goal (VERIFY-C.txt in the gap-closing audit). On the
+  owner's machine, with no competing build work, after the open-problems pass: 29.6 s with the build cache, and 68.2 s
+  with it off (`H2C_NO_BUILD_CACHE=1`), the build and tests 64.0 s of it. CI starts with an empty cache; it is a slower
+  machine, and its timing is its own.
 
 ```bash
 npm run sql --silent -- "select count(*) annealed_no_schedule from measurements where data_status in ('Published value','Published value (transcription corrected)') and post_processing_state = 'annealed' and (anneal_c_state is not null or anneal_h_state is not null)"
@@ -874,7 +835,7 @@ and counts exact product states. It leaves these, each with where it is counted:
 - **The largest test-pair view redraws a little slower.** Toggling a scale on the mixed test pairs over scope only (3,951
   marks) took a median 456 ms against 430 ms before, measured on the owner's laptop by the record's `tools/perf.mjs`; the
   decision views measured 34 to 115 ms. Neither leaks: one resize listener set, one plot, the heap steady over 40 redraws.
-- **Cold verify:fast is still over budget** (§19); this change adds three test files and two probe views.
+- **Cold verify:fast was over budget then** (§19); it is within it again (68.2 s, 2026-10-02).
 
 ```bash
 npm run sql --silent -- "select count(distinct gradeid) products_with_a_listing, currency from prices where quarantined = 0 group by currency"
@@ -887,8 +848,9 @@ node docs/audits/2026-09-29-ashby-makeover/tools/probe.mjs
 The tranche of 2026-09-29 (GOALS; [the record](audits/2026-09-29-gap-fill-implementation/README.md)) took 45 of the
 research package's 51 technical findings, and one fact found on re-reading. What it did not take, and what it found:
 
-- **Two findings are held, as the research held them.** Nanovia Flex V0's "Tensile resistance 27 MPa VDE282 part 10"
-  (§11) has no faithful property or standard. Extrudr FLEX HARD CF's drying (G129-02) disagrees with itself: its page's
+- **One finding is held, as the research held it** (two until 2026-10-02, when m298 recorded Nanovia Flex V0's "Tensile
+  resistance 27 MPa VDE282 part 10" and its two stresses at a stated elongation, §11). Extrudr FLEX HARD CF's drying
+  (G129-02) disagrees with itself: its page's
   FAQ says "drying for 6 hours at 60°C", the settings table under it "Drying time 12 h", and Extrudr's catalogue 6 h. A
   question for Extrudr; nothing is averaged.
 - **Spectrum GreenyHT's identity is contested** (G001-134, a PLA blend since m223, D106). m223 filed it from Spectrum's
@@ -954,8 +916,8 @@ materials in scope, 30 of them converted from USD or EUR, and 214 products. What
   its sale price as regular.
 - **A mass from the description or a diameter from the data sheet is a reviewer's reading.** Where a listing's title
   prints no net mass the review took its description's (marked in the row's Notes), and four listings that name no
-  diameter rest on their product's own sheet printing 1.75 mm and no other. PolyMide CoPA is two grades of one product
-  (G057-01, G057-03); its listings are recorded under G057-03 only.
+  diameter rest on their product's own sheet printing 1.75 mm and no other. PolyMide CoPA's listings were recorded
+  under G057-03, which holds both of its grades' records since m302.
 - **The reviews are an agent's.** No person has spot-checked a listing against its page.
 
 ```bash
@@ -1033,7 +995,7 @@ The registered colorFabb Print Support original is reused for four pre-print dry
 
 LUVOCOM PAHT9825's exact2019 FFF guide provides250–280C nozzle, bed<80C, non-heated chamber compatibility, standard brass and conditional wet-filament hot-dry-air80C for at least12h. Its raw bounds and conditions stay visible in the Printing tab. The existing270–290C nozzle source remains separately recorded and selected by the existing rule; no source recency/intersection decides the disagreement. The guide's100C/50%-retention introduction and older120C/UL746B context cannot be reconciled as an identical tested service limit. Compound pellet drying remains a different operation.
 
-Spectrum PA6CS20FRV0's own product-page nozzle/speed/cooling/enclosure guidance differs from its TDS; Q05471 preserves the new source but its replacement profile stays held. Existing P0184 stores raw bed>80C beside typed80/80, a specific unresolved endpoint defect, not authority to narrow the maker's range. KK50056BKFR railway producer context is scoped to its resin grade; the separately printed V-0@0.4mm statement is not a complete printed-product railway certificate.9936BK/L is distinct from9936BK, so adjacent food/magnetic claims do not transfer.
+Spectrum PA6CS20FRV0's own product-page nozzle/speed/cooling/enclosure guidance differs from its TDS; Q05471 preserves the new source but its replacement profile stays held. Existing P0184 stores raw bed "> 80°C" with its upper end open (typed 80 to Not published since the error-class sweep), as the maker prints it. KK50056BKFR railway producer context is scoped to its resin grade; the separately printed V-0@0.4mm statement is not a complete printed-product railway certificate.9936BK/L is distinct from9936BK, so adjacent food/magnetic claims do not transfer.
 
 Prografen's exact Strong/Light pages add recipes and bounded uses. Their semi-transparent application bullet conflicts with the portfolio's shared Deep black color (and Light's own black TDS); Q05460/Q05483 keep that conflict. The portfolio explicitly states February2024 Spectrum acquisition and names Strong5%/Light0.5%EFG, but the existing grade manufacturer3DJake is held for a separate guarded identity correction; no value or historical price moves in this tranche. New ownership does not settle the older AGP2023XY specimen/revision-custody question. Shared UV and generic chemical statements remain narrative without test conditions or a selection pass.
 
@@ -1071,31 +1033,40 @@ npm run audit:coverage-status -- --check
 The sweep of 2026-10-01 ([record](audits/2026-10-01-error-classes/README.md)) removed the data audit's nine error
 classes and left each guard at zero unreviewed findings (D115, D116, D119). What it found and did not settle:
 
-- **One product, two grades.** Nine products have a grade per sheet revision or language, now under one key (m281)
-  but still counted twice in their material's spread: PolyLite PC and its Transparent sheet (G035-02, G035-10), Fabru's
-  HDPE GF20, ASA and PLA in German and English (G138-01/02, G031-12/26, G001-57/68), PolyLite ASA V5.3 and Polymaker ASA
-  V6.0 (G031-02/06), Extrudr PLA NX2 and NX2 MATT (G001-110/33), nGen and nGen Amphora AM3300 (G092-01/02), 3DXSTAT
-  ESD-Ultem Rev 3.0 and 3.1 (G123-01/02), PolyMax PC-FR V5.1 and V5.5 (G035-08, G036-02). Retiring the copy is the
-  owner's call: it drops that grade's own listings and profiles from view.
+- **One product, two grades: merged since m302** (D123, 2026-10-02). 29 products held on a grade per sheet revision or
+  language are one grade each, their records moved there: PolyLite PC and its Transparent sheet, PolyMax PC-FR V5.1 and
+  V5.5, PolyLite ASA V5.3 and Polymaker ASA V6.0, PolyLite ABS V5.3 and Polymaker ABS, nGen and nGen Amphora AM3300,
+  3DXSTAT ESD-Ultem Rev 3.0 and 3.1, Extrudr PLA NX2 and NX2 MATT; purefil's PLA, ASA, HDPE GF20, ABS GF10, SAN, PETG,
+  PA12 CF15, ASA CF10, PBT and PLA Silk in two languages; PolyFlex TPU90, TPU95 and TPU95-HF, PolyMax PETG, PolyLite
+  PLA-CF and LW-PLA, CosPLA Version B and PolyMide CoPA in two revisions; colorFabb LW-PLA and LW-ASA; SUNLU's Marble PLA
+  and SUNLU TPU beside TPU 95A. Not merged: FILAFLEX Foamy's two
+  sheets (two non-foamed materials, 95A and 85A), SIDDAMENT's "ASA Carbon Fiber" and "ASA CF" (two tables), and
+  Polymaker PLA Pro V6.0 beside PolyLite PLA Pro V5.6 (a rewritten description and new values: unsure). Fabru's POM
+  (G087-01, G087-04) is unconfirmed: one of its sheets has no cached text.
 - **Filing questions the twins raised.** FiberFlex Aero (G134-01) is filed as CPE-LW from its sheet's boilerplate
-  ("CPE ANTIBAC filament") while its values are FiberFlex 40D's elastomer table and its maker's page calls it "from the
-  elastomer family". Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for value and
-  sit under PA6-CE and PA6 while the LUVOCOM grades sit under PAHT-CE. 13 cross-material twin pairs are accepted (R166).
-- **The import's fibre sentence.** 174 live profiles hold "Use abrasion-resistant nozzle; verify minimum orifice …" in
-  their raw Abrasion column (`scripts/ingest/propose.mjs`, ABRASIVE), the register's rule for a fibre-filled filament,
-  not the sheet's words; the engine says "a source states it needs an abrasion-resistant nozzle" for them. Where the
-  sheet states its own nozzle, the profile now holds the sheet's words: 26 since 2026-10-01 (m282, m285, m290, m295),
-  two of them Siraya TPUs whose sheet says brass will work. The rule belongs in `method.csv`, shown as a rule.
-- **Values never transcribed**, seen while re-reading: Raise3D Industrial PET-CF's table (5,731 / 3,270 MPa, 73 / 34
-  MPa, 7.75 kJ/m²; only its prose "over 6 GPa" is recorded), BASF PET CF15's 63.2 MPa tensile strength, the 3D-printed
-  sections of colorFabb LW-PLA and LW-PLA-HT, Stratasys PA6/66-GF30 FR's XZ heat deflections (185 and 153 °C), and
-  Polymaker PolyMide CoPA's "(Wet Status)" table.
-  `npm run audit:sources` finds such values; the import pause keeps them out until it is lifted.
-- **Guard precision.** `audit:context` keeps 58 accepted findings on measurements, where it matched a neighbouring line,
-  or a statement that does not speak for the rows it flagged, or a standard printed without its letter, and 20 on print
+  ("CPE ANTIBAC filament") while its table is FiberFlex 40D's, value for value and "for the unfoamed material" (91A /
+  40D, tensile 28 MPa, elongation 700 %), its maker's page calls it "from the elastomer family", and FiberFlex 40D's
+  safety data sheet names a copolyester elastomer. No cached document names Aero's own polymer, so filing it as TPC /
+  TPEE (where FiberFlex 40D sits) is an inferred filing, which D106 leaves to the owner; the uninferred home is "TPE,
+  maker-undisclosed". Either way CPE-LW is left with no product, so it becomes a family entry or an alias (m141's
+  shape): the owner's call. Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for
+  value and sit under PA6-CE and PA6, as Spectrum's own documents name them, while the LUVOCOM grades sit under PAHT-CE.
+  13 cross-material twin pairs are accepted (R166).
+- **The import's fibre sentence is gone since m296** (D121): 174 profiles say what their sheets say, the rule is in
+  `method.csv`, and the page says it as the rule. Braskem's PP-CF prints "Nozzle Size (Material) ≥0.6 (Hardened Nozzle)",
+  which its profile now holds (m299).
+- **The values never transcribed that this list named are recorded since m298** (D123). Left, seen while reading:
+  Stratasys PA6/66-GF30-FR's Tables 4 and 5 (tensile, flexural, compression and impact, XZ and ZX) are almost all
+  untranscribed, and its XY heat deflection at 264 psi prints 35 °C beside 161 °C at 66 psi and 153 °C XZ, recorded as
+  printed; Polymaker PolyFlex TPU90 and TPU95 print an ISO 37 tensile table no row holds; Eryone's light-weight PLA prints
+  MPa as the unit of its X-Y elongation; Raise3D's Hyper Core PPA CF25 (G070-08) carries Industrial PET CF V4.0's source as
+  its formulation key, which no other grade shares and reads nothing, but which may say its sheet reprints that table
+  (R166). `npm run audit:sources` finds such values.
+- **Guard precision.** `audit:context` keeps 57 accepted findings on measurements, where it matched a neighbouring line,
+  or a statement that does not speak for the rows it flagged, or a standard printed without its letter, and 19 on print
   profiles, each a reading the profile is right to differ from (a test bar's single temperature under a heading the
   reader does not know, a neighbouring column, purefil's mislabelled bed row, a brass-wear caution, a decimal comma);
-  IMPACT-UNIT-STANDARD keeps 24, each a sheet that prints kJ/m² beside ASTM D256. PARSE-REVIEW-STALE checks print profiles and measurements alike.
+  IMPACT-UNIT-STANDARD keeps 45, each a sheet that prints kJ/m² beside ASTM D256 or J/m beside ISO 180 (BASF, m298). PARSE-REVIEW-STALE checks print profiles and measurements alike.
 - **What the independent review left open.** A page_context row speaks for a property class of a page, not for one
   table, so a statement that heads one of two tables on a page reaches the other (PC00012 and PC00041 were found and
   corrected in m286; a probe of all 88 found no other). The migrations' quote check proves a quote is on the cached
@@ -1106,29 +1077,62 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   fixed in the import's reader, which the guard runs on every profile. Four fresh draws of 40 after it found 4, 4, 2
   and 2 profiles wrong in a deciding field (12 of 160, 7.5 %; the five draws before it found 31 of 190, 16 %), each a
   layout family the reader then learned and the guard swept (m295). The last two draws found 2 of 40 each (5 %); the
-  target, under 3 %, is not yet shown, and the next draw of 40 measures it. Left open:
+  target, under 3 %, was not yet shown. **The next draw of 40 (v12, 2026-10-02, on the tables the sweep left) found 1
+  profile wrong in a deciding field** (Recreus's "Small parts Room temperature (no heating); Large parts 50–55 °C" read
+  as a bed the filament requires; a second, blind reader of the same 40 found none): 2.5 %, under the target. Its
+  family is fixed on 18 profiles (m299). Its other findings were nozzle sizes and notes, which decide nothing. Left open:
   - 56 profile notes (34 layer heights, 12 wall counts, 10 speeds) were taken from a test-bar block before the reader
-    learned to drop it. A note cannot be retired, and a removal is refused (D72): the owner decides whether notes get a
-    way to retire.
+    learned to drop it; the v12 draw found five such notes (four test-bar settings and a "Cooling: From 90" that is an
+    annealing cool-down). A note cannot be retired, and a removal is refused (D72): the owner decides whether notes get
+    a way to retire.
   - A twin reads its sibling's nozzle statement even where it names the sibling's own additive: eSUN PLA Clear asks for
-    a hardened nozzle because eStars-PLA's sheet says its luminous pigment wears brass (D89).
+    a hardened nozzle because eStars-PLA's sheet says its luminous pigment wears brass (D89). PLA Clear's own sheet
+    prints a full recipe that names no nozzle, and eSUN prints one template table on both. Recommended: a twin reads a
+    sibling's hardened-nozzle statement only where it holds no profile of its own; the owner's call, since it narrows
+    D89.
   - purefil's PA6 GF10 sheet prints its bed twice, "Heizbett Temperatur 120-140 °C" and "Heated bed temperature 80°C" in
-    the slot where every purefil sheet prints its drying temperature; the profile holds the first, which is above the
-    H2C's 120 °C and turns G051-08's bed gate to exceeds. The maker could settle it.
-  - "Enclosed-frame (rec.), open-frame" stays a reviewer's reading; the reader joins "85, 6h" into a decimal (P0445);
-    SUNLU PLA Basic's bed row is garbled in the text layer ("Hot-bed temperature 40-FOPC", P1239), so nothing reads it.
-  - Siraya Tech's Fibreheart Flex TPU 95A sheet is filed as two products under two materials (G129-03 under TPU-CF,
-    G039-66 under TPU 95A class); one is a copy, and which material it is depends on whether "Fibreheart" means a fibre
-    fill (Siraya's other Fibreheart filaments are carbon-filled).
+    the slot where every other purefil sheet prints its drying temperature, and no drying row at all; the profile holds
+    the first, which is above the H2C's 120 °C and turns G051-08's bed gate to exceeds. The sheet's own words call both
+    rows bed, so only the maker can settle it.
+  - "Enclosed-frame (rec.), open-frame" stays a reviewer's reading. (P0445's "75℃-85, 6h" reads 85 °C for 6 h since
+    m299, and Recreus PET-G's garbled bed row, P1239, holds the rendered page's 40-70°C.)
+  - Braskem's PP-CF prints a recommended bed (80 °C with its PP adhesive) and an alternate one (20-40 °C with a spray);
+    the profile holds the first as required. A bed per substrate would be a profile per row (D120's shape).
   - Nozzle sizes a sheet lists ("0.2, 0.4, 0.6, 0.8 mm") are held as their first on some profiles, and a minimum
     ("Nozzle ≥ 0.2 mm") is not held on others; the nozzle size decides nothing today.
   - The detectors that found the causes are in the repository now: `npm run audit:profile-marks` (needs the text cache,
     not in `verify`) marks every line of a profile's cached sheet where an error could hide, grouped by template, into
     `build/reports/profile-marks/marks.csv`. The guard keeps each cause out; a layout neither has seen is still found
-    by reading the marks, not by a gate: the marks are leads (1,844 on 745 sheets today), most of them a sheet's own
+    by reading the marks, not by a gate: the marks are leads (1,937 on 753 sheets on 2026-10-02, with the full local text
+    cache; fewer where it is partial), most of them a sheet's own
     storage, property or test lines.
 
 ```sh
 npm run data:lint && npm run audit:context
 npm run sql -- "select gradeid, product_name, shared_formulation_key from grades where status = 'active' and shared_formulation_key in (select shared_formulation_key from grades where status = 'active' group by shared_formulation_key having count(*) > 1) order by shared_formulation_key"
+```
+
+## 29. What the open-problems pass leaves open
+
+The pass of 2026-10-02 ([record](audits/2026-10-02-open-problems-pass/README.md); D121 to D123) fixed what an agent could
+on its own. What it could not, by who settles it:
+
+- **The owner.**
+  - FiberFlex Aero's filing (§28): TPC / TPEE inferred, or "TPE, maker-undisclosed"; either leaves CPE-LW without a
+    product.
+  - A way to retire a profile note (§28), and whether a twin reads a sibling's statement about its own additive (§28,
+    eSUN PLA Clear; recommended: not where the product holds a profile of its own).
+  - The 255 maker questions in `archive/research-2026-09-26/owner-handoffs.csv` (§15): sending them is outward-facing.
+  - The coverage campaign's next tranche (§27): EFFORT-AND-VALUE.md recommends 100 to 150 product passes ranked by the
+    scenario-gap queue rather than all the remaining ones (1,056 when it was written, 1,030 since 26 frozen targets of
+    products merged in m302 closed into their kept products' targets; STATUS.md).
+  - Polymaker PLA Pro V6.0 beside PolyLite PLA Pro V5.6, and Fabru's POM (§28): one product each, or two.
+- **The makers.** purefil PA6 GF10's two bed rows (§28); the source contradictions of §§23 to 26; the conditions of §15.
+- **People.** The decisive-value spot-check (C3) and the team trial (C7). Every review in this pass was an AI's.
+- **Leads the readers saw**, recorded in §28: Stratasys PA6/66-GF30-FR's untranscribed Tables 4 and 5 and its 35 °C
+  heat deflection at 264 psi; PolyFlex TPU90 and TPU95's ISO 37 tables; Raise3D Hyper Core PPA CF25's key; Eryone
+  light-weight PLA's elongation printed in MPa; Braskem PP-CF's two beds; BVOH's Extended TDS conditions.
+
+```sh
+npm run data:lint && npm run audit:context && npm run audit:coverage-status -- --check
 ```

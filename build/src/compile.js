@@ -453,6 +453,8 @@ function deriveFacets(mat) {
   return {
     reinforcement: { value: reinforcement, origin: ORIGIN.SOURCE },
     esd: { value: modifier === 'ESD formulation' || /\bESD\b/.test(name), origin: ORIGIN.DERIVED, from: 'Modifier / filler and name' },
+    // Carbon, glass, aramid or plant fibre: what the rule on abrasive fillers applies to (method.csv, D121).
+    fibre: { value: /fibre/i.test(modifier), origin: ORIGIN.DERIVED, from: 'Modifier / filler' },
     flexible: { value: mat.Family === 'Flexible Elastomers', origin: ORIGIN.DERIVED, from: 'Family' },
     supportMaterial: { value: mat.Role === 'Support/interface', origin: ORIGIN.SOURCE },
     flameRetardant: { value: /\bFR\b/.test(name), origin: ORIGIN.DERIVED, from: 'name only; no flame-retardancy field exists' },

@@ -57,6 +57,8 @@ export function attachChamberEstimates(materials, bands) {
       if (seen.has(id)) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is listed in more than one band` }); continue; }
       seen.add(id);
       if (m.excluded) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is outside the H2C scope and must not carry a band` }); continue; }
+      // A family entry or an alias owns no product and is never a candidate (D44, m303).
+      if (m.familyEntry) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is a family entry or an alias and must not carry a band` }); continue; }
 
       const guidance = m.print?.chamberGuidance?.state;
       const reason = m.print?.chamberC ? `publishes ${m.print.chamberC.max === null ? `at least ${m.print.chamberC.min}` : m.print.chamberC.min === null ? `up to ${m.print.chamberC.max}` : `${m.print.chamberC.min}-${m.print.chamberC.max}`} °C`

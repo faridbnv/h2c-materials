@@ -119,14 +119,18 @@ const oneSided = (iv) => !!iv && (iv.lo == null) !== (iv.hi == null);
 
 /**
  * The order in which a product's candidates for one headline are preferred, most preferred first. Deterministic: the
- * last key is the measurement ID. Comparable before as published; a printed specimen before an unstated one; as
- * printed before unstated before annealed; dry before unstated; the product's own data sheet before another source;
+ * last key is the measurement ID. Comparable before as published; a printed specimen before an unstated one; for a
+ * headline with no direction, a flat bar before an edge or upright one; as printed before unstated before annealed; dry before unstated; the product's own data sheet before another source;
  * the headline's first value property (its unspecified endpoint) before the others; a point before a range or bound.
  */
 export function preference(m, a, grade, def) {
   return [
     a.level === LEVEL.COMPARABLE ? 0 : 1,
     m.specimenForm === 'printed' ? 0 : 1,
+    // A headline with no direction (heat deflection, density) takes a flat bar's value before an edge or upright one's:
+    // makers test flat unless they say otherwise, and an XZ, ZX or Z value is another bar's (D92; Stratasys prints its
+    // heat deflections XY and XZ side by side).
+    !def.direction && ['Z', 'XZ', 'ZX'].includes(m.direction) ? 1 : 0,
     POST_PROCESSING_ORDER[m.postProcessingState] ?? 1,
     m.moistureState === 'dry' ? 0 : 1,
     m.sourceId === grade.sourceId ? 0 : 1,

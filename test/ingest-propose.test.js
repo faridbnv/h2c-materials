@@ -202,20 +202,20 @@ test('a sheet that prints a nozzle temperature per speed publishes two setups, n
   assert.deepEqual(profiles.map((p) => p.row['Bed °C']), ['40-50°C', '40-50°C']);
 });
 
-test('what wears a nozzle out is the sheet’s statement, and the register’s rule only where the sheet is silent', () => {
+test('what wears a nozzle out is the sheet’s statement, never the database’s rule written as one', () => {
   const says = [{ page: 1, field: 'nozzle-material', topic: '', label: 'Ruby or hardened nozzle', raw: 'Yes', line: 'Ruby or hardened nozzle Yes' }];
   const said = profileFor(says, { sourceId: 'S-X', materialId: 'M001', modifier: 'Unfilled / unspecified' });
   assert.equal(said.row['Abrasion / clogging'], 'Ruby or hardened nozzle Yes');
   assert.equal(said.row['Hardened nozzle'], 'TRUE');
-  assert.deepEqual(said.editorial, []);
   // A sheet that says one is not needed is not paraphrased into a claim it did not make.
   const no = profileFor([{ ...says[0], raw: 'not necessary' }], { sourceId: 'S-X', materialId: 'M001', modifier: 'Unfilled / unspecified' });
   assert.equal(no.row['Abrasion / clogging'], 'Not published');
   assert.equal(no.row['Nozzle material'], 'not necessary');
-  // A fibre wears brass out whatever the sheet says about it, and the proposal says those words are ours.
+  // A fibre wears brass out whatever the sheet says about it, but that is the database's rule (method.csv, D121): a
+  // silent sheet's profile says nothing, and the selector applies the rule.
   const fibre = profileFor([{ page: 1, field: 'bed', topic: '', label: 'Bed temperature', raw: '80°C', line: 'x' }], { sourceId: 'S-X', materialId: 'M049', modifier: 'Carbon fibre' });
-  assert.match(fibre.row['Abrasion / clogging'], /abrasion-resistant nozzle/);
-  assert.deepEqual(fibre.editorial, ['Abrasion / clogging']);
+  assert.equal(fibre.row['Abrasion / clogging'], 'Not published');
+  assert.equal(fibre.row['Hardened nozzle'], 'Not published');
 });
 
 test('the method column keeps how the row was measured, not the property it names', () => {

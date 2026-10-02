@@ -1,7 +1,4 @@
 MaterialID,Kind,Low °C,High °C,Basis,Caution,Source
-M002,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
-M003,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
-M004,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M011,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M012,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M013,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
@@ -9,8 +6,6 @@ M015,band,20,45,"low-temperature, open-printer peer profiles",Support products a
 M008,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M076,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M080,band,20,45,"low-temperature, open-printer peer profiles",Support products are not structural peers.,docs/audits/2026-09-13-missing-data-research/REPORT.md
-M021,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
-M022,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M024,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M025,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md
 M045,band,20,50,a broad envelope of low-warping peers,Chamber only. Flexible materials and polyolefins are not pooled for any mechanical purpose.,docs/audits/2026-09-13-missing-data-research/REPORT.md

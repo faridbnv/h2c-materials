@@ -1,13 +1,13 @@
 Tensile modulus
 170 values
 Tensile strength (endpoint unspecified)
-195 values
+197 values
 Tensile yield strength
 39 values
 Tensile break strength
 35 values
 Elongation at break
-212 values
+214 values
 Elongation at yield
 18 values
 Tensile strain at strength
@@ -21,15 +21,15 @@ Flexural elongation at break
 Charpy strength
 86 values
 Izod impact strength
-97 values
+101 values
 Impact strength
 13 values
 Hardness
 14 values
 Named on a sheet, not published: flexural modulus (Polymaker PolySonic PLA), flexural strength (Polymaker PolySonic PLA), charpy strength (Polymaker PolySonic PLA).
 NOT MEASURED FOR THIS MATERIAL
-Flexural stress at conventional deflection · Izod strength · Compression strength · Interlayer adhesion strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio
+Flexural stress at conventional deflection · Izod strength · Compression strength · Interlayer adhesion strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile stress at 100 % elongation · Tensile stress at 200 % elongation · Tensile stress at 300 % elongation
 Absent from the sampled sources. Not zero, and not a low value.
 COVERAGE
-Mechanical — Evidence recorded. 1199 mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.
+Mechanical — Evidence recorded. 1207 mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.
 Sparse properties — Gap. Not published by its own products: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction.

@@ -1,5 +1,9 @@
 # Estimated value and effort of finishing the campaign
 
+*Counts below are of 2026-10-01. Since m302 (2026-10-02) merged 28 in-scope products held on two grades, 26 frozen product
+targets close into their kept products' targets: 21 of 1,051 passes are complete and 1,030 remain
+([STATUS.md](STATUS.md)). The estimates scale with the remaining count.*
+
 Planning judgment for the owner on 2026-10-01, based on the current repository and campaign receipts. These are estimates, not measured productivity, token usage or a research-result guarantee. The approved all-target scope remains in GOALS until the owner changes it. The recommendation does not change the existing authorized campaign scope.
 
 ## Material assessments: finish the remaining 61

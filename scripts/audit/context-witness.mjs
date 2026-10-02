@@ -207,7 +207,7 @@ for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplica
     const held = r[column];
     // Polymaker's "Closure chamber | Needed (90-100°C)" states a chamber, and a profile may hold it there.
     const asChamber = x.field === 'enclosure' && r['Chamber °C'] === x.raw;
-    const silent = !asChamber && (held === 'Not published' || (x.field === 'nozzle-material' && /verify minimum orifice/.test(held)));
+    const silent = !asChamber && held === 'Not published';
     if (silent && /\d|\b(yes|no|nein|not|required|recommend\w*|needed|necessary|room|ambient|brass|steel|hardened|ruby|closed|enclosed)\b/i.test(x.raw)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `the import's sheet reader finds "${x.line.slice(0, 80)}"; the profile holds ${held.slice(0, 40)}`);
     // A cell that holds part of what the sheet prints: a drying schedule without its hours, a window without its open
     // end's "+", a typo that split a number ("240 - 28 0 °C"), a specimen's print temperature for the guidance.

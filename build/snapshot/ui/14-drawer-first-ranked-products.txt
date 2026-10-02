@@ -11,7 +11,7 @@ an enclosure, which the H2C's heated chamber is yes per Bambu Lab's Filament Gui
 Enclosure
 recommended per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
 Hardened nozzle
-required
+required per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
 Drying
 not published
 Density

@@ -36,7 +36,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D24 | A relaxed condition and an unstated fact are different things | A chart point is marked doubtful only when strict mode would have rejected it, not whenever a source left a detail unstated. | In force |
 | D25 | In the measurement plot, a dot is a test and must say so | In the measurement view a dot is one test, and one material's dots are linked so they read as one material. | In force |
 | D26 | The verdict describes the evidence; the policy decides eligibility | A requirement nobody could check is unknown in every mode; the mode only decides whether unknowns are shown. | In force |
-| D27 | The nozzle question asks what the user lacks | The hardened-nozzle filter asks "I don't have one", so owning more hardware can never remove materials. | In force |
+| D27 | The nozzle question asks what the user lacks | The hardened-nozzle filter asks "I don't have one", so owning more hardware can never remove materials. | In force; extended by D121 (a fibre-filled product with no nozzle guidance is unresolved for aramid and plant fibre as for carbon and glass, and the reason says it is the database's rule) |
 | D28 | Limited resistance is not resistance | A chemical-resistance requirement passes only on a plain "resistant" record, not on "limited". | In force |
 | D29 | A template names what it cannot check | Each ready-made scenario lists what it does not check, and promises nothing it does not test. | In force; extended by D101 (every template also asks the H2C's print gates; without them the page is in research mode, and says so) |
 | D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | The data's date is read from the Method table, not written in code; prices keep their own sampling date. | In force; narrowed by D96 (the date is for a reader; a release ID over what decides identifies a page, a scenario and an export) |
@@ -81,7 +81,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D69 | A profile's qualitative notes are rows, and an empty column is not a fact | A maker's printing notes (cooling, overhangs) are one row per note, and the Printing tab shows them. | In force |
 | D70 | A constant is not a per-material fact, and a summary of the data is not data | A sentence true of every material is one Method rule, and anything computable from the data is computed, not stored. | In force |
 | D71 | How a source was classed and how it was reached are states, not sentences | A source's kind and whether it was retrieved are values from fixed lists, with the particulars in notes. | In force |
-| D72 | A record may leave a table only where the build derives it, and only through a ledger | Records are never deleted, except one the build now derives, and then only with a ledger row naming the migration and where it went. | In force |
+| D72 | A record may leave a table only where the build derives it, and only through a ledger | Records are never deleted, except one the build now derives, and then only with a ledger row naming the migration and where it went. | In force; amended by D123: a row the build now refuses outright (a chamber band on an alias, m303) leaves through the same ledger, which says why it went nowhere |
 | D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | A reviewer's conclusion is written into the data row, and an estimate that is wide only because data is thin is reported, not reviewed. | In force; amended by D83: EST-WIDE reads a usable value of any of the material's products, not of its representative grade |
 | D74 | A coverage row is a judgement; that a material has records is derived | The build works out which kinds of data each material has; stored coverage rows are kept only for human judgements. | In force; extended by D114 (absence is derived too, and a converted price is limited price coverage) |
 | D75 | A generated SQLite file for asking questions, with the schema's types in it | The build writes a SQLite copy of the tables for asking questions, with missing values as empty beside their reason, and nothing reads it back. | In force |
@@ -95,13 +95,13 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) D99 (a product is judged in one state it can be made in), D100 (a material fails only when every product fails; with one unresolved it is unknown) and D113 (a product's price may be converted from a foreign listing, and says so) |
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it), D95 (a bar printed off the product's recipe is no product value) and D99 (comparable is a screening policy: a verdict names the conditions it admitted unstated, and an annealed or conditioned value decides only in its own state) |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
-| D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | Amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's |
+| D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | Amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's; extended by D123 (two grades of one product become one, the records keeping their IDs, as a moved product's do) |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend |
 | D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types) |
-| D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table) |
+| D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins) |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209) |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone; extended by m199 (2026-09-27): the ±45° tab's "Ultimate strength" is each of twelve Nanovia products' XY tensile strength |
-| D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts |
+| D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts; extended by D123 (Eryone's template "X-Z" bar is Z by the owner's ruling) |
 | D93 | A maker's own "enclosure needed", with no temperature, reads as the guide's tick | For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides. | In force; it extends D90. Read for ASA-CF since 2026-09-27 (m210): the guide the build reads (D88, amended) asks an enclosure for it, and the owner's answer of that day reads that ask as D90 does |
 | D94 | Notched Izod is a second impact filter, beside notched Charpy, and the two are never mixed | You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m. | In force |
 | D95 | A product is judged as it is meant to be printed: colorFabb's lightweight PETs, foamed | When a sheet prints a product's values at two print settings and the product is made to be printed at one of them (a foaming filament, foamed), that one is the product's value; the other is kept and shown beside it, and never decides. | In force |
@@ -129,7 +129,10 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D117 | A row says how many products pass, and shows the passing products' own values | A material's row now says "PASS · 7 of 200 products" instead of a bare PASS, shows the range of the products that pass beside the range of all of them, says when a pass rests on a declared variant or on a value with no test direction or treatment stated, splits an UNKNOWN into how many products measure below and how many publish nothing, and gives every material-level fact (a hardened nozzle, a typical value's state) the count of products it is true of. | In force; it amends D83 (how a material's verdict is shown, not how it is decided) |
 | D118 | "Official Bambu product" passes Bambu Lab's own spools | The requirement "Official Bambu product" used to pass every product of a material Bambu sells, so a third-party PLA passed it because Bambu sells a PLA. It now passes only products Bambu Lab makes; the others of that material are "Officially listed family". | In force |
 | D119 | What the error-class sweep changed in the rules | Clearing the data audit's error classes changed a few rules: products of one material that print one table share one formulation key even when two makers sell them, and each reads its own maker's sheet first; a review note that no longer explains anything stops the build; a page's statement about specimens never covers a melt flow rate; and the readers learned the spellings the sheets used that they could not read. | In force; it amends D89 and D115 |
-| D120 | One setup, one profile: a copy retires, a row per speed or nozzle size is its own, a dry box is a note | A print profile is one setup a data sheet prints for one product. 79 profiles were a second reading of one product's setup from one sheet, mostly because the settings their test bars were printed at were taken for a second setup; the copy is now retired, as a duplicate measurement is, and the build leaves it out. A sheet that prints a nozzle temperature per print speed or per nozzle size gives a profile per row, as the import already did for Spectrum's and Polymaker's speeds. A dry-box recommendation says where the filament is kept while it prints; it is a profile note, not a drying schedule. And the import's sheet reader, which the build's check of every profile runs, reads what the sweep found it missing. | In force; it extends D72's retired duplicates to profiles and amends D119 (what the import's reader reads) |
+| D120 | One setup, one profile: a copy retires, a row per speed or nozzle size is its own, a dry box is a note | A print profile is one setup a data sheet prints for one product. 79 profiles were a second reading of one product's setup from one sheet, mostly because the settings their test bars were printed at were taken for a second setup; the copy is now retired, as a duplicate measurement is, and the build leaves it out. A sheet that prints a nozzle temperature per print speed or per nozzle size gives a profile per row, as the import already did for Spectrum's and Polymaker's speeds. A dry-box recommendation says where the filament is kept while it prints; it is a profile note, not a drying schedule. And the import's sheet reader, which the build's check of every profile runs, reads what the sweep found it missing. | In force; it extends D72's retired duplicates to profiles and amends D119 (what the import's reader reads); D121 takes the import's fibre sentence out of the profiles it wrote it into |
+| D121 | A fibre wears a brass nozzle by the database's rule, stated once, never as a sheet's words | That a fibre-filled filament needs a hardened nozzle is the database's rule, not something its data sheet said. The import used to write the rule into each fibre profile as if the sheet had printed it, and the page then told a reader "a source states it needs an abrasion-resistant nozzle" for 174 products whose sheets say nothing of the nozzle. Now a profile holds only what its sheet says, the rule is written once in method.csv, and a fibre-filled product its own sheet, its twin's and the printer maker's guide leave silent is unresolved under "No hardened nozzle", never passed. | In force |
+| D122 | A stress at a stated elongation is its own property, never a strength | Elastomer sheets print the stress their test bar carries at 100, 200 or 300 % stretch (an elastomer's "100 % modulus"), and one sheet at 5 and 10 %. With no property for it, the import filed each as a tensile strength, and where a sheet printed no other strength, it became the product's strength and decided answers. Each is now a property of its own, one per stated elongation, which is recorded and shown and never compared with a strength. | In force |
+| D123 | The owner's rulings of 2026-10-02: one product one grade, the registered sheets read in full, Eryone's "X-Z" is Z | Three recommendations of the priorities review, taken by the owner. A product the database held on two grades (one per sheet revision or language) is one grade now, with every record moved to it rather than the copy retired with its prices and profiles. Values a sheet the database already holds prints, and nobody transcribed, are recorded: reading a registered, hash-checked sheet again is not an import. And Eryone's template labels its upright tensile bar "X-Z", as two of its sheets say, so that bar is the layer strength on every sheet of the template. | In force; it extends D86 (a merged product's records keep their IDs, as a moved product's do), D89 (twins) and D92 (the layer strength), and amends D72 (a chamber band on an alias leaves through the ledger though nothing derives it) |
 
 <!-- end index -->
 
@@ -481,6 +484,7 @@ one level a user reads. Reversing this makes a missing measurement look like a b
 ## D27. The nozzle question asks what the user lacks
 
 > **In plain words:** The hardened-nozzle filter asks "I don't have one", so owning more hardware can never remove materials.
+> **Status:** In force; extended by D121 (a fibre-filled product with no nozzle guidance is unresolved for aramid and plant fibre as for carbon and glass, and the reason says it is the database's rule).
 
 "I have a hardened nozzle" removed materials: 75 have no abrasion guidance, and Strict held them all
 out. More hardware can never make fewer materials printable. The criterion is now "I don't have a
@@ -1805,6 +1809,7 @@ Reversing it brings back a register that cannot be counted, and a check on prose
 ## D72. A record may leave a table only where the build derives it, and only through a ledger
 
 > **In plain words:** Records are never deleted, except one the build now derives, and then only with a ledger row naming the migration and where it went.
+> **Status:** In force; amended by D123: a row the build now refuses outright (a chamber band on an alias, m303) leaves through the same ledger, which says why it went nowhere.
 
 *Narrows "nothing is deleted" (D45, D50).*
 
@@ -2416,7 +2421,7 @@ drops the reads table, and a silent sheet and an unread one look the same again.
 ## D86. A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID
 
 > **In plain words:** Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers.
-> **Status:** amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's.
+> **Status:** amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's; extended by D123 (two grades of one product become one, the records keeping their IDs, as a moved product's do).
 
 *Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md). Built in m141.*
 
@@ -2566,7 +2571,7 @@ on the parts their sheets leave out.
 ## D89. A twin reads its sibling's values and print recipe where its own are silent
 
 > **In plain words:** A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range.
-> **Status:** In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table).
+> **Status:** In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 2). Built in re-center phase 6, lane 2 (the
 owner's decisions).*
@@ -2711,7 +2716,7 @@ it without a stiffness these products already had, and no answer moved.
 ## D92. Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition
 
 > **In plain words:** You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared.
-> **Status:** amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts.
+> **Status:** amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts; extended by D123 (Eryone's template "X-Z" bar is Z by the owner's ruling).
 
 *Built in re-center phase 6, lane 4 (docs/audits/2026-09-25-re-center/REPORT.md, lane 4, item 3; scorecard C1), with
 m175 and m176. It amends D84.*
@@ -3847,7 +3852,7 @@ Built by Claude (an agent).*
 ## D120. One setup, one profile: a copy retires, a row per speed or nozzle size is its own, a dry box is a note
 
 > **In plain words:** A print profile is one setup a data sheet prints for one product. 79 profiles were a second reading of one product's setup from one sheet, mostly because the settings their test bars were printed at were taken for a second setup; the copy is now retired, as a duplicate measurement is, and the build leaves it out. A sheet that prints a nozzle temperature per print speed or per nozzle size gives a profile per row, as the import already did for Spectrum's and Polymaker's speeds. A dry-box recommendation says where the filament is kept while it prints; it is a profile note, not a drying schedule. And the import's sheet reader, which the build's check of every profile runs, reads what the sweep found it missing.
-> **Status:** In force; it extends D72's retired duplicates to profiles and amends D119 (what the import's reader reads).
+> **Status:** In force; it extends D72's retired duplicates to profiles and amends D119 (what the import's reader reads); D121 takes the import's fibre sentence out of the profiles it wrote it into.
 
 *Built by Claude (an agent) in the profile root-cause sweep of 2026-10-02, which the owner asked for in place of a
 re-read of every profile; the record is [the profile root-cause sweep](audits/2026-10-02-profile-root-causes/README.md).*
@@ -3907,3 +3912,78 @@ re-read of every profile; the record is [the profile root-cause sweep](audits/20
   profiles retyped). The reader learned each and the guard swept it (m295).
 - **Which profile decides.** A product with several rows (speeds, nozzle sizes, foamed and unfoamed) is judged across
   all of them, as before (`products.js`, aggregateGate): the profile a gate cites is the one that decides it.
+
+## D121. A fibre wears a brass nozzle by the database's rule, stated once, never as a sheet's words
+
+> **In plain words:** That a fibre-filled filament needs a hardened nozzle is the database's rule, not something its data sheet said. The import used to write the rule into each fibre profile as if the sheet had printed it, and the page then told a reader "a source states it needs an abrasion-resistant nozzle" for 174 products whose sheets say nothing of the nozzle. Now a profile holds only what its sheet says, the rule is written once in method.csv, and a fibre-filled product its own sheet, its twin's and the printer maker's guide leave silent is unresolved under "No hardened nozzle", never passed.
+> **Status:** In force.
+
+*Built by Claude (an agent) in the open-problems pass of 2026-10-02 (OPEN-PROBLEMS §28, "The import's fibre sentence"),
+on the owner's go-ahead for the fixes the priorities review recommended.*
+
+- **What changed (m296).** 174 live profiles held "Use abrasion-resistant nozzle; verify minimum orifice. Fibre
+  concentration and length are grade-specific." in their raw Abrasion / clogging cell: the register's words, which the
+  import (`scripts/ingest/propose.mjs`, ABRASIVE) copied onto every profile of a material whose filler names a fibre.
+  Two of them were not fibre-filled at all (Hyper-PLA+, a Siraya TPU). The cell now says Not published, and its typed
+  Hardened nozzle cell follows. Where a sheet does say what nozzle it needs, the profile already held those words (26
+  since m282, m285, m290 and m295).
+- **Where the rule lives.** method.csv, H2C / Abrasive fillers, and the engine (`app/js/engine/constraints.js`, gate
+  `abrasive`): a product with no recorded requirement whose material's filler is a fibre (carbon, glass, aramid, plant;
+  the `fibre` facet the build derives from Modifier / filler) is unknown under "No hardened nozzle", with a reason that
+  names the rule. Before, only carbon and glass fibre were; aramid and plant fibre now are too, as the import's rule
+  always held.
+- **What a silent product reads now.** Its twin's statement (D89), then its material's printer maker's guide (D88),
+  labelled as theirs. A requirement read so is a source's, and the page says whose.
+- **The import** writes Not published where a sheet says nothing of the nozzle. No answer of a template moved: no
+  template asks the nozzle question; a scenario that adds "No hardened nozzle" sees an unknown, said as the rule, where
+  it saw a failure attributed to a source.
+
+## D122. A stress at a stated elongation is its own property, never a strength
+
+> **In plain words:** Elastomer sheets print the stress their test bar carries at 100, 200 or 300 % stretch (an elastomer's "100 % modulus"), and one sheet at 5 and 10 %. With no property for it, the import filed each as a tensile strength, and where a sheet printed no other strength, it became the product's strength and decided answers. Each is now a property of its own, one per stated elongation, which is recorded and shown and never compared with a strength.
+> **Status:** In force.
+
+*Recommended in the priorities review of 2026-10-02 and taken by the owner; built by Claude (an agent).*
+
+- **Properties.** "Tensile stress at 5 % elongation", "… 10 % …", "… 100 % …", "… 200 % …" and "… 300 % elongation"
+  (properties.csv, MPa). No headline reads them. A property per stated elongation, not a column for the elongation: it
+  needs no code, and the flexural precedent ("Flexural stress at conventional deflection") is the same shape.
+- **What moved (m297).** 25 rows on eight products and two retired copies (QIDI PEBA 95A's "tensile stress at 100%
+  (X-Y) ISO 527", 9.17 MPa, had been its comparable XY tensile strength; Siraya Tech's Flex TPU 95A and 85A, Rebound
+  PEBA 85A and Fibreheart TPU GF, Fiberlogy's FiberFlex Aero, FormFutura's FlexiFil TPC 30D and Spectrum's PP). A product with no other strength now has none, which is what its
+  sheet publishes.
+- **The import's lexicon** reads "Tensile stress at 100%", "Tensile strength @ 5% Strain" and "Resistance at 100%
+  elongation" as these properties (scripts/ingest/lexicon/property-labels.csv), so a new sheet files them so.
+
+## D123. The owner's rulings of 2026-10-02: one product one grade, the registered sheets read in full, Eryone's "X-Z" is Z
+
+> **In plain words:** Three recommendations of the priorities review, taken by the owner. A product the database held on two grades (one per sheet revision or language) is one grade now, with every record moved to it rather than the copy retired with its prices and profiles. Values a sheet the database already holds prints, and nobody transcribed, are recorded: reading a registered, hash-checked sheet again is not an import. And Eryone's template labels its upright tensile bar "X-Z", as two of its sheets say, so that bar is the layer strength on every sheet of the template.
+> **Status:** In force; it extends D86 (a merged product's records keep their IDs, as a moved product's do), D89 (twins) and D92 (the layer strength), and amends D72 (a chamber band on an alias leaves through the ledger though nothing derives it).
+
+*Recommended by Claude (an agent) in the priorities review of 2026-10-02 and taken by the owner the same day ("go for
+the fixes, including the recommended decisions"); built in the open-problems pass
+([the record](audits/2026-10-02-open-problems-pass/README.md)).*
+
+- **One product, one grade (m302).** 29 pairs, each confirmed on both sheets by a Claude Sonnet reader: the grade of
+  the newest revision of the maker's own sheet (the English one where two languages are one revision) is kept, and
+  every record filed under the other (measurements, profiles, evidence, prices, coverage) moves to it with its ID; the
+  other grade retires, naming the one it went to. A product counts once in its material's spread now. Where the merged
+  sheets disagree on the chamber, the one that states a temperature decides (D93's declaration on the other is
+  withdrawn, PROCESS-ENCLOSED). The coverage campaign's frozen target of a merged grade closes into the kept grade's
+  (26 targets; the two that already had a completed outcome keep it; `audit:coverage-status`). Not merged, because their sheets show two formulations: FILAFLEX Foamy's two sheets (95A
+  and 85A), SIDDAMENT's "ASA Carbon Fiber" and "ASA CF", and Polymaker PLA Pro V6.0 beside PolyLite PLA Pro V5.6.
+- **The registered sheets read in full (m298, m300).** Nobufil's printed "FDM H" column on twelve sheets, BASF Forward
+  AM's Extended TDS columns per print direction and their impact tables, Raise3D Industrial PET CF's V4.0 table,
+  colorFabb LW-PLA's and LW-PLA-HT's foamed and unfoamed columns (D95), Stratasys PA6/66-GF30-FR's XZ heat deflections,
+  PolyMide CoPA's wet table and Nanovia Flex V0's VDE 0282 rows: 242 values, each quote checked on the cached sheet.
+  Polymaker's letter-spaced "HOW TO MAKE SPECIMENS" block, Eryone's "All splines are printed under the following
+  conditions" and SUNLU's 测试样条 note are page_context rows (D116) and their bars' print parameters (D63).
+- **Eryone's "X-Z" (m301).** The tensile rows (strength, modulus, elongation) of the template's "X-Z" bar are
+  Direction Z on 27 sheets, 72 rows. m191 read the two sheets that say so; this rules the rest of the template.
+- **A band on an alias leaves (m303).** PLA Basic, PLA Matte, PLA Lite, PETG Basic and PETG HF have been aliases since
+  m141 and kept researched chamber bands that decided nothing (D34, D44). The build refuses a band on a family entry or
+  an alias now (CHAMBER-BAND), so the five rows leave through the removal ledger, which says they went nowhere: the
+  first removal there of a row the build does not derive (D72, amended).
+- **A flat bar for a headline with no direction.** Where a product publishes a heat deflection (or a density) on a
+  flat bar and on an edge or upright one, the flat bar's value is its value (`products.js`, preference): makers test
+  flat unless they say otherwise, and an XZ, ZX or Z value is another bar's (Stratasys prints XY and XZ side by side).

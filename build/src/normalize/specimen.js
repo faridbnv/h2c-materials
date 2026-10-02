@@ -45,7 +45,9 @@ export function postProcessingState(state) {
 export function readPostProcessingState(text) {
   const s = String(text ?? '').trim();
   if (s === 'Not published') return 'not-stated';
-  if (/not annealed|unannealed/i.test(s)) return 'as-printed';
+  // Raise3D heads its first table "Conditioned, before annealed" and BASF its columns "as printed without annealing" or
+  // "non-annealed" (m298): each denies the annealing the next table states.
+  if (/not annealed|unannealed|non-?annealed|before anneal\w*|without anneal\w*/i.test(s)) return 'as-printed';
   if (s === 'As printed') return 'as-printed';
   if (/anneal/i.test(s)) return 'annealed';
   return null;

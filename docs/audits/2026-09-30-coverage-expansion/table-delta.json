@@ -1,4 +1,11 @@
 {
+  "chamber_bands": {
+    "baseline": 44,
+    "current": 39,
+    "added": 0,
+    "edited_existing": 0,
+    "removed": 5
+  },
   "coverage": {
     "baseline": 805,
     "current": 885,
@@ -10,14 +17,14 @@
     "baseline": 5306,
     "current": 5485,
     "added": 179,
-    "edited_existing": 92,
+    "edited_existing": 208,
     "removed": 0
   },
   "grades": {
     "baseline": 1163,
     "current": 1163,
     "added": 0,
-    "edited_existing": 49,
+    "edited_existing": 75,
     "removed": 0
   },
   "headline_definitions": {
@@ -36,16 +43,30 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 11545,
-    "added": 9,
-    "edited_existing": 295,
+    "current": 11787,
+    "added": 251,
+    "edited_existing": 1297,
+    "removed": 0
+  },
+  "method": {
+    "baseline": 51,
+    "current": 52,
+    "added": 1,
+    "edited_existing": 0,
     "removed": 0
   },
   "page_context": {
     "baseline": 0,
-    "current": 88,
-    "added": 88,
+    "current": 285,
+    "added": 285,
     "edited_existing": 0,
+    "removed": 0
+  },
+  "prices": {
+    "baseline": 357,
+    "current": 357,
+    "added": 0,
+    "edited_existing": 5,
     "removed": 0
   },
   "print_guide": {
@@ -64,16 +85,23 @@
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1364,
-    "added": 48,
-    "edited_existing": 633,
+    "current": 1365,
+    "added": 49,
+    "edited_existing": 768,
+    "removed": 0
+  },
+  "properties": {
+    "baseline": 44,
+    "current": 49,
+    "added": 5,
+    "edited_existing": 0,
     "removed": 0
   },
   "sources": {
     "baseline": 1828,
     "current": 1846,
     "added": 18,
-    "edited_existing": 4,
+    "edited_existing": 63,
     "removed": 0
   }
 }

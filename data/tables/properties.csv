@@ -43,3 +43,8 @@ Abrasion loss,mechanical,mm³,,,"The volume a standard abrasive removes, to ISO 
 Compression set,mechanical,%,,,"How much of a compression an elastomer keeps after the load is taken off, to ISO 815 or ASTM D395. A sheet states the time and temperature, which the row keeps as its test conditions.",
 Poisson's ratio,mechanical,Dimensionless,,,How much a specimen narrows as it is stretched.,
 Decomposition temperature,thermal,°C,,,"Where the material begins to break down rather than melt, by thermogravimetry (ISO 11358). A sheet states the mass loss it is quoted at, commonly 5 %, which the row keeps as its test condition.",
+Tensile stress at 5 % elongation,mechanical,MPa,,,"The stress a tensile bar carries at 5 % elongation, as a sheet prints it (""Tensile Strength @ 5% Strain""). Not a strength: no headline reads it, and it is never compared with one (D122).",
+Tensile stress at 10 % elongation,mechanical,MPa,,,The stress a tensile bar carries at 10 % elongation. Not a strength: no headline reads it (D122).,
+Tensile stress at 100 % elongation,mechanical,MPa,,,"The stress a tensile bar carries at 100 % elongation: an elastomer's ""100 % modulus"" (ISO 37, ASTM D412, or ISO 527 on an elastomer). Not a strength: no headline reads it (D122).",
+Tensile stress at 200 % elongation,mechanical,MPa,,,The stress a tensile bar carries at 200 % elongation. Not a strength: no headline reads it (D122).,
+Tensile stress at 300 % elongation,mechanical,MPa,,,The stress a tensile bar carries at 300 % elongation. Not a strength: no headline reads it (D122).,

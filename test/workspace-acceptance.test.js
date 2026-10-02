@@ -96,7 +96,7 @@ test('A01: a conditioned question ranks only products that publish a conditioned
     const E = cond?.values?.tensileModulusXY, rho = g.states?.[0]?.values?.density;
     return E?.level === 'comparable' && rho?.level === 'comparable';
   }).map((g) => g.materialId);
-  assert.deepEqual([...new Set(derived)].sort(), c.expect.ranked);
+  assert.deepEqual([...new Set(derived)].sort(), [...c.expect.ranked].sort());
   // No ranked product rests on a state it does not publish.
   for (const r of ranking.order) {
     const g = db.grades.find((x) => x.id === r.best.gradeId);

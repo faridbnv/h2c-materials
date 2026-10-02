@@ -399,7 +399,8 @@ function compareReading(s, key, r, o) {
       for (const c of s.constraints) {
         if (c.kind !== 'numeric' || !cells[c.property]) continue;
         const sp = x.material.headline[c.property]?.spread;
-        const rm = sp && sp.n > 1 ? /(-?[\d,]*\.?\d+)\u2013(-?[\d,]*\.?\d+)\s*·/.exec(cells[c.property].t) : null;
+        // An end that is a published bound carries its sign: "520+" for a lower bound, "<0.8" for an upper one (§21).
+        const rm = sp && sp.n > 1 ? /<?(-?[\d,]*\.?\d+)\+?\u2013<?(-?[\d,]*\.?\d+)\+?\s*·/.exec(cells[c.property].t) : null;
         if (sp && sp.n > 1) {
           check('I5-spread');
           if (!rm) violate('I5-spread', 'a material with a spread shows no range', s, key, { id, displayed: cells[c.property].t });

@@ -54,17 +54,16 @@ all products: 700
 PA6/66
 Nylon / Polyamide
  PASS
-1 of 4 products
+1 of 3 products
  1,120
-1,100–1,120 · 7
- 2.22
-1.98–2.7 · 3
-typical: annealed
- 63.6
-55–78 · 4
+1,100–1,120 · 6
+ 2.34
+1.98–2.7 · 2
+ 61
+55–78 · 3
  passing: 100
-all products: 13.8
-9.9–100 · 4
+all products: 15
+12.7–100 · 3
  111
 102–140 · 5
 typical: annealed
@@ -112,7 +111,7 @@ Flexible Elastomers
  PASS
 4 of 4 products
  1,210
-1,120–1,240 · 10
+1,170–1,240 · 9
  0.0162
 0.0053–0.027 · 2
  26.9
@@ -126,16 +125,16 @@ all products: 618
 TPU 95A class
 Flexible Elastomers
  PASS
-9 of 9 products
+8 of 8 products
  1,210
-1,000–1,240 · 26
+1,000–1,240 · 23
  0.027
 0.006–0.065 · 7
  27.3
-17–31.8 · 11
+17–31.8 · 10
  passing: 265–900
-all products: 499
-265–900+ · 10
+all products: 501
+265–900+ · 9
  n/a 83
 54–112 · 2
 ↗ ☆

@@ -1,0 +1,71 @@
+kind,id,verdict,field,recorded,sheet_says,confidence,note
+added-measurement,V011607,ok,,,,high,"ABSx: FDM H 11, Injection 48; rendered page confirms."
+added-measurement,V011771,ok,,,,high,PAHT CF15 p.6 Izod unnotched dry ZX 2.9 J/m; footnote 7 dry; footnote text matches.
+added-measurement,V011564,ok,,,,high,"V4.0 p.2 HDT @0.45 MPa ""175 (87)"": 175 annealed at 100 C/8 h per footnote 3."
+added-measurement,V011784,ok,,,,high,ASA p.5 Izod notched XZ 8.5 J/m; impact heading footnote 5 conditioned.
+added-measurement,V011654,ok,,,,high,"PETG: FDM H 8, Injection 4,5 confirmed on rendered page."
+added-measurement,V011701,ok,,,,high,PET CF15 p.4 tensile ZX 0.5 % (tensile heading fn 5 conditioned); ZX tensile recorded Z per owner convention (m191).
+added-measurement,V011727,ok,,,,high,PAHT p.5 elong conditioned ZX 0.8 %; Z per convention.
+added-measurement,V011734,ok,,,,high,PAHT p.5 Young modulus dry ZX 3532.
+added-measurement,V011621,ok,,,,high,PCTG Injection column 48 (FDM H 50).
+added-measurement,V011671,ok,,,,high,"PLAx FDM H notched 3,5 (Injection 4,5) confirmed on rendered page."
+added-measurement,V011579,ok,,,,high,"LW-PLA-HT 1050 under ""230%; 60%"" column; print note p.2 (0.2 mm layer) matches."
+added-measurement,V011602,ok,,,,high,Nanovia Flex V0 tensile resistance 27 MPa VDE282 part 10.
+added-measurement,V011591,ok,,,,high,Stratasys p.4 HDT @66 psi XZ 185 C; 66 psi recorded as 0.45 MPa load (reader conversion).
+added-measurement,V007693,ok,,,,high,PET CF15 flexural strength XY 108 MPa; flexural not conditioned; Specimen type printed (FFF statement) is right.
+added-measurement,V011742,ok,,,,high,PAHT p.6 flexural strength dry XY 160.7.
+added-measurement,V011566,ok,,,,high,V4.0 p.2 HDT @1.8 MPa 105 (77 before annealing).
+added-measurement,V011740,ok,,,,high,PAHT p.6 flexural strength conditioned XZ 121.9.
+added-measurement,V011697,ok,,,,high,ASA FDM H unnotched 35 (Injection 62).
+added-measurement,V011616,ok,,,,high,ABSx ESD Injection elong 95 (FDM H 8).
+added-measurement,V011689,ok,,,,high,PLAx CF FDM H unnotched 17 (Injection 28).
+added-measurement,V011653,ok,,,,high,PETG FDM H elong 8.
+added-measurement,V011754,ok,,,,high,PAHT p.6 Charpy notched dry XZ 3.9.
+added-measurement,V011755,ok,,,,high,PAHT p.6 Charpy notched dry ZX 1.3.
+added-measurement,V011731,ok,,,,high,"PAHT p.5 elong dry annealed XY 1,7; no schedule on the row, Not published is right."
+added-measurement,V007061,ok,,,,high,"Raise3D V2 p.1 tensile X-Y 87 +-4 MPa; sheet prints ""ISO 52 7"" (typo kept); annealed 80 C/8 h and print conditions on p.2."
+added-measurement,V011557,ok,,,,high,"V4.0 p.2 elong 1.47 +-0.10 XY flat after annealing at 100 C/8 h, print block matches."
+added-measurement,V011706,ok,,,,high,"PET CF15 flexural modulus ZX 2253; flexural heading carries fn 6/8 (speed), not fn 5, so moisture not-stated is right."
+added-measurement,V011752,ok,,,,high,PAHT p.6 Charpy notched conditioned ZX 1.6.
+added-measurement,V011593,ok,,,,high,CoPA V5.5 wet table Young modulus X-Y 724 +-61; specimen block p.1 matches.
+added-measurement,V011576,ok,,,,high,"LW-PLA 8,1 under ""200C; 100%"" column (unfoamed, so off-recipe per D95); print note p.2 matches."
+eryone-xz,V004976,ok,,,,high,Eryone template X-Z tensile row; value matches rendered/ text; Direction Z per m301 ruling.
+eryone-xz,V004939,ok,,,,high,Eryone template X-Z tensile row; value matches rendered/ text; Direction Z per m301 ruling.
+eryone-xz,V005077,ok,,,,high,Eryone template X-Z tensile row; value matches rendered/ text; Direction Z per m301 ruling.
+eryone-xz,V004965,ok,,,,high,Eryone template X-Z tensile row; value matches rendered/ text; Direction Z per m301 ruling.
+stress-at-elongation,V009985,ok,,,,high,"Siraya TPU 95A p.1 ""Tensile stress at 300%  17 MPa"" (sheet also says Tested on X/Y axis in Processed column; Direction left Unstated, pre-existing)."
+stress-at-elongation,V010108,ok,,,,high,"Siraya TPU-GF ""Tensile stress at 3 00% (MPa) 9.5 ASTM D412""."
+stress-at-elongation,V002770,ok,,,,high,"Spectrum PP ""Tensile Stress at 100% 11 MPa""."
+page-context,PC00198,ok,,,,high,Eryone Dual Silk PLA p.2 note: 215 C/80/60/100%/0.4; all values on p.2.
+page-context,PC00212,ok,,,,high,Eryone ABS-CF p.2 note 270 C/80/95/100%; values on p.2.
+page-context,PC00104,ok,,,,high,Polymaker ABS Pro HOW TO MAKE SPECIMENS 240 C/80 C/100% matches; values p.1.
+page-context,PC00281,wrong,Page,3,Values of this sheet are all on p. 1 (mechanical table); footnote [1] is printed on p. 3,high,"Context is matched to a value by the page in its Locator; all 98 SUNLU values of the 7 sheets are p. 1 and the 21 m300 SUNLU rows are all Page 3, so none reaches any value. Statement wording is correct (45 mm/s, 270 °C, 100% infill)."
+page-context,PC00163,ok,,,,high,Fiberon PA12-CF10 block 300 C/50 C/100%; both dry and wet tables are printed bars; values p.1.
+page-context,PC00240,ok,,,,high,Eryone PETG HS p.2 note 240 C/100 mm/s/80 C/100%/0.4.
+page-context,PC00283,wrong,Page,3,"Values on p. 1; footnote [1] (45 mm/s, 210 °C, 100% infill) printed on p. 3",high,Same page mismatch as PC00281; the context is inert and the print parameters never reach the SUNLU values.
+page-context,PC00131,ok,,,,high,PolyLite PLA Pro block 230 C/50 C/100% matches; values p.1.
+print-parameters,V005130,ok,,,,high,Eryone PA6-CF p.2 bending strength X-Y 140-145; note 280 C/60 mm/s/bed 100/100%/0.4 covers whole table.
+print-parameters,V004814,ok,,,,high,Eryone Silk PLA p.2 bending modulus 3006.8; note 220 C/80/60/100%/0.4 matches.
+print-parameters,V003484,ok,,,,high,"PolySonic V6.0 p.1 tensile (Z) 33.6 is the Classic-speed table (210 C); block prints ""210 C/230 C"" for both speeds, copied verbatim."
+print-parameters,V005087,ok,,,,high,Eryone glow PLA p.2 elastic modulus X-Y 1987.2; note 210 C/80/60/100%/0.4 matches.
+print-parameters,V003915,ok,,,,high,"HT-PLA Pro: annealed table notched Charpy X-Y 10.1+-1.3; block 230 C/65 C bed matches. (Sheet prints ISO 179-1: 2023 for the table; row says Standard Not published, pre-existing.)"
+print-parameters,V003732,ok,,,,high,PolyMax PLA tensile (Z) 32.4; block 230 C/50 C bed matches.
+merged-grade,G017-04,ok,,,,medium,"LW-PLA US V5.3 and v7.0: identical description, density 0.9, HDT, modulus, tensile, elongation."
+merged-grade,G031-02,ok,,,,low,"ASA V5.3 vs V6.0 (renamed PolyLite->Polymaker): same description, density, melt index, Tg, HDT; mechanicals differ (tensile 38.6 vs 43.8, bending strength 60.9 vs 73.4, elong 4.4 vs 6.7), so a reformulation cannot be ruled out; merge is the owner decision."
+merged-grade,G027-02,ok,,,,medium,"PolyLite ABS V5.3 vs Polymaker ABS V6.0: identical mechanical table, Tg, HDT; density 1.12 vs 1.04 noted."
+merged-grade,G035-02,ok,,,,medium,PolyLite PC V5.3 vs V5.5 Transparent: same description and table (89% light transmission).
+merged-grade,G020-26,ok,,,,medium,"Fabru PETG German vs English: same numbers (2079 MPa, 1.29)."
+merged-grade,G012-05,ok,,,,medium,"SUNLU marble: same particle description, Tg 63, Tm 164, Vicat 54, shrinkage, CTE, Shore 82; modulus/MFR differ as a re-test."
+merged-grade,G138-01,ok,,,,medium,Purefil HDPE GF20 German vs English: same numbers.
+merged-grade,G018-06,ok,,,,medium,"PLA-CF US V5.1 vs V6.0: same description, density 1.29, melt index 9.2, HDT; modulus/tensile/elongation re-tested (elong 4.2 vs 13.2)."
+profile,P1239,ok,,,,high,"Recreus PET-G rendered page: Printing temperatures 230-260 C, Hot-bed temperature 40-70 C; other cells unknown correctly."
+profile,P1365,doubtful,Bed requirement,required (40-70),"Print Recommendations: Bed Temp 40-70C; Benefits: ""Ideal for printing without a heated bed, no enclosure required""",low,"All other cells (215-250C, not required chamber, no enclosure, 65C 4 h, No special concerns) agree. Bed ""required"" sits against the page's own heated-bed-free claim."
+profile,P1348,ok,,,,high,"Filaflex Foamy 1.0 mm: 252 C, bed small parts room temp / large parts 50-55 C, drying 55 C min 1 h, nozzle 1.0 mm. Locator cites p.4 though the large-parts line is on p.5."
+profile,P0445,ok,,,,high,"Eryone ASA: 230-260, 75-90, drying 75-85 C 6 h (Drying C 85 = upper end per convention), Box Sealing Print; chamber is the owner ruling in Parse review."
+profile,P0560,doubtful,Bed requirement,required (80-80),Recommended Bed Temperature 80 / PP adhesion stick; Alternate Bed Temperature 20-40 / multi-purpose spray,low,Nozzle 240-260 and nozzle size >=0.6 mm agree. A recommended bed with a stated alternate is arguably not required; probably pre-existing convention.
+edited-measurement,V007693,ok,,,,high,Specimen type now Printed specimen; sheet says specimens are produced with FFF.
+edited-measurement,V007799,wrong,Moisture state,"not-stated (Moisture condition now reads ""Samples were conditioned in standard climate (23°C, 50% RH 72h)"")",Flexural Properties heading carries footnote 5: conditioned 23°C 50% RH 72 h,high,"m298 set the raw Moisture condition only; typed state left not-stated, so the build ignores the conditioning. V007800 (same table) is conditioned. Value 67.4 MPa XZ and Specimen type are right."
+edited-measurement,V007061,ok,,,,high,"Raise3D V2 p.1 tensile X-Y 87 +-4 MPa; sheet prints ""ISO 52 7"" (typo kept); annealed 80 C/8 h and print conditions on p.2."
+edited-measurement,V011296,ok,,,,high,Nanovia ultimate elongation 524 % VDE282 part 10.
+edited-measurement,V007058,ok,,,,high,Raise3D V2 water absorption 0.5 % ISO 62: Method 1 (was misread as 1 +-0.5).
+edited-measurement,V007801,wrong,Moisture state,"not-stated (Moisture condition now reads ""Samples were conditioned in standard climate (23°C, 50% RH 72h)"")",Impact Properties heading carries footnote 5: conditioned,high,Same defect as V007799; only these two rows in the table are inconsistent. Value 8.6 kJ/m2 XY notched is right.

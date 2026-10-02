@@ -1,5 +1,5 @@
 COUNT 10 shown PASS
-STATUS ☑ PASS 10 | ☐ UNKNOWN 99 | ☐ FAIL 44
+STATUS ☑ PASS 10 | ☐ UNKNOWN 98 | ☐ FAIL 45
 GOAL
 None: compare two properties
 Tie, minimum mass, stiffness prescribed

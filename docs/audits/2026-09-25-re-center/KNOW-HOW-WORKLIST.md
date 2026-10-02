@@ -12,7 +12,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1049 | 47 | 1 | 31 | 1128 |
+| Products | 1021 | 46 | 1 | 31 | 1099 |
 | Materials | 136 | 10 | 0 | 7 | 153 |
 
 4698 statements; 1329 sources read for know-how; 216 makers' sites searched.
@@ -24,27 +24,27 @@ documents were read and give none of one is listed under "Recipe silent".
 
 | Material | Candidate in | Know-how | Products silent | Recipe silent (chamber / drying / annealing) | Makers to search |
 |---|---|---|---:|---|---|
-| ASA-CF (M033) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 18 | 3 / 5 / 13 | — |
+| ASA-CF (M033) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 17 | 3 / 5 / 13 | — |
 | PP-CF (M083) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 3 / 3 / 4 | — |
 | PPA-CF (M070) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 9 | 4 / 0 / 4 | — |
-| PA6/66 (M057) | Flexible component; Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 8 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PA6/66 (M057) | Flexible component; Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 7 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6-CF (M050) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 2 / 3 / 11 | — |
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 2 | — |
-| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 200 | 88 / 113 / 162 | Elegoo (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com) |
-| ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 12 | 3 / 3 / 9 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 197 | 87 / 110 / 159 | Elegoo (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com) |
+| ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 3 / 3 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6-GF (M051) | Indoor prototype; Outdoor structural part; Warm environment | collected | 1 of 11 | 2 / 4 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-GF (M034) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 3 / 6 | — |
-| PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 3 / 4 | — |
+| PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 3 / 3 | — |
 | PBAT (M133) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
-| PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 19 | 7 / 7 / 15 | — |
+| PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 18 | 6 / 6 / 14 | — |
 | PLA-NF (M152) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
 | PP (M082) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 7 / 7 | — |
-| ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 57 | 23 / 30 / 47 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
+| ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 56 | 23 / 29 / 46 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 6 / 4 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
-| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 76 | 25 / 32 / 55 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
-| ASA (M031) | Indoor prototype; Warm environment | collected | 1 of 43 | 16 / 17 / 35 | SUNLU (media.sunlu.com) |
-| PA12-CF (M053) | Indoor prototype; Warm environment | collected | 1 of 16 | 6 / 5 / 10 | MatterHackers (matterhackers.com) |
-| PC (M035) | Indoor prototype; Warm environment | collected | 1 of 23 | 6 / 9 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 74 | 24 / 30 / 53 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
+| ASA (M031) | Indoor prototype; Warm environment | collected | 1 of 41 | 15 / 16 / 33 | SUNLU (media.sunlu.com) |
+| PA12-CF (M053) | Indoor prototype; Warm environment | collected | 1 of 15 | 5 / 5 / 9 | MatterHackers (matterhackers.com) |
+| PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 9 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 5 / 5 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ABS-AF (M106) | Indoor prototype; Warm environment | collected | 0 of 3 | 0 / 1 / 1 | — |
 | CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 5 | 2 / 2 / 3 | — |
@@ -57,21 +57,20 @@ documents were read and give none of one is listed under "Recipe silent".
 | PET-CF (M067) | Indoor prototype; Warm environment | collected | 0 of 8 | 3 / 2 / 5 | — |
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 1 / 0 / 1 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 9 / 10 / 19 | — |
-| PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 14 | 7 / 8 / 12 | — |
+| PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 6 / 6 / 10 | — |
 | PLA blend (M168) | Indoor prototype; Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
 | TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 17 | 9 / 9 / 17 | — |
-| TPU 90A class (M160) | Flexible component; Indoor prototype | collected | 0 of 13 | 4 / 4 / 12 | — |
-| TPU 95A class (M161) | Flexible component; Indoor prototype | collected | 0 of 30 | 13 / 11 / 27 | — |
+| TPU 90A class (M160) | Flexible component; Indoor prototype | collected | 0 of 12 | 4 / 4 / 11 | — |
+| TPU 95A class (M161) | Flexible component; Indoor prototype | collected | 0 of 27 | 13 / 9 / 24 | — |
 | PLA Wood (M014) | Indoor prototype | collected | 2 of 21 | 11 / 12 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PET (M066) | Indoor prototype | collected | 1 of 7 | 2 / 3 / 3 | colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | PP-GF (M084) | Indoor prototype | collected | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPU-ESD (M126) | Indoor prototype | collected | 1 of 2 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| ASA Aero (M032) | Indoor prototype | collected | 0 of 5 | 2 / 3 / 4 | — |
+| ASA Aero (M032) | Indoor prototype | collected | 0 of 4 | 1 / 2 / 3 | — |
 | ASA-AF (M113) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 | CPE-CF (M090) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 | PA12 (M052) | Indoor prototype | collected | 0 of 8 | 3 / 3 / 4 | — |
 | PA6-CE (M104) | Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
-| PC FR (M036) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 0 | — |
 | PCTG (M088) | Indoor prototype | collected | 0 of 8 | 2 / 3 / 5 | — |
 | PCTG-CF (M144) | Indoor prototype | collected | 0 of 3 | 0 / 0 / 1 | — |
 | PCTG-GF (M110) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
@@ -82,9 +81,9 @@ documents were read and give none of one is listed under "Recipe silent".
 | PETG-PTFE (M109) | Indoor prototype | collected | 0 of 2 | 0 / 1 / 1 | — |
 | PLA Galaxy (M015) | Indoor prototype | collected | 0 of 4 | 1 / 1 / 3 | — |
 | PLA Glow (M016) | Indoor prototype | collected | 0 of 7 | 2 / 3 / 6 | — |
-| PLA Marble (M012) | Indoor prototype | collected | 0 of 7 | 1 / 1 / 5 | — |
+| PLA Marble (M012) | Indoor prototype | collected | 0 of 6 | 1 / 1 / 4 | — |
 | PLA Metal (M011) | Indoor prototype | collected | 0 of 9 | 5 / 7 / 8 | — |
-| PLA Silk (M008) | Indoor prototype | collected | 0 of 35 | 10 / 13 / 29 | — |
+| PLA Silk (M008) | Indoor prototype | collected | 0 of 34 | 9 / 12 / 28 | — |
 | PLA Sparkle (M013) | Indoor prototype | collected | 0 of 4 | 1 / 2 / 3 | — |
 | PLA-EC (M111) | Indoor prototype | collected | 0 of 2 | 1 / 1 / 2 | — |
 | PLA-ESD (M107) | Indoor prototype | collected | 0 of 2 | 0 / 1 / 1 | — |
@@ -108,7 +107,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PCL (M149) | — | collected | 1 of 4 | 3 / 3 / 3 | iSANMATE (isanmate.com) |
 | PEEK-GF (M127) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEI-CF (M118) | — | collected | 1 of 3 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PEI-ESD (M123) | — | collected | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEI-GF (M117) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEKK (M098) | — | collected | 1 of 5 | 1 / 1 / 3 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEKK-ESD (M115) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
@@ -130,7 +128,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PC-GF (M038) | — | collected | 0 of 3 | 2 / 1 / 2 | — |
 | PC-PTFE (M112) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PE (M085) | — | collected | 0 of 2 | 1 / 1 / 1 | — |
-| PE-GF (M138) | — | collected | 0 of 3 | 2 / 2 / 2 | — |
+| PE-GF (M138) | — | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PEEK (M097) | — | collected | 0 of 7 | 1 / 2 / 5 | — |
 | PEKK-CF (M122) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PLA-GR (M155) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
@@ -140,7 +138,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PPS (M072) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PPSU (M102) | — | collected | 0 of 4 | 2 / 3 / 3 | — |
 | PVC (M135) | — | collected | 0 of 2 | 1 / 1 / 1 | — |
-| SAN (M136) | — | collected | 0 of 2 | 1 / 1 / 1 | — |
 | Support for ABS (M079) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | Support for PA/PET (M080) | — | collected | 0 of 3 | 1 / 0 / 3 | — |
 | Support for PLA (M077) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
@@ -152,7 +149,7 @@ documents were read and give none of one is listed under "Recipe silent".
 
 | Maker | Site | Products | GradeIDs |
 |---|---|---:|---|
-| 3DXTECH | 3dxtech.com, trinity3ds.com | 30 | G020-12 3DXMAX PETG; G027-06 3DXMAX ABS; G028-03 FibreX ABS+GF10 Glass Fiber ABS; G029-11 TriMax Carbon Fiber ABS Model Material; G030-11 TriStat ESD-ABS Model Material; G035-26 Trilan PC Model Material; G051-02 AMIDEX Nylon GF30; G057-02 AMIDEX PA6 Copolymer v1 0; G084-01 FIBREX GF PP; G094-12 Triton PC/ABS Model Material; G098-02 Thermax PEKK C; G099-03 ThermaX PEI; G099-09 Ultem 9085 Model Material; G099-10 Ultem 1010 Model Material; G103-01 Hyperlite PP; G114-01 3DXSTAT ESD-TPC (90A); G115-01 3DXSTAT ESD-PEKK; G116-02 TriStat ESD-PC Model Material; G117-01 ThermaX PEI GF30; G118-01 CarbonX Carbon Fiber Ultem PEI; G119-01 3DXMAX PC/ASA; G120-01 3DXSTAT ESD-PVDF; G121-01 ThermaX TPI; G123-02 3DXSTAT ESD-Ultem; G124-01 3DXSTAT ESD-PPS; G125-01 CarbonX Carbon Fiber PEEK; G125-02 CarbonX 20% Carbon Fiber PEEK; G126-01 3DXSTAT ESD-TPU (90A); G127-01 ThermaX PEEK GF20; G128-01 CarbonX Carbon Fiber PC/ABS |
+| 3DXTECH | 3dxtech.com, trinity3ds.com | 29 | G020-12 3DXMAX PETG; G027-06 3DXMAX ABS; G028-03 FibreX ABS+GF10 Glass Fiber ABS; G029-11 TriMax Carbon Fiber ABS Model Material; G030-11 TriStat ESD-ABS Model Material; G035-26 Trilan PC Model Material; G051-02 AMIDEX Nylon GF30; G057-02 AMIDEX PA6 Copolymer v1 0; G084-01 FIBREX GF PP; G094-12 Triton PC/ABS Model Material; G098-02 Thermax PEKK C; G099-03 ThermaX PEI; G099-09 Ultem 9085 Model Material; G099-10 Ultem 1010 Model Material; G103-01 Hyperlite PP; G114-01 3DXSTAT ESD-TPC (90A); G115-01 3DXSTAT ESD-PEKK; G116-02 TriStat ESD-PC Model Material; G117-01 ThermaX PEI GF30; G118-01 CarbonX Carbon Fiber Ultem PEI; G119-01 3DXMAX PC/ASA; G120-01 3DXSTAT ESD-PVDF; G121-01 ThermaX TPI; G124-01 3DXSTAT ESD-PPS; G125-01 CarbonX Carbon Fiber PEEK; G125-02 CarbonX 20% Carbon Fiber PEEK; G126-01 3DXSTAT ESD-TPU (90A); G127-01 ThermaX PEEK GF20; G128-01 CarbonX Carbon Fiber PC/ABS |
 | Yousu | ysfilament.com | 4 | G001-72 PLA; G014-07 WOOD; G027-26 Modified ABS; G075-03 PVA |
 | MatterHackers | matterhackers.com | 3 | G027-37 ABS; G030-10 ESD-Safe ABS; G053-15 Carbon Fiber Nylon |
 | Filament2Print | filament2print.com | 2 | G014-16 COFFEE; G096-03 KOLTRON |

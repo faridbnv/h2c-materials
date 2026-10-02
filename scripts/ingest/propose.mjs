@@ -195,7 +195,8 @@ const STANDARD_RE = /\b(?:ISO|ASTM\s?D?[-\u2010\u2011]?|GB\/T|DIN|IEC|UL|EN|[DE]
 // A split digit group is a fragment: extraction breaks "2 433 .4" and "1 05", never a four-figure number in
 // half. Two runs of three figures or more standing side by side are two numbers, and joining them wrote a
 // tensile modulus of 22 901 290 MPa from a colorFabb row whose two value columns print 2290 and 1290.
-const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³]\d*)(?<!\d{3})(\d) (?=\d+(?![\d.,]))|(?<![A-Za-z°²³]\d*)(\d) (?=\d{1,2}(?![\d.,]))/g, '$1$2').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
+// A comma and a space before a number of hours separate two settings, not a decimal: "75℃-85, 6h" is 85 °C for 6 h (P0445).
+const joinLocal = (t) => t.replace(/(?<![A-Za-z°²³]\d*)(?<!\d{3})(\d) (?=\d+(?![\d.,]))|(?<![A-Za-z°²³]\d*)(\d) (?=\d{1,2}(?![\d.,]))/g, '$1$2').replace(/(\d) ?\. ?(?=\d)/g, '$1.').replace(/(\d), (?=\d)(?!\d+\s*(?:h|hours?|hrs|min)\b)/g, '$1,').replace(/\bO\.(?=\d)/g, '0.');
 // Extraction splits a standard's own number too ("ISO 11 8 3", "ISO 17 9", "D 2 56"), and the designation is
 // matched before the digits are joined, so the match stops at the first fragment and the rest is lost. A fragment
 // is part of the designation when it is a single digit standing alone and nothing that looks like a value follows:
@@ -2094,11 +2095,10 @@ const H2C_CELLS = {
   'AMS published': NP, 'Support pairing': NP, 'Failure modes': NP,
 };
 
-// A fibre-filled filament wears a brass nozzle out whatever its sheet says about it, and every fibre row in the
-// register carries this sentence. It is the register's own words, not the sheet's, so the proposal says so and a
-// reviewer sees it beside the rows that were read from the page.
-const ABRASIVE = 'Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.';
-const FIBRE = /fibre|fiber/i;
+// A fibre-filled filament wears a brass nozzle out whatever its sheet says about it, but that is the database's rule,
+// not the sheet's words: it is stated once in method.csv (H2C, Abrasive fillers) and applied by the selector to a
+// fibre-filled product whose sheet is silent (D121). The import wrote it into every fibre profile's Abrasion cell until
+// m296, where the engine then reported it as a source's statement.
 
 /**
  * The print setup a sheet publishes, as the profile row the database keeps and the notes beside it. The raw cells
@@ -2116,7 +2116,7 @@ export function profilesFor(settings, opts) {
     .filter(Boolean);
 }
 
-export function profileFor(settings, { sourceId, materialId, modifier, locator = 'Recommended printing settings', page = 1 }) {
+export function profileFor(settings, { sourceId, materialId, locator = 'Recommended printing settings', page = 1 }) {
   // A cell that is only its own unit states no setting. Siraya Tech's Flex TPU Air prints "(°C)" where the
   // nozzle temperature belongs, and recorded as the raw text it reached the build as a temperature the parser
   // could not read (PARSE-UNREAD). Only the unit is dropped: "Room temperature", "Recommended" and "not
@@ -2126,7 +2126,6 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
   const notes = settings.filter((s) => s.field === 'note' && s.topic);
   if (!named.length && !notes.length) return null;
   const of = (field) => named.find((s) => s.field === field)?.raw ?? NP;
-  const abrasive = FIBRE.test(modifier ?? '');
   // A sheet that says a hardened or ruby nozzle is needed says so in its own words, and those words are what the
   // abrasion column keeps. A sheet that says one is not needed leaves the column unpublished rather than being
   // paraphrased into a claim it did not make; its statement stays in Nozzle material, as the register writes it.
@@ -2136,7 +2135,7 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
     'Nozzle °C': of('nozzle'), 'Bed °C': of('bed'), 'Chamber °C': of('chamber'),
     Enclosure: of('enclosure'), Plate: of('plate'), Drying: of('drying'),
     'Nozzle material': of('nozzle-material'), 'Nozzle diameter': of('nozzle-diameter'),
-    'Abrasion / clogging': affirms ? `${hardened.label} ${hardened.raw}`.replace(/\s+/g, ' ').trim() : abrasive ? ABRASIVE : NP,
+    'Abrasion / clogging': affirms ? `${hardened.label} ${hardened.raw}`.replace(/\s+/g, ' ').trim() : NP,
   };
   const parsed = {
     nozzle: parseTemperature(raw['Nozzle °C']), bed: parseTemperature(raw['Bed °C']), chamber: parseTemperature(raw['Chamber °C']),
@@ -2160,7 +2159,6 @@ export function profileFor(settings, { sourceId, materialId, modifier, locator =
     // A note keeps the sheet's own words, and a full-width glyph is a spelling of an ASCII one rather than a
     // word: "＜300mm/s" is "<300mm/s", and TEXT-FULLWIDTH refuses the first.
     notes: notes.map((n) => ({ Topic: n.topic, Text: asciiPunctuation(n.raw) })),
-    editorial: abrasive && !affirms ? ['Abrasion / clogging'] : [],
     evidence: { page: (named[0] ?? notes[0]).page, text: (named[0] ?? notes[0]).line.slice(0, 200) },
     review: { status: 'proposed' },
   };

@@ -306,7 +306,8 @@ function evaluateGate(material, c) {
   // material; the old checkbox did exactly that, holding out the 75 materials with no abrasion
   // guidance. The criterion now screens on a *recorded* requirement: a source that says a hardened
   // nozzle is needed fails it, and a fibre-filled material with no guidance stays unresolved,
-  // because the filler is the known cause even where no source wrote it down.
+  // because the filler is the known cause even where no source wrote it down. That last is the
+  // database's rule (method.csv, H2C / Abrasive fillers; D121), said as one, never as a source's.
   if (c.gate === 'abrasive') {
     const criterion = 'No hardened nozzle';
     if (c.hardenedAvailable) {
@@ -318,8 +319,8 @@ function evaluateGate(material, c) {
     if (g === 'requires-hardened') return { status: STATUS.FAIL, criterion, reason: `A source states it needs an abrasion-resistant nozzle${from}` };
     if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: `A source states no special nozzle concern${from}` };
     const filler = material.facets?.reinforcement?.value;
-    if (filler === 'carbon-fibre' || filler === 'glass-fibre') {
-      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, but no abrasion guidance was recorded. Treat as abrasive until the product says otherwise' };
+    if (material.facets?.fibre?.value || filler === 'carbon-fibre' || filler === 'glass-fibre') {
+      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, and no source says what nozzle it needs: by the database\'s rule on abrasive fillers it is treated as abrasive until the product says otherwise' };
     }
     return {
       status: STATUS.PASS, criterion,

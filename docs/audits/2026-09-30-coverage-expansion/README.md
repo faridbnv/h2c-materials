@@ -15,7 +15,7 @@ allocation; it does not change the approved all-target campaign. The [documentat
 
 The first production batch reread twelve registered Polymaker originals. Seven materials
 already had Application coverage; five old templated Gap judgements stood beside exact
-printed-part annealing records: M019/G019-01, M036/G036-02, M051/G051-03,
+printed-part annealing records: M019/G019-01, M036/G036-02 (merged into G035-08 by m302), M051/G051-03,
 M067/G067-02 and M074/G074-02. m234 appends five bounded treatment-evidence judgements
 and supersedes those five gaps. No evidence statement is duplicated, no product value or
 state changes, and no claim of application suitability is made.

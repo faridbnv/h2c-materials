@@ -1239,3 +1239,8 @@ coverage,C01067,m233-absence-is-derived,docs/audits/2026-09-30-coverage-check/re
 coverage,C01078,m233-absence-is-derived,docs/audits/2026-09-30-coverage-check/removed-sparse-gaps.csv; the build derives this pair from the material's own measurements (D114)
 coverage,C01089,m233-absence-is-derived,docs/audits/2026-09-30-coverage-check/removed-sparse-gaps.csv; the build derives this pair from the material's own measurements (D114)
 coverage,C01198,m233-absence-is-derived,docs/audits/2026-09-30-coverage-check/removed-sparse-gaps.csv; the build derives this pair from the material's own measurements (D114)
+chamber_bands,M002,m303,"nowhere: PLA Basic is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
+chamber_bands,M003,m303,"nowhere: PLA Matte is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
+chamber_bands,M004,m303,"nowhere: PLA Lite is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
+chamber_bands,M021,m303,"nowhere: PETG Basic is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
+chamber_bands,M022,m303,"nowhere: PETG HF is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"

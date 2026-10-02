@@ -62,8 +62,8 @@
       "policy": { "unknownPolicy": "strict", "moisture": "conditioned" },
       "rankBy": "beam-stiffness",
       "expect": {
-        "ranked": ["M166"],
-        "because": "Of the in-scope products, six publish a conditioned state (G048-02, G069-02, G067-06, G031-23, G166-01, G157-02); only G166-01 (Onyx GF) publishes both a conditioned XY modulus (3.1 GPa) and a density, the registry's moisture-invariant value. The test re-derives this list from the products' own states, independently of the ranking. Before D107, 78 materials ranked on a dry first state.",
+        "ranked": ["M067", "M166", "M057"],
+        "because": "Of the in-scope products, those that publish a conditioned state include G048-02, G069-02, G067-06, G031-23, G166-01 and G157-02; G166-01 (Onyx GF) publishes both a conditioned XY modulus (3.1 GPa) and a density, the registry's moisture-invariant value, and since m298 (2026-10-02) so do Raise3D Industrial PET CF (G067-05: its V4.0 sheet's \"Conditioned, before annealed\" table, XY 5.731 GPa) and Polymaker PolyMide CoPA (G057-03: its V5.5 sheet's \"(Wet Status)\" table). The test re-derives this list from the products' own states, independently of the ranking. Before D107, 78 materials ranked on a dry first state.",
         "noRankOnMissingState": true
       }
     },

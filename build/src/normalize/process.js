@@ -55,8 +55,9 @@ const RECOMMENDED_RE = /^recommended\b|(?<!\bnot\s)\brecommended\s+to\s+print\s+
 // holding a number as well ("230~260 ℃ (recommended: 240℃)") recommends a point inside a window, which stays required.
 const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
 // 3DJake's sheets say a filament "can also be printed without a heated bed. If you have a heated bed the recommended
-// temperature is ± 35-60˚C": a window for a printer that has one, not one the filament needs.
-const RECOMMENDED_IF_RE = /\bif you have a heated bed\b|\brecommended temperature is\b/i;
+// temperature is ± 35-60˚C": a window for a printer that has one, not one the filament needs. Recreus prints "Small parts
+// Room temperature (no heating); Large parts 50–55 °C": a window for large parts only (the control draw of 2026-10-02).
+const RECOMMENDED_IF_RE = /\bif you have a heated bed\b|\brecommended temperature is\b|\bsmall\s+parts\s+room\s+temp\w*\s*\(no\s+heating\)/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
 // BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT.
 const DASH_RE = /^-$/;
@@ -266,7 +267,8 @@ export function parseEnclosure(raw) {
   // A question the row answers: Extrudr's product pages print "Enclosed chamber required No" (or "Yes").
   const answer = text.match(/\b(?:required|recommended|needed|necessary)\s*[:?]?\s*(yes|no)\s*$/i);
   if (answer) return { text, state: /^no$/i.test(answer[1]) ? 'not-needed' : 'recommended' };
-  if (/\bnot\s+(necessary|needed|required)\b|^no\s+(enclosure|needed)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
+  // 3DXTECH's product page: "Ideal for printing without a heated bed, no enclosure required".
+  if (/\bnot\s+(necessary|needed|required)\b|^no\s+(enclosure|needed)\b|\bno\s+enclosure\s+(?:is\s+)?(?:required|needed|necessary)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
   // Eryone's "Sealed printing" row says whether the filament prints open: "Supports open/closed printing", "Open
   // printing", "enclosed printing/open printing", "supports open printing, and the sealing effect is better if it is
   // sealed". A filament its maker prints open needs no enclosure; that an enclosure improves it is a preference the
@@ -379,7 +381,8 @@ export function parseDrying(raw) {
   // "8h-12h" gave 8 (the fourth control draw of the profile root-cause sweep, 2026-10-02).
   // A cell that joins two methods ("Blast drying oven 55 °C, 8 h; X1 heatbed 65-75 °C, 12 h") is read by its first.
   const first = /\d/.test(s.split(/;\s*/)[0]) ? s.split(/;\s*/)[0] : s;
-  const tempRange = first.match(/(\d{2,3})\s*C?\s*[-–~]\s*(\d{2,3})\s*C/i);
+  // Eryone prints the unit on the lower end only: "75℃-85, 6h" is 75 to 85 °C (P0445).
+  const tempRange = first.match(/(\d{2,3})\s*C?\s*[-–~]\s*(\d{2,3})\s*C/i) ?? first.match(/(\d{2,3})\s*C\s*[-–~]\s*(\d{2,3})\b(?![.,]?\d|\s*(?:h|hours?|hrs|min)\b)/i);
   const hourRange = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hours?|hrs)?\s*[-–~]\s*(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
   // The first schedule the cell states decides: Bambu Lab's guide prints "Blast Drying Oven: 55 °C, 8 h X1 Series
   // Heatbed: 65 - 75 °C, 12 h", and a window further on is the other method's.

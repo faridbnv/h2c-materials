@@ -539,7 +539,7 @@ in-scope material that names an Estimate identity carrying a value, an estimate 
 range and citing only its own material's or its products' measurements; each headline's
 likely range holding 80% (±10 points) and its plausible range at least 90% of the hidden values of materials'
 typical products; grade roles agreeing with the -R#
-ID suffix; every chamber band naming a real material that is not out of scope,
+ID suffix; every chamber band naming a real material that is neither out of scope nor a family entry or alias,
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
 

@@ -220,7 +220,7 @@ each retrieved source whose text is not in it (D105).
                                  // its products' spread where they publish comparably (below); decides nothing
   summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, twins, asPublished, variants } },
   headlineBasis,                 // what its headline values represent, one sentence chosen by rule (D70)
-  facets: { reinforcement, esd, flexible, supportMaterial, flameRetardant, family, polymer },
+  facets: { reinforcement, fibre, esd, flexible, supportMaterial, flameRetardant, family, polymer },
                                  // each { value, origin: 'source' | 'derived', from? }
   guidance: { nozzle, bed, chamber },    // the words of the first profile it cites
   print:  { nozzleC, bedC, chamberC,     // the widest published window across its profiles
@@ -351,8 +351,11 @@ Measured (PLA's stiffness at the 2026-09-27 build):
   spread:  { n: 38, products: 182, min: 0.95, max: 4.24, q1, q3,     // its products' comparable values
              asPublished: { n: 41, min, max } | null,                // counted apart (D84)
              variants: { n, min, max } | null,                       // declared variants, apart
-             twins? },                                               // how many of the n are a twin's reading (D89)
-  typical: { gradeId, measurementId, value },                        // the product nearest the median
+             twins?,                                                 // how many of the n are a twin's reading (D89)
+             bounds? },                                              // { n, min, max }: how many of the n are published
+                                                                     // bounds ("> 650 %"), and whether an end is one
+  typical: { gradeId, measurementId, value, interval? },             // the product nearest the median; its interval
+                                                                     // when its value is a published bound
   measurementId, gradeId                                             // one product only: its value is the material's
 }
 ```
