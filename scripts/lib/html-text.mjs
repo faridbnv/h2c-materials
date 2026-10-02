@@ -13,6 +13,8 @@ import { createHash } from 'node:crypto';
 
 const DROP = /<(script|style|noscript|svg|template|iframe)\b[\s\S]*?<\/\1>/gi;
 const COMMENT = /<!--[\s\S]*?-->/g;
+// A numeric comparison such as Nanovia's literal "< 1" is text, not an HTML tag.
+const TAG = /<\/?[A-Za-z][^>]*>/g;
 const ENTITIES = new Map(Object.entries({
   amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', deg: '°', micro: 'µ', plusmn: '±',
   sup2: '²', sup3: '³', times: '×', divide: '/', ndash: '-', mdash: '-', hellip: '...', bull: '*',
@@ -51,7 +53,7 @@ export function pageLinesFromHtml(html) {
     if (/^<table\b/i.test(piece)) {
       for (const row of piece.match(/<tr\b[\s\S]*?<\/tr>/gi) ?? []) {
         const cells = (row.match(/<t[dh]\b[^>]*>[\s\S]*?<\/t[dh]>/gi) ?? [])
-          .map((c) => plainText(c.replace(/<[^>]+>/g, ' ')));
+          .map((c) => plainText(c.replace(TAG, ' ')));
         push(cells);
       }
       continue;
@@ -60,11 +62,12 @@ export function pageLinesFromHtml(html) {
     // A consuming match on an outer div hid its paragraphs, and the length cutoff then dropped them.
     // Inspect nested blocks without consuming their children. Keep leaf wrappers and semantic paragraphs;
     // an inline strong inside a retained paragraph is already represented by that paragraph.
-    const blocks = [...piece.matchAll(/(?=<(h[1-4]|p|li|dt|dd|caption|figcaption|strong|div)\b[^>]*>([\s\S]*?)<\/\1>)/gi)]
+    const blocks = [...piece.matchAll(/(?=<(h[1-4]|p|li|dt|dd|caption|figcaption|strong|span|div)\b[^>]*>([\s\S]*?)<\/\1>)/gi)]
       .filter((m) => !/<(?:h[1-4]|p|li|dt|dd|caption|figcaption|div)\b/i.test(m[2]));
     for (const m of blocks) {
-      if (m[1].toLowerCase() === 'strong' && blocks.some((parent) => parent !== m && parent.index < m.index && parent.index + parent[2].length > m.index)) continue;
-      const text = plainText(m[2].replace(/<[^>]+>/g, ' '));
+      if (/^(strong|span)$/i.test(m[1]) && blocks.some((parent) => parent !== m && parent.index < m.index
+        && parent.index + piece.slice(parent.index).indexOf('>') + 1 + parent[2].length > m.index)) continue;
+      const text = plainText(m[2].replace(TAG, ' '));
       if (!text) continue;
       if (/^h[1-4]$/i.test(m[1])) { heading = text; push([text]); continue; }
       push([text]);

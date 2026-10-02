@@ -1,0 +1,95 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "review_date": "2026-10-02",
+  "baseline_head": "33301ff1bbd401ca0a760123c166c875ed78ddb5",
+  "overall_verdict": "APPROVE_CODE",
+  "release_verdict": "PENDING_FULL_QA_AND_COMPILED_DIFF",
+  "reviewed_files": [
+    {
+      "file": "scripts/lib/html-text.mjs",
+      "sha256": "6d654f13a004f24f4956e6a1cd7f71f664b7848806f4bf1e0e45d354635b1f50"
+    },
+    {
+      "file": "scripts/lib/pdf-text.mjs",
+      "sha256": "d3ee58ab35d91e7f6529e5ae2b318b4e0c2d9e55bc8cdc9f29459ab41d2a90e6"
+    },
+    {
+      "file": "test/ingest-html-text.test.js",
+      "sha256": "9638a7223301c12372257a055efac99f049c3bbda82bfc8300e8238c805c3909"
+    },
+    {
+      "file": "scripts/audit/refresh-html-cache.mjs",
+      "sha256": "5cccb6b14b3c7f7ae2a5db74cda0571456b0256c524081957801d5610de012ea"
+    },
+    {
+      "file": "docs/audits/2026-09-30-coverage-expansion/resume-reader-fix.md",
+      "sha256": "e338b19b67003eff0234597cf56ed1a603cc1128996cf8af4fee969cdfe08755"
+    },
+    {
+      "file": "docs/OPEN-PROBLEMS.md",
+      "sha256": "f95e7b35f11297f12fbe0bb19e97e1bc300f99aa7b5a248a65582c1034b13b52"
+    }
+  ],
+  "findings": [],
+  "original_checks": [
+    {
+      "SourceID": "R-NANOVIA-PP-CF",
+      "GradeID": "G083-04",
+      "SHA256": "b9bb98021c7100391fcb6a310d2469943681988ef9d7c3825c54ea1522983aae",
+      "OriginalPath": ".cache/sources/by-sha/b9bb98021c7100391fcb6a310d2469943681988ef9d7c3825c54ea1522983aae.html",
+      "raw_original_cells": [
+        "Water absorption",
+        "< 1",
+        "%",
+        "after 24h of submersion"
+      ],
+      "old_reader_value_cell": "",
+      "new_reader_cells_exact": true,
+      "limitation": "This preserves a published strict bound and submersion duration. It does not create a point, identify an unstated water temperature/standard/specimen, or admit a measurement."
+    },
+    {
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "GradeID": "G164-07",
+      "SHA256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "OriginalPath": ".cache/sources/by-sha/6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98.html",
+      "raw_original_span": "Test performed at 50mm/min on ISO 3167 A test specimens",
+      "new_reader_exact_copies": 1,
+      "new_reader_heading": "Tensile",
+      "limitation": "The span precedes the tensile table. It states test rate and specimen geometry only, without establishing printed/moulded specimen form, a moisture state, direction or post-treatment."
+    }
+  ],
+  "code_semantics": {
+    "literal_numeric_bounds": "Tag removal now requires a letter after the opening bracket; raw < 1 and escaped &lt;50 survive. Original source text is not numerically normalized.",
+    "span_capture": "Standalone span blocks are retained; inline spans represented in parent paragraphs or leaf wrappers are suppressed. The adjusted containment offset counts the opening tag length.",
+    "excluded_markup": "Script/style/noscript/svg/template/iframe and comments remain removed.",
+    "cache_version": "html/tables v3 makes old version-2 derivatives unavailable through cachedText and causes documentText to reread actual bytes. PDF extractor version remains unchanged.",
+    "refresh_helper": "Visits existing HTML cache entries in source inventory only; locate verifies original SHA-256 before documentText reread. No fetch or canonical table write. Current entries are retained; unavailable/out-of-inventory states are counted explicitly.",
+    "open_problem": "The defect entry correctly distinguishes repaired extraction from still-unadmitted tensile context; no invented printed or moulded classification."
+  },
+  "targeted_verification": {
+    "reviewer_ran": "node --test test/ingest-html-text.test.js",
+    "tests": 3,
+    "passed": 3,
+    "failed": 0,
+    "reviewer_compared_old_and_new_reader_on_actual_originals": true,
+    "original_sha256_verified": true,
+    "canonical_tables_mutated": false
+  },
+  "reported_refresh_and_context_pending_final_receipt": {
+    "refreshed_existing_html": 458,
+    "missing_originals": 0,
+    "already_current": 2,
+    "outside_inventory_private": 13,
+    "context_accepted": 76,
+    "context_new": 0,
+    "context_stale": 0
+  },
+  "release_conditions": [
+    "Full verification must pass under the new reader/cache derivatives.",
+    "Compiled diff must demonstrate that no canonical fact, numerical/decision lane or source digest/revision changed.",
+    "Pin actual refresh and source-context receipts in the final release attestation."
+  ],
+  "review_scope": "Only the two named actual originals, narrow reader/test/cache-refresh implementation and corrected existing OPEN-PROBLEMS custody text were reviewed; no general source audit or deciding-fact admission.",
+  "review_signature_sha256": "95c3091cee3fe45c4c600eac7ea91d11ea14dcf0a44e552eb5df3a66ce15edaf"
+}

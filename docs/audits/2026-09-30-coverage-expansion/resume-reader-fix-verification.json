@@ -1,0 +1,44 @@
+{
+  "BaselineHEAD": "33301ff",
+  "Release": "b27dc24f7147",
+  "FullVerifySeconds": 280.1,
+  "WarmVerifyFastSeconds": 33.2,
+  "UnitTests": 481,
+  "ImportTests": 206,
+  "BrowserViews": 69,
+  "RenderedScenarios": 300,
+  "ContextAudit": {
+    "Accepted": 76,
+    "New": 0,
+    "Stale": 0
+  },
+  "CompiledDifferences": 0,
+  "CanonicalTablesChanged": false,
+  "SourceBackup": {
+    "Originals": 2397,
+    "DerivedFiles": 2800,
+    "OriginalsCopied": 0,
+    "AlreadyMissingInventoryEntries": 124
+  },
+  "RefreshReceipt": {
+    "refreshed": 458,
+    "unavailable": 0,
+    "alreadyCurrent": 2,
+    "outsideInventory": 13,
+    "PrivateReceiptSHA256": "e8b5badd7b21addcb7cc2788a1326fae762659a92bdc7199e166ea70d7c26212"
+  },
+  "Logs": {
+    "verify": {
+      "LogSHA256": "4343cf97c4d50175251ea1846d3d4d909457101433ecac49f13ea165298899ea",
+      "Passed": true
+    },
+    "diff": {
+      "LogSHA256": "552b38b819e4ce6266c9c4a4e01a22c3ac4963bc14fce8f33b94b2efd9995ef6",
+      "Passed": true
+    },
+    "backup": {
+      "LogSHA256": "96b590c23d4b09bab4caed3bf4cd8612e5a450b96fa2134b31ac65367ea00df9",
+      "Passed": true
+    }
+  }
+}

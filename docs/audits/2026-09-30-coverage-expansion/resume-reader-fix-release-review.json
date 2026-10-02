@@ -1,0 +1,86 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "review_date": "2026-10-02",
+  "overall_verdict": "APPROVE",
+  "scope": "Separate source-reader correction release; no deciding-fact injection or canonical table operation.",
+  "baseline_head": "33301ff1bbd401ca0a760123c166c875ed78ddb5",
+  "release": "b27dc24f7147",
+  "prior_code_review": {
+    "file": "docs/audits/2026-09-30-coverage-expansion/resume-reader-fix-review.json",
+    "sha256": "f0960b017431d3bd2a245caa72fa86716a576f99f2384acfb21cccaf5836ad56",
+    "signature_sha256": "95c3091cee3fe45c4c600eac7ea91d11ea14dcf0a44e552eb5df3a66ce15edaf",
+    "immutable_prior_receipt": true,
+    "all_six_reviewed_file_hashes_unchanged": true
+  },
+  "verification_receipt": {
+    "file": "docs/audits/2026-09-30-coverage-expansion/resume-reader-fix-verification.json",
+    "sha256": "4080b214dfa69455f58d3e075a69f9c3ab721b5ab594a43405694dd2d68566ee"
+  },
+  "actual_log_checks": [
+    {
+      "kind": "verify",
+      "private_file_label": "h2c-reader-verify.log",
+      "sha256": "4343cf97c4d50175251ea1846d3d4d909457101433ecac49f13ea165298899ea",
+      "hash_verified_and_read": true
+    },
+    {
+      "kind": "diff",
+      "private_file_label": "h2c-reader-diff.log",
+      "sha256": "552b38b819e4ce6266c9c4a4e01a22c3ac4963bc14fce8f33b94b2efd9995ef6",
+      "hash_verified_and_read": true
+    },
+    {
+      "kind": "backup",
+      "private_file_label": "h2c-reader-backup.log",
+      "sha256": "96b590c23d4b09bab4caed3bf4cd8612e5a450b96fa2134b31ac65367ea00df9",
+      "hash_verified_and_read": true
+    }
+  ],
+  "refresh_receipt": {
+    "file": "external-campaign/resume-2026-10-02/evidence/html-reader-refresh.json",
+    "sha256": "e8b5badd7b21addcb7cc2788a1326fae762659a92bdc7199e166ea70d7c26212",
+    "actual_counts_verified": {
+      "refreshed": 458,
+      "unavailable": 0,
+      "alreadyCurrent": 2,
+      "outsideInventory": 13,
+      "PrivateReceiptSHA256": "e8b5badd7b21addcb7cc2788a1326fae762659a92bdc7199e166ea70d7c26212"
+    }
+  },
+  "final_gates": {
+    "full_verify": "PASS",
+    "reported_full_seconds": 280.1,
+    "warm_fast_seconds_observed_in_full_log": 33.2,
+    "budget_seconds": 90,
+    "unit_tests": 481,
+    "import_tests": 206,
+    "scale_reproducible_audit_snapshot": "PASS",
+    "source_context": {
+      "Accepted": 76,
+      "New": 0,
+      "Stale": 0
+    },
+    "native_views": 69,
+    "rendered_scenarios": 300,
+    "rendered_readings_observed": 2594,
+    "compiled_database_diff": 0,
+    "compiled_diff_expect_zero": "PASS",
+    "canonical_data_diff_empty": true,
+    "private_backup": {
+      "Originals": 2397,
+      "DerivedFiles": 2800,
+      "OriginalsCopied": 0,
+      "AlreadyMissingInventoryEntries": 124
+    }
+  },
+  "retained_source_limits": [
+    "Strict <1% after24h submersion is retained as source text, not converted to a point or automatically admitted measurement.",
+    "ISO3167A geometry and50mm/min test-rate context are retained, without invented printed/moulded specimen form.",
+    "The458 refreshed entries are existing digest-verified HTML derivatives;13 outside-inventory captures remain private and0 new source documents were admitted.",
+    "The124 known-absent inventory entries are an existing custody limitation; neither reading nor backup completeness is claimed for absent originals.",
+    "The pending Nanovia numeric/context operations remain a separate independently reviewed data tranche."
+  ],
+  "release_recommendation": "A separate local tested reader-fix commit is warranted; no push or publication is authorized by this review.",
+  "review_signature_sha256": "029a361bac6bfe7bbbe7d3b69d7d2a1056fb812686721039a7b9bc7a8aa64c83"
+}

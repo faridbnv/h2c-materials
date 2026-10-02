@@ -11,3 +11,20 @@ test('nested maker paragraphs survive long wrappers, with headings and table col
  assert.deepEqual(lines.find(l=>l.text.includes('40–60')).spans.map(s=>s.str),['Chamber','40–60 °C']);
  assert.ok(!lines.some(l=>l.text.includes('999')));
 });
+
+test('literal and escaped numerical bounds survive source table markup',()=>{
+ const lines=pageLinesFromHtml('<table><tr><td>Water absorption</td><td>< 1</td><td>%</td><td>after 24h of submersion</td></tr><tr><td>Strain</td><td>&lt;50</td><td>%</td></tr></table><p>Keep below < 80 °C.</p>');
+ assert.deepEqual(lines[0].spans.map(s=>s.str),['Water absorption','< 1','%','after 24h of submersion']);
+ assert.deepEqual(lines[1].spans.map(s=>s.str),['Strain','<50','%']);
+ assert.equal(lines[2].text,'Keep below < 80 °C.');
+});
+
+test('standalone specimen context spans survive, inline spans appear only once',()=>{
+ const context='Test performed at 50mm/min on ISO 3167 A test specimens';
+ const lines=pageLinesFromHtml(`<div class="tensile-data" id="tensile-data-0" style="display:block"><span>${context}</span><table><tr><td>Modulus</td><td>3800</td><td>MPa</td></tr></table></div><p>Use <span>dry filament</span>.</p><div class="wrapper-with-a-long-attribute-for-a-short-child"><span>One instruction</span></div>`);
+ assert.equal(lines.filter(l=>l.text===context).length,1);
+ assert.ok(lines.findIndex(l=>l.text===context)<lines.findIndex(l=>l.text.includes('3800')));
+ assert.equal(lines.filter(l=>l.text==='Use dry filament .').length,1);
+ assert.ok(!lines.some(l=>l.text==='dry filament'));
+ assert.equal(lines.filter(l=>l.text==='One instruction').length,1);
+});

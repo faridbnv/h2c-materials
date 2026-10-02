@@ -864,10 +864,11 @@ research package's 51 technical findings, and one fact found on re-reading. What
   DuraPro PC/PBT CF (and the FLEX Medium Matt page) print property tables that differ from the sheets the database holds
   (DuraPro ABS CF's tensile modulus: 4000 MPa on the page, 2850 MPa on its sheet). They were read for chamber words and
   drying only. Whether a page is a newer formulation or a newer test wants Extrudr's word before either is recorded.
-- **The HTML reader drops a table's heading row on Nanovia's pages.** "Test performed at 50mm/min on ISO 3167 A test
-  specimens" heads the tensile rows in the bytes of R-NANOVIA-PA-Food-Industry and is not in its cached text, so its
-  tensile rows (V011205, V011512, V011513) carry Specimen / print parameters "Not published". The specimen is still
-  unstated (an ISO 3167 A bar may be printed or moulded).
+- **Nanovia PA Food Industry's tensile preparation sentence awaits admission.** The 2026-10-02 coverage campaign
+  repaired the HTML reader's omitted standalone span ([repair](audits/2026-09-30-coverage-expansion/resume-reader-fix.md)).
+  R-NANOVIA-PA-Food-Industry now reads "Test performed at 50mm/min on ISO 3167 A test specimens" before its tensile
+  table, but V011205, V011512 and V011513 still carry Specimen / print parameters "Not published" until the reviewed
+  product tranche records that context. The specimen remains unstated: an ISO 3167 A bar may be printed or moulded.
 - **The estimate model recalibrated.** No rule changed, but the rows it learns from did, so 129 estimated headline
   cells of 50 materials, and 762 products' estimates, moved (`build/snapshot/headlines.csv`). Two moved a screen in Explore with estimates: PA6 (M049) is now
   screened from Flexible component (its elongation's plausible top 65.1 % against 100 %), and PET (M066) from Warm
