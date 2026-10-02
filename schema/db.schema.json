@@ -1924,6 +1924,17 @@
               "type": "integer",
               "minimum": 1,
               "description": "How many of the n values are a twin's reading of its sibling's sheet (D89); absent when none."
+            },
+            "bounds": {
+              "description": "How many of the comparable values are a published bound (\"> 650 %\", counted as its number), and whether the lowest and the highest are one: 'lower' for a lower bound, 'upper' for an upper one, null for a measured number. Absent when none is a bound.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["n", "min", "max"],
+              "properties": {
+                "n": { "type": "integer", "minimum": 1 },
+                "min": { "enum": ["lower", "upper", null] },
+                "max": { "enum": ["lower", "upper", null] }
+              }
             }
           }
         },
@@ -1950,6 +1961,10 @@
                 "number",
                 "null"
               ]
+            },
+            "interval": {
+              "description": "The typical product's value as a published bound (\"> 650 %\"), where it is one: an interval open at one end. Absent otherwise; the median is that bound's number only where it equals the value.",
+              "type": "object"
             }
           }
         },
@@ -2925,6 +2940,17 @@
           "type": "integer",
           "minimum": 1,
           "description": "How many of the comparable values are a twin's reading of its sibling's sheet (D89); absent when none."
+        },
+        "bounds": {
+          "description": "How many of the comparable values are a published bound (\"> 650 %\", counted as its number), and whether the lowest and the highest are one: 'lower' for a lower bound, 'upper' for an upper one, null for a measured number. Absent when none is a bound.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["n", "min", "max"],
+          "properties": {
+            "n": { "type": "integer", "minimum": 1 },
+            "min": { "enum": ["lower", "upper", null] },
+            "max": { "enum": ["lower", "upper", null] }
+          }
         },
         "converted": {
           "description": "How many of the products' prices the median is of were converted from another currency (D113), from which, at which rate date.",

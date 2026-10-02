@@ -11,7 +11,7 @@
 // one costs in candidates, and draw what qualifies.
 
 import { AXIS_DEFS } from './axes.js';
-import { buildFamilyColors, esc, fmtNumber } from './format.js';
+import { buildFamilyColors, esc, fmtNumber, fmtBounded, publishedBound } from './format.js';
 import { prop } from './labels.js';
 
 const DEFAULT_AXES = ['density', 'tensileModulusXY', 'elongationXY', 'hdt045'];
@@ -128,7 +128,7 @@ function draw(host, usable, chosen, db, state, actions, estimateOnly = []) {
   const crowded = lines.length > 40;
   const families = [...new Set(lines.map((l) => l.family))];
   // A line's values in words: its readout, and its name for a screen reader.
-  const valuesOf = (l) => axes.map((a) => `${prop(a.key).short} ${fmtNumber(l.material.headline[a.key].value)} ${a.unit}`);
+  const valuesOf = (l) => axes.map((a) => `${prop(a.key).short} ${fmtBounded(l.material.headline[a.key].value, a.unit, publishedBound(l.material.headline[a.key]))}`);
 
   // Each line is a group of two polylines: the one drawn, and a wide transparent one over it that takes the pointer, so a
   // finger can hit a line under two pixels wide. The group is the focusable control.

@@ -44,6 +44,29 @@ const fmt = (n) => (Number.isFinite(n) ? String(Number(n.toFixed(6))) : String(n
 export const rangeText = (lo, hi, unit = '') => `${lo != null && hi != null ? `${fmt(lo)} to ${fmt(hi)}` : lo != null ? `at least ${fmt(lo)}` : `at most ${fmt(hi)}`}${unit ? ` ${unit}` : ''}`;
 
 /**
+ * The one-sided bound an interval states ("> 300 %"), or null for a point, a range and a mean with a band. `sign` is
+ * what the sheet prints and what a number cell shows; `words` is the page's wording for the same operator (filters.js,
+ * labels.js), for text that has room. A bound limits a value and is never the value, so every place that prints one
+ * says so.
+ */
+export function boundOf(interval) {
+  if (!interval) return null;
+  const { lo, hi, openLow, openHigh } = interval;
+  if (lo != null && hi == null) return openLow ? { sign: '>', words: 'more than' } : { sign: '≥', words: 'at least' };
+  if (hi != null && lo == null) return openHigh ? { sign: '<', words: 'less than' } : { sign: '≤', words: 'at most' };
+  return null;
+}
+
+/**
+ * The bound a headline entry shows as its number, as its interval, or null. A product's own value carries its interval;
+ * a material's number is its products' median, a bound only where it is the value of a typical product that published one.
+ */
+export function publishedBound(entry) {
+  const iv = entry?.spread ? (entry.typical?.value === entry.value ? entry.typical?.interval : null) : entry?.interval;
+  return boundOf(iv) ? iv : null;
+}
+
+/**
  * Compare an asserted interval against a threshold.
  * An unbounded end is null. A point value is lo === hi.
  */
@@ -165,15 +188,18 @@ function evaluateNumeric(material, c, ctx = {}) {
   const band = interval.kind === 'uncertainty';
   const status = compareInterval(band ? { lo: h.value, hi: h.value, kind: 'point' } : interval, c.operator, c.value);
   const closeToLimit = band && interval.lo <= c.value && c.value <= interval.hi;
+  const bound = boundOf(interval);
 
   let reason;
   if (status === STATUS.INDETERMINATE) {
-    reason = `Reported range ${fmt(interval.lo)} to ${fmt(interval.hi)} ${h.unit} straddles the threshold`;
+    reason = bound
+      ? `Published ${bound.words} ${fmt(h.value)} ${h.unit}, a bound that leaves the threshold on either side of the value`
+      : `Reported range ${fmt(interval.lo)} to ${fmt(interval.hi)} ${h.unit} straddles the threshold`;
   } else {
     // A scenario assumption is the reader's own number, never a published one (audit 2026-09-15, A-02).
     reason = h.assumption
       ? `Assumed ${fmt(h.value)} ${h.unit} (a scenario assumption, not published)`
-      : `Published ${fmt(h.value)}${band ? ` ± ${fmt(h.uncertainty)}` : ''} ${h.unit}`;
+      : `Published ${bound ? `${bound.words} ` : ''}${fmt(h.value)}${band ? ` ± ${fmt(h.uncertainty)}` : ''} ${h.unit}`;
     // A value whose sheet leaves the load or direction unstated decides only when the reader includes such values (D84).
     if (h.caveat) reason += `, its test ${h.caveat === 'load-not-stated' ? 'load' : 'direction'} not stated (counted because values published that way are included)`;
     else if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;

@@ -7,10 +7,11 @@
 // second used to be unreachable: nozzle and bed temperatures sat one tab deep in the drawer, and
 // the 104 purchase links in the data were rendered nowhere at all.
 
-import { renderValue, chip, esc, fmtNumber, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
+import { renderValue, chip, esc, fmtNumber, fmtBoundedKind, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
 import { INDICES, indexById, rankingFor, indexValue } from '../engine/indices.js';
+import { boundOf, publishedBound } from '../engine/constraints.js';
 import { productView, stateOf, hardenedShare, hardenedWords } from '../engine/products.js';
 import { matchingProducts } from '../engine/search.js';
 
@@ -225,9 +226,12 @@ export function unknownMark(e) {
  */
 export function passingValues(e, key) {
   const obs = (e?.products ?? []).filter((p) => p.verdict === 'PASS')
-    .flatMap((p) => (p.results ?? []).filter((r) => r.constraint?.kind === 'numeric' && r.constraint.property === key && Number.isFinite(r.observed)).map((r) => r.observed));
+    .flatMap((p) => (p.results ?? []).filter((r) => r.constraint?.kind === 'numeric' && r.constraint.property === key && Number.isFinite(r.observed)).map((r) => ({ value: r.observed, bound: boundOf(r.interval) })));
   if (!obs.length) return null;
-  return { min: Math.min(...obs), max: Math.max(...obs), n: obs.length };
+  const [min, max] = [Math.min(...obs.map((o) => o.value)), Math.max(...obs.map((o) => o.value))];
+  // A passing product's published bound ("> 300 %") is said to be one, at whichever end of the passing values it falls.
+  const kindAt = (v) => { const b = obs.find((o) => o.value === v && o.bound)?.bound; return b ? (b.sign === '>' || b.sign === '≥' ? 'lower' : 'upper') : null; };
+  return { min, max, n: obs.length, minBound: kindAt(min), maxBound: kindAt(max) };
 }
 
 export function renderTable(host, state, actions) {
@@ -378,8 +382,9 @@ export function renderTable(host, state, actions) {
       // product's typical and range under it, labelled (PM-01).
       const pass = tested && e?.verdict === 'PASS' && on(c.key).length ? passingValues(e, c.key) : null;
       if (pass) {
-        const words = pass.min === pass.max ? fmtNumber(pass.min) : `${fmtNumber(pass.min)}\u2013${fmtNumber(pass.max)}`;
-        return `<td class="num"><span class="passing-values" title="${esc(`The value of each product that passes, for this requirement (${pass.n} product${pass.n === 1 ? '' : 's'}). Under it: every product of the material.`)}">passing: ${words}</span><span class="row-sub all-products">all products: ${all}</span></td>`;
+        const words = pass.min === pass.max ? fmtBoundedKind(fmtNumber(pass.min), pass.minBound, true)
+          : `${fmtBoundedKind(fmtNumber(pass.min), pass.minBound)}\u2013${fmtBoundedKind(fmtNumber(pass.max), pass.maxBound)}`;
+        return `<td class="num"><span class="passing-values" title="${esc(`The value of each product that passes, for this requirement (${pass.n} product${pass.n === 1 ? '' : 's'}). Under it: every product of the material.${pass.minBound || pass.maxBound ? ' A value marked as a published bound (a sign before it, or a + after it) is a limit, not the value.' : ''}`)}">passing: ${words}</span><span class="row-sub all-products">all products: ${all}</span></td>`;
       }
       return `<td class="num">${all}</td>`;
     }).join('');
@@ -581,8 +586,9 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     if (!h?.known) return [];
     const out = [];
     if (h.assumption) out.push(`${k}: scenario assumption ${h.value}`);
+    out.push(...boundQualifier(k, h));
     const i = h.interval;
-    if (i && i.kind !== 'point') {
+    if (i && i.kind !== 'point' && !boundOf(i)) {
       out.push(`${k}: ${i.lo ?? 'unbounded'} to ${i.hi ?? 'unbounded'}${h.uncertainty ? ` (± ${h.uncertainty})` : ''}`);
     }
     if (h.loadStated === false) out.push(`${k}: test load not stated`);
@@ -637,6 +643,17 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
 }
 
 /**
+ * A value a source published as a bound travels as its number in the value column and as "key: > 300" here, with the sign
+ * the sheet prints, so a spreadsheet never reads a limit as a measurement. A material's median says how many of its
+ * products' values were bounds.
+ */
+function boundQualifier(key, h) {
+  const b = boundOf(publishedBound(h));
+  return [...(b ? [`${key}: ${b.sign} ${h.value}`] : []),
+    ...(h?.spread?.bounds ? [`${key}: ${h.spread.bounds.n} of ${h.spread.n} product values are published bounds, counted as their numbers`] : [])];
+}
+
+/**
  * Every product of the materials on screen, one row each (D83): the end of the funnel, where a material becomes a spool.
  * Its own values with their level, its print recipe, and its verdict under the scenario's requirements, so the file
  * says which product to buy and why without the screen.
@@ -655,7 +672,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
   const readFrom = (entries) => entries.filter(([, f]) => f).map(([what, f]) => `${what}: ${f.label}`).join('; ');
   const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements', 'Judged as', 'Not settled by',
     ...(goal && ctx ? [`Goal ${goal.formula} in the state judged`] : []),
-    ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]), 'Values read from',
+    ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]), 'Value qualifiers', 'Values read from',
     'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source'];
   const header = [
     '# H2C Material Selector: products of the materials on screen',
@@ -675,6 +692,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
         (judged.get(g.id)?.results ?? []).filter((r) => r.status === 'UNKNOWN' || r.status === 'INDETERMINATE').map((r) => `${r.constraint ? describeConstraint(r.constraint) : r.criterion}: ${r.reason}`).join(' | '),
         ...(goal && ctx ? [(() => { const j = judged.get(g.id); const v = j ? indexValue(productView(m, g, ctx, stateOf(g, j.state?.id ?? null)), goal) : null; return v === null ? '' : Number(v.toPrecision(6)); })()] : []),
         ...KEYS.flatMap((k) => { const v = g.headline?.[k]; return [v?.value ?? '', v?.level ?? '', v?.measurementId ?? (v?.priceIds ?? []).join(' ')]; }),
+        KEYS.flatMap((k) => boundQualifier(k, g.headline?.[k])).join(' | '),
         readFrom(KEYS.map((k) => [k, g.headline?.[k]?.from])),
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
         p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',

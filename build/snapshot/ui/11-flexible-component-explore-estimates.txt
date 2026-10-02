@@ -552,10 +552,10 @@ none judged
 nothing published to judge
  1,010
 1,000–1,020 · 6
- 0.09 16.5
+ 0.09 > 16.5
 9.17–30 · 3
  905
-520–1,107 · 3
+520+–1,107 · 3
  n/a 106↗ ☆
 PET
 PET Engineering
@@ -1060,7 +1060,7 @@ nothing published to judge
  12.7
 7.6–17.7 · 2
  445
-390–500 · 2
+390–500+ · 2
  n/a 88
 74.1–102 · 2
 ¤↗
@@ -1079,7 +1079,7 @@ none judged
 nothing published to judge
  1,125
 1,000–1,250 · 2
- 0.06* 11.5* 300* n/a — ☆
+ 0.06* 11.5* > 300* n/a — ☆
 TPS
 Flexible Elastomers
  UNKNOWN
@@ -1100,7 +1100,7 @@ Flexible Elastomers
 6.2–30 · 4
  passing: 700
 all products: 585
-560–700 · 3
+560–700+ · 3
  n/a 58
 50–158 · 3
 ↗ ☆
@@ -1116,7 +1116,7 @@ Flexible Elastomers
 12.5–30 · 4
  passing: 574–1,000
 all products: 618
-574–1,000 · 4
+574–1,000+ · 4
  n/a 75
 54–96 · 2
 ↗ ☆
@@ -1132,7 +1132,7 @@ Flexible Elastomers
 17–31.8 · 11
  passing: 265–900
 all products: 499
-265–900 · 10
+265–900+ · 10
  n/a 83
 54–112 · 2
 ↗ ☆
@@ -1146,7 +1146,7 @@ nothing published to judge
  ~0.007–0.30† 30
 22.4–39 · 3
  540
-140–650 · 3
+140–650+ · 3
  n/a 47.5↗ ☆
 TPU-CF
 Flexible Elastomers

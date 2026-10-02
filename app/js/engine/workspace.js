@@ -18,6 +18,7 @@
 import { productView, stateOf, valueStateOf, firstState } from './products.js';
 import { indexValue, rankingFor, indexAxes, indexOrientation, COST_AXIS } from './indices.js';
 import { paretoFront } from './pareto.js';
+import { publishedBound } from './constraints.js';
 
 export { COST_AXIS };
 
@@ -167,7 +168,7 @@ function contextSpan(material, key, registry) {
     const s = h.spread;
     return s && Number.isFinite(s.min) && Number.isFinite(s.max) && s.min !== s.max
       ? { lo: s.min, hi: s.max, measured: true, products: s.n ?? null, kind: 'product-span' }
-      : { lo: h.value, hi: h.value, measured: true, products: s?.n ?? 1, kind: 'product-value' };
+      : { lo: h.value, hi: h.value, measured: true, products: s?.n ?? 1, kind: 'product-value', interval: publishedBound(h) };
   }
   const e = h.estimate;
   if (!e) return null;

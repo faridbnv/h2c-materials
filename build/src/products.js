@@ -114,6 +114,8 @@ export function assess(m, def, gradeMeasurements, state = null) {
 const POST_PROCESSING_ORDER = { 'as-printed': 0, 'not-stated': 1, annealed: 2 };
 // A published point or mean before a published range, and either before a one-sided bound ("> 500 %").
 const intervalOrder = (iv) => (!iv ? 3 : iv.kind === 'point' || iv.kind === 'uncertainty' ? 0 : iv.kind === 'range' ? 1 : 2);
+// A published bound is an interval open at one end ("> 500 %": lo set, hi null), which a point, a range and a band are not.
+const oneSided = (iv) => !!iv && (iv.lo == null) !== (iv.hi == null);
 
 /**
  * The order in which a product's candidates for one headline are preferred, most preferred first. Deterministic: the
@@ -370,6 +372,13 @@ function summarise(entries, products) {
     const typical = [...comparable].sort((a, b) => Math.abs(a.v.value - mid) - Math.abs(b.v.value - mid) || a.v.value - b.v.value
       || (a.v.from ? 1 : 0) - (b.v.from ? 1 : 0) || (a.gradeId < b.gradeId ? -1 : 1))[0];
     Object.assign(out, { min: sorted[0], max: sorted.at(-1), median: mid, typical: typical.gradeId });
+    // A published bound ("> 650 %") counts here as its number, which is all the median can take; the page says which
+    // values were bounds, and which end of the range (or the median itself) is one, so none reads as a measurement.
+    const bounded = comparable.filter((e) => oneSided(e.v.interval));
+    if (bounded.length) {
+      const at = (value) => { const b = bounded.find((e) => e.v.value === value); return b ? (b.v.interval.lo != null ? 'lower' : 'upper') : null; };
+      out.bounds = { n: bounded.length, min: at(out.min), max: at(out.max) };
+    }
     if (sorted.length >= QUARTILES_FROM) Object.assign(out, { q1: quantile(sorted, 0.25), q3: quantile(sorted, 0.75) });
     const twins = comparable.filter((e) => e.v.from?.origin === 'twin').length;
     if (twins) out.twins = twins;
@@ -399,6 +408,8 @@ function productsHeadline(unit, s, gradeById, key) {
       asPublished: s.asPublished ?? null, variants: s.variants ?? null, ...(s.twins ? { twins: s.twins } : {}) },
     typical: { gradeId: s.typical, measurementId: typical?.measurementId ?? null, value: typical?.value ?? null },
   };
+  if (s.bounds) h.spread.bounds = s.bounds;
+  if (oneSided(typical?.interval)) h.typical.interval = typical.interval;
   if (s.n === 1) Object.assign(h, { measurementId: typical?.measurementId ?? null, gradeId: s.typical });
   if (key === 'priceCADkg') {
     h.observations = s.n;

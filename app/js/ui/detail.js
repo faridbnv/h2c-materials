@@ -5,7 +5,7 @@
 // toughness at zero records and compression and CTE at one each, a fixed skeleton would produce
 // mostly empty pages. Showing the gap turns that into information.
 
-import { renderValue, chip, esc, fmtNumber, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleWords } from './format.js';
+import { renderValue, chip, esc, fmtNumber, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleWords } from './format.js';
 import { renderWhy } from './explain.js';
 import { materialName, describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
@@ -686,9 +686,12 @@ const LEVEL_NOTE = {
 function productValues(g, c) {
   const rows = REGISTRY.headlines.filter((h) => g.headline?.[h.key]).map((h) => {
     const v = g.headline[h.key];
+    // A bound the source published ("> 300 %") reads as one, and the hover says it is a limit and not the value.
+    const shown = esc(fmtBounded(v.value, h.unit, v.interval));
+    const note = boundNote(v.interval, v.value, h.unit);
     const value = v.measurementId
-      ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="Opens the measurement behind this value">${fmtNumber(v.value)} ${esc(h.unit)}<span class="evidence-dot" aria-hidden="true"></span></button>`
-      : `${fmtNumber(v.value)} ${esc(h.unit)}${v.observations ? ` <span class="fine">(${plural(v.observations, 'listing')})</span>` : ''}`;
+      ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="${esc(note ? `${note} Opens the measurement behind this value` : 'Opens the measurement behind this value')}">${shown}<span class="evidence-dot" aria-hidden="true"></span></button>`
+      : `${shown}${v.observations ? ` <span class="fine">(${plural(v.observations, 'listing')})</span>` : ''}`;
     const mark = v.level === 'as-published'
       ? ` ${explainButton('not comparable', LEVEL_NOTE[v.caveat] ?? 'Not comparable.', { cls: 'missing lvl', head: 'Published without its conditions' })}` : '';
     const anneal = v.anneal ? ` <span class="fine">after annealing${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';

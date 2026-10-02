@@ -9,7 +9,7 @@
 
 import { indexById, INDICES, selectionLine, PRICE_CAVEAT, indexDisplay } from '../engine/indices.js';
 import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
-import { buildFamilyColors, esc, fmtNumber, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
+import { buildFamilyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
 import { AXIS_DEFS } from './axes.js';
 import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH } from './labels.js';
 import { asksPrintable } from './templates.js';
@@ -42,7 +42,7 @@ export function axisDef(key) {
   return { ...a, plain: prop(a.key).plain };
 }
 const axisTitle = (d) => `${d.plain} (${d.unit})`;
-const valueText = (v, d) => (v === null || v === undefined ? '—' : `${fmtNumber(v)} ${d.unit}`);
+const valueText = (v, d, interval = null) => (v === null || v === undefined ? '—' : fmtBounded(v, d.unit, interval));
 
 /** Why a product state has no coordinate on an axis, in words. */
 function missingWords(m, def) {
@@ -432,7 +432,7 @@ export function pairList(state, ws, materialId) {
     .sort((a, b) => (b.M ?? -Infinity) - (a.M ?? -Infinity) || a.gradeId.localeCompare(b.gradeId));
   return `<ul>${list.map((p) => `<li><button type="button" class="ws-pair-btn" data-inspect="${esc(p.key)}" ${state.inspect?.key === p.key ? 'aria-current="true"' : ''}>
     <span class="ws-pair-name">${esc(p.product)}</span> <span class="fine">${esc(stateWords(p.state))}</span>
-    <span class="ws-pair-vals">${esc(valueText(p.y.value, yD))} · ${esc(valueText(p.x.value, xD))}${p.M !== null ? ` · M ${sig(p.M)}` : ''}</span></button></li>`).join('')}</ul>`;
+    <span class="ws-pair-vals">${esc(valueText(p.y.value, yD, p.y.interval))} · ${esc(valueText(p.x.value, xD, p.x.interval))}${p.M !== null ? ` · M ${sig(p.M)}` : ''}</span></button></li>`).join('')}</ul>`;
 }
 
 /** "annealed:120:16" as a state object, for words. */
@@ -464,7 +464,7 @@ function inspector(state, ws) {
          ${s.plausible ? `<br><span class="fine">broader, plausible: ${esc(fmtRange(s.plausible.lo, s.plausible.hi))} ${esc(d.unit)}</span>` : ''}
          ${s.screenRange ? `<br><span class="fine">defended screening bounds the engine may use: ${esc(fmtRange(s.screenRange.lo, s.screenRange.hi))} ${esc(d.unit)}${s.canScreen ? '' : ' (this estimate may not screen)'}; not the likely range, and not a physical limit</span>` : ''}
          <br><span class="fine">basis: ${esc(s.basis ?? 'not stated')}</span></dd>`
-      : `<dd>${s.lo === s.hi ? esc(valueText(s.lo, d)) : `${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)}`} <span class="fine">measured: ${s.kind === 'product-span' ? `the span of its ${plural(s.products ?? 0, 'product')}, not one product's uncertainty` : 'its one product\'s value'}</span></dd>`);
+      : `<dd>${s.lo === s.hi ? esc(valueText(s.lo, d, s.interval)) : `${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)}`} <span class="fine">measured: ${s.kind === 'product-span' ? `the span of its ${plural(s.products ?? 0, 'product')}, not one product's uncertainty` : 'its one product\'s value'}</span></dd>`);
     const estKey = e.x.kind === 'estimate' ? p.x : p.y;
     return `<section class="ws-inspector" aria-label="Estimated context" tabindex="-1"><div class="ws-insp-head"><h3>${esc(e.name)}: estimated context</h3>${close}</div>
       <p class="fine">None of its products publishes a comparable ${esc(axisDef(estKey).plain.toLowerCase())}. This is context, not a candidate: it confirms no requirement and ranks nowhere.</p>
@@ -485,7 +485,7 @@ function inspector(state, ws) {
       <dl class="kv small"><dt>${esc(yD.plain)}</dt><dd>${rangeWords(s.y, yD)}</dd>
         <dt>${esc(xD.plain)}</dt><dd>${rangeWords(s.x, xD)}</dd>
         ${variants.length ? `<dt>Variants</dt><dd>${plural(variants.length, 'product')} drawn apart and kept out of the range: ${variants.map((q) => `${esc(q.product)} (${esc(q.variant)})`).join('; ')}</dd>` : ''}</dl>
-      <ul class="ws-nearby">${list.map((q) => `<li><button type="button" class="ws-pair-btn" data-inspect="${esc(q.key)}"><span class="ws-pair-name">${esc(q.product)}</span> <span class="fine">${esc(stateWords(q.state))} · ${esc(valueText(q.y.value, yD))} · ${esc(valueText(q.x.value, xD))}</span></button></li>`).join('')}</ul>
+      <ul class="ws-nearby">${list.map((q) => `<li><button type="button" class="ws-pair-btn" data-inspect="${esc(q.key)}"><span class="ws-pair-name">${esc(q.product)}</span> <span class="fine">${esc(stateWords(q.state))} · ${esc(valueText(q.y.value, yD, q.y.interval))} · ${esc(valueText(q.x.value, xD, q.x.interval))}</span></button></li>`).join('')}</ul>
       <div class="ws-insp-actions"><button type="button" class="btn btn-sm" data-focus-material="${esc(s.materialId)}">Zoom to its products</button> <button type="button" class="btn btn-sm" data-open-material="${esc(s.materialId)}">Open ${esc(s.name)}</button></div></section>`;
   }
   const q = [...ws.pairs, ...ws.contextPairs].find((x) => x.key === sel.key);
@@ -498,8 +498,8 @@ function inspector(state, ws) {
     if (v.value === null) return `<dd class="missing">${esc(missingWords({ reason: v.missing, elsewhere: v.elsewhere }, d))}</dd>`;
     const m = measurement(v.measurementId);
     const value = v.measurementId
-      ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="Opens the measurement behind this value">${esc(valueText(v.value, d))}<span class="evidence-dot" aria-hidden="true"></span></button>`
-      : esc(valueText(v.value, d));
+      ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="Opens the measurement behind this value">${esc(valueText(v.value, d, v.interval))}<span class="evidence-dot" aria-hidden="true"></span></button>`
+      : esc(valueText(v.value, d, v.interval));
     const where = v.origin === 'assumption' ? 'a scenario assumption, not measured'
       : v.derived ? `its own price ${fmtNumber(v.price.value)} ${esc(v.price.unit)} (${plural(v.price.observations ?? v.priceIds.length, 'listing')}, ${esc(v.priceIds.join(' '))}) × its own density ${fmtNumber(v.density.value)} ${esc(v.density.unit)}`
       : v.stateInvariantByRegistry ? `read from ${esc(v.sourceStateId)}: the registry declares ${esc(d.plain.toLowerCase())} unchanged by this state`
@@ -551,7 +551,9 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   const labelPlan = { pins: [], points: [], envelopes: [], fixed: [] };
   const drawnFamilies = new Set();
   const focus = new Set(p.focus ?? []);
-  const cd = (q, note) => [q.materialId, `${q.name}: ${q.product}`, q.verdict, q.x.measurementId ?? '', q.y.measurementId ?? '', q.stateId, q.gradeId, note, q.key];
+  // A hover's numbers come from the coordinates, so a coordinate that is a published bound says so in the note beside them.
+  const bounded = (q) => [boundLine(yD.plain, q.y.interval, q.y.value, yD.unit), boundLine(xD.plain, q.x.interval, q.x.value, xD.unit)].filter(Boolean);
+  const cd = (q, note) => [q.materialId, `${q.name}: ${q.product}`, q.verdict, q.x.measurementId ?? '', q.y.measurementId ?? '', q.stateId, q.gradeId, [note, ...bounded(q)].join('; '), q.key];
   // Shape is the filler on every view of the lens (D110): a carbon-fibre product is a diamond wherever it is drawn. How
   // the shape is drawn is its status: filled passes, hollow could not be settled, small and faint fails.
   const shape = (q) => FILLER_SYMBOL[q.filler] ?? 'circle';

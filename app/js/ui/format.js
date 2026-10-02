@@ -2,6 +2,9 @@
 // number never looks like one a regular expression recovered out of free text.
 
 import { estimateTitle } from './labels.js';
+import { boundOf, publishedBound } from '../engine/constraints.js';
+
+export { publishedBound };
 
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -18,6 +21,40 @@ export function fmtNumber(v, unit) {
   s = s.replace(/\.0+$/, '').replace(/(\.\d*?)0+$/, '$1');
   return unit ? `${s} ${unit}` : s;
 }
+
+/**
+ * A number a source published as a bound ("> 300 %"), read as one wherever a value is shown: the sign in front, as the
+ * sheet and the measurement list print it. An interval with no open end (a point, a range, a mean with a band) is
+ * the number alone. A bound limits a value and is never the value, so a bare "300" in a column would be a claim the
+ * source did not make.
+ */
+export function fmtBounded(v, unit, interval) {
+  const b = boundOf(interval);
+  const s = fmtNumber(v, unit);
+  return b && s !== '—' ? `${b.sign} ${s}` : s;
+}
+
+/** What a bound says in a sentence, for a hover or a popover: the sheet's own words, and that the value is not the number. */
+export function boundNote(interval, value, unit) {
+  const b = boundOf(interval);
+  if (!b) return '';
+  const side = b.sign === '>' || b.sign === '≥' ? 'lower' : 'upper';
+  return `Published as a bound: the source prints "${b.words} ${fmtNumber(value, unit)}", a ${side} limit of the value and not the value itself.`;
+}
+
+/** A bound as a short line for a chart's hover, which cannot wrap: "Elongation is a published bound (more than 300 %)". */
+export function boundLine(label, interval, value, unit) {
+  const b = boundOf(interval);
+  return b ? `${label} is a published bound (${b.words} ${fmtNumber(value, unit)})` : '';
+}
+
+/**
+ * A number that may be a published bound, as markup: alone it is "> 1,000" or "< 0.8" with the sign in front; as one end
+ * of a range, where that would read as a second range, "1,000+" or "<0.8" (`lone` false). `kind` is 'lower', 'upper'
+ * or none.
+ */
+export const fmtBoundedKind = (text, kind, lone = false) => (kind === 'lower' ? (lone ? `&gt; ${text}` : `${text}+`)
+  : kind === 'upper' ? `&lt;${lone ? ' ' : ''}${text}` : text);
 
 const SIDE = { '>=': (a, b) => a >= b, '>': (a, b) => a > b, '<=': (a, b) => a <= b, '<': (a, b) => a < b };
 
@@ -246,19 +283,23 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     const more = r.count - 1;
     // Quiet by design: a value plus one marker. The earlier version stacked shouty uppercase tags
     // like "XY +1" and "NO DIRECTION" into the cell, which made the column unscannable.
-    const title = `No product publishes this comparably. Nearest measurement on record: ${fmtNumber(b.value)} ${b.unit}`
+    const shown = fmtBounded(b.value, null, b.interval);
+    const title = `No product publishes this comparably. Nearest measurement on record: ${shown} ${b.unit}`
       // A property with no direction (a glass transition, a density) is never said to lack one.
       + ` — ${b.property}, grade ${b.gradeId}${dir ? ', ' + dir + ' direction' : b.direction === 'not-applicable' ? '' : ', direction not stated'}.`
       + ` Why it is not compared: ${b.why}.`
       + `${more ? ` ${more} further measurement${more === 1 ? '' : 's'} across ${r.grades} grade${r.grades === 1 ? '' : 's'}.` : ''}`
+      + `${boundOf(b.interval) ? ` ${boundNote(b.interval, b.value, b.unit)}` : ''}`
       + ' Not used by any filter.';
-    return explainButton(`<span class="rv">${fmtNumber(b.value)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
+    return explainButton(`<span class="rv">${esc(shown)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
       + `<span class="related-mark">*</span>`, title,
     { cls: 'related', head: 'Measured, but not comparable', action: 'measurement', id: b.measurementId });
   }
   const thresholds = results.map((r) => r.constraint).filter((c) => c && Number.isFinite(c.value));
   if (entry.spread && entry.spread.n > 1) return renderSpread(entry, thresholds, { showUnit, compact, materialId });
-  const text = fmtAgainst(entry.value, thresholds, showUnit ? entry.unit : null);
+  const plain = fmtAgainst(entry.value, thresholds, showUnit ? entry.unit : null);
+  const bound = boundOf(publishedBound(entry));
+  const text = bound ? `${esc(bound.sign)} ${plain}` : plain;
   let cls = '';
   let title = '';
   let head = '';
@@ -276,13 +317,18 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     head = 'Derived';
     title = `Derived${entry.from ? ' from ' + entry.from : ''}`;
   }
+  if (bound) {
+    const note = boundNote(publishedBound(entry), entry.value, entry.unit);
+    title = title ? `${title.replace(/\.$/, '')}. ${note}` : note;
+    head = head || 'Published as a bound';
+  }
   // The number itself is the button that opens the measurement behind it, with the dot as its marker. The dot alone
   // was a six-pixel mark in an eighteen-pixel button, and "click any number" was true of none of them.
   let value;
   if (entry.measurementId) {
     value = `<button type="button" class="evidence-value" data-measurement="${esc(entry.measurementId)}"
         title="${esc(title ? `${title.replace(/\.$/, '')}. Opens the measurement behind this value.` : 'Opens the measurement behind this value')}"
-        aria-label="${esc(text)}, open the measurement behind it"><span class="${cls}">${text}</span><span class="evidence-dot" aria-hidden="true"></span></button>`;
+        aria-label="${esc(bound ? `${bound.words} ${plain}` : plain)}, open the measurement behind it"><span class="${cls}">${text}</span><span class="evidence-dot" aria-hidden="true"></span></button>`;
   } else if (title) {
     value = explainButton(text, title, { cls, head: head || 'About this value' });
   } else {
@@ -312,8 +358,9 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
 function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
   const s = entry.spread;
   const unit = showUnit ? entry.unit : null;
-  const median = fmtAgainst(entry.value, thresholds, unit);
-  const lo = fmtAgainst(s.min, thresholds, null), hi = fmtAgainst(s.max, thresholds, unit);
+  const medianBound = boundOf(publishedBound(entry));
+  const median = `${medianBound ? `${esc(medianBound.sign)} ` : ''}${fmtAgainst(entry.value, thresholds, unit)}`;
+  const lo = fmtBoundedKind(fmtAgainst(s.min, thresholds, null), s.bounds?.min), hi = fmtBoundedKind(fmtAgainst(s.max, thresholds, null), s.bounds?.max) + (unit ? ` ${unit}` : '');
   const apart = [
     s.asPublished ? `${s.asPublished.n} more publish it without stating the test direction or load (${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}); they are not compared` : null,
     s.variants ? `${s.variants.n} declared variant${s.variants.n === 1 ? '' : 's'} (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)}) ${s.variants.n === 1 ? 'is' : 'are'} kept apart` : null,
@@ -322,6 +369,8 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     + `${s.q1 != null ? `, the middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}. These are different products, not the uncertainty of one.`
     // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
     + `${s.twins ? ` ${s.twins} of them ${s.twins === 1 ? 'is a product whose' : 'are products whose'} own sheet prints the same table as another of its products, and ${s.twins === 1 ? 'counts' : 'count'} as the ${s.twins === 1 ? 'product it is' : 'products they are'}.` : ''}`
+    // A bound is counted as its number; the marks say where that number is one, so no end reads as a measurement.
+    + `${s.bounds ? ` ${s.bounds.n} of the ${s.n} ${s.bounds.n === 1 ? 'is' : 'are'} published as a bound ("more than 650"), counted as its number: a "+" after an end of the range, or a sign before the median, marks where that number is a bound.` : ''}`
     + `${s.products > s.n ? ` ${s.products - s.n} of the material's ${s.products} products do not publish it comparably.` : ''}`
     + `${apart.length ? ` ${apart.join('; ')}.` : ''} The material's Products tab lists each.`;
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Typical of ${s.n} products`, action: 'products', id: materialId });

@@ -103,7 +103,7 @@ Flexible Elastomers
 6.2–30 · 4
  passing: 700
 all products: 585
-560–700 · 3
+560–700+ · 3
  n/a 58
 50–158 · 3
 ↗ ☆
@@ -119,7 +119,7 @@ Flexible Elastomers
 12.5–30 · 4
  passing: 574–1,000
 all products: 618
-574–1,000 · 4
+574–1,000+ · 4
  n/a 75
 54–96 · 2
 ↗ ☆
@@ -135,7 +135,7 @@ Flexible Elastomers
 17–31.8 · 11
  passing: 265–900
 all products: 499
-265–900 · 10
+265–900+ · 10
  n/a 83
 54–112 · 2
 ↗ ☆

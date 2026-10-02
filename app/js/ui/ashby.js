@@ -24,7 +24,7 @@ import { rankingFor } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { WORKSPACE_VIEWS } from '../engine/scenario.js';
 import { COST_AXIS, goalAxes } from '../engine/workspace.js';
-import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange, wireEvidence } from './format.js';
+import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange, boundLine, publishedBound, wireEvidence } from './format.js';
 import { download } from './table.js';
 import { AXIS_DEFS, measurementMatches, pairCompatibility } from './axes.js';
 import { prop } from './labels.js';
@@ -350,7 +350,9 @@ export function typicalNote(material, evaluation, keys, tested, names = {}) {
     : passing ? `${passing} of its ${products.length} product${products.length === 1 ? '' : 's'} pass${passing === 1 ? 'es' : ''}: see Material ranges`
       : 'None of its products is confirmed to pass: see Material ranges';
   // Short lines: a hover label does not wrap, and one long line ran off both sides of the chart.
-  return ['Whole material, all its products:', `the median of ${basis.length ? basis.join(', ') : 'its products'}, as printed and dry.`, answer].join('<br>');
+  // A median that is a typical product's published bound is said to be one, as the table's cell says it with its sign.
+  const bounds = keys.map((k) => { const h = material.headline?.[k]; return boundLine((names[k] ?? k), publishedBound(h), h?.value, h?.unit); }).filter(Boolean);
+  return ['Whole material, all its products:', `the median of ${basis.length ? basis.join(', ') : 'its products'}, as printed and dry.`, ...bounds, answer].join('<br>');
 }
 
 /** One point per canonical material, using the same headline logic as the rest of the selector. */
@@ -397,7 +399,8 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
         // specimen, direction or document keeps a pair out, and mixed exploration names it.
         const fit = pairCompatibility(xm.measurement, ym.measurement, mode, inv);
         if (!fit.ok) { conflicting++; continue; }
-        const notes = [...new Set([...xm.notes, ...ym.notes, ...fit.missing, ...fit.basis])];
+        const bounded = [[xDef, xm.measurement], [yDef, ym.measurement]].map(([d, x]) => boundLine(d.label, x.interval, x.value, x.unit)).filter(Boolean);
+        const notes = [...new Set([...xm.notes, ...ym.notes, ...fit.missing, ...fit.basis, ...bounded])];
         // Only a genuine relaxation makes a point hollow or reaches the banner. An unstated
         // specimen form on an axis with no direction requirement is context, not a mismatch.
         const relaxed = [...new Set([...xm.relaxed, ...ym.relaxed, ...fit.conflicts])];

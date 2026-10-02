@@ -898,10 +898,6 @@ research package's 51 technical findings, and one fact found on re-reading. What
 - **Prices were not admitted by the tranche.** Its eight usable offers were all foreign, and the currency contract they
   needed was not built. The price pass of the same day built it (D113) and took prices from saved shop pages instead of
   the research's notes; what it leaves is §22. The tranche's PRICES.csv stays as its record.
-- **A published bound shows as its number.** A lower bound ("> 300 %") is a product's value with an open interval,
-  and the build keeps it one (V011516), but the key-number cards and the products table draw it as "300 %*", with the
-  not-comparable mark and no "more than". It was so before the tranche: four materials' hints and 46 product values are
-  bounds (the first query lists the bound measurements); the tranche adds one of each.
 - **Extrudr's product pages print newer tables than its sheets.** The pages b39 registered for DuraPro ABS CF and
   DuraPro PC/PBT CF (and the FLEX Medium Matt page) print property tables that differ from the sheets the database holds
   (DuraPro ABS CF's tensile modulus: 4000 MPa on the page, 2850 MPa on its sheet). They were read for chamber words and
@@ -918,7 +914,6 @@ research package's 51 technical findings, and one fact found on re-reading. What
   person has spot-checked these values, and no H2C print test stands behind a recipe.
 
 ```bash
-npm run sql --silent -- "select measurementid, gradeid, property, raw_value from measurements where operator = '>' and data_status not like 'Retired%' and materialid in (select materialid from materials where scope != 'Family entry') limit 20"
 npm run sql --silent -- "select sourceid, url from sources where sourceid like 'R-EXTRUDR-PRINT-%' or sourceid = 'D-EXTRUDR-FLEX-MEDIUM-MATT-PAGE'"
 ```
 
