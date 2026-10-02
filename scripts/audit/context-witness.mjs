@@ -29,7 +29,9 @@ const pagesOf = (sourceId) => {
   if (!textCache.has(h)) { const c = cachedText(h); textCache.set(h, c ? c.pages.map((p) => ({ page: p.page, lines: p.lines.map((l) => String(l.text ?? '').replace(/\s+/g, ' ').replace(/(\d)\s*([.,])\s*(\d)/g, '$1$2$3')) })) : null); }
   return textCache.get(h);
 };
-const NA = (v) => v == null || v === '' || v === 'Not applicable' || /^Not published/.test(v);
+// CI has a .cache/text the import tests write, and none of the makers' sheets: the guard judges only where a sheet is.
+if (![...sha.keys()].some((id) => pagesOf(id))) { console.log('audit:context skipped: the text cache (.cache/text) holds none of the cited sheets in this checkout'); process.exit(0); }
+const NA =(v) => v == null || v === '' || v === 'Not applicable' || /^Not published/.test(v);
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const findings = [];
 const add = (code, record, field, message) => findings.push({ code, record, field, message });
@@ -220,7 +222,10 @@ if (acceptAt >= 0) {
   process.exit(0);
 }
 const have = new Set(accepted.map(key)); const now = new Set(findings.map(key));
-const fresh = findings.filter((f) => !have.has(key(f))); const stale = accepted.filter((a) => !now.has(key(a)));
+// An acceptance goes stale only where its sheet was read: a checkout missing that sheet cannot say the finding is gone.
+const sourceOfRecord = new Map([...rows('Properties').map((r) => [r.MeasurementID, r.SourceID]), ...rows('Print setup').map((r) => [r.ProfileID, r.SourceID])]);
+const judged = (a) => Boolean(pagesOf(sourceOfRecord.get(a.record) ?? a.record.replace(/ p\. \d+$/, '')));
+const fresh = findings.filter((f) => !have.has(key(f))); const stale = accepted.filter((a) => !now.has(key(a)) && judged(a));
 if (args.includes('--list')) for (const f of findings) console.log(`${have.has(key(f)) ? 'accepted' : 'NEW     '} ${f.code.padEnd(26)} ${f.record} [${f.field}] ${f.message.slice(0, 160)}`);
 else for (const f of fresh) console.log(`NEW ${f.code.padEnd(26)} ${f.record} [${f.field}] ${f.message.slice(0, 160)}`);
 for (const a of stale) console.log(`STALE ${a.code} ${a.record} [${a.field}]: the finding no longer occurs; remove its acceptance`);
