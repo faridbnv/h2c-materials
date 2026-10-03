@@ -864,11 +864,6 @@ research package's 51 technical findings, and one fact found on re-reading. What
   DuraPro PC/PBT CF (and the FLEX Medium Matt page) print property tables that differ from the sheets the database holds
   (DuraPro ABS CF's tensile modulus: 4000 MPa on the page, 2850 MPa on its sheet). They were read for chamber words and
   drying only. Whether a page is a newer formulation or a newer test wants Extrudr's word before either is recorded.
-- **Nanovia PA Food Industry's tensile preparation sentence awaits admission.** The 2026-10-02 coverage campaign
-  repaired the HTML reader's omitted standalone span ([repair](audits/2026-09-30-coverage-expansion/resume-reader-fix.md)).
-  R-NANOVIA-PA-Food-Industry now reads "Test performed at 50mm/min on ISO 3167 A test specimens" before its tensile
-  table, but V011205, V011512 and V011513 still carry Specimen / print parameters "Not published" until the reviewed
-  product tranche records that context. The specimen remains unstated: an ISO 3167 A bar may be printed or moulded.
 - **The estimate model recalibrated.** No rule changed, but the rows it learns from did, so 129 estimated headline
   cells of 50 materials, and 762 products' estimates, moved (`build/snapshot/headlines.csv`). Two moved a screen in Explore with estimates: PA6 (M049) is now
   screened from Flexible component (its elongation's plausible top 65.1 % against 100 %), and PET (M066) from Warm
@@ -1009,8 +1004,8 @@ npm run sql --silent -- "select evidenceid, gradeid, topic, finding, exposure_co
 
 The current [generated campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) and
 [remaining targets](audits/2026-09-30-coverage-expansion/remaining-targets.csv) distinguish material assessments
-from joined product research. No blank Application cells remain, but a filled mark can be a documented gap or
-reviewed limitation and can still await this campaign's manual assessment. Each assigned product pass includes
+from joined product research. All 136 in-scope Application assessments are complete, with original-source judgments or documented gaps.
+A filled mark can still be a limitation or gap; it does not close an exact-product research pass. Each assigned product pass includes
 applications/finishing, all frozen environmental categories, print/drying/treatment/moisture gaps, missing
 properties/comparison conditions, prior price outcomes and source/identity conflicts.
 
@@ -1022,7 +1017,31 @@ product passes. Frozen-targets.json retains prior reviewed route outcomes so the
 Scope/condition clarifications, positive Waltek sample activities, Siraya coupled foaming states, conflicting
 recipes/colour/certification claims, unknown service exposures and missing source originals retain the release
 conditions in §§19 and 23–26 and the per-tranche packets. Physical tests, vendor clarification and human source/
-team checks remain separate from catalogue research. The original plan's all-target finish criteria are not met.
+team checks remain separate from catalogue research. The original all-catalogue finish criteria are not met. The owner narrowed this run on 2026-10-02 to
+material assessment followed by 100 additional priority products; the generated status counts those separately.
+
+The HTML reader v3 retains standalone spans outside tables, but its table branch still drops a span placed directly
+inside tbody rather than inside a row/cell. The registered Nanovia PETG CF/GF UV/ESD originals print their ±45°
+preparation sentence in such a span; V011371/V011375/V011377 correctly retain that source wording and D91 direction.
+The flattened text omission must not be mistaken for a source contradiction. The withdrawn review assertion is
+retained in the priority batch history. Before expanding HTML research, repair the reader in a separate tested
+commit and refresh derivatives from the same original digests. Reproduce on original 5a48376883485fa1a04196c4b2b2e893eadbb3ac9856338ec2b4bba2261e47b4:
+raw HTML contains `successively at 45° and -45° per layer`, while pageLinesFromHtml currently omits that span.
+
+The first priority batch retains these exact-source handoffs:
+
+- Nanovia PA Rail (G049-08): maker report R-NANOVIA-PRIORITY-20261002-a570add2d2c7 is explicitly raw-material
+  testing, with R33 on p.1 versus R23 on p.2, and different smoke-test method labels. Its SDS
+  R-NANOVIA-PRIORITY-20261002-b7299118da3a says both "Flammable material" (§9.2) and "Stable. NON-FLAMMABLE."
+  (§10.2). Numerical qualification results remain held; neither contradiction establishes printed-part approval.
+- Nanovia PA6's electrical exponent notation and PETG ESD's resistivity type remain ambiguous. No numeric electrical
+  result is inferred. PLA XRS's existing impact method/notch disagreement remains a maker question.
+- Own SDS food-contact statements are resin/filament claims without printed-part qualification. PA Food Industry
+  retains its published approval claim and processing restrictions, but the linked SDS returned404.
+
+```sh
+npm run sql -- "select gradeid, topic, finding, exposure_conditions, sourceid, locator from evidence where gradeid = 'G049-08'"
+```
 
 ```sh
 npm run build
@@ -1124,9 +1143,9 @@ on its own. What it could not, by who settles it:
   - A way to retire a profile note (§28), and whether a twin reads a sibling's statement about its own additive (§28,
     eSUN PLA Clear; recommended: not where the product holds a profile of its own).
   - The 255 maker questions in `archive/research-2026-09-26/owner-handoffs.csv` (§15): sending them is outward-facing.
-  - The coverage campaign's next tranche (§27): EFFORT-AND-VALUE.md recommends 100 to 150 product passes ranked by the
-    scenario-gap queue rather than all the remaining ones (1,056 when it was written, 1,030 since 26 frozen targets of
-    products merged in m302 closed into their kept products' targets; STATUS.md).
+  - The coverage campaign (§27): the owner authorized completing material assessment and 100–150 priority products on
+    2026-10-02. All 136 material assessments are complete; 100 additional product targets are frozen in STATUS.md.
+    The remaining full-catalogue targets are outside this narrowed run.
   - Polymaker PLA Pro V6.0 beside PolyLite PLA Pro V5.6, and Fabru's POM (§28): one product each, or two.
 - **The makers.** purefil PA6 GF10's two bed rows (§28); the source contradictions of §§23 to 26; the conditions of §15.
 - **People.** The decisive-value spot-check (C3) and the team trial (C7). Every review in this pass was an AI's.

@@ -1,0 +1,394 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "19048b24b32b4858ca9681071d5ac352ee7e8857a25d571893e861092874a940",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_documents": 12,
+  "reviewed_narrative_operations": 18,
+  "canonical_files_edited": false,
+  "original_reading_scope": "Actual original PDF bytes SHA-verified; fresh pdfPages extraction independently reads own identifiers, composition context and every deciding Section10 paragraph. Both scanned PA Rail pages freshly rendered from actual original PDF and visually reread, not OCR summaries. All18 changed narrative rows reviewed. Not a maker-site exhaustion claim.",
+  "documents": [
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+      "grade": "G024-11",
+      "original_sha256": "838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab",
+      "proposal_sha256": "93040c28cb978351c895b12b31b60278f60453a2165c43c8965251d32d52fb20",
+      "OriginalPath": ".cache/sources/by-sha/838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: December 2022",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+      "grade": "G049-06",
+      "original_sha256": "55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb",
+      "proposal_sha256": "e6e1af397b5ce65e74467f75969f826a88378c1ec232c97fa328302535ecf86e",
+      "OriginalPath": ".cache/sources/by-sha/55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: May 2021",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+      "grade": "G050-12",
+      "original_sha256": "c23075f2d0a805f64b9b47e6aec6cad9ef9618152db4fa125a508a8c6e79e266",
+      "proposal_sha256": "7856bae3119c96efd3ec14c21220af2b1071422ee71d7747134cbc64f477992c",
+      "OriginalPath": ".cache/sources/by-sha/c23075f2d0a805f64b9b47e6aec6cad9ef9618152db4fa125a508a8c6e79e266.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: September 2023",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+      "grade": "G020-39",
+      "original_sha256": "74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b",
+      "proposal_sha256": "922c15060da07ab939f43da981031165a6660106ab39dc78f0f1689c92657ba6",
+      "OriginalPath": ".cache/sources/by-sha/74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated : March 2026",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+      "grade": "G025-03",
+      "original_sha256": "5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d",
+      "proposal_sha256": "a93e4cfcd21688e440513fd03f12da4cc34a73af11887df2383758a94ceb2e6c",
+      "OriginalPath": ".cache/sources/by-sha/5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: December 2022",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+      "grade": "G026-08",
+      "original_sha256": "fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f",
+      "proposal_sha256": "e9d6be536361c9fb9fdbdee6f6a18f9555169aad7578558f7336d76331655dcf",
+      "OriginalPath": ".cache/sources/by-sha/fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: February 2023",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+      "grade": "G083-04",
+      "original_sha256": "7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d",
+      "proposal_sha256": "4e8b20450dd63a13be578e5ab35431156f6feaea72759d18e7a95c07befcf649",
+      "OriginalPath": ".cache/sources/by-sha/7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: September 2023",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+      "grade": "G049-08",
+      "original_sha256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+      "proposal_sha256": "140e3be1e8e4ed0e8fd45c600d31f39cba70b2fc58b3035c94af28a8d92ca7a5",
+      "OriginalPath": ".cache/sources/by-sha/a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "APPROVE",
+      "original_update_label": null,
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+      "grade": "G049-08",
+      "original_sha256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+      "proposal_sha256": "09add4e864ed3942c20ded7c844523a142bd7a69e7877775199e7ff20e1b38f5",
+      "OriginalPath": ".cache/sources/by-sha/b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: September 2023",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+      "grade": "G039-45",
+      "original_sha256": "ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197",
+      "proposal_sha256": "ec5bbad09bc84eef8da3577363d9203e5403520f7c9d48ef651c73aa64cf8169",
+      "OriginalPath": ".cache/sources/by-sha/ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: September 2023",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+      "grade": "G001-98",
+      "original_sha256": "5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9",
+      "proposal_sha256": "80229065315d12fd0a587c424bf333a13ae00cf562e296447e2f58f7cb9ea241",
+      "OriginalPath": ".cache/sources/by-sha/5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: February 2024",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    },
+    {
+      "sourceid": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+      "grade": "G001-135",
+      "original_sha256": "1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60",
+      "proposal_sha256": "b69e5f7b339dff653d4836b95f7d9636d8f4bda61103fcaac34f5e4bd8e5d07c",
+      "OriginalPath": ".cache/sources/by-sha/1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60.pdf",
+      "identity_verdict": "APPROVE",
+      "source_verdict": "CHANGES_REQUIRED",
+      "original_update_label": "Updated: September 2023",
+      "qualification": "Exact own product SDS identity, official source ownership, and accepted existing-grade resolution. PA Rail report is explicitly raw material only; no numeric results admitted."
+    }
+  ],
+  "per_operation": [
+    {
+      "id": "c06-838a7a34-1",
+      "verdict": "APPROVE",
+      "grade": "G024-11",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Some Organic solvents could degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-55b9aab5-1",
+      "verdict": "APPROVE",
+      "grade": "G049-06",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Organic solvents degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-c23075f2-1",
+      "verdict": "APPROVE",
+      "grade": "G050-12",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Some Organic solvents could degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-74e5ecc5-1",
+      "verdict": "APPROVE",
+      "grade": "G020-39",
+      "locator": "p. 5: Section10.5 incompatible materials",
+      "finding": "Strong oxidizing agents, strong acids and strong bases.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-74e5ecc5-2",
+      "verdict": "APPROVE",
+      "grade": "G020-39",
+      "locator": "p. 5: Section10.5 incompatible materials",
+      "finding": "Strong oxidizing agents, strong acids and strong bases.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-5ccaab25-1",
+      "verdict": "APPROVE",
+      "grade": "G025-03",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Some Organic solvents could degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-fb9f5651-1",
+      "verdict": "APPROVE",
+      "grade": "G026-08",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Some Organic solvents could degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-7672b9b5-1",
+      "verdict": "APPROVE",
+      "grade": "G083-04",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Some Organic solvents could degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-a570add2-1",
+      "verdict": "CHANGES_REQUIRED",
+      "grade": "G049-08",
+      "locator": "p. 1: Document title, scope",
+      "finding": "Nanovia PA Rail raw material EN45545-2 Test results",
+      "limits": "Raw material only, tested thicknesses as printed; p1R22/R33 versus p2R22/R23 and smoke method contradictions retained; no certificate or printed qualification.",
+      "RequiredChange": "Replace Signed27/03/2024 with Dated27/03/2024: page2 signature line is blank; printed name/title/date/company stamp only."
+    },
+    {
+      "id": "c06-a570add2-2",
+      "verdict": "APPROVE",
+      "grade": "G049-08",
+      "locator": "p. 1: Requirement set declaration",
+      "finding": "Requirement set : R22, R33",
+      "limits": "Raw material only, tested thicknesses as printed; p1R22/R33 versus p2R22/R23 and smoke method contradictions retained; no certificate or printed qualification.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-a570add2-3",
+      "verdict": "APPROVE",
+      "grade": "G049-08",
+      "locator": "p. 2: Two requirement-set tables",
+      "finding": "R 23",
+      "limits": "Raw material only, tested thicknesses as printed; p1R22/R33 versus p2R22/R23 and smoke method contradictions retained; no certificate or printed qualification.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-b7299118-1",
+      "verdict": "APPROVE",
+      "grade": "G049-08",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Organic solvents degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-ca0099a2-1",
+      "verdict": "APPROVE",
+      "grade": "G039-45",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Strong alkali or acids can degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-ca0099a2-2",
+      "verdict": "APPROVE",
+      "grade": "G039-45",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Strong alkali or acids can degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-5ed344ed-1",
+      "verdict": "APPROVE",
+      "grade": "G001-98",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Strong alkali or acids can degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-5ed344ed-2",
+      "verdict": "APPROVE",
+      "grade": "G001-98",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Strong alkali or acids can degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-1ac5d2ca-1",
+      "verdict": "APPROVE",
+      "grade": "G001-135",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Strong alkali or acids can degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    },
+    {
+      "id": "c06-1ac5d2ca-2",
+      "verdict": "APPROVE",
+      "grade": "G001-135",
+      "locator": "p. 2: Section10.3 possible side reactions",
+      "finding": "Strong alkali or acids can degrade the material.",
+      "limits": "Full published warning retained as narrative. Agent/concentration/duration/specimen/temperature/retention absent; no universal category rating/service test.",
+      "RequiredChange": null
+    }
+  ],
+  "required_corrections": [
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+      "Field": "Revision",
+      "RequiredValue": "Updated: December 2022",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+      "Field": "Revision",
+      "RequiredValue": "Updated: May 2021",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+      "Field": "Revision",
+      "RequiredValue": "Updated: September 2023",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+      "Field": "Revision",
+      "RequiredValue": "Updated : March 2026",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+      "Field": "Revision",
+      "RequiredValue": "Updated: December 2022",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+      "Field": "Revision",
+      "RequiredValue": "Updated: February 2023",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+      "Field": "Revision",
+      "RequiredValue": "Updated: September 2023",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+      "Field": "Revision",
+      "RequiredValue": "Updated: September 2023",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+      "Field": "Revision",
+      "RequiredValue": "Updated: September 2023",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+      "Field": "Revision",
+      "RequiredValue": "Updated: February 2024",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+      "Field": "Revision",
+      "RequiredValue": "Updated: September 2023",
+      "reason": "Own header prints this update label; retain month/year granularity without inventing publication day."
+    }
+  ],
+  "holds": [
+    {
+      "GradeID": "G164-07",
+      "Question": "Official linked SDS",
+      "Outcome": "not retrieved",
+      "ReleaseCondition": "Official PA-FI SDS URL returned404; no document or polymer identity guessed."
+    },
+    {
+      "GradeID": "G049-08",
+      "Question": "EN45545-2 requirement set and smoke-method conflict",
+      "Outcome": "conflicting",
+      "ReleaseCondition": "Maker clarification required: report p1 R22/R33 versus p2 R22/R23; p1 smoke ENISO4589-2 versus p2 ENISO5659-2. Do not resolve by recency or overwrite."
+    }
+  ],
+  "expected_grade_full_rows_match": true,
+  "proposal_accepted_evidence_matches_packet": true,
+  "all_automatic_measurements_profiles_rejected": true,
+  "review_signature_sha256": "dedd21faea96d9ca735ba413693ddedeb47eeb93ef1e26995e7cd566b4e5b2e5"
+}

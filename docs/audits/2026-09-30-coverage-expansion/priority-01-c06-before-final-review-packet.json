@@ -1,0 +1,1484 @@
+{
+  "PacketID": "PRIORITY-01-C06-OFFICIAL-SDS-AND-RAW-MATERIAL-REPORT",
+  "Batch": "c06",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "BaselineHEAD": "f2df7b1",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G024-11",
+      "MaterialID": "M024",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PETG CF",
+      "Shared formulation key": "R-NANOVIA-PETG-CF",
+      "Composition / filler": "Nanovia PETG CF : Carbon fiber reinforced quantity (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PETG-CF",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G049-06",
+      "MaterialID": "M049",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PA-6",
+      "Shared formulation key": "R-NANOVIA-PA-6",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability HB UL 94 @ 0.8 mm (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PA-6",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G050-12",
+      "MaterialID": "M050",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PA-6 CF",
+      "Shared formulation key": "R-NANOVIA-PA-6-CF",
+      "Composition / filler": "Nanovia PA-6 CF : Carbon fiber reinforced quantity (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Certification RoHS Nanovia PA-6 CF : (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PA-6-CF",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G020-39",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PETG",
+      "Shared formulation key": "R-NANOVIA-PETG",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "SKU: N/A Categories: 3D printing filament , Material , PETg (Polyethylene terephthalate) Tag: Food contact (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PETG",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G025-03",
+      "MaterialID": "M025",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PETG GF UV",
+      "Shared formulation key": "R-NANOVIA-PETG-GF-UV",
+      "Composition / filler": "Nanovia PETG GF UV : Glass fiber reinforced quantity (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PETG-GF-UV",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G026-08",
+      "MaterialID": "M026",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PETG ESD",
+      "Shared formulation key": "R-NANOVIA-PETG-ESD",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PETG-ESD",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G083-04",
+      "MaterialID": "M083",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PP CF",
+      "Shared formulation key": "R-NANOVIA-PP-CF",
+      "Composition / filler": "Nanovia PP CF : Carbon fiber reinforced Starting at : 79,38 &euro; ex. VAT / kg Thanks to polypropylene’s close to zero water absorption rate, high chemical res (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PP-CF",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G049-08",
+      "MaterialID": "M049",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PA Rail",
+      "Shared formulation key": "R-NANOVIA-PA-Rail-ac7021",
+      "Composition / filler": "composite polyamide (nylon) and flame retardant ceramic filament. Filler proportion not published.",
+      "Variant": "flame-retardant ceramic filler",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "SKU: N/A Categories: 3D printing filament , Material , PA (Polyamide) Tag: Non-flammable UL94 VO (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PA-Rail-ac7021",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-45",
+      "MaterialID": "M162",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "TPU 70D",
+      "Shared formulation key": "R-NANOVIA-TPU-70D",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Certification RoHS Nanovia TPU 70D : (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-TPU-70D",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G001-98",
+      "MaterialID": "M001",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PLA EF 3D850",
+      "Shared formulation key": "R-NANOVIA-PLA-EF-3D850",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "SKU: N/A Categories: 3D printing filament , Material , PLA (Polylactic acid) Tags: Endocrine disruptor free , Food contact (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PLA-EF-3D850",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G001-135",
+      "MaterialID": "M001",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PLA XRS",
+      "Shared formulation key": "R-NANOVIA-PLA-XRS",
+      "Composition / filler": "Its density of 1660 kg/m³ is above what neat PLA reaches (1330), so the product carries a filler its name does not declare. Not declared on the sheet; recorded as a Variant under D57 (R078).",
+      "Variant": "undisclosed dense filler",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PLA-XRS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "Documents": [
+    {
+      "File": "838a7a341ee23d78.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "10794c064663507722dfe7876740441921d8e800910e654c8e8043c5debd8098",
+      "OriginalSHA256": "838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+        "Publisher": "Nanovia",
+        "Title": "PETG CF official material safety data sheet",
+        "Revision": "Updated: December 2022",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-petg-cf-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G024-11",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-838a7a34-1",
+          "gradeKey": "G024-11",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-11",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Some Organic solvents could degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Some Organic solvents could degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-838a7a34-2",
+          "gradeKey": "G024-11",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is not approved for medical applications.",
+            "Exposure / conditions": "Own SDS exclusion. No clinical/implant suitability inferred from application marketing, processing advice or another product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+            "Locator": "p. 2: Section7.2 safe storage/use exclusion"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is not approved for medical applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-838a7a34-3",
+          "gradeKey": "G024-11",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-11",
+            "Domain": "Durability",
+            "Topic": "UV",
+            "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+            "Exposure / conditions": "Own SDS Section12.2 UV surface-degradation narrative. Dose, spectrum, duration, temperature, specimen, formulation/colour and mechanical retention not stated. Broad outdoor/UV-resistance page claims remain beside this warning; no passed UV exposure or quantified lifetime inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+            "Locator": "p. 3: Section12.2 persistence/degradability, own English column"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "55b9aab526e7f5f3.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "ad86605b1cc984debc33ec463584286dec4976d618cc2af27de41640a595f66a",
+      "OriginalSHA256": "55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+        "Publisher": "Nanovia",
+        "Title": "PA-6 official material safety data sheet",
+        "Revision": "Updated: May 2021",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/ref/pa-6/nanovia-pa-6-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G049-06",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-55b9aab5-1",
+          "gradeKey": "G049-06",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-06",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Organic solvents degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Organic solvents degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-55b9aab5-2",
+          "gradeKey": "G049-06",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is not approved for medical applications.",
+            "Exposure / conditions": "Own SDS exclusion. No clinical/implant suitability inferred from application marketing, processing advice or another product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+            "Locator": "p. 2: Section7.2 safe storage/use exclusion"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is not approved for medical applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-55b9aab5-3",
+          "gradeKey": "G049-06",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-06",
+            "Domain": "Durability",
+            "Topic": "UV",
+            "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+            "Exposure / conditions": "Own SDS Section12.2 UV surface-degradation narrative. Dose, spectrum, duration, temperature, specimen, formulation/colour and mechanical retention not stated. Broad outdoor/UV-resistance page claims remain beside this warning; no passed UV exposure or quantified lifetime inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+            "Locator": "p. 3: Section12.2 persistence/degradability, own English column"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "c23075f2d0a805f6.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "00086ff0d2b0a0b633e27f15185334e70e22efd2b093a7a8e13894a4077228ed",
+      "OriginalSHA256": "c23075f2d0a805f64b9b47e6aec6cad9ef9618152db4fa125a508a8c6e79e266",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+        "Publisher": "Nanovia",
+        "Title": "PA-6 CF official material safety data sheet",
+        "Revision": "Updated: September 2023",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-pa-6-cf-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G050-12",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "c23075f2d0a805f64b9b47e6aec6cad9ef9618152db4fa125a508a8c6e79e266"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-c23075f2-1",
+          "gradeKey": "G050-12",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-12",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Some Organic solvents could degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Some Organic solvents could degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-c23075f2-2",
+          "gradeKey": "G050-12",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-12",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is not approved for medical applications.",
+            "Exposure / conditions": "Own SDS exclusion. No clinical/implant suitability inferred from application marketing, processing advice or another product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+            "Locator": "p. 2: Section7.2 safe storage/use exclusion"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is not approved for medical applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-c23075f2-3",
+          "gradeKey": "G050-12",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-12",
+            "Domain": "Durability",
+            "Topic": "UV",
+            "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+            "Exposure / conditions": "Own SDS Section12.2 UV surface-degradation narrative. Dose, spectrum, duration, temperature, specimen, formulation/colour and mechanical retention not stated. Broad outdoor/UV-resistance page claims remain beside this warning; no passed UV exposure or quantified lifetime inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+            "Locator": "p. 3: Section12.2 persistence/degradability, own English column"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/c23075f2d0a805f64b9b47e6aec6cad9ef9618152db4fa125a508a8c6e79e266.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "74e5ecc55050916e.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "7f607b85ac404638a834de8cdbdfe280db465c5951b21b2ba9045c69ea6889e9",
+      "OriginalSHA256": "74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+        "Publisher": "Nanovia",
+        "Title": "PETG official material safety data sheet",
+        "Revision": "Updated : March 2026",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/english-MSDS-PETG.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G020-39",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-74e5ecc5-1",
+          "gradeKey": "G020-39",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-39",
+            "Domain": "Durability",
+            "Topic": "Effect of strong acids",
+            "Finding": "Strong oxidizing agents, strong acids and strong bases.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict. Section10.5 names incompatible materials, not a measured acid result.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+            "Locator": "p. 5: Section10.5 incompatible materials"
+          },
+          "evidence": {
+            "page": 5,
+            "text": "Strong oxidizing agents, strong acids and strong bases."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-74e5ecc5-2",
+          "gradeKey": "G020-39",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-39",
+            "Domain": "Durability",
+            "Topic": "Effect of strong alkalis",
+            "Finding": "Strong oxidizing agents, strong acids and strong bases.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict. Same sentence also names strong bases; one source reading serves both category questions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+            "Locator": "p. 5: Section10.5 incompatible materials"
+          },
+          "evidence": {
+            "page": 5,
+            "text": "Strong oxidizing agents, strong acids and strong bases."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "5ccaab255778dd86.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "809b13bb4cb01321ea50813c6171b9844120b927267785d2ce6055f3acd2869d",
+      "OriginalSHA256": "5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+        "Publisher": "Nanovia",
+        "Title": "PETG GF UV official material safety data sheet",
+        "Revision": "Updated: December 2022",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-petg-gf-uv-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G025-03",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-5ccaab25-1",
+          "gradeKey": "G025-03",
+          "row": {
+            "MaterialID": "M025",
+            "GradeID": "G025-03",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Some Organic solvents could degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Some Organic solvents could degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-5ccaab25-2",
+          "gradeKey": "G025-03",
+          "row": {
+            "MaterialID": "M025",
+            "GradeID": "G025-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is not approved for medical applications.",
+            "Exposure / conditions": "Own SDS exclusion. No clinical/implant suitability inferred from application marketing, processing advice or another product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+            "Locator": "p. 2: Section7.2 safe storage/use exclusion"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is not approved for medical applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "fb9f5651287f3a56.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "ee4e3272ac3622e9a075584e1866d09b8d873f189cee7c696874ac42a70a9e92",
+      "OriginalSHA256": "fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+        "Publisher": "Nanovia",
+        "Title": "PETG ESD official material safety data sheet",
+        "Revision": "Updated: February 2023",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/ref/petg-esd/nanovia-petg-esd-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G026-08",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-fb9f5651-1",
+          "gradeKey": "G026-08",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-08",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Some Organic solvents could degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Some Organic solvents could degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-fb9f5651-2",
+          "gradeKey": "G026-08",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is not approved for medical applications.",
+            "Exposure / conditions": "Own SDS exclusion. No clinical/implant suitability inferred from application marketing, processing advice or another product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+            "Locator": "p. 2: Section7.2 safe storage/use exclusion"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is not approved for medical applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "7672b9b52cb58a76.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "879f6cb422b06758ebf691c23a019f6bd6a158cb3e879263b2dbf446a66390c2",
+      "OriginalSHA256": "7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+        "Publisher": "Nanovia",
+        "Title": "PP CF official material safety data sheet",
+        "Revision": "Updated: September 2023",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-pp-cf-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G083-04",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-7672b9b5-1",
+          "gradeKey": "G083-04",
+          "row": {
+            "MaterialID": "M083",
+            "GradeID": "G083-04",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Some Organic solvents could degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Some Organic solvents could degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-7672b9b5-2",
+          "gradeKey": "G083-04",
+          "row": {
+            "MaterialID": "M083",
+            "GradeID": "G083-04",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is not approved for medical applications.",
+            "Exposure / conditions": "Own SDS exclusion. No clinical/implant suitability inferred from application marketing, processing advice or another product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+            "Locator": "p. 2: Section7.2 safe storage/use exclusion"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is not approved for medical applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-7672b9b5-3",
+          "gradeKey": "G083-04",
+          "row": {
+            "MaterialID": "M083",
+            "GradeID": "G083-04",
+            "Domain": "Durability",
+            "Topic": "UV",
+            "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+            "Exposure / conditions": "Own SDS Section12.2 UV surface-degradation narrative. Dose, spectrum, duration, temperature, specimen, formulation/colour and mechanical retention not stated. Broad outdoor/UV-resistance page claims remain beside this warning; no passed UV exposure or quantified lifetime inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+            "Locator": "p. 3: Section12.2 persistence/degradability, own English column"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "a570add2d2c71f9b.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "bfb44e147e6d4e324b78d607f1a1f71f2d2cd57fb694c63fb37f0bd8f5b6407c",
+      "OriginalSHA256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+        "Publisher": "Nanovia",
+        "Title": "Nanovia PA Rail raw material EN45545-2 Test results",
+        "Revision": "Not published",
+        "Publication date": "2024-03-27",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-pa-rail-en45455-2-results.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G049-08",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-a570add2-1",
+          "gradeKey": "G049-08",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Nanovia PA Rail raw material EN45545-2 Test results",
+            "Exposure / conditions": "Report explicitly covers raw material, not a printed product. Dated27/03/2024; tests span4.0/25/25.3mm. Does not qualify other thicknesses, print states, colours or geometry. Own-method/requirement-set contradictions below remain.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+            "Locator": "p. 1: Document title, scope"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Nanovia PA Rail raw material EN45545-2 Test results",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": true,
+            "note": "Re-read complete original page images. Scope and inconsistent R33/R23 and smoke method preserved; independent visual review required."
+          }
+        },
+        {
+          "id": "c06-a570add2-2",
+          "gradeKey": "G049-08",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Requirement set : R22, R33",
+            "Exposure / conditions": "Own p1 declaration conflicts with p2 tables R22/R23. HazardlevelsHL1/HL2/HL3 are claimed for tested raw material only; no harmonized certificate or implied requirement set.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+            "Locator": "p. 1: Requirement set declaration"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Requirement set : R22, R33",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": true,
+            "note": "Re-read complete original page images. Scope and inconsistent R33/R23 and smoke method preserved; independent visual review required."
+          }
+        },
+        {
+          "id": "c06-a570add2-3",
+          "gradeKey": "G049-08",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "R 23",
+            "Exposure / conditions": "Separate p2 table requirement labels. Contradicts p1 R22/R33; vendor needed, neither label overrides the other. Smoke row p1 ENISO4589-2 differs from p2 ENISO5659-2; numeric smoke66 and toxicity0.03 are held pending method/scope clarification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+            "Locator": "p. 2: Two requirement-set tables"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "R 23",
+            "ocr": true
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": true,
+            "note": "Re-read complete original page images. Scope and inconsistent R33/R23 and smoke method preserved; independent visual review required."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0.pdf",
+      "PageImages": ".cache/pages/a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "b7299118da3ae6c5.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "26572f1774f30c65a89776d285aeba50051fea64b51e18a86980c6ba22f05376",
+      "OriginalSHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+        "Publisher": "Nanovia",
+        "Title": "PA Rail official material safety data sheet",
+        "Revision": "Updated: September 2023",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-pa-rail-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G049-08",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-b7299118-1",
+          "gradeKey": "G049-08",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-08",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Organic solvents degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Organic solvents degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-b7299118-2",
+          "gradeKey": "G049-08",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is not approved for medical applications.",
+            "Exposure / conditions": "Own SDS exclusion. No clinical/implant suitability inferred from application marketing, processing advice or another product.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+            "Locator": "p. 2: Section7.2 safe storage/use exclusion"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is not approved for medical applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-b7299118-3",
+          "gradeKey": "G049-08",
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-08",
+            "Domain": "Durability",
+            "Topic": "UV",
+            "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+            "Exposure / conditions": "Own SDS Section12.2 UV surface-degradation narrative. Dose, spectrum, duration, temperature, specimen, formulation/colour and mechanical retention not stated. Broad outdoor/UV-resistance page claims remain beside this warning; no passed UV exposure or quantified lifetime inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+            "Locator": "p. 3: Section12.2 persistence/degradability, own English column"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "ca0099a2626e51cf.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "a1432c8aa2186cfeaae2ab2e451a6551f99aa6d5eeb7bb68a9769d3265798320",
+      "OriginalSHA256": "ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+        "Publisher": "Nanovia",
+        "Title": "TPU 70D official material safety data sheet",
+        "Revision": "Updated: September 2023",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-tpu-70d-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G039-45",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-ca0099a2-1",
+          "gradeKey": "G039-45",
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-45",
+            "Domain": "Durability",
+            "Topic": "Effect of strong acids",
+            "Finding": "Strong alkali or acids can degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Strong alkali or acids can degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-ca0099a2-2",
+          "gradeKey": "G039-45",
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-45",
+            "Domain": "Durability",
+            "Topic": "Effect of strong alkalis",
+            "Finding": "Strong alkali or acids can degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict. Same source sentence serves both category questions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Strong alkali or acids can degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 2,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "5ed344eda07d21c5.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "3fa5938c8426d28b1380960f11b10035e1ffe7ca61d99b4645f501c2a6638622",
+      "OriginalSHA256": "5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+        "Publisher": "Nanovia",
+        "Title": "PLA EF 3D850 official material safety data sheet",
+        "Revision": "Updated: February 2024",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-pla-ef-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G001-98",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-5ed344ed-1",
+          "gradeKey": "G001-98",
+          "row": {
+            "MaterialID": "M001",
+            "GradeID": "G001-98",
+            "Domain": "Durability",
+            "Topic": "Effect of strong acids",
+            "Finding": "Strong alkali or acids can degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Strong alkali or acids can degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-5ed344ed-2",
+          "gradeKey": "G001-98",
+          "row": {
+            "MaterialID": "M001",
+            "GradeID": "G001-98",
+            "Domain": "Durability",
+            "Topic": "Effect of strong alkalis",
+            "Finding": "Strong alkali or acids can degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict. Same source sentence serves both category questions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Strong alkali or acids can degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "1ac5d2cab49d02be.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "b2ab7690f4bd1af076390030a8a890624017e41b5873724d9523c8098ee27ad7",
+      "OriginalSHA256": "1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60",
+      "Source": {
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+        "Publisher": "Nanovia",
+        "Title": "PLA XRS official material safety data sheet",
+        "Revision": "Updated: September 2023",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-pla-xrs-msds.pdf",
+        "Locator": "Document",
+        "Applicable grades": "G001-135",
+        "Access state": "retrieved",
+        "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+        "SHA256": "1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c06-1ac5d2ca-1",
+          "gradeKey": "G001-135",
+          "row": {
+            "MaterialID": "M001",
+            "GradeID": "G001-135",
+            "Domain": "Durability",
+            "Topic": "Effect of strong acids",
+            "Finding": "Strong alkali or acids can degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Strong alkali or acids can degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        },
+        {
+          "id": "c06-1ac5d2ca-2",
+          "gradeKey": "G001-135",
+          "row": {
+            "MaterialID": "M001",
+            "GradeID": "G001-135",
+            "Domain": "Durability",
+            "Topic": "Effect of strong alkalis",
+            "Finding": "Strong alkali or acids can degrade the material.",
+            "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict. Same source sentence serves both category questions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+            "Locator": "p. 2: Section10.3 possible side reactions"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Strong alkali or acids can degrade the material."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original operation review required; no human review",
+            "visual": false,
+            "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "OriginalPath": ".cache/sources/by-sha/1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60.pdf",
+      "PageImages": null,
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    }
+  ],
+  "HeldFindings": [
+    {
+      "GradeID": "G164-07",
+      "Question": "Official linked SDS",
+      "Outcome": "not retrieved",
+      "ReleaseCondition": "Official PA-FI SDS URL returned404; no document or polymer identity guessed."
+    },
+    {
+      "GradeID": "G049-08",
+      "Question": "EN45545-2 requirement set and smoke-method conflict",
+      "Outcome": "conflicting",
+      "ReleaseCondition": "Maker clarification required: report p1 R22/R33 versus p2 R22/R23; p1 smoke ENISO4589-2 versus p2 ENISO5659-2. Do not resolve by recency or overwrite."
+    }
+  ],
+  "ScreeningContract": "All new chemical warnings are verbatim narratives with missing agents/conditions; no synthetic class ratings. Raw-material report remains maker guidance, never printed-product certificate.",
+  "CoverageUpdates": [
+    {
+      "OperationID": "N01-ENV-PA6",
+      "ExpectedRows": [
+        {
+          "CoverageID": "C00548",
+          "MaterialID": "M049",
+          "GradeID": "Not applicable",
+          "Domain": "Moisture / environmental",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+        }
+      ],
+      "Basis": {
+        "MaterialID": "M049",
+        "GradeID": "G049-06",
+        "Domain": "Durability",
+        "Topic": "Organic-solvent resistance",
+        "Finding": "Organic solvents degrade the material.",
+        "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+        "Locator": "p. 2: Section10.3 possible side reactions"
+      },
+      "Proposed": {
+        "MaterialID": "M049",
+        "GradeID": "Not applicable",
+        "Domain": "Moisture / environmental",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-02: Nanovia PA-6 (G049-06) own SDS, R-NANOVIA-PRIORITY-20261002-55b9aab526e7 p.2 Section10.3, states “Organic solvents degrade the material.” Agents, concentration, duration, specimen, temperature and measured retention are unstated. This is a product handling/reactivity warning, not a tested service exposure or universal chemical verdict. Other PA6 products require their own evidence."
+      }
+    }
+  ]
+}

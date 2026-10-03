@@ -1,0 +1,25 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE_CODE",
+  "packet_input_sha256": "2cade9840da6d56ff7ebe6728587f07bcd0f351ced041f722c704839b024d888",
+  "files": {
+    "scripts/migrate/m312-batch-c06-priority-01.mjs": "d4cb57dc1f85e8ccddfcfe95e1f61b113c0b33b4816c1956bd67a18f7ed12ba2",
+    "scripts/ingest/apply.mjs": "570bde660c219074b2c3117a48329e7b048c5421c1009754b4b83e1bb5c4a115"
+  },
+  "apply_diff_sha256": "d33281850f94fa0532caa23d913bfa62558a0696d62099fa6043ea965da68b05",
+  "scope": "Independent read-only code review of new migration and one-word markApplied export. Execution/refusal/idempotence/full release gates remain for injector.",
+  "findings": [
+    "Original digest, reviewed packet digest, full ExpectedGrades and full source/evidence guards preserved.",
+    "Existing guard/writeBatch used unchanged. Facts staged first; exact own environmental basis required before coverage append/supersession.",
+    "Schema, existing accepted-lint baseline and estimate-free core build rehearse on disposable copy before canonical write. No check weakened.",
+    "markApplied uses table transaction stageFile; ledger and canonical table writes share t.save optimistic lock. Export changes accessibility only.",
+    "Reapplication requires full intended source/evidence/judgment/supersession rows; changed values refuse. Expected same-grade rows exclude footer claims after approved cleanup."
+  ],
+  "release_limits": [
+    "One repository writer assumption remains. Run isolated refusal/no-partial-write fixtures and immediate zero-record rerun, then full QA."
+  ],
+  "prior_code_review_signature": "e1d72a3f982086746f9866311471d2e312a423f908a2bba3b11ff77ba3dde040",
+  "delta_attestation": "Only migration pinned packet hash changed; replacing it back reproduces independently approved migration byte hash. apply.mjs file unchanged.",
+  "review_signature_sha256": "b0f1bc69e8e3a61bb0bad8d0778608d7fcdf4200a3dcfc44e6805aede7665c0e"
+}

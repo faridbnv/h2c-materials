@@ -1,0 +1,318 @@
+{
+  "stages": [
+    {
+      "stage": "m310",
+      "receipt": {
+        "migration": "m310-priority-01-cached",
+        "packet": "b43ac0cfa66c847f6556de26a53a2fe06f3acef7b1566aa909fe24172e1166c1",
+        "written": 26,
+        "records": [
+          {
+            "operation": "N01-01",
+            "table": "measurements",
+            "id": "V011788",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-02",
+            "table": "measurements",
+            "id": "V011789",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-03",
+            "table": "measurements",
+            "id": "V011790",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-04",
+            "table": "measurements",
+            "id": "V011791",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-05",
+            "table": "measurements",
+            "id": "V011792",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-06",
+            "table": "measurements",
+            "id": "V011793",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-07",
+            "table": "measurements",
+            "id": "V011794",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-08",
+            "table": "measurements",
+            "id": "V011795",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-09",
+            "table": "measurements",
+            "id": "V011796",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-10",
+            "table": "measurements",
+            "id": "V011797",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-11",
+            "table": "measurements",
+            "id": "V011798",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-12",
+            "table": "measurements",
+            "id": "V011799",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-13",
+            "table": "measurements",
+            "id": "V011800",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-14",
+            "table": "measurements",
+            "id": "V011801",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-15",
+            "table": "measurements",
+            "id": "V011802",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-16",
+            "table": "measurements",
+            "id": "V011205",
+            "kind": "edit"
+          },
+          {
+            "operation": "N01-17",
+            "table": "measurements",
+            "id": "V011512",
+            "kind": "edit"
+          },
+          {
+            "operation": "N01-18",
+            "table": "measurements",
+            "id": "V011513",
+            "kind": "edit"
+          },
+          {
+            "operation": "N01-19",
+            "table": "measurements",
+            "id": "V007529",
+            "kind": "edit"
+          },
+          {
+            "operation": "N01-20",
+            "table": "evidence",
+            "id": "Q05486",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-21",
+            "table": "evidence",
+            "id": "Q05487",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-22",
+            "table": "evidence",
+            "id": "Q05488",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-23",
+            "table": "evidence",
+            "id": "Q05489",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-24",
+            "table": "evidence",
+            "id": "Q05490",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-25",
+            "table": "evidence",
+            "id": "Q05491",
+            "kind": "append"
+          },
+          {
+            "operation": "N01-26",
+            "table": "evidence",
+            "id": "Q05492",
+            "kind": "append"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "m311",
+      "receipt": {
+        "migration": "m311-priority-01-cleanup",
+        "packet": "e650c788a2a7d8ac085d60dd89c34f277fc7625ab52619d111f3e5e52f4380ad",
+        "written": 6,
+        "records": [
+          {
+            "operation": "N01-CLEAN-G049-06",
+            "table": "grades",
+            "id": "G049-06"
+          },
+          {
+            "operation": "N01-CLEAN-G020-39",
+            "table": "grades",
+            "id": "G020-39"
+          },
+          {
+            "operation": "N01-CLEAN-G039-45",
+            "table": "grades",
+            "id": "G039-45"
+          },
+          {
+            "operation": "N01-CLEAN-G001-98",
+            "table": "grades",
+            "id": "G001-98"
+          },
+          {
+            "operation": "N01-CLEAN-G049-08",
+            "table": "grades",
+            "id": "G049-08"
+          },
+          {
+            "operation": "N01-CLEAN-Q05486",
+            "table": "evidence",
+            "id": "Q05486"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "m312",
+      "receipt": {
+        "migration": "m312-batch-c06-priority-01",
+        "packet": "2cade9840da6d56ff7ebe6728587f07bcd0f351ced041f722c704839b024d888",
+        "log": [
+          "source R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+          "evidence Q05493 Effect of strong acids",
+          "evidence Q05494 Effect of strong alkalis",
+          "source R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+          "evidence Q05495 Organic-solvent resistance",
+          "evidence Q05496 Pitfalls and limitations",
+          "evidence Q05497 UV",
+          "source R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+          "evidence Q05498 Organic-solvent resistance",
+          "evidence Q05499 Pitfalls and limitations",
+          "source R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+          "evidence Q05500 Effect of strong acids",
+          "evidence Q05501 Effect of strong alkalis",
+          "source R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+          "evidence Q05502 Effect of strong acids",
+          "evidence Q05503 Effect of strong alkalis",
+          "source R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+          "evidence Q05504 Organic-solvent resistance",
+          "evidence Q05505 Pitfalls and limitations",
+          "evidence Q05506 UV",
+          "source R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+          "evidence Q05507 Organic-solvent resistance",
+          "evidence Q05508 Pitfalls and limitations",
+          "evidence Q05509 UV",
+          "source R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+          "evidence Q05510 Pitfalls and limitations",
+          "evidence Q05511 Pitfalls and limitations",
+          "evidence Q05512 Pitfalls and limitations",
+          "source R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+          "evidence Q05513 Organic-solvent resistance",
+          "evidence Q05514 Pitfalls and limitations",
+          "evidence Q05515 UV",
+          "source R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+          "evidence Q05516 Organic-solvent resistance",
+          "evidence Q05517 Pitfalls and limitations",
+          "evidence Q05518 UV",
+          "source R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+          "evidence Q05519 Effect of strong acids",
+          "evidence Q05520 Effect of strong alkalis",
+          "source R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+          "evidence Q05521 Organic-solvent resistance",
+          "evidence Q05522 Pitfalls and limitations"
+        ],
+        "judgments": [
+          {
+            "operation": "N01-ENV-PA6",
+            "id": "C01633",
+            "basis": "Q05495"
+          }
+        ],
+        "applied": 12,
+        "written": 43
+      }
+    },
+    {
+      "stage": "m313",
+      "receipt": {
+        "migration": "m313-priority-01-supplemental",
+        "packet": "09e07c8419fade43b9d68623ccbb6c4f04d6ea97884596c3efd6613fecaaed51",
+        "written": 6,
+        "records": [
+          {
+            "operation": "FOOD-G049-06",
+            "table": "evidence",
+            "id": "Q05523",
+            "kind": "append"
+          },
+          {
+            "operation": "FOOD-G049-08",
+            "table": "evidence",
+            "id": "Q05524",
+            "kind": "append"
+          },
+          {
+            "operation": "FOOD-G039-45",
+            "table": "evidence",
+            "id": "Q05525",
+            "kind": "append"
+          },
+          {
+            "operation": "FOOD-G001-98",
+            "table": "evidence",
+            "id": "Q05526",
+            "kind": "append"
+          },
+          {
+            "operation": "FOOD-G001-135",
+            "table": "evidence",
+            "id": "Q05527",
+            "kind": "append"
+          },
+          {
+            "operation": "PA-RAIL-SDS-FLAMMABILITY-CONFLICT",
+            "table": "evidence",
+            "id": "Q05528",
+            "kind": "append"
+          }
+        ]
+      }
+    }
+  ],
+  "canonical_IDS_allocated_only_during_serial_injection": true,
+  "reader_review_withdrawal": "No changes to V011371/V011375/V011377; original-DOM evidence confirmed their existing preparation."
+}

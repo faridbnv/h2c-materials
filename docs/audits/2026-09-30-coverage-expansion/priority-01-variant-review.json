@@ -1,0 +1,22 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "input_sha256": "975b80fff3d72f43b61be0f0d307a9ecf00d2631e7fec335e5742da58f9d4054",
+  "vocabulary_file": "schema/vocab/grade-variants.csv",
+  "source_sha256": "ac702185c1a0afcfd20c7989fa22ed50119cee01f67d53c612a5ae9eee6efa8c",
+  "original_basis": "Own PA Rail product-page description explicitly says composite polyamide (nylon) and flame retardant ceramic filament; no loading fraction. Source reviewed directly; certification wording excluded from composition correction.",
+  "canonical_files_edited": false,
+  "reviewed_handling": [
+    "compile.js turns any nonmissing Variant into a grade variant; material headline summary continues to set its values apart.",
+    "estimate/observations.js and gaussian.js use a generic grade variant covariate; no engine/model branch added.",
+    "estimate/bounds.js keeps a non-null variant apart from neat density bounds.",
+    "lint-rules.js fillOf explicitly matches only variants ending dense filler; this new label routes PA Rail through material unfilled/unspecified plausibility windows."
+  ],
+  "release_caveats": [
+    "Relabeling may automatically recalibrate estimates because it creates a distinct v:grade covariate; measure and report actual outputs separately from newly published data.",
+    "Physics lint class routing changes from dense to material default, although algorithm unchanged. Validate actual resulting findings and bounds; do not describe physics routing as unchanged.",
+    "No density, ceramic loading fraction, printed-part flame certification or service qualification inferred. Final release approval requires complete retained QA/diff receipts."
+  ],
+  "review_signature_sha256": "e9b0228891e98a6216d86ad0cebc89e7fdde268f005c845d38720df2a7a35600"
+}

@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-02"
+  },
+  "document": {
+    "sha256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+    "url": "https://nanovia.tech/media/nanovia-pa-rail-en45455-2-results.pdf",
+    "pages": 2,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/media/nanovia-pa-rail-en45455-2-results.pdf#witness-for=source:R-NANOVIA-PA-Rail-ac7021"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"pa\" names a family, not a polymer: as above"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+      "Publisher": "Nanovia",
+      "Title": "Nanovia PA Rail raw material EN45545-2 Test results",
+      "Revision": "Not published",
+      "Publication date": "2024-03-27",
+      "Access date": "2026-10-02",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/media/nanovia-pa-rail-en45455-2-results.pdf",
+      "Locator": "Document",
+      "Applicable grades": "G049-08",
+      "Access state": "retrieved",
+      "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+      "SHA256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Nanovia PA Rail raw material EN45545-2 Test results"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent original operation review required; no human review",
+      "visual": true
+    }
+  },
+  "grades": [
+    {
+      "key": "G049-08",
+      "row": {
+        "GradeID": "G049-08",
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PA Rail",
+        "Shared formulation key": "R-NANOVIA-PA-Rail-ac7021",
+        "Composition / filler": "composite polyamide (nylon) and flame retardant ceramic filament. Filler proportion not published.",
+        "Variant": "flame-retardant ceramic filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "SKU: N/A Categories: 3D printing filament , Material , PA (Polyamide) Tag: Non-flammable UL94 VO (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "visual": true,
+        "note": "Existing exact grade only; source supporting this row is added without changing product identity or primary source."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c06-a570add2-1",
+      "gradeKey": "G049-08",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "G049-08",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Nanovia PA Rail raw material EN45545-2 Test results",
+        "Exposure / conditions": "Report explicitly covers raw material, not a printed product. Dated27/03/2024; tests span4.0/25/25.3mm. Does not qualify other thicknesses, print states, colours or geometry. Own-method/requirement-set contradictions below remain.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+        "Locator": "p. 1: Document title, scope"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nanovia PA Rail raw material EN45545-2 Test results",
+        "ocr": true
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "visual": true,
+        "note": "Re-read complete original page images. Scope and inconsistent R33/R23 and smoke method preserved; independent visual review required."
+      }
+    },
+    {
+      "id": "c06-a570add2-2",
+      "gradeKey": "G049-08",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "G049-08",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Requirement set : R22, R33",
+        "Exposure / conditions": "Own p1 declaration conflicts with p2 tables R22/R23. HazardlevelsHL1/HL2/HL3 are claimed for tested raw material only; no harmonized certificate or implied requirement set.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+        "Locator": "p. 1: Requirement set declaration"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Requirement set : R22, R33",
+        "ocr": true
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "visual": true,
+        "note": "Re-read complete original page images. Scope and inconsistent R33/R23 and smoke method preserved; independent visual review required."
+      }
+    },
+    {
+      "id": "c06-a570add2-3",
+      "gradeKey": "G049-08",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "G049-08",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "R 23",
+        "Exposure / conditions": "Separate p2 table requirement labels. Contradicts p1 R22/R33; vendor needed, neither label overrides the other. Smoke row p1 ENISO4589-2 differs from p2 ENISO5659-2; numeric smoke66 and toxicity0.03 are held pending method/scope clarification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+        "Locator": "p. 2: Two requirement-set tables"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "R 23",
+        "ocr": true
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "visual": true,
+        "note": "Re-read complete original page images. Scope and inconsistent R33/R23 and smoke method preserved; independent visual review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "EN 45545-2 Test results",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Classification standard : EN 45545-2 (10/2020)",
+      "reason": "properties.csv carries no property for \"Classification standard :\""
+    },
+    {
+      "page": 1,
+      "text": "Part 2: Requirements for fire behavior of materials and components",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The tested product meets the following requirements of EN 45545-2 at 4, 25 and 25,3 mm:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "e Requirement set: R22, R33",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "e Hazard level: HL1, HL2, HL3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EN45545-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "O1 (%) > 32%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "i 4,0 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EN ISO 4589-2",
+      "reason": "the line names Oxygen index and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "T10.03",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "—_|_Ds max. (-) 66",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "kW/m? 25mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "irradiance 25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EN ISO 4589-2",
+      "reason": "the line names Oxygen index and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Toxicity 12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "| CITNLP() 0,03",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperature 600°c | 7-3TMTMM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NEX70-100-1/-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia - SAS au capital 174 000 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "22540 LOUARGAT - France - +33 (0) 296 43 3690 - contact@nanovia.tech",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RCS St Brieuc 788 230 00014 - N° TVA FRO1 788627230 - Code APE 2014Z",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "TO1 EN ISO 4589-2 Ol (%) 228 > 28 > 32 HL1, HL2, HL3",
+      "reason": "properties.csv carries no property for \"TO1 EN\""
+    },
+    {
+      "page": 2,
+      "text": "T10.03 EN ISO 5659-2:",
+      "reason": "properties.csv carries no property for \"T10.03 EN\""
+    },
+    {
+      "page": 2,
+      "text": "R22 25 kW/m? Ds max. (-) | <600 | <300 | <150 | HL1, HL2, HL3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ee | citwee) | <2 | <09 | <075 | Hit, HL2, HL3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "wat Test method Parameter Hu HL2 HB Performance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "TO1 EN ISO 4589-2 Ol (%) 228 228 232 HL1, HL2, HL3",
+      "reason": "properties.csv carries no property for \"TO1 EN\""
+    },
+    {
+      "page": 2,
+      "text": "T10.03 EN ISO 5659-2:",
+      "reason": "properties.csv carries no property for \"T10.03 EN\""
+    },
+    {
+      "page": 2,
+      "text": "R23 25 kW/m2 Ds max. (-) - <600 | <300 | HL1,HL2, HL3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "eee | cituet) - | sg | <45 | HL1,HL2, HL3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Name:Jacques Pelleter ZA Saint Paul - 22 et",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Signature : : 2.96",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Date : 27/03/2024 ‘ E-Mail: contar 30 00014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": ". IRET : 788 627 2 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FRO1788 627 231",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Nanovia - SAS au capital 174 000 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ZA de Saint Paul - 22540 LOUARGAT - France - + ) 296 43 3690 - contact@nanovia.tech",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RCS St Brieuc 788627230 - Siret 788 627 230 00014 - N° TVA FRO1 788627230 - Code APE 2014Z",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent original operation review required; no human review",
+    "note": "Only independently signed exact statements. All automatic measurements/profiles rejected; no catalogue change or synthetic environmental rating."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "note": "Automatic rows rejected; only independently signed exact product statements admitted."
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PA Rail raw material",
+        "Shared formulation key": "R-NANOVIA-nanovia-pa-rail-en45455-2-results",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "wat Test method Parameter Hu HL2 HB Performance (p. 2, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-nanovia-pa-rail-en45455-2-results",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "“ COMPOSITE MATERIALSjor"
+      }
+    }
+  ],
+  "newMaterial": null
+}

@@ -1,0 +1,60 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "e650c788a2a7d8ac085d60dd89c34f277fc7625ab52619d111f3e5e52f4380ad",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 6,
+  "canonical_files_edited": false,
+  "prior_rejection": {
+    "input_sha256": "cfb5c0331e0b8fa949b4d17cf6ab76e0764752c35c111e9a539181263db9708e",
+    "review_signature_sha256": "92182fefdb9f689a233143be26043ba56789b5ef5b4073fd484e41700ba7c894",
+    "retained": "priority-01-cleanup-review-before-correction.json"
+  },
+  "delta_attestation": "The unsupported environmental supersession is removed; PA Rail composition now copies only own polyamide/flame-retardant ceramic clause without NF EN45545-2 certification wording. Five previously approved corrections unchanged. Reused original direct source readings; no new reading required.",
+  "expected_rows_match_current": true,
+  "per_operation": [
+    {
+      "OperationID": "N01-CLEAN-G049-06",
+      "verdict": "APPROVE",
+      "sourceid": "R-NANOVIA-PA-6",
+      "source_quote": "Nanovia PA-6 : High resistance",
+      "limits": "Other product shopping footers excluded; no unfilled assumption or inferred fraction. Material ownership unchanged; ceramic variant retains separation from neat PA6."
+    },
+    {
+      "OperationID": "N01-CLEAN-G020-39",
+      "verdict": "APPROVE",
+      "sourceid": "R-NANOVIA-PETG",
+      "source_quote": "Nanovia PETG : Functional prototypes",
+      "limits": "Other product shopping footers excluded; no unfilled assumption or inferred fraction. Material ownership unchanged; ceramic variant retains separation from neat PA6."
+    },
+    {
+      "OperationID": "N01-CLEAN-G039-45",
+      "verdict": "APPROVE",
+      "sourceid": "R-NANOVIA-TPU-70D",
+      "source_quote": "Nanovia TPU 70D : Industrial semi-rigid",
+      "limits": "Other product shopping footers excluded; no unfilled assumption or inferred fraction. Material ownership unchanged; ceramic variant retains separation from neat PA6."
+    },
+    {
+      "OperationID": "N01-CLEAN-G001-98",
+      "verdict": "APPROVE",
+      "sourceid": "R-NANOVIA-PLA-EF-3D850",
+      "source_quote": "Nanovia PLA EF 3D850 : Endocrine disruptor free",
+      "limits": "Other product shopping footers excluded; no unfilled assumption or inferred fraction. Material ownership unchanged; ceramic variant retains separation from neat PA6."
+    },
+    {
+      "OperationID": "N01-CLEAN-G049-08",
+      "verdict": "APPROVE",
+      "sourceid": "R-NANOVIA-PA-Rail-ac7021",
+      "source_quote": "Nanovia PA-6 Rail is a NF EN 45545-2 certified composite polyamide (nylon) and flame retardant ceramic filament.",
+      "limits": "Other product shopping footers excluded; no unfilled assumption or inferred fraction. Material ownership unchanged; ceramic variant retains separation from neat PA6."
+    },
+    {
+      "OperationID": "N01-CLEAN-Q05486",
+      "verdict": "APPROVE",
+      "sourceid": "R-NANOVIA-PA-6",
+      "source_quote": "Flammability  HB UL 94    @ 0.8 mm",
+      "limits": "Whitespace-only HB sentence repair; own rating/thickness and qualifiers unchanged."
+    }
+  ],
+  "review_signature_sha256": "3b9d71efd70011cdd1d40baadc5782233260aafbdd5e3307153b7a69fffa12fd"
+}

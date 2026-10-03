@@ -1,0 +1,27 @@
+{
+  "measurements": {
+    "added": 15,
+    "edited": 4,
+    "removed": 0
+  },
+  "evidence": {
+    "added": 43,
+    "edited": 0,
+    "removed": 0
+  },
+  "grades": {
+    "added": 0,
+    "edited": 5,
+    "removed": 0
+  },
+  "sources": {
+    "added": 12,
+    "edited": 0,
+    "removed": 0
+  },
+  "coverage": {
+    "added": 1,
+    "edited": 1,
+    "removed": 0
+  }
+}

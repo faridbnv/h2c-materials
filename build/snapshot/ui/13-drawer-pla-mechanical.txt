@@ -7,7 +7,7 @@ Tensile yield strength
 Tensile break strength
 35 values
 Elongation at break
-214 values
+215 values
 Elongation at yield
 18 values
 Tensile strain at strength
@@ -31,5 +31,5 @@ NOT MEASURED FOR THIS MATERIAL
 Flexural stress at conventional deflection · Izod strength · Compression strength · Interlayer adhesion strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio · Tensile stress at 5 % elongation · Tensile stress at 10 % elongation · Tensile stress at 100 % elongation · Tensile stress at 200 % elongation · Tensile stress at 300 % elongation
 Absent from the sampled sources. Not zero, and not a low value.
 COVERAGE
-Mechanical — Evidence recorded. 1207 mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.
+Mechanical — Evidence recorded. 1208 mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.
 Sparse properties — Gap. Not published by its own products: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction.

@@ -1,0 +1,191 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "release": "c890d0421b03",
+  "head_before": "f2df7b13fa6f90ca92aea5ee1f206a18e376e614",
+  "input_files": [
+    {
+      "path": "priority-01-verification.json",
+      "sha256": "5219d05fbb241b2cc16a6ce4e3d8396f9261e7e44049f8cadc149d5e557d5445"
+    },
+    {
+      "path": "priority-01-cached-packet.json",
+      "sha256": "b43ac0cfa66c847f6556de26a53a2fe06f3acef7b1566aa909fe24172e1166c1"
+    },
+    {
+      "path": "priority-01-cleanup-packet.json",
+      "sha256": "e650c788a2a7d8ac085d60dd89c34f277fc7625ab52619d111f3e5e52f4380ad"
+    },
+    {
+      "path": "priority-01-c06-packet.json",
+      "sha256": "2cade9840da6d56ff7ebe6728587f07bcd0f351ced041f722c704839b024d888"
+    },
+    {
+      "path": "priority-01-supplemental-packet.json",
+      "sha256": "09e07c8419fade43b9d68623ccbb6c4f04d6ea97884596c3efd6613fecaaed51"
+    },
+    {
+      "path": "priority-01-outcomes-packet.json",
+      "sha256": "0aab9a043540ff74af811f4d446b9ccfe3058334fc587a0b9f3bb8b4b7141b69"
+    },
+    {
+      "path": "priority-01-record-counts.json",
+      "sha256": "f78e4dd3a3f973fb036abc973857dd633369b192ab803007517be2f48e3a824a"
+    },
+    {
+      "path": "priority-01-guards.json",
+      "sha256": "4c2e534fc23c33ba00a5ff06d16313ca028933ba7a685f434944d4a6938247ee"
+    },
+    {
+      "path": "priority-01-frozen-replay.json",
+      "sha256": "b650a8ee5eb615598541e1dd68806eb892381ce847ff2d03f2f09fe0878c4ed4"
+    },
+    {
+      "path": "priority-01-environment-replay.json",
+      "sha256": "1bc6a2972cf5d43651a77923dcf3763b407ed67b8c6fc02e120804a86382307c"
+    },
+    {
+      "path": "priority-01-template-replay.json",
+      "sha256": "37953d810437d51615c6421170b9ed67db2e9a4f81235f7210e2378bb060be2f"
+    },
+    {
+      "path": "priority-01-estimate-recalibration.json",
+      "sha256": "7c9041d2038d6cb490222a4d803f0c748ce505cf360ce8710bf963d7d47a4acd"
+    },
+    {
+      "path": "priority-01-cached-review.json",
+      "sha256": "ad8329167ba0e350f726882c3afa317d8cc98a2338a8c97653bc0de807cc5116"
+    },
+    {
+      "path": "priority-01-cleanup-review.json",
+      "sha256": "5f9f79fa57c8ae75c100d8acb4796f5de60231d0bbbadc5778e8b15834cf6639"
+    },
+    {
+      "path": "priority-01-c06-review.json",
+      "sha256": "cbbcb12ea89b2cbd8403ea136f7ef5f2ea4ce32beccf4a009339da5dd423666d"
+    },
+    {
+      "path": "priority-01-c06-migration-review.json",
+      "sha256": "45982fc922c8e51896d9d52c1c9fe3ff2787d023282aee99ef56235df2c92901"
+    },
+    {
+      "path": "priority-01-variant-review.json",
+      "sha256": "819b03df1d678036a43bb86fd84a419b970a790375cf2454503877f9793455f1"
+    },
+    {
+      "path": "priority-01-supplemental-review.json",
+      "sha256": "adcd3494422bf41651d79659bf759525e5360601d2b0aeeec376ecaaadc154f6"
+    },
+    {
+      "path": "priority-01-outcomes-review.json",
+      "sha256": "2bd7ef075ae7296138d7fca955f3ea8037b45e0bc33af63cab6731a7ec278534"
+    },
+    {
+      "path": "priority-01-changed-answers-review.json",
+      "sha256": "516facf6417291d69c24d0bab4279619ba39b5441e93f994a828e4d63399d04f"
+    }
+  ],
+  "logs": {
+    "full_verify": {
+      "retained_log": "evidence/priority-01-full_verify.log",
+      "SHA256": "402e51592fc94f2a4558aa4c3c8585d5c68053af38c56348d0b778d936fe959d"
+    },
+    "build_diff": {
+      "retained_log": "evidence/priority-01-build_diff.log",
+      "SHA256": "2ee0796e2e7ae7f6f8d006edef267adbcb9f9c206b30ce12cd8a6d1de4349998"
+    },
+    "backup": {
+      "retained_log": "evidence/priority-01-backup.log",
+      "SHA256": "5b0964e92cd39a85c1bd6df19ab82a4b1d1ccc6f8dec0445353d9d47afbd5dd2"
+    },
+    "prior_verify_before_supplement": {
+      "retained_log": "evidence/priority-01-prior_verify_before_supplement.log",
+      "SHA256": "593e6fb31effe30247747a59b5ae9d72b40bde7de1787c181242688f05a2d090"
+    },
+    "prior_stale_worklist_failure": {
+      "retained_log": "evidence/priority-01-prior_stale_worklist_failure.log",
+      "SHA256": "1dd6cdbdf10d1d280074894e3eb4cbce94e4785eeafdb0a0d5ecca0375bc956b"
+    }
+  },
+  "log_custody": "All retained external-campaign/resume-2026-10-02 logs independently SHA-checked against final verification receipt. Full verify transcript inspected through final browser/scenario completion; parent retained process exit0 receipt.",
+  "verification": {
+    "full_verify_exit": 0,
+    "full_verify_wall_seconds_approx": 278.93,
+    "timing_limit": "Full timing approximate from retained file timestamps; warm-fast53.1s measured by verify program.",
+    "warm_fast_seconds": 53.1,
+    "budget_seconds": 90,
+    "unit_tests": 488,
+    "import_tests": 206,
+    "scale": true,
+    "reproducible": true,
+    "context_accepted": 76,
+    "context_new": 0,
+    "context_stale": 0,
+    "native_views": 69,
+    "layout_failures": 0,
+    "rendered_scenarios": 300,
+    "readings": 2596,
+    "complete_grid_in_scope": 136,
+    "products_drawer_checks": 12
+  },
+  "serialized_admission": {
+    "measurements_added": 15,
+    "measurements_edited": 4,
+    "evidence_added": 43,
+    "grade_rows_edited": 5,
+    "sources_added": 12,
+    "coverage_added": 1,
+    "coverage_superseded": 1,
+    "no_records_removed": true,
+    "final_proposal_check": "12 C06 source rows and30 evidence rows match frozen fields exactly; all6cleanup and6supplemental rows exact;25cached ops unchanged, remainingHB row replaced only by approved spacing cleanup. PA6newRWL coverage exact and priorC00548 Superseded.",
+    "pipeline_guard": "Previously reviewed guard/writeBatch/markApplied used in staged single-table transaction after facts. Final3disposable changedgrade/source/evidence cases all refused; canonical tables/manifest/ledger unchanged; C06/supplemental zero-record reruns.",
+    "vocabulary": "Only source-backed flame-retardant ceramic filler variant added; retained separate grade covariate and changed generic dense-filler routing limitation documented. No estimate/selection algorithm or ordinary guard weakened."
+  },
+  "compiled_diff": {
+    "differences": 7060,
+    "assessment": "Reviewed compiled diff contains source-backed measurement/context admission, own statements, sources, grade composition/variant, coverage and automatic fit/bound changes. No production estimate/selection code change; sole import API change exports existingmarkApplied.",
+    "automatic_estimates": {
+      "material_cells": 120,
+      "materials": 49,
+      "grade_estimates": 758,
+      "source_evidence_separate": true
+    }
+  },
+  "changed_answers": {
+    "frozen": {
+      "questions": 15,
+      "evaluations": 17775,
+      "moves": 0
+    },
+    "environment": {
+      "questions": 48,
+      "evaluations": 56880,
+      "moves": 0
+    },
+    "templates": {
+      "questions": 24,
+      "evaluations": 28440,
+      "screen_moves": 9,
+      "verdict_moves": 0,
+      "reason": "PA6strict>50% own bound updates existing uncertain model; upper75->204 means100% stretch no longer wholly fails plausible interval. All9 remainUNKNOWN; no100% measured claim or PASS."
+    }
+  },
+  "backup": {
+    "verified_originals": 2409,
+    "derived_files": 2815,
+    "known_absent_inventory": 124,
+    "new_cited_original_missing": 0,
+    "assessment": "Retained export log independently checked: all2409already present,0copied; derived2815 and124knownabsent inventory entries. Newcited originals pinned and verified by approved source reviews."
+  },
+  "release_limits": [
+    "IndependentAI only; no human/physical/vendor validation. Own SDS food/resin statements are maker know-how, no printed-part certification/current regulatory validation/medical approval/selection pass. Raw PA Rail report/SDS conflicts remain explicit.",
+    "New strictbounds/fullranges and missing specimen/state/conditions retained; polymer/context lanes remain distinct from exactproduct evidence.",
+    "Registered original ±45° preparation supports unchanged D91 rows. Withdrawn reviewer claim preserved. v3 HTML standalone tbody-span omission remains documented and requires separate tested zero-compiled-diff repair before expandedHTML research; current original-reread facts unchanged.",
+    "Outcome12targets/204questions may be finalized only after this verified localcommit. Other campaign targets remain unfinished. No push authorized.",
+    "Useful findings peractivehour not reliably measured; no fabricated historicaltime/token efficiency metric."
+  ],
+  "canonical_files_edited": false,
+  "approval_scope": "Reviewed source/operations/guards/render/replay/fullQA and backup support verified localcommit of this bounded first12product tranche. This is no claim whole campaign complete.",
+  "review_signature_sha256": "d683bb5863fb9fcbd7ac4edc09f91e8554b661bdb71224f1ff9e901615729fa1"
+}

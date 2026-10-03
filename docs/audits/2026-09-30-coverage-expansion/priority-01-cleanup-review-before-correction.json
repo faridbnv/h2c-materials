@@ -1,0 +1,54 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "cfb5c0331e0b8fa949b4d17cf6ab76e0764752c35c111e9a539181263db9708e",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_operations": 7,
+  "source_scope": "Reuse independent verified own-product HTML readings for all six literal correction operations; coverage rubric independently rechecked. No canonical edits.",
+  "full_expected_rows_match": true,
+  "per_operation": [
+    {
+      "OperationID": "N01-CLEAN-G049-06",
+      "verdict": "APPROVE",
+      "source_quote": "Nanovia PA-6 : High resistance",
+      "RequiredChange": null
+    },
+    {
+      "OperationID": "N01-CLEAN-G020-39",
+      "verdict": "APPROVE",
+      "source_quote": "Nanovia PETG : Functional prototypes",
+      "RequiredChange": null
+    },
+    {
+      "OperationID": "N01-CLEAN-G039-45",
+      "verdict": "APPROVE",
+      "source_quote": "Nanovia TPU 70D : Industrial semi-rigid",
+      "RequiredChange": null
+    },
+    {
+      "OperationID": "N01-CLEAN-G001-98",
+      "verdict": "APPROVE",
+      "source_quote": "Nanovia PLA EF 3D850 : Endocrine disruptor free",
+      "RequiredChange": null
+    },
+    {
+      "OperationID": "N01-CLEAN-G049-08",
+      "verdict": "CHANGES_REQUIRED",
+      "source_quote": "Nanovia PA-6 Rail is a NF EN 45545-2 certified composite polyamide (nylon) and flame retardant ceramic filament.",
+      "RequiredChange": "Label NF EN45545-2 certified wording explicitly as a maker claim with raw-material-only report scope and unresolved method/requirement-set conflicts, or copy only the exact composition clause. Ceramic filler and unchanged material ownership are supported; percentage not published."
+    },
+    {
+      "OperationID": "N01-CLEAN-Q05486",
+      "verdict": "APPROVE",
+      "source_quote": "Flammability  HB UL 94    @ 0.8 mm",
+      "RequiredChange": null
+    },
+    {
+      "OperationID": "N01-CLEAN-PA6-ENV",
+      "verdict": "CHANGES_REQUIRED",
+      "RequiredChange": "Remove or hold until an actual reviewed own environmental record is admitted; then supersede on that environmental basis. Flammability HB does not establish Moisture/environmental coverage under current contract.",
+      "contract": "build/src/coverage-rules.js explicitly says Flammability is its own domain; environmental coverage uses ENVIRONMENT_CATEGORIES."
+    }
+  ],
+  "review_signature_sha256": "92182fefdb9f689a233143be26043ba56789b5ef5b4073fd484e41700ba7c894"
+}

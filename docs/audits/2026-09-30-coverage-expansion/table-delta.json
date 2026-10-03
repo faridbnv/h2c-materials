@@ -8,15 +8,15 @@
   },
   "coverage": {
     "baseline": 805,
-    "current": 946,
-    "added": 141,
-    "edited_existing": 78,
+    "current": 947,
+    "added": 142,
+    "edited_existing": 79,
     "removed": 0
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5485,
-    "added": 179,
+    "current": 5528,
+    "added": 222,
     "edited_existing": 208,
     "removed": 0
   },
@@ -24,7 +24,7 @@
     "baseline": 1163,
     "current": 1163,
     "added": 0,
-    "edited_existing": 75,
+    "edited_existing": 80,
     "removed": 0
   },
   "headline_definitions": {
@@ -43,9 +43,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 11787,
-    "added": 251,
-    "edited_existing": 1297,
+    "current": 11802,
+    "added": 266,
+    "edited_existing": 1301,
     "removed": 0
   },
   "method": {
@@ -99,8 +99,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 1846,
-    "added": 18,
+    "current": 1858,
+    "added": 30,
     "edited_existing": 63,
     "removed": 0
   }

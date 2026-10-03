@@ -1,0 +1,860 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-02"
+  },
+  "document": {
+    "sha256": "74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b",
+    "url": "https://nanovia.tech/media/english-MSDS-PETG.pdf",
+    "pages": 7,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/media/english-MSDS-PETG.pdf#witness-for=source:R-NANOVIA-PETG"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+      "Publisher": "Nanovia",
+      "Title": "PETG official material safety data sheet",
+      "Revision": "Updated : March 2026",
+      "Publication date": "Not published",
+      "Access date": "2026-10-02",
+      "Source class": "Manufacturer SDS",
+      "Source note": "Exact linked maker original, staged through isolated campaign pipeline. Manufacturer statement; no printed-product approval. Missing exposure conditions and own-source contradictions remain. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/media/english-MSDS-PETG.pdf",
+      "Locator": "Document",
+      "Applicable grades": "G020-39",
+      "Access state": "retrieved",
+      "Access note": "Fetched once from official download route, saved by digest, staged from exact bytes. No applied digest refetched or overwritten.",
+      "SHA256": "74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "SDS PETG Updated : March 2026 – Appliance (CE) n° 1904/2006 PETG - ENGLISH SDS SECTION 1 : IDENTIFICATION OF THE SUBSTANCE/THE MIXTURE AND THE SOCIETY/COMPANY 1.1 IDENTIFICATION OF THE PRODUCT Product shape : Native colored polymer Product name : Nanovia PETG Products group : Commercial product"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent original operation review required; no human review",
+      "visual": false
+    }
+  },
+  "grades": [
+    {
+      "key": "G020-39",
+      "row": {
+        "GradeID": "G020-39",
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PETG",
+        "Shared formulation key": "R-NANOVIA-PETG",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "SKU: N/A Categories: 3D printing filament , Material , PETg (Polyethylene terephthalate) Tag: Food contact (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "visual": false,
+        "note": "Existing exact grade only; source supporting this row is added without changing product identity or primary source."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,29 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.29",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1290",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-english-MSDS-PETG",
+        "Locator": "p. 5: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Density 1,29 g/cm3."
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "note": "Automatic rows rejected; only independently signed exact product statements admitted."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c06-74e5ecc5-1",
+      "gradeKey": "G020-39",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "G020-39",
+        "Domain": "Durability",
+        "Topic": "Effect of strong acids",
+        "Finding": "Strong oxidizing agents, strong acids and strong bases.",
+        "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict. Section10.5 names incompatible materials, not a measured acid result.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+        "Locator": "p. 5: Section10.5 incompatible materials"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Strong oxidizing agents, strong acids and strong bases."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "visual": false,
+        "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+      }
+    },
+    {
+      "id": "c06-74e5ecc5-2",
+      "gradeKey": "G020-39",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "G020-39",
+        "Domain": "Durability",
+        "Topic": "Effect of strong alkalis",
+        "Finding": "Strong oxidizing agents, strong acids and strong bases.",
+        "Exposure / conditions": "SDS handling/reactivity narrative for this named product. Specific agent, concentration, duration, specimen, temperature, method and quantified retention not stated. Not a service exposure test or universal resistance verdict. Same sentence also names strong bases; one source reading serves both category questions.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+        "Locator": "p. 5: Section10.5 incompatible materials"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Strong oxidizing agents, strong acids and strong bases."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "visual": false,
+        "note": "Own English SDS section re-read; no normalized universal resistance or service approval inferred."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Updated : March 2026 – Appliance (CE) n° 1904/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 1 : IDENTIFICATION OF THE SUBSTANCE/THE MIXTURE AND THE SOCIETY/COMPANY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 IDENTIFICATION OF THE PRODUCT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.2 RELEVANT IDENTIFIED USES OF THE SUBSTANCE OR MIXTURE AND DISCONTINUED USES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.3 INFORMATIONS REGARDING THE SUPPLIER OF THE SAFETY DATA SHEET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Address : ZA Saint-Paul - 22540 Louargat - France",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tel : +33 (0)2 96 43 36 90",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fax : +33 (0)2 96 43 32 26",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.4 EMERGENCY NUMBERS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The valid emergency phone number in France is the number ORFILA (INRS) : +33 (0)1 45 42 59 59. This number allows to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "help (excluding call charge), 24 hours a day and 7 days a week. To know the valid emergency phone number in your country,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 2 : HAZARDS IDENTIFICATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.1 CLASSIFICATION IN ACCORDANCE WITH 67/548/CEE OR 1999/45/CE EU GUIDELINES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.2 LABEL NONE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.3 OTHER HAZARDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 3 : INFORMATIONS ON THE COMPONENTS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.1 SUBSTANCES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.2 MIXTURES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "POLYETHYLENE TEREPHTALATE GLYCOL : 98-100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Colouring agent : 0-2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 4 : FIRST AID",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.1 FIRST AID",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Updated : March 2026 – Appliance (CE) n° 1904/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "When used in 3D printers, the product is heated. Refer to the advice of the printer manufacturer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "When used in 3D printers, the product is heated. Refer to the advice of the printer manufacturer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "When used in 3D printers, the product is heated. Refer to the advice of the printer manufacturer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4.2 SYMPTOMS AND ACUTE OR CHRONIC EFFECTS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SECTION 5 : MEASURES IN CASE OF FIRE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5.1 FIRE EXTINGUISHING METHODS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appropriate fire extinguishing methods : Sprayed water with additives, chemical powder, chemical foam, C02 fire extinguisher",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5.2 PARTICULAR HAZARDS ARIZING FROM THE SUBSTANCE OR MIXTURE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5.3 ADVICE TO THE FIREFIGHTERS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SECTION 6 : MEASURES IN CASE OF ACCIDENTAL SPILLAGE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.1 INDIVIDUAL PRECAUTIONS, PROTECTIVE EQUIPMENT AND EMERGENCY PROCEDURE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "General measures : If an accident occurs when using a 3D printer or with an injection moulding machine, air the room and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.1.1. For the non-first-aiders",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Protective equipment : Personal protection : see section 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Updated : March 2026 – Appliance (CE) n° 1904/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "occurs when used with a 3D printer, refer to the advice of the printer manufacturer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6.1.2. For the first-aiders",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Protective equipment : Personal protection : see section 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "occurs when used with a 3D printer, refer to the advice of the printer manufacturer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6.2 PRECAUTIONS FOR THE PROTECTION OF THE ENVIRONMENT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6.3 METHODS AND LOCKDOWN AND CLEANING MATERIAL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "6.4. REFERENCE TO OTHER SECTIONS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Information regarding the handling, see section 7. Information regarding the personal protective equipment, see section 8.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Information regarding disposal, see section 13.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SECTION 7 : HANDLING AND STORAGE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "7.1 PRECAUTIONS TO BE TAKEN FOR A SAFE HANDLING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "When used in 3D printers : refer to the advice of the printer manufacturer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Handling temperature : Consult the technical sheet. When used in 3D printers : refer to the advice of the printer manufacturer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "accordance with good industrial hygiene practices (see section 8).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "7.2 STORAGE CONDITIONS AND POSSIBLE INCOMPATIBILITIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Updated : March 2026 – Appliance (CE) n° 1904/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "7.3. FINAL USE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 8 : EXPOSURE CONTROLS / STAFF PROTECTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "8.1. CONTROL SETTINGS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "8.2 EXPOSITION CONTROL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "8.2.1. Suitable technical controls",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Use the injection moulding machines and the 3D printers in a well-ventilated room.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "When used in 3D printers : refer to the advice of the printer manufacturer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "8.2.2. Individual protective equipment",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "8.2.2.1. Eyes and face protection",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "For industrial processing : goggles with side protection (complies with standard EN 166).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "8.2.2.2. Skin protection",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Thickness : 0.5 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Breakage time : > 480 minutes.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Complies with standard EN 374.",
+      "reason": "properties.csv carries no property for \"Complies with standard\""
+    },
+    {
+      "page": 4,
+      "text": "8.2.2.3 Respiratory tract protection",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Use injection moulding machines and 3D printers in a well-ventilated room.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "When used in 3D printers : refer to the advice of the printer manufacturer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "A/B/P3 dust filter (complies with standard EN 141 et EN 143).",
+      "reason": "properties.csv carries no property for \"A/B/P3 dust filter (complies with standard\""
+    },
+    {
+      "page": 4,
+      "text": "8.2.2.4. Thermal risks protection",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "8.2.3. Environment exposure control",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 9 : PHYSICAL AND CHEMICAL PROPERTIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Updated : March 2026 – Appliance (CE) n° 1904/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "9.1. ESSENTIAL PHYSICAL AND CHEMICAL PROPERTIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Tg 80°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "9.2 OTHER INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "9.2.1. Information regarding physical hazard classes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "9.2.2. Other safety features",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "SECTION 10 : STABILITY / RESPONSIVENESS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10.1. RESPONSIVENESS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10.2. CHEMICAL STABILITY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10.3. POTENTIAL SIDE EFFECTS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "(See section 10.1 for reactivity that may generate hazards considering the substances, containers and contaminants to which",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "the substance or mixture may be exposed during transport, storage and handling.) (See section 10.1 for reactivity that may",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10.4. CONDITIONS TO AVOID",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "temperatures above 260°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10.5. INCOMPATIBLE MATERIALS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10.6. HAZARDOUS DECOMPOSITION PRODUCTS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "section 5.2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "SECTION 11 : TOXICOLOGICAL INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "11.1. INFORMATION ON THE HAZARD CLASSES AS DEFINED IN THE REGULATIONS (CE) N° 1272/2008",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Updated : March 2026 – Appliance (CE) n° 1904/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "11.2. INFORMATION ABOUT OTHER HAZARDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "11.2.1 Endocrine-disrupting properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "11.2.2 Other information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "SECTION 12 : ECOLOGICAL INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "12.1. Toxicity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "12.2. Persistence and biodegradability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "12.3. Bioaccumulation potential",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "12.4. Mobility in soils",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "12.5. PBT and vPvB results",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "12.6. Endocrine disrupting properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "12.7. Other adverse effects",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "SECTION 13 : DISPOSAL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Updated : March 2026 – Appliance (CE) n° 1904/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "13.1 WASTE TREATMENT METHODS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "SECTION 14 : TRANSPORT INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "SECTION 15 : REGULATORY INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "15.1. REGULATIONS/LEGISLATION SPECIFIC TO THE SUBSTANCE OR MIXTURE IN TERMS OF SAFETY, HEALTH AND THE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "15.1.1. EU regulations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "• Does not contain any substances subject to Regulation (EU) No 649/2012 of the European Parliament and of the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Council of 4 July 2012 concerning the export and import of dangerous chemicals.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Does not contain any substances subject to Regulation (EU) No 2019/1021 of the European Parliament and of the Council of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "20 June 2019 on persistent organic pollutants.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "15.1.2. National guidelines",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "15.2 CHEMICAL SAFETY ASSESSMENT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "SECTION 16 : OTHER INFORMATIONS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "The content and format of this safety data sheet comply with Regulation (EC) NO. 1907/2006 of the European Parliament and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "of the Council of 18 December 2006 concerning the Registration, Evaluation, Authorisation and Restriction of Chemicals",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "The use of 3D printers and injection moulding machines requires specific training. Refer to the printer manufacturer’s",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent original operation review required; no human review",
+    "note": "Only independently signed exact statements. All automatic measurements/profiles rejected; no catalogue change or synthetic environmental rating."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original operation review required; no human review",
+        "note": "Automatic rows rejected; only independently signed exact product statements admitted."
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PETG",
+        "Shared formulation key": "R-NANOVIA-english-MSDS-PETG",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-english-MSDS-PETG",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "SDS PETG"
+      }
+    }
+  ],
+  "newMaterial": null
+}

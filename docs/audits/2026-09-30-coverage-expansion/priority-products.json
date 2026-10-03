@@ -3,7 +3,7 @@
   "BaselineCommit": "ad5b0ad",
   "BaselineRelease": "b27dc24f7147",
   "Purpose": "More defensible H2C shortlists and practical exact-product instructions; research completion does not mean selection PASS.",
-  "SelectionMethod": "Deterministic score prioritizes practical engineering polymers, truly not-published one-fact questions, unresolved printer gates, current headline coverage and existing prices; excludes known printer-outside products, completed targets and shared-formulation duplicates. Explicit maker allocations preserve document reuse and broad common-material coverage. Limit elastomers to two per maker and omit specialised radiation/nuclear fillers; Nanovia prioritizes twelve ordinary structural/support polymer products through an explicit product-owner ordering. Score is a work-priority aid only.",
+  "SelectionMethod": "Deterministic score prioritizes practical engineering polymers, truly not-published one-fact questions, unresolved printer gates, current headline coverage and existing prices; excludes known printer-outside products, completed targets and shared-formulation duplicates. Explicit maker allocations preserve document reuse and broad common-material coverage. Limit elastomers to two per maker. Exclude the separately listed Flex radiation/nuclear products; retain the frozen Nanovia PLA XRS target to assess its stated shielding limits. Nanovia uses an explicit twelve-product ordering across structural polymers and bounded special-use products. Score is a work-priority aid only.",
   "Batches": [
     {
       "BatchID": "priority-01",

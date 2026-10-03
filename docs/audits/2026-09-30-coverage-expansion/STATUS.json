@@ -1,5 +1,5 @@
 {
-  "dataRelease": "b27dc24f7147",
+  "dataRelease": "c890d0421b03",
   "latestCompletedDataCommit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -21,13 +21,13 @@
   },
   "environmentalRecordPresence": {
     "scope": "Seven exposure categories; exact grade records only, not polymer context or approvals",
-    "materials": 64,
+    "materials": 65,
     "byCategory": {
       "acid": 43,
       "alkali": 42,
-      "organic-solvent": 46,
+      "organic-solvent": 50,
       "oil-grease": 44,
-      "uv-outdoor": 28,
+      "uv-outdoor": 30,
       "moisture": 12,
       "hydrolysis": 6
     }
@@ -50,17 +50,17 @@
     },
     "excluded": 17,
     "grades": 1163,
-    "measurements": 11477,
-    "numericMeasurements": 11296,
+    "measurements": 11492,
+    "numericMeasurements": 11311,
     "quarantined": 24,
     "profiles": 1286,
-    "evidence": 770,
+    "evidence": 791,
     "prices": 357,
-    "sources": 1846,
-    "coverage": 946,
-    "knowHow": 4698,
+    "sources": 1858,
+    "coverage": 947,
+    "knowHow": 4720,
     "polymerEnvironment": 353,
-    "polymerEvidence": 325,
+    "polymerEvidence": 321,
     "coverageDerived": 1144
   },
   "canonicalTableDelta": {
@@ -73,15 +73,15 @@
     },
     "coverage": {
       "baseline": 805,
-      "current": 946,
-      "added": 141,
-      "edited_existing": 78,
+      "current": 947,
+      "added": 142,
+      "edited_existing": 79,
       "removed": 0
     },
     "evidence": {
       "baseline": 5306,
-      "current": 5485,
-      "added": 179,
+      "current": 5528,
+      "added": 222,
       "edited_existing": 208,
       "removed": 0
     },
@@ -89,7 +89,7 @@
       "baseline": 1163,
       "current": 1163,
       "added": 0,
-      "edited_existing": 75,
+      "edited_existing": 80,
       "removed": 0
     },
     "headline_definitions": {
@@ -108,9 +108,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 11787,
-      "added": 251,
-      "edited_existing": 1297,
+      "current": 11802,
+      "added": 266,
+      "edited_existing": 1301,
       "removed": 0
     },
     "method": {
@@ -164,8 +164,8 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 1846,
-      "added": 18,
+      "current": 1858,
+      "added": 30,
       "edited_existing": 63,
       "removed": 0
     }

@@ -1,0 +1,525 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "c6be0ec45a0dad2eac1ff359abb6e7270749eb639f95acd9fe4c8791ba06ce88",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "canonical_files_edited": false,
+  "basis_integrity": "All204 question IDs complete/unique per target; all current cited record/SourceID/SHA/grade links and full SourceRegistry rows verified. Official route captures/digests bound. Remaining missing-test outcomes stay bounded, not universal absence. No reliable active-time/yield statistic invented.",
+  "required_question_corrections": [
+    {
+      "GradeID": "G049-06",
+      "QuestionID": "environment-food-contact",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own dated SDS prints “Thermoplastic resin EU food contact 2002/72/EC” This is maker thermoplastic-resin context under the printed2002/72/EC label; no certificate, finished/printed-part validation, food type, migration test, time or temperature established. No current regulatory or food-service qualification inferred.",
+      "Basis": [
+        {
+          "RecordID": "Q05523",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+          "SHA256": "55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb",
+          "Locator": "p. 1: Section2.1 substance classification, English column"
+        }
+      ]
+    },
+    {
+      "GradeID": "G049-08",
+      "QuestionID": "environment-food-contact",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own dated SDS prints “Thermoplastic resin EU food contact 2002/72/EC” This is maker thermoplastic-resin context under the printed2002/72/EC label; no certificate, finished/printed-part validation, food type, migration test, time or temperature established. No current regulatory or food-service qualification inferred.",
+      "Basis": [
+        {
+          "RecordID": "Q05524",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+          "SHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+          "Locator": "p. 1: Section2.1 substance classification, English column"
+        }
+      ]
+    },
+    {
+      "GradeID": "G039-45",
+      "QuestionID": "environment-food-contact",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own dated SDS prints “The product is approved for food contact.” This is maker product approval context; no certificate, finished/printed-part validation, food type, migration test, time or temperature established. No current regulatory or food-service qualification inferred.",
+      "Basis": [
+        {
+          "RecordID": "Q05525",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+          "SHA256": "ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197",
+          "Locator": "p. 2: Section7.2 safe storage, English column"
+        }
+      ]
+    },
+    {
+      "GradeID": "G001-98",
+      "QuestionID": "environment-food-contact",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own dated SDS prints “The product is approved for food contact.” This is maker product approval context; no certificate, finished/printed-part validation, food type, migration test, time or temperature established. No current regulatory or food-service qualification inferred.",
+      "Basis": [
+        {
+          "RecordID": "Q05526",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+          "SHA256": "5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9",
+          "Locator": "p. 2: Section7.2 safe storage, English column"
+        }
+      ]
+    },
+    {
+      "GradeID": "G001-135",
+      "QuestionID": "environment-food-contact",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own dated SDS prints “The product is approved for food contact.” This is maker product approval context; no certificate, finished/printed-part validation, food type, migration test, time or temperature established. No current regulatory or food-service qualification inferred.",
+      "Basis": [
+        {
+          "RecordID": "Q05527",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+          "SHA256": "1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60",
+          "Locator": "p. 2: Section7.2 safe storage, English column"
+        }
+      ]
+    },
+    {
+      "GradeID": "G020-39",
+      "QuestionID": "environment-food-contact",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own page records “Native material for food EU10/2011” and separately refers to food-contact-certified granules. Raw/native material claim does not establish printed-part certification or contact conditions; certificate/migration validation remains needed.",
+      "Basis": [
+        {
+          "RecordID": "Q01880",
+          "SourceID": "R-NANOVIA-PETG",
+          "SHA256": "2af22bd76be12079c4dacd2baf3dd56de5061bfec25ad56dba8dea37fff79de7",
+          "Locator": "p. 1"
+        },
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PETG",
+          "SHA256": "2af22bd76be12079c4dacd2baf3dd56de5061bfec25ad56dba8dea37fff79de7",
+          "Locator": "p.1 Certifications",
+          "RawSentence": "Food contact certified granules : EU Plastics Regulation 10/2011"
+        }
+      ]
+    },
+    {
+      "GradeID": "G164-07",
+      "QuestionID": "environment-food-contact",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own maker page claims EU10/2011 and FDA food-contact scope, including resin/regulatory context. Certificates/migration testing, contact conditions and printed-part validation are not established; linked SDS was not retrieved. This is a known maker claim, not absence or a food-service pass.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PA-Food-Industry",
+          "SHA256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+          "Locator": "p.1 own product introduction and Avantages",
+          "RawSentence": "This metal detector visible, (EU) No 10/2011 & FDA food contact certified 3D printer filament, suits the needs of the agri-food industry. Able to withstand temperatures of over 100 °C, it possesses a great chemical resistance, notably to cleaning products and disinfectants. With its good adhesion, and low retraction, Nanovia PA FI can be 3D printed without an enclosure.",
+          "RawClauses": [
+            "This metal detector visible, (EU) No 10/2011 & FDA food contact certified 3D printer filament, suits the needs of the agri-food industry. Able to withstand temperatures of over 100 °C, it possesses a great chemical resistance, notably to cleaning products and disinfectants. With its good adhesion, and low retraction, Nanovia PA FI can be 3D printed without an enclosure.",
+            "Regulation (EU) No 10/2011 on plastic materials and articles intended to come into contact with food (incl. Regulation (EC) 1245/2020)",
+            "FDA 21 CFR §§ 178.3297"
+          ]
+        }
+      ]
+    },
+    {
+      "GradeID": "G024-11",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is persistent.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+          "SHA256": "838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is persistent."
+        }
+      ]
+    },
+    {
+      "GradeID": "G049-06",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is persistent.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+          "SHA256": "55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is persistent."
+        }
+      ]
+    },
+    {
+      "GradeID": "G050-12",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is persistent.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+          "SHA256": "c23075f2d0a805f64b9b47e6aec6cad9ef9618152db4fa125a508a8c6e79e266",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is persistent."
+        }
+      ]
+    },
+    {
+      "GradeID": "G020-39",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Solubility Insoluble in water.” Qualitative solubility declaration; agent water stated, but concentration/temperature/duration/specimen/test protocol absent. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+          "SHA256": "74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b",
+          "Locator": "p.5 Section9.1 physical/chemical properties, Solubility row",
+          "RawSentence": "Solubility Insoluble in water."
+        }
+      ]
+    },
+    {
+      "GradeID": "G025-03",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is persistent.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+          "SHA256": "5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is persistent."
+        }
+      ]
+    },
+    {
+      "GradeID": "G026-08",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is persistent.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+          "SHA256": "fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is persistent."
+        }
+      ]
+    },
+    {
+      "GradeID": "G083-04",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is persistent.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+          "SHA256": "7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is persistent."
+        }
+      ]
+    },
+    {
+      "GradeID": "G049-08",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is persistent.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+          "SHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is persistent."
+        }
+      ]
+    },
+    {
+      "GradeID": "G039-45",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is unlikely.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+          "SHA256": "ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is unlikely."
+        }
+      ]
+    },
+    {
+      "GradeID": "G001-98",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is unlikely.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+          "SHA256": "5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is unlikely."
+        }
+      ]
+    },
+    {
+      "GradeID": "G001-135",
+      "QuestionID": "environment-water-solubility",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS prints “Due to the consistency of the product and a low solubility in water bioavailability is unlikely.” Qualitative low-solubility wording occurs in bioaccumulation context; it is not a quantified product dissolution or service exposure test. No hydrolysis, pressure-water or universal water-service verdict inferred. Original/full-text custody retained; no new row added merely for counts.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+          "SHA256": "1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60",
+          "Locator": "p.3 Section12.3 bioaccumulation potential, English column",
+          "RawSentence": "Due to the consistency of the product and a low solubility in water bioavailability is unlikely."
+        }
+      ]
+    },
+    {
+      "GradeID": "G024-11",
+      "QuestionID": "environment-flammability",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS p.2 labels the material “Flammable material” (§9.2) and “Stable. FLAMMABLE.” (§10.2). Qualitative handling warning only; no specimen, thickness, method or fire-service qualification inferred.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+          "SHA256": "838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab",
+          "Locator": "p.2 Section9.2 and Section10.2",
+          "RawSentence": "Flammable material; Stable. FLAMMABLE."
+        }
+      ]
+    },
+    {
+      "GradeID": "G025-03",
+      "QuestionID": "environment-flammability",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS p.2 labels the material “Flammable material” (§9.2) and “Stable. FLAMMABLE.” (§10.2). Qualitative handling warning only; no specimen, thickness, method or fire-service qualification inferred.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+          "SHA256": "5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d",
+          "Locator": "p.2 Section9.2 and Section10.2",
+          "RawSentence": "Flammable material; Stable. FLAMMABLE."
+        }
+      ]
+    },
+    {
+      "GradeID": "G026-08",
+      "QuestionID": "environment-flammability",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS p.2 labels the material “Flammable material” (§9.2) and “Stable. FLAMMABLE.” (§10.2). Qualitative handling warning only; no specimen, thickness, method or fire-service qualification inferred.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+          "SHA256": "fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f",
+          "Locator": "p.2 Section9.2 and Section10.2",
+          "RawSentence": "Flammable material; Stable. FLAMMABLE."
+        }
+      ]
+    },
+    {
+      "GradeID": "G083-04",
+      "QuestionID": "environment-flammability",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own SDS p.2 labels the material “Flammable material” (§9.2) and “Stable. FLAMMABLE.” (§10.2). Qualitative handling warning only; no specimen, thickness, method or fire-service qualification inferred.",
+      "Basis": [
+        {
+          "BasisType": "SHA-verified original/full-text context; no structured source_facts row asserted",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+          "SHA256": "7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d",
+          "Locator": "p.2 Section9.2 and Section10.2",
+          "RawSentence": "Flammable material; Stable. FLAMMABLE."
+        }
+      ]
+    },
+    {
+      "GradeID": "G049-08",
+      "QuestionID": "environment-flammability",
+      "RequiredOutcome": "conflicting",
+      "RequiredFinding": "Own SDS p.2 “Flammable material” versus “Stable. NON-FLAMMABLE.” remains unresolved. Separate report explicitly covers raw material and conflicts on R22/R33 versus R22/R23 and smoke-method labels. Neither gives a harmonized printed-part fire qualification; vendor clarification required.",
+      "Basis": [
+        {
+          "RecordID": "Q05528",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+          "SHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+          "Locator": "p. 2: Section9.2 Other information and Section10.2 Chemical stability, English column"
+        },
+        {
+          "RecordID": "Q05510",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+          "SHA256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+          "Locator": "p. 1: Document title, scope"
+        },
+        {
+          "RecordID": "Q05511",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+          "SHA256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+          "Locator": "p. 1: Requirement set declaration"
+        },
+        {
+          "RecordID": "Q05512",
+          "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+          "SHA256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+          "Locator": "p. 2: Two requirement-set tables"
+        }
+      ]
+    },
+    {
+      "GradeID": "G083-04",
+      "QuestionID": "environment-moisture",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own Water absorption row is strict <1% “after24h of submersion”. Duration is retained; temperature, specimen preparation, standard and remaining exposure conditions are unstated. A bounded published measurement is present, but no hydrolysis or general moisture-service pass inferred.",
+      "Basis": [
+        {
+          "RecordID": "V011797",
+          "SourceID": "R-NANOVIA-PP-CF",
+          "SHA256": "b9bb98021c7100391fcb6a310d2469943681988ef9d7c3825c54ea1522983aae",
+          "Locator": "p. 1: Water absorption"
+        }
+      ]
+    },
+    {
+      "GradeID": "G025-03",
+      "QuestionID": "environment-moisture",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own page says “UV and water resistant”; this is a qualitative maker claim with pressure, duration, specimen and retained properties unstated. It does not establish tested moisture-service or hydrolysis performance.",
+      "Basis": [
+        {
+          "RecordID": "Q02081",
+          "SourceID": "R-NANOVIA-PETG-GF-UV",
+          "SHA256": "3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74",
+          "Locator": "p. 1"
+        }
+      ]
+    },
+    {
+      "GradeID": "G050-12",
+      "QuestionID": "environment-moisture",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own-product guidance gives PA-family humidity/oxidation sensitivity. This is handling/family context, not quantified product moisture-service performance; exposure conditions and retained properties remain missing.",
+      "Basis": [
+        {
+          "RecordID": "Q03530",
+          "SourceID": "R-NANOVIA-PA-6-CF",
+          "SHA256": "3c8ed6338ff05a5a597f75c68c6c48d1234eaf6f888f3f9903404e9642a1f191",
+          "Locator": "p. 1"
+        }
+      ]
+    },
+    {
+      "GradeID": "G164-07",
+      "QuestionID": "environment-moisture",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own-product guidance gives PA-family humidity/oxidation sensitivity. This is handling/family context, not quantified product moisture-service performance; exposure conditions and retained properties remain missing.",
+      "Basis": [
+        {
+          "RecordID": "Q05491",
+          "SourceID": "R-NANOVIA-PA-Food-Industry",
+          "SHA256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+          "Locator": "p. 1: Application recommendations, PA humidity/oxidation"
+        }
+      ]
+    }
+  ],
+  "additional_integrity_correction": {
+    "GradeID": "G049-08",
+    "QuestionID": "integrity-conflicts",
+    "RequiredAddition": "Include own SDS Flammable/NON-FLAMMABLE contradiction (Q05528) alongside raw-report requirement/method conflicts."
+  },
+  "withdrawn_assertion_history": {
+    "MeasurementIDs": [
+      "V011371",
+      "V011375",
+      "V011377"
+    ],
+    "Correction": "Withdraw preliminary source-mismatch assertion. Registered originals and current captured±45 tabs both explicitly print existing successively45°/-45° preparation. Current XY remains under D91 owner policy; exact build-plane mapping is not newly established. v3 reader table-onlytr branch loses standalonetbodyspan statements, requiring separate source-reader repair.",
+    "NoCanonicalChangesToTheseRows": true
+  },
+  "per_target": [
+    {
+      "GradeID": "G024-11",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G049-06",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G050-12",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G020-39",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G025-03",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G026-08",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G083-04",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G049-08",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G164-07",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G039-45",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G001-98",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    },
+    {
+      "GradeID": "G001-135",
+      "verdict": "CHANGES_REQUIRED",
+      "QuestionsReviewed": 17,
+      "held_limit": "Unstated specimen/exposure conditions and exact source scope remain vendor/test needs; final research outcome only after verified commit."
+    }
+  ],
+  "review_signature_sha256": "a6efae72ca5781c8315367e11b1d3ad169fc3c43dba97e5d8ece13f27ff90f20"
+}

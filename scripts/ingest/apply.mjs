@@ -484,7 +484,7 @@ export function applyBatch(batch, { migration = batch, date = new Date().toISOSt
 }
 
 /** Every document of this batch, in the ledger, as applied, with the SourceID its bytes were registered under. */
-function markApplied(proposals, t) {
+export function markApplied(proposals, t) {
   if (!existsSync(LEDGER)) return 0;
   const { records } = readCsv(LEDGER);
   const rows = records.map((r) => r.values);

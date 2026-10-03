@@ -1,0 +1,106 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "release": "c890d0421b03",
+  "input_files": [
+    {
+      "path": "priority-01-frozen-replay.json",
+      "sha256": "b650a8ee5eb615598541e1dd68806eb892381ce847ff2d03f2f09fe0878c4ed4"
+    },
+    {
+      "path": "priority-01-environment-replay.json",
+      "sha256": "1bc6a2972cf5d43651a77923dcf3763b407ed67b8c6fc02e120804a86382307c"
+    },
+    {
+      "path": "priority-01-template-replay.json",
+      "sha256": "37953d810437d51615c6421170b9ed67db2e9a4f81235f7210e2378bb060be2f"
+    },
+    {
+      "path": "priority-01-estimate-recalibration.json",
+      "sha256": "7c9041d2038d6cb490222a4d803f0c748ce505cf360ce8710bf963d7d47a4acd"
+    },
+    {
+      "path": "priority-01-record-counts.json",
+      "sha256": "f78e4dd3a3f973fb036abc973857dd633369b192ab803007517be2f48e3a824a"
+    },
+    {
+      "path": "priority-01-outcomes-packet.json",
+      "sha256": "0aab9a043540ff74af811f4d446b9ccfe3058334fc587a0b9f3bb8b4b7141b69"
+    },
+    {
+      "path": "priority-01-outcomes-review.json",
+      "sha256": "2bd7ef075ae7296138d7fca955f3ea8037b45e0bc33af63cab6731a7ec278534"
+    },
+    {
+      "path": "priority-01-variant-review.json",
+      "sha256": "819b03df1d678036a43bb86fd84a419b970a790375cf2454503877f9793455f1"
+    }
+  ],
+  "canonical_files_edited": false,
+  "source_grounding": {
+    "source": "R-NANOVIA-PA-6",
+    "sha256": "84f42c693728a60464753c9391ea58b141b1279bef6924149df177dffe932baf",
+    "locator": "Own Mechanical properties table, Elong. at break row",
+    "literal_cells": [
+      "Elong. at break",
+      ">50",
+      "%",
+      "ISO 527"
+    ],
+    "measurement": "V011795",
+    "limits": "Strict lower bound; specimen, direction, moisture, processing and test temperature remain unstated. No comparable measured XY value or invented point."
+  },
+  "replay_results": {
+    "frozen": {
+      "questions": 15,
+      "evaluations": 17775,
+      "changes": 0
+    },
+    "environment": {
+      "questions": 48,
+      "evaluations": 56880,
+      "changes": 0
+    },
+    "templates": {
+      "questions": 24,
+      "evaluations": 28440,
+      "screen_changes": 9,
+      "verdict_changes": 0,
+      "affected_products": [
+        "G049-01",
+        "G049-02",
+        "G049-03",
+        "G049-04",
+        "G049-05",
+        "G049-06",
+        "G049-07",
+        "G049-08",
+        "G049-09"
+      ],
+      "question": "Flexible component, exploration, estimates enabled, as-printed/dry",
+      "transition": "UNKNOWN screened -> UNKNOWN unscreened; criterion elongationXY >=100 remains UNKNOWN. Missing comparable observations remain explicit."
+    }
+  },
+  "automatic_estimate_recalibration": {
+    "material_estimate_cells": 120,
+    "materials": 49,
+    "grade_estimates": 758,
+    "explanation": "Own strict PA6 >50% bound enters existing model as lower constraint; M049 modeled plausible upper moves75->204%, so defended interval no longer wholly fails100%. Neither204% nor modeled52.1–104% is a newly published measurement. Related refitting and declared PA Rail variant covariate changes propagate automatically. No estimate algorithm, rules or manual narrowing changed. No estimate creates a selection PASS.",
+    "variant_caveat": "Declared ceramic label creates separate grade covariate and removes old generic dense-filler physics classification; reviewed source-backed identity change, not a model-code change."
+  },
+  "actual_render_checks": {
+    "path": "external-campaign/resume-2026-10-02/evidence/priority-01-render.json",
+    "sha256": "325a107ecc3480105e10d0ea1e506089199affb2dd41a45cb2410c4bc7785f35",
+    "release": "c890d0421b03",
+    "in_scope_grid_rows": 136,
+    "product_drawer_checks": 12,
+    "assessment": "Reproducer uses actual browser innerText, including all6tabs. Each basisQ finding checked against rendered text; independently inspected own environmental missing conditions, five food/resin maker-only limitations and unresolved PA Rail flammability conflict. Material drawers show all grades, so checks do not establish unrelated grades share claims."
+  },
+  "limits": [
+    "Environmental replay now pins before0571af6d609e/afterc890d0421b03 and replay program digest; final release receipt must retain this stamped report.",
+    "Registered PETG CF/GF/ESD ±45 preparation supports unchanged D91 rows. Withdrawn reviewer assertion retained; v3 HTML standalone-within-table-span omission remains a documented separate reader repair, no45° canonical edits.",
+    "This approves observed answer changes; final release still requires fullQA/backup/diff/localcommit. Outcome12-target closures remain proposed until verified commit."
+  ],
+  "review_signature_sha256": "47908edb939ed902a577ae755b208849ec46ac5909ae12fcd04c8a6243a28b24"
+}

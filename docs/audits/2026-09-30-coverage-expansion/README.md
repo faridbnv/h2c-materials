@@ -11,7 +11,9 @@ The sections below are the historical tranche record: their “now” counts des
 release, not today's build. [EFFORT-AND-VALUE.md](EFFORT-AND-VALUE.md) gives estimates and a proposed
 allocation; the owner accepted its material-first/priority-product recommendations on 2026-10-02. [RESUME-2026-10-02.md](RESUME-2026-10-02.md) reconciles current main and narrows this run to material assessment followed by 100 additional priority products, with up to 150 dependent on yield. The [documentation reconciliation](DOCUMENTATION-RECONCILIATION.md) records the freshness checks and publication boundary.
 
-## First twelve products
+The resumed material phase is complete. The [first resumed priority batch](priority-01-report.md) records twelve Nanovia products, their bounded outcomes and reviewed source changes. Current completion remains owned by STATUS.md and its committed outcome ledger.
+
+## Historical first twelve products
 
 The first production batch reread twelve registered Polymaker originals. Seven materials
 already had Application coverage; five old templated Gap judgements stood beside exact

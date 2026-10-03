@@ -1,0 +1,1377 @@
+{
+  "before_release": "0571af6d609e",
+  "after_release": "c890d0421b03",
+  "questions": 24,
+  "evaluations": 28440,
+  "answer_changes": 9,
+  "changes": [
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-01",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-02",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (same sheet as Spectrum PA6 Low Warp)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 100 °C, within the H2C's 120 °C (same sheet as Spectrum PA6 Low Warp)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "Asks for an enclosure but states no chamber temperature; an enclosure is not proof that 65 °C is enough (same sheet as Spectrum PA6 Low Warp)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-comparable"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (same sheet as Spectrum PA6 Low Warp)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 100 °C, within the H2C's 120 °C (same sheet as Spectrum PA6 Low Warp)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "Asks for an enclosure but states no chamber temperature; an enclosure is not proof that 65 °C is enough (same sheet as Spectrum PA6 Low Warp)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-comparable"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-03",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 100 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-comparable"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 100 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-comparable"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-04",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-05",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No print profile recorded for this product",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No print profile recorded for this product",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No print profile recorded for this product",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-comparable"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No print profile recorded for this product",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No print profile recorded for this product",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No print profile recorded for this product",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-comparable"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 100 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 60 °C, within the H2C's 65 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 100 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 60 °C, within the H2C's 65 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-comparable"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-comparable"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-comparable"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-08",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 20 °C, within the H2C's 65 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 20 °C, within the H2C's 65 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G049-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 275 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 95 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 4.46 to 31.4 % (plausibly 2.28 to 75), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-comparable"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 275 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 95 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 52.1 to 104 % (plausibly 50.7 to 204); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-comparable"
+        }
+      ]
+    }
+  ]
+}

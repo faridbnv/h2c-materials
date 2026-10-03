@@ -1,0 +1,62 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "09e07c8419fade43b9d68623ccbb6c4f04d6ea97884596c3efd6613fecaaed51",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 6,
+  "scope": "Narrow source-grounded proposals requested by injector. All source bytes/full current source/grade rows pinned and independent English-column readings retained. Canonical allocation/injection/QA by sole writer. No canonical edits.",
+  "per_operation": [
+    {
+      "OperationID": "FOOD-G049-06",
+      "verdict": "APPROVE",
+      "OriginalSHA256": "55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb",
+      "Locator": "p. 1: Section2.1 substance classification, English column",
+      "limitation": "Only literal maker food-contact context, not a current certificate/printed qualification/medical or selector pass."
+    },
+    {
+      "OperationID": "FOOD-G049-08",
+      "verdict": "APPROVE",
+      "OriginalSHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+      "Locator": "p. 1: Section2.1 substance classification, English column",
+      "limitation": "Only literal maker food-contact context, not a current certificate/printed qualification/medical or selector pass."
+    },
+    {
+      "OperationID": "FOOD-G039-45",
+      "verdict": "APPROVE",
+      "OriginalSHA256": "ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197",
+      "Locator": "p. 2: Section7.2 safe storage, English column",
+      "limitation": "Only literal maker food-contact context, not a current certificate/printed qualification/medical or selector pass."
+    },
+    {
+      "OperationID": "FOOD-G001-98",
+      "verdict": "APPROVE",
+      "OriginalSHA256": "5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9",
+      "Locator": "p. 2: Section7.2 safe storage, English column",
+      "limitation": "Only literal maker food-contact context, not a current certificate/printed qualification/medical or selector pass."
+    },
+    {
+      "OperationID": "FOOD-G001-135",
+      "verdict": "APPROVE",
+      "OriginalSHA256": "1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60",
+      "Locator": "p. 2: Section7.2 safe storage, English column",
+      "limitation": "Only literal maker food-contact context, not a current certificate/printed qualification/medical or selector pass."
+    },
+    {
+      "OperationID": "PA-RAIL-SDS-FLAMMABILITY-CONFLICT",
+      "verdict": "APPROVE",
+      "OriginalSHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+      "Locator": "p. 2: Section9.2 Other information and Section10.2 Chemical stability, English column",
+      "limitation": "Both own clauses quoted; semicolon joins distinct section clauses, not a source sentence or harmonized fire verdict."
+    }
+  ],
+  "withdrawn_assertion": {
+    "MeasurementIDs": [
+      "V011371",
+      "V011375",
+      "V011377"
+    ],
+    "Reason": "Direct raw original and current capture DOM both print exact existing±45 preparation prose. The v3 table reader omitted those standalone within-table spans; preliminary claim that originals repeat0° in these tabs was wrong. Existing D91 XY policy and canonical values/conditions stay unchanged.",
+    "ExtractionDefect": "pageLinesFromHtml table branch processes onlytr; standalone tbodyspan prose is lost. Separate reader repair required; no false data correction."
+  },
+  "review_signature_sha256": "8408595449fa42b236e03afed294b1196bef93a2d085d194da12e12cfb1c8257"
+}

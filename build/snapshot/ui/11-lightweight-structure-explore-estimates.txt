@@ -178,7 +178,7 @@ all products: 3.91
 ASA-EC UNKNOWN
 none judged
 nothing published to judge
- 1,170 ~2.2–4.0† ~30–50† ~1.3–8.8† ~89–105† 125¤ ☆
+ 1,170 ~2.2–4.0† ~30–50† ~1.3–8.7† ~89–105† 125¤ ☆
 ASA-GF PASS
 1 of 2 products
  passing: 1,110
@@ -274,7 +274,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,140 ~4.8–8.2† ~45–66† ~2.5–8.2† 142 — ☆
+ 1,140 ~4.8–8.2† ~45–66† ~2.6–8.2† 142 — ☆
 PA12
 Nylon / Polyamide
  UNKNOWN
@@ -320,7 +320,7 @@ Nylon / Polyamide
 likely fails: 1 measured below, 8 unpublished
  1,150
 1,130–1,200 · 7
- ~1.4–4.4† ~37–82† ~4–32† 140
+ ~1.3–4.3† ~38–84† ~52–104† 140
 60–143 · 3
  163↗ ☆
 PA6-CF
@@ -369,7 +369,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,010 ~3.1–5.3† ~54–101† ~2.9–12.8† ~87–174† 180↗ ☆
+ 1,010 ~3.1–5.3† ~55–102† ~2–14† ~87–174† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -400,7 +400,7 @@ out of stock
  ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.0–3.9† ~37–86† ~6–58† ~88–172† — ☆
+ UNKNOWN ~990–1,070† ~1.0–3.9† ~37–87† ~7–61† ~87–171† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN
@@ -433,16 +433,16 @@ typical: annealed
  157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,040–1,270† ~2.0–8.5† ~55–130† ~1–12† ~146–213† — ☆
+ UNKNOWN ~1,040–1,270† ~2.0–8.5† ~55–130† ~1–13† ~145–213† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN
 0 of 1 product
 likely fails: 1 measured below, 1 unpublished
- ~1,010–1,070† ~1.3–4.4† ~39–92† ~6–57† ~90–185† 246¤ ☆
+ ~1,010–1,070† ~1.3–4.4† ~39–93† ~6–60† ~90–185† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,180† ~2.7–11.7† ~59–141† ~1–12† ~157–251† — ☆
+ UNKNOWN ~1,050–1,180† ~2.7–11.7† ~59–141† ~1–12† ~156–251† — ☆
 PAHT
 Nylon / Polyamide
  PASS
@@ -451,7 +451,7 @@ Nylon / Polyamide
 all products: 1,200
  passing: 3.1
 all products: 3.1
- 82.1 ~4–15† ~95–154† — ☆
+ 82.1 ~4–16† ~95–154† — ☆
 PAHT-CE
 Nylon / Polyamide
  UNKNOWN
@@ -632,7 +632,7 @@ none judged
 nothing published to judge
  1,050
 1,020–1,080 · 2
- ~1.2–4.8† ~18–45† ~3–31† 85 — ☆
+ ~1.2–4.8† ~18–45† ~3–30† 85 — ☆
 PEBA
 Flexible Elastomers
  UNKNOWN
@@ -754,7 +754,7 @@ likely fails: 4 measured below, 1 unpublished
 PETG-PTFE UNKNOWN
 0 of 1 product
 likely fails: 1 measured below, 1 unpublished
- 1,320 ~0.9–3.1† ~27–62† ~103–184† ~48–73† 86↗ ☆
+ 1,320 ~0.9–3.1† ~27–62† ~104–186† ~48–73† 86↗ ☆
 PLA PASS
 10 of 61 products
  passing: 800–1,240

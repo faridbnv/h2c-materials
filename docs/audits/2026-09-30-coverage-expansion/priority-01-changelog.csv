@@ -1,0 +1,94 @@
+
+> h2c-fdm-material-selector@1.0.0 data:diff
+> node scripts/data/diff.mjs
+
+table,record,action,field,before,after
+coverage,C00548,Edited,Status,Gap,Superseded
+coverage,C00548,Edited,Finding,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade.","Superseded by C01633: No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+coverage,C01633,Added,,,
+evidence,Q05486,Added,,,
+evidence,Q05487,Added,,,
+evidence,Q05488,Added,,,
+evidence,Q05489,Added,,,
+evidence,Q05490,Added,,,
+evidence,Q05491,Added,,,
+evidence,Q05492,Added,,,
+evidence,Q05493,Added,,,
+evidence,Q05494,Added,,,
+evidence,Q05495,Added,,,
+evidence,Q05496,Added,,,
+evidence,Q05497,Added,,,
+evidence,Q05498,Added,,,
+evidence,Q05499,Added,,,
+evidence,Q05500,Added,,,
+evidence,Q05501,Added,,,
+evidence,Q05502,Added,,,
+evidence,Q05503,Added,,,
+evidence,Q05504,Added,,,
+evidence,Q05505,Added,,,
+evidence,Q05506,Added,,,
+evidence,Q05507,Added,,,
+evidence,Q05508,Added,,,
+evidence,Q05509,Added,,,
+evidence,Q05510,Added,,,
+evidence,Q05511,Added,,,
+evidence,Q05512,Added,,,
+evidence,Q05513,Added,,,
+evidence,Q05514,Added,,,
+evidence,Q05515,Added,,,
+evidence,Q05516,Added,,,
+evidence,Q05517,Added,,,
+evidence,Q05518,Added,,,
+evidence,Q05519,Added,,,
+evidence,Q05520,Added,,,
+evidence,Q05521,Added,,,
+evidence,Q05522,Added,,,
+evidence,Q05523,Added,,,
+evidence,Q05524,Added,,,
+evidence,Q05525,Added,,,
+evidence,Q05526,Added,,,
+evidence,Q05527,Added,,,
+evidence,Q05528,Added,,,
+grades,G001-98,Edited,Composition / filler,"Nanovia PEI CF Ultem 1010 : Carbon fiber reinforced Starting at : 270,73 &euro; ex. VAT / kg Select options (p. 1, as the sheet states it)",Not published
+grades,G039-45,Edited,Composition / filler,"Nanovia PEI CF Ultem 1010 : Carbon fiber reinforced Starting at : 270,73 &euro; ex. VAT / kg Select options (p. 1, as the sheet states it)",Not published
+grades,G020-39,Edited,Composition / filler,"Nanovia PEKK-A CF : Carbon fiber reinforced Starting at : 562,88 &euro; ex. VAT / kg Select options (p. 1, as the sheet states it)",Not published
+grades,G049-06,Edited,Composition / filler,"Nanovia PEKK-A CF : Carbon fiber reinforced Starting at : 562,88 &euro; ex. VAT / kg Select options (p. 1, as the sheet states it)",Not published
+grades,G049-08,Edited,Composition / filler,"Its density of 1490 kg/m³ is above what neat PA6 reaches (1180), so the product carries a filler its name does not declare. Not declared on the sheet; recorded as a Variant under D57 (R078).",composite polyamide (nylon) and flame retardant ceramic filament. Filler proportion not published.
+grades,G049-08,Edited,Variant,undisclosed dense filler,flame-retardant ceramic filler
+measurements,V007529,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007529,Edited,Direction,Unstated,"Stated, not a usable direction"
+measurements,V007529,Edited,Specimen / print parameters,Not published,"Test performed at 1mm/min on 3D printed test specimins at 0°, along with the tension stress."
+measurements,V007529,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-10-02 (m310-priority-01-cached) against the source: tensile-data-0: Test performed at 1mm/min on 3D printed test specimins at 0°, along with the tension stress. Geometry/test speed do not establish unstated build orientation, moisture or post-treatment. Independent AI original review; no human review."
+measurements,V011205,Edited,Specimen / print parameters,Not published,Test performed at 50mm/min on ISO 3167 A test specimens
+measurements,V011205,Edited,Notes,"Added 2026-09-25 (m143-batch-b34): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-25 (m143-batch-b34): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-10-02 (m310-priority-01-cached) against the source: Test performed at 50mm/min on ISO 3167 A test specimens Geometry/test speed do not establish unstated build orientation, moisture or post-treatment. Independent AI original review; no human review."
+measurements,V011512,Edited,Specimen / print parameters,Not published,Test performed at 50mm/min on ISO 3167 A test specimens
+measurements,V011512,Edited,Notes,"Added 2026-09-29 (m225-gap-fill-registered-sources): published in the source, never transcribed; re-read on its hash-checked page (GF-RB043-0011, the gap-fill research of 2026-09-28).","Added 2026-09-29 (m225-gap-fill-registered-sources): published in the source, never transcribed; re-read on its hash-checked page (GF-RB043-0011, the gap-fill research of 2026-09-28). Corrected 2026-10-02 (m310-priority-01-cached) against the source: Test performed at 50mm/min on ISO 3167 A test specimens Geometry/test speed do not establish unstated build orientation, moisture or post-treatment. Independent AI original review; no human review."
+measurements,V011513,Edited,Specimen / print parameters,Not published,Test performed at 50mm/min on ISO 3167 A test specimens
+measurements,V011513,Edited,Notes,"Added 2026-09-29 (m225-gap-fill-registered-sources): published in the source, never transcribed; re-read on its hash-checked page (GF-RB043-0012, the gap-fill research of 2026-09-28). The strain at the ultimate strength, not an elongation at break (the reading of Nanovia's wording owner decision 3 of 2026-09-26 made).","Added 2026-09-29 (m225-gap-fill-registered-sources): published in the source, never transcribed; re-read on its hash-checked page (GF-RB043-0012, the gap-fill research of 2026-09-28). The strain at the ultimate strength, not an elongation at break (the reading of Nanovia's wording owner decision 3 of 2026-09-26 made). Corrected 2026-10-02 (m310-priority-01-cached) against the source: Test performed at 50mm/min on ISO 3167 A test specimens Geometry/test speed do not establish unstated build orientation, moisture or post-treatment. Independent AI original review; no human review."
+measurements,V011788,Added,,,
+measurements,V011789,Added,,,
+measurements,V011790,Added,,,
+measurements,V011791,Added,,,
+measurements,V011792,Added,,,
+measurements,V011793,Added,,,
+measurements,V011794,Added,,,
+measurements,V011795,Added,,,
+measurements,V011796,Added,,,
+measurements,V011797,Added,,,
+measurements,V011798,Added,,,
+measurements,V011799,Added,,,
+measurements,V011800,Added,,,
+measurements,V011801,Added,,,
+measurements,V011802,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-55b9aab526e7,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-5ccaab255778,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-5ed344eda07d,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-74e5ecc55050,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-7672b9b52cb5,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-838a7a341ee2,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-a570add2d2c7,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-b7299118da3a,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-c23075f2d0a8,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-ca0099a2626e,Added,,,
+sources,R-NANOVIA-PRIORITY-20261002-fb9f5651287f,Added,,,

@@ -1,0 +1,46 @@
+{
+  "migration": "m312-batch-c06-priority-01",
+  "tests": [
+    {
+      "table": "grades",
+      "id": "G049-06",
+      "field": "Composition / filler",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "grade G049-06 moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "sources",
+      "id": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+      "field": "Revision",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "applied source moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "evidence",
+      "id": "Q05521",
+      "field": "Finding",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "previously admitted evidence moved",
+      "tables_manifest_ledger_unchanged": true
+    }
+  ],
+  "rerun_receipt": {
+    "migration": "m312-batch-c06-priority-01",
+    "packet": "2cade9840da6d56ff7ebe6728587f07bcd0f351ced041f722c704839b024d888",
+    "log": [],
+    "judgments": [],
+    "applied": 0,
+    "written": 0
+  },
+  "supplemental_rerun": {
+    "migration": "m313-priority-01-supplemental",
+    "packet": "09e07c8419fade43b9d68623ccbb6c4f04d6ea97884596c3efd6613fecaaed51",
+    "written": 0,
+    "records": []
+  }
+}

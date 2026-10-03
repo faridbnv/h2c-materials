@@ -1,0 +1,13 @@
+{
+  "before_commit": "20b4a6a",
+  "baseline_core": false,
+  "baseline_basis": "Frozen compiled database of the named committed baseline. Environment replay compares verdicts/screens; source-level changes are reviewed separately.",
+  "questions": 48,
+  "evaluations": 56880,
+  "answer_changes": 0,
+  "changes": [],
+  "after_release": "c890d0421b03",
+  "before_release": "0571af6d609e",
+  "replay_program_sha256": "aa48b52b0483272840c40d1320bb192274c2bb9d680350517ec44d1a46de9a31",
+  "source_evidence_contract": "Original SHA256s/locators are pinned per fact in priority-01-cached, -c06, -cleanup and -supplemental packets/reviews; counts are not exposure approvals."
+}

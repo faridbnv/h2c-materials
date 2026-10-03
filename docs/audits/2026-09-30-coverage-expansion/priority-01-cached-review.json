@@ -1,0 +1,397 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "b43ac0cfa66c847f6556de26a53a2fe06f3acef7b1566aa909fe24172e1166c1",
+  "packet_id": "PRIORITY-01-REGISTERED-ORIGINALS",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 26,
+  "canonical_files_edited": false,
+  "scope": "All 26 operations reviewed against SHA-verified actual original HTML bytes with independent direct htmlText v3 extraction and targeted raw DOM/table inspection. All seven narrative additions reviewed (100%).",
+  "guard_check": {
+    "expected_grades": 12,
+    "expected_sources": 12,
+    "all_full_rows_match_current_tables": true,
+    "all_four_edited_measurements_match_expected_current_rows": true,
+    "no_exact_duplicate_append_found": true
+  },
+  "sources": [
+    {
+      "SourceID": "R-NANOVIA-PA-6",
+      "sha256": "84f42c693728a60464753c9391ea58b141b1279bef6924149df177dffe932baf",
+      "OriginalPath": ".cache/sources/by-sha/84f42c693728a60464753c9391ea58b141b1279bef6924149df177dffe932baf.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PA-6-CF",
+      "sha256": "3c8ed6338ff05a5a597f75c68c6c48d1234eaf6f888f3f9903404e9642a1f191",
+      "OriginalPath": ".cache/sources/by-sha/3c8ed6338ff05a5a597f75c68c6c48d1234eaf6f888f3f9903404e9642a1f191.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "OriginalPath": ".cache/sources/by-sha/6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PA-Rail-ac7021",
+      "sha256": "ac702185c1a0afcfd20c7989fa22ed50119cee01f67d53c612a5ae9eee6efa8c",
+      "OriginalPath": ".cache/sources/by-sha/ac702185c1a0afcfd20c7989fa22ed50119cee01f67d53c612a5ae9eee6efa8c.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PETG",
+      "sha256": "2af22bd76be12079c4dacd2baf3dd56de5061bfec25ad56dba8dea37fff79de7",
+      "OriginalPath": ".cache/sources/by-sha/2af22bd76be12079c4dacd2baf3dd56de5061bfec25ad56dba8dea37fff79de7.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PETG-CF",
+      "sha256": "5a48376883485fa1a04196c4b2b2e893eadbb3ac9856338ec2b4bba2261e47b4",
+      "OriginalPath": ".cache/sources/by-sha/5a48376883485fa1a04196c4b2b2e893eadbb3ac9856338ec2b4bba2261e47b4.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PETG-ESD",
+      "sha256": "5e4ad8145e40bea123fcd76ebadbf2ecf73e170d8bfd50f5f5217b2cb943e6e0",
+      "OriginalPath": ".cache/sources/by-sha/5e4ad8145e40bea123fcd76ebadbf2ecf73e170d8bfd50f5f5217b2cb943e6e0.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PETG-GF-UV",
+      "sha256": "3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74",
+      "OriginalPath": ".cache/sources/by-sha/3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PLA-EF-3D850",
+      "sha256": "0229aa820bf86b9ccc44e517f262a8d11141e7429aeafbf2a1b5d780ff873df9",
+      "OriginalPath": ".cache/sources/by-sha/0229aa820bf86b9ccc44e517f262a8d11141e7429aeafbf2a1b5d780ff873df9.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PLA-XRS",
+      "sha256": "56275aa8974fbc9cc6b3c3f9d6b9bab5119747e2ed77edc8cde0c208c4b66b86",
+      "OriginalPath": ".cache/sources/by-sha/56275aa8974fbc9cc6b3c3f9d6b9bab5119747e2ed77edc8cde0c208c4b66b86.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-PP-CF",
+      "sha256": "b9bb98021c7100391fcb6a310d2469943681988ef9d7c3825c54ea1522983aae",
+      "OriginalPath": ".cache/sources/by-sha/b9bb98021c7100391fcb6a310d2469943681988ef9d7c3825c54ea1522983aae.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    },
+    {
+      "SourceID": "R-NANOVIA-TPU-70D",
+      "sha256": "1f5c11655a6b6d04a4bca03b9cf0fcd9368afa251ca3bd6938deca843424d4b3",
+      "OriginalPath": ".cache/sources/by-sha/1f5c11655a6b6d04a4bca03b9cf0fcd9368afa251ca3bd6938deca843424d4b3.html",
+      "own_product_header_and_body_reread": true,
+      "related_product_footer_excluded": true
+    }
+  ],
+  "per_operation": [
+    {
+      "OperationID": "N01-01",
+      "verdict": "APPROVE",
+      "GradeID": "G024-11",
+      "SourceID": "R-NANOVIA-PETG-CF",
+      "source_sha256": "5a48376883485fa1a04196c4b2b2e893eadbb3ac9856338ec2b4bba2261e47b4",
+      "locator": "p. 1: Tg",
+      "original_quote": "Tg  80  °C",
+      "limitations": "Exact own-product cell, raw/normalized units and published standard match. Absent specimen, method/state and conditions remain explicit; no extrapolation."
+    },
+    {
+      "OperationID": "N01-02",
+      "verdict": "APPROVE",
+      "GradeID": "G020-39",
+      "SourceID": "R-NANOVIA-PETG",
+      "source_sha256": "2af22bd76be12079c4dacd2baf3dd56de5061bfec25ad56dba8dea37fff79de7",
+      "locator": "p. 1: Tg",
+      "original_quote": "Tg  80  °C",
+      "limitations": "Exact own-product cell, raw/normalized units and published standard match. Absent specimen, method/state and conditions remain explicit; no extrapolation."
+    },
+    {
+      "OperationID": "N01-03",
+      "verdict": "APPROVE",
+      "GradeID": "G025-03",
+      "SourceID": "R-NANOVIA-PETG-GF-UV",
+      "source_sha256": "3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74",
+      "locator": "p. 1: Tg",
+      "original_quote": "Tg  80  °C",
+      "limitations": "Exact own-product cell, raw/normalized units and published standard match. Absent specimen, method/state and conditions remain explicit; no extrapolation."
+    },
+    {
+      "OperationID": "N01-04",
+      "verdict": "APPROVE",
+      "GradeID": "G026-08",
+      "SourceID": "R-NANOVIA-PETG-ESD",
+      "source_sha256": "5e4ad8145e40bea123fcd76ebadbf2ecf73e170d8bfd50f5f5217b2cb943e6e0",
+      "locator": "p. 1: Tg",
+      "original_quote": "Tg  80  °C",
+      "limitations": "Exact own-product cell, raw/normalized units and published standard match. Absent specimen, method/state and conditions remain explicit; no extrapolation."
+    },
+    {
+      "OperationID": "N01-05",
+      "verdict": "APPROVE",
+      "GradeID": "G001-98",
+      "SourceID": "R-NANOVIA-PLA-EF-3D850",
+      "source_sha256": "0229aa820bf86b9ccc44e517f262a8d11141e7429aeafbf2a1b5d780ff873df9",
+      "locator": "p. 1: Tg",
+      "original_quote": "Tg  55 – 60  °C",
+      "limitations": "Both endpoints 55–60°C retained; no midpoint, method or specimen state inferred."
+    },
+    {
+      "OperationID": "N01-06",
+      "verdict": "APPROVE",
+      "GradeID": "G001-135",
+      "SourceID": "R-NANOVIA-PLA-XRS",
+      "source_sha256": "56275aa8974fbc9cc6b3c3f9d6b9bab5119747e2ed77edc8cde0c208c4b66b86",
+      "locator": "p. 1: Tg",
+      "original_quote": "Tg  55 – 60  °C",
+      "limitations": "Both endpoints 55–60°C retained; no midpoint, method or specimen state inferred."
+    },
+    {
+      "OperationID": "N01-07",
+      "verdict": "APPROVE",
+      "GradeID": "G001-98",
+      "SourceID": "R-NANOVIA-PLA-EF-3D850",
+      "source_sha256": "0229aa820bf86b9ccc44e517f262a8d11141e7429aeafbf2a1b5d780ff873df9",
+      "locator": "p. 1: MFR",
+      "original_quote": "MFR  7 – 9  g / 10 min  ISO 1133",
+      "limitations": "Full 7–9 g/10 min interval retained. ISO 1133 prints no temperature/load; recipe temperature does not supply test conditions."
+    },
+    {
+      "OperationID": "N01-08",
+      "verdict": "APPROVE",
+      "GradeID": "G049-06",
+      "SourceID": "R-NANOVIA-PA-6",
+      "source_sha256": "84f42c693728a60464753c9391ea58b141b1279bef6924149df177dffe932baf",
+      "locator": "p. 1: Elong. at break",
+      "original_quote": "Elong. at break  >50  %  ISO 527",
+      "limitations": "Strict >50% lower bound retained; no point value or printed specimen inferred."
+    },
+    {
+      "OperationID": "N01-09",
+      "verdict": "APPROVE",
+      "GradeID": "G049-06",
+      "SourceID": "R-NANOVIA-PA-6",
+      "source_sha256": "84f42c693728a60464753c9391ea58b141b1279bef6924149df177dffe932baf",
+      "locator": "p. 1: Fusion temperature",
+      "original_quote": "Fusion temperature  205  °C  DSC – ISO 11357-1",
+      "limitations": "Exact own-product cell, raw/normalized units and published standard match. Absent specimen, method/state and conditions remain explicit; no extrapolation."
+    },
+    {
+      "OperationID": "N01-10",
+      "verdict": "APPROVE",
+      "GradeID": "G083-04",
+      "SourceID": "R-NANOVIA-PP-CF",
+      "source_sha256": "b9bb98021c7100391fcb6a310d2469943681988ef9d7c3825c54ea1522983aae",
+      "locator": "p. 1: Water absorption",
+      "original_quote": "Water absorption  < 1  %  after 24h of submersion",
+      "limitations": "Strict <1% bound and 24h submersion wording retained. Agent/temperature/specimen state not inferred; no hydrolysis verdict."
+    },
+    {
+      "OperationID": "N01-11",
+      "verdict": "APPROVE",
+      "GradeID": "G039-45",
+      "SourceID": "R-NANOVIA-TPU-70D",
+      "source_sha256": "1f5c11655a6b6d04a4bca03b9cf0fcd9368afa251ca3bd6938deca843424d4b3",
+      "locator": "p. 1: Traction resistance",
+      "original_quote": "Traction resistance  28  MPa  ISO 527",
+      "limitations": "Traction resistance mapped to endpoint-unspecified tensile strength; no ultimate/yield endpoint or printed state invented."
+    },
+    {
+      "OperationID": "N01-12",
+      "verdict": "APPROVE",
+      "GradeID": "G039-45",
+      "SourceID": "R-NANOVIA-TPU-70D",
+      "source_sha256": "1f5c11655a6b6d04a4bca03b9cf0fcd9368afa251ca3bd6938deca843424d4b3",
+      "locator": "p. 1: Elong. at break",
+      "original_quote": "Elong. at break  320  %  ISO 527",
+      "limitations": "Exact own-product cell, raw/normalized units and published standard match. Absent specimen, method/state and conditions remain explicit; no extrapolation."
+    },
+    {
+      "OperationID": "N01-13",
+      "verdict": "APPROVE",
+      "GradeID": "G039-45",
+      "SourceID": "R-NANOVIA-TPU-70D",
+      "source_sha256": "1f5c11655a6b6d04a4bca03b9cf0fcd9368afa251ca3bd6938deca843424d4b3",
+      "locator": "p. 1: Traction stress",
+      "original_quote": "Traction stress  100% élongation 20 MPa    ISO 527",
+      "limitations": "Own table first Traction stress cell is 100% élongation 20MPa; not tensile strength or break strain."
+    },
+    {
+      "OperationID": "N01-14",
+      "verdict": "APPROVE",
+      "GradeID": "G039-45",
+      "SourceID": "R-NANOVIA-TPU-70D",
+      "source_sha256": "1f5c11655a6b6d04a4bca03b9cf0fcd9368afa251ca3bd6938deca843424d4b3",
+      "locator": "p. 1: 300% élongation",
+      "original_quote": "300% élongation 28 MPa    ISO 527",
+      "limitations": "Continuation row 300% élongation 28MPa inherits Traction stress context only; not tensile strength or break strain."
+    },
+    {
+      "OperationID": "N01-15",
+      "verdict": "APPROVE",
+      "GradeID": "G001-135",
+      "SourceID": "R-NANOVIA-PLA-XRS",
+      "source_sha256": "56275aa8974fbc9cc6b3c3f9d6b9bab5119747e2ed77edc8cde0c208c4b66b86",
+      "locator": "p. 1: Elong. at break",
+      "original_quote": "Elong. at break  3.5  %  ISO 527",
+      "limitations": "Exact own-product cell, raw/normalized units and published standard match. Absent specimen, method/state and conditions remain explicit; no extrapolation."
+    },
+    {
+      "OperationID": "N01-16",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Young’s modulus",
+      "original_quote": "Test performed at 50mm/min on ISO 3167 A test specimens",
+      "limitations": "50mm/min and ISO3167A geometry apply to own tensile block; no printed/moulded form, direction or state inferred."
+    },
+    {
+      "OperationID": "N01-17",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Ultimate tensile strength",
+      "original_quote": "Test performed at 50mm/min on ISO 3167 A test specimens",
+      "limitations": "50mm/min and ISO3167A geometry apply to own tensile block; no printed/moulded form, direction or state inferred."
+    },
+    {
+      "OperationID": "N01-18",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Ultimate tensile strength elongation",
+      "original_quote": "Test performed at 50mm/min on ISO 3167 A test specimens",
+      "limitations": "50mm/min and ISO3167A geometry apply to own tensile block; ultimate-strength strain remains distinct from break strain."
+    },
+    {
+      "OperationID": "N01-19",
+      "verdict": "APPROVE",
+      "GradeID": "G020-39",
+      "SourceID": "R-NANOVIA-PETG",
+      "source_sha256": "2af22bd76be12079c4dacd2baf3dd56de5061bfec25ad56dba8dea37fff79de7",
+      "locator": "p. 1: Young’s modulus",
+      "original_quote": "tensile-data-0: Test performed at 1mm/min on 3D printed test specimins at 0°, along with the tension stress.",
+      "limitations": "Actual HTML tensile-data-0 contains 2260MPa and explicit printed specimens at0°. This identifies table but not build-plane orientation. Other hidden tables repeat0° prose; no45/90 admission. SourceQuote prefix is DOM locator, not quoted prose."
+    },
+    {
+      "OperationID": "N01-20",
+      "verdict": "APPROVE",
+      "GradeID": "G049-06",
+      "SourceID": "R-NANOVIA-PA-6",
+      "source_sha256": "84f42c693728a60464753c9391ea58b141b1279bef6924149df177dffe932baf",
+      "locator": "p. 1: Thermal properties, Flammability",
+      "original_quote": "Flammability  HB UL 94    @ 0.8 mm",
+      "limitations": "Maker HB UL94 rating at0.8mm only; no certificate, V0 claim, known printed form or service qualification."
+    },
+    {
+      "OperationID": "N01-21",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Description, metallic charge/detectability",
+      "original_quote": "Nanovia PA Food Industry (FI) is a 3D printer filament enriched with a metallic charge. This charge is detectable by tunnel metal detectors communly used in the agri-food industry, to prevent fractures parts to end up in the final product.",
+      "limitations": "Maker detector narrative only; fragment size/detector settings/sensitivity absent, no detection assurance."
+    },
+    {
+      "OperationID": "N01-22",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Description, intended uses",
+      "original_quote": "These properties make it the ideal material for : gripppers, suction and blowing devices, spatulas, template structures, wheels, adapters, etc…",
+      "limitations": "Intended uses only; no tested load/life or food-contact qualification."
+    },
+    {
+      "OperationID": "N01-23",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Description, steam and cleaning claims",
+      "original_quote": "Polyamide (PA) resists temperatures of over 100 °C and can be cleaned / desinfected with steam. It also has a good chemical resistance in regard to cleaning agents.",
+      "limitations": "Full PA-family thermal/steam/cleaning-agent narrative preserved in own-product description; missing protocol explicit. No environmental category/service pass."
+    },
+    {
+      "OperationID": "N01-24",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Application recommendations, state sensitivity",
+      "original_quote": "Both mechanical and dimensional properties can be affected by the storage and printing conditions.",
+      "limitations": "Unquantified condition sensitivity; no conditioned numerical performance inferred."
+    },
+    {
+      "OperationID": "N01-25",
+      "verdict": "APPROVE",
+      "GradeID": "G164-07",
+      "SourceID": "R-NANOVIA-PA-Food-Industry",
+      "source_sha256": "6489655e4381fcc2fc366d18e2499ade27facd99f9373e17b907865efb4fec98",
+      "locator": "p. 1: Application recommendations, PA humidity/oxidation",
+      "original_quote": "Polyamide is a semi-crystalline polymer, and is sensitive to humidity and oxidation due to its polar groups at high temperatures.",
+      "limitations": "General PA humidity/oxidation context clearly labelled; no product hydrolysis test."
+    },
+    {
+      "OperationID": "N01-26",
+      "verdict": "APPROVE",
+      "GradeID": "G001-135",
+      "SourceID": "R-NANOVIA-PLA-XRS",
+      "source_sha256": "56275aa8974fbc9cc6b3c3f9d6b9bab5119747e2ed77edc8cde0c208c4b66b86",
+      "locator": "p. 1: Description, shielding limitation",
+      "original_quote": "The x-ray shielding effect depends on the width of the part and its printing settings (infill, orientation, etc…).",
+      "limitations": "Shielding dependence on width and print settings retained; no attenuation/certification/implant qualification."
+    }
+  ],
+  "held_findings_review": [
+    {
+      "GradeID": "G020-39",
+      "Question": "±45°/90° tensile values",
+      "Outcome": "conflicting",
+      "Finding": "The original and fresh product page repeat the 0° test sentence under all three tabs. Tab title alone does not resolve that explicit disagreement; retained vendor-needed handoff. The existing2260MPa belongs to the actual0° tab and cannot stand as Unstated."
+    },
+    {
+      "GradeID": "G026-08",
+      "Question": "Electrical resistivity10^9Ω",
+      "Outcome": "vendor needed",
+      "Finding": "Source does not distinguish surface/volume resistance. No inferred property identity."
+    },
+    {
+      "GradeID": "G049-06",
+      "Question": "Volume10E15Ω.cm/surface10E13Ω",
+      "Outcome": "vendor needed",
+      "Finding": "Raw exponent notation10E15/10E13 is ambiguous as maker usage versus scientific notation; no guessed normalization."
+    },
+    {
+      "GradeID": "G001-135",
+      "Question": "Charpy method/notch labels",
+      "Outcome": "conflicting",
+      "Finding": "Known own label/method disagreement remains; source repeats same labels. No recency correction."
+    }
+  ],
+  "remaining_integrity_limits": [
+    "Existing grade Composition/filler fields for G049-06, G020-39, G039-45 and G001-98 quote other products in shopping footers. They are not used as support for these own-product facts and require separate guarded correction before closing product outcomes.",
+    "Own PA Rail description names flame-retardant ceramic filler; existing undisclosed filler metadata needs separate source-backed reconciliation.",
+    "Approval is of literal facts/condition repairs, not certification, application suitability, product outcome closure or final release QA."
+  ],
+  "review_signature_sha256": "4968ffd18d043dca166836002fbe2ce72a4ef15b8c2cd289e92597318c1ae981"
+}

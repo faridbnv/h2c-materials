@@ -1,0 +1,370 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "2cade9840da6d56ff7ebe6728587f07bcd0f351ced041f722c704839b024d888",
+  "overall_verdict": "APPROVE",
+  "reviewed_documents": 12,
+  "reviewed_narrative_operations": 30,
+  "reviewed_coverage_updates": 1,
+  "canonical_files_edited": false,
+  "prior_review": {
+    "file": "priority-01-c06-review-before-correction.json",
+    "input_sha256": "19048b24b32b4858ca9681071d5ac352ee7e8857a25d571893e861092874a940",
+    "signature": "dedd21faea96d9ca735ba413693ddedeb47eeb93ef1e26995e7cd566b4e5b2e5"
+  },
+  "delta_attestation": "Eleven printed update labels, report Dated wording and ExpectedGrades cleanup are verified. Prior18 source facts unchanged except reviewed Dated correction. Twelve additions independently reread using actual PDF English column spans and section context. Source/proposal digests reverified. PA6 RWL now uses its own organic-solvent SDS warning, retains all missing conditions, and supersedes only after admission. Final delta modifies only three unsupported UV-page-context notes and corresponding proposal hashes; final factual missing-condition notes approved. Raw findings, identities and all other operations unchanged.",
+  "required_corrections": [],
+  "per_operation": [
+    {
+      "id": "c06-838a7a34-1",
+      "verdict": "APPROVE",
+      "GradeID": "G024-11",
+      "Finding": "Some Organic solvents could degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-838a7a34-2",
+      "verdict": "APPROVE",
+      "GradeID": "G024-11",
+      "Finding": "The product is not approved for medical applications.",
+      "Locator": "p. 2: Section7.2 safe storage/use exclusion",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-838a7a34-3",
+      "verdict": "APPROVE",
+      "GradeID": "G024-11",
+      "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+      "Locator": "p. 3: Section12.2 persistence/degradability, own English column",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-55b9aab5-1",
+      "verdict": "APPROVE",
+      "GradeID": "G049-06",
+      "Finding": "Organic solvents degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-55b9aab5-2",
+      "verdict": "APPROVE",
+      "GradeID": "G049-06",
+      "Finding": "The product is not approved for medical applications.",
+      "Locator": "p. 2: Section7.2 safe storage/use exclusion",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-55b9aab5-3",
+      "verdict": "APPROVE",
+      "GradeID": "G049-06",
+      "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+      "Locator": "p. 3: Section12.2 persistence/degradability, own English column",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-c23075f2-1",
+      "verdict": "APPROVE",
+      "GradeID": "G050-12",
+      "Finding": "Some Organic solvents could degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-c23075f2-2",
+      "verdict": "APPROVE",
+      "GradeID": "G050-12",
+      "Finding": "The product is not approved for medical applications.",
+      "Locator": "p. 2: Section7.2 safe storage/use exclusion",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-c23075f2-3",
+      "verdict": "APPROVE",
+      "GradeID": "G050-12",
+      "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+      "Locator": "p. 3: Section12.2 persistence/degradability, own English column",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-74e5ecc5-1",
+      "verdict": "APPROVE",
+      "GradeID": "G020-39",
+      "Finding": "Strong oxidizing agents, strong acids and strong bases.",
+      "Locator": "p. 5: Section10.5 incompatible materials",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-74e5ecc5-2",
+      "verdict": "APPROVE",
+      "GradeID": "G020-39",
+      "Finding": "Strong oxidizing agents, strong acids and strong bases.",
+      "Locator": "p. 5: Section10.5 incompatible materials",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-5ccaab25-1",
+      "verdict": "APPROVE",
+      "GradeID": "G025-03",
+      "Finding": "Some Organic solvents could degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-5ccaab25-2",
+      "verdict": "APPROVE",
+      "GradeID": "G025-03",
+      "Finding": "The product is not approved for medical applications.",
+      "Locator": "p. 2: Section7.2 safe storage/use exclusion",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-fb9f5651-1",
+      "verdict": "APPROVE",
+      "GradeID": "G026-08",
+      "Finding": "Some Organic solvents could degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-fb9f5651-2",
+      "verdict": "APPROVE",
+      "GradeID": "G026-08",
+      "Finding": "The product is not approved for medical applications.",
+      "Locator": "p. 2: Section7.2 safe storage/use exclusion",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-7672b9b5-1",
+      "verdict": "APPROVE",
+      "GradeID": "G083-04",
+      "Finding": "Some Organic solvents could degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-7672b9b5-2",
+      "verdict": "APPROVE",
+      "GradeID": "G083-04",
+      "Finding": "The product is not approved for medical applications.",
+      "Locator": "p. 2: Section7.2 safe storage/use exclusion",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-7672b9b5-3",
+      "verdict": "APPROVE",
+      "GradeID": "G083-04",
+      "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+      "Locator": "p. 3: Section12.2 persistence/degradability, own English column",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-a570add2-1",
+      "verdict": "APPROVE",
+      "GradeID": "G049-08",
+      "Finding": "Nanovia PA Rail raw material EN45545-2 Test results",
+      "Locator": "p. 1: Document title, scope",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-a570add2-2",
+      "verdict": "APPROVE",
+      "GradeID": "G049-08",
+      "Finding": "Requirement set : R22, R33",
+      "Locator": "p. 1: Requirement set declaration",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-a570add2-3",
+      "verdict": "APPROVE",
+      "GradeID": "G049-08",
+      "Finding": "R 23",
+      "Locator": "p. 2: Two requirement-set tables",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-b7299118-1",
+      "verdict": "APPROVE",
+      "GradeID": "G049-08",
+      "Finding": "Organic solvents degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-b7299118-2",
+      "verdict": "APPROVE",
+      "GradeID": "G049-08",
+      "Finding": "The product is not approved for medical applications.",
+      "Locator": "p. 2: Section7.2 safe storage/use exclusion",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-b7299118-3",
+      "verdict": "APPROVE",
+      "GradeID": "G049-08",
+      "Finding": "Biodegradation and elimination (H2O): the product is inert and can lead some surface degradation under the UV action.",
+      "Locator": "p. 3: Section12.2 persistence/degradability, own English column",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-ca0099a2-1",
+      "verdict": "APPROVE",
+      "GradeID": "G039-45",
+      "Finding": "Strong alkali or acids can degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-ca0099a2-2",
+      "verdict": "APPROVE",
+      "GradeID": "G039-45",
+      "Finding": "Strong alkali or acids can degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-5ed344ed-1",
+      "verdict": "APPROVE",
+      "GradeID": "G001-98",
+      "Finding": "Strong alkali or acids can degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-5ed344ed-2",
+      "verdict": "APPROVE",
+      "GradeID": "G001-98",
+      "Finding": "Strong alkali or acids can degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-1ac5d2ca-1",
+      "verdict": "APPROVE",
+      "GradeID": "G001-135",
+      "Finding": "Strong alkali or acids can degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    },
+    {
+      "id": "c06-1ac5d2ca-2",
+      "verdict": "APPROVE",
+      "GradeID": "G001-135",
+      "Finding": "Strong alkali or acids can degrade the material.",
+      "Locator": "p. 2: Section10.3 possible side reactions",
+      "limitations": "Raw warning retained, no conditions/test/retention inferred; medical exclusions are exact own-SDS restrictions; report remains raw-material scope with conflicts held."
+    }
+  ],
+  "source_checks": [
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-838a7a341ee2",
+      "OriginalSHA256": "838a7a341ee23d78b70ac4d1a7fb8b7a78f0f973ec25e0a3c646aafb4e7105ab",
+      "ProposalSHA256": "10794c064663507722dfe7876740441921d8e800910e654c8e8043c5debd8098",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: December 2022",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-55b9aab526e7",
+      "OriginalSHA256": "55b9aab526e7f5f3ae748cbf460d1cd717ea5e93236842d4c1bd9f662fa1e4eb",
+      "ProposalSHA256": "10d2ac1f0ab71c504ce115e1068926eab9293c23ef6fadaec530a9e47c793f3b",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: May 2021",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-c23075f2d0a8",
+      "OriginalSHA256": "c23075f2d0a805f64b9b47e6aec6cad9ef9618152db4fa125a508a8c6e79e266",
+      "ProposalSHA256": "dd302df1e56df9e3e933ca36a92a205fb8c3bf93dbcc0b2a8c53c64a104fc3a7",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: September 2023",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-74e5ecc55050",
+      "OriginalSHA256": "74e5ecc55050916e0fa90654f2f322e1db3324cbc8033ef0a95bb13b4bd0959b",
+      "ProposalSHA256": "7f607b85ac404638a834de8cdbdfe280db465c5951b21b2ba9045c69ea6889e9",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated : March 2026",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-5ccaab255778",
+      "OriginalSHA256": "5ccaab255778dd86cf6261cfd5601b9c0ba3c1b3bf2c1888761df32d29895f7d",
+      "ProposalSHA256": "809b13bb4cb01321ea50813c6171b9844120b927267785d2ce6055f3acd2869d",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: December 2022",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-fb9f5651287f",
+      "OriginalSHA256": "fb9f5651287f3a5638f76cff61d48e5c7fcfdd167afea963626bce8c8079844f",
+      "ProposalSHA256": "ee4e3272ac3622e9a075584e1866d09b8d873f189cee7c696874ac42a70a9e92",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: February 2023",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-7672b9b52cb5",
+      "OriginalSHA256": "7672b9b52cb58a7682bba67f1c4c82cf8971877ac6a501880432e850ad075b7d",
+      "ProposalSHA256": "879f6cb422b06758ebf691c23a019f6bd6a158cb3e879263b2dbf446a66390c2",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: September 2023",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-a570add2d2c7",
+      "OriginalSHA256": "a570add2d2c71f9b0d1d9bc846d57192045806e98482b04305e528bd940ef1d0",
+      "ProposalSHA256": "bfb44e147e6d4e324b78d607f1a1f71f2d2cd57fb694c63fb37f0bd8f5b6407c",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Not published",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-b7299118da3a",
+      "OriginalSHA256": "b7299118da3ae6c5c72309419c4b6b6aa9f6f7c4f682840275a4f929d9148735",
+      "ProposalSHA256": "1556011c6c8daaeb2a78c855beaabf44a6069bcc7c716298caafc1d163fe5059",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: September 2023",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-ca0099a2626e",
+      "OriginalSHA256": "ca0099a2626e51cf877bb00f88a4328fd446b99d71e2beb737f113a814b1d197",
+      "ProposalSHA256": "a1432c8aa2186cfeaae2ab2e451a6551f99aa6d5eeb7bb68a9769d3265798320",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: September 2023",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-5ed344eda07d",
+      "OriginalSHA256": "5ed344eda07d21c5e05ad033c6827e22705ac59eecb26a2211b48935a80299d9",
+      "ProposalSHA256": "3fa5938c8426d28b1380960f11b10035e1ffe7ca61d99b4645f501c2a6638622",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: February 2024",
+      "identity_verdict": "APPROVE"
+    },
+    {
+      "SourceID": "R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d",
+      "OriginalSHA256": "1ac5d2cab49d02bebf9b2216daf03430235f542d7ec1bacc114accf808423d60",
+      "ProposalSHA256": "b2ab7690f4bd1af076390030a8a890624017e41b5873724d9523c8098ee27ad7",
+      "metadata_verdict": "APPROVE",
+      "Revision": "Updated: September 2023",
+      "identity_verdict": "APPROVE"
+    }
+  ],
+  "coverage_update_review": {
+    "OperationID": "N01-ENV-PA6",
+    "verdict": "APPROVE",
+    "basis": "Own new SDS organic-solvent warning, not HB rating. Basis text/locator/grade/source matches proposed admitted evidence; current old coverage full row matches. No universal category verdict or product pass."
+  },
+  "correction_history": [
+    {
+      "file": "priority-01-c06-review-second-correction.json",
+      "input_sha256": "2cade9840da6d56ff7ebe6728587f07bcd0f351ced041f722c704839b024d888",
+      "signature": "ab2bb08be3ec5c81647a781899d9699a57149ce8972cd77e1a153f2dd910b612"
+    }
+  ],
+  "review_signature_sha256": "94491da4fab2f5abfa6793b3245314dc2db930bc8ddc765f76e3c1561e0c4f6e"
+}
