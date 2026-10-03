@@ -1,0 +1,654 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "9480cc6cdab58de8a6d15c1947f5ff8b91a58cc4e36384c774e17715982016af",
+  "overall_verdict": "APPROVE",
+  "reviewed_sources": 12,
+  "reviewed_operations": 46,
+  "approved_evidence": 39,
+  "approved_measurements": 5,
+  "approved_new_profiles": 1,
+  "approved_existing_profile_edits": 1,
+  "sources": [
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+      "sha256": "1b7d356063383627ddc42124673da97b6c3d539a21a2295e6e233bb880805bac",
+      "original_path": ".cache/sources/by-sha/1b7d356063383627ddc42124673da97b6c3d539a21a2295e6e233bb880805bac.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "fbba9e14ca1dd90a35d687548109b5d9ecea7f09da861a6eb45d746327024fc6",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+      "sha256": "bd52e168c6e3db8ad019242a44dc595b768745399706a8784b730233a9d0027b",
+      "original_path": ".cache/sources/by-sha/bd52e168c6e3db8ad019242a44dc595b768745399706a8784b730233a9d0027b.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "d8182091cacb6353cdcb70b3db51ebb665361a88da20e4ed17e829dd4676a94e",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+      "sha256": "bc61cf2013c243a2192c40625082ba5f692293c5e37ec84c74a2509fa5aea0b5",
+      "original_path": ".cache/sources/by-sha/bc61cf2013c243a2192c40625082ba5f692293c5e37ec84c74a2509fa5aea0b5.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "95a5f8061e96ffb9619cadf5d672306fce5a4b348a4081515b7204dab5b2e62f",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "sha256": "06bd5efb417b9fdd1f4a53f5c7fb17d7809668d6363e6839b52b0859ab8c86bf",
+      "original_path": ".cache/sources/by-sha/06bd5efb417b9fdd1f4a53f5c7fb17d7809668d6363e6839b52b0859ab8c86bf.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "2b87fb60105cb0c8d837103e408f06d4e3015856bb9d71788d2787275200807d",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+      "sha256": "e2d172d8d9f3157e3c1fe858f66278b7bf55bcf7530b1f01348b9f92deb4b7ad",
+      "original_path": ".cache/sources/by-sha/e2d172d8d9f3157e3c1fe858f66278b7bf55bcf7530b1f01348b9f92deb4b7ad.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "0f2c755f310ab91ebce06a76c7ba53e60f41040acef5149751ea7b963e91ee8c",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+      "sha256": "29b58f0eea9087e83257c525227d10da96e28e84682595316fd77c5c87eb36ab",
+      "original_path": ".cache/sources/by-sha/29b58f0eea9087e83257c525227d10da96e28e84682595316fd77c5c87eb36ab.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "95384a2ce92209ea80d231cef67b7bf7f40a63c8e9494ab8dbe3ea43558a33ac",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a",
+      "sha256": "f4d14d72d55ad4ed2caf286adf3d845a48a71dd07fb6f3ea03678e2e41fc055b",
+      "original_path": ".cache/sources/by-sha/f4d14d72d55ad4ed2caf286adf3d845a48a71dd07fb6f3ea03678e2e41fc055b.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "3c1b08cafad27fc021b76ad1b7ba171e66de21e95d02d0b58602a2fbf72288b7",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+      "sha256": "a01e6574d210b08900842407f9376ef043c9a35e0a631e2d10895d93a328b961",
+      "original_path": ".cache/sources/by-sha/a01e6574d210b08900842407f9376ef043c9a35e0a631e2d10895d93a328b961.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "1e9217444656382bcd5a950f422268f5c7991034c3a5e50ed6a86caefcac6dd8",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-419d1e9d4bcd",
+      "sha256": "419d1e9d4bcd3240b00fd510c7a0375631f9d729ed71f4a41024291d3acaf8d4",
+      "original_path": ".cache/sources/by-sha/419d1e9d4bcd3240b00fd510c7a0375631f9d729ed71f4a41024291d3acaf8d4.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "d534e580927685057ac026d1a51e1fdeb8d54fb2e151e9944a31aa515e7c6ff3",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+      "sha256": "50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a",
+      "original_path": ".cache/sources/by-sha/50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a.html",
+      "pages_read": [
+        1
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "874392a658c734c25052e8c298e3010dfc09c67f7b3248a5fef9057c22f193d7",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+      "sha256": "44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734",
+      "original_path": ".cache/sources/by-sha/44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734.pdf",
+      "pages_read": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "c58ecd273fbff6d1f641fa2eca81f0cc0bb08a72e5e88db7c32003a1c37ca8ba",
+      "verdict": "APPROVE"
+    },
+    {
+      "source_id": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "sha256": "8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26",
+      "original_path": ".cache/sources/by-sha/8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26.pdf",
+      "pages_read": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "identity_check": "Own official product heading/body and exact existingGradeID reviewed; no family/formulation/colour transfer.",
+      "proposal_sha256": "8e3b824097662b20041598a7fad4962323aad71b6c83dd603ae1fce6cca437d5",
+      "verdict": "APPROVE"
+    }
+  ],
+  "per_operation": [
+    {
+      "operation_id": "c07-1b7d3560-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G020-16",
+      "source": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+      "original_locator": "p. 1: Description, modified blend and functional uses",
+      "raw_finding": "Innovative Modified PETG Blend PolyMax™ PETG combines the best of PETG and PCTG, offering high strength and rigidity while maintaining improved flexibility and resilience. This unique balance makes it ideal for both functional prototypes and end-use parts that demand durability and reliability.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Maker calls this a PETG/PCTG blend; no fraction or reformulation continuity is published, and no reclassification follows."
+    },
+    {
+      "operation_id": "c07-1b7d3560-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G020-16",
+      "source": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+      "original_locator": "p. 1: FAQ, cooling fan",
+      "raw_finding": "If you are looking to produce the strongest part (high layer adhesion), we recommend to switch off your part cooling fan. If you are looking for a high quality surface finish, we recommend to switch on your part cooling fan. Usually the best of both worlds is to leave the part cooling fan at 20%.",
+      "retained_scope": "Maker cooling trade-off for layer adhesion versus surface finish, not a quantified mechanical test or finish assurance."
+    },
+    {
+      "operation_id": "c07-1b7d3560-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G020-16",
+      "source": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+      "original_locator": "p. 1: Technical summary, drying",
+      "raw_finding": "Drying 65°C for 4h",
+      "retained_scope": "Technical summary conflicts with own Print Settings65°C/6h and registeredTDS65°C/6h. Preserve both; no unverified4h scalar replaces existing guidance."
+    },
+    {
+      "operation_id": "c07-bd52e168-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+      "original_locator": "p. 1: Description, intended uses",
+      "raw_finding": "Choose PolyFlex™ TPU90 for projects like phone cases, watch straps, or any part that demands softness, flexibility, and comfort.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Contact/comfort marketing does not establish printed skin qualification."
+    },
+    {
+      "operation_id": "c07-bd52e168-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+      "original_locator": "p. 1: Printing Requirements",
+      "raw_finding": "Direct extruder with a gear ratio mechanical advantage required.",
+      "retained_scope": "Maker hardware guidance; no universal printer compatibility or blanket approval. Existing H2C hardware contract unchanged."
+    },
+    {
+      "operation_id": "c07-bd52e168-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+      "original_locator": "p. 1: Printing Requirements, nozzle limitation",
+      "raw_finding": "Will be very difficult to print with a small nozzle diameter..",
+      "retained_scope": "No numeric nozzle diameter stated; do not invent one."
+    },
+    {
+      "operation_id": "c07-bd52e168-e4",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+      "original_locator": "p. 1: Key features, skin badge",
+      "raw_finding": "✓ ISO 10993 Skin Safe Tested",
+      "retained_scope": "Maker badge only. Test report, ISO10993 part/endpoints, contact duration, specimen, colour, print recipe and finished-object certification were not supplied in this page. No medical/skin suitability or certification pass."
+    },
+    {
+      "operation_id": "c07-bd52e168-e5",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+      "original_locator": "p. 1: Technical summary, drying",
+      "raw_finding": "Drying 50°C for 6h",
+      "retained_scope": "Own technical summary conflicts with own Print Settings70°C/8h and TDS70°C/8h. Preserve both; no scalar overwrite."
+    },
+    {
+      "operation_id": "c07-bc61cf20-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-12",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+      "original_locator": "p. 1: Description, intended uses",
+      "raw_finding": "Ideal for Fast, Flexible Parts Choose PolyFlex™ TPU95-HF when you need to combine flexibility with high-speed production - perfect for rapid prototyping, manufacturing jigs, and functional, elastic components.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule."
+    },
+    {
+      "operation_id": "c07-bc61cf20-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-12",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+      "original_locator": "p. 1: FAQ, extruder",
+      "raw_finding": "PolyFlex™ TPU95-HF can be printed on an indirect drive printer however we highly recommend to use a direct drive printer to print PolyFlex™ TPU95-HF at its high speed settings. A direct drive printer is a printer with the extruder mounted on top of the hot end.",
+      "retained_scope": "Indirect drive allowed, direct drive recommended for high speed; no unsupported mandatory requirement."
+    },
+    {
+      "operation_id": "c07-bc61cf20-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-12",
+      "source": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+      "original_locator": "p. 1: Technical summary, drying",
+      "raw_finding": "Drying 50°C for 6h",
+      "retained_scope": "Own summary conflicts with own Print Settings70°C/8h and TDS70°C/8h. No scalar overwrite."
+    },
+    {
+      "operation_id": "c07-06bd5efb-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-05",
+      "source": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "original_locator": "p. 1: Description, Ideal Applications",
+      "raw_finding": "Electronics housings and enclosures",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions."
+    },
+    {
+      "operation_id": "c07-06bd5efb-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-05",
+      "source": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "original_locator": "p. 1: Description, Ideal Applications",
+      "raw_finding": "Jigs and fixtures for PCB assembly",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions."
+    },
+    {
+      "operation_id": "c07-06bd5efb-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-05",
+      "source": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "original_locator": "p. 1: Description, Ideal Applications",
+      "raw_finding": "Trays and storage for electronic components",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions."
+    },
+    {
+      "operation_id": "c07-06bd5efb-e4",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-05",
+      "source": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "original_locator": "p. 1: Description, Ideal Applications",
+      "raw_finding": "Tools and parts used in ESD-sensitive environments",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions."
+    },
+    {
+      "operation_id": "c07-06bd5efb-e5",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-05",
+      "source": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "original_locator": "p. 1: Printing Tips, ESD validation",
+      "raw_finding": "Nozzle temperature and print orientation strongly affect surface resistivity. Higher nozzle temperatures lower resistivity; validate the finished part for the intended ESD requirement.",
+      "retained_scope": "Own product-specific sensitivity statement, not a universal ESD pass. Own TDS surface-resistivity table remains temperature/orientation-specific."
+    },
+    {
+      "operation_id": "c07-06bd5efb-e6",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-05",
+      "source": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "original_locator": "p. 1: Description, composition and wear claim",
+      "raw_finding": "Advanced Carbon Nanotube Compounding This filament is compounded with carbon nanotubes, which are responsible for its ESD-safe properties. The use of carbon nanotubes ensures consistent conductivity throughout the printed part, maintaining ESD protection even after machining or wear.",
+      "retained_scope": "Maker compounding/ESD-after-wear claim without test conditions; own FAQ says ESD can degrade with surface abrasion/humidity/temperature/contaminants. Contradiction retained; no permanent durability result."
+    },
+    {
+      "operation_id": "c07-06bd5efb-e7",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-05",
+      "source": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "original_locator": "p. 1: FAQ, ESD lifetime",
+      "raw_finding": "The ESD (Electrostatic Discharge) safety of PETG-ESD filament can degrade over time, depending on environmental factors like humidity, temperature, and exposure to dust or contaminants. PETG-ESD filaments contain conductive additives, which can wear off or lose effectiveness due to surface abrasion or environmental wear. Typically, the ESD-safe properties should remain intact for 1-2 years under controlled conditions, but regular testing is recommended to ensure continued ESD performance. Storing parts in a clean, dry environment can help maintain their ESD properties longer.",
+      "retained_scope": "Own FAQ lifecycle narrative with undefined controlled conditions. The1–2year figure is not an accepted measured lifetime or warranty, and conflicts with the unqualified wear claim. Finished parts require testing."
+    },
+    {
+      "operation_id": "c07-e2d172d8-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-07",
+      "source": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+      "original_locator": "p. 1: Description, uses",
+      "raw_finding": "It is ideally suited for automotive components, industrial fixtures, and other applications exposed to elevated operating temperatures.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Related HDT tests/own TDS specimen recipe are not validation of these end uses."
+    },
+    {
+      "operation_id": "c07-e2d172d8-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-07",
+      "source": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+      "original_locator": "p. 1: Description, creep claim",
+      "raw_finding": "Improved Creep Resistance Best-in-class creep resistance helps maintain dimensional accuracy and structural integrity under prolonged load and heat exposure, ensuring reliable long-term performance in demanding environments.",
+      "retained_scope": "Maker unquantified creep claim. Time, load, temperature, geometry and measured creep not stated; no creep allowable or lifetime inferred."
+    },
+    {
+      "operation_id": "c07-e2d172d8-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-07",
+      "source": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+      "original_locator": "p. 1: FAQ, storage",
+      "raw_finding": "Store in a cool, dry environment away from moisture and UV light. Use of a PolyBox™ or PolyDryer™ is strongly recommended during both storage and printing.",
+      "retained_scope": "Storage/printing recommendation including avoiding UV; not a quantified moisture/UV-service performance test."
+    },
+    {
+      "operation_id": "c07-29b58f0e-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-08",
+      "source": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+      "original_locator": "p. 1: Description, uses",
+      "raw_finding": "It is well suited for functional prototypes, end-use enclosures, brackets, clips, jigs, and custom printer components where standard ABS may fall short.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. HDT/test-recipe scope remains separate."
+    },
+    {
+      "operation_id": "c07-29b58f0e-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-08",
+      "source": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+      "original_locator": "p. 1: Description, creep",
+      "raw_finding": "Reliable Under Load Improved creep resistance helps ABS Pro resist gradual deformation under sustained mechanical stress, providing dependable long-term performance in structural and mechanically demanding applications.",
+      "retained_scope": "Unquantified creep narrative; no duration/load/temperature/test endpoint, design allowable or lifetime."
+    },
+    {
+      "operation_id": "c07-29b58f0e-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-08",
+      "source": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+      "original_locator": "p. 1: FAQ, enclosure",
+      "raw_finding": "Yes. ABS Pro requires an enclosed chamber of 50°C or higher for best results.",
+      "retained_scope": "Own FAQ prints50°Corhigher for best results. Open-ended minimum, not50–50°C band; no unspecified upper need invented."
+    },
+    {
+      "operation_id": "c07-29b58f0e-e4",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-08",
+      "source": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+      "original_locator": "p. 1: FAQ, food-contact evidence",
+      "raw_finding": "Unfortunately, we do not have data confirming that this material is food safe.",
+      "retained_scope": "Maker admits no food-safety evidence for own product. This statement supplies no legal rule or printed approval."
+    },
+    {
+      "operation_id": "c07-abspro-chamber",
+      "kind": "profile",
+      "verdict": "APPROVE",
+      "grade": "G027-08",
+      "source": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+      "original_locator": "p. 1: FAQ Do I need an enclosure to print ABS Pro?; Printing Requirements, enclosure",
+      "raw_chamber": "50°C+",
+      "min_C": 50,
+      "max_C": "Not published",
+      "enclosure": "OwnFAQYes/requires enclosedchamber; currentrecommended enum explicitlyincludesrequires. Chamberrequirementrequired encodes threshold.",
+      "limits": "50°C+ independentlyfound exactlyinownFAQ printercompatibility paragraph; requires50°C orhigherforbestresults inownenclosureFAQ. Openupperboundretained, no50–50band/numericupperinvented. No nozzle/bed/dry cells transferred."
+    },
+    {
+      "operation_id": "c07-f4d14d72-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G031-06",
+      "source": "R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a",
+      "original_locator": "p. 1: Description, intended uses",
+      "raw_finding": "Perfect for Outdoor and Functional Parts: Choose Polymaker™ ASA filament for any project that demands UV resistance, weather durability, and strong mechanical properties, perfect for outdoor 3D printing and long-lasting results.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. UV/weathering claim lacks spectrum, dose, duration, specimen, colour and retained performance."
+    },
+    {
+      "operation_id": "c07-f4d14d72-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G031-06",
+      "source": "R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a",
+      "original_locator": "p. 1: Print Settings, revision differences",
+      "raw_finding": "Printing Temperature: 240˚C - 260˚C Bed Temperature: 75˚C - 95˚C Printing Speed: Up to 200mm/s Fan: OFF Direct Drive: Retraction Distance: 1mm Retraction Speed: 20mm/s Indirect Drive: Retraction Distance: 3mm Retraction Speed: 40mm/s Drying Settings: 70˚C for 6h (Only if the material has absorbed moisture) Suggested Drying Hardware:",
+      "retained_scope": "Own page drying70°C/6h conflicts with registeredV6.0TDS70°C/7h; nozzlepage240–260°C vsTDS230–260°C. Keep own revision conditions; no narrowed scalar overwrite."
+    },
+    {
+      "operation_id": "c07-a01e6574-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G020-13",
+      "source": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+      "original_locator": "p. 1: Description, uses/colour scope",
+      "raw_finding": "Strong, Striking, and Translucent Benefit from robust tensile strength and a selection of attractive translucent colors. Whether you’re building functional parts or eye-catching models, PolyLite™ PETG ensures your prints are both durable and visually impressive.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Source page scopes translucent variants; no identical colour/additive performance inferred for every catalogued version."
+    },
+    {
+      "operation_id": "c07-a01e6574-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G020-13",
+      "source": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+      "original_locator": "p. 1: FAQ, cooling fan",
+      "raw_finding": "Yes if you are looking for nice surface finish. No if you are looking for strong and durable parts. 20% ON if you want the best of both worlds.",
+      "retained_scope": "Maker cooling trade-off for strength versus surface finish, not a published comparative test."
+    },
+    {
+      "operation_id": "c07-a01e6574-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G020-13",
+      "source": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+      "original_locator": "p. 1: FAQ, food-contact evidence",
+      "raw_finding": "Unfortunately we do not have any data whether this material is food safe.",
+      "retained_scope": "Maker admits no food-contact evidence. Remaining FAQ legal assertions are not adopted as rules or printed approval."
+    },
+    {
+      "operation_id": "c07-419d1e9d-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G027-09",
+      "source": "R-POLYMAKER-PRIORITY-20261002-419d1e9d4bcd",
+      "original_locator": "p. 1: Description, historical branded uses",
+      "raw_finding": "Excellent Heat Resistance and Mechanical Strength This filament is engineered for projects that demand both robust mechanical properties and reliable heat resistance. PolyLite™ ABS maintains its strength and shape even in challenging environments, making it suitable for functional parts, enclosures, and prototypes.",
+      "retained_scope": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Page branded PolyLiteABS; currentgrade includes historicalPolyLiteABSsources. No transfer of unstated newformulation, colour or state numerical performance."
+    },
+    {
+      "operation_id": "c07-50c1636e-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-02",
+      "source": "R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+      "original_locator": "p. 1: Product availability notice",
+      "raw_finding": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns.",
+      "retained_scope": "Exact maker wholesale listing observed2026-10-02 for legacy PolyMax PETG-ESD; stock/regional availability may change. No catalogue retirement, current Fiberon formulation continuity, price admission or warranty inference."
+    },
+    {
+      "operation_id": "c07-44bdc8c0-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-02",
+      "source": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+      "original_locator": "p. 4: My first print, prepare printer",
+      "raw_finding": "It is recommended to use a hardened nozzle and clean the nozzle when you change the material to prevent partial clog.",
+      "retained_scope": "Exact legacy PolyMax PETG-ESD guidance, recommended rather than mandatory; no abrasion result or new mandatory gate inferred. Booklet pages8–9 list general Polymaker technologies, not approval of alcohol smoothing for this PETG."
+    },
+    {
+      "operation_id": "c07-44bdc8c0-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G026-02",
+      "source": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+      "original_locator": "p. 5: My first print, prepare filament",
+      "raw_finding": "It is recommended to store PolyMax™ PETG-ESD in the PolyBox™ to prevent moisture absorption which will lower the quality and the me- chanical properties of the print.",
+      "retained_scope": "Printed hyphenation preserved. Handling/moisture warning, not quantified wet-service performance; drying revisions conflict."
+    },
+    {
+      "operation_id": "c07-8c3c8380-e1",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of weak acids",
+      "raw_finding": "Fair",
+      "retained_scope": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained."
+    },
+    {
+      "operation_id": "c07-8c3c8380-e2",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of strong acids",
+      "raw_finding": "Poor",
+      "retained_scope": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained."
+    },
+    {
+      "operation_id": "c07-8c3c8380-e3",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "raw_finding": "Fair",
+      "retained_scope": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained."
+    },
+    {
+      "operation_id": "c07-8c3c8380-e4",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "raw_finding": "Poor",
+      "retained_scope": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained."
+    },
+    {
+      "operation_id": "c07-8c3c8380-e5",
+      "kind": "evidence",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "raw_finding": "Good",
+      "retained_scope": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained."
+    },
+    {
+      "operation_id": "c07-8c3c8380-m1",
+      "kind": "measurement",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 3: Mechanical Properties, Tensile strength (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+      "literal_value": "30.1 ± 2.4 MPa",
+      "property": "Tensile strength (endpoint unspecified)",
+      "limits": "OwnV5.5TPU90p3ISO37/GBT528 table andsame-page printrecipe read, visually checked all5values. ExplicitXY, printedform and230/50°C/100%infill retained. Ambientprintingtemperature is nottesttemperature; RH/moisture/postprocessing unstated. V5.6PCABSfooter source remains separateandheld; no inferrednumericcorrection orrecencypriority."
+    },
+    {
+      "operation_id": "c07-8c3c8380-m2",
+      "kind": "measurement",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 3: Mechanical Properties, Elongation at break (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+      "literal_value": "592.1 ± 32.9 %",
+      "property": "Elongation at break",
+      "limits": "OwnV5.5TPU90p3ISO37/GBT528 table andsame-page printrecipe read, visually checked all5values. ExplicitXY, printedform and230/50°C/100%infill retained. Ambientprintingtemperature is nottesttemperature; RH/moisture/postprocessing unstated. V5.6PCABSfooter source remains separateandheld; no inferrednumericcorrection orrecencypriority."
+    },
+    {
+      "operation_id": "c07-8c3c8380-m3",
+      "kind": "measurement",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 3: Mechanical Properties, Stress at 100% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+      "literal_value": "7.1 ± 0.3 MPa",
+      "property": "Tensile stress at 100 % elongation",
+      "limits": "OwnV5.5TPU90p3ISO37/GBT528 table andsame-page printrecipe read, visually checked all5values. ExplicitXY, printedform and230/50°C/100%infill retained. Ambientprintingtemperature is nottesttemperature; RH/moisture/postprocessing unstated. V5.6PCABSfooter source remains separateandheld; no inferrednumericcorrection orrecencypriority."
+    },
+    {
+      "operation_id": "c07-8c3c8380-m4",
+      "kind": "measurement",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 3: Mechanical Properties, Stress at 200% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+      "literal_value": "9.0 ± 0.9 MPa",
+      "property": "Tensile stress at 200 % elongation",
+      "limits": "OwnV5.5TPU90p3ISO37/GBT528 table andsame-page printrecipe read, visually checked all5values. ExplicitXY, printedform and230/50°C/100%infill retained. Ambientprintingtemperature is nottesttemperature; RH/moisture/postprocessing unstated. V5.6PCABSfooter source remains separateandheld; no inferrednumericcorrection orrecencypriority."
+    },
+    {
+      "operation_id": "c07-8c3c8380-m5",
+      "kind": "measurement",
+      "verdict": "APPROVE",
+      "grade": "G039-11",
+      "source": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "original_locator": "p. 3: Mechanical Properties, Stress at 300% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+      "literal_value": "13.2 ± 0.6 MPa",
+      "property": "Tensile stress at 300 % elongation",
+      "limits": "OwnV5.5TPU90p3ISO37/GBT528 table andsame-page printrecipe read, visually checked all5values. ExplicitXY, printedform and230/50°C/100%infill retained. Ambientprintingtemperature is nottesttemperature; RH/moisture/postprocessing unstated. V5.6PCABSfooter source remains separateandheld; no inferrednumericcorrection orrecencypriority."
+    },
+    {
+      "operation_id": "C07-ABS-PRO-OWN-CHAMBER-SUPERSEDES-D93",
+      "kind": "existing_profile_edit",
+      "verdict": "APPROVE",
+      "profile_id": "P0292",
+      "changed_fields": [
+        "Chamber state",
+        "Chamber requirement",
+        "Parse review"
+      ],
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "limits": "Earlierindependentlyreadhash440df…oldsheet ClosurechamberYes andno chambertemperature confirmed. RemoveobsoleteD93enclosedshortcut/parsereview atomicallywithnewown50°C+ source/profile, neverseparatewriteduringintermediateunverifiedstate. Otherrecipefieldsraw/typedunchanged."
+    }
+  ],
+  "prior_review": {
+    "file": "priority-02-c07-review-before-correction.json",
+    "input_sha256": "5576fbc30771ae6dd60ed60061102106106eb137420a7e0b788c6b59386749e1",
+    "review_signature_sha256": "3251bf96d38bb3b261319e03bde449223c826e283d0e68da0bdbf825f1540dc3"
+  },
+  "delta_attestation": "Sourcefilename caveatnowonlyactualTPU90document. GuardedfullExpectedP0292 andoldSourcebinding added; ownnewlower-only50°C+ profilecorrect. Facts/rawsourcequotesunchanged.",
+  "source_reading_method": "Fresh pdfPages/directhtmlTextv4 fromall12hashverifiedoriginals, own productheading/body/FAQ checked. Originalreadjsons retained external-campaign/resume-2026-10-02/private/reviewer-c07. PCMaxearliersourceworknotrepeated.",
+  "narrative_sampling": "All39findingquotes, ownership andqualifiers reviewed, includingfivechemicalclasscells andcriticalskinbadge/CNTwear/lifetime/legacyPIS/legacyABS. Exceeds10%/min5 sample.",
+  "critical_qualifications": [
+    "ISO10993SkinSafeTested badge isownmakermarketing, lacksreport/part/endpoints/duration/specimen/colour/recipe. No printedskin/medical certification orselectorpass.",
+    "FiberonPETGESDCNTwearproof claim andFAQ1–2years/abrasion/environmentaldegradationbothretained asconflicting unmeasuredmakerstatements; no measuredlifetime, warranty orpermanentESDpass.",
+    "LegacyPolyMaxPETGESDPISp4hardeningrecommendationnotmandatory, p5moisturehandlingunquantified; p8–9generaltechnology/alcoholLayerFree claims notassigned toPETG. PIS70°C8h versusexistingTDS65°C6h held.",
+    "LegacyABS page ownPolyLitebranding scopedcurrentgradehistoricalsource only; no unstatednewformulation transfer. PolyLitePETGtranslucentpage boundedcolour/additivescope. PolyMaxPETGmakerPETG/PCTGblendclaim doesnot triggeridentitymove.",
+    "Ownpages drying summaries conflict withPrintSettings/TDS; both quotedandbounded, no scalaroverwrite. Creep/use claims remainunquantified andneverestablishsuitability.",
+    "TPU90V5.5 internalheaderownidentity/ISO37/percentunit coherent; URLV5.4 mismatchkept, no inferredpublicationorder orfixofV5.6. No400%stress canonicalproperty substitute."
+  ],
+  "guard_checks": "10ExpectedGrade rows andoneExpectedoldSource/P0292 fullrows independentlymatchcurrentcanonical. All12proposalbyteSHAs verified; Source/accepted operationlists exactlymatchpacket; automaticrowsrejected retained. No registeredoriginaldigestduplicate.",
+  "atomic_admission_condition": "ExistingP0292three-fieldreconciliation mustshareguardedtransactionwithnewsource/profile. Independentmigrationalgorithmreview pending; packet approvaldoesnotauthorizeweakeningingestguard.",
+  "canonical_files_edited": false,
+  "approval_scope": "Source/operation admission only; nojoinedtarget closure/commitapproval. Finalsource-groundedfixtures/actualdrawers/changedanswers/fullQA/backup stillrequired.",
+  "review_signature_sha256": "8904b05ed4b61ca65acea94401d0e85d37315c7bcc399122d81851b9c1abfe7e"
+}

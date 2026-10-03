@@ -1,0 +1,1144 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26",
+    "url": "https://cdn.shopify.com/s/files/1/0548/7299/7945/files/PolyFlex_TPU90_TDS_EN_V5.4.pdf?v=1731956392",
+    "pages": 4,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://cdn.shopify.com/s/files/1/0548/7299/7945/files/PolyFlex_TPU90_TDS_EN_V5.4.pdf?v=1731956392#witness-for=source:S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 90A (from the sheet)"
+    ],
+    "materialId": "M160",
+    "materialName": "TPU 90A class",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "Publisher": "Polymaker",
+      "Title": "PolyFlex TPU90 Technical Data Sheet V5.5",
+      "Revision": "V5.5",
+      "Publication date": "Not published",
+      "Access date": "2026-10-02",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification. URL filenameV5.4 serves an internally headedV5.5; revision recorded as printed.",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0548/7299/7945/files/PolyFlex_TPU90_TDS_EN_V5.4.pdf?v=1731956392",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G039-11",
+      "Access state": "retrieved",
+      "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+      "SHA256": "8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PolyFlex ™️ TPU90"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent original review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G039-11",
+      "row": {
+        "GradeID": "G039-11",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker PolyFlex TPU90",
+        "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Exact existing grade binding; primary identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.21 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.21",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO1183 GB/T1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 2: Density ISO1183, GB/T1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density ISO1183, GB/T1033 1.21 g/cm3 at 23 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6.1 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "6.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "185°C",
+        "Test temperature °C": "185",
+        "Standard / load": "185°C 1.2 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 2: Melt index 185°C, 1.2 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt index 185°C, 1.2 kg 6.1 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.67 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.67",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.67",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 2: Equilibrium water absorption (%)=",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Equilibrium water absorption (%)= 0.67%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Tensile stress at 100 % elongation",
+        "Raw value": "7.1 ± 0.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "7.1",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7.1",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "100% strain X-Y ISO 37 GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 3: Stress at 100% strain (X-Y) ISO 37, GB/T 528",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Tensile stress at 200 % elongation",
+        "Raw value": "9.0 ± 0.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9",
+        "Raw uncertainty ±": "0.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9",
+        "Normalized uncertainty ±": "0.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "200% strain X-Y ISO 37, GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 3: Stress at 200% strain (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 200% strain (X-Y) 9.0 ± 0.9 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Tensile stress at 300 % elongation",
+        "Raw value": "13.2 ± 0.6 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "13.2",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.2",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "300% strain X-Y ISO 37 GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 3: Stress at 300% strain (X-Y) ISO 37, GB/T 528",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "30.1 ± 2.4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "30.1",
+        "Raw uncertainty ±": "2.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30.1",
+        "Normalized uncertainty ±": "2.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 37 GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 3: Tensile strength (X-Y) ISO 37, GB/T 528",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "592.1 ± 32.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "592.1",
+        "Raw uncertainty ±": "32.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "592.1",
+        "Normalized uncertainty ±": "32.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 37 GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 3: Elongation at break (X-Y) ISO 37, GB/T 528",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "90",
+        "Raw unit": "Shore A",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 7619-1 GB/T 531.1",
+        "Standards": "ISO 7619; GB/T 531.1",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Locator": "p. 3: Shore hardness ISO 7619-1, GB/T 531.1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Shore hardness ISO 7619-1, GB/T 531.1 90A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-m1",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "30.1 ± 2.4 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "30.1",
+        "Raw uncertainty ±": "2.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30.1",
+        "Normalized uncertainty ±": "2.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 37, GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 3: Mechanical Properties, Tensile strength (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+        "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-m2",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Property": "Elongation at break",
+        "Raw value": "592.1 ± 32.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "592.1",
+        "Raw uncertainty ±": "32.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "592.1",
+        "Normalized uncertainty ±": "32.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 37, GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 3: Mechanical Properties, Elongation at break (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+        "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-m3",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Property": "Tensile stress at 100 % elongation",
+        "Raw value": "7.1 ± 0.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "7.1",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7.1",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 37, GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 3: Mechanical Properties, Stress at 100% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+        "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-m4",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Property": "Tensile stress at 200 % elongation",
+        "Raw value": "9.0 ± 0.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "9",
+        "Raw uncertainty ±": "0.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9",
+        "Normalized uncertainty ±": "0.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 37, GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 3: Mechanical Properties, Stress at 200% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+        "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa Stress at 200% strain (X-Y) 9.0 ± 0.9 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-m5",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Property": "Tensile stress at 300 % elongation",
+        "Raw value": "13.2 ± 0.6 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "13.2",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.2",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 37, GB/T 528",
+        "Standards": "ISO 37; GB/T 528",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 3: Mechanical Properties, Stress at 300% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+        "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210 – 230 (℃)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "25 - 60 (°C)",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "No Needed",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 – 70 (mm/s)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "3 - 6 (mm)"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "40 - 60 (mm/s)"
+        }
+      ],
+      "evidence": {
+        "page": 3,
+        "text": "Nozzle temperature 210 – 230 (℃)"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c07-8c3c8380-e1",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of weak acids",
+        "Finding": "Fair",
+        "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of weak acids"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Fair"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-e2",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of strong acids",
+        "Finding": "Poor",
+        "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of strong acids"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Poor"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-e3",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of weak alkalis",
+        "Finding": "Fair",
+        "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of weak alkalis"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Fair"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-e4",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of strong alkalis",
+        "Finding": "Poor",
+        "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of strong alkalis"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Poor"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    },
+    {
+      "id": "c07-8c3c8380-e5",
+      "gradeKey": "G039-11",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "Good",
+        "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of oils and grease"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Good"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "210 – 230 (℃)",
+      "fromBelow": false,
+      "line": "Nozzle temperature 210 – 230 (℃)"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "25 - 60 (°C)",
+      "fromBelow": false,
+      "line": "Build plate temperature 25 - 60 (˚C)"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "30 – 70 (mm/s)",
+      "fromBelow": false,
+      "line": "Printing speed 30 – 70 (mm/s)"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction distance",
+      "raw": "3 - 6 (mm)",
+      "fromBelow": false,
+      "line": "Retraction distance 3 - 6 (mm)"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction speed",
+      "raw": "40 - 60 (mm/s)",
+      "fromBelow": false,
+      "line": "Retraction speed 40 - 60 (mm/s)"
+    },
+    {
+      "page": 3,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Closure Chamber",
+      "raw": "No Needed",
+      "fromBelow": false,
+      "line": "Closure Chamber No Needed"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PolyFlex ™️ TPU90",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PolyFlex ™️ TPU90, created from Covestro’s Addigy ®️ family, is a thermoplastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 37, GB/T 528",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Stress at 400% strain (X-Y) 19.0 ± 0.9 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 37, GB/T 528",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Recommended support material PolySupport™ and PolyDissolve™ S1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "* Based on 0.4 mm nozzle. Printing conditions may vary with different nozzle diameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ISO 37, GB/T 528",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Top & bottom layer 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Infill 100%",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent original review required; no human review",
+    "note": "Exact operations only; independent signed packet required. All automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      },
+      "row": {
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyFlex ️ TPU90",
+        "Shared formulation key": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-EN-V5-4",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet PolyFlex ™️ TPU90"
+      }
+    }
+  ],
+  "newMaterial": null
+}

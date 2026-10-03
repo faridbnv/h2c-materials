@@ -1,0 +1,145 @@
+[
+  {
+    "SHA256": "3bfa1a6ad0fb6f0319615b45550482b7123d1b3856d87405be64bdea86c9aaa5",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "af65c4b17bf1e11d23a06ee60f2fea835d45edaf7bcde410646a749bd55616dc",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "213003473aa8433f87cba64f939a131dafe141a38c1b847fc2a15ca960bc6b8e",
+      "date": "2026-09-19"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/3bfa1a6ad0fb6f0319615b45550482b7123d1b3856d87405be64bdea86c9aaa5.json"
+  },
+  {
+    "SHA256": "64d85b92160c30c2a51a386be640ddcfaac198168060a56e75ce0be9447d65b4",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "9a14bd3e12ef7c1871b808b25868e1b71d78220f7e4ab616d5f979f3255aec22",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "4a174baeeab03071c3b3d45bfc92d3f9633db94ebcbf80dc06406b1bec650b32",
+      "date": "2026-09-19"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/64d85b92160c30c2a51a386be640ddcfaac198168060a56e75ce0be9447d65b4.json"
+  },
+  {
+    "SHA256": "7e162eadd6d266792d640e5a95c4463b590f389c0ec649a3ddba990c5084eca7",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "4651072b3c4e329d8e00187d2b362b4898665d9fc33eb1f06871385aff3674e0",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "e9836c3f51c4c665a9b952d92769a8c9709b4aa5c5e4cdaa376a14848467727d",
+      "date": "2026-09-21"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/7e162eadd6d266792d640e5a95c4463b590f389c0ec649a3ddba990c5084eca7.json"
+  },
+  {
+    "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "025a3a8e2f6138b859b50109619a85a7743bab7652adfdd7b70fee74245555a1",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "082cf4e2ce942f45ed84183f9093329f56f380f780dd97ff4f0b99ff4ec985cf",
+      "date": "2026-09-19"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78.json"
+  },
+  {
+    "SHA256": "9a419422a55d14d1726029d1fe3a31aa1dc0c882018ad4cd49619cda93bcbe6b",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "2a0430182a8019be971c58f1773cc8e041460d710b2afd6d9ffe61d8bb885510",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "f1252771b7c2a6ee63c9982ff9113a18923dbf4eefcf38a91a00efbc6e35b28d",
+      "date": "2026-09-21"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/9a419422a55d14d1726029d1fe3a31aa1dc0c882018ad4cd49619cda93bcbe6b.json"
+  },
+  {
+    "SHA256": "9a9e36c1932bea18a01714658959e601857a8ff7a324d8d0ad4ae335b00645ab",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "bbc95c8ac5968c43746365d24b48b7a1fa512cce7f9366d06408281ee809b252",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "0929a0e94700f681f072e30aab6d4a2d110b1e8473e925389387fc93a8cd3e42",
+      "date": "2026-09-19"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/9a9e36c1932bea18a01714658959e601857a8ff7a324d8d0ad4ae335b00645ab.json"
+  },
+  {
+    "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "01c9cbb75c9e8db813949857f3ed9783633e8c70a4e272065c53bf73fa9f3eae",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "71f949babf50872fe631f3ca2e6801c98a701c8de27497659386574d067d8679",
+      "date": "2026-09-21"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68.json"
+  },
+  {
+    "SHA256": "a01068f256f1ef9358e3668f8f5c9a11f54b92881cdb647e9f7f260501ed5f6f",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "90be00a7139897ddf8ab4a44f15b4c00c8a4130a5915b9521a70280a3f6d0926",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "234fd81db2176f844402485f29199486ae753184f1c4dd4ce501463a80874ec8",
+      "date": "2026-09-21"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/a01068f256f1ef9358e3668f8f5c9a11f54b92881cdb647e9f7f260501ed5f6f.json"
+  },
+  {
+    "SHA256": "b287fa98769589e34b0e2caab70aa1303e05e8238e8e8e68fd571e2a274fda89",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "4c4a51346c154598633d1178fc7bc472aa11af028c00b27df13d4f858e149e6b",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "e20580849b2492f1513040588297a95ce73d55cc8066593271deae2e9fd239d4",
+      "date": "2026-09-19"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/b287fa98769589e34b0e2caab70aa1303e05e8238e8e8e68fd571e2a274fda89.json"
+  },
+  {
+    "SHA256": "b52a5d3cb85a129a89369f6492d6517cbbcc0e25439172b9cb388da69f28d807",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "7ab1abddf6ba3a4168b6e033ef11b0262abecc5aa6845731972a1f7eb5dfc295",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "fdf25ee6b76f110574667a858381e1423ecaf50b954b0fb5f6d57f902dfab4d2",
+      "date": "2026-09-21"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/b52a5d3cb85a129a89369f6492d6517cbbcc0e25439172b9cb388da69f28d807.json"
+  },
+  {
+    "SHA256": "c32884a4768675e093e755c412e8407be97350ff11958f541c6acb2b9b9c588f",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "ab2d457790b276c7bf9e61edb49a708cc4cdc0f75d5446375fdd478b79dde648",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "035900499bd29013647eea860db43e39ce913e3df874ba2720779efa08a0433c",
+      "date": "2026-09-21"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/c32884a4768675e093e755c412e8407be97350ff11958f541c6acb2b9b9c588f.json"
+  },
+  {
+    "SHA256": "c9f53cd2624a184f1a4d80286d8a6796b3aeae8353299be92e23d3ace5612b66",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "b27b2ea9135f809960f32eb97cbada18b4523d7116d976a6b1158c1770b71d1f",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "f70e4a2ce018010526175bd65c45dcd3d9e4b4c25261d6a56ceb15aaedf1e893",
+      "date": "2026-09-21"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/c9f53cd2624a184f1a4d80286d8a6796b3aeae8353299be92e23d3ace5612b66.json"
+  },
+  {
+    "SHA256": "d125cb359c88ff5197e71d36f54db93b2f277610a1079deb4ee94c67890bb0a9",
+    "OriginalVerified": true,
+    "DerivativeSHA256": "9ff29e185f24edc5723a4e251f0fb78c9463da770eae1b9063afe724abcaf453",
+    "RestoredOCR": {
+      "tool": "ocrmypdf",
+      "copy": "f3fb567559346532a7f528aa34a104d294e5dcb1e972eb1953656b57329f569d",
+      "date": "2026-09-19"
+    },
+    "RejectedPlainReading": "private/ocr-refresh-before-restore/d125cb359c88ff5197e71d36f54db93b2f277610a1079deb4ee94c67890bb0a9.json"
+  }
+]

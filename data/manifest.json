@@ -10,16 +10,16 @@
       "sha256": "f59e8aa5f24b0ecc3a957c4874479eba2c282aae52ef421687d0992900c4ad51"
     },
     "profiles": {
-      "rows": 1365,
-      "sha256": "54cd81851eb83517305032f6c917389fdf69148b43da7e1e4b056cc282a62d44"
+      "rows": 1366,
+      "sha256": "f2589e9598fbce54524e912950380d2f3b00269c06de16a85f6c41692acb8f1b"
     },
     "profile_notes": {
       "rows": 2169,
       "sha256": "60afb7ab477d16980be2fa975fd78b0095c8e62dffe4cba4ab1d141a61075341"
     },
     "measurements": {
-      "rows": 11802,
-      "sha256": "9b9ed2b0e0f6e73fd81a958bebebc6516995ab196ff0c9592a9f4ed1e2b97b42"
+      "rows": 11818,
+      "sha256": "45fe79d5650ad0efdf18e755b883c38e3d409f66c141ac3c10cebadcd239009a"
     },
     "page_context": {
       "rows": 285,
@@ -30,8 +30,8 @@
       "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
     },
     "evidence": {
-      "rows": 5528,
-      "sha256": "5e7ff7ee4f421f9cc76334d42dc7a409d06a0614a71ebdea97e8495b9018397f"
+      "rows": 5606,
+      "sha256": "e27900e5b97a954dbda1e5e72429a9b1eee3493fda10e3679e4e395f8adae8a4"
     },
     "know_how_reads": {
       "rows": 1545,
@@ -54,8 +54,8 @@
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 1858,
-      "sha256": "deedc219231d435e5891190070e5d23edb9a7ac909e5b2cee983a5e83aca5e8f"
+      "rows": 1870,
+      "sha256": "7a82b69b76dac062e1dbebd48da850297acb1477a475c1c0e89409f73c057aac"
     },
     "coverage": {
       "rows": 947,

@@ -1,0 +1,46 @@
+{
+  "migration": "m315-batch-c07-priority-02",
+  "tests": [
+    {
+      "table": "grades",
+      "id": "G020-16",
+      "field": "Composition / filler",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "grade G020-16 moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "sources",
+      "id": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+      "field": "Revision",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "applied source moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "evidence",
+      "id": "Q05604",
+      "field": "Finding",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "previously admitted evidence moved",
+      "tables_manifest_ledger_unchanged": true
+    }
+  ],
+  "rerun_receipt": {
+    "migration": "m315-batch-c07-priority-02",
+    "packet": "9480cc6cdab58de8a6d15c1947f5ff8b91a58cc4e36384c774e17715982016af",
+    "log": [],
+    "judgments": [],
+    "applied": 0,
+    "written": 0
+  },
+  "supplemental_rerun": {
+    "migration": "m314-priority-02-cached",
+    "packet": "a38a7826fa796e4cf0bb391b177b102f3ad434fb35a9e193311bd5b55e853a81",
+    "written": 0,
+    "records": []
+  }
+}

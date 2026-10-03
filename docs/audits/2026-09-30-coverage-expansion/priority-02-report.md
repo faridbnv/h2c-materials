@@ -1,0 +1,19 @@
+# Polymaker priority-product batch: twelve products
+
+GOALS steps 2/5, C3/C6/C9/C10/C13. The material phase remains 136/136 complete. This batch is not counted as completed until its reviewed outcomes and verified data commit are recorded in STATUS.
+
+Re-read 25 registered originals, checked twelve current maker TDS routes, and inspected exact official product pages and shared guides once. C07 admits 12 defensible new originals (ten HTML pages, two PDFs); the captured Polymaker PETG page added no useful fact and was not admitted.
+
+The reviewed packets recover PC-Max's five printed XY mechanical properties plus filament density/flow, existing Tg/moisture-condition corrections, TPU90/TPU95-HF fixed-strain stress, and the coherent TPU90 V5.5 ISO 37 table. Generic chemical statements retain their exposure limits. ABS Pro's own 50 °C+ chamber minimum displaces its enclosure-only shortcut atomically. Narrative use/finishing, moisture, wear and food/skin limitations remain maker know-how, never selection passes.
+
+The import writer initially collapsed distinct bullets sharing a heading. A regression test now preserves statement and product identity; a manifest-pinned one-time recovery admitted the three missing, already-reviewed Fiberon ESD bullets. Ordinary migration reruns are strict and write nothing. No original was overwritten, no record deleted, no catalogue expansion or price routine introduced.
+
+[Cached-source review](priority-02-cached-review.json), [new-original review](priority-02-c07-review.json) and [question outcomes](priority-02-outcomes-packet.json) retain exact sources, operations and unresolved release conditions. Review is independent AI review, not human or physical-test validation. OPEN-PROBLEMS retains the inclusive PC-Max bound, impact-method ambiguity, TPU90 V5.6 attribution, skin badge and conflicting drying/wear claims.
+
+Final release `b847b43260f9` passed full verification: 491 unit / 209 import tests, scale/reproducibility, 80 accepted context findings with 0 new / 0 stale, 69 views and 300 rendered scenarios (2,594 readings). Warm verify:fast took 34.2 s. The complete grid (136 in-scope rows) and all 12 changed product drawers were inspected. [Verification receipt](priority-02-verification.json) retains logfile hashes; [guard fixtures](priority-02-guards.json) prove changed expected values stop without writes.
+
+Against the batch baseline, 15 frozen questions moved 11 answers, 24 template/policy questions moved 25 answers, and 48 environment/policy questions moved 72 answers. These are separate portfolios, not 108 distinct user scenarios. [Independent explanation](priority-02-changed-answers-review.json) enumerates every move. PC-Max changes unknowns to supported failures; ABS Pro's open-ended requirement leaves compatibility unknown; generic chemical evidence gives category answers under the existing exposure caveat. Five template screen changes are automatic estimate recalibration and keep UNKNOWN verdicts.
+
+The source archive holds 2,421 verified originals and 2,827 derivatives; 124 known absent inventory entries remain and 0 new cited originals are missing. A later audit exposed 13 OCR copies overwritten by a research cache refresh; all were restored only beside matching original digests, the helper now preserves OCR, and full QA was rerun. The notch acceptance remained because the restored OCR still produces the known neighbouring-line finding; the actual page was visually reread and 4 kJ/m² is correctly notched. No check was weakened. [Restoration receipt](priority-02-ocr-cache-restoration.json).
+
+The signed 204 question outcomes are bounded final dispositions, not resolved tests or suitability. Historical active-time/token accounting is incomplete; no useful-findings-per-hour rate is invented. Later maker groups use shared reads and combined verified tranches to avoid repeating this release overhead.

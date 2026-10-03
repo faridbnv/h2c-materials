@@ -436,7 +436,7 @@ G027-04,M027,ABS Medical,within,within,within,recommended,no-special-concern,unk
 G027-05,M027,Smart ABS,within,within,within,recommended,no-special-concern,required,drying: twin G027-58
 G027-06,M027,3DXMAX ABS,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG018; bed: guide PG018; chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-07,M027,Polymaker ABS Max,within,within,partial,recommended,no-special-concern,required,enclosure: guide PG018; hardenedNozzle: guide PG018
-G027-08,M027,Polymaker ABS Pro,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
+G027-08,M027,Polymaker ABS Pro,within,within,partial,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-09,M027,Polymaker ABS,within,within,partial,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-11,M027,DURAPRO ABS,within,within,within,recommended,no-special-concern,unknown,
 G027-12,M027,High Speed ABS,within,within,within,recommended,no-special-concern,required,enclosure: guide PG018; hardenedNozzle: guide PG018

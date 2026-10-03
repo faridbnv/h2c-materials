@@ -1,0 +1,2046 @@
+{
+  "PacketID": "PRIORITY-02-C07-OFFICIAL-PAGES-AND-TPU-REVISION",
+  "Batch": "c07",
+  "BaselineHEAD": "e77ea5a",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "ExpectedGrades": [
+    {
+      "GradeID": "G020-16",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker PolyMax PETG",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-11",
+      "MaterialID": "M160",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker PolyFlex TPU90",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-12",
+      "MaterialID": "M161",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker PolyFlex TPU95 HF",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G026-05",
+      "MaterialID": "M026",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "PETG ESD",
+      "Shared formulation key": "R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "V1.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G027-07",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker ABS Max",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "V1.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G027-08",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker ABS Pro",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "V1.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G031-06",
+      "MaterialID": "M031",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker ASA",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G020-13",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "PolyLite PETG",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G027-09",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker ABS",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G026-02",
+      "MaterialID": "M026",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "PolyMax PETG ESD",
+      "Shared formulation key": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "Documents": [
+    {
+      "File": "1b7d356063383627.json",
+      "Extension": "html",
+      "ProposalSHA256": "fbba9e14ca1dd90a35d687548109b5d9ecea7f09da861a6eb45d746327024fc6",
+      "OriginalSHA256": "1b7d356063383627ddc42124673da97b6c3d539a21a2295e6e233bb880805bac",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker PolyMax PETG official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polymax-petg",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G020-16",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "1b7d356063383627ddc42124673da97b6c3d539a21a2295e6e233bb880805bac"
+      },
+      "OriginalPath": ".cache/sources/by-sha/1b7d356063383627ddc42124673da97b6c3d539a21a2295e6e233bb880805bac.html",
+      "ReadingFile": "private/reads/1b7d356063383627ddc42124673da97b6c3d539a21a2295e6e233bb880805bac.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-1b7d3560-e1",
+          "gradeKey": "G020-16",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-16",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Innovative Modified PETG Blend PolyMax™ PETG combines the best of PETG and PCTG, offering high strength and rigidity while maintaining improved flexibility and resilience. This unique balance makes it ideal for both functional prototypes and end-use parts that demand durability and reliability.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Maker calls this a PETG/PCTG blend; no fraction or reformulation continuity is published, and no reclassification follows.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+            "Locator": "p. 1: Description, modified blend and functional uses"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Innovative Modified PETG Blend PolyMax™ PETG combines the best of PETG and PCTG, offering high strength and rigidity while maintaining improved flexibility and resilience. This unique balance makes it ideal for both functional prototypes and end-use parts that demand durability and reliability."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-1b7d3560-e2",
+          "gradeKey": "G020-16",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-16",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "If you are looking to produce the strongest part (high layer adhesion), we recommend to switch off your part cooling fan. If you are looking for a high quality surface finish, we recommend to switch on your part cooling fan. Usually the best of both worlds is to leave the part cooling fan at 20%.",
+            "Exposure / conditions": "Maker cooling trade-off for layer adhesion versus surface finish, not a quantified mechanical test or finish assurance.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+            "Locator": "p. 1: FAQ, cooling fan"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "If you are looking to produce the strongest part (high layer adhesion), we recommend to switch off your part cooling fan. If you are looking for a high quality surface finish, we recommend to switch on your part cooling fan. Usually the best of both worlds is to leave the part cooling fan at 20%."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-1b7d3560-e3",
+          "gradeKey": "G020-16",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-16",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Drying 65°C for 4h",
+            "Exposure / conditions": "Technical summary conflicts with own Print Settings65°C/6h and registeredTDS65°C/6h. Preserve both; no unverified4h scalar replaces existing guidance.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+            "Locator": "p. 1: Technical summary, drying"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Drying 65°C for 4h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 14,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "bd52e168c6e3db8a.json",
+      "Extension": "html",
+      "ProposalSHA256": "d8182091cacb6353cdcb70b3db51ebb665361a88da20e4ed17e829dd4676a94e",
+      "OriginalSHA256": "bd52e168c6e3db8ad019242a44dc595b768745399706a8784b730233a9d0027b",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker PolyFlex TPU90 official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polyflex-tpu90",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-11",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "bd52e168c6e3db8ad019242a44dc595b768745399706a8784b730233a9d0027b"
+      },
+      "OriginalPath": ".cache/sources/by-sha/bd52e168c6e3db8ad019242a44dc595b768745399706a8784b730233a9d0027b.html",
+      "ReadingFile": "private/reads/bd52e168c6e3db8ad019242a44dc595b768745399706a8784b730233a9d0027b.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-bd52e168-e1",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Choose PolyFlex™ TPU90 for projects like phone cases, watch straps, or any part that demands softness, flexibility, and comfort.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Contact/comfort marketing does not establish printed skin qualification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+            "Locator": "p. 1: Description, intended uses"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Choose PolyFlex™ TPU90 for projects like phone cases, watch straps, or any part that demands softness, flexibility, and comfort."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-bd52e168-e2",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Direct extruder with a gear ratio mechanical advantage required.",
+            "Exposure / conditions": "Maker hardware guidance; no universal printer compatibility or blanket approval. Existing H2C hardware contract unchanged.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+            "Locator": "p. 1: Printing Requirements"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Direct extruder with a gear ratio mechanical advantage required."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-bd52e168-e3",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Will be very difficult to print with a small nozzle diameter..",
+            "Exposure / conditions": "No numeric nozzle diameter stated; do not invent one.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+            "Locator": "p. 1: Printing Requirements, nozzle limitation"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Will be very difficult to print with a small nozzle diameter.."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-bd52e168-e4",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "✓ ISO 10993 Skin Safe Tested",
+            "Exposure / conditions": "Maker badge only. Test report, ISO10993 part/endpoints, contact duration, specimen, colour, print recipe and finished-object certification were not supplied in this page. No medical/skin suitability or certification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+            "Locator": "p. 1: Key features, skin badge"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "✓ ISO 10993 Skin Safe Tested"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-bd52e168-e5",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Drying 50°C for 6h",
+            "Exposure / conditions": "Own technical summary conflicts with own Print Settings70°C/8h and TDS70°C/8h. Preserve both; no scalar overwrite.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+            "Locator": "p. 1: Technical summary, drying"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Drying 50°C for 6h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 2,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "bc61cf2013c243a2.json",
+      "Extension": "html",
+      "ProposalSHA256": "95a5f8061e96ffb9619cadf5d672306fce5a4b348a4081515b7204dab5b2e62f",
+      "OriginalSHA256": "bc61cf2013c243a2192c40625082ba5f692293c5e37ec84c74a2509fa5aea0b5",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker PolyFlex TPU95 HF official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polyflex-tpu95-hf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-12",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "bc61cf2013c243a2192c40625082ba5f692293c5e37ec84c74a2509fa5aea0b5"
+      },
+      "OriginalPath": ".cache/sources/by-sha/bc61cf2013c243a2192c40625082ba5f692293c5e37ec84c74a2509fa5aea0b5.html",
+      "ReadingFile": "private/reads/bc61cf2013c243a2192c40625082ba5f692293c5e37ec84c74a2509fa5aea0b5.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-bc61cf20-e1",
+          "gradeKey": "G039-12",
+          "row": {
+            "MaterialID": "M161",
+            "GradeID": "G039-12",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Ideal for Fast, Flexible Parts Choose PolyFlex™ TPU95-HF when you need to combine flexibility with high-speed production - perfect for rapid prototyping, manufacturing jigs, and functional, elastic components.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+            "Locator": "p. 1: Description, intended uses"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Ideal for Fast, Flexible Parts Choose PolyFlex™ TPU95-HF when you need to combine flexibility with high-speed production - perfect for rapid prototyping, manufacturing jigs, and functional, elastic components."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-bc61cf20-e2",
+          "gradeKey": "G039-12",
+          "row": {
+            "MaterialID": "M161",
+            "GradeID": "G039-12",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "PolyFlex™ TPU95-HF can be printed on an indirect drive printer however we highly recommend to use a direct drive printer to print PolyFlex™ TPU95-HF at its high speed settings. A direct drive printer is a printer with the extruder mounted on top of the hot end.",
+            "Exposure / conditions": "Indirect drive allowed, direct drive recommended for high speed; no unsupported mandatory requirement.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+            "Locator": "p. 1: FAQ, extruder"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PolyFlex™ TPU95-HF can be printed on an indirect drive printer however we highly recommend to use a direct drive printer to print PolyFlex™ TPU95-HF at its high speed settings. A direct drive printer is a printer with the extruder mounted on top of the hot end."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-bc61cf20-e3",
+          "gradeKey": "G039-12",
+          "row": {
+            "MaterialID": "M161",
+            "GradeID": "G039-12",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Drying 50°C for 6h",
+            "Exposure / conditions": "Own summary conflicts with own Print Settings70°C/8h and TDS70°C/8h. No scalar overwrite.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+            "Locator": "p. 1: Technical summary, drying"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Drying 50°C for 6h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 2,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "06bd5efb417b9fdd.json",
+      "Extension": "html",
+      "ProposalSHA256": "2b87fb60105cb0c8d837103e408f06d4e3015856bb9d71788d2787275200807d",
+      "OriginalSHA256": "06bd5efb417b9fdd1f4a53f5c7fb17d7809668d6363e6839b52b0859ab8c86bf",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+        "Publisher": "Polymaker",
+        "Title": "PETG ESD official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-petg-esd",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G026-05",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "06bd5efb417b9fdd1f4a53f5c7fb17d7809668d6363e6839b52b0859ab8c86bf"
+      },
+      "OriginalPath": ".cache/sources/by-sha/06bd5efb417b9fdd1f4a53f5c7fb17d7809668d6363e6839b52b0859ab8c86bf.html",
+      "ReadingFile": "private/reads/06bd5efb417b9fdd1f4a53f5c7fb17d7809668d6363e6839b52b0859ab8c86bf.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-06bd5efb-e1",
+          "gradeKey": "G026-05",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Electronics housings and enclosures",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+            "Locator": "p. 1: Description, Ideal Applications"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Electronics housings and enclosures"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-06bd5efb-e2",
+          "gradeKey": "G026-05",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Jigs and fixtures for PCB assembly",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+            "Locator": "p. 1: Description, Ideal Applications"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Jigs and fixtures for PCB assembly"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-06bd5efb-e3",
+          "gradeKey": "G026-05",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Trays and storage for electronic components",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+            "Locator": "p. 1: Description, Ideal Applications"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Trays and storage for electronic components"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-06bd5efb-e4",
+          "gradeKey": "G026-05",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Tools and parts used in ESD-sensitive environments",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. ESD function needs finished-part validation under use conditions.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+            "Locator": "p. 1: Description, Ideal Applications"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Tools and parts used in ESD-sensitive environments"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-06bd5efb-e5",
+          "gradeKey": "G026-05",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Nozzle temperature and print orientation strongly affect surface resistivity. Higher nozzle temperatures lower resistivity; validate the finished part for the intended ESD requirement.",
+            "Exposure / conditions": "Own product-specific sensitivity statement, not a universal ESD pass. Own TDS surface-resistivity table remains temperature/orientation-specific.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+            "Locator": "p. 1: Printing Tips, ESD validation"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Nozzle temperature and print orientation strongly affect surface resistivity. Higher nozzle temperatures lower resistivity; validate the finished part for the intended ESD requirement."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-06bd5efb-e6",
+          "gradeKey": "G026-05",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Advanced Carbon Nanotube Compounding This filament is compounded with carbon nanotubes, which are responsible for its ESD-safe properties. The use of carbon nanotubes ensures consistent conductivity throughout the printed part, maintaining ESD protection even after machining or wear.",
+            "Exposure / conditions": "Maker compounding/ESD-after-wear claim without test conditions; own FAQ says ESD can degrade with surface abrasion/humidity/temperature/contaminants. Contradiction retained; no permanent durability result.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+            "Locator": "p. 1: Description, composition and wear claim"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Advanced Carbon Nanotube Compounding This filament is compounded with carbon nanotubes, which are responsible for its ESD-safe properties. The use of carbon nanotubes ensures consistent conductivity throughout the printed part, maintaining ESD protection even after machining or wear."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-06bd5efb-e7",
+          "gradeKey": "G026-05",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The ESD (Electrostatic Discharge) safety of PETG-ESD filament can degrade over time, depending on environmental factors like humidity, temperature, and exposure to dust or contaminants. PETG-ESD filaments contain conductive additives, which can wear off or lose effectiveness due to surface abrasion or environmental wear. Typically, the ESD-safe properties should remain intact for 1-2 years under controlled conditions, but regular testing is recommended to ensure continued ESD performance. Storing parts in a clean, dry environment can help maintain their ESD properties longer.",
+            "Exposure / conditions": "Own FAQ lifecycle narrative with undefined controlled conditions. The1–2year figure is not an accepted measured lifetime or warranty, and conflicts with the unqualified wear claim. Finished parts require testing.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+            "Locator": "p. 1: FAQ, ESD lifetime"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "The ESD (Electrostatic Discharge) safety of PETG-ESD filament can degrade over time, depending on environmental factors like humidity, temperature, and exposure to dust or contaminants. PETG-ESD filaments contain conductive additives, which can wear off or lose effectiveness due to surface abrasion or environmental wear. Typically, the ESD-safe properties should remain intact for 1-2 years under controlled conditions, but regular testing is recommended to ensure continued ESD performance. Storing parts in a clean, dry environment can help maintain their ESD properties longer."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 15,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "e2d172d8d9f3157e.json",
+      "Extension": "html",
+      "ProposalSHA256": "0f2c755f310ab91ebce06a76c7ba53e60f41040acef5149751ea7b963e91ee8c",
+      "OriginalSHA256": "e2d172d8d9f3157e3c1fe858f66278b7bf55bcf7530b1f01348b9f92deb4b7ad",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker ABS Max official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polymaker-abs-max",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G027-07",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "e2d172d8d9f3157e3c1fe858f66278b7bf55bcf7530b1f01348b9f92deb4b7ad"
+      },
+      "OriginalPath": ".cache/sources/by-sha/e2d172d8d9f3157e3c1fe858f66278b7bf55bcf7530b1f01348b9f92deb4b7ad.html",
+      "ReadingFile": "private/reads/e2d172d8d9f3157e3c1fe858f66278b7bf55bcf7530b1f01348b9f92deb4b7ad.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-e2d172d8-e1",
+          "gradeKey": "G027-07",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-07",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "It is ideally suited for automotive components, industrial fixtures, and other applications exposed to elevated operating temperatures.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Related HDT tests/own TDS specimen recipe are not validation of these end uses.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+            "Locator": "p. 1: Description, uses"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "It is ideally suited for automotive components, industrial fixtures, and other applications exposed to elevated operating temperatures."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-e2d172d8-e2",
+          "gradeKey": "G027-07",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-07",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Improved Creep Resistance Best-in-class creep resistance helps maintain dimensional accuracy and structural integrity under prolonged load and heat exposure, ensuring reliable long-term performance in demanding environments.",
+            "Exposure / conditions": "Maker unquantified creep claim. Time, load, temperature, geometry and measured creep not stated; no creep allowable or lifetime inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+            "Locator": "p. 1: Description, creep claim"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Improved Creep Resistance Best-in-class creep resistance helps maintain dimensional accuracy and structural integrity under prolonged load and heat exposure, ensuring reliable long-term performance in demanding environments."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-e2d172d8-e3",
+          "gradeKey": "G027-07",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-07",
+            "Domain": "Makers' know-how",
+            "Topic": "Moisture sensitivity",
+            "Finding": "Store in a cool, dry environment away from moisture and UV light. Use of a PolyBox™ or PolyDryer™ is strongly recommended during both storage and printing.",
+            "Exposure / conditions": "Storage/printing recommendation including avoiding UV; not a quantified moisture/UV-service performance test.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+            "Locator": "p. 1: FAQ, storage"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Store in a cool, dry environment away from moisture and UV light. Use of a PolyBox™ or PolyDryer™ is strongly recommended during both storage and printing."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 16,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "29b58f0eea9087e8.json",
+      "Extension": "html",
+      "ProposalSHA256": "95384a2ce92209ea80d231cef67b7bf7f40a63c8e9494ab8dbe3ea43558a33ac",
+      "OriginalSHA256": "29b58f0eea9087e83257c525227d10da96e28e84682595316fd77c5c87eb36ab",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker ABS Pro official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polymaker-abs-pro",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G027-08",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "29b58f0eea9087e83257c525227d10da96e28e84682595316fd77c5c87eb36ab"
+      },
+      "OriginalPath": ".cache/sources/by-sha/29b58f0eea9087e83257c525227d10da96e28e84682595316fd77c5c87eb36ab.html",
+      "ReadingFile": "private/reads/29b58f0eea9087e83257c525227d10da96e28e84682595316fd77c5c87eb36ab.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-29b58f0e-e1",
+          "gradeKey": "G027-08",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "It is well suited for functional prototypes, end-use enclosures, brackets, clips, jigs, and custom printer components where standard ABS may fall short.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. HDT/test-recipe scope remains separate.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+            "Locator": "p. 1: Description, uses"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "It is well suited for functional prototypes, end-use enclosures, brackets, clips, jigs, and custom printer components where standard ABS may fall short."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-29b58f0e-e2",
+          "gradeKey": "G027-08",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Reliable Under Load Improved creep resistance helps ABS Pro resist gradual deformation under sustained mechanical stress, providing dependable long-term performance in structural and mechanically demanding applications.",
+            "Exposure / conditions": "Unquantified creep narrative; no duration/load/temperature/test endpoint, design allowable or lifetime.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+            "Locator": "p. 1: Description, creep"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Reliable Under Load Improved creep resistance helps ABS Pro resist gradual deformation under sustained mechanical stress, providing dependable long-term performance in structural and mechanically demanding applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-29b58f0e-e3",
+          "gradeKey": "G027-08",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Yes. ABS Pro requires an enclosed chamber of 50°C or higher for best results.",
+            "Exposure / conditions": "Own FAQ prints50°Corhigher for best results. Open-ended minimum, not50–50°C band; no unspecified upper need invented.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+            "Locator": "p. 1: FAQ, enclosure"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Yes. ABS Pro requires an enclosed chamber of 50°C or higher for best results."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-29b58f0e-e4",
+          "gradeKey": "G027-08",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Unfortunately, we do not have data confirming that this material is food safe.",
+            "Exposure / conditions": "Maker admits no food-safety evidence for own product. This statement supplies no legal rule or printed approval.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+            "Locator": "p. 1: FAQ, food-contact evidence"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Unfortunately, we do not have data confirming that this material is food safe."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "id": "c07-abspro-chamber",
+          "gradeKey": "G027-08",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-08",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "50°C+",
+            "Chamber state": "range",
+            "Chamber min °C": "50",
+            "Chamber max °C": "Not published",
+            "Chamber requirement": "required",
+            "Enclosure": "Yes",
+            "Enclosure state": "recommended",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: FAQ Do I need an enclosure to print ABS Pro?; Printing Requirements, enclosure",
+            "Parse review": "Not applicable"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Yes. ABS Pro requires an enclosed chamber of 50°C or higher for best results."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "OwnFAQ explicitminimum50°C. No upperbound; no other fields transferred fromoldsheet."
+          }
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 16,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "f4d14d72d55ad4ed.json",
+      "Extension": "html",
+      "ProposalSHA256": "3c1b08cafad27fc021b76ad1b7ba171e66de21e95d02d0b58602a2fbf72288b7",
+      "OriginalSHA256": "f4d14d72d55ad4ed2caf286adf3d845a48a71dd07fb6f3ea03678e2e41fc055b",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker ASA official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polymaker-asa",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G031-06",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "f4d14d72d55ad4ed2caf286adf3d845a48a71dd07fb6f3ea03678e2e41fc055b"
+      },
+      "OriginalPath": ".cache/sources/by-sha/f4d14d72d55ad4ed2caf286adf3d845a48a71dd07fb6f3ea03678e2e41fc055b.html",
+      "ReadingFile": "private/reads/f4d14d72d55ad4ed2caf286adf3d845a48a71dd07fb6f3ea03678e2e41fc055b.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-f4d14d72-e1",
+          "gradeKey": "G031-06",
+          "row": {
+            "MaterialID": "M031",
+            "GradeID": "G031-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Perfect for Outdoor and Functional Parts: Choose Polymaker™ ASA filament for any project that demands UV resistance, weather durability, and strong mechanical properties, perfect for outdoor 3D printing and long-lasting results.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. UV/weathering claim lacks spectrum, dose, duration, specimen, colour and retained performance.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a",
+            "Locator": "p. 1: Description, intended uses"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Perfect for Outdoor and Functional Parts: Choose Polymaker™ ASA filament for any project that demands UV resistance, weather durability, and strong mechanical properties, perfect for outdoor 3D printing and long-lasting results."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-f4d14d72-e2",
+          "gradeKey": "G031-06",
+          "row": {
+            "MaterialID": "M031",
+            "GradeID": "G031-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Printing Temperature: 240˚C - 260˚C Bed Temperature: 75˚C - 95˚C Printing Speed: Up to 200mm/s Fan: OFF Direct Drive: Retraction Distance: 1mm Retraction Speed: 20mm/s Indirect Drive: Retraction Distance: 3mm Retraction Speed: 40mm/s Drying Settings: 70˚C for 6h (Only if the material has absorbed moisture) Suggested Drying Hardware:",
+            "Exposure / conditions": "Own page drying70°C/6h conflicts with registeredV6.0TDS70°C/7h; nozzlepage240–260°C vsTDS230–260°C. Keep own revision conditions; no narrowed scalar overwrite.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a",
+            "Locator": "p. 1: Print Settings, revision differences"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Printing Temperature: 240˚C - 260˚C Bed Temperature: 75˚C - 95˚C Printing Speed: Up to 200mm/s Fan: OFF Direct Drive: Retraction Distance: 1mm Retraction Speed: 20mm/s Indirect Drive: Retraction Distance: 3mm Retraction Speed: 40mm/s Drying Settings: 70˚C for 6h (Only if the material has absorbed moisture) Suggested Drying Hardware:"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "a01e6574d210b089.json",
+      "Extension": "html",
+      "ProposalSHA256": "1e9217444656382bcd5a950f422268f5c7991034c3a5e50ed6a86caefcac6dd8",
+      "OriginalSHA256": "a01e6574d210b08900842407f9376ef043c9a35e0a631e2d10895d93a328b961",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+        "Publisher": "Polymaker",
+        "Title": "PolyLite PETG official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polylite-translucent-petg",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G020-13",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "a01e6574d210b08900842407f9376ef043c9a35e0a631e2d10895d93a328b961"
+      },
+      "OriginalPath": ".cache/sources/by-sha/a01e6574d210b08900842407f9376ef043c9a35e0a631e2d10895d93a328b961.html",
+      "ReadingFile": "private/reads/a01e6574d210b08900842407f9376ef043c9a35e0a631e2d10895d93a328b961.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-a01e6574-e1",
+          "gradeKey": "G020-13",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-13",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Strong, Striking, and Translucent Benefit from robust tensile strength and a selection of attractive translucent colors. Whether you’re building functional parts or eye-catching models, PolyLite™ PETG ensures your prints are both durable and visually impressive.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Source page scopes translucent variants; no identical colour/additive performance inferred for every catalogued version.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+            "Locator": "p. 1: Description, uses/colour scope"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Strong, Striking, and Translucent Benefit from robust tensile strength and a selection of attractive translucent colors. Whether you’re building functional parts or eye-catching models, PolyLite™ PETG ensures your prints are both durable and visually impressive."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-a01e6574-e2",
+          "gradeKey": "G020-13",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-13",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Yes if you are looking for nice surface finish. No if you are looking for strong and durable parts. 20% ON if you want the best of both worlds.",
+            "Exposure / conditions": "Maker cooling trade-off for strength versus surface finish, not a published comparative test.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+            "Locator": "p. 1: FAQ, cooling fan"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Yes if you are looking for nice surface finish. No if you are looking for strong and durable parts. 20% ON if you want the best of both worlds."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-a01e6574-e3",
+          "gradeKey": "G020-13",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-13",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Unfortunately we do not have any data whether this material is food safe.",
+            "Exposure / conditions": "Maker admits no food-contact evidence. Remaining FAQ legal assertions are not adopted as rules or printed approval.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+            "Locator": "p. 1: FAQ, food-contact evidence"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Unfortunately we do not have any data whether this material is food safe."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "419d1e9d4bcd3240.json",
+      "Extension": "html",
+      "ProposalSHA256": "d534e580927685057ac026d1a51e1fdeb8d54fb2e151e9944a31aa515e7c6ff3",
+      "OriginalSHA256": "419d1e9d4bcd3240b00fd510c7a0375631f9d729ed71f4a41024291d3acaf8d4",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-419d1e9d4bcd",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker ABS official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polylite-abs",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G027-09",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "419d1e9d4bcd3240b00fd510c7a0375631f9d729ed71f4a41024291d3acaf8d4"
+      },
+      "OriginalPath": ".cache/sources/by-sha/419d1e9d4bcd3240b00fd510c7a0375631f9d729ed71f4a41024291d3acaf8d4.html",
+      "ReadingFile": "private/reads/419d1e9d4bcd3240b00fd510c7a0375631f9d729ed71f4a41024291d3acaf8d4.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-419d1e9d-e1",
+          "gradeKey": "G027-09",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-09",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Excellent Heat Resistance and Mechanical Strength This filament is engineered for projects that demand both robust mechanical properties and reliable heat resistance. PolyLite™ ABS maintains its strength and shape even in challenging environments, making it suitable for functional parts, enclosures, and prototypes.",
+            "Exposure / conditions": "Maker intended use only. Load, lifetime, printed geometry and qualification absent; no selection pass or suitability rule. Page branded PolyLiteABS; currentgrade includes historicalPolyLiteABSsources. No transfer of unstated newformulation, colour or state numerical performance.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-419d1e9d4bcd",
+            "Locator": "p. 1: Description, historical branded uses"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Excellent Heat Resistance and Mechanical Strength This filament is engineered for projects that demand both robust mechanical properties and reliable heat resistance. PolyLite™ ABS maintains its strength and shape even in challenging environments, making it suitable for functional parts, enclosures, and prototypes."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "50c1636e6233d944.json",
+      "Extension": "html",
+      "ProposalSHA256": "874392a658c734c25052e8c298e3010dfc09c67f7b3248a5fef9057c22f193d7",
+      "OriginalSHA256": "50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+        "Publisher": "Polymaker",
+        "Title": "PolyMax PETG ESD official product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://us-wholesale.polymaker.com/products/polymax-petg-esd",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G026-02",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a"
+      },
+      "OriginalPath": ".cache/sources/by-sha/50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a.html",
+      "ReadingFile": "private/reads/50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-50c1636e-e1",
+          "gradeKey": "G026-02",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns.",
+            "Exposure / conditions": "Exact maker wholesale listing observed2026-10-02 for legacy PolyMax PETG-ESD; stock/regional availability may change. No catalogue retirement, current Fiberon formulation continuity, price admission or warranty inference.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+            "Locator": "p. 1: Product availability notice"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "44bdc8c05cbe469d.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "c58ecd273fbff6d1f641fa2eca81f0cc0bb08a72e5e88db7c32003a1c37ca8ba",
+      "OriginalSHA256": "44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+        "Publisher": "Polymaker",
+        "Title": "PolyMax PETG-ESD product information sheet",
+        "Revision": "PIS 5.0 URL; booklet has own page numbers",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+        "Citation role": "cited",
+        "URL": "https://polymaker.com/wp-content/tech-docs/PolyMax%20PETG-ESD%20PIS%205.0.pdf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G026-02",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734"
+      },
+      "OriginalPath": ".cache/sources/by-sha/44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734.pdf",
+      "ReadingFile": "private/reads/44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-44bdc8c0-e1",
+          "gradeKey": "G026-02",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "It is recommended to use a hardened nozzle and clean the nozzle when you change the material to prevent partial clog.",
+            "Exposure / conditions": "Exact legacy PolyMax PETG-ESD guidance, recommended rather than mandatory; no abrasion result or new mandatory gate inferred. Booklet pages8–9 list general Polymaker technologies, not approval of alcohol smoothing for this PETG.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+            "Locator": "p. 4: My first print, prepare printer"
+          },
+          "evidence": {
+            "page": 4,
+            "text": "It is recommended to use a hardened nozzle and clean the nozzle when you change the material to prevent partial clog."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-44bdc8c0-e2",
+          "gradeKey": "G026-02",
+          "row": {
+            "MaterialID": "M026",
+            "GradeID": "G026-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Moisture sensitivity",
+            "Finding": "It is recommended to store PolyMax™ PETG-ESD in the PolyBox™ to prevent moisture absorption which will lower the quality and the me- chanical properties of the print.",
+            "Exposure / conditions": "Printed hyphenation preserved. Handling/moisture warning, not quantified wet-service performance; drying revisions conflict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+            "Locator": "p. 5: My first print, prepare filament"
+          },
+          "evidence": {
+            "page": 5,
+            "text": "It is recommended to store PolyMax™ PETG-ESD in the PolyBox™ to prevent moisture absorption which will lower the quality and the me- chanical properties of the print."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 11,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "8c3c83807f63b025.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "8e3b824097662b20041598a7fad4962323aad71b6c83dd603ae1fce6cca437d5",
+      "OriginalSHA256": "8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+        "Publisher": "Polymaker",
+        "Title": "PolyFlex TPU90 Technical Data Sheet V5.5",
+        "Revision": "V5.5",
+        "Publication date": "Not published",
+        "Access date": "2026-10-02",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification. URL filenameV5.4 serves an internally headedV5.5; revision recorded as printed.",
+        "Citation role": "cited",
+        "URL": "https://cdn.shopify.com/s/files/1/0548/7299/7945/files/PolyFlex_TPU90_TDS_EN_V5.4.pdf?v=1731956392",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-11",
+        "Access state": "retrieved",
+        "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+        "SHA256": "8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26"
+      },
+      "OriginalPath": ".cache/sources/by-sha/8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26.pdf",
+      "ReadingFile": "private/reads/8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26.json",
+      "ProposedEvidence": [
+        {
+          "id": "c07-8c3c8380-e1",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Chemical exposure",
+            "Topic": "Effect of weak acids",
+            "Finding": "Fair",
+            "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of weak acids"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Fair"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-e2",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Chemical exposure",
+            "Topic": "Effect of strong acids",
+            "Finding": "Poor",
+            "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of strong acids"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Poor"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-e3",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Chemical exposure",
+            "Topic": "Effect of weak alkalis",
+            "Finding": "Fair",
+            "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of weak alkalis"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Fair"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-e4",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Chemical exposure",
+            "Topic": "Effect of strong alkalis",
+            "Finding": "Poor",
+            "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of strong alkalis"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Poor"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-e5",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Domain": "Chemical exposure",
+            "Topic": "Effect of oils and grease",
+            "Finding": "Good",
+            "Exposure / conditions": "Own V5.5 chemical category table: ambient temperature; Good permits minor attack after long storage, Fair short contact, Poor unstable on contact. Exact agent/concentration, quantified duration, specimen and result absent. V5.6 conflicting product footer remains separate; older category disagreement retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 2: CHEMICAL RESISTANCE DATA, Effect of oils and grease"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Good"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Own statement, exact scope retained. No source claim establishes suitability."
+          }
+        }
+      ],
+      "ProposedMeasurements": [
+        {
+          "id": "c07-8c3c8380-m1",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Property": "Tensile strength (endpoint unspecified)",
+            "Raw value": "30.1 ± 2.4 MPa",
+            "Raw unit": "MPa",
+            "Raw numeric": "30.1",
+            "Raw uncertainty ±": "2.4",
+            "Raw upper bound": "Not applicable",
+            "Operator": "=",
+            "Conversion factor": "1",
+            "Normalized value": "30.1",
+            "Normalized uncertainty ±": "2.4",
+            "Normalized upper bound": "Not applicable",
+            "Normalized unit": "MPa",
+            "Data status": "Published value",
+            "Specimen type": "Printed specimen",
+            "Direction": "XY",
+            "Moisture condition": "Not published",
+            "Moisture state": "not-stated",
+            "Post-processing": "Not published",
+            "Post-processing state": "not-stated",
+            "Anneal °C": "Not applicable",
+            "Anneal h": "Not applicable",
+            "Test temperature": "Not published",
+            "Test temperature °C": "Not published",
+            "Standard / load": "ISO 37, GB/T 528",
+            "Standards": "ISO 37; GB/T 528",
+            "Test load MPa": "Not applicable",
+            "Notch": "Not applicable",
+            "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 3: Mechanical Properties, Tensile strength (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+            "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+            "Parse review": "Not applicable"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-m2",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Property": "Elongation at break",
+            "Raw value": "592.1 ± 32.9 %",
+            "Raw unit": "%",
+            "Raw numeric": "592.1",
+            "Raw uncertainty ±": "32.9",
+            "Raw upper bound": "Not applicable",
+            "Operator": "=",
+            "Conversion factor": "1",
+            "Normalized value": "592.1",
+            "Normalized uncertainty ±": "32.9",
+            "Normalized upper bound": "Not applicable",
+            "Normalized unit": "%",
+            "Data status": "Published value",
+            "Specimen type": "Printed specimen",
+            "Direction": "XY",
+            "Moisture condition": "Not published",
+            "Moisture state": "not-stated",
+            "Post-processing": "Not published",
+            "Post-processing state": "not-stated",
+            "Anneal °C": "Not applicable",
+            "Anneal h": "Not applicable",
+            "Test temperature": "Not published",
+            "Test temperature °C": "Not published",
+            "Standard / load": "ISO 37, GB/T 528",
+            "Standards": "ISO 37; GB/T 528",
+            "Test load MPa": "Not applicable",
+            "Notch": "Not applicable",
+            "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 3: Mechanical Properties, Elongation at break (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+            "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+            "Parse review": "Not applicable"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-m3",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Property": "Tensile stress at 100 % elongation",
+            "Raw value": "7.1 ± 0.3 MPa",
+            "Raw unit": "MPa",
+            "Raw numeric": "7.1",
+            "Raw uncertainty ±": "0.3",
+            "Raw upper bound": "Not applicable",
+            "Operator": "=",
+            "Conversion factor": "1",
+            "Normalized value": "7.1",
+            "Normalized uncertainty ±": "0.3",
+            "Normalized upper bound": "Not applicable",
+            "Normalized unit": "MPa",
+            "Data status": "Published value",
+            "Specimen type": "Printed specimen",
+            "Direction": "XY",
+            "Moisture condition": "Not published",
+            "Moisture state": "not-stated",
+            "Post-processing": "Not published",
+            "Post-processing state": "not-stated",
+            "Anneal °C": "Not applicable",
+            "Anneal h": "Not applicable",
+            "Test temperature": "Not published",
+            "Test temperature °C": "Not published",
+            "Standard / load": "ISO 37, GB/T 528",
+            "Standards": "ISO 37; GB/T 528",
+            "Test load MPa": "Not applicable",
+            "Notch": "Not applicable",
+            "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 3: Mechanical Properties, Stress at 100% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+            "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+            "Parse review": "Not applicable"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-m4",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Property": "Tensile stress at 200 % elongation",
+            "Raw value": "9.0 ± 0.9 MPa",
+            "Raw unit": "MPa",
+            "Raw numeric": "9",
+            "Raw uncertainty ±": "0.9",
+            "Raw upper bound": "Not applicable",
+            "Operator": "=",
+            "Conversion factor": "1",
+            "Normalized value": "9",
+            "Normalized uncertainty ±": "0.9",
+            "Normalized upper bound": "Not applicable",
+            "Normalized unit": "MPa",
+            "Data status": "Published value",
+            "Specimen type": "Printed specimen",
+            "Direction": "XY",
+            "Moisture condition": "Not published",
+            "Moisture state": "not-stated",
+            "Post-processing": "Not published",
+            "Post-processing state": "not-stated",
+            "Anneal °C": "Not applicable",
+            "Anneal h": "Not applicable",
+            "Test temperature": "Not published",
+            "Test temperature °C": "Not published",
+            "Standard / load": "ISO 37, GB/T 528",
+            "Standards": "ISO 37; GB/T 528",
+            "Test load MPa": "Not applicable",
+            "Notch": "Not applicable",
+            "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 3: Mechanical Properties, Stress at 200% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+            "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+            "Parse review": "Not applicable"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa Stress at 200% strain (X-Y) 9.0 ± 0.9 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+          }
+        },
+        {
+          "id": "c07-8c3c8380-m5",
+          "gradeKey": "G039-11",
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-11",
+            "Property": "Tensile stress at 300 % elongation",
+            "Raw value": "13.2 ± 0.6 MPa",
+            "Raw unit": "MPa",
+            "Raw numeric": "13.2",
+            "Raw uncertainty ±": "0.6",
+            "Raw upper bound": "Not applicable",
+            "Operator": "=",
+            "Conversion factor": "1",
+            "Normalized value": "13.2",
+            "Normalized uncertainty ±": "0.6",
+            "Normalized upper bound": "Not applicable",
+            "Normalized unit": "MPa",
+            "Data status": "Published value",
+            "Specimen type": "Printed specimen",
+            "Direction": "XY",
+            "Moisture condition": "Not published",
+            "Moisture state": "not-stated",
+            "Post-processing": "Not published",
+            "Post-processing state": "not-stated",
+            "Anneal °C": "Not applicable",
+            "Anneal h": "Not applicable",
+            "Test temperature": "Not published",
+            "Test temperature °C": "Not published",
+            "Standard / load": "ISO 37, GB/T 528",
+            "Standards": "ISO 37; GB/T 528",
+            "Test load MPa": "Not applicable",
+            "Notch": "Not applicable",
+            "Specimen / print parameters": "Printing temperature 230 °C; Bed temperature 50 °C; Shell 2; Top & bottom layer 3; Infill 100%; Environmental temperature Ambient temperature; Cooling fan ON",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+            "Locator": "p. 3: Mechanical Properties, Stress at 300% strain (X-Y); HOW TO MAKE SPECIMENS and tensile specimen ISO37",
+            "Notes": "Own V5.5 document names TPU90 throughout and ISO37. Original file URL says V5.4, heading prints V5.5. V5.6 other-product footer/MPa elongation remains unresolved; this is independently published older revision, not a correction inferred from it. Fixed-strain stress is not modulus or strength.",
+            "Parse review": "Not applicable"
+          },
+          "evidence": {
+            "page": 3,
+            "text": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 7.1 ± 0.3 MPa ISO 37, GB/T 528 Stress at 300% strain (X-Y) ISO 37, GB/T 528 13.2 ± 0.6 MPa ISO 37, GB/T 528 Tensile strength (X-Y) ISO 37, GB/T 528 30.1 ± 2.4 MPa Elongation at break (X-Y) ISO 37, GB/T 528 592.1 ± 32.9 %"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; no human review",
+            "note": "Literal exact product value, own ISO37 table and print recipe; no moisture conditioning inferred."
+          }
+        }
+      ],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 9,
+        "profiles": 1,
+        "evidence": 0
+      }
+    }
+  ],
+  "HeldFindings": [
+    {
+      "GradeID": "G026-02",
+      "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+      "Question": "Drying schedule revision",
+      "Outcome": "conflicting",
+      "Finding": "PIS page6 publishes70°C/8h; registeredTDSV5.3 publishes65°C/6h. No cause/recipe revision priority established; no scalar overwrite.",
+      "ReleaseCondition": "Maker clarifies grade/revision/conditioning scope."
+    },
+    {
+      "GradeID": "G039-11",
+      "SourceID": "R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "Question": "Stress at400% strain19.0±0.9MPa",
+      "Outcome": "context only",
+      "ReleaseCondition": "Source record/full text preserves literal ISO37 value. Current measurement property list has no400% stress; no substitute modulus/strength property."
+    }
+  ],
+  "ScreeningContract": "Maker use and qualification claims stay know-how. Missing exposure conditions explicit; generic chemical class ratings never establish exact-agent product approval. Legacy/current names do not transfer numerical revisions.",
+  "ExistingProfileEdits": [
+    {
+      "OperationID": "C07-ABS-PRO-OWN-CHAMBER-SUPERSEDES-D93",
+      "Expected": {
+        "ProfileID": "P0292",
+        "MaterialID": "M027",
+        "GradeID": "G027-08",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "270-290°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "270",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "100-110°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "enclosed",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "required",
+        "Enclosure": "Yes",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "70°C/6H",
+        "Drying state": "stated",
+        "Drying °C": "70",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature; p. 1: Closure chamber",
+        "Parse review": "Fields: Chamber state, Chamber requirement. Chamber state enclosed (requirement required) is the owner's ruling of 2026-09-26 (D93, m190), not a reading of a chamber row, which this sheet does not print: its maker asks for an enclosure (\"Closure chamber Yes\", p. 1) and states no chamber temperature, and for ABS, a type Bambu Lab's Filament Guide asks to print with an enclosure, the H2C's heated chamber (to 65 °C) is that enclosure. The other typed columns are the parsers' reading."
+      },
+      "Proposed": {
+        "ProfileID": "P0292",
+        "MaterialID": "M027",
+        "GradeID": "G027-08",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "270-290°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "270",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "100-110°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Yes",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "70°C/6H",
+        "Drying state": "stated",
+        "Drying °C": "70",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temperature; p. 1: Closure chamber",
+        "Parse review": "Not applicable"
+      },
+      "Reason": "The old raw TDS prints no chamber temperature. Its D93 enclosed shortcut is no longer permitted because another own-product profile now prints50°C+. Restore raw-sheet unknown; own numeric source decides. No source revision deleted."
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "Publisher": "Polymaker",
+      "Title": "POLYMAKER™ ABS-Pro Technical Data Sheet",
+      "Revision": "V1.1",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_Polymaker_ABS-Pro_V1.1_2026_06_01_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G027-08",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1"
+    }
+  ]
+}

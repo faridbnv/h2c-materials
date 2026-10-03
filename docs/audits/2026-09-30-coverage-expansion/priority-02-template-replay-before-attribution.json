@@ -1,0 +1,4591 @@
+{
+  "before_release": "c890d0421b03",
+  "after_release": "09d3c8e524a2",
+  "questions": 24,
+  "evaluations": 28440,
+  "answer_changes": 25,
+  "changes": [
+    {
+      "question": "Outdoor structural part{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Outdoor structural part{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Outdoor structural part{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Outdoor structural part{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "hdt045 >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 3",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 3,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "density <= 1500",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1500,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "priceCADkg <= 100",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 100,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G027-08",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "PASS",
+      "after": "UNKNOWN",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "INDETERMINATE",
+          "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G027-08",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "PASS",
+      "after": "UNKNOWN",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "INDETERMINATE",
+          "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G027-08",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "PASS",
+      "after": "UNKNOWN",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "INDETERMINATE",
+          "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G027-08",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "PASS",
+      "after": "UNKNOWN",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 290 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "INDETERMINATE",
+          "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "priceCADkg <= 45",
+          "status": "UNKNOWN",
+          "reason": "No price observation of its own in the sampled shops",
+          "constraint": {
+            "kind": "numeric",
+            "property": "priceCADkg",
+            "operator": "<=",
+            "value": 45,
+            "mandatory": false,
+            "__group": "Cost"
+          },
+          "missing": "not-available-in-market"
+        }
+      ]
+    },
+    {
+      "question": "Lightweight structure{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G129-01",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 245 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 70 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1230 kg/m³ (ISO 1183)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V004074",
+          "observed": 1230,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.0166 to 0.826 GPa (plausibly 0.00571 to 2.42), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 245 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 70 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1230 kg/m³ (ISO 1183)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V004074",
+          "observed": 1230,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.018 to 0.95 GPa (plausibly 0.00588 to 2.91); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G129-02",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 90 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1220 kg/m³ (ISO 2781)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V006143",
+          "observed": 1220,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.0166 to 0.826 GPa (plausibly 0.00571 to 2.42), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 90 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1220 kg/m³ (ISO 2781)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V006143",
+          "observed": 1220,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.018 to 0.95 GPa (plausibly 0.00588 to 2.91); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G129-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 205 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1230 kg/m³ (ISO 1183)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011047",
+          "observed": 1230,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.0166 to 0.826 GPa (plausibly 0.00571 to 2.42), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-comparable"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 205 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1230 kg/m³ (ISO 1183)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011047",
+          "observed": 1230,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.018 to 0.95 GPa (plausibly 0.00588 to 2.91); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-comparable"
+        }
+      ]
+    },
+    {
+      "question": "Lightweight structure{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "density <= 1250",
+          "status": "PASS",
+          "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "density",
+            "operator": "<=",
+            "value": 1250,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011808",
+          "observed": 1180,
+          "unit": "kg/m³",
+          "closeToLimit": false
+        },
+        {
+          "criterion": "tensileModulusXY >= 2.5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 2.5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "High-stiffness fixture{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G111-01",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": false,
+      "after_screened": true,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 230 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 50 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 1.04 to 3.65 GPa (plausibly 0.743 to 5.13); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 50.3 to 109 °C (plausibly 45.6 to 178); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 230 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 50 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.875 to 3.29 GPa (plausibly 0.602 to 4.78), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 50.3 to 109 °C (plausibly 45.6 to 178); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G111-02",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": false,
+      "after_screened": true,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 215 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 1.04 to 3.65 GPa (plausibly 0.743 to 5.13); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 50.3 to 109 °C (plausibly 45.6 to 178); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 215 °C, within the H2C's 350 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "UNKNOWN",
+          "reason": "No numeric requirement published",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 0.875 to 3.29 GPa (plausibly 0.602 to 4.78), which cannot meet this requirement. Screened out; not measured",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "estimated": true,
+          "screened": true,
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published. Estimated 50.3 to 109 °C (plausibly 45.6 to 178); possible, but never enough to pass",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "estimated": true,
+          "screened": false,
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "High-stiffness fixture{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "tensileModulusXY >= 5",
+          "status": "FAIL",
+          "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "tensileModulusXY",
+            "operator": ">=",
+            "value": 5,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011803",
+          "observed": 2.048,
+          "unit": "GPa",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        },
+        {
+          "criterion": "hdt045 >= 90",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 90,
+            "mandatory": false,
+            "__group": "Thermal"
+          },
+          "missing": "not-published"
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "FAIL",
+          "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011805",
+          "observed": 12.24,
+          "unit": "%",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "FAIL",
+          "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011805",
+          "observed": 12.24,
+          "unit": "%",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "FAIL",
+          "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011805",
+          "observed": 12.24,
+          "unit": "%",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Flexible component{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+      "level": "product",
+      "id": "G035-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "UNKNOWN",
+          "reason": "Not published in the sampled sources",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "missing": "not-published"
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "H2C-relevant scope",
+          "status": "PASS",
+          "reason": "In scope for the H2C",
+          "constraint": {
+            "kind": "gate",
+            "gate": "scope",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Build material",
+          "status": "PASS",
+          "reason": "Recorded as a build material",
+          "constraint": {
+            "kind": "facet",
+            "facet": "supportMaterial",
+            "equals": false,
+            "__group": "Manufacturing"
+          }
+        },
+        {
+          "criterion": "Nozzle temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 280 °C, within the H2C's 350 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "nozzle",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Bed temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Needs up to 110 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "bed",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "Chamber temperature within H2C baseline",
+          "status": "PASS",
+          "reason": "Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure (per Bambu Lab's Filament Guide for PC, not this maker's sheet)",
+          "constraint": {
+            "kind": "gate",
+            "gate": "chamber",
+            "__group": "Compatibility"
+          }
+        },
+        {
+          "criterion": "elongationXY >= 100",
+          "status": "FAIL",
+          "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "elongationXY",
+            "operator": ">=",
+            "value": 100,
+            "mandatory": true,
+            "__group": "Mechanical"
+          },
+          "measurementId": "V011805",
+          "observed": 12.24,
+          "unit": "%",
+          "closeToLimit": false,
+          "admitted": [
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    }
+  ]
+}

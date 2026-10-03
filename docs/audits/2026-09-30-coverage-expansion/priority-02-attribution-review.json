@@ -1,0 +1,19 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "b4b55e059f8b4d97a5f8c54d788f828ffb9a49987bd38f3da5403965b4896cde",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 1,
+  "per_operation": [
+    {
+      "OperationID": "P02-ABS-ATTRIBUTION",
+      "verdict": "APPROVE",
+      "original_sha256": "fb13bf8917fcfca9c6198f39cf7c862aaa5edb1f348f0c56ecf9b973e2201099",
+      "locator": "p.1 NOTE before How to make specimens",
+      "original_check": "Direct hash-verified original reread confirms sentence names HT-PLA-GF in PolyLite ABS V5.6 sheet. Literal Finding is retained.",
+      "guard_check": "Full expected source, grade and Q02150 row equal current canonical originals at review. Only Topic and Exposure / conditions change.",
+      "limitations": "Keep statement as attribution problem, not ABS guidance or corrected maker sentence; source correction/maker clarification remains required."
+    }
+  ],
+  "review_signature_sha256": "9f7c6f6e7e8e55aac7e24feb8cfb71156c30cc8e459e7659609a48ffee0f99da"
+}

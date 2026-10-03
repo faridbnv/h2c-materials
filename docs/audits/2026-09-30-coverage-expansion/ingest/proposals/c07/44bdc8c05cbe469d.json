@@ -1,0 +1,1093 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734",
+    "url": "https://polymaker.com/wp-content/tech-docs/PolyMax%20PETG-ESD%20PIS%205.0.pdf",
+    "pages": 12,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://polymaker.com/wp-content/tech-docs/PolyMax%20PETG-ESD%20PIS%205.0.pdf#witness-for=source:S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "ESD formulation",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg",
+      "filler: esd"
+    ],
+    "materialId": "M026",
+    "materialName": "PETG-ESD",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+      "Publisher": "Polymaker",
+      "Title": "PolyMax PETG-ESD product information sheet",
+      "Revision": "PIS 5.0 URL; booklet has own page numbers",
+      "Publication date": "Not published",
+      "Access date": "2026-10-02",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/tech-docs/PolyMax%20PETG-ESD%20PIS%205.0.pdf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G026-02",
+      "Access state": "retrieved",
+      "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+      "SHA256": "44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PolyMax PETG-ESD"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent original review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G026-02",
+      "row": {
+        "GradeID": "G026-02",
+        "MaterialID": "M026",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyMax PETG ESD",
+        "Shared formulation key": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Exact existing grade binding; primary identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183 GB/T 1033",
+        "Standards": "ISO 1183; GB/T 1033",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Density ISO 1183, GB/T 1033",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Density ISO 1183, GB/T 1033 1.24 (g/cm3 at 23 °C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "77 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "77",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "77",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "DSC",
+        "Standards": "DSC",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Glass transition temperature DSC, 10 °C/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Glass transition temperature DSC, 10 °C/min 77 (°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "86 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "86",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "86",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Vicat softening temperature ISO 306, GB/T 1633",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Vicat softening temperature ISO 306, GB/T 1633 86 (°C)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "14 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "280°C",
+        "Test temperature °C": "280",
+        "Standard / load": "280 °C 5 kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Melt Index 280 °C, 5 kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Melt Index 280 °C, 5 kg 14 (g/10 min)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1983 ± 66 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "1983",
+        "Raw uncertainty ±": "66",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "1.983",
+        "Normalized uncertainty ±": "0.066",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Young’s modulus (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Young’s modulus (X-Y) ISO 527, GB/T 1040 1983 ± 66 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "36.1 ± 0.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "36.1",
+        "Raw uncertainty ±": "0.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "36.1",
+        "Normalized uncertainty ±": "0.7",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Tensile strength (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Tensile strength (X-Y) ISO 527, GB/T 1040 36.1 ± 0.7 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "7.3 ± 0.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "7.3",
+        "Raw uncertainty ±": "0.5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7.3",
+        "Normalized uncertainty ±": "0.5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527 GB/T 1040",
+        "Standards": "ISO 527; GB/T 1040",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Elongation at break (X-Y) ISO 527, GB/T 1040",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation at break (X-Y) ISO 527, GB/T 1040 7.3 ± 0.5 (%)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "54.0 ± 3.0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "54",
+        "Raw uncertainty ±": "3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54",
+        "Normalized uncertainty ±": "3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178 GB/T 9341",
+        "Standards": "ISO 178; GB/T 9341",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: Bending strength (X-Y) ISO 178, GB/T 9341",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Bending strength (X-Y) ISO 178, GB/T 9341 54.0 ± 3.0 (MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "5.7 ± 0.6 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "5.7",
+        "Raw uncertainty ±": "0.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.7",
+        "Normalized uncertainty ±": "0.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 179 GB/T 1043",
+        "Standards": "ISO 179; GB/T 1043",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 6: impact strength (X-Y) ISO 179, GB/T 1043",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "impact strength (X-Y) ISO 179, GB/T 1043 5.7 ± 0.6 (kJ/m2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "1012 Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "1012",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1012",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1x105 -1x",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 7: Surface Resistivity = 1x105 -1x",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Surface Resistivity = 1x105 -1x1012 Ω/sq or Ω"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Property": "Volume resistivity",
+        "Raw value": "1011 Ω·cm",
+        "Raw unit": "Ω·cm",
+        "Raw numeric": "1011",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1011",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω·cm",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1x104 -1x",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Locator": "p. 7: Volume Resistivity = 1x104 -1x",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Volume Resistivity = 1x104 -1x1011 Ω·cm"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250°C - 290°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "70°C - 80°C",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Diameter accuracy (2.85/1.75 mm):",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 4: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "OFF-20%"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.2mm"
+        }
+      ],
+      "evidence": {
+        "page": 4,
+        "text": "Nozzle temperature 250˚C - 290˚C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c07-44bdc8c0-e1",
+      "gradeKey": "G026-02",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "G026-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "It is recommended to use a hardened nozzle and clean the nozzle when you change the material to prevent partial clog.",
+        "Exposure / conditions": "Exact legacy PolyMax PETG-ESD guidance, recommended rather than mandatory; no abrasion result or new mandatory gate inferred. Booklet pages8–9 list general Polymaker technologies, not approval of alcohol smoothing for this PETG.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+        "Locator": "p. 4: My first print, prepare printer"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "It is recommended to use a hardened nozzle and clean the nozzle when you change the material to prevent partial clog."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    },
+    {
+      "id": "c07-44bdc8c0-e2",
+      "gradeKey": "G026-02",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "G026-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Moisture sensitivity",
+        "Finding": "It is recommended to store PolyMax™ PETG-ESD in the PolyBox™ to prevent moisture absorption which will lower the quality and the me- chanical properties of the print.",
+        "Exposure / conditions": "Printed hyphenation preserved. Handling/moisture warning, not quantified wet-service performance; drying revisions conflict.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+        "Locator": "p. 5: My first print, prepare filament"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "It is recommended to store PolyMax™ PETG-ESD in the PolyBox™ to prevent moisture absorption which will lower the quality and the me- chanical properties of the print."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 4,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "250°C - 290°C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 250˚C - 290˚C"
+    },
+    {
+      "page": 4,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "70°C - 80°C",
+      "fromBelow": false,
+      "line": "Bed temperature 70˚C - 80˚C"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "OFF-20%",
+      "fromBelow": false,
+      "line": "Cooling fan OFF-20%"
+    },
+    {
+      "page": 4,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer height",
+      "raw": "0.2mm",
+      "fromBelow": false,
+      "line": "Layer height 0.2mm"
+    },
+    {
+      "page": 6,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying settings",
+      "raw": "Diameter accuracy (2.85/1.75 mm):",
+      "fromBelow": false,
+      "line": "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 3,
+      "text": "1.0 My first print 4,5 4.0 About Polymaker 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.0 PolyMax PETG-ESD 5.0 Contact Us 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.1 Product data sheet 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.0 Polymaker Technologies",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.1 Jam-Free™ 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.2 Warp-Free™ 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.3 Ash-Free™ 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.4 Layer-Free™ 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.5 Nano-Reinforcement 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3.6 Stabilized Foaming™ 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1) Prepare the gcode",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Nozzle speed 30mm/s – 50mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Number of outlines (shell) 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Top/Bottom layers 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2) Prepare the printer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3) Prepare the filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4) Start the print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "70˚C for 8h 70% is within +/- 0.01 600g +/- 20g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "97% is within +/- 0.02 750g +/- 20g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "99% is within +/- 0.03 1000g +/- 30g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "99.9% is within +/- 0.04 3000g +/- 60g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "1x105 1x1012",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "250°C 270°C 290°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0° (1.6±0.3)E+7 (1.6±0.3)E+7 <1E+4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "45° (1.6±0.3)E+7 (1.6±0.3)E+7 <1E+4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "90° (1.6±0.3)E+7 (1.6±0.3)E+7 <1E+4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "The test method is ANSI ESD S11.11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "temperatures over 140 °C. As a result, Polymaker’s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Ash content: 0.5%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Ash content: 0.003%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "free metal parts. 3D printing has been used to produce",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Layer-Free™ technology involves exposing a 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Polymaker is an international team passionate about 3D printing. We produce the very",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "best 3D printing materials by controlling every stage of production. With a diverse",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Our mission is to create the best in class when it comes to 3D printing materials. We",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "believe that materials are the enabling factor which will realise 3D printing as a final",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "production tool. Our high performance materials offer solutions that will develop 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "local distributors and resellers. Polymaker is a regular exhibitor at 3D printing exhibitions",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "on 4 continents.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "materials are formulated and fine-tuned from the ground up to create the best in class 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent original review required; no human review",
+    "note": "Exact operations only; independent signed packet required. All automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      },
+      "row": {
+        "MaterialID": "M026",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyMax PETG-ESD",
+        "Shared formulation key": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-PolyMax-PETG-ESD-PIS-5-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TM"
+      }
+    }
+  ],
+  "newMaterial": null
+}

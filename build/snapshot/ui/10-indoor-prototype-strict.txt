@@ -44,7 +44,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
 ABS PASS
-50 of 52 products
+49 of 51 products
  1,050
 1,020–1,150 · 41
 typical: annealed
@@ -395,13 +395,14 @@ Polycarbonate
  PASS
 14 of 17 products
  1,200
-1,150–1,230 · 17
- 2.18
-1.8–2.5 · 9
- 60
-40–69.1 · 11
+1,150–1,230 · 18
+ 2.15
+1.8–2.5 · 10
+typical: annealed
+ 59.9
+40–69.1 · 12
  7
-3.2–25 · 10
+3.2–25 · 11
  114
 101–144 · 11
  51

@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a",
+    "url": "https://us-wholesale.polymaker.com/products/polymax-petg-esd",
+    "pages": 1,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://us-wholesale.polymaker.com/products/polymax-petg-esd#witness-for=source:S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+      "Publisher": "Polymaker",
+      "Title": "PolyMax PETG ESD official product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-02",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original; current page marketing and own contradictions retained. AI-reviewed; no human or printed-product qualification.",
+      "Citation role": "cited",
+      "URL": "https://us-wholesale.polymaker.com/products/polymax-petg-esd",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G026-02",
+      "Access state": "retrieved",
+      "Access note": "Saved once and staged by SHA256 through isolated campaign witness pipeline. Existing source revisions/digests preserved.",
+      "SHA256": "50c1636e6233d9448c85946e1a611e80317b6285587a691c55b72262707ce12a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polymaker Filament"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent original review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G026-02",
+      "row": {
+        "GradeID": "G026-02",
+        "MaterialID": "M026",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyMax PETG ESD",
+        "Shared formulation key": "S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Exact existing grade binding; primary identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c07-50c1636e-e1",
+      "gradeKey": "G026-02",
+      "row": {
+        "MaterialID": "M026",
+        "GradeID": "G026-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns.",
+        "Exposure / conditions": "Exact maker wholesale listing observed2026-10-02 for legacy PolyMax PETG-ESD; stock/regional availability may change. No catalogue retirement, current Fiberon formulation continuity, price admission or warranty inference.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+        "Locator": "p. 1: Product availability notice"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Own statement, exact scope retained. No source claim establishes suitability."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "$1,000 MINIMUM ORDER - FREE SHIPPING OVER $3,500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Panchroma™ is your ultimate filament palette, redefining 3D printing with unmatched colors. Unlock your creativity with 17 finishes and 150+ combinations.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / of 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 3 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 4 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 5 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 6 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 7 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$16.49 USD $32.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker | SKU: PB03001",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm 2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyMax™ PETG-ESD - 1.75mm / 0.5kg / Black is backordered and will ship as soon as it is back in stock.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PURCHASE BY CASE PACK (10PCS) TO GET 10% OFF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+5 +10 +20 +50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$16.49 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85mm Filament is being discontinued. This product may not be restocked.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Subtotal:$0.00 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$16.49 USD $32.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free Shipping Over $3,500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We provide calculated shipping at checkout and free shipping on orders over $3,500.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$1,000 Order Minimum",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Orders must be over $1,000 to qualify for wholesale.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All payments are 100% secure and we offer buy now pay later options with our partner Shopify.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker is a developer and manufacturer of 3D printing materials committed to innovation, quality and sustainability.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Polymaker US Wholesale .",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent original review required; no human review",
+    "note": "Exact operations only; independent signed packet required. All automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent original review required; no human review",
+        "note": "Automatic proposals rejected; only the signed exact product operations below."
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "United States",
+        "Shared formulation key": "S-POLYCN-polymax-petg-esd",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-polymax-petg-esd",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "$1,000 MINIMUM ORDER - FREE SHIPPING OVER $3,500"
+      }
+    }
+  ],
+  "newMaterial": null
+}

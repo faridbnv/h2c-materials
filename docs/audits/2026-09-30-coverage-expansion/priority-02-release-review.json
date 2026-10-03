@@ -1,0 +1,80 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "release": "b847b43260f9",
+  "head_before_data_tranche": "1392cdc41a77894c94a15ab044794ee0814e091e",
+  "inputs_sha256": {
+    "priority-02-verification.json": "b47b8ab61f1899ae2b5ee146238f5232eb65e916349f2d9abf2cc73f3c36b9f5",
+    "priority-02-report.md": "2a8327a15e3383cce498072fc15e4743ffe8b8093b2168e9419c6c363849f691",
+    "priority-02-injection-manifest.json": "454d1952070b4e468fe2a6099701e9a3d8ff97fc4a0494d6fabb19c241fef565",
+    "priority-02-outcomes-packet.json": "32e9109f17e5033107cbe35d5568c8e3c5d97f4711f05bdf214f8ac57dab32f8",
+    "priority-02-outcomes-review.json": "eab72cb85af43e534a5b2195aab5bdffaefb45f708744ed90a5cac5ff066df36",
+    "priority-02-cached-packet.json": "a38a7826fa796e4cf0bb391b177b102f3ad434fb35a9e193311bd5b55e853a81",
+    "priority-02-cached-review.json": "472f8e846b2544439fe8d035ff91113e4a13b549648f964cfeabaae791d1730c",
+    "priority-02-c07-packet.json": "9480cc6cdab58de8a6d15c1947f5ff8b91a58cc4e36384c774e17715982016af",
+    "priority-02-c07-review.json": "48b795f3818b9bae0999e4210f59a040b0e044265a5f1ed00952efd01c1154eb",
+    "priority-02-attribution-packet.json": "b4b55e059f8b4d97a5f8c54d788f828ffb9a49987bd38f3da5403965b4896cde",
+    "priority-02-attribution-review.json": "2b6b2430336f08098f3a6bf38b19890f6cae74c34eabac18ca06b469bd196801",
+    "priority-02-writer-review.json": "2e994e9790b5070245d672f8a981afbbc3fb7d7bf18f2c22b6a085d090b5b369",
+    "priority-02-guards.json": "faee758697de105b863cc2bf6ef5851b0a732f2d03c0bc3068d0179d3398a212",
+    "priority-02-frozen-replay.json": "6d0c8b0218d0a785e5de87055ebcb18bb62afe42921274e050c1703c861ef259",
+    "priority-02-template-replay.json": "19493b8a2ecb2d1fc996f19240d8ccf524b1cca1a8895007a7651b25107fe8d7",
+    "priority-02-environment-replay.json": "c608d4542e6958a80dff429a37e3755a2360b287756f89c2172fb807091bd451",
+    "priority-02-changed-answers-review.json": "25682d6f3fb796488f0d0fd7c71d24c8c7c41351d490564c32cd51668121a5b2",
+    "priority-02-ocr-cache-restoration.json": "1e9761586d6109ffaea6dc1041b4adb35354a17d936ac714935486506788b196"
+  },
+  "log_sha256": {
+    "full_verify": "65ff33a76f1979f25af538cbaf9952d6fbc23fdde5da83ffdf89533b3659963c",
+    "build_diff": "fca4decda2199b2c596a726f2cc06e748e91300dea483cd84d644c8af7c8f2c5",
+    "backup": "f736900ce3c86dce3a39a79f5fc91bfb3a86f98336d3880ba24a80c3ae951480",
+    "render": "ff0a1f34ce3fce0c4d79bf614ceb45b44e41408e88f8ce3a0d3dee07f78befbd",
+    "prior_outlier_failure": "7ece7eb75989175497242968df48e4fd7ac41f0b3d6e3e811c4f8e2f34ae5db3",
+    "prior_context_failure": "26fcf128451a2b2bd02e96594f72c414a3e717d8e67e7a0cd676b00fe87867aa",
+    "scope_context": "09bf5e0aba43ac720e852abc0ef76e21369c89c2e98675589f9bf468d464dcd9",
+    "writer_regression": "e314b43df9ba1c8ff948efc5627fdcc5997784dc6deab8078677192678679b52"
+  },
+  "review_scope": "Bounded final release check; previously approved original-grounded facts reused. Actual retained log bytes verified against receipt SHAs, log conclusions read, compiled release/diff/replay/guard/injection/outcome receipts inspected. No unchanged source campaign repeated.",
+  "gates": {
+    "full_verify_exit": 0,
+    "unit_tests": 491,
+    "import_tests": 209,
+    "scale_reproducible": true,
+    "warm_fast_seconds": 34.2,
+    "full_seconds_approx": 257.98,
+    "context_accepted_new_stale": [
+      80,
+      0,
+      0
+    ],
+    "ui_views": 69,
+    "rendered_scenarios": 300,
+    "rendered_readings": 2594,
+    "grid_in_scope": 136,
+    "product_drawers": 12,
+    "compiled_differences": 10032,
+    "backup_originals_derivatives_historic_absent": [
+      2421,
+      2827,
+      124
+    ]
+  },
+  "conclusions": [
+    "Reviewed12 new sources/78 evidence rows/16 measurements/2 existing measurement corrections/1 new profile/1 existing profile correction/3 existing evidence corrections agree with pinned injection receipts. No source overwrite, record deletion or catalogue expansion inferred.",
+    "Manifest-pinned recovery added only3approved same-heading Fiberon ESD bullets; strict m315/m314 and attribution migration rerun receipts showzero writes. Three disposable changed-grade/source/finding cases refuse with unchanged tables/manifest/ledger.",
+    "Exact final replay arrays match earlier independent source-based explanations:11frozen/25template/72environment moves, no additional change from Q02150 annotation. Five template screen-only changes remain automatic estimates withUNKNOWN verdicts.",
+    "Actual retained12 drawer texts include own evidence and explicit Q02150 copied-product/TPU90 attribution/Fiberon humidity-wear qualifiers. Grid receipt covers136in-scope rows. Product drawer is material-wide: own records remain labelled bygrade, no all-grade endorsement.",
+    "M142 outlier44.7MPa acceptance and P1366 two chamber-only context keys remain specific and source-faithful. Semantic context-acceptance diff adds only those two keys; other differences are canonical quoting. Five PC-Max direction-locator accepts retain independently visualized flat-specimen interpretation.",
+    "Independently verified13 restored original bytes, derivative-byte hashes and OCR metadata against custody receipt; no source bytes replaced. Prior context acceptance remained unchanged. Helper OCR-preservation is an operational safeguard, not permission to discard source revisions.",
+    "All204 outcomes accurately scoped after11corrections; state remains proposed-final until verified local commit. No joined product closure claimed by review alone."
+  ],
+  "limitations": [
+    "AI review only; no human, vendor, physical testing or certificate validation.",
+    "Chemical categoryPASS/FAIL is existing bounded screening behavior with recorded-exposure caveat; no universal agent qualification or printed certification.",
+    "Inclusive PC-Max moisture bound, impact method, TPU90 V5.6/skin, recipe/wear conflicts and copied ABS sentence remain explicit holds.",
+    "Historic124 absent source inventory entries remain; no new cited original missing.",
+    "Useful-findings-per-hour cannot be reconstructed from incomplete historic timing/token accounting; no rate fabricated.",
+    "This approval permits verified local commit under the approved campaign scope; no push/publication authorization."
+  ],
+  "review_signature_sha256": "b28aa484682a0282bbcedf65431f63b440d73c20c78f73412e03263d8e5bc9a9"
+}

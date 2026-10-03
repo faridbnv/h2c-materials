@@ -1,0 +1,77 @@
+{
+  "PacketID": "PRIORITY-02-ABS-COPIED-ATTRIBUTION",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G027-09",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker ABS",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-ABS-V5-6-2025-12-30-EN",
+      "Publisher": "Polymaker",
+      "Title": "PolyLite\u2122 ABS Technical Data Sheet",
+      "Revision": "V5.6",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_Polymaker_PolyLite-ABS_V5.6_2025-12-30_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G027-09",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "fb13bf8917fcfca9c6198f39cf7c862aaa5edb1f348f0c56ecf9b973e2201099"
+    }
+  ],
+  "Operations": [
+    {
+      "OperationID": "P02-ABS-ATTRIBUTION",
+      "Kind": "edit",
+      "Table": "evidence",
+      "Expected": {
+        "EvidenceID": "Q02150",
+        "MaterialID": "M027",
+        "GradeID": "G027-09",
+        "Domain": "Makers' know-how",
+        "Topic": "Moisture sensitivity",
+        "Finding": "It is highly recommended to use the PolyBox\u2122 or PolyDryer\u2122 Box when printing or storing Polymaker\u2122 HT-PLA-GF",
+        "Exposure / conditions": "Not applicable",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-ABS-V5-6-2025-12-30-EN",
+        "Locator": "p. 1"
+      },
+      "Proposed": {
+        "EvidenceID": "Q02150",
+        "MaterialID": "M027",
+        "GradeID": "G027-09",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "It is highly recommended to use the PolyBox\u2122 or PolyDryer\u2122 Box when printing or storing Polymaker\u2122 HT-PLA-GF",
+        "Exposure / conditions": "Attribution conflict: this ABS sheet sentence explicitly names Polymaker HT-PLA-GF. Retained verbatim as source-wording problem only; it is not ABS moisture/storage guidance. No corrected maker sentence, product suitability or formulation transfer inferred; source correction or maker clarification required.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-ABS-V5-6-2025-12-30-EN",
+        "Locator": "p. 1"
+      }
+    }
+  ]
+}

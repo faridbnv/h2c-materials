@@ -1,0 +1,10 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "5576fbc30771ae6dd60ed60061102106106eb137420a7e0b788c6b59386749e1",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reason": "All12Source notes incorrectlyincludedTPU90URLfilenameV5.4/internalV5.5 caveat; appliesonly8c3cTUdocument, removefromother11. ExistingABSProD93shortcut requiresguardedatomicreconciliationonnewownnumericprofileadmission (rootpreflight).",
+  "clarified_reviewer_request": "Initialenclosuretypedrequiredrequest superseded: schemarecommended enum meansrecommendsORrequires. Numericchamberrequired andownYes suffice; no nonexistentenumintroduced.",
+  "canonical_files_edited": false,
+  "review_signature_sha256": "3251bf96d38bb3b261319e03bde449223c826e283d0e68da0bdbf825f1540dc3"
+}

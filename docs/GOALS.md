@@ -434,3 +434,10 @@ as the original research plan states; the earlier publication receipt covers the
    re-read the root decisions.
 8. **The owner sets direction; agents build.** A change of direction updates this page first.
 9. **Say only what is true.** Counts are generated. A review says who, or what, made it.
+
+The second priority-product batch (2026-10-02, Polymaker12) recovers source-grounded PC-Max XY measurements
+and coherent TPU90 ISO37 results, and admits ABS Pro's explicit50°C+ chamber minimum. Its
+[report](audits/2026-09-30-coverage-expansion/priority-02-report.md) separates published facts,
+automatic recalibration and changed scenario answers. All Application judgments remain source-bounded;
+maker know-how creates no suitability passes. C3/C6/C9/C10/C13 verification and remaining source limits
+are recorded with the tranche; the dated score values are unchanged.

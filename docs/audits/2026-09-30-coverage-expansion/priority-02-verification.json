@@ -1,0 +1,87 @@
+{
+  "release": "b847b43260f9",
+  "head_before_data_tranche": "1392cdc41a77894c94a15ab044794ee0814e091e",
+  "origin_main_rechecked": "20b4a6a5ead70a88c9d72c499b65a75dfb9a8176",
+  "full_verify_exit": 0,
+  "full_verify_wall_seconds_approx": 257.98,
+  "timing_basis": "Retained unique logfile birth/final-write timestamps, approximate wall time; verify:fast supplies its own measured timing.",
+  "warm_verify_fast_seconds": 34.2,
+  "warm_budget_seconds": 90,
+  "cold_verify_fast_this_batch": "Not separately measured; main baseline recorded68.2seconds cache-disabled.",
+  "unit_tests": 491,
+  "import_tests": 209,
+  "scale": true,
+  "reproducibility": true,
+  "context": {
+    "accepted": 80,
+    "new": 0,
+    "stale": 0
+  },
+  "browser": {
+    "views": 69,
+    "random_scenarios": 300,
+    "rendered_readings": 2594,
+    "layout_failures": 0,
+    "complete_coverage_grid": 136,
+    "changed_products_inspected": 12
+  },
+  "compiled_diff_paths": 10032,
+  "backup": {
+    "verified_originals": 2421,
+    "derived_files": 2827,
+    "known_absent_inventory": 124,
+    "new_cited_original_missing": 0
+  },
+  "replays": {
+    "frozen": {
+      "questions": 15,
+      "answers": 17775,
+      "changes": 11
+    },
+    "templates": {
+      "questions": 24,
+      "answers": 28440,
+      "changes": 25
+    },
+    "environment": {
+      "questions": 48,
+      "answers": 56880,
+      "changes": 72
+    }
+  },
+  "logs": {
+    "full_verify": {
+      "retained_log": "evidence/priority-02-full_verify.log",
+      "SHA256": "65ff33a76f1979f25af538cbaf9952d6fbc23fdde5da83ffdf89533b3659963c"
+    },
+    "build_diff": {
+      "retained_log": "evidence/priority-02-build_diff.log",
+      "SHA256": "fca4decda2199b2c596a726f2cc06e748e91300dea483cd84d644c8af7c8f2c5"
+    },
+    "backup": {
+      "retained_log": "evidence/priority-02-backup.log",
+      "SHA256": "f736900ce3c86dce3a39a79f5fc91bfb3a86f98336d3880ba24a80c3ae951480"
+    },
+    "render": {
+      "retained_log": "evidence/priority-02-render.log",
+      "SHA256": "ff0a1f34ce3fce0c4d79bf614ceb45b44e41408e88f8ce3a0d3dee07f78befbd"
+    },
+    "prior_outlier_failure": {
+      "retained_log": "evidence/priority-02-prior_outlier_failure.log",
+      "SHA256": "7ece7eb75989175497242968df48e4fd7ac41f0b3d6e3e811c4f8e2f34ae5db3"
+    },
+    "prior_context_failure": {
+      "retained_log": "evidence/priority-02-prior_context_failure.log",
+      "SHA256": "26fcf128451a2b2bd02e96594f72c414a3e717d8e67e7a0cd676b00fe87867aa"
+    },
+    "scope_context": {
+      "retained_log": "evidence/priority-02-scope_context.log",
+      "SHA256": "09bf5e0aba43ac720e852abc0ef76e21369c89c2e98675589f9bf468d464dcd9"
+    },
+    "writer_regression": {
+      "retained_log": "evidence/priority-02-writer_regression.log",
+      "SHA256": "e314b43df9ba1c8ff948efc5627fdcc5997784dc6deab8078677192678679b52"
+    }
+  },
+  "review_limits": "Independent AI only, no human/vendor/physical testing. Bounded route inspection does not prove universal absence. Category chemistry PASS preserves existing exposure caveat; no exact-agent or printed-product certification."
+}

@@ -15,9 +15,9 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5528,
-    "added": 222,
-    "edited_existing": 208,
+    "current": 5606,
+    "added": 300,
+    "edited_existing": 211,
     "removed": 0
   },
   "grades": {
@@ -43,9 +43,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 11802,
-    "added": 266,
-    "edited_existing": 1301,
+    "current": 11818,
+    "added": 282,
+    "edited_existing": 1303,
     "removed": 0
   },
   "method": {
@@ -85,8 +85,8 @@
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1365,
-    "added": 49,
+    "current": 1366,
+    "added": 50,
     "edited_existing": 768,
     "removed": 0
   },
@@ -99,8 +99,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 1858,
-    "added": 30,
+    "current": 1870,
+    "added": 42,
     "edited_existing": 63,
     "removed": 0
   }

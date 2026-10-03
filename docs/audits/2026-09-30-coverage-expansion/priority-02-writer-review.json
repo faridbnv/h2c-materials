@@ -1,0 +1,40 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "scope": "Narrow evidence identity fix, regression and one-time m315 recovery guards; final tranche release requires separate verification.",
+  "files": {
+    "scripts/ingest/apply.mjs": "926ba837113824ba6cf30879148a247f7eb85f8d224419df73ef2ea1d967907b",
+    "test/ingest-apply.test.js": "0b198cfb5308f18f0deba65b2fc27109bad3c9a0bd589bd1051e860b00d28833",
+    "scripts/migrate/m315-batch-c07-priority-02.mjs": "9597a58905310d681c8aecaa4fa93805a43e3c46397b1ece279f85106d795f96"
+  },
+  "writer_diff_sha256": "93b97b1be63856d06766c198cb91417e43c9c71770254f202e21c1207b089164",
+  "findings": [
+    {
+      "verdict": "APPROVE",
+      "subject": "Evidence admission identity",
+      "reason": "Source + resolved GradeID + Locator + Topic + literal Finding preserves independent same-heading bullets and product scopes; an exact repeat writes nothing."
+    },
+    {
+      "verdict": "APPROVE",
+      "subject": "Meaningful disposable regression",
+      "reason": "Two different clauses under one heading and one same-wording clause on another product survive as exactly three rows; repeated identical clause and repeated batch add no rows or changes. Independently ran both focused tests; 2/2 pass."
+    },
+    {
+      "verdict": "APPROVE",
+      "subject": "m315 one-time recovery",
+      "reason": "Full pre-repair data-manifest SHA binds the original baseline; only frozen operation IDs e2/e3/e4 allow zero matches under explicit flag. Uses operation id. All other source, grade and already admitted rows require exact ownership and one complete agreeing row. Ordinary rerun is strict; modified statement cannot silently append under recovery after manifest changes."
+    },
+    {
+      "verdict": "APPROVE",
+      "subject": "Measurement Notes guard",
+      "reason": "Exact comparison includes the deterministic Added date/migration/page note that writeBatch actually prepends; all other measurement fields remain guarded."
+    }
+  ],
+  "limitations": [
+    "No independent full-release QA is inferred from this targeted code review.",
+    "The repair flag is one-time; after successful repair, regular strict rerun is the idempotence check.",
+    "No source quote, numeric value, selection engine or schema is changed by writer fix."
+  ],
+  "review_signature_sha256": "624efcb3cc04b1d72079ee57fd585d7a322fcb4871c28a3917cc3d42dd08ccf7"
+}

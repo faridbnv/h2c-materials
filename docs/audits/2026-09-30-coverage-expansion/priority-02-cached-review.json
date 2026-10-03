@@ -1,0 +1,788 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "a38a7826fa796e4cf0bb391b177b102f3ad434fb35a9e193311bd5b55e853a81",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 54,
+  "approved_operations": 54,
+  "per_operation": [
+    {
+      "operation_id": "P02-001",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Mechanical Properties, Young’s modulus; p. 2: Fig. 1 tensile / Fig. 2 flexural flat specimen, Z axis through thickness",
+      "source_quote": "2048 ± 66",
+      "original_reread": true,
+      "limitations": "PCMaxp1numeric±/standards checked; p2fig1/2visuallyflatbars, Zthroughthickness supportsXY D91. Printrecipe footnote retained, absentmoisture/testtemp/postprocessing remainexplicit. No raster or endpoint inferred."
+    },
+    {
+      "operation_id": "P02-002",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Mechanical Properties, Tensile strength; p. 2: Fig. 1 tensile / Fig. 2 flexural flat specimen, Z axis through thickness",
+      "source_quote": "59.7 ± 1.8",
+      "original_reread": true,
+      "limitations": "PCMaxp1numeric±/standards checked; p2fig1/2visuallyflatbars, Zthroughthickness supportsXY D91. Printrecipe footnote retained, absentmoisture/testtemp/postprocessing remainexplicit. No raster or endpoint inferred."
+    },
+    {
+      "operation_id": "P02-003",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Mechanical Properties, Elongation at break; p. 2: Fig. 1 tensile / Fig. 2 flexural flat specimen, Z axis through thickness",
+      "source_quote": "12.24 ± 1.44",
+      "original_reread": true,
+      "limitations": "PCMaxp1numeric±/standards checked; p2fig1/2visuallyflatbars, Zthroughthickness supportsXY D91. Printrecipe footnote retained, absentmoisture/testtemp/postprocessing remainexplicit. No raster or endpoint inferred."
+    },
+    {
+      "operation_id": "P02-004",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Mechanical Properties, Bending modulus; p. 2: Fig. 1 tensile / Fig. 2 flexural flat specimen, Z axis through thickness",
+      "source_quote": "2044 ± 55",
+      "original_reread": true,
+      "limitations": "PCMaxp1numeric±/standards checked; p2fig1/2visuallyflatbars, Zthroughthickness supportsXY D91. Printrecipe footnote retained, absentmoisture/testtemp/postprocessing remainexplicit. No raster or endpoint inferred."
+    },
+    {
+      "operation_id": "P02-005",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Mechanical Properties, Bending strength; p. 2: Fig. 1 tensile / Fig. 2 flexural flat specimen, Z axis through thickness",
+      "source_quote": "94.1 ± 0.9",
+      "original_reread": true,
+      "limitations": "PCMaxp1numeric±/standards checked; p2fig1/2visuallyflatbars, Zthroughthickness supportsXY D91. Printrecipe footnote retained, absentmoisture/testtemp/postprocessing remainexplicit. No raster or endpoint inferred."
+    },
+    {
+      "operation_id": "P02-006",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Physical Properties, Density (g/cm³ at 21.5 °C)",
+      "source_quote": "1.18 - 1.20",
+      "original_reread": true,
+      "limitations": "Full1.18–1.20range andown21.5°C retained; physicalsampleform notinferred from mechanicalfootnote. Operator= plusupper-bound field usescurrentrangecontract."
+    },
+    {
+      "operation_id": "P02-007",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Physical Properties, Melt index, 300 °C / 1.2 kg",
+      "source_quote": "23 - 26",
+      "original_reread": true,
+      "limitations": "Full23–26range at300°C/1.2kg, notMPa; standard/specimenunknown. Operator= plusupper-bound field usescurrentrangecontract."
+    },
+    {
+      "operation_id": "P02-008",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Glass transition temperature (° C) DSC, 10 ° C/min",
+      "source_quote": "DSC, 10 ° C/min",
+      "original_reread": true,
+      "limitations": "DSC10°C/min heatingrate restored, noambient testtemp invented."
+    },
+    {
+      "operation_id": "P02-009",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Moisture content (%) Thermogravimetric",
+      "source_quote": "≤ 0.1%",
+      "original_reread": true,
+      "limitations": "Only newlyopenedfilamentform/footnote andThermogravimetriccontext corrected. Inclusive source≤0.1% NOTrepresented byexistingstrict<; oldnumeric/operator retained as explicithelddefect, not defendednewinclusive result/serviceproof."
+    },
+    {
+      "operation_id": "P02-010",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Physical Properties, note 1",
+      "source_quote": "For newly opened filaments; filaments may absorb higher levels of moisture during use.",
+      "original_reread": true,
+      "limitations": "Literal moisturefootnote/solubilitytable context makerknowhow only; no water/hydrolysis-service claim."
+    },
+    {
+      "operation_id": "P02-011",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G035-09",
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "source_sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "original_locator": "p. 1: Physical Properties, Solubility",
+      "source_quote": "Insoluble in water",
+      "original_reread": true,
+      "limitations": "Literal moisturefootnote/solubilitytable context makerknowhow only; no water/hydrolysis-service claim."
+    },
+    {
+      "operation_id": "P02-012",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-15",
+      "source": "S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17",
+      "source_sha256": "a24c704ec938f385be32ef686afc52ad09ad6d6ef4ca3e784715f9e00bcf95fe",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-013",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-15",
+      "source": "S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17",
+      "source_sha256": "a24c704ec938f385be32ef686afc52ad09ad6d6ef4ca3e784715f9e00bcf95fe",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-014",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-15",
+      "source": "S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17",
+      "source_sha256": "a24c704ec938f385be32ef686afc52ad09ad6d6ef4ca3e784715f9e00bcf95fe",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-015",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-16",
+      "source": "S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN",
+      "source_sha256": "fd32b5e05f8c7f7975f86ea0fffb3ffb6e4d3631691a7847ac78f9097aa0bbbd",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-016",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-16",
+      "source": "S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN",
+      "source_sha256": "fd32b5e05f8c7f7975f86ea0fffb3ffb6e4d3631691a7847ac78f9097aa0bbbd",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-017",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-16",
+      "source": "S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN",
+      "source_sha256": "fd32b5e05f8c7f7975f86ea0fffb3ffb6e4d3631691a7847ac78f9097aa0bbbd",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-018",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-12",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "source_sha256": "9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-019",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-12",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "source_sha256": "9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-020",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-12",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "source_sha256": "9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-021",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-13",
+      "source": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "source_sha256": "102f99c803b722848f1846c75155e969609397d8374cbf9beedeb7750c8c000f",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak acids",
+      "source_quote": "Effect of weak acids Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-022",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-13",
+      "source": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "source_sha256": "102f99c803b722848f1846c75155e969609397d8374cbf9beedeb7750c8c000f",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong acids",
+      "source_quote": "Effect of strong acids Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-023",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-13",
+      "source": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "source_sha256": "102f99c803b722848f1846c75155e969609397d8374cbf9beedeb7750c8c000f",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-024",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-13",
+      "source": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "source_sha256": "102f99c803b722848f1846c75155e969609397d8374cbf9beedeb7750c8c000f",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-025",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G020-13",
+      "source": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "source_sha256": "102f99c803b722848f1846c75155e969609397d8374cbf9beedeb7750c8c000f",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-026",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-07",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "source_sha256": "d2274fcde980caeae90d00cfa885ee9442c67e2f7470792e3eb920b436d18c1b",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak acids",
+      "source_quote": "Effect of weak acids Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-027",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-07",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "source_sha256": "d2274fcde980caeae90d00cfa885ee9442c67e2f7470792e3eb920b436d18c1b",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong acids",
+      "source_quote": "Effect of strong acids Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-028",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-07",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "source_sha256": "d2274fcde980caeae90d00cfa885ee9442c67e2f7470792e3eb920b436d18c1b",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-029",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-07",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "source_sha256": "d2274fcde980caeae90d00cfa885ee9442c67e2f7470792e3eb920b436d18c1b",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-030",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-07",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "source_sha256": "d2274fcde980caeae90d00cfa885ee9442c67e2f7470792e3eb920b436d18c1b",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-031",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-08",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "source_sha256": "440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak acids",
+      "source_quote": "Effect of weak acids Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-032",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-08",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "source_sha256": "440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong acids",
+      "source_quote": "Effect of strong acids Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-033",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-08",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "source_sha256": "440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-034",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-08",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "source_sha256": "440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-035",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-08",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "source_sha256": "440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-036",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-09",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "source_sha256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak acids",
+      "source_quote": "Effect of weak acids Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-037",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-09",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "source_sha256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong acids",
+      "source_quote": "Effect of strong acids Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-038",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-09",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "source_sha256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-039",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-09",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "source_sha256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-040",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G027-09",
+      "source": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "source_sha256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-041",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G031-06",
+      "source": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "source_sha256": "325c431fc97df6eccb332d3344c73fd4b4415dddb61b8adb420fab465921a663",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak acids",
+      "source_quote": "Effect of weak acids Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-042",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G031-06",
+      "source": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "source_sha256": "325c431fc97df6eccb332d3344c73fd4b4415dddb61b8adb420fab465921a663",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong acids",
+      "source_quote": "Effect of strong acids Poor",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-043",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G031-06",
+      "source": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "source_sha256": "325c431fc97df6eccb332d3344c73fd4b4415dddb61b8adb420fab465921a663",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-044",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G031-06",
+      "source": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "source_sha256": "325c431fc97df6eccb332d3344c73fd4b4415dddb61b8adb420fab465921a663",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Fair",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-045",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G031-06",
+      "source": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "source_sha256": "325c431fc97df6eccb332d3344c73fd4b4415dddb61b8adb420fab465921a663",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "Own original category/rating pair and ambientGood/Fair/Poor definitions reread. Missing agent/concentration/duration/specimen/endpoint explicit; no chemical-specific or printed-part approval. Older source retained, existing category-level reduction semantics unchanged."
+    },
+    {
+      "operation_id": "P02-046",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G039-11",
+      "source": "S-POLYCN-PolyFlex-TPU90-TDS-V5-1",
+      "source_sha256": "b646650211110f3466d7f40f2ea69f2f066495f4be8bcdb7b2cf2f92489bbde8",
+      "original_locator": "p. 3: Mechanical Properties, 100% modulus (X-Y); p.4 HOW TO MAKE SPECIMENS",
+      "source_quote": "100% modulus (X-Y) ISO 37, GB/T 528 6.17 ± 0.19 MPa",
+      "original_reread": true,
+      "limitations": "ExactISO37 stress atspecifiedstrain, noYoungmodulus/strengthderivation. Ownprintsettingsretained; room24hRHunknown staysnot-stated. TPU95HFISO527diagram vsISO37table conflict explicitlyretained."
+    },
+    {
+      "operation_id": "P02-047",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G039-12",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "source_sha256": "9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded",
+      "original_locator": "p. 1: Mechanical Properties, Stress at 100% strain (X-Y)",
+      "source_quote": "Stress at 100% strain (X-Y) ISO 37, GB/T 528 15.5 ± 0.7 MPa",
+      "original_reread": true,
+      "limitations": "ExactISO37 stress atspecifiedstrain, noYoungmodulus/strengthderivation. Ownprintsettingsretained; room24hRHunknown staysnot-stated. TPU95HFISO527diagram vsISO37table conflict explicitlyretained."
+    },
+    {
+      "operation_id": "P02-048",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G039-12",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "source_sha256": "9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded",
+      "original_locator": "p. 1: Mechanical Properties, Stress at 200% strain (X-Y)",
+      "source_quote": "Stress at 200% strain (X-Y) ISO 37, GB/T 528 19.9 ± 0.8 MPa",
+      "original_reread": true,
+      "limitations": "ExactISO37 stress atspecifiedstrain, noYoungmodulus/strengthderivation. Ownprintsettingsretained; room24hRHunknown staysnot-stated. TPU95HFISO527diagram vsISO37table conflict explicitlyretained."
+    },
+    {
+      "operation_id": "P02-049",
+      "verdict": "APPROVE",
+      "table": "measurements",
+      "grade": "G039-12",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "source_sha256": "9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded",
+      "original_locator": "p. 1: Mechanical Properties, Stress at 300% strain (X-Y)",
+      "source_quote": "Stress at 300% strain (X-Y) ISO 37, GB/T 528 23.0 ± 0.5 MPa",
+      "original_reread": true,
+      "limitations": "ExactISO37 stress atspecifiedstrain, noYoungmodulus/strengthderivation. Ownprintsettingsretained; room24hRHunknown staysnot-stated. TPU95HFISO527diagram vsISO37table conflict explicitlyretained."
+    },
+    {
+      "operation_id": "P02-050",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-11",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "source_sha256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e",
+      "original_locator": "p. 1: Effect of weak acids Fair",
+      "source_quote": "Effect of weak acids Fair",
+      "original_reread": true,
+      "limitations": "AmbiguousTPU90header vsPCABSBlackPD02001footer explicitlyretained. Makerknowhow/Pitfallslane only; no categoryrating verdict, formulationtransfer or numericrepair. ExistingFair/Poor raw cells preserved in2refiles;3newfullrowphrases retaincolumncontext."
+    },
+    {
+      "operation_id": "P02-051",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-11",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "source_sha256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e",
+      "original_locator": "p. 1: Effect of strong acids Poor",
+      "source_quote": "Effect of strong acids Poor",
+      "original_reread": true,
+      "limitations": "AmbiguousTPU90header vsPCABSBlackPD02001footer explicitlyretained. Makerknowhow/Pitfallslane only; no categoryrating verdict, formulationtransfer or numericrepair. ExistingFair/Poor raw cells preserved in2refiles;3newfullrowphrases retaincolumncontext."
+    },
+    {
+      "operation_id": "P02-052",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-11",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "source_sha256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis",
+      "source_quote": "Effect of weak alkalis Fair",
+      "original_reread": true,
+      "limitations": "AmbiguousTPU90header vsPCABSBlackPD02001footer explicitlyretained. Makerknowhow/Pitfallslane only; no categoryrating verdict, formulationtransfer or numericrepair. ExistingFair/Poor raw cells preserved in2refiles;3newfullrowphrases retaincolumncontext."
+    },
+    {
+      "operation_id": "P02-053",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-11",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "source_sha256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis",
+      "source_quote": "Effect of strong alkalis Poor",
+      "original_reread": true,
+      "limitations": "AmbiguousTPU90header vsPCABSBlackPD02001footer explicitlyretained. Makerknowhow/Pitfallslane only; no categoryrating verdict, formulationtransfer or numericrepair. ExistingFair/Poor raw cells preserved in2refiles;3newfullrowphrases retaincolumncontext."
+    },
+    {
+      "operation_id": "P02-054",
+      "verdict": "APPROVE",
+      "table": "evidence",
+      "grade": "G039-11",
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "source_sha256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e",
+      "original_locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease",
+      "source_quote": "Effect of oils and grease Good",
+      "original_reread": true,
+      "limitations": "AmbiguousTPU90header vsPCABSBlackPD02001footer explicitlyretained. Makerknowhow/Pitfallslane only; no categoryrating verdict, formulationtransfer or numericrepair. ExistingFair/Poor raw cells preserved in2refiles;3newfullrowphrases retaincolumncontext."
+    }
+  ],
+  "original_checks": [
+    {
+      "source": "S-POLYCN-PolyFlex-TPU90-TDS-V5-1",
+      "sha256": "b646650211110f3466d7f40f2ea69f2f066495f4be8bcdb7b2cf2f92489bbde8",
+      "pages_read": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/b646650211110f3466d7f40f2ea69f2f066495f4be8bcdb7b2cf2f92489bbde8.json"
+    },
+    {
+      "source": "S-POLYCN-Polymaker-PC-Max-TDS-v1-0",
+      "sha256": "cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe",
+      "pages_read": [
+        1,
+        2
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN",
+      "sha256": "d2274fcde980caeae90d00cfa885ee9442c67e2f7470792e3eb920b436d18c1b",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/d2274fcde980caeae90d00cfa885ee9442c67e2f7470792e3eb920b436d18c1b.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN",
+      "sha256": "440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/440dfdcb31cf6f335e86732c3d8449d8d63a2d6c5092cfdf435bb2ec7853c3b1.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04",
+      "sha256": "bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/bd97c433b20034620748050b4eeab94b7af41dd12917b4a1e9ddb97bbe8af694.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN",
+      "sha256": "325c431fc97df6eccb332d3344c73fd4b4415dddb61b8adb420fab465921a663",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/325c431fc97df6eccb332d3344c73fd4b4415dddb61b8adb420fab465921a663.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17",
+      "sha256": "a24c704ec938f385be32ef686afc52ad09ad6d6ef4ca3e784715f9e00bcf95fe",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/a24c704ec938f385be32ef686afc52ad09ad6d6ef4ca3e784715f9e00bcf95fe.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "sha256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN",
+      "sha256": "9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/9f799785552e45f4e0535b4fda52c41257a64835cf03df1a5d0855f800252ded.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN",
+      "sha256": "102f99c803b722848f1846c75155e969609397d8374cbf9beedeb7750c8c000f",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/102f99c803b722848f1846c75155e969609397d8374cbf9beedeb7750c8c000f.json"
+    },
+    {
+      "source": "S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN",
+      "sha256": "fd32b5e05f8c7f7975f86ea0fffb3ffb6e4d3631691a7847ac78f9097aa0bbbd",
+      "pages_read": [
+        1
+      ],
+      "reader": "Fresh pdfPages on actual hash-verifiedbytes; no packetexcerpts relied upon",
+      "reread_path": "external-campaign/resume-2026-10-02/private/reviewer-priority02/fd32b5e05f8c7f7975f86ea0fffb3ffb6e4d3631691a7847ac78f9097aa0bbbd.json"
+    }
+  ],
+  "prior_rejection": {
+    "file": "priority-02-cached-review-before-correction.json",
+    "input_sha256": "5b24954cfcd5857af75b12a97465be7925a69c15cba099444180594741b58019",
+    "review_signature_sha256": "2319f17e9ecfb1b826c8f257a3d6c7ae704a40b508eecd86be438ba265320760"
+  },
+  "delta_attestation": "Current54ops reviewed inentirety. Initial3ambiguousTPU90categoryappendops nowmakercontext;2existingambiguousratings refiled sameIDs/rawwords withfullqualifiers. Domains/operators corrected andinclusive numericchangeheld. No sourcebytes/history altered.",
+  "visual_checks": "Viewed actualPCMaxp1physical/mechanical table andp2fig1/2/3. Flatbars, Zthrough4mmthickness supportsprintedXY tensile/flexural. Impactnotchdrawing doesnotresolveASTMIzodvsISOCharpy conflict.",
+  "guard_checks": "12ExpectedGrade,11ExpectedSource and4Expectededitedrow guards independentlymatchcanonical. Originaldigests verified; initial52appendduplicatecheck clear. New2refiles fulloldrows verified, no writesperformed.",
+  "held_finding_review": {
+    "PCMaximpact": "APPROVEHOLD:ASTMD256vsISO179/GBT1043 unresolved; diagram doesnotsettlemethod.",
+    "PCMaxfilamentsoftening": "APPROVECONTEXT:custom127–130°C1.75mmfilament, notpartHDT/Vicat. Actualread-onlySQLsource_facts confirms p1Custommethod127–130row.",
+    "TPU90V5.6numeric": "APPROVEHOLD:PCABSfooter andMPaelongation/strainunits unresolved; nopercent/unit/productrepair.",
+    "PCMaxinclusivebound": "APPROVEHOLD:existingV003896strict< cannotfaithfullyexpressoriginal≤. Newcontextcorrection nochangeofbound, limitationmustremaininOPENPROBLEMS/outcomes; no claimfullycorrectednumericrecord."
+  },
+  "additional_source_scope_limit": "ASAV6.0headerPolymakerASA whiletestfooter namesPolyLiteASAPF01046; chemistryprintedunderownheading butnotprovenformulationequivalence/testverification acrossseparatecataloguegrades. Preserve namedtestedSKUlimit insource-basedreporting.",
+  "narrative_review_scope": "All37initialchemicaltable proposals and5finalambiguousTPU90cells independentlyreread; all2otherproposedcontextrows and4holds checked. Beyondsampleminimum5; no selectivevague-sourceapproval.",
+  "review_limits": [
+    "IndependentAI only; nohuman/vendor/physical validation.",
+    "ExistingstrictPCMaxmoistureboundremainsanexplicitheldrepresentationaldefect; genuineinclusive<=supportrequiresseparate reviewedchange.",
+    "Category-levelmakerGood/Fair/Poorstatements donotestablishspecificagent/dose/duration orprintedservicequalification. Changedanswerreviewrequired beforecommit."
+  ],
+  "canonical_files_edited": false,
+  "approval_scope": "Source/operation admission54ops only; nojoinedproduct closure orreleaseapproval. Serializedguardedmigration/fullQA/render/replay/backup needed.",
+  "review_signature_sha256": "eee8bfb1a56e198f542c807cbc832f372d7f8f8996e2132aec68fe7255557d9c"
+}

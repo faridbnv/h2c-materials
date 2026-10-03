@@ -1,0 +1,449 @@
+{
+  "Cached": {
+    "migration": "m314-priority-02-cached",
+    "packet": "a38a7826fa796e4cf0bb391b177b102f3ad434fb35a9e193311bd5b55e853a81",
+    "written": 54,
+    "records": [
+      {
+        "operation": "P02-001",
+        "table": "measurements",
+        "id": "V011803",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-002",
+        "table": "measurements",
+        "id": "V011804",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-003",
+        "table": "measurements",
+        "id": "V011805",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-004",
+        "table": "measurements",
+        "id": "V011806",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-005",
+        "table": "measurements",
+        "id": "V011807",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-006",
+        "table": "measurements",
+        "id": "V011808",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-007",
+        "table": "measurements",
+        "id": "V011809",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-008",
+        "table": "measurements",
+        "id": "V003895",
+        "kind": "edit"
+      },
+      {
+        "operation": "P02-009",
+        "table": "measurements",
+        "id": "V003896",
+        "kind": "edit"
+      },
+      {
+        "operation": "P02-010",
+        "table": "evidence",
+        "id": "Q05529",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-011",
+        "table": "evidence",
+        "id": "Q05530",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-012",
+        "table": "evidence",
+        "id": "Q05531",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-013",
+        "table": "evidence",
+        "id": "Q05532",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-014",
+        "table": "evidence",
+        "id": "Q05533",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-015",
+        "table": "evidence",
+        "id": "Q05534",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-016",
+        "table": "evidence",
+        "id": "Q05535",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-017",
+        "table": "evidence",
+        "id": "Q05536",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-018",
+        "table": "evidence",
+        "id": "Q05537",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-019",
+        "table": "evidence",
+        "id": "Q05538",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-020",
+        "table": "evidence",
+        "id": "Q05539",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-021",
+        "table": "evidence",
+        "id": "Q05540",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-022",
+        "table": "evidence",
+        "id": "Q05541",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-023",
+        "table": "evidence",
+        "id": "Q05542",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-024",
+        "table": "evidence",
+        "id": "Q05543",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-025",
+        "table": "evidence",
+        "id": "Q05544",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-026",
+        "table": "evidence",
+        "id": "Q05545",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-027",
+        "table": "evidence",
+        "id": "Q05546",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-028",
+        "table": "evidence",
+        "id": "Q05547",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-029",
+        "table": "evidence",
+        "id": "Q05548",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-030",
+        "table": "evidence",
+        "id": "Q05549",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-031",
+        "table": "evidence",
+        "id": "Q05550",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-032",
+        "table": "evidence",
+        "id": "Q05551",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-033",
+        "table": "evidence",
+        "id": "Q05552",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-034",
+        "table": "evidence",
+        "id": "Q05553",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-035",
+        "table": "evidence",
+        "id": "Q05554",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-036",
+        "table": "evidence",
+        "id": "Q05555",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-037",
+        "table": "evidence",
+        "id": "Q05556",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-038",
+        "table": "evidence",
+        "id": "Q05557",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-039",
+        "table": "evidence",
+        "id": "Q05558",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-040",
+        "table": "evidence",
+        "id": "Q05559",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-041",
+        "table": "evidence",
+        "id": "Q05560",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-042",
+        "table": "evidence",
+        "id": "Q05561",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-043",
+        "table": "evidence",
+        "id": "Q05562",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-044",
+        "table": "evidence",
+        "id": "Q05563",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-045",
+        "table": "evidence",
+        "id": "Q05564",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-046",
+        "table": "measurements",
+        "id": "V011810",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-047",
+        "table": "measurements",
+        "id": "V011811",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-048",
+        "table": "measurements",
+        "id": "V011812",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-049",
+        "table": "measurements",
+        "id": "V011813",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-050",
+        "table": "evidence",
+        "id": "Q05269",
+        "kind": "edit"
+      },
+      {
+        "operation": "P02-051",
+        "table": "evidence",
+        "id": "Q05270",
+        "kind": "edit"
+      },
+      {
+        "operation": "P02-052",
+        "table": "evidence",
+        "id": "Q05565",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-053",
+        "table": "evidence",
+        "id": "Q05566",
+        "kind": "append"
+      },
+      {
+        "operation": "P02-054",
+        "table": "evidence",
+        "id": "Q05567",
+        "kind": "append"
+      }
+    ]
+  },
+  "NewSources": {
+    "migration": "m315-batch-c07-priority-02",
+    "packet": "9480cc6cdab58de8a6d15c1947f5ff8b91a58cc4e36384c774e17715982016af",
+    "log": [
+      "source R-POLYMAKER-PRIORITY-20261002-06bd5efb417b",
+      "evidence Q05568 Good for",
+      "evidence Q05569 Pitfalls and limitations",
+      "evidence Q05570 Pitfalls and limitations",
+      "evidence Q05571 Pitfalls and limitations",
+      "source R-POLYMAKER-PRIORITY-20261002-1b7d35606338",
+      "evidence Q05572 Good for",
+      "evidence Q05573 Printing advice",
+      "evidence Q05574 Pitfalls and limitations",
+      "source R-POLYMAKER-PRIORITY-20261002-29b58f0eea90",
+      "profile P1366",
+      "evidence Q05575 Good for",
+      "evidence Q05576 Pitfalls and limitations",
+      "evidence Q05577 Printing advice",
+      "evidence Q05578 Pitfalls and limitations",
+      "source R-POLYMAKER-PRIORITY-20261002-419d1e9d4bcd",
+      "evidence Q05579 Good for",
+      "source R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe",
+      "evidence Q05580 Printing advice",
+      "evidence Q05581 Moisture sensitivity",
+      "source R-POLYMAKER-PRIORITY-20261002-50c1636e6233",
+      "evidence Q05582 Pitfalls and limitations",
+      "source R-POLYMAKER-PRIORITY-20261002-8c3c83807f63",
+      "measurement V011814 Tensile strength (endpoint unspecified)",
+      "measurement V011815 Elongation at break",
+      "measurement V011816 Tensile stress at 100 % elongation",
+      "measurement V011817 Tensile stress at 200 % elongation",
+      "measurement V011818 Tensile stress at 300 % elongation",
+      "evidence Q05583 Effect of weak acids",
+      "evidence Q05584 Effect of strong acids",
+      "evidence Q05585 Effect of weak alkalis",
+      "evidence Q05586 Effect of strong alkalis",
+      "evidence Q05587 Effect of oils and grease",
+      "source R-POLYMAKER-PRIORITY-20261002-a01e6574d210",
+      "evidence Q05588 Good for",
+      "evidence Q05589 Printing advice",
+      "evidence Q05590 Pitfalls and limitations",
+      "source R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2",
+      "evidence Q05591 Good for",
+      "evidence Q05592 Printing advice",
+      "evidence Q05593 Pitfalls and limitations",
+      "source R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3",
+      "evidence Q05594 Good for",
+      "evidence Q05595 Printing advice",
+      "evidence Q05596 Pitfalls and limitations",
+      "evidence Q05597 Pitfalls and limitations",
+      "evidence Q05598 Pitfalls and limitations",
+      "source R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3",
+      "evidence Q05599 Good for",
+      "evidence Q05600 Pitfalls and limitations",
+      "evidence Q05601 Moisture sensitivity",
+      "source R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a",
+      "evidence Q05602 Good for",
+      "evidence Q05603 Pitfalls and limitations"
+    ],
+    "judgments": [
+      {
+        "operation": "C07-ABS-PRO-OWN-CHAMBER-SUPERSEDES-D93",
+        "id": "P0292",
+        "reason": "The old raw TDS prints no chamber temperature. Its D93 enclosed shortcut is no longer permitted because another own-product profile now prints50\u00b0C+. Restore raw-sheet unknown; own numeric source decides. No source revision deleted."
+      }
+    ],
+    "applied": 12,
+    "written": 55
+  },
+  "HeadingRecovery": {
+    "migration": "m315-batch-c07-priority-02",
+    "packet": "9480cc6cdab58de8a6d15c1947f5ff8b91a58cc4e36384c774e17715982016af",
+    "log": [
+      "evidence Q05604 Good for",
+      "evidence Q05605 Good for",
+      "evidence Q05606 Good for"
+    ],
+    "judgments": [],
+    "applied": 0,
+    "written": 3
+  },
+  "CanonicalRerun": {
+    "migration": "m315-batch-c07-priority-02",
+    "packet": "9480cc6cdab58de8a6d15c1947f5ff8b91a58cc4e36384c774e17715982016af",
+    "log": [],
+    "judgments": [],
+    "applied": 0,
+    "written": 0
+  },
+  "SourceCount": 12,
+  "ExpectedNewEvidence": 78,
+  "NewMeasurements": 16,
+  "ExistingMeasurementCorrections": 2,
+  "NewProfile": 1,
+  "ExistingProfileCorrections": 1,
+  "ExistingEvidenceCorrections": 3,
+  "ReviewerKind": "Independent AI; no human review",
+  "Attribution": {
+    "migration": "m316-priority-02-attribution",
+    "packet": "b4b55e059f8b4d97a5f8c54d788f828ffb9a49987bd38f3da5403965b4896cde",
+    "written": 1,
+    "records": [
+      {
+        "operation": "P02-ABS-ATTRIBUTION",
+        "table": "evidence",
+        "id": "Q02150",
+        "kind": "edit"
+      }
+    ]
+  },
+  "AttributionRerun": {
+    "migration": "m316-priority-02-attribution",
+    "packet": "b4b55e059f8b4d97a5f8c54d788f828ffb9a49987bd38f3da5403965b4896cde",
+    "written": 0,
+    "records": []
+  }
+}

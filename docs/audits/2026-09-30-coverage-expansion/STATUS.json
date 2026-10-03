@@ -1,5 +1,5 @@
 {
-  "dataRelease": "c890d0421b03",
+  "dataRelease": "b847b43260f9",
   "latestCompletedDataCommit": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -50,15 +50,15 @@
     },
     "excluded": 17,
     "grades": 1163,
-    "measurements": 11492,
-    "numericMeasurements": 11311,
+    "measurements": 11508,
+    "numericMeasurements": 11327,
     "quarantined": 24,
-    "profiles": 1286,
-    "evidence": 791,
+    "profiles": 1287,
+    "evidence": 828,
     "prices": 357,
-    "sources": 1858,
+    "sources": 1870,
     "coverage": 947,
-    "knowHow": 4720,
+    "knowHow": 4761,
     "polymerEnvironment": 353,
     "polymerEvidence": 321,
     "coverageDerived": 1144
@@ -80,9 +80,9 @@
     },
     "evidence": {
       "baseline": 5306,
-      "current": 5528,
-      "added": 222,
-      "edited_existing": 208,
+      "current": 5606,
+      "added": 300,
+      "edited_existing": 211,
       "removed": 0
     },
     "grades": {
@@ -108,9 +108,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 11802,
-      "added": 266,
-      "edited_existing": 1301,
+      "current": 11818,
+      "added": 282,
+      "edited_existing": 1303,
       "removed": 0
     },
     "method": {
@@ -150,8 +150,8 @@
     },
     "profiles": {
       "baseline": 1316,
-      "current": 1365,
-      "added": 49,
+      "current": 1366,
+      "added": 50,
       "edited_existing": 768,
       "removed": 0
     },
@@ -164,8 +164,8 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 1858,
-      "added": 30,
+      "current": 1870,
+      "added": 42,
       "edited_existing": 63,
       "removed": 0
     }

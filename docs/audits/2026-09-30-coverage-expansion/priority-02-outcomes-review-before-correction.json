@@ -1,0 +1,148 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "c0f498461ab6e1938c1fa95cc38861b55f07d5c3a752f466addcc0e9d8c778ca",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "review_scope": "Every question status/finding/basis inspected. Shared original rereads reused from signed cached/C07 reviews. Newly identified ABS source-wording defect and Fiberon FAQ reread directly from verified original bytes. All record/grade/source/digest references matched canonical rows. Route receipts inspected; no universal absence or claimed test completion inferred.",
+  "corrections": [
+    {
+      "GradeID": "G020-16",
+      "QuestionID": "print-treatment-state",
+      "reason": "Own page summary65°C4h versus own detailed/TDS65°C6h is an explicitly reviewed unresolved drying conflict.",
+      "RequiredOutcome": "conflicting",
+      "RequiredFinding": "Own recipes remain recorded. Page summary drying65°C4h conflicts with detailed Print Settings and TDS65°C6h; both source instructions are retained without recency arbitration. Room conditioning does not imply controlled moisture conditioning.",
+      "RequiredBasisIDs": [
+        "P0322",
+        "P0358",
+        "Q05574"
+      ]
+    },
+    {
+      "GradeID": "G026-05",
+      "QuestionID": "environment-moisture",
+      "reason": "Original own FAQ explicitly names humidity-related ESD degradation and moisture-handling instructions; absent-result judgment omits useful scoped context.",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own page states that humidity, temperature and contaminants can degrade ESD performance, recommends clean dry storage, and gives drying65°C3h if moisture absorbed. These are maker handling/performance claims with unstated exposure conditions, not hydrolysis or measured service results.",
+      "RequiredBasisIDs": [
+        "Q05571",
+        "P0543"
+      ]
+    },
+    {
+      "GradeID": "G039-11",
+      "QuestionID": "environment-organic-solvent",
+      "reason": "The only cited source prints No data available; no competing solvent finding is cited. Missing data is not a source conflict.",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own earlier sheet explicitly prints No data available for organic solvent. No usable exact-agent service result was found in the inspected routes; retain missing conditions and vendor/test-needed status.",
+      "RequiredBasisIDs": [
+        "Q00169"
+      ]
+    },
+    {
+      "GradeID": "G020-13",
+      "QuestionID": "environment-organic-solvent",
+      "reason": "Only cited source prints Resistant most; no opposing organic-solvent finding is cited.",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Own earlier sheet prints Resistant most for organic solvent. This broad maker class claim lacks named agents, concentrations, duration, temperature and specimen; it is not a universal solvent qualification.",
+      "RequiredBasisIDs": [
+        "Q00083"
+      ]
+    },
+    {
+      "GradeID": "G039-11",
+      "QuestionID": "environment-oil-grease",
+      "reason": "An earlier No data available and later Good are missing-versus-published information, not contradictory measured results. Attribution caveats remain separate.",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Earlier source prints No data available and newer source prints Good for oils and grease. Retain both revisions and any explicit identity caveat; unknown agents and conditions prevent universal class or printed-part qualification.",
+      "RequiredBasisIDs": [
+        "Q00170",
+        "Q05567",
+        "Q05587"
+      ]
+    },
+    {
+      "GradeID": "G020-13",
+      "QuestionID": "environment-oil-grease",
+      "reason": "An earlier No data available and later Good are missing-versus-published information, not contradictory measured results. Attribution caveats remain separate.",
+      "RequiredOutcome": "context only",
+      "RequiredFinding": "Earlier source prints No data available and newer source prints Good for oils and grease. Retain both revisions and any explicit identity caveat; unknown agents and conditions prevent universal class or printed-part qualification.",
+      "RequiredBasisIDs": [
+        "Q00084",
+        "Q05544"
+      ]
+    },
+    {
+      "GradeID": "G027-09",
+      "QuestionID": "application-finishing",
+      "reason": "Q02150 source wording specifically names HT-PLA-GF, despite appearing in an ABS sheet. It cannot establish own ABS guidance.",
+      "RequiredFinding": "Own ABS intended-use and processing statements remain bounded maker context. Q02150 is an unresolved copied statement naming HT-PLA-GF in the ABS TDS; it is excluded from own ABS application/finishing support. No product finishing procedure or suitability is established.",
+      "RequiredBasisIDs": [
+        "Q02124",
+        "Q02125",
+        "Q02126",
+        "Q02148",
+        "Q02149",
+        "Q02151",
+        "Q02152",
+        "Q05579"
+      ]
+    },
+    {
+      "GradeID": "G027-09",
+      "QuestionID": "environment-moisture",
+      "reason": "Do not use HT-PLA-GF storage instruction as exact ABS moisture evidence.",
+      "RequiredFinding": "Own ABS published water-absorption measurements provide moisture context with their recorded conditions; uptake is not hydrolysis or service qualification. Q02150 names HT-PLA-GF and is held as a source-wording attribution defect.",
+      "RequiredBasisIDs": [
+        "V002351",
+        "V003998"
+      ]
+    },
+    {
+      "GradeID": "G027-09",
+      "QuestionID": "integrity-conflicts",
+      "reason": "Original ABS V5.6p1 NOTE explicitly names HT-PLA-GF; integrity outcome must retain this unresolved copied-wording defect.",
+      "RequiredOutcome": "conflicting",
+      "RequiredFinding": "Own ABS sheet V5.6 p.1 NOTE names Polymaker HT-PLA-GF in its PolyBox/PolyDryer storage recommendation. Do not transfer that named-product claim to ABS or infer a corrected sentence. Q02150 remains a source-wording attribution hold pending source correction or maker clarification.",
+      "RequiredBasisIDs": [
+        "Q02150"
+      ]
+    },
+    {
+      "GradeID": "G039-11",
+      "QuestionID": "properties-conditions",
+      "reason": "Current generic paragraph mentions recovered PC-Max values inside this exact TPU target. Replace with source-product-specific summary.",
+      "RequiredFinding": "Own coherent TPU90 V5.5 ISO37 printed XY strength, elongation and100/200/300% stress rows, plus independently reviewed older100% stress, were admitted only to TPU90. V5.6 PC-ABS footer and MPa elongation conflict remain held; no modulus or alternate-property derivation."
+    },
+    {
+      "GradeID": "G039-12",
+      "QuestionID": "properties-conditions",
+      "reason": "Current generic paragraph mentions recovered PC-Max values inside this exact TPU target. Replace with source-product-specific summary.",
+      "RequiredFinding": "Own TPU95-HF ISO37 table100/200/300% stress rows were admitted as stress at fixed strain, not modulus or tensile strength. TableISO37 versus diagramISO527 remains unresolved;400% stress is held in original/full text pending a property contract."
+    }
+  ],
+  "source_checks": [
+    {
+      "SHA256": "fb13bf8917fcfca9c6198f39cf7c862aaa5edb1f348f0c56ecf9b973e2201099",
+      "locator": "p.1 NOTE before How to make specimens",
+      "raw": "It is highly recommended to use the PolyBox™ or PolyDryer™ Box when printing or storing Polymaker™ HT-PLA-GF",
+      "limitation": "Literal maker wording names another product; ABS ownership of sheet does not correct the sentence."
+    },
+    {
+      "SHA256": "06bd5efb417b9fdd1f4a53f5c7fb17d7809668d6363e6839b52b0859ab8c86bf",
+      "locator": "FAQ How long will PETG-ESD remain ESD safe?; Print Settings",
+      "raw": "The ESD (Electrostatic Discharge) safety of PETG-ESD filament can degrade over time, depending on environmental factors like humidity, temperature, and exposure to dust or contaminants.",
+      "limitation": "Humidity maker context; no exposure test or accepted service-life claim."
+    }
+  ],
+  "other_judgments": "Remaining193 questions acceptable subject to source/conditions limitations already recorded and final verified commit; no product suitability pass implied.",
+  "remaining_holds": [
+    "PC-Max inclusive≤0.1% cannot be faithfully expressed by current strict operator; numeric correction remains held.",
+    "PC-Max impact method conflict and filament-softening distinction retained.",
+    "Skin ISO10993 badge lacks underlying report/specimen/endpoints; no printed certification.",
+    "TPU90 V5.6 attribution and400% stress holds retained.",
+    "Legacy/current and colour/formulation scope retained; no identity transfer."
+  ],
+  "review_signature_sha256": "b9620ac0f4f290e9735e7df3fcf9b255be06d89ed463af0fc7b1b0f59bcb9f0c"
+}

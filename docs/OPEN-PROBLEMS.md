@@ -1070,7 +1070,7 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
 - **The values never transcribed that this list named are recorded since m298** (D123). Left, seen while reading:
   Stratasys PA6/66-GF30-FR's Tables 4 and 5 (tensile, flexural, compression and impact, XZ and ZX) are almost all
   untranscribed, and its XY heat deflection at 264 psi prints 35 °C beside 161 °C at 66 psi and 153 °C XZ, recorded as
-  printed; Polymaker PolyFlex TPU90 and TPU95 print an ISO 37 tensile table no row holds; Eryone's light-weight PLA prints
+  printed; Polymaker PolyFlex TPU95 still has an untranscribed ISO 37 table; TPU90 already held V5.1 strength/elongation, and m314–m315 now add fixed-strain stress and the coherent V5.5 table; Eryone's light-weight PLA prints
   MPa as the unit of its X-Y elongation; Raise3D's Hyper Core PPA CF25 (G070-08) carries Industrial PET CF V4.0's source as
   its formulation key, which no other grade shares and reads nothing, but which may say its sheet reprints that table
   (R166). `npm run audit:sources` finds such values.
@@ -1142,9 +1142,35 @@ on its own. What it could not, by who settles it:
 - **The makers.** purefil PA6 GF10's two bed rows (§28); the source contradictions of §§23 to 26; the conditions of §15.
 - **People.** The decisive-value spot-check (C3) and the team trial (C7). Every review in this pass was an AI's.
 - **Leads the readers saw**, recorded in §28: Stratasys PA6/66-GF30-FR's untranscribed Tables 4 and 5 and its 35 °C
-  heat deflection at 264 psi; PolyFlex TPU90 and TPU95's ISO 37 tables; Raise3D Hyper Core PPA CF25's key; Eryone
+  heat deflection at 264 psi; PolyFlex TPU95's remaining ISO 37 table (TPU90 recovered in m314–m315); Raise3D Hyper Core PPA CF25's key; Eryone
   light-weight PLA's elongation printed in MPa; Braskem PP-CF's two beds; BVOH's Extended TDS conditions.
 
 ```sh
 npm run data:lint && npm run audit:context && npm run audit:coverage-status -- --check
 ```
+
+### Priority Polymaker product pass: unresolved source limits (2026-10-02)
+
+The signed [batch report](audits/2026-09-30-coverage-expansion/priority-02-report.md) and
+[204 question outcomes](audits/2026-09-30-coverage-expansion/priority-02-outcomes-packet.json) name the source,
+product and release condition. These are bounded findings, not evidence that no test exists.
+
+- PC-Max source `S-POLYCN-Polymaker-PC-Max-TDS-v1-0` prints newly-opened filament moisture ≤0.1%.
+  Its condition/specimen is corrected; the inclusive operator remains held because the current vocabulary only
+  supports <, > and =. A justified schema/engine extension is needed before changing its numeric bound.
+  Its25.1±1.9kJ/m² impact value names ASTM D256 alongside ISO179; the method remains unresolved.
+  Filament softening127–130°C is not an HDT or Vicat test.
+- TPU90 V5.6 prints a TPU90 heading, PC-ABS Black PD02001 footer and MPa as elongation unit. Its new numeric
+  rows remain held; five generic chemical ratings are record-only with attribution caveats. The coherent own
+  V5.5 ISO37 table is independently admitted. The filename says V5.4 while its internal heading says V5.5.
+- The TPU90 skin-safe ISO10993 badge has no retrieved report, contact duration, endpoints or specimen identity.
+  No printed-part certification follows. TPU90/TPU95-HF summary drying50°C6h conflicts with detailed70°C8h;
+  PolyMax PETG65°C4h vs65°C6h, legacy ESD70°C8h vs65°C6h and ASA70°C6h vs70°C7h also remain source-specific.
+- Fiberon PETG-ESD's wear/conductivity claim and its1–2year abrasion/environment warning lack a wear protocol
+  or lifetime model. Finished-part ESD validation remains necessary. The legacy product's discontinuation
+  notice does not prove replacement equivalence. TPU95-HF400% stress remains original/full-text context
+  pending a useful property definition. Generic resistance classes retain missing agents and conditions.
+
+ABS V5.6 p.1's PolyBox/PolyDryer sentence explicitly names HT-PLA-GF. Q02150 retains the raw sentence
+as an attribution problem with a scope warning (m316), not ABS moisture guidance. Source correction or
+maker clarification is required; the campaign does not invent the intended sentence.

@@ -1,0 +1,11 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "5b24954cfcd5857af75b12a97465be7925a69c15cba099444180594741b58019",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_operations": 52,
+  "reason": "InitialP02-018–020 barefilterablechemicalratings inTPU90V5.6 hadexplicitPCABSBlackPD02001footeridentityconflict, correctlyheldfornumericrowsbutomittedfromchemicalproposal limits. Rootalsoidentified then reviewerverified invalidChemicalresistance domain, rangeoperator andunsupportedinclusive<= incurrentvocab.",
+  "required_changes": "PreserveTPU90ratings asambiguous makercontext outsidecategoryverdict, retainingfooter andolderownsource. UseexistingChemicalexposure domain and= plusrangeupperbound; holdnumericinclusivecorrection pending faithfulsupport.",
+  "canonical_edits": false,
+  "review_signature_sha256": "2319f17e9ecfb1b826c8f257a3d6c7ae704a40b508eecd86be438ba265320760"
+}

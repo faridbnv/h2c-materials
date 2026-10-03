@@ -1,0 +1,4066 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "scope": "Changed-answer explanations and two record-specific source/context acceptances; final full-QA/backup/commit release gate separate.",
+  "inputs_sha256": {
+    "priority-02-frozen-replay.json": "6d0c8b0218d0a785e5de87055ebcb18bb62afe42921274e050c1703c861ef259",
+    "priority-02-template-replay.json": "19493b8a2ecb2d1fc996f19240d8ccf524b1cca1a8895007a7651b25107fe8d7",
+    "priority-02-environment-replay.json": "c608d4542e6958a80dff429a37e3755a2360b287756f89c2172fb807091bd451"
+  },
+  "before_release": "c890d0421b03",
+  "after_release": "b847b43260f9",
+  "counts": {
+    "priority-02-frozen-replay.json": {
+      "questions": 15,
+      "evaluations": 17775,
+      "answer_changes": 11
+    },
+    "priority-02-template-replay.json": {
+      "questions": 24,
+      "evaluations": 28440,
+      "answer_changes": 25
+    },
+    "priority-02-environment-replay.json": {
+      "questions": 48,
+      "evaluations": 56880,
+      "answer_changes": 72
+    }
+  },
+  "groups": [
+    {
+      "cause": "own published PC-Max mechanical values",
+      "explanation": "Source dc310fbb… p1 prints Youngs modulus2048±66MPa, elongation12.24±1.44%, density1.18–1.20g/cm3. Diagramp2 flat specimen Z is through thickness, supporting existing D91 XY. Values with unstated moisture/treatment are admitted for screening under current contract; stiffness/elongation thresholds now fail rather than remain unknown. No annealing benefit invented for anneal-request scenarios.",
+      "changed_answers": [
+        {
+          "question": "Outdoor structural part",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 3",
+              "before": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            },
+            {
+              "criterion": "density <= 1500",
+              "before": {
+                "criterion": "density <= 1500",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1500",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "density <= 1250",
+              "before": {
+                "criterion": "density <= 1250",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1250",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            },
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "High-stiffness fixture",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 5",
+              "before": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Flexible component",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "elongationXY >= 100",
+              "before": {
+                "criterion": "elongationXY >= 100",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "elongationXY >= 100",
+                "status": "FAIL",
+                "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011805",
+                "observed": 12.24,
+                "unit": "%",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "S01",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 3",
+              "before": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            },
+            {
+              "criterion": "density <= 1500",
+              "before": {
+                "criterion": "density <= 1500",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1500",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            }
+          ]
+        },
+        {
+          "question": "S03",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 4",
+              "before": {
+                "criterion": "tensileModulusXY >= 4",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 4
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 4",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 4
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "S05",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 6",
+              "before": {
+                "criterion": "tensileModulusXY >= 6",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 6
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 6",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 6
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "S01:{\"unknownPolicy\":\"strict\",\"anneal\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 3",
+              "before": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            },
+            {
+              "criterion": "density <= 1500",
+              "before": {
+                "criterion": "density <= 1500",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1500",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            }
+          ]
+        },
+        {
+          "question": "S03:{\"unknownPolicy\":\"strict\",\"anneal\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 4",
+              "before": {
+                "criterion": "tensileModulusXY >= 4",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 4
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 4",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 4
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Outdoor structural part{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 3",
+              "before": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            },
+            {
+              "criterion": "density <= 1500",
+              "before": {
+                "criterion": "density <= 1500",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1500",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            }
+          ]
+        },
+        {
+          "question": "Outdoor structural part{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 3",
+              "before": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            },
+            {
+              "criterion": "density <= 1500",
+              "before": {
+                "criterion": "density <= 1500",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1500",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            }
+          ]
+        },
+        {
+          "question": "Outdoor structural part{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 3",
+              "before": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            },
+            {
+              "criterion": "density <= 1500",
+              "before": {
+                "criterion": "density <= 1500",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1500",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            }
+          ]
+        },
+        {
+          "question": "Outdoor structural part{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 3",
+              "before": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 3",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 3,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            },
+            {
+              "criterion": "density <= 1500",
+              "before": {
+                "criterion": "density <= 1500",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1500",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1500,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "density <= 1250",
+              "before": {
+                "criterion": "density <= 1250",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1250",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            },
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "density <= 1250",
+              "before": {
+                "criterion": "density <= 1250",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1250",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            },
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "density <= 1250",
+              "before": {
+                "criterion": "density <= 1250",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1250",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            },
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "density <= 1250",
+              "before": {
+                "criterion": "density <= 1250",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "density <= 1250",
+                "status": "PASS",
+                "reason": "Published 1180 kg/m³ (ASTM D792, ISO 1183, GB/T 1033)",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "density",
+                  "operator": "<=",
+                  "value": 1250,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011808",
+                "observed": 1180,
+                "unit": "kg/m³",
+                "closeToLimit": false
+              }
+            },
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "High-stiffness fixture{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 5",
+              "before": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 5",
+              "before": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 5",
+              "before": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "High-stiffness fixture{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 5",
+              "before": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "FAIL",
+                "reason": "Published 2.048 ± 0.066 GPa (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011803",
+                "observed": 2.048,
+                "unit": "GPa",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Flexible component{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "elongationXY >= 100",
+              "before": {
+                "criterion": "elongationXY >= 100",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "elongationXY >= 100",
+                "status": "FAIL",
+                "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011805",
+                "observed": 12.24,
+                "unit": "%",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "elongationXY >= 100",
+              "before": {
+                "criterion": "elongationXY >= 100",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "elongationXY >= 100",
+                "status": "FAIL",
+                "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011805",
+                "observed": 12.24,
+                "unit": "%",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Flexible component{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "elongationXY >= 100",
+              "before": {
+                "criterion": "elongationXY >= 100",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "elongationXY >= 100",
+                "status": "FAIL",
+                "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011805",
+                "observed": 12.24,
+                "unit": "%",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "question": "Flexible component{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G035-09",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "elongationXY >= 100",
+              "before": {
+                "criterion": "elongationXY >= 100",
+                "status": "UNKNOWN",
+                "reason": "Not published in the sampled sources",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "elongationXY >= 100",
+                "status": "FAIL",
+                "reason": "Published 12.24 ± 1.44 % (XY) (ASTM D638, ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "elongationXY",
+                  "operator": ">=",
+                  "value": 100,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "measurementId": "V011805",
+                "observed": 12.24,
+                "unit": "%",
+                "closeToLimit": false,
+                "admitted": [
+                  "moisture",
+                  "treatment"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cause": "own ABS Pro open chamber bound",
+      "explanation": "Own HTML29b58f… FAQ requires chamber50°C or higher and prints50°C+. P1366 preserves minimum50 and missing maximum; D93 enclosure-only shortcut in P0292 is reconciled atomically. H2C65°C cannot establish the whole unbounded source requirement, so prior chamberPASS becomesINDETERMINATE/overallUNKNOWN.",
+      "changed_answers": [
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G027-08",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "PASS",
+                "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              },
+              "after": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "INDETERMINATE",
+                "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G027-08",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "PASS",
+                "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              },
+              "after": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "INDETERMINATE",
+                "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G027-08",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "PASS",
+                "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              },
+              "after": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "INDETERMINATE",
+                "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G027-08",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "PASS",
+                "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              },
+              "after": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "INDETERMINATE",
+                "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G027-08",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "PASS",
+                "reason": "Its maker asks for an enclosure, in its words \"Yes\", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              },
+              "after": {
+                "criterion": "Chamber temperature within H2C baseline",
+                "status": "INDETERMINATE",
+                "reason": "Publishes at least 50 °C, with no upper end; the H2C reaches only 50–65 °C of that",
+                "constraint": {
+                  "kind": "gate",
+                  "gate": "chamber",
+                  "__group": "Compatibility"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cause": "mixed acid source evidence",
+      "explanation": "PolyLite PETG earlier own Not resistant recordsQ00079/Q00080 remain beside new Good/PoorQ05540/Q05541. Existing reducer sees mixed exposures, so FAIL becomesUNKNOWN. No identity/formulation conflict resolved or universal acid resistance asserted.",
+      "changed_answers": [
+        {
+          "question": "S06",
+          "level": "product",
+          "id": "G020-13",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "FAIL",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "input": "priority-02-frozen-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": {
+                "criterion": "Acid resistance evidence",
+                "status": "FAIL",
+                "reason": "2 record(s) report not-resistant",
+                "constraint": {
+                  "kind": "environment",
+                  "category": "acid"
+                },
+                "evidenceIds": [
+                  "Q00079",
+                  "Q00080"
+                ]
+              },
+              "after": {
+                "criterion": "Acid resistance evidence",
+                "status": "INDETERMINATE",
+                "reason": "Evidence is mixed across exposures: 1 record(s) report resistant, 3 not-resistant",
+                "constraint": {
+                  "kind": "environment",
+                  "category": "acid"
+                },
+                "evidenceIds": [
+                  "Q00079",
+                  "Q00080",
+                  "Q05540",
+                  "Q05541"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"acid\",\"strict\",false,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "acid",
+          "policy": "strict",
+          "infer": false,
+          "before": "FAIL",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Acid resistance evidence",
+              "status": "INDETERMINATE",
+              "reason": "Evidence is mixed across exposures: 1 record(s) report resistant, 3 not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "acid"
+              },
+              "evidenceIds": [
+                "Q00079",
+                "Q00080",
+                "Q05540",
+                "Q05541"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"acid\",\"strict\",true,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "acid",
+          "policy": "strict",
+          "infer": true,
+          "before": "FAIL",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Acid resistance evidence",
+              "status": "INDETERMINATE",
+              "reason": "Evidence is mixed across exposures: 1 record(s) report resistant, 3 not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "acid"
+              },
+              "evidenceIds": [
+                "Q00079",
+                "Q00080",
+                "Q05540",
+                "Q05541"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"acid\",\"exploration\",false,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "acid",
+          "policy": "exploration",
+          "infer": false,
+          "before": "FAIL",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Acid resistance evidence",
+              "status": "INDETERMINATE",
+              "reason": "Evidence is mixed across exposures: 1 record(s) report resistant, 3 not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "acid"
+              },
+              "evidenceIds": [
+                "Q00079",
+                "Q00080",
+                "Q05540",
+                "Q05541"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"acid\",\"exploration\",true,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "acid",
+          "policy": "exploration",
+          "infer": true,
+          "before": "FAIL",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Acid resistance evidence",
+              "status": "INDETERMINATE",
+              "reason": "Evidence is mixed across exposures: 1 record(s) report resistant, 3 not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "acid"
+              },
+              "evidenceIds": [
+                "Q00079",
+                "Q00080",
+                "Q05540",
+                "Q05541"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cause": "automatic estimate recalibration",
+      "explanation": "ThreeG129 products in Lightweight structure Explore estimates keepUNKNOWN but lose screen after plausible tensile-modulus upper2.42→2.91GPa crosses2.5. TwoG111 products in High-stiffness fixture Explore estimates keepUNKNOWN but gain screen after plausible upper5.13→4.78GPa falls below5. New measured inputs recalibrate existing model; no measurements on these five products, manual estimate narrowing or model-code change inferred.",
+      "changed_answers": [
+        {
+          "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G129-01",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "before_screened": true,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.0166 to 0.826 GPa (plausibly 0.00571 to 2.42), which cannot meet this requirement. Screened out; not measured",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": true,
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.018 to 0.95 GPa (plausibly 0.00588 to 2.91); possible, but never enough to pass",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": false,
+                "missing": "not-published"
+              }
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G129-02",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "before_screened": true,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.0166 to 0.826 GPa (plausibly 0.00571 to 2.42), which cannot meet this requirement. Screened out; not measured",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": true,
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.018 to 0.95 GPa (plausibly 0.00588 to 2.91); possible, but never enough to pass",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": false,
+                "missing": "not-published"
+              }
+            }
+          ]
+        },
+        {
+          "question": "Lightweight structure{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G129-07",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "before_screened": true,
+          "after_screened": false,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 2.5",
+              "before": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.0166 to 0.826 GPa (plausibly 0.00571 to 2.42), which cannot meet this requirement. Screened out; not measured",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": true,
+                "missing": "not-comparable"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 2.5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.018 to 0.95 GPa (plausibly 0.00588 to 2.91); possible, but never enough to pass",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 2.5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": false,
+                "missing": "not-comparable"
+              }
+            }
+          ]
+        },
+        {
+          "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G111-01",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": true,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 5",
+              "before": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 1.04 to 3.65 GPa (plausibly 0.743 to 5.13); possible, but never enough to pass",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": false,
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.875 to 3.29 GPa (plausibly 0.602 to 4.78), which cannot meet this requirement. Screened out; not measured",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": true,
+                "missing": "not-published"
+              }
+            }
+          ]
+        },
+        {
+          "question": "High-stiffness fixture{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G111-02",
+          "state": {
+            "id": "as-printed",
+            "treatment": null,
+            "moisture": "dry"
+          },
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "before_screened": false,
+          "after_screened": true,
+          "input": "priority-02-template-replay.json",
+          "changed_criteria": [
+            {
+              "criterion": "tensileModulusXY >= 5",
+              "before": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 1.04 to 3.65 GPa (plausibly 0.743 to 5.13); possible, but never enough to pass",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": false,
+                "missing": "not-published"
+              },
+              "after": {
+                "criterion": "tensileModulusXY >= 5",
+                "status": "UNKNOWN",
+                "reason": "Not published. Estimated 0.875 to 3.29 GPa (plausibly 0.602 to 4.78), which cannot meet this requirement. Screened out; not measured",
+                "constraint": {
+                  "kind": "numeric",
+                  "property": "tensileModulusXY",
+                  "operator": ">=",
+                  "value": 5,
+                  "mandatory": true,
+                  "__group": "Mechanical"
+                },
+                "estimated": true,
+                "screened": true,
+                "missing": "not-published"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cause": "new own strong-alkali Poor",
+      "explanation": "Exact own sheets for G020-15/G020-16/G039-12 print strong alkalisPoor at their source rows Q05532/Q05535/Q05538. Current category reducer reportsFAIL for this negative maker class claim. Concentration/agent/duration/specimen are missing; this is the current screening answer, not a measured chemical design limit.",
+      "changed_answers": [
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"strict\",false,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "alkali",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05532"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"strict\",false,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "alkali",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05535"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"strict\",false,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "alkali",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05538"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"strict\",true,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "alkali",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05532"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"strict\",true,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "alkali",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05535"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"strict\",true,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "alkali",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05538"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"exploration\",false,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "alkali",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05532"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"exploration\",false,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "alkali",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05535"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"exploration\",false,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "alkali",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05538"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"exploration\",true,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "alkali",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05532"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"exploration\",true,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "alkali",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05535"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"alkali\",\"exploration\",true,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "alkali",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "FAIL",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "status": "FAIL",
+              "reason": "1 record(s) report not-resistant",
+              "constraint": {
+                "kind": "environment",
+                "category": "alkali"
+              },
+              "evidenceIds": [
+                "Q05538"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cause": "new own oil/grease Good under existing category contract",
+      "explanation": "Exact own TDS cells print oils and greaseGood on nine product recordsQ05533/Q05536/Q05539/Q05544/Q05549/Q05554/Q05559/Q05564/Q05587. Existing category reducer reportsPASS with its explicit recorded-exposures/not-every-chemical caveat. Five material answers aggregate own available product evidence; these materialPASS results are not certification of every grade or universal chemical resistance. Missing agent/protocol/specimen remain in admitted notes.",
+      "changed_answers": [
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"M020\"]",
+          "level": "material",
+          "id": "M020",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05544"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05533"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05536"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"M027\"]",
+          "level": "material",
+          "id": "M027",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G027-07\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-07",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05549"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G027-08\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-08",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05554"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G027-09\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-09",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05559"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"M031\"]",
+          "level": "material",
+          "id": "M031",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G031-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G031-06",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05564"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"M160\"]",
+          "level": "material",
+          "id": "M160",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G039-11\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-11",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05587"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"M161\"]",
+          "level": "material",
+          "id": "M161",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",false,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05539"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"M020\"]",
+          "level": "material",
+          "id": "M020",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05544"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05533"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05536"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"M027\"]",
+          "level": "material",
+          "id": "M027",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G027-07\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-07",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05549"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G027-08\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-08",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05554"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G027-09\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-09",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05559"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"M031\"]",
+          "level": "material",
+          "id": "M031",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G031-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G031-06",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05564"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"M160\"]",
+          "level": "material",
+          "id": "M160",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G039-11\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-11",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05587"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"M161\"]",
+          "level": "material",
+          "id": "M161",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"strict\",true,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "oil-grease",
+          "policy": "strict",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05539"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"M020\"]",
+          "level": "material",
+          "id": "M020",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05544"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05533"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05536"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"M027\"]",
+          "level": "material",
+          "id": "M027",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G027-07\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-07",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05549"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G027-08\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-08",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05554"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G027-09\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-09",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05559"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"M031\"]",
+          "level": "material",
+          "id": "M031",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G031-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G031-06",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05564"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"M160\"]",
+          "level": "material",
+          "id": "M160",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G039-11\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-11",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05587"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"M161\"]",
+          "level": "material",
+          "id": "M161",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",false,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": false,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05539"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"M020\"]",
+          "level": "material",
+          "id": "M020",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G020-13\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-13",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05544"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G020-15\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-15",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05533"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G020-16\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G020-16",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05536"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"M027\"]",
+          "level": "material",
+          "id": "M027",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G027-07\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-07",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05549"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G027-08\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-08",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05554"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G027-09\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G027-09",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05559"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"M031\"]",
+          "level": "material",
+          "id": "M031",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G031-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G031-06",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05564"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"M160\"]",
+          "level": "material",
+          "id": "M160",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G039-11\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-11",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05587"
+              ]
+            }
+          ]
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"M161\"]",
+          "level": "material",
+          "id": "M161",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": []
+        },
+        {
+          "input": "priority-02-environment-replay.json",
+          "question_key": "[\"oil-grease\",\"exploration\",true,\"G039-12\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+          "level": "product",
+          "id": "G039-12",
+          "category": "oil-grease",
+          "policy": "exploration",
+          "infer": true,
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "before_screened": false,
+          "after_screened": false,
+          "results": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "status": "PASS",
+              "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "constraint": {
+                "kind": "environment",
+                "category": "oil-grease"
+              },
+              "evidenceIds": [
+                "Q05539"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_review_reuse": [
+    "priority-02-cached-review.json: all deciding PC-Max/TPU values and own chemical cells reread from hash-verified originals",
+    "priority-02-c07-review.json: own chamber and revised TPU identities/values/chemical cells read and approved"
+  ],
+  "acceptance_checks": [
+    {
+      "record": "M142 tensileStrengthXY",
+      "verdict": "APPROVE",
+      "source_sha256": "2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54",
+      "direct_original_reread": "p1 Tensile Strength Tensile, ISO527-1A44.7MPa; p2 printedXY0.15mm100%infill0.4mmnozzle230°C/80°Cbed.",
+      "reason": "V005759 is faithful own printed value; newly flagged estimate outlier is not evidence of transcription error or grounds to change a published datum."
+    },
+    {
+      "record": "P1366",
+      "keys": [
+        "CONTEXT-PROFILE-SETTING|P1366|Nozzle °C",
+        "CONTEXT-PROFILE-SETTING|P1366|Drying"
+      ],
+      "verdict": "APPROVE",
+      "source_sha256": "29b58f0eea9087e83257c525227d10da96e28e84682595316fd77c5c87eb36ab",
+      "direct_original_reread": "Chamber FAQ50°C+; separate Print Settings270–290°C and malformed summary0–280°C; separate drying70°C6h.",
+      "reason": "Only own chamber/enclosure scope admitted; other page blocks intentionally remain outside P1366 locator. Profile Not published cells mean no assertion in this scoped profile, not whole-source absence. Own TDS fallback remains. Exact two field keys acknowledge four source-context flags without altering broad checks."
+    }
+  ],
+  "limitations": [
+    "Environment receipt now pins before/after release metadata; answers remain identical to earlier reviewed arrays.",
+    "CategoryPASS/FAIL semantics remain current engine behavior on qualified maker class claims; no newly proven chemical service test or printed certification.",
+    "Skin badge, inclusive PC-Max moisture bound, method/attribution and drying conflicts remain held.",
+    "No application judgment creates a selection pass.",
+    "Outcome corrections in separate CHANGES_REQUIRED receipt must be completed before target closure."
+  ],
+  "prior_review": {
+    "file": "priority-02-changed-answers-review-before-attribution.json",
+    "file_sha256": "41c82893b1b6ca1b13c403347f107f8d35c75daa59513b87909648b951914c8f",
+    "review_signature_sha256": "c95e004d476f3b097dc3bd302058d91a4be952b25b55158fd5007fc0e29bc33e",
+    "after_release": "09d3c8e524a2"
+  },
+  "final_attestation": "Only final release metadata changes in the replay receipts; all11frozen/25template/72environment Changes arrays exactly equal reviewed pre-attribution receipts. Q02150 attribution annotation is narrative-only and changes no answer.",
+  "review_signature_sha256": "33be233eede7feb3193a3ff0b08ac971919586abac4d198754c04867ef809c93"
+}

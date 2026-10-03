@@ -1,0 +1,6 @@
+{
+  "Meaning": "Automatic re-fit from published inputs, not new published facts or manually narrowed estimates. Five template screen changes on G129-01/G129-02/G129-07/G111-01/G111-02 remain UNKNOWN. No estimate algorithm changed.",
+  "Source": "priority-02-changed-answers-review.json",
+  "AutomaticTemplateScreenChanges": 5,
+  "PublishedEvidence": "16newmeasurements,2existingmeasurementcorrections,78newnarrative/exposurefacts,3existingevidencecorrections,1newchamberprofile,1existingprofilecorrection,12sources"
+}
