@@ -14,6 +14,6 @@ All 12 targets retain 17 question outcomes each (204 total), original digests/lo
 
 Originals and derivatives are in the private backup: 2409 verified originals and 2815 derivatives, with the 124 already-known absent inventory entries retained. Independent review is AI, not human. Historical active time/token use was not captured reliably; no per-hour yield is invented. After five maker batches, judge benefit by useful exact-product findings/corrections and changed answers, and shorten low-return routes while completing every selected target.
 
-The standalone span omitted inside HTML tbody is an extraction limitation, not a wrong canonical direction. It is recorded in OPEN-PROBLEMS and will be repaired in its own tested commit before expanding HTML product research.
+The standalone span omitted inside HTML tbody was a reader limitation, not a wrong canonical direction. The separate [reader repair](priority-01-table-span-report.md) restores it from unchanged originals; canonical directions remain unchanged.
 
 Final schema/lint, source-context, migration refusal/idempotence, unit/import, scale/reproducibility, complete grid/product drawers, 69 browser views and 300 rendered scenarios are pinned in priority-01-verification.json and the independent release review. Snapshots and compiled differences are retained; no generated database/workbook is edited by hand.

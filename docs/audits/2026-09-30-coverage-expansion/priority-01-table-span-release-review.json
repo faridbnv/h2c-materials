@@ -1,0 +1,98 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "release": "c890d0421b03",
+  "head_before": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
+  "input_files": [
+    {
+      "path": "priority-01-table-span-review.json",
+      "sha256": "318a211a713ac90bc7afc226d016f40e5a02faf951c9300b523a9357977de914"
+    },
+    {
+      "path": "priority-01-table-span-report.md",
+      "sha256": "0585d2330d67bd9d9d57d5b300988f6391121c926db7250b819d0d39cbb9ded7"
+    },
+    {
+      "path": "priority-01-table-span-verification.json",
+      "sha256": "683b32daf290952c4b195c9e4edaff17ec859f95944900ec9dc0e2afc5bc1d7b"
+    },
+    {
+      "path": "completed-outcomes.json",
+      "sha256": "58a0a8c5cfeea297a28da4af27cf7cef7641e47ac3f07f77fcd8e3112c336db3"
+    },
+    {
+      "path": "STATUS.json",
+      "sha256": "ecac1d18bd8ce275fd20b95d06948d196b61c867e2d2306019eab3f615fa4b1c"
+    },
+    {
+      "path": "task-status.csv",
+      "sha256": "149fe6b728766aa8a4633974e7b824e59c1be60542fe8c20c23f75d15de32e5c"
+    },
+    {
+      "path": "remaining-targets.csv",
+      "sha256": "c3b50510bbc7ca7becfbdf51920b3362f36e06af98235278109e0c4ed7da0c7a"
+    }
+  ],
+  "unchanged_approved_code": "Three reviewed fileSHAs and diffSHA04e6c63fbb9d230fcb81025aa89128796b8e678801b490777d4c6add8c99969f independently rechecked unchanged. Original source facts not reread unnecessarily.",
+  "verification": {
+    "full_verify_exit": 0,
+    "warm_fast_seconds": 35.1,
+    "budget_seconds": 90,
+    "unit_tests": 488,
+    "import_tests": 208,
+    "context_accepted": 76,
+    "context_new": 0,
+    "context_stale": 0,
+    "native_views": 69,
+    "layout_failures": 0,
+    "random_scenarios": 300,
+    "readings": 2596,
+    "compiled_differences": 0,
+    "canonical_table_changes": 0,
+    "refreshed_html_derivatives": 460
+  },
+  "log_checks": {
+    "verify": {
+      "retained_log": "evidence/priority-01-table-span-verify.log",
+      "SHA256": "224ab3f416db7055faeb6858384a4d1661063428ecf6cc8fefb2d1d7ba284387"
+    },
+    "build-diff": {
+      "retained_log": "evidence/priority-01-table-span-build-diff.log",
+      "SHA256": "f26ba9f1c785373b7fedcd75427c20d579ea8b8cef11eb3468ebd45ff21cb9ef"
+    },
+    "backup": {
+      "retained_log": "evidence/priority-01-table-span-backup.log",
+      "SHA256": "5b0964e92cd39a85c1bd6df19ab82a4b1d1ccc6f8dec0445353d9d47afbd5dd2"
+    }
+  },
+  "log_custody": "All3retained external-campaign/resume-2026-10-02/evidence logs independently matched SHA256s; actual verify transcript reaches full native completion with tests488/208 fail0, current snapshots and context76/0/0. Builddiff explicitly0.",
+  "backup": {
+    "verified_originals": 2409,
+    "derived_files": 2815,
+    "known_absent_inventory": 124,
+    "new_cited_original_missing": 0
+  },
+  "ledger_closure": {
+    "commit": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
+    "data_release": "c890d0421b03",
+    "selected_products_completed": 12,
+    "selected_total": 100,
+    "selected_remaining": 88,
+    "materials_completed": 136,
+    "materials_total": 136,
+    "full_catalogue_joined_completed": 33,
+    "full_catalogue_joined_total": 1051,
+    "assessment": "Exactly12TaskIDs match previously approved204question outcome packet and their actual verified data commit; no closedtarget remains in pendingCSV. Completion means bounded documented outcomes, no selection/suitability PASS.",
+    "corrected_metadata": "Stale LatestCompletedDataRelease b27dc24f7147 identified and corrected by solewriter to c890d0421b03 before this signature; no source/code/compiled change."
+  },
+  "resolved_problem": "Removed only reproduced standalone tbodyspan reader omission from OPEN-PROBLEMS. v4 source extraction restored genuine original ±45° context; existing source wording/D91 canonicaldirections remain unchanged. Withdrawn reviewer assertion remains historical.",
+  "limitations": [
+    "IndependentAI review only; nohuman/vendor/physical validation.",
+    "Reader repair approval narrow to reviewed extraction behavior and fullregressions; no universalHTML completeness assertion.",
+    "Wholecampaign remainsincomplete; selected88otherproducts and fullcatalogue backlog remain. No additional Polymaker research or admission reviewed here."
+  ],
+  "canonical_files_edited": false,
+  "approval_scope": "Separate tested localreader-fix commit and bookkeeping closure of already verified first12product data tranche; no push.",
+  "review_signature_sha256": "099dc64755e04c78e1686aaa4c842d0906b21fcf296a7c5c62f569305139a179"
+}

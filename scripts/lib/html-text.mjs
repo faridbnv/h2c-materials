@@ -36,6 +36,14 @@ const line = (cells, y) => {
   return { y, x0: spans[0].x, x1: spans.at(-1).x + spans.at(-1).w, text: cells.join('  ').trim(), spans };
 };
 
+// Semantic/leaf blocks, without repeating inline children already represented by their parent.
+const blocksOf = (piece) => {
+  const blocks = [...piece.matchAll(/(?=<(h[1-4]|p|li|dt|dd|caption|figcaption|strong|span|div)\b[^>]*>([\s\S]*?)<\/\1>)/gi)]
+    .filter((m) => !/<(?:h[1-4]|p|li|dt|dd|caption|figcaption|div)\b/i.test(m[2]));
+  return blocks.filter((m) => !(/^(strong|span)$/i.test(m[1]) && blocks.some((parent) => parent !== m && parent.index < m.index
+    && parent.index + piece.slice(parent.index).indexOf('>') + 1 + parent[2].length > m.index)));
+};
+
 /**
  * A page's lines: its headings, its paragraphs and its tables' rows. `heading` on a line is the heading path it
  * sits under, which is what a locator for a web page names ("§ Technical data: Tensile modulus").
@@ -51,10 +59,21 @@ export function pageLinesFromHtml(html) {
   const pieces = body.split(/(<table\b[\s\S]*?<\/table>)/i);
   for (const piece of pieces) {
     if (/^<table\b/i.test(piece)) {
-      for (const row of piece.match(/<tr\b[\s\S]*?<\/tr>/gi) ?? []) {
-        const cells = (row.match(/<t[dh]\b[^>]*>[\s\S]*?<\/t[dh]>/gi) ?? [])
-          .map((c) => plainText(c.replace(TAG, ' ')));
-        push(cells);
+      const rows = [...piece.matchAll(/<tr\b[\s\S]*?<\/tr>/gi)];
+      // Some maker pages put specimen prose directly in tbody. Preserve it in source order;
+      // blocks overlapping a row are already represented by that row's cells.
+      const blocks = blocksOf(piece).filter((m) => {
+        const end = m.index + piece.slice(m.index).indexOf('>') + 1 + m[2].length + m[1].length + 3;
+        return !rows.some((r) => m.index < r.index + r[0].length && end > r.index);
+      });
+      for (const event of [...rows.map((m) => ({ m, row: true })), ...blocks.map((m) => ({ m, row: false }))].sort((a, b) => a.m.index - b.m.index)) {
+        const m = event.m;
+        if (event.row) push((m[0].match(/<t[dh]\b[^>]*>[\s\S]*?<\/t[dh]>/gi) ?? []).map((c) => plainText(c.replace(TAG, ' '))));
+        else {
+          const text = plainText(m[2].replace(TAG, ' '));
+          if (/^h[1-4]$/i.test(m[1])) heading = text;
+          push([text]);
+        }
       }
       continue;
     }
@@ -62,11 +81,7 @@ export function pageLinesFromHtml(html) {
     // A consuming match on an outer div hid its paragraphs, and the length cutoff then dropped them.
     // Inspect nested blocks without consuming their children. Keep leaf wrappers and semantic paragraphs;
     // an inline strong inside a retained paragraph is already represented by that paragraph.
-    const blocks = [...piece.matchAll(/(?=<(h[1-4]|p|li|dt|dd|caption|figcaption|strong|span|div)\b[^>]*>([\s\S]*?)<\/\1>)/gi)]
-      .filter((m) => !/<(?:h[1-4]|p|li|dt|dd|caption|figcaption|div)\b/i.test(m[2]));
-    for (const m of blocks) {
-      if (/^(strong|span)$/i.test(m[1]) && blocks.some((parent) => parent !== m && parent.index < m.index
-        && parent.index + piece.slice(parent.index).indexOf('>') + 1 + parent[2].length > m.index)) continue;
+    for (const m of blocksOf(piece)) {
       const text = plainText(m[2].replace(TAG, ' '));
       if (!text) continue;
       if (/^h[1-4]$/i.test(m[1])) { heading = text; push([text]); continue; }

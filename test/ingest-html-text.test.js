@@ -28,3 +28,17 @@ test('standalone specimen context spans survive, inline spans appear only once',
  assert.ok(!lines.some(l=>l.text==='dry filament'));
  assert.equal(lines.filter(l=>l.text==='One instruction').length,1);
 });
+
+test('standalone table-body specimen statements stay beside their own rows',()=>{
+ const context='Test performed at 1mm/min on 3D printed test specimins successively at 45° and -45° per layer.';
+ const lines=pageLinesFromHtml(`<h2>Tensile</h2><table><caption>Own test table</caption><tbody><span>${context}</span><tr><td>Young’s modulus</td><td><span>4150</span></td><td>MPa</td></tr><p>Temperature not stated</p><tr><td>Strength</td><td>50</td><td>MPa</td></tr></tbody></table>`);
+ assert.deepEqual(lines.map(l=>l.text),['Tensile','Own test table',context,'Young’s modulus  4150  MPa','Temperature not stated','Strength  50  MPa']);
+ assert.equal(lines.filter(l=>l.text===context).length,1);
+ assert.ok(!lines.some(l=>l.text==='4150'));
+ assert.deepEqual(lines[3].spans.map(s=>s.str),['Young’s modulus','4150','MPa']);
+});
+
+test('table caption inline children are not repeated as extra context',()=>{
+ const lines=pageLinesFromHtml('<table><caption>Testing <strong>dry</strong> material</caption><tr><td>Modulus</td><td>2000</td></tr><span>After <strong>annealing</strong></span></table>');
+ assert.deepEqual(lines.map(l=>l.text),['Testing dry material','Modulus  2000','After annealing']);
+});

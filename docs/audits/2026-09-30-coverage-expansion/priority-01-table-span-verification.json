@@ -1,0 +1,45 @@
+{
+  "release": "c890d0421b03",
+  "head_before": "41429e5",
+  "full_verify_exit": 0,
+  "unit_tests": 488,
+  "import_tests": 208,
+  "context": {
+    "accepted": 76,
+    "new": 0,
+    "stale": 0
+  },
+  "browser": {
+    "views": 69,
+    "random_scenarios": 300,
+    "rendered_readings": 2596,
+    "layout_failures": 0
+  },
+  "compiled_differences": 0,
+  "original_digests_changed": 0,
+  "canonical_table_changes": 0,
+  "refreshed_html_derivatives": 460,
+  "backup": {
+    "verified_originals": 2409,
+    "derived_files": 2815,
+    "known_absent_inventory": 124,
+    "new_cited_original_missing": 0
+  },
+  "logs": {
+    "verify": {
+      "retained_log": "evidence/priority-01-table-span-verify.log",
+      "SHA256": "224ab3f416db7055faeb6858384a4d1661063428ecf6cc8fefb2d1d7ba284387"
+    },
+    "build-diff": {
+      "retained_log": "evidence/priority-01-table-span-build-diff.log",
+      "SHA256": "f26ba9f1c785373b7fedcd75427c20d579ea8b8cef11eb3468ebd45ff21cb9ef"
+    },
+    "backup": {
+      "retained_log": "evidence/priority-01-table-span-backup.log",
+      "SHA256": "5b0964e92cd39a85c1bd6df19ab82a4b1d1ccc6f8dec0445353d9d47afbd5dd2"
+    }
+  },
+  "review": "Independent AI source-grounded review; no human or physical test.",
+  "warm_verify_fast_seconds": 35.1,
+  "warm_budget_seconds": 90
+}

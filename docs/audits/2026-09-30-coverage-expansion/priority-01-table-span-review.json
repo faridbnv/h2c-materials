@@ -1,0 +1,79 @@
+{
+  "reviewer_identity": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE",
+  "approval_scope": "Source-reader code/original checks only; final tested release remains pending fullQA and zero compiled diff.",
+  "head_before": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
+  "input_diff_sha256": "04e6c63fbb9d230fcb81025aa89128796b8e678801b490777d4c6add8c99969f",
+  "files": [
+    {
+      "path": "scripts/lib/html-text.mjs",
+      "sha256": "1d5f895ac5ee43e690e40e99da56d539440820d92bc0781e8f3c40772db9f869"
+    },
+    {
+      "path": "scripts/lib/pdf-text.mjs",
+      "sha256": "8a5498c33076b1b02c90266e805bf8a7625a880d75a5465520eef1e70229fcf3"
+    },
+    {
+      "path": "test/ingest-html-text.test.js",
+      "sha256": "0e5728626c68f1a7702e8a94d53760e722acd1769b37ab92eee111632107c0a4"
+    }
+  ],
+  "source_checks": [
+    {
+      "SourceID": "R-NANOVIA-PETG-CF",
+      "sha256": "5a48376883485fa1a04196c4b2b2e893eadbb3ac9856338ec2b4bba2261e47b4",
+      "original_locator": "Own45° tensile hidden tab, table/tbody standalone span immediately before Young’s modulus row",
+      "literal_statement": "Test performed at 1mm/min on 3D printed test specimins successively at 45° and -45° per layer.",
+      "own_row_modulus_MPa": 4150,
+      "reader": "html/tables v4",
+      "original_digest_verified": true,
+      "original_and_refreshed_cache_statement_occurrences": 1
+    },
+    {
+      "SourceID": "R-NANOVIA-PETG-GF-UV",
+      "sha256": "3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74",
+      "original_locator": "Own45° tensile hidden tab, table/tbody standalone span immediately before Young’s modulus row",
+      "literal_statement": "Test performed at 1mm/min on 3D printed test specimins successively at 45° and -45° per layer.",
+      "own_row_modulus_MPa": 2810,
+      "reader": "html/tables v4",
+      "original_digest_verified": true,
+      "original_and_refreshed_cache_statement_occurrences": 1
+    },
+    {
+      "SourceID": "R-NANOVIA-PETG-ESD",
+      "sha256": "5e4ad8145e40bea123fcd76ebadbf2ecf73e170d8bfd50f5f5217b2cb943e6e0",
+      "original_locator": "Own45° tensile hidden tab, table/tbody standalone span immediately before Young’s modulus row",
+      "literal_statement": "Test performed at 1mm/min on 3D printed test specimins successively at 45° and -45° per layer.",
+      "own_row_modulus_MPa": 2130,
+      "reader": "html/tables v4",
+      "original_digest_verified": true,
+      "original_and_refreshed_cache_statement_occurrences": 1
+    }
+  ],
+  "implementation_assessment": [
+    "SharedblocksOf preserves same leaf/semantic-block handling outside tables; table branch now merges non-row-overlappingblocks androws by original index. Captions and standalone tbodyspan/p context remain beside own rows.",
+    "Row-overlap exclusion and parent-inline filtering avoid duplicate cell values and inline strong/span sentences; row column spans preserved. No canonical measurement mapping, direction policy or selector change.",
+    "HTMLreader versionv4 invalidates stalev3 derivative cache; documentText recaptures from unchanged digest-verified originals. Existingrefresh-html-cache script unchanged, uses source-store locate and no network/table writes."
+  ],
+  "focused_tests": {
+    "command": "node --test test/ingest-html-text.test.js",
+    "exit": 0,
+    "tests": 5,
+    "passed": 5,
+    "new_meaningful_cases": [
+      "Standalone malformed tbodyspan+caption+p in source order with inline value notduplicated.",
+      "Caption/standalonecontext nestedstrong notduplicated."
+    ],
+    "original_checks": "Independently executed direct actualbyte reading and verified v4cachedText of all3hashes; genuine ±45 and90° prose now present exactly once.",
+    "duration_ms": 90.744125
+  },
+  "canonical_edit_check": "git status contains only reader/test and campaign completion bookkeeping changes; no CSV modification.",
+  "limitations": [
+    "This repairs extraction completeness; source printed ±45 preparation and existing D91 XY classification remain unchanged. Prior erroneous reviewer assertion withdrawn before any canonicalwrite.",
+    "This narrow regex reader has existing HTML limitations; no broad universal HTML completeness claim.",
+    "Finalrelease must pin finalcodehashes, fullverify/context checks, cache refresh/backup receipt and builddiff0 before separate localcommit."
+  ],
+  "canonical_files_edited": false,
+  "review_signature_sha256": "43264938239b38113fa13ec274d07d8cfd311a36811921f983d1f64eb206f53d"
+}

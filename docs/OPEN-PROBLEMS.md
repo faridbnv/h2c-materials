@@ -1020,14 +1020,6 @@ conditions in §§19 and 23–26 and the per-tranche packets. Physical tests, ve
 team checks remain separate from catalogue research. The original all-catalogue finish criteria are not met. The owner narrowed this run on 2026-10-02 to
 material assessment followed by 100 additional priority products; the generated status counts those separately.
 
-The HTML reader v3 retains standalone spans outside tables, but its table branch still drops a span placed directly
-inside tbody rather than inside a row/cell. The registered Nanovia PETG CF/GF UV/ESD originals print their ±45°
-preparation sentence in such a span; V011371/V011375/V011377 correctly retain that source wording and D91 direction.
-The flattened text omission must not be mistaken for a source contradiction. The withdrawn review assertion is
-retained in the priority batch history. Before expanding HTML research, repair the reader in a separate tested
-commit and refresh derivatives from the same original digests. Reproduce on original 5a48376883485fa1a04196c4b2b2e893eadbb3ac9856338ec2b4bba2261e47b4:
-raw HTML contains `successively at 45° and -45° per layer`, while pageLinesFromHtml currently omits that span.
-
 The first priority batch retains these exact-source handoffs:
 
 - Nanovia PA Rail (G049-08): maker report R-NANOVIA-PRIORITY-20261002-a570add2d2c7 is explicitly raw-material

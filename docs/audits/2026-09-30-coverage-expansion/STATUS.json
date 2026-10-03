@@ -1,6 +1,6 @@
 {
   "dataRelease": "c890d0421b03",
-  "latestCompletedDataCommit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
+  "latestCompletedDataCommit": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
     "total": 136,
@@ -9,8 +9,8 @@
   },
   "productPasses": {
     "total": 1051,
-    "completed": 21,
-    "remaining": 1030,
+    "completed": 33,
+    "remaining": 1018,
     "mergedIntoAnother": 26
   },
   "applicationCells": {
@@ -294,6 +294,18 @@
     {
       "hash": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "subject": "Review all remaining material Application judgments against originals"
+    },
+    {
+      "hash": "33301ff1bbd401ca0a760123c166c875ed78ddb5",
+      "subject": "Close 136 material assessments and freeze 100 priority product targets"
+    },
+    {
+      "hash": "f2df7b13fa6f90ca92aea5ee1f206a18e376e614",
+      "subject": "Preserve numeric bounds and standalone context in HTML source readings"
+    },
+    {
+      "hash": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
+      "subject": "Review and admit the first twelve priority Nanovia product passes"
     }
   ],
   "resumedScope": {
@@ -302,7 +314,7 @@
     "materialCompleted": 61,
     "targetAdditionalProducts": 100,
     "selectedProducts": 100,
-    "completedSelectedProducts": 0,
+    "completedSelectedProducts": 12,
     "selectionState": "100 live priority products frozen after all 136 material assessments completed; nine maker batches of at most12."
   },
   "completionMeaning": "Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes."
