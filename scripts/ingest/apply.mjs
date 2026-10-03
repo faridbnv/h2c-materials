@@ -353,9 +353,10 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
     }
 
     for (const e of accepted(proposal.evidence)) {
-      if (t.rows('evidence').some((x) => x.SourceID === e.row.SourceID && x.Locator === e.row.Locator && x.Topic === e.row.Topic)) continue;
-      const id = nextId('evidence', t.rows('evidence').map((x) => x.EvidenceID));
       const gradeId = gradeOf(e.gradeKey, e.row.GradeID);
+      // Several statements can share a heading, and a shared sheet can speak to several products.
+      if (t.rows('evidence').some((x) => x.SourceID === e.row.SourceID && x.GradeID === gradeId && x.Locator === e.row.Locator && x.Topic === e.row.Topic && x.Finding === e.row.Finding)) continue;
+      const id = nextId('evidence', t.rows('evidence').map((x) => x.EvidenceID));
       t.append('evidence', { EvidenceID: id, ...e.row, GradeID: gradeId, MaterialID: materialOf(gradeId, e.row.MaterialID) });
       note(`evidence ${id} ${e.row.Topic}`);
     }

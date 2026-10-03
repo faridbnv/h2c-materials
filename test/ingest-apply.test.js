@@ -218,6 +218,34 @@ test('applying a batch a second time adds nothing', () => {
   }
 });
 
+test('distinct statements and product scopes under one source heading survive admission and remain idempotent', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-evidence-heading-'));
+  try {
+    cpSync(join(root, 'data'), join(dir, 'data'), { recursive: true });
+    cpSync(join(root, 'schema'), join(dir, 'schema'), { recursive: true });
+    const row = { MaterialID: 'M020', GradeID: 'G020-01', Domain: "Makers' know-how", Topic: 'Good for',
+      Finding: 'Electronics housings', 'Exposure / conditions': 'Maker intended use only', 'Rating 1–5': 'Not published',
+      RubricID: 'Not applicable', 'Evidence type': 'Manufacturer statement', SourceID: source.SourceID, Locator: 'p. 1: Applications' };
+    const evidence = [
+      { row: { ...row }, review: reviewed },
+      { row: { ...row, Finding: 'PCB assembly fixtures' }, review: reviewed },
+      { row: { ...row, GradeID: 'G020-02' }, review: reviewed },
+      { row: { ...row }, review: reviewed },
+    ];
+    const p = proposal({ evidence });
+    const t = openTables(dir);
+    writeBatch(t, [p], { migration: 'test', date: '2026-09-18' });
+    t.save();
+    const rows = t.rows('evidence').filter(r => r.SourceID === source.SourceID);
+    assert.equal(rows.length, 3);
+    assert.equal(rows.filter(r => r.GradeID === 'G020-01').length, 2);
+    assert.equal(rows.filter(r => r.GradeID === 'G020-02').length, 1);
+    const again = openTables(dir);
+    assert.deepEqual(writeBatch(again, [p], { migration: 'test', date: '2026-09-18' }), []);
+    assert.deepEqual(again.changes(), []);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
 test('a batch that writes passes the gate, the lint and the core build', () => {
   const first = rehearse([proposal()], { migration: 'test', date: '2026-09-18' });
   assert.deepEqual(first.gate, [], first.gate.map((i) => i.message).join(' | '));
