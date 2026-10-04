@@ -246,6 +246,53 @@ for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplica
   }
 }
 
+// ---- a product's own sheet that prints print settings, where the product holds no profile from it (the reader round,
+// 2026-10-04). Every check above starts from a profile, so a sheet nobody made a profile for was never read again:
+// purefil's LCP sheet prints its nozzle, bed and drying, the reader read them, and the product showed no print recipe
+// because it entered before the reader learned that layout. A product reads its twin's recipe (D89), so a profile under
+// any grade of its shared formulation that cites the sheet counts.
+const SHEET_CLASSES = /Manufacturer (TDS|product page or guide|SDS)/;
+const sourceClass = new Map(rows('Sources').map((s) => [s.SourceID, s['Source class']]));
+const liveProfiles = rows('Print setup').filter((p) => p.Profile !== 'Retired duplicate record');
+const activeGrades = rows('Grades').filter((g) => g.Status === 'active');
+const fkey = new Map(activeGrades.map((g) => [g.GradeID, g['Shared formulation key'] || g.GradeID]));
+const profiled = new Set(liveProfiles.map((p) => `${fkey.get(p.GradeID) ?? p.GradeID}|${p.SourceID}`));
+// What the formulation's profiles hold, per column: a setting another revision of the sheet already gave it is held.
+const heldBy = new Map();
+for (const p of liveProfiles) for (const column of Object.values(READ_COLUMN)) {
+  const k = `${fkey.get(p.GradeID) ?? p.GradeID}|${column}`;
+  if (!/^Not published/.test(p[column] ?? 'Not published')) (heldBy.get(k) ?? heldBy.set(k, []).get(k)).push(p[column]);
+}
+const heldAlready = (gradeId, column, raw) => {
+  const read = statedOf(raw).filter((v) => /\d/.test(v));
+  return (heldBy.get(`${fkey.get(gradeId)}|${column}`) ?? []).some((h) => (read.length ? read.every((v) => statedOf(h).includes(v)) : true));
+};
+const sheetsOf = new Map();
+const own = (g, s) => { if (s && SHEET_CLASSES.test(sourceClass.get(s) ?? '')) (sheetsOf.get(g) ?? sheetsOf.set(g, new Set()).get(g)).add(s); };
+for (const g of activeGrades) own(g.GradeID, g.SourceID);
+for (const s of rows('Sources')) for (const g of String(s['Applicable grades'] ?? '').match(/G\d{3}-\d+(?:-R\d+)?/g) ?? []) if (fkey.has(g)) own(g, s.SourceID);
+for (const m of rows('Properties')) if (fkey.has(m.GradeID)) own(m.GradeID, m.SourceID);
+const STATES = /\d|\b(yes|no|not|required|recommend\w*|needed|necessary|room|ambient|closed|enclosed)\b/i;
+for (const [gradeId, sheets] of sheetsOf) {
+  for (const sourceId of sheets) {
+    if (profiled.has(`${fkey.get(gradeId)}|${sourceId}`)) continue;
+    const h = sha.get(sourceId); if (!h || !/^[0-9a-f]{64}$/.test(h)) continue;
+    if (!sheetSettings.has(sourceId)) {
+      const c = cachedText(h);
+      let settings = [];
+      if (c) { try { settings = readSheet(c, registry, { layout: LAYOUT }).settings; } catch { settings = []; } }
+      const pg = pagesOf(sourceId), pgBlocks = LAYOUT ? pagesOf(sourceId, { view: 'blocks' }) : pg;
+      sheetSettings.set(sourceId, settings.filter((x) => !/infill/i.test(x.line) && !inSpecimenBlock(x.viaLayout ? pgBlocks : pg, x)));
+    }
+    for (const x of sheetSettings.get(sourceId)) {
+      const column = READ_COLUMN[x.field];
+      if (!column || column === 'Abrasion / clogging' || !STATES.test(x.raw) || heldAlready(gradeId, column, x.raw)) continue;
+      const none = !(heldBy.get(`${fkey.get(gradeId)}|${column}`) ?? []).length;
+      addOnce('CONTEXT-PROFILE-UNRECORDED', `${gradeId} ${sourceId}`, column, `the product's own sheet prints "${x.line.slice(0, 80)}"; ${none ? 'no profile of the product holds this setting' : 'its profiles hold another reading of it'}`);
+    }
+  }
+}
+
 // ---- the baseline
 const key = (f) => `${f.code}\u0000${f.record}\u0000${f.field}`;
 const parse = (text) => text.trim().split('\n').slice(1).filter(Boolean).map((l) => { const m = l.match(/^([^,]*),([^,]*),([^,]*),"?(.*?)"?,([^,]*)$/); return m ? { code: m[1], record: m[2], field: m[3], reason: m[4].replace(/""/g, '"'), accepted: m[5] } : null; }).filter(Boolean);

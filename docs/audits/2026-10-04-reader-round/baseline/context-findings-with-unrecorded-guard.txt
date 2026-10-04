@@ -1,0 +1,449 @@
+accepted CONTEXT-DIRECTION          V000716 [Direction] the line says Z; Direction is XY — "Bending Strength (Z) ISO 178, GB/T 9341 47 ± 2 MPa 55 ± 2.1 kJ/m²;"
+accepted CONTEXT-STANDARD           V000716 [Standards] the line names ISO 178, GB/T 9341; Standards is ISO 179; GB/T 1043 — "Bending Strength (Z) ISO 178, GB/T 9341 47 ± 2 MPa 55 ± 2.1 kJ/m²;"
+accepted CONTEXT-DIRECTION          V000940 [Direction] the line says Z; Direction is XY — "Bending Strength (Z) ISO 178, GB/T 9341 80 ± 7 MPa 40.3 ± 2.5 kJ/m²;"
+accepted CONTEXT-STANDARD           V000940 [Standards] the line names ISO 178, GB/T 9341; Standards is ISO 179; GB/T 1043 — "Bending Strength (Z) ISO 178, GB/T 9341 80 ± 7 MPa 40.3 ± 2.5 kJ/m²;"
+accepted CONTEXT-DIRECTION          V001038 [Direction] the line says XY; Direction is Z — "Tensile strength (X-Y) 31.4 ± 1.5 MPa"
+accepted CONTEXT-STANDARD           V002054 [Standards] the line names ISO 178; Standards is ISO 527 — "Flexural Strength MPa ISO178 13.9"
+accepted CONTEXT-STANDARD           V004152 [Standards] the line names ASTM D1525; Standards is ASTM D648 — "VICAT A (VST) ASTM D1525 °C 96*"
+accepted CONTEXT-STANDARD           V004262 [Standards] the line names ASTM D882; Standards is ASTM D1238 — "Nominal elongation at break ASTM D882 % 6 Speed 20-200mm/s"
+accepted CONTEXT-DIRECTION          V004349 [Direction] the line says XY; Direction is ZX — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 50±4"
+accepted CONTEXT-STANDARD           V004349 [Standards] the line names ISO 527; Standards is ISO 180 — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 50±4"
+accepted CONTEXT-DIRECTION          V004370 [Direction] the line says XY; Direction is ZX — "拉伸模量(X-Y) Tensile Modulus ISO 527/2 50 mm/min MPa 363±30"
+accepted CONTEXT-DIRECTION          V004372 [Direction] the line says XY; Direction is ZX — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 18±3"
+accepted CONTEXT-DIRECTION          V004374 [Direction] the line says XY; Direction is ZX — "断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min % 5±1.5"
+accepted CONTEXT-DIRECTION          V004376 [Direction] the line says XY; Direction is ZX — "弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa 1719±200"
+accepted CONTEXT-DIRECTION          V004378 [Direction] the line says XY; Direction is ZX — "弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa 27±3"
+accepted CONTEXT-DIRECTION          V004390 [Direction] the line says XY; Direction is ZX — "拉伸模量(X-Y) Tensile Modulus ISO 527/2 50 mm/min MPa 300±50"
+accepted CONTEXT-DIRECTION          V004392 [Direction] the line says XY; Direction is ZX — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 20±5"
+accepted CONTEXT-DIRECTION          V004394 [Direction] the line says XY; Direction is ZX — "断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min % 8±3"
+accepted CONTEXT-DIRECTION          V004396 [Direction] the line says XY; Direction is ZX — "弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa 1650±300"
+accepted CONTEXT-DIRECTION          V004398 [Direction] the line says XY; Direction is ZX — "弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa 35±10"
+accepted CONTEXT-DIRECTION          V004460 [Direction] the line says XY; Direction is ZX — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 55±5"
+accepted CONTEXT-STANDARD           V004460 [Standards] the line names ISO 527; Standards is ISO 180 — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 55±5"
+accepted CONTEXT-STANDARD           V004576 [Standards] the line names ISO 527; Standards is ISO 180 — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 33±6"
+accepted CONTEXT-DIRECTION          V004602 [Direction] the line says XY; Direction is ZX — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 45±5"
+accepted CONTEXT-STANDARD           V004602 [Standards] the line names ISO 527; Standards is ISO 180 — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 45±5"
+accepted CONTEXT-DIRECTION          V004728 [Direction] the line says XY; Direction is ZX — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 73±5"
+accepted CONTEXT-STANDARD           V004728 [Standards] the line names ISO 178; Standards is ISO 180 — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 73±5"
+accepted CONTEXT-DIRECTION          V004795 [Direction] the line says XY; Direction is ZX — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 78±6"
+accepted CONTEXT-STANDARD           V004795 [Standards] the line names ISO 178; Standards is ISO 180 — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 78±6"
+accepted CONTEXT-STANDARD           V006416 [Standards] the line names ASTM D882; Standards is ASTM D1238 — "Nominal elongation at break ASTM D882 % 6 Speed 20-200mm/s"
+accepted CONTEXT-STANDARD           V007360 [Standards] the line names ASTM 3418; Standards is Not published — "Melting Point ASTM 3418 145 - 160 ºC"
+accepted CONTEXT-STANDARD           V007432 [Standards] the line names ASTM 648; Standards is Not published — "Heat Deflection (ASTM 648,66 psi) 204°F 96°C"
+accepted CONTEXT-STANDARD           V008610 [Standards] the line names ASTM D882; Standards is ASTM D1238 — "Nominelle Bruchdehnung ASTM D882 % 6 Geschwindigkeit 20-200mm/s"
+accepted CONTEXT-DIRECTION          V008819 [Direction] the line says XY; Direction is Z — "Elongation at Break (X-Y) 4.2±1.1"
+accepted CONTEXT-STANDARD           V008914 [Standards] the line names ASTM 256; Standards is Not published — "Izod Impact Strength, Notched 175 J/m 3.2mm Sample ASTM256"
+accepted CONTEXT-DIRECTION          V009194 [Direction] the line says XY; Direction is XZ — "Elongation at yield (tensile test) 5mm/min, Orientation XY 2,6 % DIN EN ISO 527-2 7)"
+accepted CONTEXT-STANDARD           V009473 [Standards] the line names ISO 306, GB/T 1633; Standards is ISO 75 — "Vicat softening temperature ISO 306,GB/T 1633 57℃"
+accepted CONTEXT-STANDARD           V009856 [Standards] the line names ASTM 3418; Standards is Not published — "ASTM 3418 145- 160 ºC"
+accepted CONTEXT-DIRECTION          V010126 [Direction] the line says XY; Direction is Z — "Notched Charpy impact strength (X-Y) ISO 179, GB/T 1043 2.9 + 0.3 kJ/m"
+accepted CONTEXT-STANDARD           V010360 [Standards] the line names GB/T 9341; Standards is GB/T 1040 — "Flexural Strength GB/T 9341 140 MPa"
+accepted CONTEXT-NOTCH              V010705 [Notch] the line says unnotched; Notch is Notched — "Izod Impact Strength (Unnotched) @ 23°C ISO 180 kJ/m?2 45 4"
+accepted CONTEXT-STANDARD           V011114 [Standards] the line names ISO 306; Standards is ISO 75 — "Vicat softening temperature 140 °C ISO 306 50 °C/h, 5 kg"
+accepted CONTEXT-STANDARD           V011163 [Standards] the line names ASTM 648; Standards is Not published — "Heat Deflection (ASTM 648,66 psi) 196°F 91°C"
+accepted CONTEXT-BOUND-SIGN         V011225 [Operator] the line prints "up to 160"; Operator is "=" — "• Heat distortion resistance up to 160°C VICAT A / 115°C HDT/B*"
+accepted CONTEXT-BOUND-SIGN         V011237 [Operator] the line prints "up to 115"; Operator is "=" — "• Heat distortion resistance up to 115°C VICAT A"
+accepted CONTEXT-DIRECTION          V011424 [Direction] the line says XY; Direction is ZX — "Modulus of elasticity 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 2.8 ± 0.3"
+accepted CONTEXT-DIRECTION          V011436 [Direction] the line says XY; Direction is ZX — "Modulus of elasticity 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 2.8 ± 0.3"
+accepted CONTEXT-PAGE-UNRECORDED    I-ESD-ABS-TDS p. 1 [Post-processing state] the page says "(after annealing)"; 7 of its rows (V000606, V000607, V000608, V000609, …) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    S-SPECTRUM-en-tds-spectrum-pp p. 1 [Moisture state] the page says "(dry, at 50"; 1 of its rows (V002673) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2 p. 6 [Specimen type] the page says "specimens printed"; 2 of its rows (V003740, V003741) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3 p. 1 [Specimen type] the page says "typical material properties – 3d printed"; 1 of its rows (V005792) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-ColorFabb-PETG-Economy-0 p. 2 [Specimen type] the page says "3d printed specimens"; 3 of its rows (V006304, V006305, V006306) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon p. 2 [Specimen type] the page says "3d printed specimens"; 4 of its rows (V006532, V006533, V006534, V006535) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0 p. 1 [Specimen type] the page says "specimens were printed"; 1 of its rows (V007190) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0 p. 1 [Moisture state] the page says "(conditioned"; 1 of its rows (V007190) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-NANOVIA-PLA-VX p. 1 [Specimen type] the page says "3d printed test samples"; 2 of its rows (V007532, V007533) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4 p. 4 [Moisture state] the page says "conditioned in standard climate (23°c, 50% rh"; 9 of its rows (V007693, V007694, V007695, V011703, …) record nothing, and no page_context row car
+accepted CONTEXT-PROFILE-SETTING    P1385 [Bed °C] its own sheet prints "heated bed capable of reaching 100–110°"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1385 [Nozzle °C] its own sheet prints "Nozzle temperature 220–250 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1385 [Enclosure] its own sheet prints "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1386 [Bed °C] its own sheet prints "heated bed capable of reaching 100–110°"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1386 [Nozzle °C] its own sheet prints "Nozzle temperature 220–250 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1386 [Enclosure] its own sheet prints "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1387 [Bed °C] its own sheet prints "Build plate temperature 60–90 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1387 [Nozzle °C] its own sheet prints "Nozzle temperature 220–250 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1387 [Enclosure] its own sheet prints "Enclosed chamber required"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1388 [Bed °C] its own sheet prints "heated bed capable of reaching 100–110°"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1388 [Nozzle °C] its own sheet prints "Nozzle temperature 230–270 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1388 [Enclosure] its own sheet prints "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1389 [Bed °C] its own sheet prints "Build plate temperature 60–90 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1389 [Nozzle °C] its own sheet prints "Nozzle temperature 210–240 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1389 [Enclosure] its own sheet prints "Enclosed chamber required"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1390 [Nozzle °C] its own sheet prints "Nozzle temperature 260–290 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1390 [Enclosure] its own sheet prints "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1391 [Bed °C] its own sheet prints "Build plate temperature 90–110 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1391 [Nozzle °C] its own sheet prints "Nozzle temperature 230–270 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1391 [Enclosure] its own sheet prints "Enclosed chamber required"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1392 [Bed °C] its own sheet prints "heated bed capable of reaching 80–100°"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1392 [Nozzle °C] its own sheet prints "Nozzle temperature 270–300 °"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P1392 [Enclosure] its own sheet prints "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P0170 [Nozzle °C] the import's sheet reader finds "Nozzle Temperature 240~260℃ (250℃ recommended)"; the profile holds "240-260 °C"
+accepted CONTEXT-PROFILE-SETTING    P0170 [Bed °C] the import's sheet reader finds "Build Platform Temperature 100~120℃ (110℃ recommended)"; the profile holds "100-120 °C"
+accepted CONTEXT-PROFILE-SETTING    P0212 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 190-220°C"; the profile holds "225-250°C"
+accepted CONTEXT-PROFILE-SETTING    P0287 [Nozzle °C] the import's sheet reader finds "Nozzle temperature Classic: 190-210 °C"; the profile holds "High-speed: 210-230 °C"
+accepted CONTEXT-PROFILE-SETTING    P0313 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "80˚C for 8h"
+accepted CONTEXT-PROFILE-SETTING    P0319 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "70˚C for 12h"
+accepted CONTEXT-PROFILE-SETTING    P0324 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "80˚C for 12h"
+accepted CONTEXT-PROFILE-SETTING    P0330 [Nozzle °C] the import's sheet reader finds "Nozzle temperature Classic: 190-210 °C"; the profile holds "High-speed: 210-230 °C"
+accepted CONTEXT-PROFILE-SETTING    P0468 [Chamber °C] the import's sheet reader finds "Ambient Temperature for Printing Ambient Temperature for Printing"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P0470 [Enclosure] the import's sheet reader finds "chamber FFF 3D printers."; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P0637 [Nozzle °C] the import's sheet reader finds "Nozzle Temperature 275 °C"; the profile holds "260~280℃(270℃ recommended)"
+accepted CONTEXT-PROFILE-SETTING    P0868 [Nozzle °C] the import's sheet reader finds "Nozzle temperature: 250 °C"; the profile holds "240 – 260 °C"
+accepted CONTEXT-PROFILE-SETTING    P0871 [Nozzle °C] the import's sheet reader finds "Nozzle temperature: 230 °C"; the profile holds "220 – 240°C"
+accepted CONTEXT-PROFILE-SETTING    P0993 [Abrasion / clogging] the import's sheet reader finds "nozzle-wear of brass nozzles faster than unfilled"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1028 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "70˚C for 8h"
+accepted CONTEXT-PROFILE-SETTING    P1034 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "80˚C for 12h"
+accepted CONTEXT-PROFILE-SETTING    P1229 [Nozzle °C] the import's sheet reader finds "Nozzle temperature: 230 °C"; the profile holds "210 – 240°C"
+accepted CONTEXT-PROFILE-SETTING    P1252 [Nozzle °C] the import's sheet reader finds "Extruder Temperature 210-250℃"; the profile holds "220 - 250℃"
+accepted CONTEXT-PROFILE-SETTING    P1257 [Bed °C] the import's sheet reader finds "Heated bed temperature | 80°C"; the profile holds "120-140 °C"
+accepted CONTEXT-PROFILE-SETTING    P1366 [Nozzle °C] the import's sheet reader finds "Printing Temperature: 270˚C - 290˚C Bed Temperature: 100˚C - 110˚C Printing Spee"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1366 [Nozzle °C] the import's sheet reader finds "Nozzle 0-280 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1366 [Drying] the import's sheet reader finds "Direct Drive: Retraction Distance: 1mm Retraction Speed: 20mm/s Indirect Drive: "; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1366 [Drying] the import's sheet reader finds "Do I need to dry ABS Pro before printing? Yes. We recommend drying ABS Pro at 70"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1376 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "80 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1377 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "75 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1378 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "100 °C; minimum drying ti
+accepted CONTEXT-PROFILE-SETTING    P1379 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "80 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1380 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "80 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1381 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "75 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1382 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "80 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1383 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "80 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1384 [Drying] the import's sheet reader finds "It should be noted that the drying temperature is precisely determined by the ty"; the profile holds "80 °C; minimum drying tim
+accepted CONTEXT-PROFILE-SETTING    P1385 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 220–250 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1385 [Bed °C] the import's sheet reader finds "Build plate temperature 100–110 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1385 [Enclosure] the import's sheet reader finds "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1385 [Drying] the import's sheet reader finds "Drying temperature 60 °C | Drying time 10 h"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1386 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 220–250 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1386 [Bed °C] the import's sheet reader finds "Build plate temperature 100–110 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1386 [Enclosure] the import's sheet reader finds "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1386 [Abrasion / clogging] the import's sheet reader finds "Hardened nozzle required No"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1387 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 220–250 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1387 [Bed °C] the import's sheet reader finds "Build plate temperature 60–90 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1387 [Enclosure] the import's sheet reader finds "Enclosed chamber required For larger components"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1387 [Abrasion / clogging] the import's sheet reader finds "Hardened nozzle required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1388 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 230–270 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1388 [Bed °C] the import's sheet reader finds "Build plate temperature 110 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1388 [Enclosure] the import's sheet reader finds "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1389 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 210–240 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1389 [Bed °C] the import's sheet reader finds "Build plate temperature 60–90 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1389 [Enclosure] the import's sheet reader finds "Enclosed chamber required For larger components"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1389 [Abrasion / clogging] the import's sheet reader finds "Hardened nozzle required No"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1390 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 260–290 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1390 [Bed °C] the import's sheet reader finds "Build plate temperature 110 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1390 [Enclosure] the import's sheet reader finds "Enclosed chamber required Yes"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1390 [Abrasion / clogging] the import's sheet reader finds "Hardened nozzle required No"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1391 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 230–270 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1391 [Bed °C] the import's sheet reader finds "Build plate temperature 90–110 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1391 [Enclosure] the import's sheet reader finds "Enclosed chamber required For larger components"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1391 [Abrasion / clogging] the import's sheet reader finds "Hardened nozzle required No"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1392 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 270–300 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1392 [Bed °C] the import's sheet reader finds "Build plate temperature 80–100 °C"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P1392 [Enclosure] the import's sheet reader finds "Enclosed chamber required Yes"; the profile holds Not published
+NEW      CONTEXT-PROFILE-UNRECORDED G001-01 XP-ecomax-r-pla-2 [Enclosure] the product's own sheet prints "Ideal for printing without a heated bed, no enclosure required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G026-01 XP-3dxstat-esd-petg-1-2 [Nozzle °C] the product's own sheet prints "Extruder Temp 260-280C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G026-02 R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe [Drying] the product's own sheet prints "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-01 R-BAMBU-PRIORITY-20261003-f9c029df1bc8 [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G028-01 R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-01 R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6 [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G032-01 R-BAMBU-PRIORITY-20261003-f50ef28e766c [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G032-01 R-BAMBU-PRIORITY-20261003-f50ef28e766c [Nozzle °C] the product's own sheet prints "Printing Temperature  240 - 270 °C  240 - 280 °C  210 - 260 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G033-01 R-BAMBU-PRIORITY-20261003-94bc784d0793 [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-01 R-BAMBU-PRIORITY-20261003-b02fd3e64625 [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G040-01 R-BAMBU-PRIORITY-20261003-693bcb42a47c [Nozzle °C] the product's own sheet prints "Nozzle Temperature (℃)  230  230"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G041-01 R-BAMBU-PRIORITY-20261003-1a684f125817 [Nozzle °C] the product's own sheet prints "Nozzle Temperature / °C  230  230"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G048-01 R-BAMBU-PRIORITY-20261003-a100c1bb3a92 [Enclosure] the product's own sheet prints "Enclosure Printer Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G059-01 R-POLYMAKER-PRIORITY-20261003-540bc284ede5 [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G065-01 R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca [Nozzle °C] the product's own sheet prints "Nozzle 260-300 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G065-01 R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G065-01 R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca [Drying] the product's own sheet prints "• Dry before printing: 100°C for 10–16h • Use a hardened steel or ruby nozzle to"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G066-01 D-FORMFUTURA-HIGH-PRECISION-PET-PAGE [Nozzle °C] the product's own sheet prints "Print temp: ± 235 – 260° C  Fan speed: 0-50%  Experience level: Intermediate"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G066-01 D-FORMFUTURA-HIGH-PRECISION-PET-PAGE [Enclosure] the product's own sheet prints "Nozzle size: ≥ 0.1mm Layer height: ≥ 0.05mm Enclosure needed: No"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G089-01 R-FILLAMENTUM-CPE-HG100-TDS [Drying] the product's own sheet prints "Conditions to re-dry 60 °C, 3–4 hours If stringing occurs, the filament is too m"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G093-01 PR-prusament-pvb [Enclosure] the product's own sheet prints "Bed Temperature: 65–85 °C Heated Bed required Enclosure not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G046-03 D-DSM-ARNITEL-ID2045-PRINT-GUIDELINE [Nozzle °C] the product's own sheet prints "Extruder: 220 - 245°C / 428 - 473°F"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G046-03 D-DSM-ARNITEL-ID2045-PRINT-GUIDELINE [Bed °C] the product's own sheet prints "Build plate temperature setting: 40-60°C / 104-140°F"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G033-02 XP-carbonx-asa-cf-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 235-255C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G033-02 XP-carbonx-asa-cf-1 [Bed °C] the product's own sheet prints "Bed Temp 90-110C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G049-03 R-SPECTRUM-PORTFOLIO-2024 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-05 R-SPECTRUM-PORTFOLIO-2024 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-11 R-SPECTRUM-PORTFOLIO-2024 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G116-01 XP-3dxstat-esd-pc-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 260-300C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G116-01 XP-3dxstat-esd-pc-1 [Bed °C] the product's own sheet prints "Bed Temp 110-120C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G024-05 XP-carbonx-petg-cf-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 230-260C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G024-05 XP-carbonx-petg-cf-1 [Bed °C] the product's own sheet prints "Bed Temp 70-90C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-04 XP-ezpc-polycarbonate-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 255-275C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-04 XP-ezpc-polycarbonate-1 [Bed °C] the product's own sheet prints "Bed Temp 90-110C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-18 XP-ecomax-r-tough-pla [Nozzle °C] the product's own sheet prints "Extruder Temp 200-230C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-18 XP-ecomax-r-tough-pla [Bed °C] the product's own sheet prints "Bed Temp 23-60C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-18 XP-ecomax-r-tough-pla [Enclosure] the product's own sheet prints "Ideal for printing without a heated bed, no enclosure required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G070-05 XP-carbonx-htn-cf [Bed °C] the product's own sheet prints "Bed Temp 110-120° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-05 XP-3dxmax-r-pc [Nozzle °C] the product's own sheet prints "Extruder Temp 280-310C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-05 XP-3dxmax-r-pc [Bed °C] the product's own sheet prints "Bed Temp 110-120C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G122-01 XP-carbonx-pekk-a-cf15-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 360-390C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G122-01 XP-carbonx-pekk-a-cf15-1 [Bed °C] the product's own sheet prints "Bed Temp 120-140C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-05 XP-3dxmax-r-asa [Nozzle °C] the product's own sheet prints "Extruder Temp 235-255C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-05 XP-3dxmax-r-asa [Bed °C] the product's own sheet prints "Bed Temp 90-110C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G123-01 XP-3dxstat-esd-pei-ultem-1010 [Nozzle °C] the product's own sheet prints "Extruder Temp 360-390°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G123-01 XP-3dxstat-esd-pei-ultem-1010 [Bed °C] the product's own sheet prints "Bed Temp 140-160°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G123-01 XP-3dxstat-esd-pei-ultem-1010 [Drying] the product's own sheet prints "Drying Specs 120°C for 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G018-04 XP-carbonx-pla-cf-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 190-220 C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G018-04 XP-carbonx-pla-cf-1 [Bed °C] the product's own sheet prints "Bed Temp 23-60 C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G018-04 XP-carbonx-pla-cf-1 [Enclosure] the product's own sheet prints "Ideal for printing without a heated bed, no enclosure required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G037-04 XP-carbonx-ezpc-cf-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 260-280C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G037-04 XP-carbonx-ezpc-cf-1 [Bed °C] the product's own sheet prints "Bed Temp 80-100C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G118-02 XP-pei-cf15 [Nozzle °C] the product's own sheet prints "Extruder Temp 365-390C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G118-02 XP-pei-cf15 [Bed °C] the product's own sheet prints "Bed Temp 140-160C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G118-02 XP-pei-cf15 [Drying] the product's own sheet prints "Drying Specs 140°C for 6-8 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-13 R-POLYMAKER-PRIORITY-20261002-a01e6574d210 [Enclosure] the product's own sheet prints "Superior Chemical and Heat Resistance PolyLite™ PETG offers enhanced chemical re"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-06 R-POLYMAKER-PRIORITY-20261003-56f939384206 [Enclosure] the product's own sheet prints "Customers praise this high-performance PC filament for producing "insanely stron"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 S-POLYCN-PolyLite-ASA-TDS-V5-3 [Nozzle °C] the product's own sheet prints "Nozzle temperature 240 – 260 (℃)"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 S-POLYCN-PolyLite-ASA-TDS-V5-3 [Chamber °C] the product's own sheet prints "Environmental temperature Room temperature - 90 (˚C)"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 S-POLYCN-PolyLite-ASA-TDS-V5-3 [Bed °C] the product's own sheet prints "Bed temperature 80 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a [Nozzle °C] the product's own sheet prints "Printing Temperature: 240˚C - 260˚C Bed Temperature: 75˚C - 95˚C Printing Speed:"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a [Drying] the product's own sheet prints "Printing Temperature: 240˚C - 260˚C Bed Temperature: 75˚C - 95˚C Printing Speed:"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-07 S-POLYMAKER-ABS-MAX-PAGE [Enclosure] the product's own sheet prints "Do I need an enclosure to print ABS Max? Yes. ABS Max requires an actively heate"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-07 R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3 [Nozzle °C] the product's own sheet prints "Nozzle 0-290 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-07 R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3 [Enclosure] the product's own sheet prints "🚨Actively Heated Enclosure Required."; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G039-11 R-POLYMAKER-PRIORITY-20261002-bd52e168c6e3 [Drying] the product's own sheet prints "Drying 50°C for 6h Compatibility Direct-drive recommended"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-12 R-POLYMAKER-PRIORITY-20261002-bc61cf2013c2 [Drying] the product's own sheet prints "Drying 50°C for 6h Compatibility Direct-drive recommended"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G057-03 R-POLYMAKER-PRIORITY-20261003-46df2b78af77 [Drying] the product's own sheet prints "Drying 80°C for 8h Compatibility ☑ Good"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-13 S-POLYFLEX-TPU95-PAGE [Drying] the product's own sheet prints "Printing Temperature: 210˚C - 230˚C Bed Temperature: 25˚C - 60˚C Printing Speed:"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G035-10 S-POLYCN-PolyLite-PC-TDS-V5-3 [Nozzle °C] the product's own sheet prints "Printing temperature 255 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G035-10 S-POLYCN-PolyLite-PC-TDS-V5-3 [Bed °C] the product's own sheet prints "Bed temperature 100 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G035-10 R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967 [Drying] the product's own sheet prints "Drying 100°C for 8h Compatibility ☑ Good"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-16 R-POLYMAKER-PRIORITY-20261002-1b7d35606338 [Drying] the product's own sheet prints "Drying 65°C for 4h Compatibility ☑ Good"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G130-01 XP-thermax-ppe-ps-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 290-320C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G130-01 XP-thermax-ppe-ps-1 [Bed °C] the product's own sheet prints "Bed Temp 90-110C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-17 R-EXTRUDR-PRIORITY-20261003-49ca17b00573 [Drying] the product's own sheet prints "Drying temperature 60 °C | Drying time 0–6 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-25 D-FIBERLOGY-FIBERWORKS-PETG-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-25 D-FIBERLOGY-FIBERWORKS-PETG-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-53 D-FIBERLOGY-FIBERWORKS-PLA-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-53 D-FIBERLOGY-FIBERWORKS-PLA-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-54 D-FIBERLOGY-PLA-VELVET-FILAMENT-S2-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-54 D-FIBERLOGY-PLA-VELVET-FILAMENT-S2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G028-07 D-FIBERLOGY-ABSGF-FILAMENT-PAGE [Nozzle °C] the product's own sheet prints "Printing temperature: 270–285°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G028-07 D-FIBERLOGY-ABSGF-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G028-07 D-FIBERLOGY-ABSGF-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-55 D-FIBERLOGY-PLA-IMPACT-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-17 R-FABRU-PUREFIL-3-material-data-sheet-ABS-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 210-260 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-17 R-FABRU-PUREFIL-3-material-data-sheet-ABS-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 80-110 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-17 R-FABRU-PUREFIL-3-material-data-sheet-ABS-purefil [Drying] the product's own sheet prints "Drying temperature | 80°C | Drying time 2-4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-17 R-FABRU-PUREFIL-3-material-data-sheet-ABS-purefil [Enclosure] the product's own sheet prints "- Needs a warm room or a closed printing"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-56 R-FABRU-PUREFIL-8503-Material-data-sheet-PLA-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 70-90°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-56 R-FABRU-PUREFIL-8503-Material-data-sheet-PLA-purefil [Drying] the product's own sheet prints "Drying temperature | 60°C | Drying time 2-4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G017-08 R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 200-260 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G017-08 R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 50-70 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G017-08 R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil [Drying] the product's own sheet prints "Drying temperature | 80°C | Drying time 2-4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-14 R-FABRU-PUREFIL-3512-material-data-sheet-PC-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 290-320 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-14 R-FABRU-PUREFIL-3512-material-data-sheet-PC-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 120-150 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G035-14 R-FABRU-PUREFIL-3512-material-data-sheet-PC-purefil [Drying] the product's own sheet prints "Drying temperature | 120 °C | Drying time 3-5 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G033-08 D-FABRU-PUREFIL-PUREFIL-ASA-CF10-FILAMENT-996-9565-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 210-260 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G135-01 D-FABRU-PUREFIL-PUREFIL-PVC-P-FILAMENT-997-9569-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 190-230 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G046-04 R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 200-240 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G046-04 R-FABRU-PUREFIL-233-Material-data-sheet-TPC-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 100-120 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G082-06 R-FABRU-PUREFIL-12071-Material-data-sheet-PP-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 70-90 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G039-24 R-FABRU-PUREFIL-241-Material-data-sheet-TPU-53D-purefil [Drying] the product's own sheet prints "Drying temperature | 80°C | Drying time 2-3h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G039-24 D-PUREFIL-TPU-53D-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 195-225 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G014-06 R-FABRU-PUREFIL-43-material-data-sheet-wood-filament-purefil [Drying] the product's own sheet prints "Drying temperature | 60 °C | Drying time 2-4 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G008-10 R-FABRU-PUREFIL-1639-material-data-sheet-PLA-Silk-purefil [Drying] the product's own sheet prints "Drying temperature | 60°C | Drying time 4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G008-10 D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 190-210 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G137-01 R-FABRU-PUREFIL-10802-Material-datasheet-COC-tough-purefil-EN [Chamber °C] the product's own sheet prints "Chamber temperature | 60-80°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-18 R-FABRU-PUREFIL-88-material-data-sheet-MABS-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 210-260 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-18 R-FABRU-PUREFIL-88-material-data-sheet-MABS-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 80-110 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-18 R-FABRU-PUREFIL-88-material-data-sheet-MABS-purefil [Drying] the product's own sheet prints "Drying temperature | 90°C | Drying time 2-4 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G038-03 R-FABRU-PUREFIL-109-material-data-sheet-PC-GF10-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 290-320 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G038-03 R-FABRU-PUREFIL-109-material-data-sheet-PC-GF10-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 120-150 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G038-03 R-FABRU-PUREFIL-109-material-data-sheet-PC-GF10-purefil [Drying] the product's own sheet prints "Drying temperature | 100 °C | Drying time 4 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G081-03 R-FABRU-PUREFIL-35-material-data-sheet-HIPS-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 70-100 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G081-03 R-FABRU-PUREFIL-35-material-data-sheet-HIPS-purefil [Drying] the product's own sheet prints "Drying temperature | 75 °C | Drying time 2 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G052-03 R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 250-270 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G052-03 R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 100-120 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G052-03 R-FABRU-PUREFIL-3514-Material-data-sheet-PA12-purefil [Drying] the product's own sheet prints "Drying temperature | 80°C | Drying time 4-12h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G139-01 R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 280-300 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G139-01 R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 120-150 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G139-01 R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil [Drying] the product's own sheet prints "Drying temperature | 150 °C | Drying time 4-6 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G140-01 R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil [Drying] the product's own sheet prints "Trocknungstemperatur | 120°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G140-01 D-FABRU-PUREFIL-PUREFIL-PBT-FILAMENT-285-7080-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 240-260 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G141-01 D-COLORFABB-LW-PET-NATURAL-PAGE [Nozzle °C] the product's own sheet prints "Advised 3D printing temperature 210-260°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G141-01 R-COLORFABB-PRINT-20260928-b1b495644f1d [Nozzle °C] the product's own sheet prints "Advised 3D printing temperature 210-260°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G142-01 R-COLORFABB-PRINT-20260928-25ef08309fc5 [Nozzle °C] the product's own sheet prints "Advised 3D printing temperature 220-240C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G141-02 D-COLORFABB-LW-PET-FLEX-NATURAL-PAGE [Nozzle °C] the product's own sheet prints "Advised 3D printing temperature 210-260°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G141-02 R-COLORFABB-PRINT-20260928-1ff56da73c86 [Nozzle °C] the product's own sheet prints "Advised 3D printing temperature 210-260°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G082-07 R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442 [Drying] the product's own sheet prints "It should be noted that the drying temperature is precisely determined by the ty"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-28 R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442 [Drying] the product's own sheet prints "It should be noted that the drying temperature is precisely determined by the ty"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-19 R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442 [Drying] the product's own sheet prints "It should be noted that the drying temperature is precisely determined by the ty"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G026-05 R-POLYMAKER-PRIORITY-20261002-06bd5efb417b [Enclosure] the product's own sheet prints "Enclosure Not needed"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-66 R-FABRU-4701-material-data-sheet-GreenTEC-Pro-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 190-250 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-66 R-FABRU-4701-material-data-sheet-GreenTEC-Pro-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 50-90 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-66 R-FABRU-4701-material-data-sheet-GreenTEC-Pro-purefil [Drying] the product's own sheet prints "Drying temperature | 80°C | Drying time 2h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-68 R-FABRU-4691-material-data-sheet-PLA-purefil [Drying] the product's own sheet prints "Drying temperature | 60°C | Drying time 4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-68 R-FABRU-PUREFIL-749-Materialdatenblatt-PLA-purefil [Drying] the product's own sheet prints "Trocknungstemperatur | 60°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-68 D-FABRU-PUREFIL-PUREFIL-PLA-FILAMENT-329-7710-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 190-230 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G053-08 R-POLYMAKER-PRIORITY-20261003-effcc17a7754 [Nozzle °C] the product's own sheet prints "Nozzle 260-300 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G053-08 R-POLYMAKER-PRIORITY-20261003-effcc17a7754 [Enclosure] the product's own sheet prints "Enclosure Not needed"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G050-10 XP-carbonx-nylon-6-cf-1 [Nozzle °C] the product's own sheet prints "Extruder Temp 240-270C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G050-10 XP-carbonx-nylon-6-cf-1 [Bed °C] the product's own sheet prints "Bed Temp 80-110C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G051-09 R-POLYMAKER-PRIORITY-20261003-02efe50f9eac [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G050-11 R-POLYMAKER-PRIORITY-20261003-aa05f44c1437 [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-29 PR-prusament-petg [Enclosure] the product's own sheet prints "Bed Temperature: 80 ± 10 °C Heated Bed Recommended Enclosure not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G098-03 D-3D4MAKERS-PEKK-A-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying Temperature: 120°C, 4 - 8 hours"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-77 PR-prusament-rpla [Enclosure] the product's own sheet prints "Bed Temperature: 40–60 °C Heated Bed Optional Enclosure not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G106-02 D-3D4MAKERS-ABS-KEVLAR-PAGE [Nozzle °C] the product's own sheet prints "Print Temperature: 260°C (250-270 °C)."; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G030-04 D-3D4MAKERS-ABS-ESD-PAGE [Nozzle °C] the product's own sheet prints "Print Temperature: 260°C (250-270 °C)."; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G024-10 D-3D4MAKERS-PETG-CARBON-PAGE [Nozzle °C] the product's own sheet prints "Print Temperature: 250°C (240-280 °C)"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G024-10 D-3D4MAKERS-PETG-CARBON-PAGE [Bed °C] the product's own sheet prints "Bed Temperature: 70°C (60-80 °C)"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G099-04 D-3D4MAKERS-PEI-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Heated bed temperature  120 - 160°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G099-04 D-3D4MAKERS-PEI-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying recommendations  120°C, minimal 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-87 PR-prusament-pla-high-speed [Nozzle °C] the product's own sheet prints "Nozzle  Temperature: 210 ± 20 °C 0.4 mm brass high-flow (CHT) nozzle"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-87 PR-prusament-pla-high-speed [Enclosure] the product's own sheet prints "Enclosure  Not necessary"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G082-08 D-YOUSU-PP-PAGE [Nozzle °C] the product's own sheet prints "Hot End Temperature:225℃-235℃ Bed Temperature:85℃ Printing Speed:30mm/s Nozzle:≥"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-90 PR-prusament-pla-recycled [Enclosure] the product's own sheet prints "Bed Temperature: 40–60 °C Heated Bed Optional Enclosure not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-34 D-3D4MAKERS-PETG-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Heated bed temperature  60 - 80°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-39 D-NINJATEK-ARMADILLO-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature 210°C – 230°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G039-39 D-NINJATEK-ARMADILLO-PAGE [Bed °C] the product's own sheet prints "Platform Temperature Room temperature to 50°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G099-06 D-3D4MAKERS-PEI-ULTEM-9085-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying recommendations  120°C, minimal 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G039-44 S-ESUN-PRINT-20260928-76aac354f18d [Drying] the product's own sheet prints "Dry at55℃/>4h，direct-drive extruder，slow printing Download"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-44 R-ESUN-PRIORITY-20261003-be26800125b2 [Drying] the product's own sheet prints "Dry at55℃/>4h，direct-drive extruder，slow printing Download"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G081-06 R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8 [Enclosure] the product's own sheet prints "Enclosure T° 110 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G029-07 S-SIDDAMENT-PRINT-20260928-6200f886fd3f [Drying] the product's own sheet prints "💨 Drying 60-70°C / 6-8 hours ? Although the value above is the textbook drying "; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G024-16 R-QIDI-FILAMENT-GUIDE [Drying] the product's own sheet prints "Blast Drying Oven: 70-80°C / 4-6 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G028-10 R-QIDI-FILAMENT-GUIDE [Drying] the product's own sheet prints "Blast Drying Oven: 70-80°C / 4-6 h"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G025-04 R-QIDI-FILAMENT-GUIDE [Drying] the product's own sheet prints "Blast Drying Oven: 70-80°C / 4-6 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-32 R-QIDI-FILAMENT-GUIDE [Drying] the product's own sheet prints "Blast Drying Oven: 80-100°C / 4-6 h"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-44 R-QIDI-FILAMENT-GUIDE [Drying] the product's own sheet prints "Blast Drying Oven: 70-80°C / 4-6 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G045-07 R-QIDI-PRINT-20260928-1988d9088956 [Drying] the product's own sheet prints "Blast Drying Oven: 70-80°C / 4-6 h"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-26 R-FABRU-16-material-datat-sheet-ASA-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 210-260 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-26 R-FABRU-16-material-datat-sheet-ASA-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 80-100 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-26 R-FABRU-16-material-datat-sheet-ASA-purefil [Drying] the product's own sheet prints "Drying temperature | 80 °C | Drying time 2-4 h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-26 R-FABRU-PUREFIL-17-Materialdatenblatt-ASA-purefil [Drying] the product's own sheet prints "Trocknungstemperatur | 80 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-26 D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 210-260 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-47 PR-prusament-petg-v0 [Drying] the product's own sheet prints "Drying filament Prusament PETG V0 needs to be kept as dry as possible as it’s mo"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G138-02 R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 240-280 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G138-02 R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 80-120 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G138-02 D-FABRU-PUREFIL-HDPE-GF20-FILAMENT-169-1313-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 240-280 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G039-52 D-MATTERHACKERS-MH-BUILD-TPU-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 240±10 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-52 D-MATTERHACKERS-MH-BUILD-TPU-PAGE [Bed °C] the product's own sheet prints "Bed Temperature: 50±10 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-123 D-MATTERHACKERS-MH-BUILD-PLA-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 205±15°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-50 D-MATTERHACKERS-MH-BUILD-PETG-2-85MM-PAGE [Bed °C] the product's own sheet prints "Bed Temperature: 60±10 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G026-09 D-MATTERHACKERS-PRO-ESD-PETG-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 220–240 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G026-09 D-MATTERHACKERS-PRO-ESD-PETG-PAGE [Bed °C] the product's own sheet prints "Bed Temperature: 100–110 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-130 D-MATTERHACKERS-MH-BUILD-PLA-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 205±15°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-59 R-ESSENTIUM-TDS-Essentium-TPU-95A-Z [Nozzle °C] the product's own sheet prints "Nozzle Temperature, ºC 230 – 250 Ex. Multiplier (Flow) 1.05"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G039-59 R-ESSENTIUM-TDS-Essentium-TPU-95A-Z [Bed °C] the product's own sheet prints "Bed Temperature, ºC 50 – 80"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-144 PR-pla-2 [Enclosure] the product's own sheet prints "Bed Temperature: 40–60 °C Heated Bed Optional Enclosure not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-57 R-FABRU-2187-Material-data-sheet-PETG-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 210-260 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-57 R-FABRU-2187-Material-data-sheet-PETG-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 50-80 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-57 R-FABRU-2187-Material-data-sheet-PETG-purefil [Drying] the product's own sheet prints "Drying temperature | 65°C | Drying time 2-4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-57 R-FABRU-PUREFIL-2186-Materialdatenblatt-PETG-purefil [Drying] the product's own sheet prints "Trocknungstemperatur | 65°C | Drying time 2-4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-57 D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 210-260 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G136-02 R-FABRU-3542-Material-data-sheet-SAN-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 230-260 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G136-02 R-FABRU-3542-Material-data-sheet-SAN-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 90-110 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G136-02 R-FABRU-3542-Material-data-sheet-SAN-purefil [Drying] the product's own sheet prints "Drying temperature | 80°C | Drying time 4-6h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G136-02 R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil [Drying] the product's own sheet prints "Trocknungstemperatur | 80°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G136-02 D-FABRU-PUREFIL-PUREFIL-SAN-FILAMENT-309-7549-PAGE [Nozzle °C] the product's own sheet prints "Nozzle temperature: 230-260 ° C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-59 PR-prusament-petg-recycled [Enclosure] the product's own sheet prints "Bed Temperature: 80 ± 10 °C Heated Bed Recommended Enclosure not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G059-02 R-QIDI-PRINT-20260928-2c4a151ce07e [Drying] the product's own sheet prints "Blast Drying Oven: 70-80°C / 4-6 h"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G029-10 D-3DJAKE-ABS-CF-BLACK-1-PAGE [Enclosure] the product's own sheet prints "► Important Information: Carbon fibres are highly abrasive, so a hardened nozzle"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G029-10 R-3DJAKE-PRINT-20260928-e2f72ffa8080 [Enclosure] the product's own sheet prints "► Important Information: Carbon fibres are highly abrasive, so a hardened nozzle"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G147-01 R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT [Nozzle °C] the product's own sheet prints "Printing temperature °C 265 - 290"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-62 D-FORMFUTURA-REFORM-RPET-PAGE [Nozzle °C] the product's own sheet prints "Print temp: ± 230 – 255° C  Fan speed: 0 – 50%  Experience level: Beginner"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-62 D-FORMFUTURA-REFORM-RPET-PAGE [Bed °C] the product's own sheet prints "Heat bed: ± 60 – 80° C  Enclosure: No / Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-62 D-FORMFUTURA-REFORM-RPET-PAGE [Enclosure] the product's own sheet prints "Heat bed: ± 60 – 80° C Enclosure: No / Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-35 D-CREATBOT-ASA-PAGE [Enclosure] the product's own sheet prints "Is CreatBot ASA filament compatible with other brands of 3D printers?"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-171 D-FIBERLOGY-FIBERSILK-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 60°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-171 D-FIBERLOGY-FIBERSILK-PAGE [Drying] the product's own sheet prints "Drying conditions: 40°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-171 D-FIBERLOGY-FIBERSILK-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G151-01 R-SIRAYA-COVERAGE-20260930-c2563ad36bc5 [Nozzle °C] the product's own sheet prints "Printing Temperature: 220 - 250°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-175 D-FIBERLOGY-FIBERSATIN-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 60°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-175 D-FIBERLOGY-FIBERSATIN-PAGE [Drying] the product's own sheet prints "Drying conditions: 40°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-175 D-FIBERLOGY-FIBERSATIN-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G149-03 R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8 [Chamber °C] the product's own sheet prints "Room Temp. Room Temperature"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-177 D-3D4MAKERS-FACILAN-C8-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Bed Temperature : 35-50 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-177 D-3D4MAKERS-FACILAN-C8-FILAMENT-PAGE [Nozzle °C] the product's own sheet prints "Print Temperature : 195 °C (180-210°C)."; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-178 XP-simubone-r [Nozzle °C] the product's own sheet prints "Extruder Temp 220-240C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-178 XP-simubone-r [Bed °C] the product's own sheet prints "Bed Temp 23-60C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G075-08 R-FABRU-220-Material-data-sheet-PVA-purefil [Nozzle °C] the product's own sheet prints "Printing temperature | 190-220 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G054-02 D-MATTERHACKERS-NYLONG-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 65°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G054-02 R-MATTERHACKERS-PRINT-20260928-287fb08e4373 [Bed °C] the product's own sheet prints "Bed temperature: 65°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G153-01 R-COVERAGE-20261001-28aad1fe7597 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G137-03 R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN [Bed °C] the product's own sheet prints "Heated bed temperature | 50-70°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G137-03 R-FABRU-10857-Material-datasheet-COC-flex-purefil-EN [Chamber °C] the product's own sheet prints "Chamber temperature | 60-80 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G075-11 R-POLYMAKER-WIKI-POLYDISSOLVE-S1 [Enclosure] the product's own sheet prints "Closure Chamber No Needed"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G153-02 R-COVERAGE-20261001-28aad1fe7597 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-51 D-FORMFUTURA-REFORM-RTITAN-PAGE [Nozzle °C] the product's own sheet prints "Print temp: ± 245 – 265° C  Fan speed: 0 – 30%  Experience level: Intermediate"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-51 D-FORMFUTURA-REFORM-RTITAN-PAGE [Bed °C] the product's own sheet prints "Heat bed: ± 80 – 90° C  Enclosure: No / Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-51 D-FORMFUTURA-REFORM-RTITAN-PAGE [Enclosure] the product's own sheet prints "Heat bed: ± 80 – 90° C Enclosure: No / Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-52 D-FIBERLOGY-RABS-FILAMENT-S2-PAGE [Nozzle °C] the product's own sheet prints "Printing temperature: 220–250°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-52 D-FIBERLOGY-RABS-FILAMENT-S2-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 100°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-52 D-FIBERLOGY-RABS-FILAMENT-S2-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-52 D-FIBERLOGY-RABS-FILAMENT-S2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G076-04 D-FIBERLOGY-BVOH-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 60°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G076-04 D-FIBERLOGY-BVOH-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G076-04 D-FIBERLOGY-BVOH-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-53 D-FIBERLOGY-ABS-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 100°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-53 D-FIBERLOGY-ABS-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4h"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-53 D-FIBERLOGY-ABS-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-67 D-FIBERLOGY-PETG-FR-V0-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G024-23 D-FIBERLOGY-PETGCF-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G024-23 D-FIBERLOGY-PETGCF-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G081-11 D-FIBERLOGY-HIPS-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G081-11 D-FIBERLOGY-HIPS-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-68 D-FIBERLOGY-EASY-PETG-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-68 D-FIBERLOGY-EASY-PETG-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G094-11 D-FIBERLOGY-PC-ABS-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 70°C / 4 hours"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G094-11 D-FIBERLOGY-PC-ABS-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-54 D-FIBERLOGY-ABS-PLUS-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 100°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-54 D-FIBERLOGY-ABS-PLUS-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-54 D-FIBERLOGY-ABS-PLUS-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-55 D-FIBERLOGY-EASY-ABS-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 100°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-55 D-FIBERLOGY-EASY-ABS-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-55 D-FIBERLOGY-EASY-ABS-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-40 D-FIBERLOGY-ASA-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 80°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-40 D-FIBERLOGY-ASA-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-71 D-FIBERLOGY-RPETG-FILAMENT-S2-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-71 D-FIBERLOGY-RPETG-FILAMENT-S2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G082-13 D-FIBERLOGY-RPP-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G082-13 D-FIBERLOGY-RPP-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-185 D-FIBERLOGY-RPLA-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 60°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-185 D-FIBERLOGY-RPLA-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-185 D-FIBERLOGY-RPLA-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G089-05 D-FIBERLOGY-CPE-HT-S2-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 80°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G089-05 D-FIBERLOGY-CPE-HT-S2-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-186 D-FIBERLOGY-HS-PLA-CLEAR-FILAMENT-S2-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-186 D-FIBERLOGY-HS-PLA-CLEAR-FILAMENT-S2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G099-11 D-FIBERLOGY-PEI-9085-FILAMENT-2-PAGE [Drying] the product's own sheet prints "Drying conditions: 120°C / 6 hours – Higher drying temperatures may cause the sp"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G099-11 D-FIBERLOGY-PEI-9085-FILAMENT-2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: >80°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G110-03 D-FIBERLOGY-PCTGGF-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 100°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G110-03 D-FIBERLOGY-PCTGGF-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 60°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G110-03 D-FIBERLOGY-PCTGGF-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-187 D-FIBERLOGY-MATTE-PLA-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-187 D-FIBERLOGY-MATTE-PLA-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G001-188 D-RECREUS-PLA-PAGE [Enclosure] the product's own sheet prints "Enclosure is not recommended for PLA"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-41 D-FIBERLOGY-ASA-MATTE-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying conditions: 80°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-41 D-FIBERLOGY-ASA-MATTE-FILAMENT-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G012-07 S-SPECTRUM-de-tds-spectrum-pla-stone-age [Bed °C] the product's own sheet prints "Heizbetttemperatur 0-45°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G012-07 D-SPECTRUM-PLA-STONE-PAGE [Enclosure] the product's own sheet prints "Enclosure not necessary"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G129-07 D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE [Drying] the product's own sheet prints "Drying conditions: 80°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G129-07 D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-PAGE [Nozzle °C] the product's own sheet prints "Printing temperature: 190–210°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 60°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 6 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-S2-PAGE [Nozzle °C] the product's own sheet prints "Printing temperature: 190–210°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-S2-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 60°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-S2-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 6 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G014-20 D-FIBERLOGY-FIBERWOOD-S2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G093-06 D-FIBERLOGY-FIBERSMOOTH-PAGE [Drying] the product's own sheet prints "Drying conditions: 40°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G093-06 D-FIBERLOGY-FIBERSMOOTH-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G168-01 R-BIGREP-Ec5wx9MmYX1KseTcD5XV1IABzL0ure69YNjObGyOPwDL-w [Drying] the product's own sheet prints "Drying Recommendations 50 TS for 4 - 6 âours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G164-01 D-FILLAMENTUM-NYLON-FX256-GUIDE [Nozzle °C] the product's own sheet prints "Printing temperature: 235 – 255 °C Heated bed surface: mirror / glass, (PEI)"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G164-01 D-FILLAMENTUM-NYLON-FX256-GUIDE [Bed °C] the product's own sheet prints "Heated bed temperature: 90 – 110 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G164-01 D-FILLAMENTUM-NYLON-FX256-GUIDE [Enclosure] the product's own sheet prints "Part cooling fan: 0 % Heated chamber / enclosure: recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G167-04 D-FIBERLOGY-MATTFLEX-40D-PAGE [Bed °C] the product's own sheet prints "Bed temperature: 70°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G167-04 D-FIBERLOGY-MATTFLEX-40D-PAGE [Drying] the product's own sheet prints "Drying conditions: 50°C / 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G167-04 D-FIBERLOGY-MATTFLEX-40D-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: not required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G170-01 R-FABRU-10204-material-data-sheet-TPS-40D-purefil [Drying] the product's own sheet prints "Drying temperature | 80 °C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G173-01 R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1 [Drying] the product's own sheet prints "Trocknungstemperatur 6"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G167-13 R-FABRU-10255-Material-data-sheet-TPV-98A-purefil [Bed °C] the product's own sheet prints "Heated bed temperature | 80-95 °C"; no profile of the product holds this setting
+audit:context: 448 finding(s): 142 accepted, 306 new {"CONTEXT-DIRECTION":23,"CONTEXT-STANDARD":21,"CONTEXT-NOTCH":1,"CONTEXT-BOUND-SIGN":2,"CONTEXT-PAGE-UNRECORDED":10,"CONTEXT-PROFILE-SETTING":85,"CONTEXT-PROFILE-UNRECORDED":306}, 0 stale

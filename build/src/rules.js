@@ -122,6 +122,7 @@ export const RULES = {
   'CONTEXT-STANDARD': r('warn', 'audit', 'A value\'s own line names a standard its row does not name, or a different one (RC3, RC4).', 'Re-read the page and correct Standard / load and Standards, or accept with the reason.'),
   'CONTEXT-PAGE-UNRECORDED': r('warn', 'audit', 'A page states once a specimen form, moisture state or treatment for its values, its rows record nothing, and no page_context row carries it (D116, RC3).', 'Add the page\'s page_context row, or correct the rows, or accept with the reason.'),
   'CONTEXT-PROFILE-SETTING': r('warn', 'audit', 'A profile\'s own sheet prints a print setting (a bed or nozzle window, "Hardened Nozzle no") the profile does not hold or contradicts (RC8).', 'Re-read the sheet and correct the profile, or accept with the reason.'),
+  'CONTEXT-PROFILE-UNRECORDED': r('warn', 'audit', 'A product\'s own sheet prints a print setting and the product (or a product sharing its formulation) holds no profile from that sheet, so the setting never reaches its print recipe (the reader round, D125).', 'Record the sheet\'s profile by migration, or accept with the reason (a setting for another product of the sheet, a test-bar setting).'),
   'AUDIT-SOURCE-SCOPE': r('error', 'audit', 'A record uses a grade its source does not list under Applicable grades.', 'Add the grade to the source scope, or cite the right source.'),
 
   // ---- runtime contract (build/src/contract.js) ---------------------------------------------------------

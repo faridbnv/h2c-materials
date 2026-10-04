@@ -126,7 +126,7 @@ its plausible range wholly fails.
 |---|---:|---:|---:|---:|---:|---:|
 | density | 830 | 118 | 81% | 96% | ×1.11 | 0.0255 (14342 pairs) |
 | tensileModulusXY | 1155 | 83 | 81% | 95% | ×1.52 | 0.32 (1288 pairs) |
-| tensileStrengthXY | 1125 | 64 | 81% | 95% | ×1.46 | 0.236 (2567 pairs) |
+| tensileStrengthXY | 1124 | 64 | 81% | 95% | ×1.46 | 0.236 (2567 pairs) |
 | elongationXY | 1008 | 83 | 81% | 95% | ×3.74 | 0.687 (2385 pairs) |
 | hdt045 | 1003 | 81 | 80% | 95% | 20.1 °C | 4.51 (3714 pairs) |
 
