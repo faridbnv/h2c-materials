@@ -171,8 +171,9 @@ const { readSheet, testBlockAt } = await import('../ingest/propose.mjs');
 const registry = new Map(rows('Property registry').map((p) => [p.Property, p]));
 const SPECIMENS = /printed specimen conditions|specimen (preparation|conditions)[:\s]|test specimens?( were)? (3d )?printed|print test condition|specimens were printed at the following/i;
 // The numbers a cell states, and an open end's sign: what two readings of one setting must share.
+// A Fahrenheit window printed beside the Celsius one ("260-300℃/500-572℉") is the same setting, not a second one.
 // "for more than 4 hours" states the open end ">4h" states (Siraya Tech's two wordings of one schedule).
-const statedOf = (v) => (String(v).replace(/\b(?:more than|at least|over|above)\b\s*/gi, '> ').match(/\d+(?:[.,]\d+)?|[+<>＞≥≤]/g) ?? []).map((n) => n.replace(',', '.').replace('＞', '>'));
+const statedOf = (v) => (String(v).replace(/[-–~\d.,\s]*\d\s*(?:℉|°\s?F\b)/g, ' ').replace(/\b(?:more than|at least|over|above)\b\s*/gi, '> ').match(/\d+(?:[.,]\d+)?|[+<>＞≥≤]/g) ?? []).map((n) => n.replace(',', '.').replace('＞', '>'));
 const READ_COLUMN = { nozzle: 'Nozzle °C', bed: 'Bed °C', chamber: 'Chamber °C', enclosure: 'Enclosure', drying: 'Drying', 'nozzle-material': 'Abrasion / clogging' };
 const sheetSettings = new Map();
 // A setting a few lines under "How to make specimens", "printed under the following conditions" or a line that states an
