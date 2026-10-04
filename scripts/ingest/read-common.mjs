@@ -118,7 +118,7 @@ export async function loadDocument({ sha, sourceId = '' }) {
   for (const n of new Set([...line.keys(), ...(blockPages?.keys() ?? []), ...(ocr?.keys() ?? [])])) {
     pages.set(n, { line: line.get(n) ?? [], block: blockPages?.get(n) ?? [], ocr: ocr?.get(n) ?? [], squeezed: text?.pages.find((p) => Number(p.page) === n)?.squeezed ?? '' });
   }
-  return { sha, kind: text?.html || text?.raw ? 'html' : text ? 'pdf' : located.bytes === 'present' ? 'unread' : 'none', source, pages, blockAvailable: Boolean(blockPages), ocrAvailable: Boolean(ocr), title: text?.title ?? null, bytes: located.bytes };
+  return { sha, kind: text?.html || text?.raw ? 'html' : text ? 'pdf' : located.bytes === 'present' ? 'unread' : 'none', source, pages, blockAvailable: Boolean(blockPages), ocrAvailable: Boolean(ocr), title: text?.title ?? null, raw: Boolean(text?.raw), bytes: located.bytes };
 }
 
 /** A document built from lines you hand it (the tests, and any caller with its own text). */

@@ -56,9 +56,17 @@ find in any is `visual-only` and gets an independent second read.
 | `unmapped` | A `value` whose field starts `unmapped:`. |
 | `not-on-page` | A held row the reader could not find; the reconciler looks for the held value on the page itself and turns the row into `confirms` (`reader-missed-held-row`) if it is there. |
 
+A `value` row goes to `unmapped.csv` (record tier) rather than a table property when its property is not in
+`properties.csv`, its unit is not one that property is recorded in, or it prints a power of ten (`>10^3 - 10^7 Ohm/sq`);
+`invalid.csv` holds broken rows only (bad kind, unknown source, bad page, wrong column count). A product written twice
+(same source, page, kind, field, grade or product, numbers, direction, moisture, post-processing) is read once; the rest
+are listed in `duplicates.csv`.
+
 A row needs a **second read** when it is `visual-only`, a `mismatch`, or a `new` decision field (nozzle, bed, chamber,
 enclosure, drying, hardened_nozzle; tensile strength, tensile modulus, elongation at break, density, HDT, glass
-transition, Charpy, Izod). It is `agreed` when an independent reading of the same source, page, field and product gives
+transition, Charpy, Izod). The importer's own sheet reader (`readSheet`, layout on) is an independent second reader: where it reads the same field
+and numbers on the same page (a setting; drying may omit its hours), or the same property and number on the same page (a
+value), the row is `agreed-reader` and gets no task. Otherwise it is `agreed` when an independent reading of the same source, page, field and product gives
 the same numbers (conditions that disagree outright make it `disagrees`).
 
 ## Worked examples

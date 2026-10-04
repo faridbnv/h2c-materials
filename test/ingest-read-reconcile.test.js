@@ -105,10 +105,53 @@ test('a page value in the other state is not the held row\'s: dry against condit
   assert.equal(r.Class, 'new');
 });
 
-test('a unit the unit in the table does not know is refused, not guessed at', async () => {
-  const result = await run([value({ field: 'Density', number_lo: '1.22', unit: 'furlongs', quote: 'x' }), value({ field: 'Nonsense', number_lo: '1', quote: 'x' }), { ...row({ source_id: 'S-1', page: '1', kind: 'sparkle' }) }]);
-  assert.equal(result.rows.length, 0);
-  assert.deepEqual(result.invalid.map((r) => r.bad[0].split(':')[0]), ['unit-unknown', 'property-unknown', 'kind']);
+test('only a broken row is invalid; a unit the property is not recorded in, an unknown property or a power of ten goes to the record tier', async () => {
+  const result = await run([
+    value({ field: 'Density', number_lo: '1.23', unit: 'furlongs', quote: 'Density ISO 1183 1,22 g/cm³', i: 1 }),
+    value({ field: 'Nonsense', number_lo: '1', quote: 'x', i: 2 }),
+    row({ source_id: 'S-1', page: '1', kind: 'sparkle', i: 3 }),
+    value({ field: 'Density', number_lo: '10^3', number_hi: '10^7', unit: 'Ohm/sq', raw: '>10^3 - 10^7 Ohm/sq', quote: 'x', i: 4 }),
+    value({ field: 'Density', number_lo: '1.22', unit: 'g/cm³', raw: '1,22 g/cm³', quote: 'Density ISO 1183 1,22 g/cm³', i: 5 }),
+    value({ field: 'Tensile modulus', number_lo: '1', unit: 'g/cm³', quote: 'x', i: 6 }),
+    row({ source_id: 'NOPE', page: '1', kind: 'value', field: 'Density', i: 7 }),
+  ]);
+  assert.deepEqual(result.invalid.map((r) => r.bad[0].split(':')[0]), ['kind', 'source-unknown']);
+  assert.deepEqual(result.rows.map((r) => r.Class), ['unmapped', 'unmapped', 'unmapped', 'confirms', 'unmapped']);
+  assert.match(result.rows[0].Flags, /unit-not-for-property:furlongs/);
+  assert.match(result.rows[1].Flags, /property-unknown:Nonsense/);
+  assert.match(result.rows[2].Flags, /exponent/);
+  assert.match(result.rows[4].Flags, /unit-not-for-property:g\/cm³/);
+});
+
+test('a product written twice in a batch is one reading', async () => {
+  const one = { field: 'HDT', number_lo: '55', unit: '°C', quote: 'Bed Temperature 35 - 45 °C' };
+  const result = await run([value({ ...one, i: 1 }), value({ ...one, reader: 'other', i: 2 }), value({ ...one, number_lo: '56', i: 3 }), value({ ...one, direction: 'Z', i: 4 })]);
+  assert.equal(result.rows.length, 3);
+  assert.deepEqual(result.duplicates.map((d) => d.of), ['t#1']);
+});
+
+test('the importer\'s own reader agrees with a vision row on the same page and numbers: no human second read is asked for', async () => {
+  const machine = {
+    settings: [{ page: 3, field: 'chamber', raw: '60 °C', numbers: [60] }, { page: 1, field: 'drying', raw: '55 °C, 8 h', numbers: [55, 8] }, { page: 1, field: 'bed', raw: '35 - 45 °C', numbers: [35, 45] }],
+    values: [{ page: 1, property: 'HDT', number: '55', direction: 'Not applicable' }, { page: 1, property: 'Tensile strength (endpoint unspecified)', number: '38', direction: 'XY' }],
+  };
+  const withMachine = (rows, seconds = []) => reconcile({ rows, seconds, tables, documentFor: async () => doc, machineFor: async () => machine });
+  const result = await withMachine([
+    setting({ field: 'chamber', page: '3', number_lo: '60', quote: 'Chamber Temperature 60 °C', i: 1 }),
+    setting({ field: 'chamber', page: '3', number_lo: '61', quote: 'Chamber Temperature 60 °C', i: 2 }),
+    setting({ field: 'bed', number_lo: '35', number_hi: '45', quote: 'Bed Temperature 35 - 45 °C', i: 3 }),
+    value({ field: 'HDT', number_lo: '55', unit: '°C', quote: 'Bed Temperature 35 - 45 °C', i: 4 }),
+    value({ field: 'Tensile strength (endpoint unspecified)', number_lo: '39', direction: 'Z', quote: 'Tensile Strength (Z) ISO 527 39 ± 2 MPa', i: 5 }),
+    setting({ field: 'drying', number_lo: '55', test_conditions: 'hours=8', quote: 'Blast Drying Oven: 55 °C, 8 h', i: 6 }),
+  ]);
+  assert.deepEqual(result.rows.map((r) => r.SecondRead), ['agreed-reader', 'pending', 'agreed-reader', 'agreed-reader', 'pending', 'not-required']);
+  assert.equal(result.tasks.length, 2, 'a task only where neither reader has agreed');
+  assert.equal(result.machineStats.newDecision, 3);
+  assert.equal(result.machineStats.newDecisionAgreed, 2);
+  assert.deepEqual([result.machineStats.mismatch, result.machineStats.mismatchAgreed], [2, 1]);
+  // a human second read still counts, and a disagreeing one is not overridden by the machine
+  const human = { ...setting({ field: 'chamber', page: '3', number_lo: '99', quote: 'x' }), RowID: 's#1' };
+  assert.equal((await withMachine([setting({ field: 'chamber', page: '3', number_lo: '60', quote: 'Chamber Temperature 60 °C' })], [human])).rows[0].SecondRead, 'disagrees');
 });
 
 test('settings are compared with the profile: same range confirms, other range mismatches, none held is new', async () => {
@@ -127,7 +170,7 @@ test('settings are compared with the profile: same range confirms, other range m
 });
 
 test('a held row the reader could not find is looked for on the page: found there, it is a confirmation the reader missed', async () => {
-  const there = await only(value({ field: 'Density', verdict: 'not-on-page', held_id: 'V3', quote: '' }));
+  const there = await only(value({ field: 'Density', unit: 'g/cm³', verdict: 'not-on-page', held_id: 'V3', quote: '' }));
   assert.equal(there.Class, 'confirms'); assert.match(there.Flags, /reader-missed-held-row/);
   const gone = await only(value({ field: 'Tensile modulus', verdict: 'not-on-page', held_id: 'V4', page: '1', quote: '' }));
   assert.equal(gone.Class, 'not-on-page'); assert.match(gone.Flags, /held-value-not-on-page/);

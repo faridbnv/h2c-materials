@@ -18,7 +18,7 @@
 // or to the document cache's text, sources, ocr or pages folders.
 
 import { execFileSync, spawn } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { DOCUMENT_CACHE, projectRoot } from './context.mjs';
@@ -48,7 +48,7 @@ const textLines = (doc) => {
     const p = doc.pages.get(n);
     const lines = doc.blockAvailable && p.block.length ? p.block : p.line;
     if (lines.length < 3 && p.ocr.length > lines.length) out.push(...p.ocr.map((t) => `[p${n} ocr] ${t}`));
-    else if (lines.length > 400) out.push(...lines.slice(0, 400).map((t) => `[p${n}] ${t}`), `[p${n}] (${lines.length - 400} more lines not shown)`);
+    else if (doc.raw && lines.length > 400) out.push(...lines.slice(0, 400).map((t) => `[p${n}] ${t}`), `[p${n}] (${lines.length - 400} more lines not shown)`);
     else out.push(...lines.map((t) => `[p${n}] ${t}`));
     if (!lines.length && !p.ocr.length) out.push(`[p${n}] (no text on this page: read the image)`);
   }
@@ -75,10 +75,16 @@ async function main() {
   const targetsPath = resolve(projectRoot, arg('targets', join(dirname(docsPath), 'TARGETS.csv')));
   const round = arg('round', 'r1');
   const tier = arg('tier');
-  const only = arg('only')?.split(',');
+  const root = join(DOCUMENT_CACHE, 'readings', round);
+  let only = arg('only')?.split(',');
+  // A packet written when the cap applied to every page: --only-truncated finds those (their text.txt says so) and redoes only them.
+  if (flag('only-truncated')) {
+    const cut = readdirSync(root, { withFileTypes: true }).filter((e) => e.isDirectory() && existsSync(join(root, e.name, 'text.txt')) && readFileSync(join(root, e.name, 'text.txt'), 'utf8').includes('more lines not shown')).map((e) => e.name);
+    console.log(`truncated packets: ${cut.length}\n${cut.join('\n')}`);
+    only = cut;
+  }
   const size = Number(arg('batch-size', 25)), batchPages = Number(arg('batch-pages', 45)), dpi = Number(arg('dpi', 200));
   const render = !flag('no-render');
-  const root = join(DOCUMENT_CACHE, 'readings', round);
   const started = performance.now();
 
   let docs = readCsv(docsPath).records.map((r) => r.values);

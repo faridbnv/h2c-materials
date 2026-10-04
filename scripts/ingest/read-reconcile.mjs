@@ -21,6 +21,7 @@ import { join, resolve } from 'node:path';
 import { csvText, parseCsvText, readCsv } from '../../build/src/csv.js';
 import { scopeOf } from '../../build/src/page-context.js';
 import { projectRoot } from './context.mjs';
+import { machineAgrees } from './read-machine.mjs';
 import {
   CONFIDENCE, CONTEXT_SCOPES, DECISION_PROPERTY, DECISION_SETTINGS, HEADER, KINDS, NP, SETTING_FIELDS, VERDICTS,
   heldFor, loadDocument, loadTables, missing, numbersIn, pageOf, presence, sameNumber, squash,
@@ -40,18 +41,36 @@ export function parseReadings(csv, label = 'readings') {
   return records.map((r) => ({ ...Object.fromEntries(HEADER.map((h) => [h, text(r.values[h])])), RowID: `${label}#${r.line}` }));
 }
 
-/** Known units: the properties' own, every raw unit the tables record, and the units vocabulary. */
-export function knownUnits(tables, vocabUnits = []) {
-  const units = new Set();
-  const add = (u) => { if (u) units.add(squash(u)); };
-  for (const p of tables.properties) String(p.Units ?? '').split(';').forEach((u) => add(u.trim()));
-  for (const m of tables.measurements) { add(m['Raw unit']); add(m['Normalized unit']); }
-  vocabUnits.forEach(add);
+/** A unit as a comparison key: case, spaces, superscript digits and the micro sign do not make another unit. */
+export const unitKey = (u) => String(u ?? '').toLowerCase().replace(/\s+/g, '').replace(/²/g, '2').replace(/³/g, '3').replace(/[µμ]/g, 'u').replace(/[·^]/g, '');
+
+/** The units each property is recorded in: its own Units, and the raw and normalized units of its measurements. */
+export function propertyUnits(tables) {
+  const units = new Map();
+  const add = (p, u) => { if (u && !/^Not (published|applicable)/.test(u)) { if (!units.has(p)) units.set(p, new Set()); units.get(p).add(unitKey(u)); } };
+  for (const p of tables.properties) String(p.Units ?? '').split(';').forEach((u) => add(p.Property, u.trim()));
+  for (const m of tables.measurements) { add(m.Property, m['Raw unit']); add(m.Property, m['Normalized unit']); }
   return units;
 }
 
-/** What is wrong with a row on its face, before any page is opened. Empty when it is well formed. */
-export function validate(row, { properties, units, sources, operators }) {
+const EXPONENT = /\^|\d[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]/;
+
+/**
+ * Why a value row belongs to the record tier and not to a property of the table: its property is not one, its unit is
+ * not one the property is recorded in, or it prints a power of ten. These are readings of something real that the
+ * tables cannot hold yet, not broken rows; they go to unmapped.csv.
+ */
+export function unmappedReasons(row, { properties, units }) {
+  if (row.kind !== 'value' || /^unmapped:/.test(row.field)) return [];
+  const why = [];
+  if (!properties.has(row.field)) why.push(`property-unknown:${row.field || 'empty'}`);
+  else if (row.unit && !(units.get(row.field) ?? new Set()).has(unitKey(row.unit))) why.push(`unit-not-for-property:${row.unit}`);
+  if ([row.raw, row.number_lo, row.number_hi, row.unit].some((c) => EXPONENT.test(c))) why.push('exponent');
+  return why;
+}
+
+/** What is wrong with a row on its face, before any page is opened: a broken row. Empty when it is well formed. */
+export function validate(row, { sources, operators }) {
   const bad = [];
   if (!KINDS.includes(row.kind)) bad.push(`kind:${row.kind || 'empty'}`);
   if (!row.source_id) bad.push('source_id:empty'); else if (sources && !sources.has(row.source_id)) bad.push(`source-unknown:${row.source_id}`);
@@ -59,18 +78,16 @@ export function validate(row, { properties, units, sources, operators }) {
     if (!/^[1-9]\d*$/.test(row.page)) bad.push(`page:${row.page || 'empty'}`);
     if (row.verdict && !VERDICTS.includes(row.verdict)) bad.push(`verdict:${row.verdict}`);
     if (row.confidence && !CONFIDENCE.includes(row.confidence)) bad.push(`confidence:${row.confidence}`);
-    for (const c of ['number_lo', 'number_hi']) if (row[c] && num(row[c]) == null) bad.push(`${c}:${row[c]}`);
+    for (const c of ['number_lo', 'number_hi']) if (row[c] && num(row[c]) == null && !EXPONENT.test(row[c])) bad.push(`${c}:${row[c]}`);
     if (row.operator && !operators.has(row.operator)) bad.push(`operator:${row.operator}`);
   }
   if (row.kind === 'setting' && !SETTING_FIELDS.includes(row.field)) bad.push(`setting-field:${row.field || 'empty'}`);
   if (row.kind === 'context' && !CONTEXT_SCOPES.includes(row.field)) bad.push(`context-scope:${row.field || 'empty'}`);
-  if (row.kind === 'value') {
-    if (/^unmapped:./.test(row.field)) { /* the record tier's */ }
-    else if (!properties.has(row.field)) bad.push(`property-unknown:${row.field || 'empty'}`);
-    else if (row.unit && !units.has(squash(row.unit))) bad.push(`unit-unknown:${row.unit}`);
-  }
   return bad;
 }
+
+/** A product written twice (two readers, or one product on two sheets) is one reading: the first stands. */
+export const duplicateKey = (r) => [r.source_id, r.page, r.kind, r.field, r.grade_id || squash(r.product), r.number_lo, r.number_hi, squash(r.direction), squash(r.moisture), squash(r.post_processing), r.kind === 'context' ? squash(r.quote) : ''].join('|');
 
 // ---- comparing with what the tables hold ------------------------------------------------------------------------
 
@@ -274,29 +291,34 @@ export const needsSecondRead = (row, cls, presenceResult) => {
  * Reconcile readings against the tables and the pages. `documentFor(sourceId)` returns a document as loadDocument
  * does; `tables` is loadTables(); `seconds` are second readings (same schema).
  */
-export async function reconcile({ rows, seconds = [], tables, documentFor, vocab = {} }) {
+export async function reconcile({ rows, seconds = [], tables, documentFor, machineFor = null, vocab = {} }) {
   const properties = new Set(tables.properties.map((p) => p.Property));
-  const units = knownUnits(tables, vocab.units);
+  const units = propertyUnits(tables);
   const sources = new Set(tables.sources.map((s) => s.SourceID));
   const operators = new Set(vocab.operators ?? ['=', '>', '<']);
   const heldCache = new Map();
   const heldOf = (id) => { if (!heldCache.has(id)) heldCache.set(id, heldFor(tables, id)); return heldCache.get(id); };
 
-  const out = [], invalid = [];
+  const out = [], invalid = [], duplicates = [];
+  const firstOf = new Map();
   const touched = new Map();      // sourceId -> Set of held ids a reading named or matched
   const touch = (id, ...ids) => { if (!touched.has(id)) touched.set(id, new Set()); ids.forEach((i) => i && touched.get(id).add(i)); };
   let ignored = 0;
 
   for (const row of rows) {
-    const bad = validate(row, { properties, units, sources, operators });
+    const bad = validate(row, { sources, operators });
     if (bad.length) { invalid.push({ ...row, bad }); continue; }
+    const key = duplicateKey(row);
+    if (firstOf.has(key)) { duplicates.push({ ...row, of: firstOf.get(key) }); continue; }
+    firstOf.set(key, row.RowID);
     if (row.kind === 'none') { ignored++; continue; }
+    const unmappedWhy = unmappedReasons(row, { properties, units });
     const held = heldOf(row.source_id);
     const doc = await documentFor(row.source_id);
-    const numbers = [row.number_lo, row.number_hi].filter((n) => n !== '');
+    const numbers = [row.number_lo, row.number_hi].filter((n) => n !== '' && num(n) != null);
     const verdictNotOnPage = row.verdict === 'not-on-page';
     let result;
-    if (row.kind === 'value' && /^unmapped:/.test(row.field)) result = { class: 'unmapped', held: [], flags: [] };
+    if (row.kind === 'value' && (/^unmapped:/.test(row.field) || unmappedWhy.length)) result = { class: 'unmapped', held: [], flags: unmappedWhy };
     else if (row.kind === 'value') result = classifyValue(row, held);
     else if (row.kind === 'setting') result = classifySetting(row, held);
     else if (row.kind === 'context') result = classifyContext(row, held);
@@ -324,12 +346,34 @@ export async function reconcile({ rows, seconds = [], tables, documentFor, vocab
       Field: row.field, Label: row.label, Raw: row.raw, Lo: row.number_lo, Hi: row.number_hi, Unit: row.unit, Operator: row.operator,
       Direction: row.direction, Specimen: row.specimen, Moisture: row.moisture, PostProcessing: row.post_processing, Standard: row.standard,
       TestConditions: row.test_conditions, TableHeading: row.table_heading, Quote: row.quote, Presence: p.presence,
-      SecondRead: need ? secondStatus(row, seconds) : 'not-required',
+      SecondRead: need ? 'pending' : 'not-required',
       HeldIDs: [...result.held.map((m) => m.MeasurementID ?? m.ProfileID), ...(result.existing ?? [])].join(' '),
       HeldValues: result.class === 'context' || result.class === 'context-held' ? (result.appliesTo ?? []).join(' ') : heldValues,
       Reader: row.reader, Confidence: row.confidence, Flags: [...new Set(flags)].join(' '), Note: row.note,
-      _need: need,
+      _need: need, _row: row,
     });
+  }
+
+  // The second read: a human-eyed reading of the same page if there is one, else the importer's own rule reader.
+  const machines = new Map();
+  const machineStats = { newDecision: 0, newDecisionAgreed: 0, mismatch: 0, mismatchAgreed: 0, noMachineReading: 0 };
+  for (const r of out.filter((x) => x._need)) {
+    r.SecondRead = secondStatus(r._row, seconds);
+    let agrees = false;
+    if (machineFor && !machines.has(r.SourceID)) machines.set(r.SourceID, await machineFor(r.SourceID).catch(() => null));
+    const machine = machineFor ? machines.get(r.SourceID) : null;
+    if (machineFor && !machine) machineStats.noMachineReading++;
+    if (machine) {
+      agrees = machineAgrees(machine, r._row, {
+        hours: hoursOf(r._row.test_conditions),
+        compatible: (direction) => { const a = canonDirection(r._row.direction), b = canonDirection(direction); return !a || !b || a === b; },
+        textAgrees,
+      });
+      if (agrees && r.SecondRead === 'pending') r.SecondRead = 'agreed-reader';
+    }
+    const decisionField = r.Kind === 'setting' ? DECISION_SETTINGS.includes(r.Field) : DECISION_PROPERTY.test(r.Field);
+    if (r.Class === 'new' && decisionField) { machineStats.newDecision++; if (agrees) machineStats.newDecisionAgreed++; }
+    if (r.Class === 'mismatch') { machineStats.mismatch++; if (agrees) machineStats.mismatchAgreed++; }
   }
 
   // Tasks for the second readers: one per distinct place that needs it, with no value.
@@ -348,7 +392,7 @@ export async function reconcile({ rows, seconds = [], tables, documentFor, vocab
     for (const pr of held.profiles) if (!touched.get(id).has(pr.ProfileID)) unreadHeld.push({ SourceID: id, ID: pr.ProfileID, Kind: 'profile', Grade: pr.GradeID, What: `${pr.Profile}`, Locator: pr.Locator });
   }
   const secondNotFound = seconds.filter((s) => s.kind === 'none' && /not found/i.test(s.note)).length;
-  return { rows: out.map(({ _need, ...r }) => r), invalid, tasks, unreadHeld, ignored, secondNotFound };
+  return { rows: out.map(({ _need, _row, ...r }) => r), invalid, duplicates, tasks, unreadHeld, ignored, secondNotFound, machineStats };
 }
 
 const FILES = {
@@ -364,11 +408,18 @@ const FILES = {
 const tally = (rows, key) => { const m = new Map(); for (const r of rows) m.set(key(r), (m.get(key(r)) ?? 0) + 1); return [...m].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]))); };
 const table = (head, rows) => `| ${head.join(' | ')} |\n|${head.map(() => '---').join('|')}|\n${rows.map((r) => `| ${r.join(' | ')} |`).join('\n')}\n`;
 
-export function summarize({ rows, invalid, tasks, unreadHeld, ignored, secondNotFound }, { run, files }) {
-  const lines = [`# Reconcile ${run}`, '', `${rows.length} reading(s) classified, ${invalid.length} invalid, ${ignored} marked none. ${tasks.length} second-read task(s) outstanding${secondNotFound ? `; second readers could not find ${secondNotFound} item(s)` : ''}.`, ''];
+export function summarize({ rows, invalid, duplicates = [], tasks, unreadHeld, ignored, secondNotFound, machineStats }, { run, files }) {
+  const lines = [`# Reconcile ${run}`, '', `${rows.length} reading(s) classified, ${invalid.length} invalid, ${duplicates.length} duplicate(s) dropped, ${ignored} marked none. ${tasks.length} second-read task(s) outstanding${secondNotFound ? `; second readers could not find ${secondNotFound} item(s)` : ''}.`, ''];
   lines.push('## By class', '', table(['class', 'rows'], tally(rows, (r) => r.Class)));
   lines.push('## By presence', '', table(['presence', 'rows'], tally(rows, (r) => r.Presence)));
   lines.push('## Second read', '', table(['status', 'rows'], tally(rows, (r) => r.SecondRead)));
+  if (machineStats) {
+    const pct = (a, b) => (b ? `${Math.round((100 * a) / b)} %` : 'n/a');
+    lines.push('## Machine second read (the importer\'s sheet reader)', '', table(['rows', 'machine agrees', 'share'], [
+      ['new decision-field rows', machineStats.newDecisionAgreed, `${machineStats.newDecisionAgreed} of ${machineStats.newDecision} (${pct(machineStats.newDecisionAgreed, machineStats.newDecision)})`],
+      ['mismatches (agrees with the page reading, not the held row)', machineStats.mismatchAgreed, `${machineStats.mismatchAgreed} of ${machineStats.mismatch} (${pct(machineStats.mismatchAgreed, machineStats.mismatch)})`],
+    ]), `Documents with no machine reading (no current text cache): ${machineStats.noMachineReading} row(s).`, '');
+  }
   lines.push('## Class by kind and field', '', table(['kind', 'field', 'class', 'rows'], tally(rows, (r) => `${r.Kind}\u0000${r.Field}\u0000${r.Class}`).slice(0, 80).map(([k, n]) => [...k.split('\u0000'), n])));
   const docs = new Map();
   for (const r of rows) { const d = docs.get(r.SourceID) ?? { n: 0, new: 0, mismatch: 0, visual: 0 }; d.n++; if (r.Class === 'new') d.new++; if (r.Class === 'mismatch') d.mismatch++; if (r.Presence === 'visual-only') d.visual++; docs.set(r.SourceID, d); }
@@ -389,6 +440,7 @@ function writeAll(result, dir, run) {
     writeFileSync(join(dir, name), csvText(OUT, rows));
   }
   writeFileSync(join(dir, 'invalid.csv'), csvText([...HEADER, 'RowID', 'bad'], result.invalid.map((r) => ({ ...r, bad: r.bad.join(' ') })))); files['invalid.csv'] = result.invalid.length;
+  writeFileSync(join(dir, 'duplicates.csv'), csvText([...HEADER, 'RowID', 'of'], result.duplicates)); files['duplicates.csv'] = result.duplicates.length;
   writeFileSync(join(dir, 'unread-held.csv'), csvText(['SourceID', 'ID', 'Kind', 'Grade', 'What', 'Locator'], result.unreadHeld)); files['unread-held.csv'] = result.unreadHeld.length;
   writeFileSync(join(dir, 'second-read', 'tasks.csv'), csvText(['task_id', 'source_id', 'page', 'kind', 'field', 'product', 'label', 'locator'], result.tasks)); files['second-read/tasks.csv'] = result.tasks.length;
   writeFileSync(join(dir, 'summary.md'), summarize(result, { run, files }));
@@ -408,13 +460,19 @@ async function main() {
   const shaOf = (id) => tables.sources.find((s) => s.SourceID === id)?.SHA256 ?? digests.get(id) ?? null;
   const documents = new Map();
   const documentFor = (id) => { if (!documents.has(id)) documents.set(id, loadDocument({ sha: shaOf(id), sourceId: id })); return documents.get(id); };
+  let machineFor = null;
+  if (!process.argv.includes('--no-machine')) {
+    const { cachedText } = await import('../lib/pdf-text.mjs');
+    const { machineReading } = await import('./read-machine.mjs');
+    machineFor = async (id) => { const sha = shaOf(id); const text = sha ? cachedText(sha) : null; return text ? machineReading(text) : null; };
+  }
   const rows = files.flatMap((f) => parseReadings(readFileSync(f, 'utf8'), f.split('/').pop()));
   const seconds = list('second').flatMap((f) => parseReadings(readFileSync(f, 'utf8'), f.split('/').pop()));
   const vocabOf = (name, col) => readCsv(join(projectRoot, 'schema/vocab', name)).records.map((r) => r.values[col]);
-  const result = await reconcile({ rows, seconds, tables, documentFor, vocab: { units: vocabOf('units.csv', 'Value'), operators: vocabOf('operators.csv', 'Value') } });
+  const result = await reconcile({ rows, seconds, tables, documentFor, machineFor, vocab: { units: vocabOf('units.csv', 'Value'), operators: vocabOf('operators.csv', 'Value') } });
   mkdirSync(out, { recursive: true });
   const written = writeAll(result, out, run);
-  console.log(`${result.rows.length} classified, ${result.invalid.length} invalid, ${result.tasks.length} second-read task(s) -> ${out}`);
+  console.log(`${result.rows.length} classified, ${result.invalid.length} invalid, ${result.duplicates.length} duplicate(s), ${result.tasks.length} second-read task(s) -> ${out}`);
   console.log(JSON.stringify(written));
 }
 
