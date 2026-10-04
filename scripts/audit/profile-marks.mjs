@@ -17,17 +17,27 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openTables } from '../data/table-io.mjs';
 import { cacheDir, cachedText } from '../lib/pdf-text.mjs';
+import { LAYOUT_DEFAULT as LAYOUT, withReadingOrder } from '../lib/pdf-layout.mjs';
 import { detect, clusterTemplates } from './profile-marks-detect.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const COLUMNS = ['group', 'template', 'publisher', 'kind', 'column', 'sid', 'profiles', 'siblings', 'page', 'specimen', 'missing', 'held', 'shape', 'line', 'prev', 'next'];
 const csvCell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
 
-/** The marks on a set of profile rows, each with its template, publisher and group; `unreadable` counts the profiles whose sheet has no cached text. */
-export function profileMarks(profileRows, sources, pagesOf) {
+/**
+ * The marks on a set of profile rows, each with its template, publisher and group; `unreadable` counts the profiles whose
+ * sheet has no cached text. `blocksOf` is the same lookup over each page's lines in reading order: its marks are added
+ * to the lines' own wherever the lines did not raise the same one.
+ */
+export function profileMarks(profileRows, sources, pagesOf, { blocksOf = null } = {}) {
   const publisher = new Map(sources.map((s) => [s.SourceID, s.Publisher ?? '']));
   const template = clusterTemplates(profileRows, { pagesOf, publisherOf: (sid) => publisher.get(sid) });
   const marks = detect(profileRows, { pagesOf });
+  if (blocksOf) {
+    const key = (m) => [m.kind, m.sid, m.page, m.column, m.line].join('\u0000');
+    const seen = new Set(marks.map(key));
+    for (const m of detect(profileRows, { pagesOf: blocksOf })) if (!seen.has(key(m))) { seen.add(key(m)); marks.push(m); }
+  }
   for (const m of marks) {
     m.template = template.get(m.sid) ?? 'T?';
     m.publisher = publisher.get(m.sid) ?? '';
@@ -60,14 +70,16 @@ function main() {
   const t = openTables();
   const sha = new Map(t.rows('sources').map((s) => [s.SourceID, s.SHA256]));
   const cache = new Map();
-  const pagesOf = (sourceId) => {
+  const pagesFor = (view) => (sourceId) => {
     const h = sha.get(sourceId); if (!h || !/^[0-9a-f]{64}$/.test(h)) return null;
-    if (!cache.has(h)) { const c = cachedText(h); cache.set(h, c ? c.pages.map((p) => ({ page: p.page, lines: p.lines.map((l) => l.text ?? '') })) : null); }
-    return cache.get(h);
+    const k = `${h}|${view}`;
+    if (!cache.has(k)) { const c = cachedText(h), x = c && view === 'blocks' ? withReadingOrder(c, { memo: true }) : c; cache.set(k, x ? x.pages.map((p) => ({ page: p.page, lines: p.lines.map((l) => l.text ?? '') })) : null); }
+    return cache.get(k);
   };
+  const pagesOf = pagesFor('lines');
   const profiles = t.rows('profiles');
   if (!profiles.some((r) => pagesOf(r.SourceID))) { console.log('audit:profile-marks skipped: the text cache (.cache/text) holds none of the profiles\' sheets in this checkout'); return; }
-  const { marks, guidance, unreadable, unreadableSheets } = profileMarks(profiles, t.rows('sources'), pagesOf);
+  const { marks, guidance, unreadable, unreadableSheets } = profileMarks(profiles, t.rows('sources'), pagesOf, { blocksOf: LAYOUT ? pagesFor('blocks') : null });
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, marksCsv(marks));
   const { byKind, all } = summarize(marks);

@@ -32,6 +32,7 @@ import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { parseHdtStandard } from '../../build/src/normalize/thermal.js';
 import { profileCellsFromParsed, loadCellFromParsed, testTemperatureCell } from '../../build/src/typed-values.js';
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
+import { lineHeight, withReadingOrder, LAYOUT_DEFAULT } from '../lib/pdf-layout.mjs';
 import { classifyProduct, collidesWith, plainMaterialFor } from './classify.mjs';
 
 const lexicon = (name) => readCsv(join(projectRoot, 'scripts/ingest/lexicon', `${name}.csv`)).records.map((r) => r.values);
@@ -272,17 +273,7 @@ const POWER_RE = new RegExp(`\\d+(?:[.,]\\d+)?\\s*[\u00d7x*\u00b7]\\s*10\\s*\\^\
 const spanRight = (s) => s.x + (s.w ?? 0);
 const inked = (line) => (line.spans ?? []).filter((s) => s.str?.trim());
 
-/**
- * How tall the text on a line is, in the page's own units: a proportional font's average character is about half
- * its size, and the extractor reports the width of every piece it read. The blanks are left out because their
- * reported width measures nothing — SUNLU's sheets report a single space as 2 189 units wide.
- */
-export function lineHeight(line) {
-  const spans = inked(line);
-  const chars = spans.reduce((a, s) => a + s.str.trim().length, 0);
-  const width = spans.reduce((a, s) => a + (s.w ?? 0), 0);
-  return chars > 0 && width > 0 ? (width / chars) * 2 : 10;
-}
+export { lineHeight };
 
 /**
  * Whether a piece belongs to this row: its baseline stands inside the band the row's own text occupies. The band
@@ -1432,7 +1423,42 @@ export function axisRows(line, columns) {
   return out;
 }
 
-export function readSheet(text, registry) {
+// The reader reads a page's lines as the extractor grouped them (readSheetOnce). Layout on, it reads the same page
+// once more with its lines in reading order (scripts/lib/pdf-layout.mjs), where a column's label and its value
+// are neighbours again, and keeps what that second reading finds beyond the first. The first reading's items all
+// stay (the second only adds, or reads one of them fuller); each reading runs its own guidanceBeyondLabels, on the
+// lines in the order it read them. Off by default until the audit of what the second reading adds has been read.
+export { LAYOUT_DEFAULT };
+
+/**
+ * A sheet read into values, settings and the lines it left unread. `layout` adds what a second reading of the page in
+ * reading order finds; those items carry `viaLayout: true`, and a skipped line one of them states is no longer skipped.
+ */
+export function readSheet(text, registry, { layout = LAYOUT_DEFAULT } = {}) {
+  const base = readSheetOnce(text, registry);
+  if (!layout) return base;
+  const ordered = withReadingOrder(text);
+  if (ordered === text) return base;
+  const more = readSheetOnce(ordered, registry);
+  const valueKey = (v) => `${v.page}|${v.property}|${squash(v.line)}|${squash(v.read?.raw)}`;
+  const seen = new Set(base.values.map(valueKey));
+  const values = [...base.values, ...more.values.filter((v) => !seen.has(valueKey(v))).map((v) => ({ ...v, viaLayout: true }))];
+  // A setting is the same setting when one reading of it begins with the other's: the first reading may have joined
+  // the hours of a drying schedule that stood two rows down, and the second then has the temperature alone. Where the
+  // second reads more, it replaces the first.
+  const settings = [...base.settings];
+  for (const x of more.settings) {
+    const raw = squash(x.raw);
+    const at = settings.findIndex((y) => y.page === x.page && y.field === x.field && (squash(y.raw).startsWith(raw) || raw.startsWith(squash(y.raw))));
+    if (at < 0) settings.push({ ...x, viaLayout: true });
+    else if (raw.length > squash(settings[at].raw).length) settings[at] = { ...x, viaLayout: true };
+  }
+  const covered = [...values, ...settings].filter((x) => x.viaLayout).map((x) => squash(`${x.line} ${x.raw ?? ''}`));
+  const skipped = base.skipped.filter((k) => { const t = squash(k.text); return !(t.length >= 3 && /\d/.test(t) && covered.some((c) => c.includes(t))); });
+  return { values, settings, skipped };
+}
+
+function readSheetOnce(text, registry) {
   const values = [], settings = [], skipped = [];
   // A sheet that prints the conditions its specimens were made under is describing printed bars, and says so once
   // for the whole table: 3DXTECH heads a block "Printed Specimen Conditions" and lists the printer, the nozzle,

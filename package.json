@@ -69,7 +69,8 @@
     "ingest:second-read": "node scripts/ingest/second-read.mjs",
     "audit:coverage-status": "node scripts/audit/coverage-campaign-status.mjs",
     "audit:context": "node scripts/audit/context-witness.mjs",
-    "audit:profile-marks": "node scripts/audit/profile-marks.mjs"
+    "audit:profile-marks": "node scripts/audit/profile-marks.mjs",
+    "audit:reader-recall": "node scripts/audit/reader-recall.mjs"
   },
   "devDependencies": {
     "pdfjs-dist": "4.10.38",

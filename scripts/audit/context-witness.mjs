@@ -13,6 +13,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadTables } from '../../build/src/load.js';
 import { cacheDir, cachedText } from '../lib/pdf-text.mjs';
+import { LAYOUT_DEFAULT as LAYOUT, withReadingOrder } from '../lib/pdf-layout.mjs';
 import { indexPageContext, contextFor, scopeOf, pageOf } from '../../build/src/page-context.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
@@ -24,10 +25,16 @@ const t = loadTables(join(root, 'data'));
 const rows = (sheet) => t[sheet].rows;
 const sha = new Map(rows('Sources').map((s) => [s.SourceID, s.SHA256]));
 const textCache = new Map();
-const pagesOf = (sourceId) => {
+// `view: 'blocks'` is the same sheet with each page's lines in reading order (scripts/lib/pdf-layout.mjs), where a
+// column's label and its value are neighbours again. The label checks below read it as well when the layout is on.
+const pagesOf = (sourceId, { view = 'lines' } = {}) => {
   const h = sha.get(sourceId); if (!h || !/^[0-9a-f]{64}$/.test(h)) return null;
-  if (!textCache.has(h)) { const c = cachedText(h); textCache.set(h, c ? c.pages.map((p) => ({ page: p.page, lines: p.lines.map((l) => String(l.text ?? '').replace(/\s+/g, ' ').replace(/(\d)\s*([.,])\s*(\d)/g, '$1$2$3')) })) : null); }
-  return textCache.get(h);
+  const k = `${h}|${view}`;
+  if (!textCache.has(k)) {
+    const c = cachedText(h), t = c && view === 'blocks' ? withReadingOrder(c, { memo: true }) : c;
+    textCache.set(k, t ? t.pages.map((p) => ({ page: p.page, lines: p.lines.map((l) => String(l.text ?? '').replace(/\s+/g, ' ').replace(/(\d)\s*([.,])\s*(\d)/g, '$1$2$3')) })) : null);
+  }
+  return textCache.get(k);
 };
 // CI has a .cache/text the import tests write, and none of the makers' sheets: the guard judges only where a sheet is.
 if (![...sha.keys()].some((id) => pagesOf(id))) { console.log('audit:context skipped: the text cache (.cache/text) holds none of the cited sheets in this checkout'); process.exit(0); }
@@ -35,6 +42,7 @@ const NA =(v) => v == null || v === '' || v === 'Not applicable' || /^Not publis
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const findings = [];
 const add = (code, record, field, message) => findings.push({ code, record, field, message });
+const addOnce = (code, record, field, message) => { if (!findings.some((f) => f.code === code && f.record === record && f.field === field)) add(code, record, field, message); };
 
 // ---- each value's own line
 const live = rows('Properties').filter((r) => /^Published value/.test(r['Data status']) && !/implausible/.test(r['Data status']) && !NA(r['Normalized value']));
@@ -109,45 +117,50 @@ const profilesByGrade = new Map(); for (const r of rows('Print setup').filter((x
 for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record')) {
   // A profile that records how a sheet's test bars were printed holds no guidance by design (m170).
   if (/not printing guidance/.test(r.Locator)) continue;
-  const pages = pagesOf(r.SourceID); if (!pages) continue;
-  const text = pages.map((p) => p.lines.join(' ')).join(' ');
-  for (const [axis, re] of Object.entries(LABEL)) {
-    if (r[`${axis} state`] === 'range') continue;
-    const m = text.match(re); if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, `${axis} °C`, `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r[`${axis} °C`]}${profilesByGrade.get(r.GradeID).some((p) => p[`${axis} state`] === 'range') ? ' (another profile of the product holds a window)' : ' (no profile of the product holds one)'}`);
+  const pages0 = pagesOf(r.SourceID); if (!pages0) continue;
+  // The sheet as the extractor lines it up, and (layout on) in reading order; a finding of the second view is added
+  // only where the first did not raise it.
+  for (const [view, pages] of [[0, pages0], ...(LAYOUT ? [[1, pagesOf(r.SourceID, { view: 'blocks' })]] : [])]) {
+    const emit = view ? addOnce : add;
+    const text = pages.map((p) => p.lines.join(' ')).join(' ');
+    for (const [axis, re] of Object.entries(LABEL)) {
+      if (r[`${axis} state`] === 'range') continue;
+      const m = text.match(re); if (m) emit('CONTEXT-PROFILE-SETTING', r.ProfileID, `${axis} °C`, `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r[`${axis} °C`]}${profilesByGrade.get(r.GradeID).some((p) => p[`${axis} state`] === 'range') ? ' (another profile of the product holds a window)' : ' (no profile of the product holds one)'}`);
+    }
+    // A chamber window, an enclosure ask or a drying schedule its own sheet prints, where the profile holds nothing (the
+    // data audit's R50–R52: "Recommended environmental temperature 70 – 80", "it is recommended to use an enclosure",
+    // "Drying conditions: 70°C / 4 hours").
+    if (r['Chamber state'] === 'unknown') {
+      const m = text.match(/(?:chamber|environment(?:al)?|ambient|enclosure)\s*temp(?:erature)?\.?[^0-9]{0,30}?(\d{2,3})\s*(?:-|–|~|to)\s*(\d{2,3})\s*(?:\(|°|℃|˚|c\b)/i);
+      if (m) emit('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Chamber °C', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r['Chamber °C']}`);
+    }
+    if (r['Enclosure state'] === 'unknown' && !/^(recommended|range|enclosed|required)$/.test(r['Chamber state'])) {
+      // A question the sheet answers ("Enclosed chamber required No") is read with its answer.
+      const m = text.match(/recommended to (?:use|print (?:with|in)) an? (?:enclosure|enclosed (?:printer|chamber))|enclosed (?:chamber|printer|space)\s*(?:required|recommended)?\s*[:\-]?\s*(?:required|recommended|yes|no)\b|requires? an? enclosure/i);
+      if (m) emit('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Enclosure', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r.Enclosure}`);
+    }
+    if (r['Drying state'] === 'unknown' || /^Not published$/.test(r.Drying)) {
+      const m = text.match(/dry(?:ing)?(?: conditions?| temp(?:erature)?\.?(?: and time)?)?\s*[:\-]?\s*(\d{2,3})\s*(?:°|℃|˚)\s*c?\s*[\/,x×]?\s*(?:for\s*)?(\d{1,2})\s*(?:-\s*\d{1,2}\s*)?(?:h|hours?|hrs?)\b/i);
+      if (m) emit('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Drying', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r.Drying}`);
+    }
+    // "Hardened Nozzle no" printed on the profile's own sheet against a typed TRUE, or the reverse.
+    // A sheet laid out as question and answer in two columns prints the answer a line away from its question: Spectrum's
+    // TPU sheets read "Dry box recommended / Yes / No / Ruby or hardened nozzle recommended", where "No" answers the nozzle
+    // question; the bare question was read as a recommendation (the control re-read of 2026-10-01).
+    if (/^Ruby or hardened nozzle recommended$/i.test(r['Abrasion / clogging'])) {
+      const lines = pages.flatMap((p) => p.lines.map((l) => l.trim()));
+      const i = lines.findIndex((l) => /^Ruby or hardened nozzle recommended$/i.test(l));
+      const near = i < 0 ? [] : [lines[i - 1], lines[i + 1]].filter((l) => /^(yes|no)$/i.test(l ?? ''));
+      if (near.length) emit('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its sheet answers the question on the next line ("${near.join('" / "')}"); the profile holds the bare question as ${r['Hardened nozzle']}`);
+    }
+    // A sheet may ask the question and answer it ("Ruby or hardened nozzle recommended No"), or deny it ("no hardened nozzle
+    // required").
+    const hn = text.match(/(\bno\s+)?hardened nozzle\s*(?:(?:recommended|required)\s*\??\s*[:\-]?\s*(no|yes)\b|[:\-]?\s*(no|yes|not (?:required|necessary)|required|recommended)\b)/i);
+    // A profile whose cell holds the sheet's question with its answer has been read from its own words; the text layer
+    // can run a neighbouring answer into the question ("No Hardened nozzle required Yes").
+    const answered = /\b(yes|no|nein|not necessary|not required)\s*$/i.test(r['Abrasion / clogging']);
+    if (hn && !answered) { const says = hn[1] || /^(no|not)/i.test(hn[2] ?? hn[3]) ? 'FALSE' : 'TRUE'; if (r['Hardened nozzle'] !== says && r['Hardened nozzle'] !== 'Not published') emit('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its own sheet prints "${hn[0]}"; the profile holds ${r['Hardened nozzle']}`); }
   }
-  // A chamber window, an enclosure ask or a drying schedule its own sheet prints, where the profile holds nothing (the
-  // data audit's R50–R52: "Recommended environmental temperature 70 – 80", "it is recommended to use an enclosure",
-  // "Drying conditions: 70°C / 4 hours").
-  if (r['Chamber state'] === 'unknown') {
-    const m = text.match(/(?:chamber|environment(?:al)?|ambient|enclosure)\s*temp(?:erature)?\.?[^0-9]{0,30}?(\d{2,3})\s*(?:-|–|~|to)\s*(\d{2,3})\s*(?:\(|°|℃|˚|c\b)/i);
-    if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Chamber °C', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r['Chamber °C']}`);
-  }
-  if (r['Enclosure state'] === 'unknown' && !/^(recommended|range|enclosed|required)$/.test(r['Chamber state'])) {
-    // A question the sheet answers ("Enclosed chamber required No") is read with its answer.
-    const m = text.match(/recommended to (?:use|print (?:with|in)) an? (?:enclosure|enclosed (?:printer|chamber))|enclosed (?:chamber|printer|space)\s*(?:required|recommended)?\s*[:\-]?\s*(?:required|recommended|yes|no)\b|requires? an? enclosure/i);
-    if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Enclosure', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r.Enclosure}`);
-  }
-  if (r['Drying state'] === 'unknown' || /^Not published$/.test(r.Drying)) {
-    const m = text.match(/dry(?:ing)?(?: conditions?| temp(?:erature)?\.?(?: and time)?)?\s*[:\-]?\s*(\d{2,3})\s*(?:°|℃|˚)\s*c?\s*[\/,x×]?\s*(?:for\s*)?(\d{1,2})\s*(?:-\s*\d{1,2}\s*)?(?:h|hours?|hrs?)\b/i);
-    if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Drying', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r.Drying}`);
-  }
-  // "Hardened Nozzle no" printed on the profile's own sheet against a typed TRUE, or the reverse.
-  // A sheet laid out as question and answer in two columns prints the answer a line away from its question: Spectrum's
-  // TPU sheets read "Dry box recommended / Yes / No / Ruby or hardened nozzle recommended", where "No" answers the nozzle
-  // question; the bare question was read as a recommendation (the control re-read of 2026-10-01).
-  if (/^Ruby or hardened nozzle recommended$/i.test(r['Abrasion / clogging'])) {
-    const lines = pages.flatMap((p) => p.lines.map((l) => l.trim()));
-    const i = lines.findIndex((l) => /^Ruby or hardened nozzle recommended$/i.test(l));
-    const near = i < 0 ? [] : [lines[i - 1], lines[i + 1]].filter((l) => /^(yes|no)$/i.test(l ?? ''));
-    if (near.length) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its sheet answers the question on the next line ("${near.join('" / "')}"); the profile holds the bare question as ${r['Hardened nozzle']}`);
-  }
-  // A sheet may ask the question and answer it ("Ruby or hardened nozzle recommended No"), or deny it ("no hardened nozzle
-  // required").
-  const hn = text.match(/(\bno\s+)?hardened nozzle\s*(?:(?:recommended|required)\s*\??\s*[:\-]?\s*(no|yes)\b|[:\-]?\s*(no|yes|not (?:required|necessary)|required|recommended)\b)/i);
-  // A profile whose cell holds the sheet's question with its answer has been read from its own words; the text layer
-  // can run a neighbouring answer into the question ("No Hardened nozzle required Yes").
-  const answered = /\b(yes|no|nein|not necessary|not required)\s*$/i.test(r['Abrasion / clogging']);
-  if (hn && !answered) { const says = hn[1] || /^(no|not)/i.test(hn[2] ?? hn[3]) ? 'FALSE' : 'TRUE'; if (r['Hardened nozzle'] !== says && r['Hardened nozzle'] !== 'Not published') add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its own sheet prints "${hn[0]}"; the profile holds ${r['Hardened nozzle']}`); }
 }
 
 // ---- what the importer's own sheet reader finds on a profile's sheet and the profile does not hold (RC8, the control
@@ -190,11 +203,11 @@ for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplica
   if (!sheetSettings.has(r.SourceID)) {
     const c = cachedText(h);
     let settings = [];
-    if (c) { try { settings = readSheet(c, registry).settings; } catch { settings = []; } }
-    const pg = pagesOf(r.SourceID);
+    if (c) { try { settings = readSheet(c, registry, { layout: LAYOUT }).settings; } catch { settings = []; } }
+    const pg = pagesOf(r.SourceID), pgBlocks = LAYOUT ? pagesOf(r.SourceID, { view: 'blocks' }) : pg;
     // A sheet that prints test-bar settings beside its guidance (eSUN's "Print test condition", 3DXTECH's "Printed Specimen
     // Conditions") is read block by block: what sits under such a heading is not guidance, what sits elsewhere is.
-    sheetSettings.set(r.SourceID, settings.filter((x) => !/infill/i.test(x.line) && !inSpecimenBlock(pg, x)));
+    sheetSettings.set(r.SourceID, settings.filter((x) => !/infill/i.test(x.line) && !inSpecimenBlock(x.viaLayout ? pgBlocks : pg, x)));
   }
   // A profile that says its sheet prints no guidance (m170: only how the test bars were printed) is checked too: the
   // reader may find guidance in the notes beside them (Raise3D's "2. Please dry the filament … at least 8 hours").
@@ -225,9 +238,10 @@ for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplica
 const tempsOf = (v) => (String(v).match(/\d+(?:[.,]\d+)?/g) ?? []).map((n) => Number(n.replace(',', '.'))).filter((n) => n >= 15 && n <= 450);
 for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record' && !/not printing guidance/.test(x.Locator))) {
   const pages = pagesOf(r.SourceID); if (!pages) continue;
+  const views = LAYOUT ? [pages, pagesOf(r.SourceID, { view: 'blocks' })] : [pages];
   for (const column of ['Nozzle °C', 'Bed °C', 'Chamber °C']) {
     const want = tempsOf(r[column]); if (!want.length || /^Not published/.test(r[column])) continue;
-    const at = pages.flatMap((p) => p.lines.flatMap((l, i) => (want.every((v) => tempsOf(l).includes(v)) ? [testBlockAt(p.lines, i)] : [])));
+    const at = views.flat().flatMap((p) => p.lines.flatMap((l, i) => (want.every((v) => tempsOf(l).includes(v)) ? [testBlockAt(p.lines, i)] : [])));
     if (at.length && at.every(Boolean)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, column, `"${r[column].slice(0, 40)}" is printed on its sheet only under a test-bar or pellet-processing heading`);
   }
 }

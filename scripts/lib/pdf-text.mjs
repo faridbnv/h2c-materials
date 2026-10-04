@@ -127,6 +127,11 @@ export function cellsAt(line, positions) {
  * line of one or two spans from calling its only gap a column.
  */
 export function lineCells(line, ems = 3, floor = 10) {
+  return cellSpans(line, ems, floor).map((c) => ({ x: c[0].x, text: spanText(c) })).filter((c) => c.text);
+}
+
+/** The same cells as lineCells, as the spans each is made of (the layout pass needs their extents). */
+export function cellSpans(line, ems = 3, floor = 10) {
   const spans = (line.spans ?? []).filter((s) => s.str?.trim());
   if (!spans.length) return [];
   const chars = spans.reduce((a, s) => a + s.str.length, 0);
@@ -142,7 +147,7 @@ export function lineCells(line, ems = 3, floor = 10) {
     current.push(spans[i]);
   }
   cells.push(current);
-  return cells.map((c) => ({ x: c[0].x, text: spanText(c) })).filter((c) => c.text);
+  return cells.filter((c) => spanText(c));
 }
 
 // Extraction splits digits ("1 05 °C", "2 433 .4 ± 79.4"); join them before reading numbers. A standard's
