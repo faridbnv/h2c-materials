@@ -193,23 +193,23 @@ export function withinH2C(parsed, limitC, { partialWindow = false, makerEnclosur
 
   if (parsed.state === PROCESS_STATE.NOT_REQUIRED || parsed.state === PROCESS_STATE.AMBIENT) {
     return { verdict: 'within', reason: parsed.fromEnclosure
-      ? 'The source says an enclosure is not needed, so no heated chamber is required'
-      : 'No heated requirement stated' };
+      ? 'The source says no enclosure is needed, so no heated chamber is needed'
+      : 'No heated chamber needed' };
   }
   if (parsed.state === PROCESS_STATE.ENCLOSED) {
     // A filament maker's own words (D93), or its printer maker's guide's (D90).
     return { verdict: 'within', reason: makerEnclosure
-      ? `Its maker asks for an enclosure, in its words "${makerEnclosure}", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (${limitC} °C) is that enclosure`
-      : `Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (${limitC} °C) is that enclosure` };
+      ? `Its maker asks for an enclosure ("${makerEnclosure}") and gives no temperature. The H2C's heated chamber (${limitC} °C) counts as that enclosure`
+      : `An enclosure is asked for, with no temperature. The H2C's heated chamber (${limitC} °C) counts as that enclosure` };
   }
   if (parsed.state === PROCESS_STATE.NO_SETPOINT) {
-    return { verdict: 'unknown', categorical: true, reason: 'The source lists no setpoint ("-"), which is not the same as not required' };
+    return { verdict: 'unknown', categorical: true, reason: 'The source prints "-" for the chamber: no setpoint, which is not the same as "not needed"' };
   }
   if (parsed.state === PROCESS_STATE.RECOMMENDED) {
-    return { verdict: 'unknown', categorical: true, reason: 'Recommended, but no temperature published. A heated chamber is not proof that 65 \u00b0C is enough' };
+    return { verdict: 'unknown', categorical: true, reason: 'A heated chamber is recommended with no temperature, so 65 \u00b0C is not shown to be enough' };
   }
   if (parsed.state !== PROCESS_STATE.RANGE) {
-    return { verdict: 'unknown', reason: 'No numeric requirement published' };
+    return { verdict: 'unknown', reason: 'No temperature published' };
   }
   // An at-least value ("65˚C+") has no upper end, so it is never within by its upper end: the printer reaches it if it
   // reaches the lower end, and for the chamber that is the bottom of an open window, which is partial.
@@ -218,21 +218,21 @@ export function withinH2C(parsed, limitC, { partialWindow = false, makerEnclosur
     if (over > 0) {
       return parsed.requirement === REQUIREMENT.RECOMMENDED
         ? { verdict: 'exceeds-recommended', reason: `Recommends at least ${parsed.min} °C, above the H2C's ${limitC} °C, but does not require it`, over }
-        : { verdict: 'exceeds', reason: `Requires at least ${parsed.min} °C, the H2C provides ${limitC} °C`, over };
+        : { verdict: 'exceeds', reason: `Requires at least ${parsed.min} °C; the H2C reaches only ${limitC} °C`, over };
     }
     if (partialWindow) {
-      return { verdict: 'partial', reason: `Publishes at least ${parsed.min} °C, with no upper end; the H2C reaches only ${parsed.min}–${limitC} °C of that`, reachable: { min: parsed.min, max: limitC }, over: null };
+      return { verdict: 'partial', reason: `Needs at least ${parsed.min} °C with no upper end; the H2C reaches only up to ${limitC} °C`, reachable: { min: parsed.min, max: limitC }, over: null };
     }
-    return { verdict: 'within', reason: `Needs at least ${parsed.min} °C, which the H2C's ${limitC} °C reaches` };
+    return { verdict: 'within', reason: `Needs at least ${parsed.min} °C; the H2C reaches ${limitC} °C` };
   }
   if (parsed.max <= limitC) {
-    return { verdict: 'within', reason: `Needs up to ${parsed.max} \u00b0C, within the H2C's ${limitC} \u00b0C` };
+    return { verdict: 'within', reason: `Needs up to ${parsed.max} \u00b0C; the H2C reaches ${limitC} \u00b0C` };
   }
   if (partialWindow && parsed.min !== null && parsed.min <= limitC) {
-    const verb = parsed.requirement === REQUIREMENT.RECOMMENDED ? 'Recommends' : 'Publishes';
+    const verb = parsed.requirement === REQUIREMENT.RECOMMENDED ? 'Recommends' : 'Needs';
     return {
       verdict: 'partial',
-      reason: `${verb} ${parsed.min}\u2013${parsed.max} \u00b0C; the H2C reaches only ${parsed.min}\u2013${limitC} \u00b0C of that window`,
+      reason: `${verb} ${parsed.min}\u2013${parsed.max} \u00b0C; the H2C reaches only up to ${limitC} \u00b0C, part of that window`,
       reachable: { min: parsed.min, max: limitC },
       over: parsed.max - limitC,
     };
@@ -246,7 +246,7 @@ export function withinH2C(parsed, limitC, { partialWindow = false, makerEnclosur
   }
   return {
     verdict: 'exceeds',
-    reason: `Requires up to ${parsed.max} \u00b0C, the H2C provides ${limitC} \u00b0C`,
+    reason: `Requires up to ${parsed.max} \u00b0C; the H2C reaches only ${limitC} \u00b0C`,
     over: parsed.max - limitC,
   };
 }

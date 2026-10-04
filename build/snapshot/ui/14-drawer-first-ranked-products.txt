@@ -1,38 +1,43 @@
-Meet every requirement
+Meet all your requirements
 1 product
-3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) G070-05 PASS Choose this product
-HOW TO PRINT IT
+3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
+PASS
+Modulus XY 8.2 GPa · HDT 0.45 240 °C
+Choose this product
+PRINT SETTINGS
 Nozzle
-280–310 °C yes per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+280–310 °C within from Bambu Lab's Filament Guide for PPA-CF
 Bed
-100–120 °C yes per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+100–120 °C within from Bambu Lab's Filament Guide for PPA-CF
 Chamber
-an enclosure, which the H2C's heated chamber is yes per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+enclosure needed, no temperature within from Bambu Lab's Filament Guide for PPA-CF
 Enclosure
-recommended per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+recommended from Bambu Lab's Filament Guide for PPA-CF
 Hardened nozzle
-required per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+required from Bambu Lab's Filament Guide for PPA-CF
 Drying
 not published
+VALUES
 Density
 1,240 kg/m³
-Stiffness (tensile modulus, XY)
+Tensile modulus (XY)
 8.2 GPa
-Strength (tensile, XY; yield or break)
+Tensile strength (XY)
 87 MPa
-Stretch before breaking (elongation, XY)
+Elongation at break (XY)
 1.9 %
-Heat deflection (HDT, 0.45 MPa)
+HDT at 0.45 MPa
 240 °C
-Glass transition
+Glass transition (Tg)
 125 °C
 WHAT THE MAKER SAYS
 Good for
-“Excels in high-performance parts, tools, and fixtures” the maker's product page (marketing text), p. 1
-3DXTECH's data sheet says nothing about its benefits, pitfalls, warping, precision, surface finish, layer adhesion, moisture, nozzle wear, odour, supports or printing advice; it gives no chamber or enclosure need, drying schedule or annealing schedule; its website, searched on 2026-09-26, says nothing more.
-About this product
-Across its 9 products: the spread of their values, and what their makers say
-Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
+“Excels in high-performance parts, tools, and fixtures” — product page, p. 1 where ID
+Not stated by the maker: benefits, pitfalls, warping, dimensional accuracy, surface finish, layer adhesion, moisture, nozzle wear, odour, supports, printing advice, chamber or enclosure need, drying schedule and annealing schedule (website checked 2026-09-26).
+SOURCES 3DXTECH, Tech Data Sheet CarbonX™ Carbon Fiber High Temp Nylon (HTN) 3D Filament; 3DXTECH, Tech Data Sheet CarbonX™ Carbon Fiber High Temp Nylon (HTN) 3D Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, CARBONX™ HTN+CF
+Product details
+Across its products: median and range, and what their makers say
+Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 Bambu Lab
 1 product
 Siraya Tech

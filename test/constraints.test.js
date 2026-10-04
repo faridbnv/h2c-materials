@@ -48,7 +48,7 @@ test('a mean ± band is judged on its mean, and a threshold inside the band is f
   const at = (operator, value) => evaluateConstraint(m, { kind: 'numeric', property: 'tensileStrengthXY', operator, value });
   assert.equal(at('>=', 33).status, STATUS.PASS);
   assert.equal(at('>=', 33).closeToLimit, true);
-  assert.match(at('>=', 33).reason, /close to the limit/);
+  assert.match(at('>=', 33).reason, /Close to the limit/);
   assert.equal(at('>=', 36).status, STATUS.FAIL);
   assert.equal(at('>=', 36).closeToLimit, true);
   assert.equal(at('>=', 30).closeToLimit, false);
@@ -74,7 +74,7 @@ test('a value published without its load decides only as published, and says so'
   } } };
   const r = evaluateConstraint(m, { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 });
   assert.equal(r.status, STATUS.PASS);
-  assert.match(r.reason, /^Published 186 °C, its test load not stated/);
+  assert.match(r.reason, /^Published 186 °C, test load not stated/);
 });
 
 test('a chamber recommendation does not fail a candidate', () => {

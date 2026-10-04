@@ -1,13 +1,10 @@
 // The single vocabulary.
 //
-// The detail drawer already spoke plainly ("Stiffness", "Heat resistance") while the table, the
-// filter rail and the explain panel spoke materials science ("Tensile modulus XY", "hdt045 >= 100").
-// Three code paths described the same property three ways, and one of them leaked internal keys.
-// Everything that names a property or a constraint now comes from here.
-//
-// Plain name leads; the technical name is available as a subtitle or tooltip for anyone who wants
-// it. Nothing is dumbed down, only ordered: the reader gets the meaning first and the standard
-// second.
+// Everything that names a property, a requirement or a stored state on the page comes from here, so nothing is called
+// two different things. The reader is an engineer (D124): a property is named as a data sheet names it ("Tensile
+// modulus (XY)", "HDT at 0.45 MPa"), with its method as the technical line, and a stored state the database coined
+// ("Theoretical", "Official Bambu product") is shown under a name that engineer would use. The stored value never
+// changes, so links, saved scenarios and exports made before a rename still read.
 
 // Filled from the database's registry at start-up (registry.js, useRegistry): one row per headline in
 // data/tables/headline_definitions.csv supplies short, plain, technical, unit, hint and better.
@@ -31,18 +28,46 @@ export const envRequirement = (category) => (category === 'water-solubility' ? '
 export const POLICY_LABELS = { strict: 'Confirmed only', exploration: 'Include uncertain' };
 export const policyLabel = (policy) => POLICY_LABELS[policy] ?? POLICY_LABELS.strict;
 
-// Process gates, in the words of someone standing at the printer.
+// The H2C's limits, from the build (db.meta.h2cBaseline); set once at start-up. Every label that names a limit reads
+// them here, so the page never prints a number the build does not hold.
+const BASELINE = { nozzleC: 350, bedC: 120, chamberC: 65 };
+export function setH2cBaseline(b) { Object.assign(BASELINE, b ?? {}); }
+export const h2cLimit = (gate) => BASELINE[`${gate}C`];
+
+// Process gates. One name each, used by the rail, the requirement pills, the drawer and the export.
 export const GATE = {
-  // "Printable on an H2C" was a promise this criterion never tested: it only reads the research
-  // scope list, not temperatures, nozzles or feed paths.
-  scope: { plain: 'In the H2C\'s scope', hint: 'leaves out materials the database places outside the printer\'s envelope; it does not check print settings' },
-  nozzle: { plain: 'Nozzle temperature the H2C reaches', hint: 'the H2C reaches 350 °C' },
-  bed: { plain: 'Bed temperature the H2C reaches', hint: 'the H2C reaches 120 °C' },
-  chamber: { plain: 'Chamber temperature the H2C reaches', hint: 'the H2C reaches 65 °C' },
-  abrasive: { plain: 'No hardened nozzle', hint: 'hides filaments a source says need one' },
-  dryingKnown: { plain: 'Drying guidance is published', hint: '' },
-  h2cStatus: { plain: 'Bambu support level', hint: '' },
-  buyable: { plain: 'Listed in the Canadian price sample', hint: 'Canadian retailers, sampled; not live stock' },
+  scope: { plain: 'Within H2C capability' },
+  get nozzle() { return { plain: `Nozzle \u2264 ${BASELINE.nozzleC} \u00b0C` }; },
+  get bed() { return { plain: `Bed \u2264 ${BASELINE.bedC} \u00b0C` }; },
+  get chamber() { return { plain: `Chamber \u2264 ${BASELINE.chamberC} \u00b0C` }; },
+  abrasive: { plain: 'Brass nozzle only' },
+  dryingKnown: { plain: 'Drying instructions published' },
+  h2cStatus: { plain: 'Bambu Lab status' },
+  buyable: { plain: 'Sold in Canada (sampled)' },
+};
+
+/**
+ * Bambu Lab's standing of a material on the H2C. The stored values are the database's (schema/vocab/h2c-status.csv); an
+ * engineer reads these names and meanings instead.
+ */
+export const H2C_STATUS = {
+  'Official Bambu product': { label: 'Bambu Lab filament', meaning: 'Bambu Lab sells a filament of this material for the H2C. As a filter it passes Bambu Lab\'s own spools only.',
+    lede: 'Bambu Lab sells a filament of it for the H2C.' },
+  'Officially listed family': { label: 'Type on Bambu\'s H2C list', meaning: 'Bambu Lab lists this material type for the H2C, though not every brand of it.',
+    lede: 'A material type on Bambu Lab\'s H2C list, though not every brand of it is.' },
+  Conditional: { label: 'Unlisted, usable with conditions', meaning: 'Not on Bambu Lab\'s list. It prints on the H2C under conditions, which the Printing tab gives.',
+    lede: 'Not on Bambu Lab\'s list; it prints on the H2C under the conditions given in Printing.' },
+  Theoretical: { label: 'Unlisted, within H2C temperatures', meaning: 'Not on Bambu Lab\'s list. Its published process temperatures are within the H2C\'s, but Bambu Lab has not validated it.',
+    lede: 'Not on Bambu Lab\'s list; its published process temperatures are within the H2C\'s.' },
+  'Exceeds H2C limits': { label: 'Beyond H2C capability', meaning: 'Not on Bambu Lab\'s list, and it needs more heat than the H2C gives. It is never a candidate.',
+    lede: 'Not on Bambu Lab\'s list, and it needs more heat than the H2C gives.' },
+};
+export const h2cStatusLabel = (s) => H2C_STATUS[s]?.label ?? s;
+
+/** The filler of a material (its reinforcement facet), by the name a data sheet would use. */
+export const FILLER = {
+  'carbon-fibre': 'Carbon fibre', 'glass-fibre': 'Glass fibre', unfilled: 'Unfilled',
+  esd: 'Anti-static (ESD)', foaming: 'Foaming', undisclosed: 'Other variant, filler not disclosed',
 };
 
 /**
@@ -50,11 +75,11 @@ export const GATE = {
  * of this table, which is how a new verdict reaches one screen and not the next.
  */
 export const GATE_VERDICT = {
-  within: { state: 'PASS', word: 'Yes', short: 'yes' },
-  partial: { state: 'INDETERMINATE', word: 'Partly', short: 'part of the window' },
-  'exceeds-recommended': { state: 'INDETERMINATE', word: 'Yes, with a caveat', short: 'recommended higher' },
-  exceeds: { state: 'FAIL', word: 'No', short: 'no' },
-  unknown: { state: 'UNKNOWN', word: 'Not recorded', short: 'not recorded' },
+  within: { state: 'PASS', word: 'Within', short: 'within' },
+  partial: { state: 'INDETERMINATE', word: 'Partly within', short: 'partly within' },
+  'exceeds-recommended': { state: 'INDETERMINATE', word: 'Above recommended', short: 'above recommended' },
+  exceeds: { state: 'FAIL', word: 'Exceeds', short: 'exceeds' },
+  unknown: { state: 'UNKNOWN', word: 'No data', short: 'no data' },
 };
 export const gateVerdict = (v) => GATE_VERDICT[v] ?? GATE_VERDICT.unknown;
 
@@ -63,9 +88,9 @@ export const gateVerdict = (v) => GATE_VERDICT[v] ?? GATE_VERDICT.unknown;
  * wording never carries a number.
  */
 export const CHAMBER_GUIDANCE = {
-  'not-required': { word: 'not required', title: 'A source says no heated chamber is needed. No temperature is implied.' },
-  recommended: { word: 'recommended', title: 'A source recommends a heated chamber but publishes no temperature. That is not proof 65 °C is enough.' },
-  'no-setpoint': { word: 'no setpoint', title: 'The data sheet lists no chamber setpoint ("-"). Not zero, and not the same as not required.' },
+  'not-required': { word: 'not required', title: 'A source says no heated chamber is needed. It gives no temperature.' },
+  recommended: { word: 'recommended', title: 'A source recommends a heated chamber but gives no temperature, so 65 °C is not shown to be enough.' },
+  'no-setpoint': { word: 'no setpoint', title: 'The data sheet prints "-" for the chamber. That is no setpoint: not zero, and not "not required".' },
 };
 
 /**
@@ -73,14 +98,14 @@ export const CHAMBER_GUIDANCE = {
  * table cell, the drawer, Compare, the chart and the export.
  */
 export const ESTIMATE_STRENGTH = {
-  'this-grade': { short: 'from this product\'s related measurements', title: 'Built mainly from this product\'s own related measurements (another endpoint, direction, load or specimen), each converted to this property, with the family model' },
-  'this-material': { short: 'from its material\'s products', title: 'Built from related measurements of the material\'s products or resin data (another endpoint, direction, load or specimen), converted to this property, with the family model' },
-  family: { short: 'from the family model only', title: 'No evidence of this material itself: predicted from its polymer, reinforcement and chemical family, learned from every measured material' },
+  'this-grade': { short: 'from this product\'s related values', title: 'Estimated mainly from this product\'s other published values (another endpoint, orientation, load or specimen), converted to this property, and from similar materials' },
+  'this-material': { short: 'from its products\' related values', title: 'Estimated from its products\' other published values or resin data (another endpoint, orientation, load or specimen), converted to this property, and from similar materials' },
+  family: { short: 'from similar materials only', title: 'Nothing on file for this material itself: predicted from similar materials (its polymer, filler and family)' },
 };
 
 /** How a likely range should be read. */
 export const ESTIMATE_PRECISION = {
-  good: 'narrow enough to rule a material out of a requirement it clearly misses',
+  good: 'narrow enough to exclude a material from a requirement it clearly misses',
   fair: 'a rough guide',
   poor: 'only the order of magnitude',
 };
@@ -96,15 +121,15 @@ export function estimateTitle(e, d) {
   const s = ESTIMATE_STRENGTH[e.strength] ?? { title: 'Estimated' };
   const levels = e.levels ?? { likely: 0.8, plausible: 0.95 };
   const unit = d.unit ? ` ${d.unit}` : '';
-  // Said for a reader who is not a statistician: what the range is, how often ranges like it held when the model was
-  // tested on values it had not seen, and what it may and may not do.
+  // For an engineer who is not a statistician: the range, how often ranges like it held when the model was tested on
+  // values it had not seen, what it rests on, and what it may and may not do.
   const oneIn = (p) => (p >= 0.94 && p <= 0.96 ? '19 in 20' : p >= 0.78 && p <= 0.82 ? '8 in 10' : percent(p));
-  const wide = d.plausible ? ` It could be anywhere from ${d.plausible[0]} to ${d.plausible[1]}${unit} (${oneIn(levels.plausible)}).` : '';
-  const column = d.inColumn ? ` In ${d.columnUnit}, the unit of its column, that is ${d.inColumn[0]} to ${d.inColumn[1]}.` : '';
-  return `An estimate, not a measurement: probably ${d.lo} to ${d.hi}${unit}, most likely around ${d.centre}${unit}. When the model was tested on published values it was not shown, ${oneIn(levels.likely)} fell inside ranges like this.${column}${wide}`
-    + ` ${s.title}.${e.sharedWith ? ` Its product is also recorded under ${e.sharedWith.name}.` : ''}`
-    + ` Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`
-    + ` An estimate never makes a material pass. ${e.canScreen ? `With "${POLICY_LABELS.exploration}", it rules this material out of ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
+  const wide = d.plausible ? ` Plausible range ${d.plausible[0]} to ${d.plausible[1]}${unit} (${percent(levels.plausible)}).` : '';
+  const column = d.inColumn ? ` In ${d.columnUnit}, the table's unit: ${d.inColumn[0]} to ${d.inColumn[1]}.` : '';
+  return `Estimate, not a measurement: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} interval), centre ${d.centre}${unit}.${column}${wide}`
+    + ` ${s.title}.${e.sharedWith ? ` Its product is also filed under ${e.sharedWith.name}.` : ''}`
+    + ` ${e.precision === 'poor' ? 'Poor precision: treat it as an order of magnitude only.' : `Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`}`
+    + ` It never makes a material pass.${e.canScreen ? ` With ${POLICY_LABELS.exploration}, it excludes this material from ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
 }
 
 /**
@@ -118,8 +143,8 @@ export function screenRangeText(e, fmt, unit = e.unit) {
   const r = e.screenRange ?? e.plausible;
   if (!r) return '';
   const u = unit ? ` ${unit}` : '';
-  if (r.lo != null && r.hi != null) return `a requirement its screening range, ${fmt(r.lo)} to ${fmt(r.hi)}${u}, wholly fails`;
-  return r.lo != null ? `a maximum requirement below ${fmt(r.lo)}${u}` : `a minimum requirement above ${fmt(r.hi)}${u}`;
+  if (r.lo != null && r.hi != null) return `any requirement entirely outside ${fmt(r.lo)} to ${fmt(r.hi)}${u}`;
+  return r.lo != null ? `a maximum below ${fmt(r.lo)}${u}` : `a minimum above ${fmt(r.hi)}${u}`;
 }
 
 const OPERATOR = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
@@ -138,23 +163,23 @@ export function describeConstraint(c) {
       return `${p.plain} ${OPERATOR[c.operator] ?? c.operator} ${n(c.value)} ${p.unit}`.trim();
     }
     case 'gate':
-      if (c.gate === 'h2cStatus') return `Bambu support level: ${(c.in ?? []).join(', ')}`;
-      if (c.gate === 'buyable') return c.inStock ? 'In stock when sampled in Canada' : GATE.buyable.plain;
+      if (c.gate === 'h2cStatus') return `Bambu Lab status: ${(c.in ?? []).map(h2cStatusLabel).join(' or ')}`;
+      if (c.gate === 'buyable') return c.inStock ? 'In stock in Canada (sampled)' : GATE.buyable.plain;
       if (c.gate === 'abrasive' && c.hardenedAvailable) return 'Hardened nozzle available';
       return GATE[c.gate]?.plain ?? c.gate;
     case 'facet':
-      if (c.facet === 'supportMaterial') return c.equals === false ? 'A build material, not a support' : 'Support or interface material';
+      if (c.facet === 'supportMaterial') return c.equals === false ? 'Build material (not a support)' : 'Support or interface material';
       if (c.facet === 'family') return `Family: ${(c.in ?? []).join(' or ')}`;
       if (c.facet === 'polymer') return `Polymer: ${[...new Set((c.in ?? []).map((x) => x.split(' › ').pop()))].join(' or ')}`;
-      return `Reinforcement: ${(c.in ?? []).map((x) => x.replace(/-/g, ' ')).join(' or ')}`;
+      return `Filler: ${(c.in ?? []).map((x) => (FILLER[x] ?? x.replace(/-/g, ' ')).toLowerCase()).join(' or ')}`;
     case 'environment':
       return envRequirement(c.category);
-    case 'treatment': return 'Annealing at the schedule its sheet states';
+    case 'treatment': return 'Annealed as its data sheet states';
     case 'evidence': {
       const bits = [];
-      if (c.exactGrade) bits.push('has a product-specific measurement');
-      if (c.noConflicts) bits.push('no unresolved conflicts');
-      return bits.length ? `Evidence: ${bits.join(', ')}` : 'Evidence quality';
+      if (c.exactGrade) bits.push('product-level measurements');
+      if (c.noConflicts) bits.push('no unresolved data conflicts');
+      return bits.length ? `Data quality: ${bits.join(', ')}` : 'Data quality';
     }
     default: return c.kind;
   }

@@ -23,7 +23,7 @@ const P = (key, over = {}) => ({ key, kind: 'headline', label: prop(key).short, 
 export const COLUMN_SETS = {
   properties: {
     label: 'Properties',
-    help: 'What the material is like',
+    help: 'Key properties of each material',
     // Headline columns come from the registry (headline_definitions.csv, Table column). Up to five
     // measured columns keep their 11%; more share the same width. A percentage is the width a column takes where the
     // table has room; the stylesheet gives each kind of column a minimum, below which the table scrolls sideways.
@@ -43,7 +43,7 @@ export const COLUMN_SETS = {
   },
   printing: {
     label: 'Printing',
-    help: 'What your machine needs to do: each window is the range across the material\'s products; each product\'s own is in its Products tab',
+    help: 'Print temperatures: each window spans the material\'s products; each product\'s own is in its Products tab',
     columns: [
       { key: 'name', label: 'Material', kind: 'name', width: '22%' },
       { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },
@@ -172,11 +172,11 @@ export function shareMark(e) {
   const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
   const text = judged ? `${c.pass} of ${judged} product${judged === 1 ? '' : 's'}` : 'none judged';
   const title = judged
-    ? `${plural(c.pass, 'product')} of the ${plural(judged, 'product')} that could be judged meet${c.pass === 1 ? 's' : ''} every requirement together.`
-      + `${c.untested ? ` ${c.untested} more publish${c.untested === 1 ? 'es' : ''} too little to judge; they do not count against the material.` : ''}`
+    ? `${c.pass} of the ${plural(judged, 'product')} that could be judged ${c.pass === 1 ? 'meets' : 'meet'} all the requirements.`
+      + `${c.untested ? ` ${c.untested} more publish${c.untested === 1 ? 'es' : ''} too little to judge, and ${c.untested === 1 ? 'does' : 'do'} not count against the material.` : ''}`
       // D100: a material fails only when every product fails; one unmeasured product leaves it unresolved.
-      + `${!c.pass && c.fail && c.untested ? ' No product demonstrates a pass, but not every product fails either, so the material is unresolved rather than failed.' : ''}`
-      + ' The material\'s Products tab lists each and why.'
+      + `${!c.pass && c.fail && c.untested ? ' None passes, but not every product fails, so the material is unresolved, not failed.' : ''}`
+      + ' Its Products tab lists each and why.'
     : `None of its ${plural(c.products, 'product')} publishes enough to judge against these requirements.`;
   return ` ${explainButton(text, title, { cls: 'share', head: 'Products that pass', action: 'products', id: e.materialId })}`;
 }
@@ -187,7 +187,7 @@ export function variantMark(m, e) {
   const passing = (e.products ?? []).filter((p) => p.verdict === 'PASS');
   const variants = passing.filter((p) => p.variant);
   if (!passing.length || variants.length < passing.length) return '';
-  return `<span class="row-sub via-variant" title="Every product that passes is a declared variant of this material (D57); the material's other products do not.">via ${variants.length === 1 ? 'a declared variant' : 'declared variants'} (${[...new Set(variants.map((p) => p.variant))].join(', ')})</span>`;
+  return `<span class="row-sub via-variant" title="Only declared variants of this material pass; its standard products do not.">via ${variants.length === 1 ? 'a declared variant' : 'declared variants'} (${[...new Set(variants.map((p) => p.variant))].join(', ')})</span>`;
 }
 
 /** A pass that rests only on values published without their test direction or load says so (PM-05, D84). */
@@ -196,8 +196,8 @@ export function caveatMark(e) {
   const passing = (e.products ?? []).filter((p) => p.verdict === 'PASS');
   const loose = (p) => (p.results ?? []).some((r) => r.status === 'PASS' && r.caveat);
   if (!passing.length || !passing.every(loose)) return '';
-  const what = [...new Set(passing.flatMap((p) => p.results.filter((r) => r.caveat).map((r) => (r.caveat === 'load-not-stated' ? 'load' : 'direction'))))].join(' or ');
-  return `<span class="row-sub on-caveat" title="Every passing product passes on a value its sheet publishes without its test ${what}; it counts because values published that way are included.">on values without a test ${what}</span>`;
+  const what = [...new Set(passing.flatMap((p) => p.results.filter((r) => r.caveat).map((r) => (r.caveat === 'load-not-stated' ? 'load' : 'orientation'))))].join(' or ');
+  return `<span class="row-sub on-caveat" title="Every passing product passes on a value published without its test ${what}; it counts because Data quality includes such values.">on values with no stated ${what}</span>`;
 }
 
 /** A typical value measured after annealing or conditioning, under a header that judges as printed and dry (PM-06). */
@@ -205,7 +205,7 @@ export function typicalStateMark(h, measurementState) {
   const st = measurementState(h?.typical?.measurementId);
   if (!st) return '';
   const words = [st.annealed ? 'annealed' : null, st.conditioned ? 'conditioned' : null].filter(Boolean).join(', ');
-  return words ? `<span class="row-sub typical-state" title="The typical value shown is a measurement taken ${words}; the verdict judges each product as printed and dry unless you allow otherwise.">typical: ${words}</span>` : '';
+  return words ? `<span class="row-sub typical-state" title="The median shown comes from ${words} specimens. Results judge each product as printed and dry unless Part condition says otherwise.">${words} median</span>` : '';
 }
 
 /**
@@ -215,7 +215,7 @@ export function typicalStateMark(h, measurementState) {
 export function unknownMark(e) {
   const c = e?.counts;
   if (!c || e.verdict !== 'UNKNOWN') return '';
-  if (c.fail && !c.pass) return `<span class="row-sub likely-fails" title="Every product that publishes the value misses the limit; the material stays unresolved only because ${c.untested} product${c.untested === 1 ? '' : 's'} publish${c.untested === 1 ? 'es' : ''} nothing to judge (D100).">likely fails: ${c.fail} measured below, ${c.untested} unpublished</span>`;
+  if (c.fail && !c.pass) return `<span class="row-sub likely-fails" title="Every product that publishes the value misses the limit. The material stays unresolved only because ${c.untested} product${c.untested === 1 ? '' : 's'} publish${c.untested === 1 ? 'es' : ''} nothing to judge.">likely fails: ${c.fail} with data ${c.fail === 1 ? 'misses' : 'miss'}, ${c.untested} publish none</span>`;
   if (!c.fail && !c.pass) return `<span class="row-sub not-published">nothing published to judge</span>`;
   return '';
 }
@@ -316,7 +316,7 @@ export function renderTable(host, state, actions) {
           const e = state.ctx?.showEstimates ? m.print.chamberEstimate : null;
           const word = g ? explainButton(esc(g.word), g.title, { cls: 'missing', head: 'Chamber, in words' }) : '';
           const band = e ? explainButton(`~${fmtRange(e.lo, e.hi)}<span class="est-mark">\u2020</span>`,
-            `Estimated, not published: ${e.basis}. Not a print setting, and it changes no result.`,
+            `Estimated, not published: ${e.basis}. Not a print setting; it changes no result.`,
             { cls: 'est', head: 'Estimated chamber band', action: 'estimate', id: m.id }) : '';
           if (word || band) return `<td class="num">${word}${word && band ? '<br>' : ''}${band}</td>`;
         }
@@ -332,7 +332,7 @@ export function renderTable(host, state, actions) {
         }
         // A range across every recorded profile, not one setting to dial in. The drawer's Printing
         // tab has each profile on its own.
-        const t = r.profiles > 1 ? `Range across ${r.profiles} recorded profiles, not one recipe. The material's Printing tab has each.` : 'From one recorded profile. The material\'s Printing tab has it.';
+        const t = r.profiles > 1 ? `Range across ${r.profiles} print profiles, not one setting. The Printing tab has each.` : 'From one print profile. The Printing tab has it.';
         return `<td class="num">${explainButton(printRange(r), t, { cls: 'print-window', head: `${c.label} temperature`, action: 'printing', id: m.id })}</td>`;
       }
       if (c.kind === 'needs') {
@@ -341,16 +341,16 @@ export function renderTable(host, state, actions) {
           const share = hardenedShare(state.ctx?.productsByMaterial?.get(m.id));
           const some = share.total && share.need < share.total;
           bits.push(explainButton(some ? `hardened nozzle: ${share.need} of ${share.total}` : 'hardened nozzle',
-            some ? `${hardenedWords(share)}: ${share.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${share.need > 4 ? ', …' : ''}. The others state no such need, or say nothing.` : 'Carbon, glass or metal filled. A brass nozzle will wear out.',
+            some ? `${hardenedWords(share)}: ${share.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${share.need > 4 ? ` and ${share.need - 4} more` : ''}. The others state no need or say nothing.` : 'Abrasive filler: a brass nozzle wears out.',
             { cls: 'need', head: 'Hardened nozzle', action: 'printing', id: m.id }));
         }
         if (m.gates.drying === 'required') {
-          bits.push(explainButton('drying guidance', 'A source gives a drying schedule. The Printing tab has its wording, and whether it is a requirement or a recommendation.',
-            { cls: 'need', head: 'Drying guidance', action: 'printing', id: m.id }));
+          bits.push(explainButton('drying', 'A source gives a drying schedule. The Printing tab has its wording, and whether it is required or recommended.',
+            { cls: 'need', head: 'Drying', action: 'printing', id: m.id }));
         }
         if (!bits.length) {
-          return `<td class="needs">${explainButton('none recorded', 'No source in the snapshot states a hardened-nozzle or drying requirement. That is not the same as needing nothing.',
-            { cls: 'missing', head: 'Nothing recorded' })}</td>`;
+          return `<td class="needs">${explainButton('none stated', 'No source states a hardened-nozzle or drying need. That is not the same as needing nothing.',
+            { cls: 'missing', head: 'None stated' })}</td>`;
         }
         return `<td class="needs">${bits.join(' ')}</td>`;
       }
@@ -359,7 +359,7 @@ export function renderTable(host, state, actions) {
         const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg'), materialId: m.id });
         if (!m.buy) return `<td class="num">${inner}</td>`;
         const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${m.buy.accessDate})`;
-        const notStocked = 'No sampled Canadian offer was in stock when sampled. Prices and stock are snapshots; they are not live.';
+        const notStocked = 'No sampled Canadian listing was in stock when sampled. Prices and stock are snapshots, not live.';
         const link = (content, cls = '') => `<a class="buy${cls}" href="${esc(m.buy.url)}" target="_blank" rel="noopener"
           title="${esc(t)}">${content}<span class="buy-mark" aria-label="opens the retailer page">\u2197</span></a>`;
         // A listing with no usable price says so in words, on one line: "listed, no price" and "out of stock" wrapped to
@@ -410,29 +410,29 @@ export function renderTable(host, state, actions) {
   const likely = Math.round((state.db.meta.estimateModel?.levels?.likely ?? 0.8) * 100);
   const legend = [
     explainButton('<span class="dash">\u2014</span> not published',
-      'Not published in the sampled sources. Not zero, and not a low value. Select a dash in the table for which kind of absence it is.',
+      'No source on file publishes it. A gap, not a zero or a low value. Select a dash for which kind of gap it is.',
       { cls: 'lg', head: 'Not published' }),
-    explainButton('<b>2.3</b> <span class="spread">1.0\u20133.0 · 27</span> typical and range',
-      'A material is the spread of its products. The number is their typical value (the median) and the line under it their range, with how many products publish the value comparably: printed or unstated specimen, stated direction, dry or unstated. Different products, not the uncertainty of one. Select a value for the details.',
-      { cls: 'lg', head: 'Typical value and range' }),
+    explainButton('<b>2.3</b> <span class="spread">1.0\u20133.0 · 27</span> median and range',
+      'A material is the spread of its products: the median, then the range and how many products report the value on a comparable basis (printed or unstated specimen, stated orientation, dry or unstated). Different products, not one product\'s scatter.',
+      { cls: 'lg', head: 'Median and range' }),
     explainButton('<b>1.2</b><span class="evidence-dot" aria-hidden="true"></span> one measurement',
-      'A value that rests on one measurement: a material with a single product publishing it, or a product\'s own value. The dot marks it as a button: select the number for the measurement, its test conditions and the page of its source.',
+      'A value from one measurement: one product publishes it, or it is a product\'s own value. Select it for its test conditions and source page.',
       { cls: 'lg', head: 'One measurement' }),
-    explainButton('<span class="related-mark">*</span> measured, not comparable',
-      'A real measurement of this material that no product publishes comparably, for example because its source states no direction or measures another endpoint. It is not used by any filter. Select a starred value for the measurement and the reason.',
-      { cls: 'lg', head: 'Measured, but not comparable' }),
+    explainButton('<span class="related-mark">*</span> published, not comparable',
+      'Published for this material, but no product reports it on a comparable basis: the orientation is not stated, or it is another endpoint. No filter uses it. Select a starred value for the reason.',
+      { cls: 'lg', head: 'Published, not comparable' }),
     state.ctx?.showEstimates ? explainButton('<span class="lg-est">~a\u2013b<span class="est-mark">\u2020</span></span> estimate, <i>italic</i> = rough',
-      `An estimate, not a measurement: the likely (${likely}%) range of a calibrated model built from the material's own related measurements and its polymer family. It never passes a requirement, and with Use estimates on it can screen a material out. In italic, its precision is poor: an order of magnitude only. A nozzle, bed or chamber window marked this way is an estimated starting point and changes no result. Select an estimate for what it rests on.`,
+      `Estimate, not a measurement: the likely (${likely}%) range from related values and similar materials. It never makes a material pass; with "Let estimates rule out materials" on, it can exclude one. Italic means an order of magnitude only. An estimated print window is a starting point and changes no result.`,
       { cls: 'lg', head: 'Estimate, not a measurement' }) : '',
     explainButton('<span class="load-mark">\u2248</span> close to the limit',
-      'A published mean with a spread, where a requirement\'s threshold lies inside the spread. The result is judged on the mean. Select the mark for the published spread.',
+      'A published mean ± scatter with the threshold inside the scatter. Judged on the mean.',
       { cls: 'lg', head: 'Close to the limit' }),
     // Only where a price on screen was converted, like the estimate entry only where estimates show (D113).
     (state.db.meta.priceSample?.foreignSellers ?? 0) > 0 ? explainButton('<span class="fx-mark">\u00a4</span> converted',
-      'A price from a foreign listing, for a product no Canadian shop in the sample lists: its own currency, before VAT, converted to CAD at the Bank of Canada rate named in its explanation. It says nothing about shipping to Canada, duty or Canadian stock. Select the mark for the listing and the rate.',
+      'A price from a foreign listing, for a product no sampled Canadian shop sells: converted to CAD at the Bank of Canada rate, before VAT. Shipping and duty are not included.',
       { cls: 'lg', head: 'Converted price' }) : '',
     explainButton('<span class="na">n/a</span> not applicable',
-      'The property does not apply to this material, such as heat deflection of an elastomer. Not a gap in the data.',
+      'The property does not apply to this material, such as HDT of an elastomer. Not a gap.',
       { cls: 'lg', head: 'Not applicable' }),
   ].filter(Boolean).join('');
 
@@ -460,10 +460,10 @@ export function renderTable(host, state, actions) {
             ? e.failed.map((r) => `${esc(describeConstraint(r.constraint))} — ${esc(r.reason)}`).join('<br>')
             : e.screened
               ? e.unresolved.filter((r) => r.screened).map((r) => `${esc(describeConstraint(r.constraint))} — ${esc(r.reason)}`).join('<br>')
-                + '<br>Not a failure. The SCREENED chip at the bottom of the screen shows these.'
+                + '<br>Not a failure. The SCREENED chip at the bottom shows these.'
             : e.heldBy.length
               ? `Could not be checked against ${esc(e.unresolved.map((r) => describeConstraint(r.constraint)).join(', '))}.`
-                + ` Not a failure: it is left out because ${POLICY_CONTROL} is set to "${POLICY_LABELS.strict}".`
+                + ` Not a failure: it is left out because missing data is set to "${POLICY_LABELS.strict}".`
               : 'Hidden by the result filters at the bottom of the screen.';
           return `<tr data-material="${esc(m.id)}" tabindex="0">
             <td class="name">${esc(primary)}${aka ? `<span class="row-sub">also called ${esc(aka)}</span>` : ''}</td>
@@ -481,7 +481,7 @@ export function renderTable(host, state, actions) {
   const families = state.searchFamilies ?? [];
   // The family's own name opens its entry, which says what it is and why it has no tabs of its own.
   const familyBlock = families.length ? `<div class="family-note">${families.map((f) => `<p><button class="link-btn family-name" data-open-member="${esc(f.id)}" title="Opens what ${esc(f.name)} is in this database"><b>${esc(f.name)}</b></button>
-      ${f.familyEntry.kind === 'alias' ? 'is another name for' : 'is a family in this database, not one material. Its members are'}
+      ${f.familyEntry.kind === 'alias' ? 'is another name for' : 'names a group of materials, not one material. Its members are'}
       ${f.familyEntry.members.map((x) => `<button class="link-btn" data-open-member="${esc(x.id)}">${esc(x.name)}</button>`).join(', ')}.
       <span class="fine">${esc(f.familyEntry.why)}</span></p>`).join('')}</div>` : '';
 
@@ -499,14 +499,14 @@ export function renderTable(host, state, actions) {
         </div>
         <span class="colset-help" id="colset-help">${esc(COLUMN_SETS[setKey].help)}</span>
       </div>
-      <label class="rank-pick" title="Orders the results by a goal: a performance index worked out for each passing product, the material ranked by the median of its products.">
+      <label class="rank-pick" title="Orders the results by a performance index, worked out for each passing product; a material ranks by the median of its products.">
         Rank by
         <select data-rank-by>
           <option value="">nothing: sort by column</option>
           ${INDICES.map((i) => `<option value="${esc(i.id)}" ${state.scenario.rankBy === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`).join('')}
         </select>
       </label>
-      <label class="baseline-pick" title="Adds a reference row so every number has something familiar beside it.">
+      <label class="baseline-pick" title="Adds a familiar material as a reference row. It is never a candidate.">
         Compare against
         <select data-baseline>
           <option value="">no reference</option>

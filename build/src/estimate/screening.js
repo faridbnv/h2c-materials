@@ -127,7 +127,7 @@ export function screenDecision({ strength, certification, at, familyAt, own, uni
     if (value != null) {
       const beyond = own.find((o) => (side === 'above' ? o.value > value && o.bound !== 'upper' : o.value < value && o.bound !== 'lower'));
       if (beyond) {
-        limits.push(`it cannot screen ${requirement}: its own ${beyond.measurementId ?? 'nominal hardness'} (${sig3(beyond.value)} ${unit}, converted to this headline) lies ${side} the range the model would screen on`);
+        limits.push(`it cannot screen ${requirement}: ${beyond.measurementId ? 'one of its own values' : 'its nominal hardness'} (${sig3(beyond.value)} ${unit}, converted to this property) lies ${side} the range the model would screen on`);
         value = null;
       } else basis.push(why);
     }

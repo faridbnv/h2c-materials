@@ -183,8 +183,17 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
   font-weight: 650; font-size: var(--t-body); list-style: none; user-select: none;
 }
 .group > summary::-webkit-details-marker { display: none; }
-.group > summary::before { content: "▸"; color: var(--ink-3); font-size: 10px; transition: transform .12s; }
-.group[open] > summary::before { transform: rotate(90deg); }
+/* One disclosure mark for every collapsible heading: a chevron drawn in CSS, large enough to read as a control. The
+   10 px "▸" glyph it replaces rendered about 4 px wide in grey and read as a dot. */
+.chevron {
+  flex: 0 0 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;
+}
+.chevron::before {
+  content: ""; width: 7px; height: 7px; border-right: 2px solid var(--ink-2); border-bottom: 2px solid var(--ink-2);
+  transform: rotate(-45deg); transition: transform .12s; margin-right: 2px;
+}
+details[open] > summary > .chevron::before { transform: rotate(45deg); margin: 0 0 3px; }
+summary:hover > .chevron::before { border-color: var(--accent); }
 .group .count {
   margin-left: auto; font-size: 11px; background: var(--accent-soft); color: var(--accent);
   border-radius: 10px; padding: 1px 7px; font-weight: 600;
@@ -422,8 +431,12 @@ table.grid td.name { font-weight: 600; }
 .maker-block, .prop-block { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 8px; }
 .maker-block > summary, .prop-block > summary { display: flex; align-items: baseline; gap: 10px; padding: 9px 12px; cursor: pointer; font-weight: 600; font-size: var(--t-body); list-style: none; }
 .maker-block > summary::-webkit-details-marker, .prop-block > summary::-webkit-details-marker { display: none; }
-.maker-block > summary::before, .prop-block > summary::before { content: '▸'; color: var(--ink-3); font-size: 11px; }
-.maker-block[open] > summary::before, .prop-block[open] > summary::before { content: '▾'; }
+.maker-block > summary::before, .prop-block > summary::before {
+  content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-right: 2px solid var(--ink-2); border-bottom: 2px solid var(--ink-2);
+  transform: rotate(-45deg); transition: transform .12s; margin: 0 4px 1px 2px; align-self: center;
+}
+.maker-block[open] > summary::before, .prop-block[open] > summary::before { transform: rotate(45deg); margin-bottom: 4px; }
+.maker-block > summary:hover::before, .prop-block > summary:hover::before { border-color: var(--accent); }
 .maker-block > summary .n, .prop-block > summary .n { margin-left: auto; color: var(--ink-3); font-weight: 400; font-size: var(--t-label); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .maker-body { padding: 4px 12px 12px; border-top: 1px solid var(--border); }
 .maker-body .grade-block:first-child .block-title, .maker-body .profile-block:first-child .block-title, .maker-body > div:first-child .src-title { margin-top: 8px; }
@@ -910,6 +923,23 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 }
 
 /* ---------------------------------------------------------------- rail additions */
+/* Within H2C temperature limits: one box, its three gates indented under it. */
+.print-check .sub-checks { margin: 8px 0 0 22px; gap: 8px; }
+.print-check .sub-checks label { font-weight: 500; }
+.print-check .sub-checks .avail { margin: 1px 0 0 22px; }
+/* Part condition: two two-way switches, each with its label above and what it does below. */
+.part-state .seg-label { font-size: var(--t-body); font-weight: 600; margin-bottom: 6px; }
+.segmented.seg-sm button { padding: 5px 11px; font-size: var(--t-small); }
+.part-state .segmented { margin-bottom: 7px; }
+.part-state .anneal-max { margin: 0 0 7px; display: flex; gap: 6px; align-items: center; color: var(--ink-2); }
+.part-state .anneal-max input { width: 5.5em; }
+.group-body > .avail { font-size: var(--t-label); color: var(--ink-3); line-height: 1.45; }
+.control .sub-check { align-items: flex-start; }
+.control .sub-check input { margin-top: 2px; }
+.rail-more > summary { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: var(--t-label); color: var(--ink-2); font-weight: 600; list-style: none; }
+.rail-more > summary::-webkit-details-marker { display: none; }
+.rail-more p { font-size: var(--t-label); color: var(--ink-2); line-height: 1.5; margin: 6px 0 0; }
+.control label .info-mark { margin-left: 4px; vertical-align: 1px; }
 .rail-pinned { padding: 14px 16px; border-bottom: 1px solid var(--border); background: var(--surface-2); }
 .toggle { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: var(--t-body); cursor: pointer; }
 .rail-pinned .avail { font-size: var(--t-label); color: var(--ink-3); margin: 5px 0 0 26px; }
@@ -1084,7 +1114,8 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .active.compact .active-head p { font-size: 12.5px; }
 .active.compact .state-line { margin-top: 6px; }
 .answer-notes { margin-top: 6px; font-size: var(--t-small); color: var(--ink-2); }
-.answer-notes > summary { cursor: pointer; padding: 3px 0; }
+.answer-notes > summary { cursor: pointer; padding: 3px 0; display: flex; align-items: baseline; gap: 6px; list-style: none; }
+.answer-notes > summary > .chevron { align-self: center; }
 .answer-notes > summary b { color: var(--ink); }
 .answer-notes .not-checked { margin-top: 6px !important; }
 .answer-notes ul { margin: 6px 0; padding-left: 18px; }
@@ -1328,7 +1359,9 @@ tr.baseline-row .name { color: var(--accent); }
 .start-limits { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; }
 .start-limits summary {
   cursor: pointer; font-size: var(--t-small); font-weight: 650; color: var(--ink-2);
+  display: flex; align-items: center; gap: 6px; list-style: none;
 }
+.start-limits summary::-webkit-details-marker, .answer-notes > summary::-webkit-details-marker { display: none; }
 .start-limits p, .start-limits li { font-size: var(--t-small); color: var(--ink-2); line-height: 1.6; }
 .start-limits ul { margin: 8px 0; padding-left: 20px; }
 .start-limits li { margin-bottom: 6px; }
@@ -1387,3 +1420,56 @@ tr.baseline-row .name { color: var(--accent); }
   border-radius: var(--radius); background: var(--bg); color: inherit; max-width: 260px;
 }
 .cmp-bar .spread-bounds { top: 3px; height: 10px; border: 1px solid var(--ink-2); border-radius: 2px; background: color-mix(in srgb, var(--ink-3) 18%, transparent); }
+
+/* ---------------------------------------------------------------- the drawer for an engineer (D124) */
+/* Record IDs, one small mark that opens them: never in the sentence. */
+.mark.id-mark {
+  font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px;
+  margin-left: 4px; line-height: 1.5; vertical-align: 1px; font-family: var(--mono);
+}
+.mark.id-mark:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+.mark.maker-conditions { font-size: var(--t-label); color: var(--accent); text-decoration: underline dotted 1px; text-underline-offset: 3px; margin-left: 4px; }
+.mark.link-btn { color: var(--accent); text-decoration: underline; }
+/* The answer, first: how many of its products meet the requirements. */
+.answer { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); margin: 10px 0 4px; }
+.answer p { margin: 0; line-height: 1.5; }
+.answer p .btn { margin-left: 8px; }
+.why-on { margin: 0 0 4px; }
+.why-also { margin: 6px 0 0; }
+.src-link { margin-left: 4px; font-size: var(--t-small); }
+/* Key properties: name and value in two columns, the meaning behind the name. */
+.key-props { display: grid; grid-template-columns: minmax(130px, 40%) 1fr; gap: 7px 14px; margin: 4px 0 10px; font-size: var(--t-body); }
+.key-props dt { margin: 0; }
+.key-props dd { margin: 0; }
+.key-props dd.kp-empty { color: var(--ink-3); }
+.mark.prop-name { text-decoration: underline dotted 1px; text-underline-offset: 3px; color: var(--ink-2); text-align: left; }
+.print-answer { margin: 4px 0; font-size: var(--t-body); }
+.data-line { font-size: var(--t-small); color: var(--ink-2); margin: 18px 0 6px; padding-top: 12px; border-top: 1px solid var(--border); }
+.data-line .link-btn { margin-left: 6px; }
+.overview-foot { margin-top: 10px; }
+/* A product: one line until opened; Choose beside it, never inside the toggle. */
+.grade-block { border-bottom: 1px solid var(--border); padding: 4px 0; }
+.grade-head { display: flex; align-items: flex-start; gap: 8px; }
+.grade-toggle {
+  flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; text-align: left;
+  background: none; border: 0; padding: 7px 0; cursor: pointer; font: inherit; color: var(--ink);
+}
+.grade-toggle .grade-name { font-weight: 650; font-size: var(--t-body); }
+.grade-toggle .grade-keys { flex-basis: 100%; padding-left: 22px; font-size: var(--t-small); color: var(--ink-3); }
+.grade-toggle[aria-expanded="true"] > .chevron::before { transform: rotate(45deg); margin: 0 0 3px; }
+.grade-toggle:hover > .chevron::before { border-color: var(--accent); }
+.grade-head .choose-btn { margin-top: 5px; flex: 0 0 auto; }
+.grade-body { padding: 0 0 8px 22px; }
+.grade-docs { font-size: var(--t-small); margin: 6px 0; }
+.grade-docs .shared-head { display: inline; margin-right: 6px; }
+/* Sources: what a document covers and gave, and its record notes out of the way. */
+.src-covers { font-size: var(--t-small); color: var(--ink-2); margin: 2px 0; }
+.record-notes { margin: 3px 0 0; font-size: var(--t-label); color: var(--ink-3); }
+.record-notes > summary { cursor: pointer; }
+.review-notes { margin-top: 10px; }
+/* On a phone a maker's quotes take the full width under their topic, not a third of it. */
+@media (max-width: 600px) {
+  .maker-says .kv { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .maker-says .kv dd { margin-bottom: 8px; }
+  .key-props { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+}

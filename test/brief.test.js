@@ -45,7 +45,7 @@ test('a brief names the exact product, its release, its answer and the records i
   assert.match(md, /\| V006484 \|/, 'the measurement it passed on, with where it is printed');
   const sha = db.sources.find((s) => s.id === db.measurements.find((m) => m.id === 'V006484').sourceId).sha256;
   assert.ok(md.includes(sha), 'and the SHA-256 of the document it is printed in');
-  assert.match(md, /screening policy admits/, 'the conditions admitted unstated are said');
+  assert.match(md, /Not stated by the values it passed on, and accepted for screening/, 'the conditions admitted unstated are said');
   assert.match(md, /## How to print and treat it[\s\S]*Nozzle: 260–280 °C/);
   assert.match(md, /## The confirmation test/);
   assert.match(md, /\| 2026-10-01 \| JS \|/, "the team's result is recorded with it");

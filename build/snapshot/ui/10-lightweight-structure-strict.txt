@@ -4,21 +4,21 @@ STATUS ☑ PASS 15 | ☐ UNKNOWN 90 | ☐ FAIL 48
 Lightweight structure template · 90 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
-Printable on the H2C
+Within H2C temperature limits
 ×
-In the H2C's scope
+Within H2C capability
 ×
-A build material, not a support
+Build material (not a support)
 ×
 Density at most 1250 kg/m³
 ×
-Stiffness (tensile modulus, XY) at least 2.5 GPa
+Tensile modulus (XY) at least 2.5 GPa
 ×
-Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 5 more pass
-Not checked by this template: Thresholds, not an optimum
+Values judged: as printed, dry. Allow annealing: 5 more pass
+Not checked by this template: Which material is lightest overall
 Properties
 Printing
-What the material is like
+Key properties of each material
 Rank by
 nothing: sort by column
 Tie, minimum mass, stiffness prescribed
@@ -37,13 +37,13 @@ ABS
 ASA
 PC
 — not published
-2.3 1.0–3.0 · 27 typical and range
+2.3 1.0–3.0 · 27 median and range
 1.2 one measurement
-* measured, not comparable
+* published, not comparable
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 ABS-GF PASS
 2 of 4 products
  passing: 1,150
@@ -52,7 +52,7 @@ all products: 1,100
  passing: 3.75–4.21
 all products: 3.16
 1.74–4.21 · 5
-typical: annealed
+annealed median
  46.5
 35.5–68 · 7
  2.1
@@ -119,12 +119,12 @@ all products: 1,170
  passing: 3.8–4.67
 all products: 4.37
 3.8–8.64 · 6
-typical: annealed
+annealed median
  77
 53–112 · 7
  7.35
 2.1–16.5 · 6
-typical: annealed
+annealed median
  185
 140–215 · 9
  130
@@ -146,7 +146,7 @@ all products: 2.34
 12.7–100 · 3
  111
 102–140 · 5
-typical: annealed
+annealed median
  40
 39–90.7 · 3
 ↗ ☆
@@ -171,7 +171,7 @@ all products: 1.67
 33–68.4 · 22
  8.96
 4.1–90 · 22
-typical: annealed
+annealed median
  70
 63–80 · 33
  26
@@ -202,14 +202,14 @@ all products: 1,200
  passing: 3.1
 all products: 1.35
 0.86–3.1 · 7
-typical: annealed
+annealed median
  20
 9–39.2 · 8
  8.8
 1.8–16.9 · 7
  53
 48–59 · 7
-typical: annealed
+annealed median
  58↗ ☆
 PLA-CF PASS
 2 of 10 products
@@ -223,7 +223,7 @@ all products: 2.8
 31.2–54.9 · 8
  9.4
 2–13.2 · 8
-typical: annealed
+annealed median
  55.5
 54–91 · 9
  40.5

@@ -24,7 +24,7 @@ test('a published bound reads as one in a number cell, with its words in the acc
   }
   const html = renderValue({ known: true, value: 300, unit: '%', measurementId: 'V011516', interval: lower }, { showUnit: true });
   assert.match(html, /&gt; 300 %/);
-  assert.match(html, /aria-label="more than 300 %, open the measurement behind it"/);
+  assert.match(html, /aria-label="more than 300 %, open the measurement in Sources"/);
   assert.match(html, /Published as a bound: the source prints &quot;more than 300 %&quot;/);
   assert.doesNotMatch(renderValue({ known: true, value: 300, unit: '%', measurementId: 'V1', interval: { lo: 300, hi: 300, kind: 'point' } }, { showUnit: true }), /bound/);
 });
@@ -33,7 +33,7 @@ test('a measurement shown only as related keeps its bound, in the cell and in th
   const best = { measurementId: 'V011516', gradeId: 'G167-12', value: 300, unit: '%', property: 'Elongation at break', direction: 'unknown', why: 'direction not stated', interval: lower };
   const html = renderValue({ known: false, missing: 'not-published', related: { count: 1, grades: 1, best, items: [best] } }, { showUnit: true });
   assert.match(html, /<span class="rv">&gt; 300 %<\/span>/);
-  assert.match(html, /Nearest measurement on record: &gt; 300 %/);
+  assert.match(html, /Nearest value on file: &gt; 300 %/);
   assert.match(html, /Published as a bound/);
 });
 

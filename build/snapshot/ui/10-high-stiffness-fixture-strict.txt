@@ -4,22 +4,22 @@ STATUS ☑ PASS 6 | ☐ UNKNOWN 107 | ☐ FAIL 40
 High-stiffness fixture template · 107 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
-Printable on the H2C
+Within H2C temperature limits
 ×
-In the H2C's scope
+Within H2C capability
 ×
-A build material, not a support
+Build material (not a support)
 ×
-Stiffness (tensile modulus, XY) at least 5 GPa
+Tensile modulus (XY) at least 5 GPa
 ×
-TRACKED ONLY
-Heat deflection (HDT, 0.45 MPa) at least 90 °C
+REPORTED, NOT REQUIRED
+HDT at 0.45 MPa at least 90 °C
 ×
-Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 5 more pass
-Not checked by this template: How much a part bends depends on its shape, print direction and load as much as on stiffness
+Values judged: as printed, dry. Allow annealing: 5 more pass
+Not checked by this template: Deflection of the part
 Properties
 Printing
-What the material is like
+Key properties of each material
 Rank by
 nothing: sort by column
 Tie, minimum mass, stiffness prescribed
@@ -38,13 +38,13 @@ ABS
 ASA
 PC
 — not published
-2.3 1.0–3.0 · 27 typical and range
+2.3 1.0–3.0 · 27 median and range
 1.2 one measurement
-* measured, not comparable
+* published, not comparable
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 ASA-CF PASS
 1 of 5 products
  1,095
@@ -86,7 +86,7 @@ PETG-CF PASS
  passing: 5.23
 all products: 3.09
 1.77–5.23 · 6
-typical: annealed
+annealed median
  48.7
 32–59.8 · 7
  6.6

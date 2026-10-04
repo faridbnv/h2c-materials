@@ -12,7 +12,7 @@ import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } fr
 import { buildFamilyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
 import { AXIS_DEFS } from './axes.js';
 import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH } from './labels.js';
-import { asksPrintable } from './templates.js';
+import { printCheck, printGatesMissing } from './templates.js';
 import {
   wireResize, placeLabels, axisRange, hexToRgba, requirementOverlay, anchorRequirementLabels, referenceOverlay,
   anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, PLOT_MARGIN_TOP, errorBars, applyZoom, watchZoom, zoomSig, zoomMemory,
@@ -47,12 +47,12 @@ const valueText = (v, d, interval = null) => (v === null || v === undefined ? '�
 /** Why a product state has no coordinate on an axis, in words. */
 function missingWords(m, def) {
   const what = def.plain.toLowerCase();
-  if (m.reason === 'unpriced') return 'no price of its own in the sample (a twin\'s is never read)';
+  if (m.reason === 'unpriced') return 'no price of its own in the sample (another product\'s price is never used)';
   if (m.reason === 'other-state') {
     const e = m.elsewhere?.[0];
-    return `${what} is published only ${e ? stateWords(e) : 'in another state'}${e?.measurementId ? ` (${e.measurementId})` : ''}; nothing is read across states`;
+    return `${what} is published only ${e ? stateWords(e) : 'in another state'}; values are never carried across states`;
   }
-  if (m.reason === 'not-comparable') return `${what} is published without its test direction or load, so it is not compared`;
+  if (m.reason === 'not-comparable') return `${what} is published without its specimen orientation or test load, so it is not compared`;
   if (m.reason === 'not-applicable') return `${what} does not apply to it`;
   return `no comparable ${what} published in this state`;
 }
@@ -80,14 +80,15 @@ export function questionStrip(state, ws) {
   const { scenario } = state;
   const cs = scenario.constraints;
   const index = ws.objective.index;
-  const printable = asksPrintable(cs);
+  const check = printCheck(cs);
+  const printable = check === 'all';
   const scoped = cs.some((c) => c.kind === 'gate' && c.gate === 'scope');
   const hard = cs.filter((c) => c.mandatory !== false && !(c.kind === 'gate' && ['nozzle', 'bed', 'chamber', 'scope'].includes(c.gate)));
-  const judged = `${scenario.anneal ? `As printed, or annealed at its sheet's schedule${scenario.annealMaxC ? ` up to ${fmtNumber(scenario.annealMaxC)} °C` : ''}` : 'As printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}`;
+  const judged = `${scenario.anneal ? `As printed, or annealed at its data sheet's schedule${scenario.annealMaxC ? ` up to ${fmtNumber(scenario.annealMaxC)} °C` : ''}` : 'As printed'}, ${scenario.moisture === 'conditioned' ? 'moisture-conditioned' : 'dry'}`;
   const goalOption = (i) => `<option value="${esc(i.id)}" ${index?.id === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`;
   const asked = [
     judged,
-    printable ? `H2C ${scoped ? 'scope and ' : ''}print gates` : null,
+    printable ? `Within H2C ${scoped ? 'capability and ' : ''}temperature limits` : null,
     ...hard.map(describeConstraint),
   ].filter(Boolean);
   return `<section class="ws-question" aria-label="The question">
@@ -105,7 +106,7 @@ export function questionStrip(state, ws) {
       <span class="ws-label">Asked</span>
       <span class="ws-asked-list">${asked.map((a) => `<span>${esc(a)}</span>`).join('')}${cs.length ? '' : '<span class="ws-asked-none">no requirement yet, so nothing is screened</span>'}</span>
       <button type="button" class="link-btn" data-edit-req data-focus="edit-req" title="The filter rail holds every requirement; the chart draws them">Change in Filters</button>
-      ${printable ? '' : '<span class="ws-research"><b class="warn-text">Print checks off:</b> printability not checked <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></span>'}
+      ${printable ? '' : `<span class="ws-research"><b class="warn-text">H2C printability ${check === 'none' ? 'not checked' : `partly checked: ${esc(printGatesMissing(cs).join(' and '))} not checked`}</b> <button type="button" class="btn btn-sm" data-act="printable">Check nozzle, bed and chamber</button></span>`}
     </div>
   </section>`;
 }
@@ -130,7 +131,7 @@ export function starter(state) {
     <h2>What must the part do?</h2>
     <p>Choose the member and what is prescribed. The chart then draws each product that can do it, in the state it would be used in, with the line that ranks them.</p>
     <label class="toggle ws-start-gates"><input type="checkbox" data-start-gates checked>
-      <span>Ask the H2C's requirements too: in scope, and printable (nozzle, bed and chamber)</span></label>
+      <span>Also require H2C capability and temperature limits (nozzle, bed and chamber)</span></label>
     <div class="ws-start-grid">
       ${card('Lightest stiff part', 'Stiffness prescribed, mass minimised.', ['tie-stiffness', 'beam-stiffness', 'panel-stiffness'])}
       ${card('Lightest strength-limited part', 'Strength prescribed, mass minimised. The recorded strength is a proxy: tensile, its endpoint as each sheet states it.', ['tie-strength', 'beam-strength', 'panel-strength'])}
@@ -237,7 +238,7 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
   // A chip is a switch whose state is its look: pressed or not. One that does not apply says why, and stays put.
   const chip = (attrs, on, label, why = '', help = '') => `<button type="button" class="ws-chip" ${attrs} aria-pressed="${!!on && !why}" ${why ? `disabled title="${esc(why)}"` : help ? `title="${esc(help)}"` : ''}>${esc(label)}</button>`;
   const productsOnly = view === 'decision' ? '' : 'Drawn in the Products view';
-  const needs = `Needs ${state.scenario.unknownPolicy === 'exploration' ? 'Use estimates' : 'Include uncertain and Use estimates'}, at the top of the page`;
+  const needs = `Needs ${state.scenario.unknownPolicy === 'exploration' ? '"Let estimates rule out materials"' : 'Include uncertain and "Let estimates rule out materials"'}, at the top of the page`;
   const estWhy = work ? (state.estimates?.off ? needs : '')
     : estimates?.measured ? 'Test pairs are measured values only'
       : !state.ctx?.showEstimates ? needs
@@ -267,7 +268,7 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
     </div>
     <div class="ws-row" role="group" aria-label="Also draw">
       <span class="ws-row-label">Also</span>
-      ${chip('data-layer="unresolved" data-focus="layer-unresolved"', layerOn(state, 'unresolved'), 'Unsettled', productsOnly, 'Products the requirements could not settle, hollow; never ranked')}
+      ${chip('data-layer="unresolved" data-focus="layer-unresolved"', layerOn(state, 'unresolved'), 'Unknown', productsOnly, 'Products whose data cannot settle the requirements, hollow; never ranked')}
       ${chip('data-layer="failed" data-focus="layer-failed"', p.layers?.failed, 'Failing', productsOnly, 'Products that fail a requirement, small and faint; never ranked')}
       ${chip('data-show-estimates data-focus="estimates"', p.showEstimates, 'Estimates', estWhy, 'Materials on screen that publish nothing on an axis: the model\'s likely range, shaded; never a point')}
       ${chip('data-layer="front" data-focus="layer-front"', p.layers?.front, 'Pareto front', view === 'decision' || view === 'catalogue' ? '' : 'Drawn in the Products and Material typicals views', 'What nothing else beats on both axes: products, or materials at their typical values')}
@@ -460,9 +461,9 @@ function inspector(state, ws) {
     const e = (state.estimates?.ranges ?? []).find((r) => r.key === sel.key);
     if (!e) return '';
     const side = (s, d) => (s.kind === 'estimate'
-      ? `<dd>likely ${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)} <span class="fine">(the model's ${Math.round((s.levels?.likely ?? 0.8) * 100)}% interval; ${esc(s.precision ?? 'unrated')} precision, ${esc(ESTIMATE_PRECISION[s.precision] ?? '')}; ${esc(ESTIMATE_STRENGTH[s.strength]?.short ?? 'basis not rated')})</span>
-         ${s.plausible ? `<br><span class="fine">broader, plausible: ${esc(fmtRange(s.plausible.lo, s.plausible.hi))} ${esc(d.unit)}</span>` : ''}
-         ${s.screenRange ? `<br><span class="fine">defended screening bounds the engine may use: ${esc(fmtRange(s.screenRange.lo, s.screenRange.hi))} ${esc(d.unit)}${s.canScreen ? '' : ' (this estimate may not screen)'}; not the likely range, and not a physical limit</span>` : ''}
+      ? `<dd>likely ${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)} <span class="fine">(${Math.round((s.levels?.likely ?? 0.8) * 100)}% interval; ${esc(s.precision ?? 'unrated')} precision, ${esc(ESTIMATE_PRECISION[s.precision] ?? '')}; ${esc(ESTIMATE_STRENGTH[s.strength]?.short ?? 'basis not rated')})</span>
+         ${s.plausible ? `<br><span class="fine">plausible: ${esc(fmtRange(s.plausible.lo, s.plausible.hi))} ${esc(d.unit)}</span>` : ''}
+         ${s.screenRange ? `<br><span class="fine">range it may exclude on: ${esc(fmtRange(s.screenRange.lo, s.screenRange.hi))} ${esc(d.unit)}${s.canScreen ? '' : ' (this estimate excludes nothing)'}; not a physical limit</span>` : ''}
          <br><span class="fine">basis: ${esc(s.basis ?? 'not stated')}</span></dd>`
       : `<dd>${s.lo === s.hi ? esc(valueText(s.lo, d, s.interval)) : `${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)}`} <span class="fine">measured: ${s.kind === 'product-span' ? `the span of its ${plural(s.products ?? 0, 'product')}, not one product's uncertainty` : 'its one product\'s value'}</span></dd>`);
     const estKey = e.x.kind === 'estimate' ? p.x : p.y;
@@ -501,13 +502,13 @@ function inspector(state, ws) {
       ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="Opens the measurement behind this value">${esc(valueText(v.value, d, v.interval))}<span class="evidence-dot" aria-hidden="true"></span></button>`
       : esc(valueText(v.value, d, v.interval));
     const where = v.origin === 'assumption' ? 'a scenario assumption, not measured'
-      : v.derived ? `its own price ${fmtNumber(v.price.value)} ${esc(v.price.unit)} (${plural(v.price.observations ?? v.priceIds.length, 'listing')}, ${esc(v.priceIds.join(' '))}) × its own density ${fmtNumber(v.density.value)} ${esc(v.density.unit)}`
+      : v.derived ? `its own price ${fmtNumber(v.price.value)} ${esc(v.price.unit)} (${plural(v.price.observations ?? v.priceIds.length, 'listing')}) × its own density ${fmtNumber(v.density.value)} ${esc(v.density.unit)}`
       : v.stateInvariantByRegistry ? `read from ${esc(v.sourceStateId)}: the registry declares ${esc(d.plain.toLowerCase())} unchanged by this state`
-      : `this state's own value${v.measurementId ? ` (${esc(v.measurementId)})` : ''}`;
+      : 'this state\'s own value';
     const extra = [
       v.uncertainty ? `the source reports ± ${fmtNumber(v.uncertainty)} ${esc(d.unit)}, its statistic as published` : null,
       v.from?.label ? esc(v.from.label) : null,
-      v.admitted?.length ? `${esc(v.admitted.join(', '))} not stated, admitted for screening` : null,
+      v.admitted?.length ? `${esc(v.admitted.join(', '))} not stated` : null,
       m && /strength/i.test(m.property ?? '') ? `endpoint: ${esc(m.property)}` : null,
       m?.standards?.length ? `to ${esc(m.standards.join(', '))}` : null,
     ].filter(Boolean);
@@ -517,14 +518,14 @@ function inspector(state, ws) {
   const context = q.bucket !== 'confirmed' ? `<p class="fine ws-context-note">${q.bucket === 'failed' ? 'Fails a requirement' : 'Could not be settled'}: context only, never ranked, counted on the line or on the front.</p>` : '';
   return `<section class="ws-inspector" aria-label="Selected product state" tabindex="-1">
     <div class="ws-insp-head"><h3>${esc(q.product)}</h3>${close}</div>
-    <div class="fine">${esc(q.name)} · ${esc(q.gradeId)} · ${state.scenario.constraints.length ? chip(q.verdict) : '<span class="chip chip-neutral">not screened</span>'}${q.variant ? ` · <span class="chip chip-neutral" title="Its values describe this product, not its polymer: kept out of ${esc(q.name)}'s range">variant: ${esc(q.variant)}</span>` : ''}</div>
+    <div class="fine">${esc(q.name)} · ${state.scenario.constraints.length ? chip(q.verdict) : '<span class="chip chip-neutral">not screened</span>'}${q.variant ? ` · <span class="chip chip-neutral" title="Its values describe this product, not its polymer: kept out of ${esc(q.name)}'s range">variant: ${esc(q.variant)}</span>` : ''}</div>
     ${context}
     <dl class="kv small">
-      <dt>State</dt><dd>${q.state.treatment ? `Annealed ${esc(scheduleWords(q.state.treatment))}, as its sheet states; ` : 'As printed; '}${q.state.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}${q.state.synthetic ? '. It publishes no values of its own in this state' : ''}</dd>
+      <dt>State</dt><dd>${q.state.treatment ? `Annealed ${esc(scheduleWords(q.state.treatment))}, as its sheet states; ` : 'As printed; '}${q.state.moisture === 'conditioned' ? 'moisture-conditioned' : 'dry'}${q.state.synthetic ? '. It publishes no values of its own in this state' : ''}</dd>
       <dt>${esc(yD.plain)}</dt>${coordinate(q.y, yD)}
       <dt>${esc(xD.plain)}</dt>${coordinate(q.x, xD)}
       ${index ? `<dt>Goal index</dt><dd>${q.M !== null ? `M = ${sig(q.M)}` : 'not computable: an input is missing in this state'}${rank ? ` · its material ranks #${rank.place}, the median of ${plural(rank.products, 'product')}` : ''}${index.strengthProxy ? ' <span class="fine">(a strength proxy)</span>' : ''}</dd>` : ''}
-      ${grade?.print?.anneal?.length && !q.state.treatment ? `<dt>Treatment</dt><dd class="fine">Its sheet also measures values after annealing ${esc(grade.print.anneal.map(scheduleWords).join('; '))}; permit annealing to judge it in that state.</dd>` : ''}
+      ${grade?.print?.anneal?.length && !q.state.treatment ? `<dt>Post-processing</dt><dd class="fine">Its sheet also gives values after annealing ${esc(grade.print.anneal.map(scheduleWords).join('; '))}; allow annealing under Part condition to judge it in that state.</dd>` : ''}
     </dl>
     <div class="ws-insp-actions">
       ${state.scenario.constraints.length && q.bucket === 'confirmed' ? `<button type="button" class="btn btn-sm choose-btn" data-choose="${esc(q.gradeId)}" aria-pressed="${chosen}" title="${chosen ? 'Chosen: its decision brief is under Save / share. Press to remove it.' : 'Choose this exact product in this state: its decision brief, recipe and test plan go under Save / share'}">${chosen ? '✓ Chosen' : 'Choose this exact product'}</button>` : ''}

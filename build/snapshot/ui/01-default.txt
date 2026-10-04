@@ -14,25 +14,25 @@ Check the evidence
 Start from a typical part, or set your own requirements in Filters.
 A template only fills in the controls. Every value it sets stays editable, and nothing is decided for you.
 Outdoor structural part
-A bracket that lives outside. Screens for heat resistance of at least 100 °C, stiffness and weight, on a product the H2C can print.
+A bracket that lives outside. HDT at 0.45 MPa at least 100 °C, tensile modulus at least 3 GPa, density at most 1500 kg/m³, within H2C temperature limits.
 Indoor prototype
-A shape you want to hold in your hand tomorrow. Screens for a build material the H2C can print; the price is tracked, at most 45 CAD/kg.
+A shape you want to hold in your hand tomorrow. Any build material within H2C temperature limits; price at most 45 CAD/kg is reported, not required.
 Lightweight structure
-A drone arm or a moving part. Screens for density under 1250 kg/m³ with stiffness of at least 2.5 GPa, on a product the H2C can print.
+A drone arm or a moving part. Density at most 1250 kg/m³ and tensile modulus at least 2.5 GPa, within H2C temperature limits.
 Warm environment
-A part near a motor or in a car. Screens for heat resistance of at least 80 °C, on a product whose nozzle, bed and chamber temperatures the H2C can reach.
+A part near a motor or in a car. HDT at 0.45 MPa at least 80 °C, within H2C temperature limits.
 High-stiffness fixture
-A jig or a fixture. Screens for stiffness of at least 5 GPa on a product the H2C can print; heat resistance is tracked, not required.
+A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limits. HDT at least 90 °C is reported, not required.
 Flexible component
-A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking, on a product the H2C can print.
-153 materials, 136 of them in H2C scope
-11509 measurements, each traceable to a source
+A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
+153 materials, 136 within H2C capability
+11509 measurements, each traceable to its source
 145 have a density, 100 a modulus, 101 a price
-The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
+Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer
 Properties
 Printing
-What the material is like
+Key properties of each material
 Rank by
 nothing: sort by column
 Tie, minimum mass, stiffness prescribed
@@ -51,22 +51,22 @@ ABS
 ASA
 PC
 — not published
-2.3 1.0–3.0 · 27 typical and range
+2.3 1.0–3.0 · 27 median and range
 1.2 one measurement
-* measured, not comparable
+* published, not comparable
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 316L stainless steel sintering filament
 Metal and Ceramic Sintering
  not tested 7,190 — — — n/a — ☆
 ABS not tested 1,050
 1,020–1,150 · 41
-typical: annealed
+annealed median
  2.2
 1.77–2.38 · 10
-typical: annealed
+annealed median
  35
 15.7–45 · 16
  10
@@ -111,7 +111,7 @@ ABS-GF not tested 1,100
 1,016–1,150 · 11
  3.16
 1.74–4.21 · 5
-typical: annealed
+annealed median
  46.5
 35.5–68 · 7
  2.1
@@ -137,7 +137,7 @@ ASA not tested 1,070
 ↗ ☆
 ASA Aero not tested 1,010
 400–1,080 · 4
-typical: annealed
+annealed median
  0.709
 0.594–0.824 · 2
  9.88
@@ -277,12 +277,12 @@ Nylon / Polyamide
 1,030–1,230 · 11
  3.32
 3.3–8 · 4
-typical: annealed
+annealed median
  72
 50–86 · 7
  3.6
 2.1–14.8 · 7
-typical: annealed
+annealed median
  159
 48–185 · 10
  300↗ ☆
@@ -307,12 +307,12 @@ Nylon / Polyamide
 1,090–1,250 · 13
  4.37
 3.8–8.64 · 6
-typical: annealed
+annealed median
  77
 53–112 · 7
  7.35
 2.1–16.5 · 6
-typical: annealed
+annealed median
  185
 140–215 · 9
  130
@@ -326,12 +326,12 @@ Nylon / Polyamide
 2.85–5.36 · 4
  82.3
 62.8–98.9 · 6
-typical: annealed
+annealed median
  4.95
 2.4–12.5 · 6
  184
 161–210 · 10
-typical: annealed
+annealed median
  84
 77–146 · 3
 ↗ ☆
@@ -350,7 +350,7 @@ Nylon / Polyamide
 12.7–100 · 3
  111
 102–140 · 5
-typical: annealed
+annealed median
  40
 39–90.7 · 3
 ↗ ☆
@@ -370,21 +370,21 @@ Nylon / Polyamide
 3.5–5.14 · 3
  80
 68–91.9 · 2
-typical: annealed
+annealed median
  3.05
 2.6–3.5 · 2
-typical: annealed
+annealed median
  175 170
 98–242 · 2
 ↗ ☆
 PA612-ESD
 Nylon / Polyamide
  not tested 1,100 4.29
-typical: annealed
+annealed median
  84.3
-typical: annealed
+annealed median
  3
-typical: annealed
+annealed median
  157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
@@ -431,7 +431,7 @@ Polycarbonate
 1,150–1,230 · 18
  2.15
 1.8–2.5 · 10
-typical: annealed
+annealed median
  59.9
 40–69.1 · 12
  7
@@ -445,15 +445,15 @@ PC FR
 Polycarbonate
  not tested 1,190
 1,180–1,200 · 2
-typical: annealed
+annealed median
  2.15
 1.67–2.63 · 2
  63.5
 60–67 · 2
-typical: annealed
+annealed median
  2.94
 2.4–3.49 · 2
-typical: annealed
+annealed median
  112
 110–113 · 2
  70↗ ☆
@@ -518,7 +518,7 @@ Polycarbonate
  not tested 1,290
 1,260–1,320 · 2
  1.77* 55* 8* 140
-typical: annealed
+annealed median
  — ☆
 PCL
 PVB / Specialty Polymers
@@ -665,13 +665,13 @@ PET Engineering
 1,290–1,400 · 6
  5.11
 4.73–5.48 · 2
-typical: annealed
+annealed median
  74
 65.9–75 · 3
-typical: annealed
+annealed median
  3.45
 2.4–4.5 · 2
-typical: annealed
+annealed median
  100
 74–205 · 5
  113
@@ -683,16 +683,16 @@ PET Engineering
 1,380–1,430 · 3
  4.14
 4.13–4.14 · 2
-typical: annealed
+annealed median
  70.9
 59.9–76 · 4
-typical: annealed
+annealed median
  3.28
 2.56–5.5 · 4
-typical: annealed
+annealed median
  120
 81.6–200 · 3
-typical: annealed
+annealed median
  69.5
 41–98 · 2
 ↗ ☆
@@ -715,7 +715,7 @@ PETG not tested 1,270
 33–68.4 · 22
  8.96
 4.1–90 · 22
-typical: annealed
+annealed median
  70
 63–80 · 33
  26
@@ -725,7 +725,7 @@ PETG-CF not tested 1,290
 1,190–1,350 · 22
  3.09
 1.77–5.23 · 6
-typical: annealed
+annealed median
  48.7
 32–59.8 · 7
  6.6
@@ -778,14 +778,14 @@ PLA Aero not tested 1,200
 840–1,240 · 7
  1.35
 0.86–3.1 · 7
-typical: annealed
+annealed median
  20
 9–39.2 · 8
  8.8
 1.8–16.9 · 7
  53
 48–59 · 7
-typical: annealed
+annealed median
  58↗ ☆
 PLA blend not tested 1,340
 1,300–1,540 · 7
@@ -801,12 +801,12 @@ PLA Galaxy not tested 1,225
 1,190–1,240 · 4
  1.79
 1.54–2.03 · 2
-typical: annealed
+annealed median
  43.3
 26–54.2 · 3
  9.3
 2.1–16.3 · 3
-typical: annealed
+annealed median
  54.6
 53–55 · 3
  32↗ ☆
@@ -816,10 +816,10 @@ PLA Glow not tested 1,255
 1.99–2.03 · 2
  37.6
 32–43.2 · 2
-typical: annealed
+annealed median
  5.15
 1.7–8.6 · 2
-typical: annealed
+annealed median
  54
 53–55 · 2
  36
@@ -833,7 +833,7 @@ PLA Marble not tested 1,245
 33–53.8 · 3
  6.7
 2.1–25 · 3
-typical: annealed
+annealed median
  55
 53–56 · 3
  31.5
@@ -842,11 +842,11 @@ typical: annealed
 PLA Metal not tested 1,225
 1,200–1,250 · 3
  2.01
-typical: annealed
+annealed median
  34
-typical: annealed
+annealed median
  14.7
-typical: annealed
+annealed median
  60
 58–62 · 2
  32↗ ☆
@@ -858,7 +858,7 @@ PLA Silk not tested 1,240
 27–62.7 · 17
  7
 1.7–11.7 · 16
-typical: annealed
+annealed median
  53
 50–62 · 19
  32.2
@@ -867,13 +867,13 @@ typical: annealed
 PLA Sparkle not tested 1,255
 1,240–1,410 · 4
  1.94
-typical: annealed
+annealed median
  49
 39–59 · 2
-typical: annealed
+annealed median
  12.1
 11.7–12.5 · 2
-typical: annealed
+annealed median
  52.9
 50.8–55 · 2
  32↗ ☆
@@ -899,7 +899,7 @@ PLA-CF not tested 1,250
 31.2–54.9 · 8
  9.4
 2–13.2 · 8
-typical: annealed
+annealed median
  55.5
 54–91 · 9
  40.5
@@ -1034,12 +1034,12 @@ High-Performance Engineering
 4.55–5.76 · 2
  68
 64.1–72 · 2
-typical: annealed
+annealed median
  1.8
 1.6–2 · 2
  239
 236–241 · 2
-typical: annealed
+annealed median
  164↗ ☆
 PPSU
 Industrial High-Temperature

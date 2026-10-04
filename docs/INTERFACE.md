@@ -89,8 +89,8 @@ under the grid. Rarely published properties (compression strength, thermal expan
 toughness, fatigue, creep, friction) are not a column: nearly no source publishes them for any filament, so the column
 had been a gap on every row ("0 of 82 recorded") and told one candidate from another by nothing. They are said once
 under the grid, derived from each material's own measurements and grouped by list: which of them the candidates on
-screen do not publish, the materials sharing a list counted and one whose list differs named, opening its Coverage tab.
-A cell of the grid still opens the material's Coverage tab.
+screen do not publish, the materials sharing a list counted and one whose list differs named, opening its Known gaps.
+A cell of the grid opens the material's Sources tab at its Known gaps, where the Coverage tab's rows now are (D124).
 
 A sixth tab, **Why excluded**, sits beside them and is not a lens: it explains what is *not* in the
 candidate set, ranked by how many materials each criterion costs. It is a tab rather than a hidden
@@ -126,17 +126,21 @@ Every window, word and band in these columns opens its explanation: a range says
 offers the Printing tab, a word quotes what the source said, a band says what it rests on and offers the estimate.
 
 A word never becomes a number, and a band never sits beside a published window. In the drawer the
-same answers appear under "Can the H2C print it?": a window the chamber only partly reaches reads
-**Partly** and says which part is reachable, a statement in words is quoted, and a band gets its own
+same answers appear under "H2C printability": a window the chamber only partly reaches reads
+**Partly within** and says which part is reachable, a statement in words is quoted, and a band gets its own
 card with the basis and caution the research wrote.
 
 ## The filter rail
 
-Groups are ordered by how often a criterion actually decides something: mechanical and thermal lead,
-compatibility sits last. For this database compatibility mostly cannot discriminate, and putting it
-first made the whole rail look like it did nothing.
+The groups are in the order an engineer screens (the owner's ruling of 2026-10-04, D124): **Material family** (with
+the filler and *Build materials only*), **Mechanical**, **Thermal**, **Environment**, **Printing on the H2C**, **Part
+condition**, **Cost and availability**, **Data quality**. The H2C's checks had sat as two boxes above every group, with
+the same three temperature gates repeated under Compatibility at the bottom; they are one group now. The headings are
+display names (`GROUP_LABEL` in `filters.js`) over the stored group keys, which saved scenarios carry, and a
+requirement is counted in the group it is shown in (`railGroupOf`), whatever key it was saved with. A group's
+collapse mark is a chevron drawn in CSS, 16 px wide: the 10 px grey "▸" it replaced read as a dot.
 
-**Material family** comes first, above them, because a reader usually starts from a family ("a nylon") before a
+**Material family** comes first because a reader usually starts from a family ("a nylon") before a
 number. It is two levels: the families, each with a count, and under a chosen family its base polymers. A polymer
 chosen in one family narrows that family only; a second chosen family with no polymer chosen keeps all of its own. The
 polymer is named within its family in the requirement ("Polymer Blends › PC"), because PC heads two families and a
@@ -171,13 +175,16 @@ Properties table fits a 1440 px screen with the filters open with the columns it
 What each compares, and what it leaves out, is in DATA-MODEL, "What each selectable property compares"; the drawer
 says it beside the values left out (below).
 
-A group's badge says what it counts ("2 set"): a bare number beside "Mechanical" read as a count of results. The
-support filter is called **Bambu support level**, as its requirement pill is, and the temperature checks are "within
-the H2C limit of 350 °C": "baseline" means the reference row in the table and nothing else.
+A group's badge says what it counts ("2 set"): a bare number beside "Mechanical" read as a count of results. Part
+condition and Data quality count the settings that change which values are judged as well. Bambu Lab's standing is
+**Bambu Lab status**, its stored values shown under the names an engineer would use (Bambu Lab filament, Type on
+Bambu's H2C list, Unlisted, usable with conditions, Unlisted, within H2C temperatures) with their meanings one press
+away, and the temperature checks read **Nozzle ≤ 350 °C**, **Bed ≤ 120 °C**, **Chamber ≤ 65 °C**, the limits read from
+the build's H2C baseline.
 
 **A field that cannot discriminate is not built as a filter.** H2C routing and AMS read "verify the
 exact grade" on nearly every profile, and printing difficulty is unpublished on all of them (the rail's note under
-Compatibility gives the counts). They appear
+Printing on the H2C gives the counts). They appear
 in a material's Printing tab as evidence. A filter that passes everything teaches the reader to
 trust something that checked nothing.
 
@@ -194,7 +201,7 @@ requirement this build cannot evaluate (an unknown property, gate, facet or envi
 when it loads, with a warning that names it: a second requirement used to be invisible in the rail and dropped by
 editing the first, and a typo read as a gap in every material's data.
 
-The nozzle question is asked as the hardware you lack, **"I don't have a hardened nozzle"**. Owning
+The nozzle question is asked as the hardware you lack, **Brass nozzle only**. Owning
 one removes nothing, so there is nothing to ask. The criterion fails materials a source says need a
 hardened nozzle, holds fibre-filled materials with no guidance as unresolved, and passes the rest
 with a reason that says no requirement was recorded, which is not proof of being safe for brass.
@@ -203,8 +210,16 @@ The chamber check counts its two kinds of answer apart: how many materials publi
 temperature, how many more say no heated chamber is needed, and, as a caveat, how many publish a
 window the H2C only partly reaches, which stay unresolved rather than passing.
 
-**In the H2C research scope** is what the pinned checkbox says, because that is all it reads. It
-used to say "Printable on an H2C", a promise about temperatures and feed paths it never tested.
+**Within H2C temperature limits** is one box over the three temperature gates, each indented under it with its data
+line; it is ticked when all three are asked, indeterminate when one or two are. The scope list is a box of its own,
+**Exclude materials beyond H2C capability**, which names the families it removes (industrial high-temperature plastics
+and sintering filaments): it reads that list and no temperature, so it is not called printable.
+
+**Part condition** is a group of two two-way switches: *Post-processing* (As printed | Annealing allowed, with the
+oven's limit) and *Moisture in service* (Dry | Conditioned). Each says what it does to the answers: annealing allowed
+can only add passes; conditioned judges only values measured after moisture conditioning, so most materials become
+unknown. They add no requirement. They had been a checkbox and a radio pair pinned above every group, under "How the
+part is made and used", saying neither.
 
 Environment criteria split by what the data can answer. A category is offered as a filter ("Resists acids") where a
 grade-level record states a verdict (acids, alkalis, solvents, oils and grease, water, fire), or where the base
@@ -223,7 +238,7 @@ resin producer's or handbook reference for the neat polymer, from `polymer_envir
 materials apart under the category, "N more from the base polymer, shown but never passing", because that is exactly
 what they do: the record is shown in the drawer, it never passes the requirement, and where the reference finds the
 polymer resistant to nothing in the class (attacked or dissolved by what it reports, with no agent rated resistant) it
-screens the material out under Include uncertain with **Use estimates and polymer data** on. A polymer attacked only by
+screens the material out under Include uncertain with **Let estimates rule out materials** on. A polymer attacked only by
 the concentrated acid beside a resistant dilute one is `limited`, not screened: that is what a grade sheet's "resistant
 to acids" means too (D64). A category with polymer-level records is offered as a filter even where no grade-level
 record states a verdict; it cannot pass there, and its line says "0 records state a verdict".
@@ -245,7 +260,7 @@ switches to ("Switch to Include uncertain").
   not FAIL: the policy decides eligibility, and the verdict keeps describing the evidence, so the
   FAIL count only ever counts materials that failed something.
 - **Include uncertain** (Explore) — materials with unresolved criteria stay visible and flagged. With
-  **Use estimates and polymer data** on, a material whose estimate clearly cannot meet a requirement is screened out,
+  **Let estimates rule out materials** on, a material whose estimate clearly cannot meet a requirement is screened out,
   and so is one whose base polymer a reference finds resistant to nothing in what the requirement asks it to
   resist, where the material has no record of its own (D64).
 
@@ -285,7 +300,7 @@ Switching resets which verdicts the table shows, so the change is visible in the
 only in a label. `defaultShowStates` in `main.js` is the single source of that, because when the
 mode buttons owned it independently a shared Explore link rendered as Strict.
 
-**Use estimates and polymer data** is in the top bar in both modes, and says beneath it how many materials it screened. Under
+**Let estimates rule out materials** is in the top bar in both modes, and says beneath it how many materials it screened. Under
 Confirmed only it is disabled, with "Only under Include uncertain" beneath it: hiding it there meant a reader in the default
 mode never learned estimates exist. What the switch governs, an estimate of a missing number and a base polymer's published
 behaviour, sits behind the **?** beside it, not in a tooltip. It is one switch because both are inference about a material
@@ -375,7 +390,7 @@ the column's unit too. The screening range in that text keeps a single number's 
 where a screen starts. A measured value is printed as before.
 
 One line above the table names these marks, always the same entries in the same order: `—` not published, `2.3` over
-`1.0–3.0 · 27` typical and range, `*` measured, not comparable, `~a–b†` estimate (italic = rough), `≈` close to the
+`1.0–3.0 · 27` median and range, `*` published, not comparable, `~a–b†` estimate (italic = rough), `≈` close to the
 limit, `n/a` not applicable. The `?` entry for a heat value whose load was not stated went with m137 (D84), since such
 a value is now counted apart like any other published without its conditions. The estimate entry shows whenever
 estimates do, in both column sets, since the Printing columns show estimated windows too. Each entry opens its
@@ -415,14 +430,21 @@ quarantined price listing and a physically implausible measurement, and in Compa
 The drawer is where an engineer checks a candidate, so it is ordered by the questions asked of it, and every value leads
 to its source.
 
-**Overview.** With requirements set it opens on **Against your requirements**, then **Can the H2C print it?**, then
-**Key numbers**, then the rest (what it is good for, what to watch out for, family guidance, how well documented it is).
-The requirements had been the last section, under the numbers, the estimates, the printing checks and the documentation
-cards. Without requirements there is nothing to answer first, and the order is Key numbers, estimates, printing, the
-rest. Each result names the measurement it rests on, labelled, and the measurement's ID opens it. Key number cards start
-at the top of their row, so a card whose label wraps no longer makes its neighbours look offset. The result chips, and
-the chips of the printing checks, share one column, so the text beside them starts at one left edge: PASS, UNKNOWN and
-"Guidance published" had each set it at their own width.
+**Header.** The material's name, its full name once, and one identity line: base polymer, filler, and how many products
+from how many makers ("ASA · carbon-fibre filled · 17 products from 15 makers"), then its Bambu Lab status as a chip,
+under the rail's display names.
+
+**Overview.** With requirements set it opens on **the answer**: how many of its products meet all the requirements,
+how many fail one and how many publish too little to judge, with *Show the products*. Then **Your requirements**, the
+best product's result on each, named once above the lines ("Shown for its best match, Polymaker FIBERON ASA CF08"); a
+line that rests on another product names it, the passing material-level and print checks fold into one "Also met"
+line, and each value's **source** button opens the measurement. Then **H2C printability** (whether every product is
+within the H2C's limits, where the settings came from, the ranges across products, hardened nozzle, drying and AMS in a
+sentence each), **Key properties** (a compact list: each property's median, range and product count, its basis behind
+its name), **Typical applications**, **Limitations**, **General guidance** for the family, a one-line **On file** count
+with the way to Sources, and, once at the foot, the method sentence that data-sheet values are not design allowables.
+Without requirements the order is the lede, Key properties, H2C printability, then the rest. Record IDs are never in
+these sentences (D124).
 
 **Estimates** follow the Key numbers under **Estimated, not measured**, one line each, in the data's own terms: "Strength
 ~46–58 MPa† · good precision · from 3 of its own measurements", or "from the family model only". Opening a line gives
@@ -431,22 +453,37 @@ converted. What every estimate shares, that the ranges are calibrated, that an e
 screen, is said once under the group. Six lines of prose per estimate, with those two sentences in each, had pushed "Can
 the H2C print it?" off the screen. Under Confirmed only there are no estimates in the drawer at all, as before.
 
-**Good for and family guidance.** For 50 materials the materials table's Best uses cell holds pointers rather than prose,
-"Family context in Q00282, Q00283, Q00284, Q00285": evidence records filed under the family's own material. The data is
-left as it is and the drawer resolves them. A record whose topic is Best uses becomes the **Good for** text, with a line
-saying whose guidance it is and its source; the others are listed under **Family guidance**, each as topic and finding
-with its source, under a line that says plainly it is guidance for the family (ABS, for ABS-CF), not specific to this
-material or its grades. Where no referenced record is a Best uses record (PVA, BVOH) there is no Good for. A pointer that
-resolves to no record is listed as not found, never dropped, and Watch out for is read the same way. No record ID is
-printed in the Overview.
+**Typical applications and general guidance.** For 50 materials the materials table's Best uses cell holds pointers
+rather than prose, "Family context in Q00282, Q00283, Q00284, Q00285": evidence records filed under the family's own
+material. The data is left as it is and the drawer resolves them. A record whose topic is Best uses becomes the
+**Typical applications** text, with a line saying it is guidance for the family in general and its source; the others
+are listed under **General guidance for** the family, each as topic and finding with its source. Where no referenced
+record is a Best uses record (PVA, BVOH) there is no Typical applications. A pointer that resolves to no record is
+listed as not found, never dropped, and Limitations is read the same way. No record ID is printed in the Overview.
 
-**Tabs.** Nine tabs, each with a count and one line under the strip saying what the open tab lists and what its count
-counts: "13 mechanical measurements on record, by property; each value names its grade and source", "1 source behind this
-material's 22 measurements". The source-grouped tab is **Sources** and counts sources; as "Evidence 22" it had counted the
-measurements Mechanical and Thermal already count, under a name that did not say how it differed. Its internal key is
-still Evidence, which a measured value's button, links and saved scenarios use. A tab with nothing in it says "Nothing
-recorded for this material", gives the coverage record's reason where there is one, and offers the Coverage tab, where it
-had been a dashed box and a dead end.
+**Tabs.** Eight, in the order a material is checked (D124): **Overview, Products, Mechanical, Thermal, Printing,
+Environment, Price, Sources**. Each has a count and one line under the strip saying what it holds. Products, the things
+you buy, comes second: it had been sixth. **Sources** is last and says how it relates to Products: a product is what
+you buy, a source is a document its values were read from, and one document can cover several products. Each document
+lists the products it **Covers** and what it **Gave** (values, print settings, maker statements, environment
+statements), and each product card ends with its own Sources. Sources lists every document the material's records
+cite, not only those behind a measurement. The Coverage tab is Sources' last section, **Known gaps**: the gap, limited,
+conflict and held-back rows in the reviewer's words; a row that says only that data exists is left out, since the
+other tabs show it, and a reviewer's note on a settled domain sits under a collapsed **Review notes**. The internal keys
+stay (Grades, Evidence, Coverage): a request for Coverage, from a Data coverage cell or an empty tab, opens Sources at
+Known gaps. A tab with nothing in it says "Nothing on file for this material", gives the recorded reason where there is
+one, and offers the known gaps.
+
+**Products.** The passing products come first, under *Meet all your requirements*, the first of them open. Every other
+product is one line until opened: its name, its result and its key values, with **Choose** beside the line rather than
+inside it. Opened, it shows what it fails or leaves unresolved, the state it was evaluated in, its print settings (each
+part read elsewhere labelled "data sheet shared with …" or "from Bambu Lab's Filament Guide for …"), its values, what
+its maker says (each quote with its document and page, and a **limits** mark where a reviewer recorded what the claim
+does not say), its Sources and its product details. A card stays as the reader left it when the drawer is redrawn.
+
+**Record notes.** Nearly every measurement's Notes cell is the record's history ("Added 2026-09-17 (m39): re-read from
+the source document"). It is shown, collapsed, as **Record notes**, never among the test conditions. Every record ID is
+behind a small **ID** mark beside what it names.
 
 **Measurements** in Sources are grouped by the source that published them; Mechanical and Thermal lead with the
 property instead (see "The drawer on 21 September 2026" below). A condition the source states once for its sheet
@@ -475,7 +512,7 @@ marked, whatever is collapsed around it.
 ends with a section headed "From the base polymer PLA" (D64): one line saying that no source tested this material or its
 grades, that what follows is the neat resin's published behaviour from a resin producer's or handbook reference, not a
 test of this grade, that it never passes a requirement and, where the reference reports the polymer attacked or
-dissolved, that it screens the material out with Use estimates and polymer data on. Then each category with its derived
+dissolved, that it screens the material out with Let estimates rule out materials on. Then each category with its derived
 verdict, marked "polymer-level", and every agent row under it: the agent, its verdict, the finding, the conditions, the
 notes and the source by name. The tab's count includes these records and its first line says how many of them are the
 polymer's. Nothing here is only in a tooltip (D61). The section shows in both modes: it is published evidence, labelled
@@ -516,13 +553,58 @@ search**.
 
 ## Words
 
-Property names come from one module, `app/js/ui/labels.js`. The plain name leads and the technical
-name is the tooltip: "Stiffness", not "Tensile modulus XY". Constraints are described by one
-function, used by the requirement pills, the explain panel, the per-candidate why list, the
-excluded-search group, the Products tab's "Fails:" line under a product and the CSV export, so the panel can never
-print `hdt045 >= 100` while the pill beside it says "Heat resistance at least 100 °C". The Products tab had printed
-the engine's criteria as they were ("Fails: hdt045 >= 100", "Nozzle temperature within H2C baseline") until
-September 2026.
+Every sentence on the page is written for one reader and one purpose (D124, the owner's ruling of 2026-10-04).
+
+**The reader** is a mechanical or manufacturing engineer choosing a filament for a part the team will print on its
+Bambu Lab H2C. They read technical data sheets: tensile modulus, yield and break, XY and Z orientation, HDT at
+0.45 MPa, Tg, notched Charpy and Izod, ISO and ASTM methods, annealing, moisture conditioning, enclosures, hardened
+nozzles, AMS, median and range are their words, and the page uses them. They do not know this project: its data model,
+its policies, its migrations or the words it coined for them.
+
+**The purpose of each place:**
+
+| Place | The decision it serves | What it says |
+|---|---|---|
+| A rail control | Can I filter on this, and what does it compare? | The property in standard terms, the basis it is compared on (method, orientation, state), how many materials report it |
+| The results header | What did I ask, and what is not checked? | The requirements as set; what the question leaves unchecked |
+| The drawer's Overview | Is this material a candidate, on which product, and what must I verify? | How many products pass, the evidence per requirement, H2C printability, key properties, limitations |
+| Products | Which product do I buy, and how do I print it? | Each product's verdict, print settings and where they come from, its values, its maker's statements |
+| Mechanical, Thermal, Environment | What exactly was measured, and how? | Every value with its method, orientation, specimen and condition |
+| Sources | Can I trust and trace this number? | The documents, what each covers, the link to the original, the known gaps |
+| A popover | What does this mark mean for my decision? | At most four sentences, in standard terms |
+
+**Engineering terms stay; the project's coinages do not.** Where the database has its own word, the page says what an
+engineer would:
+
+| The database says | The page says |
+|---|---|
+| grade | product |
+| twin, "same sheet as X" | data sheet shared with X |
+| admitted for screening | not stated |
+| research mode, print checks off | H2C printability not checked |
+| in the H2C's scope, outside the printer's envelope | beyond H2C capability |
+| the printer maker's guide | the Bambu Lab Filament Guide |
+| Official Bambu product, Officially listed family, Conditional, Theoretical | Bambu Lab filament, Type on Bambu's H2C list, Unlisted, usable with conditions, Unlisted, within H2C temperatures |
+| typical (of a material), headline | median of its products, key property |
+| typical: annealed | annealed median |
+| screened (outside the fuzz-pinned chip and header words) | excluded by an estimate, excluded by resin reference data |
+| quarantined | held back |
+| track only, preference only | report only |
+| coverage record, evidence recorded | data on file, known gap |
+| family entry | group name |
+
+**How a sentence is written.** The answer first, then what qualifies it. One idea to a sentence, with no chains of
+semicolons. A caveat that holds for every row is said once, at the top of its view. Numbers and units as a data sheet
+prints them. Record IDs never stand in a sentence on the page: a source button beside a value holds them, with the
+page and the locator (the decision brief and the exports keep them, as records do). A reviewer's, migration's or audit's
+note is not reader text: it sits under a collapsed "Review notes" or "Record notes".
+
+**Names are display, keys are not.** What the page shows is mapped over the stored value (`GROUP_LABEL` in
+`filters.js`, `H2C_STATUS_LABEL` and the rest in `app/js/ui/labels.js`), so a link, a saved scenario or an export made
+before a rename still reads. Property names come from `headline_definitions.csv` (`Plain`, the data-sheet name, and
+`Technical`, the method). Constraints are described by one function, `describeConstraint`, used by the requirement
+pills, the explain panel, the per-candidate why list, the excluded-search group, the Products tab and the CSV export,
+so the panel can never print `hdt045 >= 100` while the pill beside it says "HDT at 0.45 MPa at least 100 °C".
 
 Environment category names are authored in `schema/vocab/environment-categories.csv` and compiled
 into the snapshot, in a heading form ("Acid resistance") and a sentence form ("acids"). The engine
@@ -579,7 +661,7 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 
 - **The question** is one bar. *Goal* is the scenario's one goal, with its formula (its geometry in the formula's
   tooltip and beside it). *Asked* reads back what the filter rail holds: the state every product is judged in, the H2C
-  gates (or *Research mode*, with **Check printability**) and each requirement, then **Change in Filters**, which opens
+  limits (or *H2C printability not checked*, with **Check nozzle, bed and chamber**) and each requirement, then **Change in Filters**, which opens
   or shows the rail. Nothing in the lens sets a requirement: the rail is the one place (D108).
 - **A new exercise** (no requirement and no goal) opens on *What must the part do?*: lightest stiff part, lightest
   strength-limited part, lowest material cost, each by member (tie, beam, panel) with a sketch and what its geometry
@@ -875,9 +957,9 @@ the guide under Recipe read from. The guide never fills drying or annealing. For
 enclosure for, a chamber so read says "an enclosure, which the H2C's heated chamber is" (D90); where the product's own maker asks
 for one and states no temperature, it says "an enclosure its maker asks for, which the H2C's heated chamber is" (D93).
 
-**Counted on the Overview.** Under "Can the H2C print it?", the counts of how many products the H2C can print, axis by
-axis, say how many of those answers came from a twin's sheet and how many from a printer maker's guide, and that each
-product in the Products tab says which.
+**Counted on the Overview.** Under "H2C printability", one sentence says whether every product is within the H2C's
+limits, or counts them axis by axis, and a line says how many settings came from the Bambu Lab Filament Guide and how
+many from a data sheet shared with another product; each product in Products says which.
 
 **The guide's row in the Printing tab.** For a material the guide names, the Printing tab opens with the guide's row,
 above the profiles. It is headed by the guide's name ("Bambu Lab's Filament Guide for PLA") with the row's ID as a
@@ -897,11 +979,12 @@ The review of 2026-09-27 found the page answering a narrower question than it lo
 another product's record, on values of two treatment states, or with no word on whether the H2C prints it; the chart and
 the table ranked one goal two ways; and the funnel ended at a material. What the screen does about each:
 
-- **How the part is made and used** sits pinned under the scope toggle: *We can anneal parts* (with the oven's highest
-  temperature, optional) and whether the part lives *dry* or *conditioned by the air's moisture* (D99). The results header
+- **Part condition** (pinned under the scope toggle until D124 made it a rail group): annealing allowed (with the
+  oven's highest temperature, optional) and whether the part lives *dry* or *conditioned* (D99). The results header
   says, in one line, how every product is judged, and offers *Allow annealing: N more pass* when that would add any.
-- **Printable on the H2C** is one toggle and one pill: the three print gates together, asked by every template (D101).
-  Off, the header says *Research mode*.
+- **Within H2C temperature limits** (called Printable on the H2C until D124) is one toggle and one pill: the three
+  print gates together, asked by every template (D101). Off, the header says *H2C printability not checked*; with one
+  or two asked, *partly checked*, naming what is not.
 - **The header is the answer first** (F09): the count and what could not be checked in two lines, the requirements as
   small pills, the state line, and the template's limits and the database's one press away with their first sentence
   showing. At 1,024 × 768 four rows show above the fold; `npm run ui:check` holds three. On a phone, *Read the

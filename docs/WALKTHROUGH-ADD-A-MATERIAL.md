@@ -177,7 +177,7 @@ Nothing to write. A measurement appears in the drawer as soon as it exists, and 
 per headline from its own measurements by rule: comparable before as published, a printed specimen before an unstated
 one, as printed before annealed, dry before unstated, the product's own data sheet first (`build/src/products.js`). A
 product that publishes nothing for a headline reads its twin's value, a sibling whose sheet prints the same table,
-labelled "same sheet as …" (D89). The material then shows its products' spread: the median of their comparable
+labelled "data sheet shared with …" (D89; worded so since D124). The material then shows its products' spread: the median of their comparable
 values, their range, and the typical product.
 
 STYX PA6's sheet states no test direction, so its 50 MPa (V002341) is its strength as published, not comparable: it

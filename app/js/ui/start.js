@@ -4,9 +4,9 @@
 // was for. This appears only while no constraint is set: it names the workflow in one line and
 // offers the application templates as the first move. It disappears the moment a filter is applied.
 
-import { TEMPLATES, templateByName, asksPrintable } from './templates.js';
+import { TEMPLATES, templateByName, printCheck, printGatesMissing } from './templates.js';
 import { esc } from './format.js';
-import { describeConstraint, POLICY_LABELS } from './labels.js';
+import { describeConstraint, POLICY_LABELS, GATE } from './labels.js';
 
 /**
  * How many materials the tool can select from. A family entry (PA, PA-CF, TPE...) is a name, never a candidate, so it
@@ -40,13 +40,13 @@ export function renderStart(state, actions) {
     </div>
 
     <div class="start-facts">
-      <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> of them in H2C scope</span>
-      <span><b>${db.meta.counts.measurements}</b> measurements, each traceable to a source</span>
+      <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> within H2C capability</span>
+      <span><b>${db.meta.counts.measurements}</b> measurements, each traceable to its source</span>
       <span><b>${db.meta.headlineCoverage.density}</b> have a density, <b>${db.meta.headlineCoverage.tensileModulusXY}</b> a modulus,
         <b>${db.meta.headlineCoverage.priceCADkg}</b> a price</span>
     </div>
-    <p class="start-note">The gaps are the point. Where a property was never published this tool
-      shows the gap rather than a guess, so a material is never ranked on a number nobody measured.</p>
+    <p class="start-note">Where a property was never published, the tool shows the gap rather than a guess, so no
+      material is ranked on a number nobody measured.</p>
 
     ${limits(db)}
   </section>`;
@@ -60,7 +60,7 @@ export function renderStart(state, actions) {
 function limits(db) {
   return `
     <details class="start-limits">
-      <summary>What this database cannot answer</summary>
+      <summary><span class="chevron" aria-hidden="true"></span>What this database cannot answer</summary>
       ${limitsBody(db)}
     </details>`;
 }
@@ -74,22 +74,21 @@ function limitsBody(db) {
   const enclosure = db.profiles.filter((p) => stated(p.enclosure)).length;
   const warping = db.evidence.filter((e) => /warp/i.test(e.topic ?? '')).length;
   return `
-      <p>Some things a printer owner often wants are barely recorded in the sources this was built
-        from, so no filter can answer them. If you came for one of these, this tool will not settle it.</p>
+      <p>The sources rarely publish these, so no filter can answer them.</p>
       <ul>
-        <li><b>Warping and first-layer behaviour.</b> ${warping} records in the entire database. There is
-          no basis for saying which material warps more than another.</li>
-        <li><b>AMS compatibility.</b> Published for ${ams} of ${profiles} print profiles. Every other profile
-          says to verify the exact grade, so the tool shows that text rather than a yes or no.</li>
-        <li><b>Whether an enclosure is needed.</b> Answerable for ${enclosure} of ${profiles} profiles. Chamber
-          temperature is recorded far more often and is the closest usable proxy.</li>
-        <li><b>UV and outdoor life, food contact, creep, fatigue.</b> Narrative notes only, never a
-          verdict. Read them in a material's Environment tab.</li>
-        <li><b>Which exact product has every property.</b> A row shows a material as the spread of its
-          products, so no one product need have every value. Check its Products tab before buying.</li>
+        <li><b>Warping and first-layer behaviour.</b> ${warping} statements in the whole database: no basis to
+          rank materials by warping.</li>
+        <li><b>AMS compatibility.</b> Published for ${ams} of ${profiles} print profiles. The rest say to verify the
+          exact grade, so the tool quotes that rather than answering yes or no.</li>
+        <li><b>Whether an enclosure is needed.</b> Stated for ${enclosure} of ${profiles} profiles. Chamber
+          temperature is published far more often and is the closest usable proxy.</li>
+        <li><b>UV and outdoor life, food contact, creep, fatigue.</b> Described in words, never as a pass or fail.
+          Read them in a material's Environment tab.</li>
+        <li><b>Which exact product has every property.</b> A row shows a material as the spread of its products, so
+          no single product need have every value. Check its Products tab before buying.</li>
       </ul>
-      <p>Colour choice, print speed and layer-adhesion tuning are likewise out of scope. This is a
-        materials database, not a profile library.</p>`;
+      <p>Colour, print speed and layer-adhesion tuning are out of scope: this is a materials database, not a profile
+        library.</p>`;
 }
 
 export function wireStart(host, actions) {
@@ -131,15 +130,16 @@ export function renderActive(state, actions) {
   const unknownClause = counts.unknown && explore ? `, and ${counts.unknown} more could not be checked for missing data` : '';
   const unknownSentence = !counts.unknown ? ''
     : explore ? `${POLICY_LABELS.exploration} lists those ${counts.unknown} flagged${screened
-      ? `, except the ${screened} screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them` : ''}. `
+      ? `, except the ${screened} excluded by an estimate or by resin reference data; the SCREENED chip at the bottom shows them` : ''}. `
     : `${counts.unknown} more could not be checked for missing data, and are left out under ${POLICY_LABELS.strict}. `;
 
   // How the products are judged (D99): the state every verdict below is in, and what annealing would add. The materials
   // it would add are named in the button's title, so the line stays one line.
   const gain = state.annealGain ?? [];
-  const judgedAs = `${scenario.anneal ? `as printed, or annealed at its sheet's schedule${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}`;
-  const printable = asksPrintable(cs);
-  const stateLine = `<p class="state-line"><b>Each product is judged</b> ${esc(judgedAs)}${printable ? ', and must be printable on the H2C' : ''}.${gain.length
+  const judgedAs = `${scenario.anneal ? `as printed, or annealed at its data sheet's schedule${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'moisture-conditioned' : 'dry'}`;
+  const check = printCheck(cs);
+  const printable = check === 'all';
+  const stateLine = `<p class="state-line"><b>Values judged:</b> ${esc(judgedAs)}.${gain.length
     ? ` <button type="button" class="btn btn-sm" data-act="anneal" title="${esc(`Would pass with annealing: ${gain.map((id) => state.db.materials.find((m) => m.id === id)?.name ?? id).join(', ')}`)}">Allow annealing: ${gain.length} more pass</button>` : ''}</p>`;
 
   // What was asked, as compact as the answer allows (the review of 2026-09-27, F09): the answer in one line with what
@@ -161,18 +161,20 @@ export function renderActive(state, actions) {
       <div class="active-actions">
         <button class="btn btn-sm btn-primary read-candidates" data-act="read">Read the candidates</button>
         <button class="btn btn-sm" data-act="explain">Why the rest were excluded</button>
-        <button class="btn btn-sm" data-act="reset" title="Removes every requirement. Search, shortlist and view stay as they are.">Clear requirements</button>
+        <button class="btn btn-sm" data-act="reset" title="Removes every requirement. Part condition, search, shortlist and view stay as they are.">Clear requirements</button>
       </div>
     </div>
     <div class="pills" title="Press a requirement to remove it">
-      ${printable ? `<button class="pill" data-drop-printable title="Remove the print gates: research mode">Printable on the H2C<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
+      ${printable ? `<button class="pill" data-drop-printable title="Remove the nozzle, bed and chamber checks">Within H2C temperature limits<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
       ${shownHard.map((c) => pill(c, cs.indexOf(c))).join('')}
-      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
+      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Shown for each material; does not filter or reorder">reported, not required</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>
     ${stateLine}
-    ${printable ? '' : `<p class="state-line research-line"><b>Print checks off:</b> whether the H2C can print a product is not checked, so a pass here says nothing about printing it. <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></p>`}
+    ${check === 'all' ? '' : `<p class="state-line research-line"><b>${check === 'none' ? 'H2C printability not checked:' : `H2C printability partly checked: ${esc(printGatesMissing(cs).map((g) => GATE[g].plain).join(' and '))} not checked.`}</b>
+      ${check === 'none' ? 'a pass here says nothing about whether the H2C can print the product.' : 'A pass here does not show the H2C can print the product.'}
+      <button type="button" class="btn btn-sm" data-act="printable">Check nozzle, bed and chamber</button></p>`}
     <details class="answer-notes">
-      <summary>${template ? `<b>Not checked by this template:</b> ${esc(firstSentence(template.notChecked))}` : '<b>What this database cannot answer</b>'}</summary>
+      <summary><span class="chevron" aria-hidden="true"></span><span>${template ? `<b>Not checked by this template:</b> ${esc(firstSentence(template.notChecked))}` : '<b>What this database cannot answer</b>'}</span></summary>
       ${template ? `<p class="not-checked">${esc(template.notChecked)}</p>` : ''}
       ${unknownSentence ? `<p>${esc(unknownSentence)}</p>` : ''}
       ${limitsBody(state.db)}

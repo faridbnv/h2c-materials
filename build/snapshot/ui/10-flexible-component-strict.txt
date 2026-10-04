@@ -4,19 +4,19 @@ STATUS ☑ PASS 7 | ☐ UNKNOWN 108 | ☐ FAIL 38
 Flexible component template · 108 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
-Printable on the H2C
+Within H2C temperature limits
 ×
-In the H2C's scope
+Within H2C capability
 ×
-A build material, not a support
+Build material (not a support)
 ×
-Stretch before breaking (elongation, XY) at least 100 %
+Elongation at break (XY) at least 100 %
 ×
-Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 1 more pass
-Not checked by this template: Stretch before breaking is not spring-back, softness or sealing
+Values judged: as printed, dry. Allow annealing: 1 more pass
+Not checked by this template: Recovery, softness and sealing
 Properties
 Printing
-What the material is like
+Key properties of each material
 Rank by
 nothing: sort by column
 Tie, minimum mass, stiffness prescribed
@@ -35,13 +35,13 @@ ABS
 ASA
 PC
 — not published
-2.3 1.0–3.0 · 27 typical and range
+2.3 1.0–3.0 · 27 median and range
 1.2 one measurement
-* measured, not comparable
+* published, not comparable
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 OBC
 Polyolefins
  PASS
@@ -66,7 +66,7 @@ all products: 15
 12.7–100 · 3
  111
 102–140 · 5
-typical: annealed
+annealed median
  40
 39–90.7 · 3
 ↗ ☆

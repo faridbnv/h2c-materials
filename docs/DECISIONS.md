@@ -97,8 +97,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | Amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's; extended by D123 (two grades of one product become one, the records keeping their IDs, as a moved product's do) |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend |
-| D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types) |
-| D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins) |
+| D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types); its label reworded by D124 ("from Bambu Lab's Filament Guide for …") |
+| D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "data sheet shared with …" (worded "same sheet as …" until D124), and counts as a product in its material's range. | In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins); its label reworded by D124 |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209) |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone; extended by m199 (2026-09-27): the ±45° tab's "Ultimate strength" is each of twelve Nanovia products' XY tensile strength |
 | D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts; extended by D123 (Eryone's template "X-Z" bar is Z by the owner's ruling) |
@@ -133,6 +133,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D121 | A fibre wears a brass nozzle by the database's rule, stated once, never as a sheet's words | That a fibre-filled filament needs a hardened nozzle is the database's rule, not something its data sheet said. The import used to write the rule into each fibre profile as if the sheet had printed it, and the page then told a reader "a source states it needs an abrasion-resistant nozzle" for 174 products whose sheets say nothing of the nozzle. Now a profile holds only what its sheet says, the rule is written once in method.csv, and a fibre-filled product its own sheet, its twin's and the printer maker's guide leave silent is unresolved under "No hardened nozzle", never passed. | In force |
 | D122 | A stress at a stated elongation is its own property, never a strength | Elastomer sheets print the stress their test bar carries at 100, 200 or 300 % stretch (an elastomer's "100 % modulus"), and one sheet at 5 and 10 %. With no property for it, the import filed each as a tensile strength, and where a sheet printed no other strength, it became the product's strength and decided answers. Each is now a property of its own, one per stated elongation, which is recorded and shown and never compared with a strength. | In force |
 | D123 | The owner's rulings of 2026-10-02: one product one grade, the registered sheets read in full, Eryone's "X-Z" is Z | Three recommendations of the priorities review, taken by the owner. A product the database held on two grades (one per sheet revision or language) is one grade now, with every record moved to it rather than the copy retired with its prices and profiles. Values a sheet the database already holds prints, and nobody transcribed, are recorded: reading a registered, hash-checked sheet again is not an import. And Eryone's template labels its upright tensile bar "X-Z", as two of its sheets say, so that bar is the layer strength on every sheet of the template. | In force; it extends D86 (a merged product's records keep their IDs, as a moved product's do), D89 (twins) and D92 (the layer strength), and amends D72 (a chamber band on an alias leaves through the ledger though nothing derives it) |
+| D124 | The page is written for an engineer: answer first, the data sheet's terms, no coinages, IDs out of sentences | Every text on the page is written for one reader, an engineer choosing a filament for a part on the H2C, and for the decision it serves. Engineering and data-sheet terms stay; the words this project coined for its own records ("twin", "admitted for screening", "research mode", "in scope", "Theoretical") are replaced by what that engineer would say. The left rail is ordered as an engineer screens, with the H2C's checks in one group and the part's state in another; the drawer's tabs follow how a material is checked, Products second and Sources last with the known gaps; record IDs leave the page's sentences for a small ID mark. No answer moves. | In force; it rewords the labels of D88 and D89 and the Overview of the drawer described under D83, D103 and D117 |
 
 <!-- end index -->
 
@@ -2504,7 +2505,7 @@ Reversing it sends the 44 sheets back to deferred, and a family-only product has
 ## D88. Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's
 
 > **In plain words:** Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for.
-> **Status:** amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types).
+> **Status:** amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types); its label reworded by D124 ("from Bambu Lab's Filament Guide for …").
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 1). Built in re-center phase 6, lane 2 (the
 owner's decisions), m150.*
@@ -2570,8 +2571,8 @@ on the parts their sheets leave out.
 
 ## D89. A twin reads its sibling's values and print recipe where its own are silent
 
-> **In plain words:** A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range.
-> **Status:** In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins).
+> **In plain words:** A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "data sheet shared with …" (worded "same sheet as …" until D124), and counts as a product in its material's range.
+> **Status:** In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table); extended by D123 (two grades of one product are one grade, not twins); its label reworded by D124.
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 2). Built in re-center phase 6, lane 2 (the
 owner's decisions).*
@@ -3987,3 +3988,43 @@ the fixes, including the recommended decisions"); built in the open-problems pas
 - **A flat bar for a headline with no direction.** Where a product publishes a heat deflection (or a density) on a
   flat bar and on an edge or upright one, the flat bar's value is its value (`products.js`, preference): makers test
   flat unless they say otherwise, and an XZ, ZX or Z value is another bar's (Stratasys prints XY and XZ side by side).
+
+## D124. The page is written for an engineer: answer first, the data sheet's terms, no coinages, IDs out of sentences
+
+> **In plain words:** Every text on the page is written for one reader, an engineer choosing a filament for a part on the H2C, and for the decision it serves. Engineering and data-sheet terms stay; the words this project coined for its own records ("twin", "admitted for screening", "research mode", "in scope", "Theoretical") are replaced by what that engineer would say. The left rail is ordered as an engineer screens, with the H2C's checks in one group and the part's state in another; the drawer's tabs follow how a material is checked, Products second and Sources last with the known gaps; record IDs leave the page's sentences for a small ID mark. No answer moves.
+> **Status:** In force; it rewords the labels of D88 and D89 and the Overview of the drawer described under D83, D103 and D117.
+
+*Decided by the owner on 2026-10-04 (GOALS, "Decided on 2026-10-04, the engineer-grade interface"), after using the
+page; built by Claude (an agent). The owner rejected a first plan that paraphrased the engineering terms away ("Strength
+and stiffness" for Mechanical): "The reader is supposed to be an engineer… But our made up words… are out of his/her
+mind. When rewriting your english know what you are doing for whom and to what purpose."*
+
+- **The reader and the purpose** are written down once, in INTERFACE, "Words": who reads the page, what each place on it
+  serves (a rail control, the results header, the drawer's Overview, Products, the property tabs, Sources, a popover),
+  the table of coinages and what replaces them, and how a sentence is written (the answer first, one idea, a caveat
+  once per view, no record ID). A reviewer reads every visible string against it.
+- **Display names over stored values.** Rail headings (`GROUP_LABEL`), Bambu Lab status (`H2C_STATUS`), filler
+  (`FILLER`) and the gate names (`GATE`, with the limits read from the build's H2C baseline) are maps in the interface
+  over the values the tables and saved scenarios hold. A link, a saved scenario or an export made before the rename
+  still reads, and the fuzz and the probe select by the same ids and data attributes. A requirement is counted in the
+  rail group it is shown in (`railGroupOf`), whatever group key it was saved with: the reinforcement, build-material
+  and drying checks keep `__group: 'Manufacturing'`, a group the rail no longer shows.
+- **The rail** reads Material family, Mechanical, Thermal, Environment, Printing on the H2C, Part condition, Cost and
+  availability, Data quality. *Within H2C temperature limits* is one box over the nozzle, bed and chamber gates
+  (indeterminate when one or two are asked; `printCheck` in `templates.js` tells all, some and none apart, where the
+  page had called two gates of three "not checked"). Part condition is two two-way switches, each saying what it does:
+  annealing allowed can only add passes; conditioned judges only conditioned values. The property names are the data
+  sheet's (`headline_definitions.csv` Plain, m337), with the comparison basis as the hint and said once per group.
+- **The drawer** has eight tabs, Overview, Products, Mechanical, Thermal, Printing, Environment, Price, Sources; Coverage
+  is Sources' Known gaps, and its key opens it there. The Overview leads with how many products meet the requirements,
+  then the best product's result on each, H2C printability, key properties as a compact list, and the material's
+  guidance. A product is one line until opened. Sources lists every document the material's records cite, with the
+  products each covers and what it gave, and every product names its sources. Reviewer and migration notes are under
+  collapsed "Record notes" and "Review notes", never among the test conditions.
+- **Reasons** (`app/js/engine/constraints.js`, `build/src/normalize/process.js`, `build/src/products.js`) say the same
+  facts in fewer words and name no record ID; the brief and the exports keep their IDs. "Admitted for screening" became
+  the conditions named as not stated.
+- **What moved.** Labels and reasons only: `build/snapshot/*.csv` are byte-identical, and `npm run build:diff` lists
+  only label, reason, note and example fields. The release ID changes, as for any change to the rules' inputs (D96), so a
+  scenario saved before this release says so when reopened. `verify:fast` stays within its budget.
+

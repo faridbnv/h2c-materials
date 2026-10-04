@@ -4,22 +4,22 @@ STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 19
 High-stiffness fixture template · 107 more could not be checked, listed flagged, except 19 screened out
 Why the rest were excluded
 Clear requirements
-Printable on the H2C
+Within H2C temperature limits
 ×
-In the H2C's scope
+Within H2C capability
 ×
-A build material, not a support
+Build material (not a support)
 ×
-Stiffness (tensile modulus, XY) at least 5 GPa
+Tensile modulus (XY) at least 5 GPa
 ×
-TRACKED ONLY
-Heat deflection (HDT, 0.45 MPa) at least 90 °C
+REPORTED, NOT REQUIRED
+HDT at 0.45 MPa at least 90 °C
 ×
-Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 5 more pass
-Not checked by this template: How much a part bends depends on its shape, print direction and load as much as on stiffness
+Values judged: as printed, dry. Allow annealing: 5 more pass
+Not checked by this template: Deflection of the part
 Properties
 Printing
-What the material is like
+Key properties of each material
 Rank by
 nothing: sort by column
 Tie, minimum mass, stiffness prescribed
@@ -38,23 +38,23 @@ ABS
 ASA
 PC
 — not published
-2.3 1.0–3.0 · 27 typical and range
+2.3 1.0–3.0 · 27 median and range
 1.2 one measurement
-* measured, not comparable
+* published, not comparable
 ~a–b† estimate, italic = rough
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 ABS UNKNOWN
 0 of 9 products
-likely fails: 9 measured below, 47 unpublished
+likely fails: 9 with data miss, 47 publish none
  1,050
 1,020–1,150 · 41
-typical: annealed
+annealed median
  2.2
 1.77–2.38 · 10
-typical: annealed
+annealed median
  35
 15.7–45 · 16
  10
@@ -66,13 +66,13 @@ typical: annealed
 ↗ ☆
 ABS-AF UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 2 unpublished
+likely fails: 1 with data misses, 2 publish none
  1,050
 1,040–1,050 · 3
  1.89 22 ~3–17† 88 127↗ ☆
 ABS-CF UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 9 unpublished
+likely fails: 2 with data miss, 9 publish none
  1,085
 1,050–1,110 · 10
  4.1
@@ -88,7 +88,7 @@ likely fails: 2 measured below, 9 unpublished
 ↗ ☆
 ABS-ESD UNKNOWN
 0 of 4 products
-likely fails: 4 measured below, 7 unpublished
+likely fails: 4 with data miss, 7 publish none
  1,070
 970–1,100 · 10
  1.9
@@ -106,12 +106,12 @@ out of stock
  ☆
 ABS-GF UNKNOWN
 0 of 4 products
-likely fails: 4 measured below, 7 unpublished
+likely fails: 4 with data miss, 7 publish none
  1,100
 1,016–1,150 · 11
  3.16
 1.74–4.21 · 5
-typical: annealed
+annealed median
  46.5
 35.5–68 · 7
  2.1
@@ -121,7 +121,7 @@ typical: annealed
  39↗ ☆
 ASA UNKNOWN
 0 of 9 products
-likely fails: 9 measured below, 32 unpublished
+likely fails: 9 with data miss, 32 publish none
  1,070
 1,040–1,150 · 33
  2.17
@@ -137,10 +137,10 @@ likely fails: 9 measured below, 32 unpublished
 ↗ ☆
 ASA Aero UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 2 unpublished
+likely fails: 2 with data miss, 2 publish none
  1,010
 400–1,080 · 4
-typical: annealed
+annealed median
  0.709
 0.594–0.824 · 2
  9.88
@@ -175,7 +175,7 @@ all products: 101
 ↗ ☆
 ASA-GF UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 4 unpublished
+likely fails: 2 with data miss, 4 publish none
  1,150
 1,110–1,170 · 5
  2.31
@@ -191,7 +191,7 @@ CPE
 Copolyesters
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 3 unpublished
+likely fails: 2 with data miss, 3 publish none
  1,250
 1,180–1,270 · 3
  1.68
@@ -215,7 +215,7 @@ HIPS
 Styrenics
  UNKNOWN
 0 of 3 products
-likely fails: 3 measured below, 8 unpublished
+likely fails: 3 with data miss, 8 publish none
  1,040
 1,023–1,050 · 9
  1.59
@@ -243,7 +243,7 @@ Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
 0 of 3 products
-likely fails: 3 measured below, 2 unpublished
+likely fails: 3 with data miss, 2 publish none
  1,175
 1,140–1,210 · 2
  3.16
@@ -270,12 +270,12 @@ nothing published to judge
 1,030–1,230 · 11
  3.32
 3.3–8 · 4
-typical: annealed
+annealed median
  72
 50–86 · 7
  3.6
 2.1–14.8 · 7
-typical: annealed
+annealed median
  159
 48–185 · 10
  300↗ ☆
@@ -283,7 +283,7 @@ PA12-GF
 Nylon / Polyamide
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 2 unpublished
+likely fails: 1 with data misses, 2 publish none
  1,230 7.8 82 4.5 163
 150–175 · 2
  247¤ ☆
@@ -291,7 +291,7 @@ PA6
 Nylon / Polyamide
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 8 unpublished
+likely fails: 1 with data misses, 8 publish none
  1,150
 1,130–1,200 · 7
  ~1.4–4.3† ~38–87† ~51–105† 140
@@ -307,17 +307,17 @@ PA6-CF
 Nylon / Polyamide
  UNKNOWN
 0 of 4 products
-likely fails: 4 measured below, 10 unpublished
+likely fails: 4 with data miss, 10 publish none
  1,170
 1,090–1,250 · 13
  4.37
 3.8–8.64 · 6
-typical: annealed
+annealed median
  77
 53–112 · 7
  7.35
 2.1–16.5 · 6
-typical: annealed
+annealed median
  185
 140–215 · 9
  130
@@ -327,19 +327,19 @@ PA6-GF
 Nylon / Polyamide
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 9 unpublished
+likely fails: 2 with data miss, 9 publish none
  1,310
 1,140–1,370 · 9
  4.35
 2.85–5.36 · 4
  82.3
 62.8–98.9 · 6
-typical: annealed
+annealed median
  4.95
 2.4–12.5 · 6
  184
 161–210 · 10
-typical: annealed
+annealed median
  84
 77–146 · 3
 ↗ ☆
@@ -353,7 +353,7 @@ PA6/66
 Nylon / Polyamide
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 5 unpublished
+likely fails: 2 with data miss, 5 publish none
  1,120
 1,100–1,120 · 6
  2.34
@@ -364,7 +364,7 @@ likely fails: 2 measured below, 5 unpublished
 12.7–100 · 3
  111
 102–140 · 5
-typical: annealed
+annealed median
  40
 39–90.7 · 3
 ↗ ☆
@@ -383,17 +383,17 @@ PA612-CF
 Nylon / Polyamide
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 2 unpublished
+likely fails: 1 with data misses, 2 publish none
  1,060
 1,030–1,090 · 2
  4.88
 3.5–5.14 · 3
  80
 68–91.9 · 2
-typical: annealed
+annealed median
  3.05
 2.6–3.5 · 2
-typical: annealed
+annealed median
  175 170
 98–242 · 2
 ↗ ☆
@@ -403,11 +403,11 @@ Nylon / Polyamide
 none judged
 nothing published to judge
  1,100 4.29
-typical: annealed
+annealed median
  84.3
-typical: annealed
+annealed median
  3
-typical: annealed
+annealed median
  157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
@@ -450,12 +450,12 @@ PC
 Polycarbonate
  UNKNOWN
 0 of 13 products
-likely fails: 13 measured below, 9 unpublished
+likely fails: 13 with data miss, 9 publish none
  1,200
 1,150–1,230 · 18
  2.15
 1.8–2.5 · 10
-typical: annealed
+annealed median
  59.9
 40–69.1 · 12
  7
@@ -469,18 +469,18 @@ PC FR
 Polycarbonate
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,190
 1,180–1,200 · 2
-typical: annealed
+annealed median
  2.15
 1.67–2.63 · 2
  63.5
 60–67 · 2
-typical: annealed
+annealed median
  2.94
 2.4–3.49 · 2
-typical: annealed
+annealed median
  112
 110–113 · 2
  70↗ ☆
@@ -488,7 +488,7 @@ PC-ABS
 Polymer Blends
  UNKNOWN
 0 of 7 products
-likely fails: 7 measured below, 6 unpublished
+likely fails: 7 with data miss, 6 publish none
  1,140
 1,070–1,210 · 11
  1.84
@@ -512,7 +512,7 @@ PC-CF
 Polycarbonate
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 8 unpublished
+likely fails: 2 with data miss, 8 publish none
  1,235
 1,180–1,360 · 8
  6.59
@@ -528,7 +528,7 @@ PC-ESD
 Polycarbonate
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,230
 1,220–1,240 · 2
  2.3 68 4.5
@@ -538,7 +538,7 @@ PC-GF
 Polycarbonate
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 2 unpublished
+likely fails: 1 with data misses, 2 publish none
  1,228
 1,176–1,280 · 2
  2.67 38
@@ -550,13 +550,13 @@ PC-PBT
 Polymer Blends
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,200 1.85 43.2 4.6 107 70↗ ☆
 PCTG
 Copolyesters
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 7 unpublished
+likely fails: 1 with data misses, 7 publish none
  1,230
 1,230–1,230 · 7
  1.75 45 24 76
@@ -588,7 +588,7 @@ PE
 Polyolefins
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  954 0.752 18.5 208 66 121¤ ☆
 PE-GF
 Polyolefins
@@ -602,7 +602,7 @@ PEBA
 Flexible Elastomers
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 9 unpublished
+likely fails: 1 with data misses, 9 publish none
  1,010
 1,000–1,020 · 6
  0.09 30
@@ -614,7 +614,7 @@ PET
 PET Engineering
  UNKNOWN
 0 of 3 products
-likely fails: 3 measured below, 4 unpublished
+likely fails: 3 with data miss, 4 publish none
  1,335
 1,300–1,360 · 4
  2.25
@@ -633,13 +633,13 @@ nothing published to judge
 1,290–1,400 · 6
  5.11
 4.73–5.48 · 2
-typical: annealed
+annealed median
  74
 65.9–75 · 3
-typical: annealed
+annealed median
  3.45
 2.4–4.5 · 2
-typical: annealed
+annealed median
  100
 74–205 · 5
  113
@@ -654,22 +654,22 @@ nothing published to judge
 1,380–1,430 · 3
  4.14
 4.13–4.14 · 2
-typical: annealed
+annealed median
  70.9
 59.9–76 · 4
-typical: annealed
+annealed median
  3.28
 2.56–5.5 · 4
-typical: annealed
+annealed median
  120
 81.6–200 · 3
-typical: annealed
+annealed median
  69.5
 41–98 · 2
 ↗ ☆
 PETG UNKNOWN
 0 of 15 products
-likely fails: 15 measured below, 59 unpublished
+likely fails: 15 with data miss, 59 publish none
  1,270
 1,180–1,350 · 55
  1.67
@@ -678,7 +678,7 @@ likely fails: 15 measured below, 59 unpublished
 33–68.4 · 22
  8.96
 4.1–90 · 22
-typical: annealed
+annealed median
  70
 63–80 · 33
  26
@@ -691,7 +691,7 @@ PETG-CF PASS
  passing: 5.23
 all products: 3.09
 1.77–5.23 · 6
-typical: annealed
+annealed median
  48.7
 32–59.8 · 7
  6.6
@@ -704,7 +704,7 @@ all products: 72
 ↗ ☆
 PETG-ESD UNKNOWN
 0 of 6 products
-likely fails: 6 measured below, 4 unpublished
+likely fails: 6 with data miss, 4 publish none
  1,240
 1,220–1,320 · 9
  1.98
@@ -720,7 +720,7 @@ likely fails: 6 measured below, 4 unpublished
 ↗ ☆
 PETG-GF UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 3 unpublished
+likely fails: 2 with data miss, 3 publish none
  1,330
 1,250–1,420 · 5
  2.57
@@ -738,7 +738,7 @@ nothing published to judge
  ~1.5–5.2† ~28–69† ~2–24† ~52–118† 85.8¤ ☆
 PLA UNKNOWN
 0 of 38 products
-likely fails: 38 measured below, 159 unpublished
+likely fails: 38 with data miss, 159 publish none
  1,240
 1,170–1,329 · 147
  2.56
@@ -754,19 +754,19 @@ likely fails: 38 measured below, 159 unpublished
 ↗ ☆
 PLA Aero UNKNOWN
 0 of 6 products
-likely fails: 6 measured below, 6 unpublished
+likely fails: 6 with data miss, 6 publish none
  1,200
 840–1,240 · 7
  1.35
 0.86–3.1 · 7
-typical: annealed
+annealed median
  20
 9–39.2 · 8
  8.8
 1.8–16.9 · 7
  53
 48–59 · 7
-typical: annealed
+annealed median
  58↗ ☆
 PLA blend UNKNOWN
 none judged
@@ -786,33 +786,33 @@ nothing published to judge
  7.12* 65* 2.5* 74 — ☆
 PLA Galaxy UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 3 unpublished
+likely fails: 1 with data misses, 3 publish none
  1,225
 1,190–1,240 · 4
  1.79
 1.54–2.03 · 2
-typical: annealed
+annealed median
  43.3
 26–54.2 · 3
  9.3
 2.1–16.3 · 3
-typical: annealed
+annealed median
  54.6
 53–55 · 3
  32↗ ☆
 PLA Glow UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 6 unpublished
+likely fails: 1 with data misses, 6 publish none
  1,255
 1,240–1,260 · 4
  2.01
 1.99–2.03 · 2
  37.6
 32–43.2 · 2
-typical: annealed
+annealed median
  5.15
 1.7–8.6 · 2
-typical: annealed
+annealed median
  54
 53–55 · 2
  36
@@ -820,7 +820,7 @@ typical: annealed
 ↗ ☆
 PLA Marble UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 5 unpublished
+likely fails: 1 with data misses, 5 publish none
  1,245
 1,220–1,260 · 4
  2.03
@@ -829,7 +829,7 @@ likely fails: 1 measured below, 5 unpublished
 33–53.8 · 3
  6.7
 2.1–25 · 3
-typical: annealed
+annealed median
  55
 53–56 · 3
  31.5
@@ -841,17 +841,17 @@ nothing published to judge
  1,225
 1,200–1,250 · 3
  2.01
-typical: annealed
+annealed median
  34
-typical: annealed
+annealed median
  14.7
-typical: annealed
+annealed median
  60
 58–62 · 2
  32↗ ☆
 PLA Silk UNKNOWN
 0 of 9 products
-likely fails: 9 measured below, 25 unpublished
+likely fails: 9 with data miss, 25 publish none
  1,240
 1,210–1,320 · 30
  1.72
@@ -860,7 +860,7 @@ likely fails: 9 measured below, 25 unpublished
 27–62.7 · 17
  7
 1.7–11.7 · 16
-typical: annealed
+annealed median
  53
 50–62 · 19
  32.2
@@ -872,19 +872,19 @@ nothing published to judge
  1,255
 1,240–1,410 · 4
  1.94
-typical: annealed
+annealed median
  49
 39–59 · 2
-typical: annealed
+annealed median
  12.1
 11.7–12.5 · 2
-typical: annealed
+annealed median
  52.9
 50.8–55 · 2
  32↗ ☆
 PLA Wood UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 20 unpublished
+likely fails: 1 with data misses, 20 publish none
  1,200
 970–1,300 · 17
  1.68
@@ -904,7 +904,7 @@ nothing published to judge
  ~1,150–1,310† ~2.6–4.5† ~36–62† ~7–21† 55 114¤ ☆
 PLA-CF UNKNOWN
 0 of 6 products
-likely fails: 6 measured below, 12 unpublished
+likely fails: 6 with data miss, 12 publish none
  1,250
 1,190–1,420 · 17
  2.8
@@ -913,7 +913,7 @@ likely fails: 6 measured below, 12 unpublished
 31.2–54.9 · 8
  9.4
 2–13.2 · 8
-typical: annealed
+annealed median
  55.5
 54–91 · 9
  40.5
@@ -921,13 +921,13 @@ typical: annealed
 ↗ ☆
 PLA-ESD UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,210
 1,160–1,260 · 2
  2.56 55 10 55 200↗ ☆
 PLA-GF UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 3 unpublished
+likely fails: 1 with data misses, 3 publish none
  1,280
 1,200–1,337 · 4
  3.79 50.1 2.77 75.5 41↗ ☆
@@ -941,7 +941,7 @@ nothing published to judge
 ¤ ☆
 PLA-NF UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,350
 1,250–1,450 · 2
  2.83 37 ~3–18† 80 — ☆
@@ -949,7 +949,7 @@ POM
 also called Acetal · Acetals
  UNKNOWN
 0 of 3 products
-likely fails: 3 measured below, 1 unpublished
+likely fails: 3 with data miss, 1 publish none
  1,340
 1,140–1,420 · 3
  1.87 50 11 100 — ☆
@@ -980,7 +980,7 @@ PPA
 High-Performance Engineering
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,175
 1,140–1,210 · 2
  2.86 76 3.4 92
@@ -1024,7 +1024,7 @@ PPS
 High-Performance Engineering
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,305
 1,280–1,330 · 2
  2.65 50 18 90 230
@@ -1036,7 +1036,7 @@ PPS-CF
 High-Performance Engineering
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 6 unpublished
+likely fails: 1 with data misses, 6 publish none
  1,295
 1,260–1,510 · 6
  8
@@ -1054,25 +1054,25 @@ PPS-GF
 High-Performance Engineering
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 1 unpublished
+likely fails: 1 with data misses, 1 publish none
  1,360
 1,360–1,360 · 2
  5.16
 4.55–5.76 · 2
  68
 64.1–72 · 2
-typical: annealed
+annealed median
  1.8
 1.6–2 · 2
  239
 236–241 · 2
-typical: annealed
+annealed median
  164↗ ☆
 PVB
 PVB / Specialty Polymers
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 4 unpublished
+likely fails: 2 with data miss, 4 publish none
  1,100
 1,080–1,100 · 6
  2.21
@@ -1098,7 +1098,7 @@ PVDF
 Fluoropolymers
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 2 unpublished
+likely fails: 1 with data misses, 2 publish none
  1,750
 1,710–1,790 · 2
  2.45 51 25 158 356¤↗
@@ -1120,7 +1120,7 @@ TPC
 also called TPEE · Flexible Elastomers
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 9 unpublished
+likely fails: 2 with data miss, 9 publish none
  1,150
 1,070–1,220 · 10
  0.048
@@ -1146,7 +1146,7 @@ TPS
 Flexible Elastomers
  UNKNOWN
 0 of 1 product
-likely fails: 1 measured below, 4 unpublished
+likely fails: 1 with data misses, 4 publish none
  1,150
 1,044–1,220 · 5
  0.054 32* 280 n/a 55↗ ☆
@@ -1154,7 +1154,7 @@ TPU 85A class and softer
 Flexible Elastomers
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 15 unpublished
+likely fails: 2 with data miss, 15 publish none
  1,180
 1,070–1,210 · 13
  0.0159
@@ -1170,7 +1170,7 @@ TPU 90A class
 Flexible Elastomers
  UNKNOWN
 0 of 2 products
-likely fails: 2 measured below, 10 unpublished
+likely fails: 2 with data miss, 10 publish none
  1,210
 1,170–1,240 · 9
  0.0162
@@ -1186,7 +1186,7 @@ TPU 95A class
 Flexible Elastomers
  UNKNOWN
 0 of 6 products
-likely fails: 6 measured below, 21 unpublished
+likely fails: 6 with data miss, 21 publish none
  1,210
 1,000–1,240 · 23
  0.027

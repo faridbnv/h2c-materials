@@ -63,7 +63,7 @@
     },
     "method": {
       "rows": 52,
-      "sha256": "0038a66bb13801ac8b65db204e4fe8983b64e9fdb6ea2488e864b3e01f495366"
+      "sha256": "107ca825671810ef79798a3f1c5c0c2ce8b2148269213283db697c0ae0645463"
     },
     "reference": {
       "rows": 114,
@@ -91,7 +91,7 @@
     },
     "headline_definitions": {
       "rows": 10,
-      "sha256": "8e507e30a0d8f0a5b4405f36ba64cdb923be636dbac4543e646069c0cca381de"
+      "sha256": "abc1554ccba57b67e65645c311625aa8f0e899e5dbabcbd842402f79f9a936fa"
     },
     "polymers": {
       "rows": 48,

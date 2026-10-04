@@ -191,7 +191,7 @@ test('T08: cost per volume is one product\'s own price times its own density; an
   const a = product('GA', 'MA', [st({ tensileModulusXY: v(4), density: v(1000), priceCADkg: price(20) })]);
   const b = product('GB', 'MB', [st({ tensileModulusXY: v(9), density: v(1500), priceCADkg: price(10 * 1.4) })]);
   // A twin of B: B's sheet (same values, read as D89 reads them) but no offer of its own, so no price.
-  const twin = product('GT', 'MB', [st({ tensileModulusXY: { ...v(9), from: { origin: 'twin', gradeId: 'GB', label: 'same sheet as Maker GB' } }, density: v(1500) })]);
+  const twin = product('GT', 'MB', [st({ tensileModulusXY: { ...v(9), from: { origin: 'twin', gradeId: 'GB', label: 'data sheet shared with Maker GB' } }, density: v(1500) })]);
   const mA = material('MA', [a]), mB = material('MB', [b, twin]);
   const { ctx, rows } = ask([mA, mB], [scope]);
   const cost = indexById('beam-stiffness-cost');

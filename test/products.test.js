@@ -316,7 +316,7 @@ test("a twin reads only a same-material sibling's own value, only where it publi
       assert.equal(v.measurementId, t.headline[key].measurementId, `${g.id} ${key}`);
       assert.equal(v.value, t.headline[key].value, `${g.id} ${key}`);
       assert.equal(v.pinned, undefined, `${g.id} ${key}: a pin is the sibling's`);
-      assert.match(v.from.label, /^same sheet as /);
+      assert.match(v.from.label, /^data sheet shared with /);
     }
   }
   assert.ok(read > 100, `only ${read} values read from a twin`);
@@ -378,7 +378,7 @@ test("a part read from a printer maker's guide is its material's guide row, only
       assert.ok(!speaks(profilesOf(g.id), axis), `${g.id} ${axis}: its own sheet speaks, and wins`);
       const twins = db.grades.filter((t) => isProduct(t) && t !== g && sameKey(t, g));
       assert.ok(twins.every((t) => !speaks(profilesOf(t.id), axis)), `${g.id} ${axis}: a twin speaks, and its sheet comes first`);
-      assert.match(from.label, /^per .+'s .+ for .+, not this (maker's sheet|product's data sheet)$/, `${g.id} ${axis}`);
+      assert.match(from.label, /^from .+'s .+ for .+$/, `${g.id} ${axis}`);
       if (['nozzle', 'bed', 'chamber'].includes(axis)) {
         const a = g.print[axis];
         assert.deepEqual([a.state, a.min, a.max, a.profileId], [guide[axis].state, guide[axis].min, guide[axis].max, null], `${g.id} ${axis}`);

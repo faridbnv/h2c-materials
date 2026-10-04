@@ -462,3 +462,25 @@ Preserve signed source/review artifacts and dated historical reports. Current st
 completion report own current counts; the publication check records links, path/migration naming,
 source-review hashes and a zero-behaviour documentation diff. Push normally after full verification,
 retain remote changes, and let the existing Verify/Pages workflows run their gates.
+
+## Decided on 2026-10-04, the engineer-grade interface
+
+The owner used the page and found the left rail's arrangement, its wording and the material drawer hard to follow:
+the H2C checks sat on top and again at the bottom, the part's state mixed a checkbox and a radio without saying what it
+did, the collapse marks read as dots, and the drawer's sentences read as the database talking to itself. GOALS steps 1,
+4 and 5; C1, C7 and C8. No verdict, count or ranking moves. The owner's answers:
+
+1. **The rail is ordered as an engineer screens.** Material family, Mechanical, Thermal, Environment, then **Printing on
+   the H2C** (which replaces Compatibility and the two boxes that sat above every group: one box for the H2C's
+   temperature limits, with nozzle, bed and chamber under it), **Part condition**, Cost and availability, Data quality.
+2. **Part condition is a group of its own,** lower down: post-processing (as printed, or annealing allowed) and moisture
+   (dry or conditioned), each saying what it does to the answers.
+3. **The drawer's tabs follow how a material is checked:** Overview, Products, Mechanical, Thermal, Printing,
+   Environment, Price, Sources. Mechanical and Thermal stay apart. Coverage joins Sources as its known gaps, and Products
+   and Sources say how they relate: a product is what you buy, a source is a document its values were read from.
+4. **Record IDs leave the page's sentences.** A source button beside a value holds them. The decision brief and the
+   exports keep them.
+5. **Write for the reader.** The reader is an engineer: mechanical, thermal, material family, tensile modulus, HDT,
+   conditioned and annealed are their words and stay. The project's own coinages ("twin", "admitted for screening",
+   "research mode", "in scope", "Theoretical") go, and every text is written knowing whom it serves and what decision it
+   supports (D124).

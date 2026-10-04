@@ -160,10 +160,10 @@ function evaluateNumeric(material, c, ctx = {}) {
     }
     // A product value the source published without the direction or the load: shown, and not comparable (D84).
     if (h?.asPublished) {
-      const what = h.asPublished.caveat === 'load-not-stated' ? 'the test load' : 'the test direction';
+      const what = h.asPublished.caveat === 'load-not-stated' ? 'the test load' : 'the specimen orientation';
       return {
         status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished,
-        reason: `Published ${fmt(h.asPublished.value)} ${h.unit} without stating ${what}, so it is not compared (include values published that way to use it)`,
+        reason: `Published ${fmt(h.asPublished.value)} ${h.unit} without ${what}, so it is not used unless Data quality includes such values`,
       };
     }
     // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
@@ -201,16 +201,18 @@ function evaluateNumeric(material, c, ctx = {}) {
       ? `Assumed ${fmt(h.value)} ${h.unit} (a scenario assumption, not published)`
       : `Published ${bound ? `${bound.words} ` : ''}${fmt(h.value)}${band ? ` ± ${fmt(h.uncertainty)}` : ''} ${h.unit}`;
     // A value whose sheet leaves the load or direction unstated decides only when the reader includes such values (D84).
-    if (h.caveat) reason += `, its test ${h.caveat === 'load-not-stated' ? 'load' : 'direction'} not stated (counted because values published that way are included)`;
-    else if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;
-    // The state the value is the product's in (D99), and the method it was measured to: a pooled method is not an equal one.
+    if (h.caveat) reason += `, test ${h.caveat === 'load-not-stated' ? 'load' : 'orientation'} not stated`;
+    // The orientation and the method it was measured to, in one bracket: a pooled method is not an equal one.
+    const paren = [!h.caveat && h.direction && h.direction !== 'not-applicable' ? h.direction : null, ...(h.standards ?? [])].filter(Boolean);
+    if (paren.length) reason += ` (${paren.join(', ')})`;
+    // The state the value is the product's in (D99).
     if (h.anneal) reason += `, after annealing ${schedule(h.anneal)}`;
-    if (h.standards?.length) reason += ` (${h.standards.join(', ')})`;
     // A twin's value is printed on its sibling's sheet too, and recorded there once (D89).
-    if (h.from?.label) reason += `, ${h.from.label}`;
+    if (h.from?.label) reason += `, in the ${h.from.label}`;
+    if (h.caveat) reason += '. Used because Data quality includes such values';
     // What the screening policy admitted unstated (GOALS 2026-09-28, decision 5).
-    if (h.admitted?.length) reason += `; ${listWords(h.admitted.map((a) => ADMITTED_WORDS[a]))} not stated, admitted for screening`;
-    if (closeToLimit) reason += `; close to the limit: the threshold lies within the published spread, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
+    if (h.admitted?.length) reason += `. ${cap(listWords(h.admitted.map((a) => ADMITTED_WORDS[a])))} not stated`;
+    if (closeToLimit) reason += `. Close to the limit: the threshold is inside the published scatter, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
   }
   return {
     status, reason, criterion: label, closeToLimit,
@@ -224,7 +226,8 @@ function evaluateNumeric(material, c, ctx = {}) {
   };
 }
 
-const ADMITTED_WORDS = { specimen: 'specimen form', moisture: 'moisture state', treatment: 'treatment' };
+const ADMITTED_WORDS = { specimen: 'specimen type', moisture: 'moisture state', treatment: 'post-processing' };
+const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 const listWords = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
 /** An annealing schedule in a reader's words, the parts its sheet does not state said so. */
 export const schedule = (t) => `at ${t?.tempC != null ? `${fmt(t.tempC)} °C` : 'a temperature its sheet does not state'} for ${t?.hours != null ? `${fmt(t.hours)} h` : 'a time its sheet does not state'}`;
@@ -233,15 +236,15 @@ const stateWords = (s) => (s?.treatment ? `after annealing ${schedule(s.treatmen
 /** Why a value the product publishes in another state does not decide in this one, and what would let it (D99). */
 function elsewhereReason(h, state) {
   const e = h.elsewhere[0];
-  const where = `${e.measurementId ? `${e.measurementId}: ` : ''}${fmt(e.value)} ${h.unit}`;
+  const where = `${fmt(e.value)} ${h.unit}`;
   if (e.treatment && !state?.treatment) {
-    return `Published only after annealing ${schedule(e.treatment)} (${where}); this product is judged as printed. Permit annealing to judge it in that state`;
+    return `Published only after annealing ${schedule(e.treatment)} (${where}), and this product is judged as printed. Allow annealing under Part condition to use it`;
   }
-  if (e.moisture === 'conditioned' && state?.moisture !== 'conditioned') return `Published only after moisture conditioning (${where}), not for the dry state this scenario asks about`;
+  if (e.moisture === 'conditioned' && state?.moisture !== 'conditioned') return `Published only after moisture conditioning (${where}), not for the dry state asked about`;
   if (e.moisture !== 'conditioned' && state?.moisture === 'conditioned') {
-    return `Published only dry or with moisture unstated (${where}); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one`;
+    return `Published only dry or with moisture unstated (${where}); the conditioned state is asked about, and no conditioned value is inferred from a dry one`;
   }
-  return `Published ${stateWords(e)} (${where}), not ${stateWords(state)}; two states are never joined as one part`;
+  return `Published ${stateWords(e)} (${where}), not ${stateWords(state)}; values from two states are never combined`;
 }
 
 // ---------------------------------------------------------------- treatment
@@ -255,9 +258,9 @@ function evaluateTreatment(material) {
   const t = material.state?.treatment;
   if (!t) return { status: STATUS.PASS, criterion: 'Treatment', reason: 'Used as printed' };
   if (t.tempC == null || t.hours == null) {
-    return { status: STATUS.UNKNOWN, criterion: 'Annealing', treatment: t, reason: `Its values in this state are of bars annealed ${schedule(t)}; an annealing its sheet does not state cannot be repeated, so it settles nothing` };
+    return { status: STATUS.UNKNOWN, criterion: 'Annealing', treatment: t, reason: `Its values in this state come from bars annealed ${schedule(t)}; a schedule its sheet does not give in full cannot be repeated, so it settles nothing` };
   }
-  return { status: STATUS.PASS, criterion: 'Annealing', treatment: t, reason: `Needs annealing ${schedule(t)}, as its sheet states; this scenario permits annealing` };
+  return { status: STATUS.PASS, criterion: 'Annealing', treatment: t, reason: `Needs annealing ${schedule(t)}, as its sheet states; annealing is allowed under Part condition` };
 }
 export const TREATMENT = { kind: 'treatment', mandatory: true, __group: 'Manufacturing' };
 
@@ -283,8 +286,8 @@ function evaluateGate(material, c) {
       // Scope is the one place exclusion is recorded (m146); the material's Limitations say why it is out (an envelope
       // the H2C cannot reach, or a sintering feedstock whose part is not the printed polymer).
       reason: excluded
-        ? 'Excluded from the candidates (Scope Excluded); its Limitations say why'
-        : 'In scope for the H2C',
+        ? 'Beyond H2C capability; its Limitations say why'
+        : 'Within H2C capability',
     };
   }
   if (c.gate === 'h2cStatus') {
@@ -320,7 +323,7 @@ function evaluateGate(material, c) {
     if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: `A source states no special nozzle concern${from}` };
     const filler = material.facets?.reinforcement?.value;
     if (material.facets?.fibre?.value || filler === 'carbon-fibre' || filler === 'glass-fibre') {
-      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, and no source says what nozzle it needs: by the database\'s rule on abrasive fillers it is treated as abrasive until the product says otherwise' };
+      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, and no source states the nozzle it needs, so it is treated as abrasive until its documents say otherwise' };
     }
     return {
       status: STATUS.PASS, criterion,
@@ -388,7 +391,7 @@ function evaluateFacet(material, c) {
     return {
       status: ok ? STATUS.PASS : STATUS.FAIL,
       criterion: c.equals === false ? 'Build material' : 'Support material',
-      reason: f.value ? 'Recorded as a support or interface material' : 'Recorded as a build material',
+      reason: f.value ? 'A support or interface material' : 'A build material',
     };
   }
   const label = `${c.facet} in ${(c.in ?? [String(c.equals)]).join(', ')}`;
@@ -435,7 +438,7 @@ function evaluateEnvironment(material, c, ctx) {
     const own = all.filter((e) => e.gradeId === product.id);
     const twin = own.length ? null : (product.twins ?? []).map((id) => ({ id, list: all.filter((e) => e.gradeId === id) })).find((t) => t.list.length);
     records = own.length ? own : twin?.list ?? [];
-    if (twin) from = `, same sheet as ${gradeName(ctx, twin.id)}`;
+    if (twin) from = `, from the data sheet shared with ${gradeName(ctx, twin.id)}`;
   }
   if (!records.length) {
     // No record of this material. Its base polymer's published behaviour, where the build attached it (D64), is
@@ -447,10 +450,10 @@ function evaluateEnvironment(material, c, ctx) {
       const others = all.filter((e) => e.verdict !== 'no-data');
       return {
         status: STATUS.UNKNOWN, criterion: label, contextIds: all.map((e) => e.id),
-        reason: `No record of this product's own. ${others.length ? `${others.length} record(s) of ${others.some((e) => !e.gradeId || /^Not /.test(e.gradeId)) ? 'its material or ' : ''}other products (${others.slice(0, 3).map((e) => e.id).join(', ')}${others.length > 3 ? ', ...' : ''}) are context, not this product's` : 'Its material has records that state no verdict'}`,
+        reason: `No statement of this product's own. ${others.length ? `${others.length} statement(s) about ${others.some((e) => !e.gradeId || /^Not /.test(e.gradeId)) ? 'its material or ' : ''}other products are context, not this product's` : 'Its material has statements, but none gives a verdict'}`,
       };
     }
-    return { status: STATUS.UNKNOWN, criterion: label, reason: `No evidence record for this ${product ? 'product' : 'material'}` };
+    return { status: STATUS.UNKNOWN, criterion: label, reason: `No statement for this ${product ? 'product' : 'material'}` };
   }
 
   // Only an unqualified positive record satisfies "resists". A source that reports *limited*
@@ -465,26 +468,26 @@ function evaluateEnvironment(material, c, ctx) {
   const contrary = records.filter((e) => ['not-resistant', 'soluble', 'flammable'].includes(e.verdict));
   const words = records.filter((e) => e.verdict === 'narrative');
   const ids = (list) => list.map((e) => e.id);
-  const quote = (e) => `"${String(e.finding).slice(0, 60)}${String(e.finding).length > 60 ? '...' : ''}" (${e.id})`;
+  const quote = (e) => `"${String(e.finding).slice(0, 60)}${String(e.finding).length > 60 ? '...' : ''}"`;
   if (contrary.length && !matching.length) {
-    return { status: STATUS.FAIL, criterion: label, reason: `${contrary.length} record(s) report ${contrary[0].verdict}${from}`, evidenceIds: ids(contrary) };
+    return { status: STATUS.FAIL, criterion: label, reason: `${contrary.length} statement(s) report ${verdictWords(contrary[0].verdict)}${from}`, evidenceIds: ids(contrary) };
   }
   if (matching.length && contrary.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `Evidence is mixed across exposures: ${matching.length} record(s) report ${matching[0].verdict}, ${contrary.length} ${contrary[0].verdict}${from}`, evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `Mixed across exposures: ${matching.length} statement(s) report ${verdictWords(matching[0].verdict)}, ${contrary.length} ${verdictWords(contrary[0].verdict)}${from}`, evidenceIds: ids(records) };
   }
   if (matching.length && limited.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}, ${limited.length} only limited resistance (${limited.map(quote).join('; ')})${from}. Check which exposure matters to you`, evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} statement(s) report ${verdictWords(matching[0].verdict)}, ${limited.length} only limited resistance (${limited.map(quote).join('; ')})${from}. Check which exposure matters to you`, evidenceIds: ids(records) };
   }
   if (matching.length && words.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}, and ${words.length} more say, in words no verdict is read from, ${words.map(quote).join('; ')}${from}. Read them before relying on it`, evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} statement(s) report ${verdictWords(matching[0].verdict)}, and ${words.length} more give no clear verdict: ${words.map(quote).join('; ')}${from}. Read them before relying on it`, evidenceIds: ids(records) };
   }
   if (matching.length) {
-    return { status: STATUS.PASS, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}${from}. Resistance applies to the recorded exposures, not every chemical in the class`, evidenceIds: ids(matching) };
+    return { status: STATUS.PASS, criterion: label, reason: `${matching.length} statement(s) report ${verdictWords(matching[0].verdict)}${from}. This covers the exposures stated, not every chemical in the class`, evidenceIds: ids(matching) };
   }
   if (limited.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${limited.length} record(s) report only limited resistance${from}`, evidenceIds: ids(limited) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${limited.length} statement(s) report only limited resistance${from}`, evidenceIds: ids(limited) };
   }
-  return { status: STATUS.UNKNOWN, criterion: label, reason: `Records exist but none state a verdict${from}`, evidenceIds: ids(records) };
+  return { status: STATUS.UNKNOWN, criterion: label, reason: `Statements exist, but none gives a verdict${from}`, evidenceIds: ids(records) };
 }
 
 /** A product as a reason names it: its maker and product, from the database the context carries. */
@@ -507,8 +510,7 @@ const verdictWords = (v) => String(v).replace(/-/g, ' ');
  */
 function evaluatePolymerLevel(polymer, label, ctx) {
   const agents = polymer.agents.map((a) => `${verdictWords(a.verdict)} to ${a.agent}`).join(', ');
-  const refs = polymer.sourceIds.join(', ');
-  const basis = `No evidence record for this material. Its base polymer ${polymer.polymerId} is published as ${verdictWords(polymer.verdict)} (${agents}; ${refs}), the neat resin's behaviour and not a test of this grade, so never enough to pass`;
+  const basis = `No statement for this material. Its base polymer ${polymer.polymerId} is published as ${verdictWords(polymer.verdict)} (${agents}) in resin reference data, which is not a test of this product, so never enough to pass`;
   const common = { status: STATUS.UNKNOWN, criterion: label, polymer: true, polymerId: polymer.polymerId, polymerVerdict: polymer.verdict, polymerEvidenceIds: [polymer.id] };
   if (!polymer.screens) return { ...common, reason: basis };
   const screened = !!ctx?.useEstimates;
@@ -535,7 +537,7 @@ function evaluateEvidence(material, c, ctx) {
       const own = measured(all.filter((m) => m.gradeId === product.id));
       const twin = own.length ? null : (product.twins ?? []).find((id) => measured(all.filter((m) => m.gradeId === id)).length);
       checks.push({ ok: own.length > 0 || !!twin, label: 'exact-grade measurement',
-        detail: own.length ? `${own.length} measurement(s) of this product` : twin ? `measured on the same sheet as ${gradeName(ctx, twin)}` : 'No measurement of this product in the sampled sources; its siblings\' are theirs' });
+        detail: own.length ? `${own.length} measurement(s) of this product` : twin ? `measured in the data sheet shared with ${gradeName(ctx, twin)}` : 'No measurement of this product in the sampled sources; its siblings\' are theirs' });
     } else {
       const has = measured(all).length > 0;
       checks.push({ ok: has, label: 'exact-grade measurement', detail: has ? `${all.length} measurements on record` : 'No grade-specific measurement in the sampled sources' });
@@ -547,7 +549,7 @@ function evaluateEvidence(material, c, ctx) {
     const cov = ctx?.coverageByMaterial?.get(material.id) ?? [];
     const mine = (r) => !product || !r.gradeId || r.gradeId === product.id || (product.twins ?? []).includes(r.gradeId);
     const bad = cov.filter((r) => (r.status === 'Conflict' || r.status === 'Quarantined') && mine(r));
-    checks.push({ ok: bad.length === 0, label: 'no unresolved conflict', detail: bad.length ? `${bad.length} unresolved: ${bad.map((b) => `${b.domain} (${b.id})`).join(', ')}` : 'No unresolved conflict recorded' });
+    checks.push({ ok: bad.length === 0, label: 'no unresolved conflict', detail: bad.length ? `${bad.length} unresolved: ${bad.map((b) => b.domain.toLowerCase()).join(', ')}` : 'No unresolved conflict recorded' });
   }
   if (!checks.length) return { status: STATUS.PASS, criterion: 'Evidence', reason: 'No evidence criterion set' };
   const failed = checks.filter((x) => !x.ok);

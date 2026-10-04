@@ -255,7 +255,7 @@ function guideAnswers(guide, axis) {
 }
 // A source that asks for an enclosure and gives no chamber temperature has said all it will about the chamber. A
 // printer maker's guide row that means its own enclosed printers declares its chamber "enclosed" instead (D90).
-const ENCLOSURE_ONLY = 'Asks for an enclosure but states no chamber temperature; an enclosure is not proof that 65 °C is enough';
+const ENCLOSURE_ONLY = 'Asks for an enclosure but gives no chamber temperature, so 65 °C is not shown to be enough';
 
 /** The annealing a product's sheets state for its values measured on annealed parts, one per schedule. */
 function annealOf(gradeMeasurements) {
@@ -280,11 +280,11 @@ export function productName(g) {
 }
 
 /** Where a part of a product's values or recipe was read, when it is not the product's own sheet (D88, D89). */
-const twinOrigin = (t) => ({ origin: 'twin', gradeId: t.id, label: `same sheet as ${productName(t)}` });
+const twinOrigin = (t) => ({ origin: 'twin', gradeId: t.id, label: `data sheet shared with ${productName(t)}` });
+// "from" the guide says it is not the product's own sheet, whoever makes the product (D124 amends D88's wording).
+// eslint-disable-next-line no-unused-vars
 function guideOrigin(guide, grade, publisher) {
-  // The guide's publisher may make the product too: its guide is still not the product's data sheet.
-  const not = grade.manufacturer === publisher ? "not this product's data sheet" : "not this maker's sheet";
-  return { origin: 'guide', guideId: guide.id, sourceId: guide.sourceId, guide: guide.name, label: `per ${guide.name}, ${not}` };
+  return { origin: 'guide', guideId: guide.id, sourceId: guide.sourceId, guide: guide.name, label: `from ${guide.name}` };
 }
 const labelled = (axis, from) => ({ ...axis, reason: `${axis.reason} (${from.label})` });
 

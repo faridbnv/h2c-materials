@@ -275,11 +275,12 @@ filed under the whole material, is shown as context and never passes it.
 
 **A product is judged in a state it can be made in** (D99). Many sheets measure some values after annealing (Bambu
 Lab's PA6-CF, all of them at 80 °C for 12 h) or after moisture conditioning. A product is judged **as printed** unless
-you tick **We can anneal parts** under *How the part is made and used*, and then also annealed at the schedule its own
-sheet states (up to your oven's temperature, if you give one); it is judged **dry** unless you say the part lives
-**conditioned by the air's moisture**, and then only on conditioned values. Two states are never mixed into one part: a
+you choose **Annealing allowed** under *Part condition* in the filters, and then also annealed at the schedule its own
+sheet states (up to your oven's temperature, if you give one); it is judged **dry** unless you set *Moisture in service*
+to **Conditioned**, and then only on conditioned values. Two states are never mixed into one part: a
 value measured annealed does not pass an as-printed product, and the reason says where it was published ("Published only
-after annealing at 90 °C for 4 h; permit annealing to judge it in that state"). A verdict in an annealed state names the
+after annealing at 90 °C for 4 h, and this product is judged as printed. Allow annealing under Part condition to use
+it"). A verdict in an annealed state names the
 annealing it needs. The results header says how every product is judged, and how many more materials annealing would
 pass. Every value also says which conditions its sheet left unstated and the screening policy admits (specimen form,
 moisture state, treatment) and the method it names: "comparable" is a screening policy, not a laboratory equivalence.
@@ -348,7 +349,7 @@ least 100"). The mode decides what happens to the last two.
 - **Confirmed only (Strict):** only materials with a PASS on every requirement are candidates. Measured evidence only.
   This is the mode for a shortlist you will act on.
 - **Include uncertain (Explore):** materials with UNKNOWN or INDETERMINATE answers stay visible and flagged, so a gap
-  in the database does not hide a material that might suit. With **Use estimates and polymer data** on, estimates may
+  in the database does not hide a material that might suit. With **Let estimates rule out materials** on, estimates may
   screen as above, and so may a base polymer's published behaviour where the material has no record of its own in a
   category and the reference finds the polymer resistant to nothing in it (D64). The SCREENED chip brings screened
   materials back.
@@ -415,8 +416,9 @@ the materials: keep the requirement, and test); or some of each.
 
 ## Printability on the H2C
 
-Every ready-made template asks it (D101): **Printable on the H2C**, in the filters and as one requirement in the header.
-Without it the page is in **research mode**, and says so: a pass then says nothing about printing the product.
+Every ready-made template asks it (D101): **Within H2C temperature limits**, under *Printing on the H2C* in the filters
+and as one requirement in the header. Without it the header says **H2C printability not checked**: a pass then says
+nothing about printing the product.
 
 The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared with each product's own published print
 profile, and each product reports **within**, **exceeds**, **partial** (a chamber window the printer only partly

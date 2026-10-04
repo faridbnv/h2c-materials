@@ -136,7 +136,7 @@ export function renderCompare(host, state, actions) {
     if (log) logTracks.push(prop(a.key).plain.toLowerCase());
     return `<div class="cmp-prop${log ? ' log-track' : ''}">
       <h4 title="${esc(prop(a.key).technical)}">${esc(prop(a.key).plain)} <span class="unit">${esc(a.unit)}</span>${requirements.length
-        ? `<span class="cmp-req">${requirements.map((c) => `<span class="cmp-req-item"><i class="cmp-req-mark${c.mandatory === false ? ' tracked' : ''}" aria-hidden="true"></i>${esc(describeConstraint(c))}${c.mandatory === false ? ' (tracked)' : ''}</span>`).join(' ')}</span>` : ''}</h4>
+        ? `<span class="cmp-req">${requirements.map((c) => `<span class="cmp-req-item"><i class="cmp-req-mark${c.mandatory === false ? ' tracked' : ''}" aria-hidden="true"></i>${esc(describeConstraint(c))}${c.mandatory === false ? ' (reported only)' : ''}</span>`).join(' ')}</span>` : ''}</h4>
       ${picked.map((m) => {
         const h = m.headline[a.key];
         const who = `${esc(m.name)}${isAnchor(m) ? ' <span class="anchor-tag">baseline</span>' : ''}`;
@@ -208,9 +208,9 @@ export function renderCompare(host, state, actions) {
   const hard = scenario.constraints.filter((c) => c.mandatory !== false);
   const soft = scenario.constraints.filter((c) => c.mandatory === false);
   const context = `<div class="cmp-context">
-      <div><b>Requirements:</b> ${hard.length ? hard.map((c) => esc(describeConstraint(c))).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Tracked only:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
-      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? ', estimates and polymer data on (they never pass a material and may screen one out)' : ''}.
-        Release ${esc(db.meta.release?.id ?? 'unidentified')}, database snapshot ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. A material's values are its products' spread; check the exact
+      <div><b>Requirements:</b> ${hard.length ? hard.map((c) => esc(describeConstraint(c))).join('; ') : 'none set, so nothing has been tested'}${soft.length ? `. <b>Reported, not required:</b> ${soft.map((c) => esc(describeConstraint(c))).join('; ')}` : ''}.</div>
+      <div class="fine">${scenario.template ? `Template: ${esc(scenario.template)}. ` : ''}${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}${useEstimates ? '; estimates and resin data may exclude a material, never pass one' : ''}.
+        Release ${esc(db.meta.release?.id ?? 'unidentified')}, data of ${esc(db.meta.snapshot)}, build ${esc(db.meta.build)}. A material's values span its products: check the exact
         product in its Products tab before you buy or print.</div>
     </div>`;
 
@@ -229,7 +229,7 @@ export function renderCompare(host, state, actions) {
   host.innerHTML = `
     ${context}
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
-      <span class="fine">Shortlisted ${pinned.length}, with each one's result against the requirements above:</span>
+      <span class="fine">${pinned.length} shortlisted, each with its result against the requirements above:</span>
       ${pinned.map((m) => `<span class="pin">${esc(m.name)} ${resultChip(m)}${rankTag(m)}</span>`).join('')}
       ${anchor ? `<span class="pin anchor">${esc(anchor.name)} · baseline</span>` : ''}
       <label class="baseline-pick" title="Adds a familiar material as a reference bar.">
@@ -243,16 +243,16 @@ export function renderCompare(host, state, actions) {
       <div class="spacer" style="flex:1"></div>
       <button class="btn btn-sm" id="cmp-print">Print summary</button>
     </div>
-    <p class="fine cmp-intro">Each track spans all ${candidates.length} candidate materials in the database${useEstimates ? ', their estimated ranges included' : ''}:
-      the numbers under it are the lowest and highest, so a bar's length is where a material sits among them.${logTracks.length
-        ? ` Where the candidates span more than a hundredfold (here ${logTracks.join(' and ')}) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude.` : ''}${scenario.constraints.some((c) => c.kind === 'numeric')
-        ? ' An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so.' : ''}
-      ${anyBounds ? 'The <b>|—|</b> marks on a bar are the range of the material\'s products, or the range or uncertainty a source reported. ' : ''}${anyRelated ? 'A <b>*</b> value is a measurement that is not comparable, drawn as a tick, not a bar; select it for why.' : ''}</p>
+    <p class="fine cmp-intro">Each track runs from the lowest to the highest of all ${candidates.length} candidate materials${useEstimates ? ', estimates included' : ''},
+      so a bar's length shows where a material sits among them.${logTracks.length
+        ? ` Tracks spanning more than a hundredfold (${logTracks.join(' and ')}) use a log scale.` : ''}${scenario.constraints.some((c) => c.kind === 'numeric')
+        ? ' An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end.' : ''}
+      ${anyBounds ? 'The <b>|—|</b> marks are the range of the material\'s products, or a range or scatter the source reported. ' : ''}${anyRelated ? 'A <b>*</b> is a published value that is not comparable, drawn as a tick; select it for why.' : ''}</p>
     ${blocks}
-    <h3 class="sec">Process requirements</h3>
-    <p class="fine">Where a material has products that pass, each gate is theirs: their own recipes against the H2C, which is what
-      passed them. The line under it is the material's window across every recorded product, context that no product need match (F09).</p>
-    ${scrollTable(`<table class="grid"><thead><tr><th class="name">Material</th><th>Nozzle within H2C</th><th>Bed within H2C</th><th>Chamber within H2C</th><th>Hardened nozzle</th><th>Drying</th></tr></thead>
+    <h3 class="sec">H2C printability</h3>
+    <p class="fine">For a material with passing products, each check uses those products' own settings. The line under it covers
+      all of the material's products.</p>
+    ${scrollTable(`<table class="grid"><thead><tr><th class="name">Material</th><th>Nozzle</th><th>Bed</th><th>Chamber</th><th>Hardened nozzle</th><th>Drying</th></tr></thead>
       <tbody>${picked.map((m) => {
         const passing = passingProducts(m);
         const gatesOf = passing.map((g) => productGates(m, g));
@@ -262,11 +262,11 @@ export function renderCompare(host, state, actions) {
         const words = (fn) => (passing.length ? [...new Set(gatesOf.map(fn))].join(' / ') : fn(m.gates));
         return `<tr><td class="name">${esc(m.name)}${passing.length ? `<span class="row-sub">${passing.length} passing product${passing.length === 1 ? '' : 's'}</span>` : ''}</td>
         ${['nozzle', 'bed', 'chamber'].map((g) => `<td>${axis(g)}</td>`).join('')}
-        <td>${esc(passing.length ? words((x) => ABRASION_WORD[x.abrasive] ?? 'not recorded') : (m.gates.abrasive === 'requires-hardened' && hardenedWords(hardenedShare(db.grades.filter((g) => g.materialId === m.id)))) || (ABRASION_WORD[m.gates.abrasive] ?? 'not recorded'))}</td><td>${esc(words((x) => (x.drying === 'required' ? 'guidance published' : 'not recorded')))}</td></tr>`;
+        <td>${esc(passing.length ? words((x) => ABRASION_WORD[x.abrasive] ?? 'not recorded') : (m.gates.abrasive === 'requires-hardened' && hardenedWords(hardenedShare(db.grades.filter((g) => g.materialId === m.id)))) || (ABRASION_WORD[m.gates.abrasive] ?? 'not recorded'))}</td><td>${esc(words((x) => (x.drying === 'required' ? 'published' : 'no data')))}</td></tr>`;
       }).join('')}</tbody></table>`)}
 
-    <h3 class="sec">Evidence completeness</h3>
-    ${scrollTable(`<table class="grid"><thead><tr><th class="name">Material</th><th>Measured</th><th>Estimated</th><th>Grades</th><th>Measurements</th></tr></thead>
+    <h3 class="sec">Data on file</h3>
+    ${scrollTable(`<table class="grid"><thead><tr><th class="name">Material</th><th>Key properties published</th><th>Estimated</th><th>Products</th><th>Measurements</th></tr></thead>
       <tbody>${picked.map((m) => {
         const have = AXIS_DEFS.filter((a) => m.headline[a.key]?.known).length;
         const est = AXIS_DEFS.filter((a) => estimateOf(m, a.key)).length;
@@ -277,10 +277,8 @@ export function renderCompare(host, state, actions) {
           <td>${state.ctx.measurementsByMaterial.get(m.id)?.length ?? 0}</td></tr>`;
       }).join('')}</tbody></table>`)}
     ${picked.some((m) => AXIS_DEFS.some((a) => estimateOf(m, a.key)))
-      ? `<p class="fine">A \u2020 span is an estimate, not a measurement: the likely range (${Math.round((db.meta.estimateModel?.levels?.likely ?? 0.8) * 100)}%), with the
-         plausible range behind it and a tick at its centre. It is built from the material's own related
-         measurements where it has any, and from its polymer family. It never passes a requirement; select
-         it for what it rests on and whether it can screen.</p>`
+      ? `<p class="fine">A \u2020 span is an estimate, not a measurement: the likely range (${Math.round((db.meta.estimateModel?.levels?.likely ?? 0.8) * 100)}%),
+         the plausible range behind it and a tick at its centre. It never passes a requirement; select it for what it rests on.</p>`
       : ''}`;
 
   markTableOverflow(host);
@@ -289,14 +287,14 @@ export function renderCompare(host, state, actions) {
   host.querySelector('[data-baseline]')?.addEventListener('change', (e) => actions.setBaseline(e.target.value));
 }
 
-const ABRASION_WORD = { 'requires-hardened': 'required', 'no-special-concern': 'not needed', unknown: 'not recorded' };
+const ABRASION_WORD = { 'requires-hardened': 'required', 'no-special-concern': 'not needed', unknown: 'no data' };
 
 /** The passing products' verdicts on one gate, as one chip: how many are within, and the rest said. */
 function passingChip(list, what) {
   const within = list.filter((g) => g.verdict === 'within').length;
   const state = within === list.length ? 'PASS' : list.some((g) => g.verdict === 'exceeds') ? 'FAIL' : 'UNKNOWN';
   const reasons = list.map((g) => g.reason).filter(Boolean);
-  return explainButton(`${within} of ${list.length} within`, [...new Set(reasons)].join('\n') || 'No recipe recorded', { cls: `chip chip-${state}`, head: `${what.charAt(0).toUpperCase()}${what.slice(1)}: the passing products' own recipes` });
+  return explainButton(`${within} of ${list.length} within`, [...new Set(reasons)].join('\n') || 'No print settings on file', { cls: `chip chip-${state}`, head: `${what.charAt(0).toUpperCase()}${what.slice(1)}: the passing products' own settings` });
 }
 
 // A gate's verdict with its reason one press away. The reason used to be the cell's title.
@@ -304,6 +302,6 @@ const verdictChip = (g, what) => {
   if (!g?.verdict) return '';
   const v = gateVerdict(g.verdict);
   return g.reason
-    ? explainButton(esc(v.short), g.reason, { cls: `chip chip-${v.state}`, head: `${what.charAt(0).toUpperCase()}${what.slice(1)} within the H2C limit: ${v.word}` })
+    ? explainButton(esc(v.short), g.reason, { cls: `chip chip-${v.state}`, head: `${what.charAt(0).toUpperCase()}${what.slice(1)}, against the H2C: ${v.word.toLowerCase()}` })
     : chip(v.state, v.short);
 };

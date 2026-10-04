@@ -22,7 +22,7 @@ import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc, markTableOverflow, keepInView } from './ui/format.js';
 import { TEMPLATES, PRINTABLE } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive, candidateCount } from './ui/start.js';
-import { setEnvironmentLabels, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel } from './ui/labels.js';
+import { setEnvironmentLabels, setH2cBaseline, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel } from './ui/labels.js';
 import { initPopover, popoverOpen } from './ui/popover.js';
 import { useRegistry } from './ui/registry.js';
 
@@ -421,7 +421,7 @@ const actions = {
   },
   // Judge products annealed where their sheets state a schedule (D99), from the line that says what it would add.
   allowAnnealing() { state.scenario.anneal = true; actions.changed(); },
-  // Leave research mode: ask the H2C's print gates, all three (D101).
+  // Ask all three of the H2C's print checks: nozzle, bed and chamber (D101).
   checkPrintable() {
     state.scenario.constraints = state.scenario.constraints.filter((c) => !(c.kind === 'gate' && PRINTABLE.some((p) => p.gate === c.gate)));
     state.scenario.constraints.push(...PRINTABLE.map((c) => ({ ...c })));
@@ -631,8 +631,8 @@ function render() {
   chipText(scr, state.showScreened, `SCREENED ${counts.screened}`);
   scr.setAttribute('aria-pressed', String(state.showScreened));
   scr.title = state.showScreened
-    ? `Showing the ${counts.screened} materials an estimate or the base polymer's published behaviour screened out, among the UNKNOWN results. Click to hold them out again.`
-    : `${counts.screened} of the UNKNOWN materials are held out because an estimate of a missing value clearly cannot meet a requirement, or the base polymer is published as attacked or dissolved where the material has no record of its own. Click to show them.`;
+    ? `Showing the ${counts.screened} UNKNOWN materials excluded by an estimate or by resin reference data. Click to hide them again.`
+    : `${counts.screened} UNKNOWN materials are excluded: an estimate of a missing value clearly misses a requirement, or resin reference data reports the base polymer attacked or dissolved. Click to show them.`;
 
   document.getElementById('mode-strict').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'strict'));
   document.getElementById('mode-explore').setAttribute('aria-pressed', String(state.scenario.unknownPolicy === 'exploration'));
@@ -889,14 +889,14 @@ function scrollLensToTop() {
 function chosenSection() {
   const { db, scenario } = state;
   const list = scenario.decisions ?? [];
-  if (!list.length) return '<p class="fine">None yet. Open a material\'s Products tab and press <b>Choose this product</b> on the one the team will print: its decision brief, recipe and test plan are then one press away here, and saved with the scenario.</p>';
+  if (!list.length) return '<p class="fine">None yet. In a material\'s Products tab, press <b>Choose</b> on the product the team will print. Its decision brief, print settings and test plan then appear here, saved with the scenario.</p>';
   const entries = new Map(state.selection.evaluations.flatMap((e) => e.products ?? []).map((p) => [p.gradeId, p]));
   const today = db.meta.release?.id;
   return list.map((d) => {
     const g = db.grades.find((x) => x.id === d.gradeId);
     const e = entries.get(d.gradeId);
     return `<div class="chosen" data-chosen="${esc(d.gradeId)}">
-      <div class="chosen-head"><b>${esc(productLabel(g))}</b> <span class="tag">${esc(d.gradeId)}</span>
+      <div class="chosen-head"><b>${esc(productLabel(g))}</b>
         ${e ? `<span class="chip chip-${e.verdict}">${esc(e.verdict)}</span>` : '<span class="chip chip-neutral">not judged</span>'}
         <span class="fine">chosen ${esc(d.chosenOn ?? '')} on release ${esc(d.release ?? 'unidentified')}${d.release && d.release !== today ? `; this page is release ${esc(today ?? '')}` : ''}</span></div>
       <div class="sc-actions chosen-actions">
@@ -963,9 +963,9 @@ function renderScenario(host) {
           ? `<div class="sc-big">${selection.counts.pass}<span>of ${selection.counts.total} materials pass</span></div>`
           : `<div class="sc-big">${selection.counts.total}<span>materials, nothing tested yet</span></div>`}
         <div class="sc-lines">
-          <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} tracked only` : ''}</div>
+          <div>${hard} requirement${hard === 1 ? '' : 's'}${soft ? `, ${soft} reported only` : ''}</div>
           <div>${POLICY_CONTROL}: ${policyLabel(scenario.unknownPolicy)}</div>
-          ${scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION ? `<div>Estimates and polymer data: ${state.useEstimates ? 'on (never pass; may screen out)' : 'off'}</div>` : ''}
+          ${scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION ? `<div>Estimates and resin data: ${state.useEstimates ? 'on (may exclude, never pass)' : 'off'}</div>` : ''}
           ${scenario.shortlist.length ? `<div>${scenario.shortlist.length} shortlisted</div>` : ''}
           ${scenario.assumptions.length ? `<div class="warn">${scenario.assumptions.length} assumption${scenario.assumptions.length === 1 ? '' : 's'} in play</div>` : ''}
         </div>
@@ -973,8 +973,8 @@ function renderScenario(host) {
 
       <h3 class="sec">Take it with you</h3>
       <div class="sc-actions">
-        <button class="btn" id="sc-csv"><b>Export the rows on screen</b><span>CSV in the table's order, with the requirements, each row's result and the reasons for it</span></button>
-        <button class="btn" id="sc-products"><b>Export their products</b><span>CSV of every product of the materials on screen: maker, its own values and whether each is comparable, how to print it, and whether it meets the requirements</span></button>
+        <button class="btn" id="sc-csv"><b>Export the rows on screen</b><span>CSV in the table's order: the requirements, each row's result and why</span></button>
+        <button class="btn" id="sc-products"><b>Export their products</b><span>CSV of every product of those materials: maker, values and whether each is comparable, print settings, and its result</span></button>
         <button class="btn" id="sc-link"><b>Copy a link to this selection</b><span>${localFile
           ? 'Reopens the requirements, shortlist and view on this computer. The page is a local file, so the link will not work for anyone else: send them the saved scenario instead.'
           : 'Reopens the requirements, shortlist, assumptions, goal and view. Search text is not included.'}</span></button>
@@ -992,17 +992,16 @@ function renderScenario(host) {
       </div>
 
       <h3 class="sec">What this tool is for</h3>
-      <div class="note">Screening, comparison and evidence navigation. Not certified design
-        allowables, not a substitute for reading the exact grade's technical and safety data sheets,
-        and not a guarantee that any third-party filament runs on an H2C. Verify the grade before
-        you buy or print.</div>
+      <div class="note">Screening and comparison from makers' published data, with every value traced to its source.
+        Not design allowables, not a substitute for the exact product's technical and safety data sheets, and not a
+        guarantee that a third-party filament runs on the H2C. Verify the product before you buy or print.</div>
 
       <h3 class="sec">About this build</h3>
       <dl class="kv small">
-        <dt>Release</dt><dd>${esc(db.meta.release?.id ?? 'unidentified')} <span class="fine">what decides every answer here: the data, its rules and the engine. A saved selection carries it, and says so when it is reopened on another</span></dd>
-        <dt>Database snapshot</dt><dd>${esc(db.meta.snapshot)}</dd>
+        <dt>Release</dt><dd>${esc(db.meta.release?.id ?? 'unidentified')} <span class="fine">identifies the data, rules and engine behind every answer. A saved selection carries it and says so if reopened on another release</span></dd>
+        <dt>Data of</dt><dd>${esc(db.meta.snapshot)}</dd>
         <dt>Application build</dt><dd>${esc(db.meta.build)}</dd>
-        <dt>Materials</dt><dd>${candidateCount(db)}, ${db.meta.counts.h2cRelevant} of them in H2C scope; plus ${db.meta.counts.familyEntries} family names that are never candidates</dd>
+        <dt>Materials</dt><dd>${candidateCount(db)}, ${db.meta.counts.h2cRelevant} within H2C capability; plus ${db.meta.counts.familyEntries} group names that are never candidates</dd>
         <dt>Measurements</dt><dd>${db.meta.counts.measurements}, of which ${db.meta.counts.numericMeasurements} numeric</dd>
         <dt>Sources</dt><dd>${db.meta.counts.sources}</dd>
       </dl>
@@ -1061,6 +1060,7 @@ function renderScenario(host) {
   state.reference = reference;
   state.ctx = buildContext(db);
   setEnvironmentLabels(db.meta.environmentCategories);
+  setH2cBaseline(db.meta.h2cBaseline);
   useRegistry(db.registry);
   let linkProblem = null;
   let fromLink = null;

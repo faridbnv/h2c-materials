@@ -202,18 +202,18 @@ export function estimateDisplay(e, { ownUnit = false } = {}) {
 // Wording for the four missing states. They are different engineering answers and stay different.
 // The long form, used wherever there is room and in every explanation.
 const MISSING_FULL = {
-  'not-published': 'Not published in the sampled sources. Not zero, and not a low value.',
-  'insufficient-comparable': 'Evidence exists but cannot support this comparison.',
+  'not-published': 'Not published by any source on file. A gap, not a zero or a low value.',
+  'insufficient-comparable': 'Published, but not on a basis that can be compared.',
   'not-applicable': 'This property does not apply to this material.',
-  'quarantined': 'Quarantined: an unresolved unit or layout problem in the source.',
-  'not-available-in-market': 'No price observation of its own in the sampled shops.',
+  'quarantined': 'Held back: the source has an unresolved unit or layout problem here.',
+  'not-available-in-market': 'No sampled shop listed this product.',
 };
 
 const MISSING_LABEL = {
   'not-published': 'Not published',
   'insufficient-comparable': 'Not comparable',
   'not-applicable': 'Not applicable',
-  'quarantined': 'Quarantined',
+  'quarantined': 'Held back',
   'not-available-in-market': 'No price',
 };
 
@@ -284,16 +284,16 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     // Quiet by design: a value plus one marker. The earlier version stacked shouty uppercase tags
     // like "XY +1" and "NO DIRECTION" into the cell, which made the column unscannable.
     const shown = fmtBounded(b.value, null, b.interval);
-    const title = `No product publishes this comparably. Nearest measurement on record: ${shown} ${b.unit}`
+    const title = `No product publishes this on a comparable basis. Nearest value on file: ${shown} ${b.unit}`
       // A property with no direction (a glass transition, a density) is never said to lack one.
-      + ` — ${b.property}, grade ${b.gradeId}${dir ? ', ' + dir + ' direction' : b.direction === 'not-applicable' ? '' : ', direction not stated'}.`
-      + ` Why it is not compared: ${b.why}.`
-      + `${more ? ` ${more} further measurement${more === 1 ? '' : 's'} across ${r.grades} grade${r.grades === 1 ? '' : 's'}.` : ''}`
+      + ` (${b.property}${dir ? `, ${dir}` : b.direction === 'not-applicable' ? '' : ', orientation not stated'}).`
+      + ` Not compared: ${b.why}.`
+      + `${more ? ` ${more} more value${more === 1 ? '' : 's'} from ${r.grades} product${r.grades === 1 ? '' : 's'}.` : ''}`
       + `${boundOf(b.interval) ? ` ${boundNote(b.interval, b.value, b.unit)}` : ''}`
-      + ' Not used by any filter.';
+      + ' No filter uses it.';
     return explainButton(`<span class="rv">${esc(shown)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
       + `<span class="related-mark">*</span>`, title,
-    { cls: 'related', head: 'Measured, but not comparable', action: 'measurement', id: b.measurementId });
+    { cls: 'related', head: 'Published, not comparable', action: 'measurement', id: b.measurementId });
   }
   const thresholds = results.map((r) => r.constraint).filter((c) => c && Number.isFinite(c.value));
   if (entry.spread && entry.spread.n > 1) return renderSpread(entry, thresholds, { showUnit, compact, materialId });
@@ -310,8 +310,8 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
   } else if (entry.origin === 'parsed' || entry.caveat) {
     cls = 'v-parsed';
     title = entry.caveat === 'load-not-stated' || entry.loadStated === false
-      ? 'The source states the standard but not the load. Recovered from free text.'
-      : 'Recovered from free text by the build.';
+      ? 'The source states the standard but not the load. Read from free text.'
+      : 'Read from free text in the source.';
   } else if (entry.origin === 'derived') {
     cls = 'v-derived';
     head = 'Derived';
@@ -327,8 +327,8 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
   let value;
   if (entry.measurementId) {
     value = `<button type="button" class="evidence-value" data-measurement="${esc(entry.measurementId)}"
-        title="${esc(title ? `${title.replace(/\.$/, '')}. Opens the measurement behind this value.` : 'Opens the measurement behind this value')}"
-        aria-label="${esc(bound ? `${bound.words} ${plain}` : plain)}, open the measurement behind it"><span class="${cls}">${text}</span><span class="evidence-dot" aria-hidden="true"></span></button>`;
+        title="${esc(title ? `${title.replace(/\.$/, '')}. Opens the measurement in Sources.` : 'Opens the measurement in Sources')}"
+        aria-label="${esc(bound ? `${bound.words} ${plain}` : plain)}, open the measurement in Sources"><span class="${cls}">${text}</span><span class="evidence-dot" aria-hidden="true"></span></button>`;
   } else if (title) {
     value = explainButton(text, title, { cls, head: head || 'About this value' });
   } else {
@@ -337,13 +337,13 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
   // The qualification has to sit beside the number, not only in a hover: a heat value whose test
   // load was never stated looks exactly like one that was, and can neither pass nor fail a heat requirement.
   const load = entry.loadStated === false
-    ? explainButton('?', `The source states the test standard but not the load, so this value can neither pass nor fail a heat requirement outright.${entry.origin === 'parsed' || entry.caveat ? ' Recovered from free text.' : ''}`,
+    ? explainButton('?', `The source states the test standard but not the load, so this value cannot pass or fail an HDT requirement on its own.${entry.origin === 'parsed' || entry.caveat ? ' Read from free text.' : ''}`,
       { cls: 'load-mark', head: 'Heat test load not stated', label: 'Heat test load not stated' })
     : '';
   // A published mean whose spread contains a requirement's threshold decides on its mean (D54) and says it is close.
   const close = results.find((r) => r.closeToLimit);
   const near = close
-    ? explainButton('≈', `Close to the limit: published ${fmtNumber(entry.value)} ± ${fmtNumber(entry.uncertainty)} ${entry.unit}, and the threshold lies within that spread. Judged on the mean.`,
+    ? explainButton('≈', `Close to the limit: published ${fmtNumber(entry.value)} ± ${fmtNumber(entry.uncertainty)} ${entry.unit}, and the threshold is inside that scatter. Judged on the mean.`,
       { cls: 'load-mark', head: 'Close to the limit', label: 'Close to the limit' })
     : '';
   return `${value}${load}${near}${convertedMark(entry.converted)}`;
@@ -362,18 +362,18 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
   const median = `${medianBound ? `${esc(medianBound.sign)} ` : ''}${fmtAgainst(entry.value, thresholds, unit)}`;
   const lo = fmtBoundedKind(fmtAgainst(s.min, thresholds, null), s.bounds?.min), hi = fmtBoundedKind(fmtAgainst(s.max, thresholds, null), s.bounds?.max) + (unit ? ` ${unit}` : '');
   const apart = [
-    s.asPublished ? `${s.asPublished.n} more publish it without stating the test direction or load (${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}); they are not compared` : null,
-    s.variants ? `${s.variants.n} declared variant${s.variants.n === 1 ? '' : 's'} (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)}) ${s.variants.n === 1 ? 'is' : 'are'} kept apart` : null,
+    s.asPublished ? `${s.asPublished.n} with no stated orientation or test load (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
+    s.variants ? `${s.variants.n} special formulation${s.variants.n === 1 ? '' : 's'}, such as foamed or metal-filled (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)})` : null,
   ].filter(Boolean);
-  const title = `Typical of ${s.n} products that publish it comparably: the median. They range from ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
-    + `${s.q1 != null ? `, the middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}. These are different products, not the uncertainty of one.`
+  const title = `Median of ${s.n} products that report it on a comparable basis. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+    + `${s.q1 != null ? `, interquartile ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
     // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
-    + `${s.twins ? ` ${s.twins} of them ${s.twins === 1 ? 'is a product whose' : 'are products whose'} own sheet prints the same table as another of its products, and ${s.twins === 1 ? 'counts' : 'count'} as the ${s.twins === 1 ? 'product it is' : 'products they are'}.` : ''}`
+    + `${s.twins ? ` ${s.twins === 1 ? 'One of them shares' : `${s.twins} of them share`} a data sheet with another product and ${s.twins === 1 ? 'counts as a product' : 'count as products'} of ${s.twins === 1 ? 'its' : 'their'} own.` : ''}`
     // A bound is counted as its number; the marks say where that number is one, so no end reads as a measurement.
-    + `${s.bounds ? ` ${s.bounds.n} of the ${s.n} ${s.bounds.n === 1 ? 'is' : 'are'} published as a bound ("more than 650"), counted as its number: a "+" after an end of the range, or a sign before the median, marks where that number is a bound.` : ''}`
-    + `${s.products > s.n ? ` ${s.products - s.n} of the material's ${s.products} products do not publish it comparably.` : ''}`
-    + `${apart.length ? ` ${apart.join('; ')}.` : ''} The material's Products tab lists each.`;
-  const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Typical of ${s.n} products`, action: 'products', id: materialId });
+    + `${s.bounds ? ` ${s.bounds.n} ${s.bounds.n === 1 ? 'is' : 'are'} published as a bound ("more than 650") and counted as that number, marked "+" or with a sign.` : ''}`
+    + `${s.products > s.n ? ` ${s.products - s.n} of its ${s.products} products ${s.products - s.n === 1 ? 'does' : 'do'} not report it on that basis.` : ''}`
+    + `${apart.length ? ` Left out: ${apart.join('; ')}.` : ''}`;
+  const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
   const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${lo}–${hi}<span class="spread-n"> · ${s.n}</span></span>`;
   return compact ? `${main}${range}${convertedMark(entry.converted)}` : `${main} ${range}${convertedMark(entry.converted)}`;
 }
@@ -400,10 +400,10 @@ export function convertedMark(converted) {
   if (!converted) return '';
   const from = converted.currencies.join(' and ');
   const which = converted.products
-    ? `${converted.products === 1 ? 'One of the prices is' : `${converted.products} of the prices are`} a foreign listing's`
+    ? `${converted.products === 1 ? 'One of the prices is' : `${converted.products} of the prices are`} from a foreign listing`
     : 'A foreign listing\'s price';
   const text = `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
-    + `lists ${converted.products ? 'those products' : 'this product'}; shipping, duty and whether it ships to Canada are not included.`;
+    + `sells ${converted.products ? 'those products' : 'this product'}. Shipping and duty are not included.`;
   return explainButton('¤', text, { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
 }
 

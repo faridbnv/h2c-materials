@@ -1,19 +1,18 @@
-Across its 197 products: the spread of their values, and what their makers say
-ACROSS ITS PRODUCTS
-Property Typical Range Products Set apart
-Density kg/m³ 1,240 1,170–1,329 147 of 179 17 variants (800–4,000)
-Stiffness (tensile modulus, XY) GPa 2.56 0.433–4.24 42 of 179 40 without direction or load (0.379–4.78); 9 variants (0.715–4.73)
-Strength (tensile, XY; yield or break) MPa 45 26–70.7 59 of 179 50 without direction or load (30–71); 12 variants (12.6–65)
-Strength across layers (tensile, Z) MPa 30.6 8.7–43.5 33 of 179 2 variants (14.5–18)
-Stretch before breaking (elongation, XY) % 6.3 1.2–65 55 of 179 43 without direction or load (2.9–84); 12 variants (2.4–40)
-Notched impact, Charpy kJ/m² 17.1 4.94–72.3 9 of 179 21 without direction or load (1.8–29.8); 4 variants (1.8–2.97)
-Notched impact, Izod kJ/m² 5 4.5–6.5 6 of 179 8 without direction or load (3.5–5); 4 variants (5.5–18.1)
-Heat deflection (HDT, 0.45 MPa) °C 55 50–135 68 of 179 30 without direction or load (53–108); 6 variants (55–89)
-Glass transition °C 58.9 54–67.5 66 of 179 7 variants (55–62.4)
-Price CAD/kg 33.3 18–80 27 of 179 2 variants (23–65)
-Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
+Across its products: median and range, and what their makers say
+Property Median Range Products Left out of the range
+Density kg/m³ 1,240 1,170–1,329 147 of 179 17 special formulations (800–4,000)
+Tensile modulus (XY) GPa 2.56 0.433–4.24 42 of 179 40 with no stated orientation (0.379–4.78); 9 special formulations (0.715–4.73)
+Tensile strength (XY) MPa 45 26–70.7 59 of 179 50 with no stated orientation (30–71); 12 special formulations (12.6–65)
+Tensile strength (Z) MPa 30.6 8.7–43.5 33 of 179 2 special formulations (14.5–18)
+Elongation at break (XY) % 6.3 1.2–65 55 of 179 43 with no stated orientation (2.9–84); 12 special formulations (2.4–40)
+Notched Charpy impact kJ/m² 17.1 4.94–72.3 9 of 179 21 with no stated orientation (1.8–29.8); 4 special formulations (1.8–2.97)
+Notched Izod impact kJ/m² 5 4.5–6.5 6 of 179 8 with no stated orientation (3.5–5); 4 special formulations (5.5–18.1)
+HDT at 0.45 MPa °C 55 50–135 68 of 179 30 with no stated test load (53–108); 6 special formulations (55–89)
+Glass transition (Tg) °C 58.9 54–67.5 66 of 179 7 special formulations (55–62.4)
+Price CAD/kg 33.3 18–80 27 of 179 2 special formulations (23–65)
+Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.
 WHAT MAKERS SAY
-194 of its 197 products carry statements from their makers, in the makers' words under each product below; 3 products' data sheets say nothing beyond their numbers. The makers' websites were searched for 25 of them; for the others, not yet.
+194 of 197 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 25 of them so far.
 Good for: 20 of 39 makers (63 products)
 Benefits: 31 of 39 makers (126 products)
 Pitfalls and limitations: 9 of 39 makers (13 products)
@@ -26,55 +25,56 @@ Nozzle wear: 9 of 39 makers (33 products)
 Odour and emissions: 13 of 39 makers (25 products)
 Supports and removal: 8 of 39 makers (38 products)
 Printing advice: 15 of 39 makers (25 products)
-Of the products whose documents were read, 110 give no chamber or enclosure need, 133 no drying schedule and 183 no annealing schedule.
-Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
+Not stated by their documents: chamber or enclosure need (110 products), drying schedule (133 products) and annealing schedule (183 products).
+Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 3DXTECH
 3 products
-3DXTECH ECOMAX PLA G001-01
-HOW TO PRINT IT
-Nozzle
-190–220 °C yes
-Bed
-23–60 °C yes
-Chamber
-not required yes
-Enclosure
-not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Hardened nozzle
-not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Drying
-45 °C for 4 h
-Density
-1,240 kg/m³
-Stiffness (tensile modulus, XY)
-2.87 GPa
-Strength (tensile, XY; yield or break)
-56 MPa
-Stretch before breaking (elongation, XY)
-8 %
-Glass transition
-55 °C
-WHAT THE MAKER SAYS
-Printing advice
-“Ideal for printing without a heated bed, no enclosure required” the maker's product page (marketing text), p. 1
-3DXTECH's data sheet says nothing about what it is good for, its benefits, pitfalls, warping, precision, surface finish, layer adhesion, moisture, nozzle wear, odour or supports; it gives no annealing schedule; its website, searched on 2026-09-26, says nothing more.
-About this product
-3DXTECH ECOMAX Tough PLA G001-18
-HOW TO PRINT IT
-Nozzle
-190–230 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Bed
-30–65 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Chamber
-not required yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Enclosure
-not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Hardened nozzle
-not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Drying
-not published
-Density
-1,220 kg/m³
-Stiffness (tensile modulus, XY)
-2.27 GPa
-Strength (tensile, XY; yield or break)
+3DXTECH ECOMAX PLA
+Density 1,240 kg/m³ · Modulus XY 2.87 GPa · Strength XY 56 MPa
+3DXTECH ECOMAX Tough PLA
+Density 1,220 kg/m³ · Modulus XY 2.27 GPa · Strength XY 53 MPa
+3DXTECH SimuBone Bone Simulation
+variant
+Density 1,340 kg/m³ · Modulus XY 3.41 GPa · Strength XY 65 MPa
+iSANMATE
+6 products
+Bambu Lab
+6 products
+eSUN
+24 products
+Spectrum
+19 products
+Polymaker
+13 products
+Extrudr
+6 products
+SUNLU
+13 products
+Eryone
+8 products
+Flashforge
+6 products
+Fiberlogy
+9 products
+Fabru / purefil
+1 product
+colorFabb
+12 products
+Fillamentum
+2 products
+Fabru
+1 product
+Yousu
+2 products
+3D4Makers
+3 products
+Prusa Research
+5 products
+Raise3D
+3 products
+3D-Fuel
+1 product
+Nanovia
+3 products
+FormFutura
+13 products

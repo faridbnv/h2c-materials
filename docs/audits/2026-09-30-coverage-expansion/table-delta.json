@@ -31,7 +31,7 @@
     "baseline": 10,
     "current": 10,
     "added": 0,
-    "edited_existing": 5,
+    "edited_existing": 10,
     "removed": 0
   },
   "know_how_reads": {
@@ -52,7 +52,7 @@
     "baseline": 51,
     "current": 52,
     "added": 1,
-    "edited_existing": 0,
+    "edited_existing": 1,
     "removed": 0
   },
   "page_context": {

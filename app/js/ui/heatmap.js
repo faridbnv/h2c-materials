@@ -20,7 +20,7 @@ const STATE = {
 const MARK = { ok: '✓', partial: '◐', gap: '–', bad: '✕', none: '' };
 // Since D114 the build derives a gap as it derives evidence, so a blank cell is only a domain nobody assessed: the
 // Application column, whose rows are judgements the records cannot restate (D74).
-const WORD = { ok: 'Evidence recorded', partial: 'Limited or partial', gap: 'Gap, nothing recorded', bad: 'Conflict or quarantined', none: 'Not assessed' };
+const WORD = { ok: 'Data on file', partial: 'Limited or partial', gap: 'Gap: nothing on file', bad: 'Conflict or held back', none: 'Not assessed' };
 
 const SHORT = {
   'Identity': 'Identity', 'H2C status': 'H2C', 'Print setup': 'Printing', 'Mechanical': 'Mechanical',
@@ -63,9 +63,8 @@ export function renderCoverage(host, state, actions) {
   const rowScore = (m) => m.cells.filter((c) => STATE[c.status] === 'ok').length;
 
   host.innerHTML = `
-    <p class="lens-intro">What this database can and cannot support for the ${n} candidate${n === 1 ? '' : 's'}
-      on screen. Coverage reports gaps; it never changes a selection result, and "recorded" means
-      evidence exists, not that it is good or that it settles your question. Click a cell to read it.</p>
+    <p class="lens-intro">What data is on file for the ${n} candidate${n === 1 ? '' : 's'} on screen, and where the gaps are.
+      It never changes a result. "On file" means data exists, not that it settles your question. Select a cell to read it.</p>
 
     <div class="cov-summary">
       ${totals.map((t) => `
@@ -135,7 +134,7 @@ function otherConflicts(materials, db) {
   if (!byMaterial.size) return '';
   const names = new Map(materials.map((m) => [m.id, m.name]));
   const list = [...byMaterial].map(([id, what]) => `<button class="link-btn" data-open="${esc(id)}" data-domain="Coverage">${esc(names.get(id))}</button> (${esc(what.join('; '))})`).join(', ');
-  return `<p class="cov-other"><span class="sw bad" aria-hidden="true">✕</span> Also recorded as a conflict, in a domain these columns do not show: ${list}. Each material's Coverage tab has the record.</p>`;
+  return `<p class="cov-other"><span class="sw bad" aria-hidden="true">✕</span> Also recorded as a conflict, in a domain these columns do not show: ${list}. Each material's Sources tab lists it under Known gaps.</p>`;
 }
 
 /**
@@ -163,7 +162,7 @@ function sparseNote(materials, db, n) {
   return `<div class="cov-sparse">
       <h3 class="sec">Rarely published properties</h3>
       ${lines}
-      <p class="fine">Not a column above: almost no source publishes these for any filament, so they would be a gap on every
-        row and tell one candidate from another by nothing. Each material's Coverage tab has the record.</p>
+      <p class="fine">Not a column: almost no source publishes these for any filament, so the column would be a gap on every
+        row. Each material's Sources tab lists them under Known gaps.</p>
     </div>`;
 }

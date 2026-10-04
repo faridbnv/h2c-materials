@@ -23,11 +23,22 @@ Object.assign(legacy.PROPERTY.hdt045, { short: 'HDT 0.45', plain: 'Heat deflecti
 Object.assign(legacy.PROPERTY.tensileModulusXY, { short: 'Stiffness XY', plain: 'Stiffness (tensile modulus, XY)' });
 Object.assign(legacy.PROPERTY.tensileStrengthXY, { short: 'Strength XY', plain: 'Strength (tensile, XY; yield or break)' });
 Object.assign(legacy.PROPERTY.elongationXY, { plain: 'Stretch before breaking (elongation, XY)' });
+// The engineer's names (D124, m337, 2026-10-04): the names a data sheet prints, hints that say on what basis a value is
+// compared, examples an engineer would give, and export headers that name the property.
+Object.assign(legacy.PROPERTY.density, { hint: 'As published: usually the filament\'s density, not a printed part\'s.' });
+Object.assign(legacy.PROPERTY.tensileModulusXY, { short: 'Modulus XY', plain: 'Tensile modulus (XY)', technical: 'Tensile modulus, XY orientation', hint: 'Bars printed in the XY plane.' });
+Object.assign(legacy.PROPERTY.tensileStrengthXY, { plain: 'Tensile strength (XY)', technical: 'Tensile strength (yield or break), XY orientation', hint: 'Bars printed in the XY plane; yield or break, whichever the sheet gives.' });
+Object.assign(legacy.PROPERTY.elongationXY, { short: 'Elongation XY', plain: 'Elongation at break (XY)', technical: 'Elongation at break, XY orientation', hint: 'Bars printed in the XY plane. Not a measure of toughness or recovery.' });
+Object.assign(legacy.PROPERTY.hdt045, { plain: 'HDT at 0.45 MPa', technical: 'Heat deflection temperature at 0.45 MPa', hint: 'A screening value, not a service temperature.' });
+Object.assign(legacy.PROPERTY.priceCADkg, { hint: 'Median of sampled shop listings, not live. Canadian where one exists; otherwise a foreign price converted at the Bank of Canada rate.' });
+const M337_EG = { density: 'e.g. 1250 for a lightweight part', tensileModulusXY: 'e.g. 3; unfilled PLA is about 2.5', elongationXY: 'e.g. 100 or more for an elastomer', hdt045: 'e.g. 100 for a part in a hot car', priceCADkg: 'e.g. 60' };
+for (const f of legacy.NUMERIC) if (M337_EG[f.key]) f.eg = M337_EG[f.key];
 for (const c of legacy.PROPERTIES_COLUMNS) {
   const p = legacy.PROPERTY[c.key];
-  if (['tensileModulusXY', 'tensileStrengthXY', 'hdt045'].includes(c.key)) Object.assign(c, { label: p.short, title: `${p.technical} — ${p.hint}` });
+  if (['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045'].includes(c.key)) Object.assign(c, { label: p.short, title: `${p.technical} — ${p.hint}` });
 }
-legacy.CSV_HEADERS = legacy.CSV_HEADERS.map((h) => (h === 'Heat resistance C' ? 'HDT 0.45 MPa C' : h));
+const M337_HEADERS = { 'Heat resistance C': 'HDT 0.45 MPa C', 'Stiffness GPa': 'Tensile modulus XY GPa', 'Strength MPa': 'Tensile strength XY MPa', 'Stretch %': 'Elongation at break XY %' };
+legacy.CSV_HEADERS = legacy.CSV_HEADERS.map((h) => M337_HEADERS[h] ?? h);
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
 
 // The lists were hardcoded for six headlines. A headline added since (D92) is a registry row they never had: it reaches
@@ -71,8 +82,9 @@ test('the drawer uses the shared labels and the shared property domains (D46 cor
   // "high means tough", which the shared label exists to contradict.
   const head = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint]);
   const changed = head.filter((row, i) => JSON.stringify(row) !== JSON.stringify(legacy.DETAIL_HEAD[i])).map((r) => r[1]);
-  // m275 renamed four (PM-07, PM-08): stiffness, strength, stretch and heat deflection say what is measured.
-  assert.deepEqual(changed, ['tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045', 'priceCADkg']);
+  // m275 renamed four (PM-07, PM-08): stiffness, strength, stretch and heat deflection say what is measured; m337 (D124)
+  // gave every one the name a data sheet prints, and density a hint that says what its value is.
+  assert.deepEqual(changed, ['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045', 'priceCADkg']);
   // The tabs gain the properties coverage already counted as mechanical or thermal and they omitted.
   const gained = (now, before) => now.filter((p) => !before.includes(p));
   assert.deepEqual(legacy.DETAIL_MECHANICAL.filter((p) => !propertiesInDomain('mechanical').includes(p)), []);

@@ -14,8 +14,8 @@ Maximise M = E^(1/2) / ρ
 Cross-section area free, its proportions fixed; length fixed
 ASKED
 As printed, dry
-H2C scope and print gates
-Stiffness (tensile modulus, XY) at least 3 GPa
+Within H2C capability and temperature limits
+Tensile modulus (XY) at least 3 GPa
 Density at most 1250 kg/m³
 Change in Filters
 DRAW
@@ -24,7 +24,7 @@ Material ranges
 Products
 More ▾
 ALSO
-Unsettled
+Unknown
 Failing
 Estimates
 Pareto front
@@ -42,14 +42,14 @@ M =
 8 products from 6 materials above the line
 ↑
 Density
-Stiffness (tensile modulus, XY)
-Strength (tensile, XY; yield or break)
-Strength across layers (tensile, Z)
-Stretch before breaking (elongation, XY)
-Notched impact, Charpy
-Notched impact, Izod
-Heat deflection (HDT, 0.45 MPa)
-Glass transition
+Tensile modulus (XY)
+Tensile strength (XY)
+Tensile strength (Z)
+Elongation at break (XY)
+Notched Charpy impact
+Notched Izod impact
+HDT at 0.45 MPa
+Glass transition (Tg)
 Price
 Material cost per volume
 GPa
@@ -58,14 +58,14 @@ Log
 ⇄
 →
 Density
-Stiffness (tensile modulus, XY)
-Strength (tensile, XY; yield or break)
-Strength across layers (tensile, Z)
-Stretch before breaking (elongation, XY)
-Notched impact, Charpy
-Notched impact, Izod
-Heat deflection (HDT, 0.45 MPa)
-Glass transition
+Tensile modulus (XY)
+Tensile strength (XY)
+Tensile strength (Z)
+Elongation at break (XY)
+Notched Charpy impact
+Notched Izod impact
+HDT at 0.45 MPa
+Glass transition (Tg)
 Price
 Material cost per volume
 kg/m³
@@ -101,9 +101,9 @@ PLA
 High-Performance Engineering
 Other families
 Density (kg/m³) · log
-Stiffness (tensile modulus, XY) (GPa) · log
+Tensile modulus (XY) (GPa) · log
 Density at most 1250 kg/m³
-Stiffness (tensile modulus, XY) at least 3 GPa
+Tensile modulus (XY) at least 3 GPa
 better: above the line ↖
 Carbon fibre
 Glass fibre

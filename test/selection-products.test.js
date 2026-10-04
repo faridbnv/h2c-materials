@@ -72,7 +72,7 @@ test('a value published without the direction decides only when the reader admit
   const m = withGrades([grade('G1', { tensileModulusXY: v(3.4, 'as-published', 'unstated-direction') })]);
   const e = run(m, [stiff], EXPLORE);
   assert.equal(e.verdict, STATUS.UNKNOWN);
-  assert.match(e.unresolved[0].reason, /without stating the test direction/);
+  assert.match(e.unresolved[0].reason, /without the specimen orientation/);
   assert.equal(run(m, [stiff], { ...EXPLORE, evidence: EVIDENCE.AS_PUBLISHED }).verdict, STATUS.PASS);
 });
 
@@ -154,8 +154,8 @@ test("a reader's assumption stands in for a product with no value that may decid
 });
 
 test("a value or a print gate read from a twin's sheet or a printer maker's guide decides like the product's own, and says where it came from (D88, D89)", () => {
-  const twin = { origin: 'twin', gradeId: 'G1', label: 'same sheet as Maker One' };
-  const guide = { origin: 'guide', guideId: 'PG001', sourceId: 'S-GUIDE', guide: "Maker's Filament Guide for T", label: "per Maker's Filament Guide for T, not this maker's sheet" };
+  const twin = { origin: 'twin', gradeId: 'G1', label: 'data sheet shared with Maker One' };
+  const guide = { origin: 'guide', guideId: 'PG001', sourceId: 'S-GUIDE', guide: "Maker's Filament Guide for T", label: "from Maker's Filament Guide for T" };
   const read = { profileIds: [], nozzle: { ...within, reason: `${within.reason} (${guide.label})`, state: 'range', min: 200, max: 230, profileId: null },
     bed: { verdict: 'unknown', reason: 'No print profile recorded for this product', state: 'unknown', min: null, max: null, profileId: null },
     chamber: { verdict: 'unknown', reason: 'No print profile recorded for this product', state: 'unknown', min: null, max: null, profileId: null },
@@ -165,13 +165,13 @@ test("a value or a print gate read from a twin's sheet or a printer maker's guid
   assert.equal(e.verdict, STATUS.PASS, "the twin passes on its sibling's value and the guide's nozzle window");
   assert.deepEqual(e.counts, { products: 2, pass: 1, fail: 0, untested: 1, screened: 0 });
   const view = productView(m, m.__grades[1]);
-  assert.match(view.gates.nozzle.reason, /per Maker's Filament Guide for T, not this maker's sheet/);
+  assert.match(view.gates.nozzle.reason, /from Maker's Filament Guide for T/);
   assert.equal(view.gates.bed.verdict, 'unknown', 'a part neither its own sheet nor the guide states stays unknown');
   const abrasive = evaluateProducts(m, m.__grades.slice(1), [{ kind: 'gate', gate: 'abrasive' }], STRICT);
   assert.equal(abrasive.verdict, STATUS.FAIL);
-  assert.match(abrasive.results[0].reason, /per Maker's Filament Guide for T/);
+  assert.match(abrasive.results[0].reason, /from Maker's Filament Guide for T/);
   const value = evaluateProducts(m, m.__grades.slice(1), [stiff], STRICT);
-  assert.match(value.results[0].reason, /same sheet as Maker One/);
+  assert.match(value.results[0].reason, /data sheet shared with Maker One/);
 });
 
 test('one ranking for every lens: only passing products rank, in the state they pass in, and a candidate that cannot rank says so (D102)', async () => {

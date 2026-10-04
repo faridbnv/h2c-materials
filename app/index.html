@@ -44,8 +44,8 @@
           <input type="checkbox" id="use-estimates" aria-describedby="est-reason"><span>Let estimates rule out materials</span></label>
         <button type="button" class="mark info-mark" aria-label="What estimates and polymer data are" aria-haspopup="dialog" aria-expanded="false"
           data-explain-head="Let estimates rule out materials"
-          data-explain="Use inference where a material publishes nothing. An estimate is a calibrated likely range for a missing number, built from the material's own related measurements and its polymer family. Polymer data is the base polymer's published behaviour in chemicals and other exposure, from a resin producer's reference, used only where the material has no record of its own. Neither ever passes a material. An estimate screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement; polymer data screens one out only where the reference reports the polymer attacked or dissolved. Both are used only under Include uncertain; Confirmed only uses the material's own evidence alone."
-          title="Use inference where a material publishes nothing. An estimate is a calibrated likely range for a missing number, built from the material's own related measurements and its polymer family. Polymer data is the base polymer's published behaviour in chemicals and other exposure, from a resin producer's reference, used only where the material has no record of its own. Neither ever passes a material. An estimate screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement; polymer data screens one out only where the reference reports the polymer attacked or dissolved. Both are used only under Include uncertain; Confirmed only uses the material's own evidence alone.">?</button>
+          data-explain="Where a material publishes nothing, the tool can estimate the value from related values and similar materials, and can read its base polymer's resin reference data for chemicals. Neither ever makes a material pass. With this on, an estimate excludes a material only when its whole plausible range misses the requirement, and resin data only when it reports the polymer attacked or dissolved. It works only under Include uncertain; Confirmed only uses each material's own data alone."
+          title="Where a material publishes nothing, the tool can estimate the value from related values and similar materials, and can read its base polymer's resin reference data for chemicals. Neither ever makes a material pass. With this on, an estimate excludes a material only when its whole plausible range misses the requirement, and resin data only when it reports the polymer attacked or dissolved. It works only under Include uncertain; Confirmed only uses each material's own data alone.">?</button>
       </div>
       <span class="est-reason" id="est-reason">Only under Include uncertain</span>
       <span class="est-ruled" id="est-ruled" hidden></span>
@@ -62,7 +62,7 @@
     <aside class="rail" id="rail" aria-label="Filters">
       <div class="rail-head">
         <h2>Filters</h2>
-        <button class="icon-btn" id="btn-reset" title="Removes every requirement. Search, shortlist and view stay as they are.">Clear requirements</button>
+        <button class="icon-btn" id="btn-reset" title="Removes every requirement. Part condition, search, shortlist and view stay as they are.">Clear requirements</button>
         <button class="icon-btn" id="btn-rail-hide" title="Hide the filters to widen the results. Filters, in the top bar, brings them back.">Hide</button>
         <button class="icon-btn" id="btn-rail-close" aria-label="Close filters">✕</button>
       </div>
@@ -77,9 +77,9 @@
         <div class="lens-nav">
           <div class="segmented" role="group" aria-label="View" aria-describedby="lens-help">
             <button data-lens="table"    aria-pressed="true"  title="The candidates as a sortable list" data-label="Table">Table</button>
-            <button data-lens="ashby"    aria-pressed="false" title="Ashby chart: two properties plotted against each other, to see trade-offs" data-label="Ashby">Ashby</button>
-            <button data-lens="parallel" aria-pressed="false" title="Parallel lines: each candidate across several properties at once" data-label="Parallel lines">Parallel lines</button>
-            <button data-lens="coverage" aria-pressed="false" title="How much evidence the database holds for each candidate" data-label="Data coverage">Data coverage</button>
+            <button data-lens="ashby"    aria-pressed="false" title="Ashby chart: two properties against each other, to see the trade-offs" data-label="Ashby">Ashby</button>
+            <button data-lens="parallel" aria-pressed="false" title="Each candidate across several properties at once" data-label="Parallel lines">Parallel lines</button>
+            <button data-lens="coverage" aria-pressed="false" title="How much data is on file for each candidate, and where the gaps are" data-label="Data coverage">Data coverage</button>
             <button data-lens="compare"  aria-pressed="false" title="Your shortlist, property by property" data-label="Compare">Compare</button>
             <button data-lens="explain"  aria-pressed="false" id="tab-explain" title="Which requirement removed how many materials" data-label="Why excluded">Why excluded</button>
           </div>
@@ -91,8 +91,8 @@
   </div>
 
   <footer class="statusbar">
-    <span class="statusbar-idle" id="status-idle">Set a requirement in Filters, and these counts will
-      show what passed, what failed, and what could not be checked.</span>
+    <span class="statusbar-idle" id="status-idle">Set a requirement in Filters to see what passed, what failed
+      and what could not be checked.</span>
     <!-- Filters, not a tally: a label that says so, and a box in each chip that is ticked while its results are shown. -->
     <span class="statusbar-label" id="statusbar-label">Show in table</span>
     <button type="button" class="chip chip-PASS"    id="s-pass"    aria-pressed="true"  aria-describedby="statusbar-label">PASS 0</button>

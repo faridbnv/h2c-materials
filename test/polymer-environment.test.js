@@ -201,7 +201,7 @@ test('a polymer-level "resistant" leaves the material UNKNOWN, with a reason nam
   assert.equal(r.status, STATUS.UNKNOWN);
   assert.equal(r.polymer, true);
   assert.equal(r.screened, undefined);
-  assert.match(r.reason, /base polymer PLA is published as resistant \(resistant to acetone; S-REF\)/);
+  assert.match(r.reason, /base polymer PLA is published as resistant \(resistant to acetone\) in resin reference data/);
   assert.match(r.reason, /never enough to pass/);
   const e = evaluateMaterial(m, [solvent], ctxWith({ polymer: polymerRecord('resistant') }));
   assert.equal(e.verdict, STATUS.UNKNOWN);
@@ -218,7 +218,7 @@ test('a polymer-level "not-resistant" screens under Include uncertain with infer
   assert.equal(on.screened, true);
   assert.equal(on.eligible, false);
   assert.deepEqual(on.screenedBy, ['Organic solvent resistance evidence']);
-  assert.match(on.results[0].reason, /not resistant \(not resistant to acetone; S-REF\).*Screened out; not tested on this product/);
+  assert.match(on.results[0].reason, /not resistant \(not resistant to acetone\) in resin reference data.*Screened out; not tested on this product/);
   assert.equal(on.results[0].polymerScreen, true);
   assert.deepEqual(runSelection([m], [solvent], ctxWith({ polymer: polymerRecord('not-resistant') })).counts, { pass: 0, fail: 0, unknown: 1, screened: 1, total: 1 });
 

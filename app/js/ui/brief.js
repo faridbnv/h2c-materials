@@ -57,7 +57,7 @@ function testFor(r, state, measurementById) {
     return `${describeConstraint(c)}: print coupons${dir} on this product's recipe${treat}, test to ${method}, and compare with ${fmtNumber(c.value)}${state?.moisture === 'conditioned' ? ' after conditioning them as the part will be' : ''}.`;
   }
   if (c.kind === 'environment') return `${describeConstraint(c)}: expose coupons to the agent, concentration, temperature and time the part will meet, and compare with unexposed ones; a maker's rating names no such condition.`;
-  if (c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate)) return 'Printable on the H2C: print a first part at the recipe above and record whether it warps, delaminates or strings.';
+  if (c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate)) return 'Within H2C temperature limits: print a first part at the settings above and record whether it warps, delaminates or strings.';
   return null;
 }
 
@@ -89,7 +89,7 @@ export function decisionBrief({ db, scenario, material, grade, evaluation, entry
     L.push(`No answer: ${grade.id} is not among ${material.name}'s products judged under this question.`, '');
   } else {
     L.push(`**${entry.verdict}**, judged ${stateWords(entry.state)}.${entry.state?.treatment ? ` It needs annealing at ${scheduleWords(entry.state.treatment)}, as its sheet states.` : ''}`);
-    if (entry.admitted?.length) L.push('', `The values it passed on leave these conditions unstated, which the screening policy admits: ${entry.admitted.map((a) => ({ specimen: 'the specimen form', moisture: 'the moisture state', treatment: 'the treatment' }[a])).join(', ')}.`);
+    if (entry.admitted?.length) L.push('', `Not stated by the values it passed on, and accepted for screening: ${entry.admitted.map((a) => ({ specimen: 'the specimen type', moisture: 'the moisture state', treatment: 'the post-processing' }[a])).join(', ')}.`);
     L.push('', '| Requirement | Result | Why | Records |', '|---|---|---|---|');
     for (const r of entry.results ?? []) {
       const ids = [r.measurementId, ...(r.evidenceIds ?? []), ...(r.priceIds ?? [])].filter(Boolean);

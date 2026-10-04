@@ -10,35 +10,46 @@
 
 import { availability } from '../engine/coverage.js';
 import { runSelection } from '../engine/constraints.js';
-import { esc, priceSampleWords } from './format.js';
-import { prop, envLabel, envNoun, envRequirement, GATE } from './labels.js';
+import { esc, priceSampleWords, explainButton } from './format.js';
+import { prop, envLabel, envRequirement, GATE, H2C_STATUS, FILLER } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
-import { PRINTABLE, asksPrintable } from './templates.js';
+import { PRINTABLE, printCheck } from './templates.js';
 
-// Labels come from the one vocabulary. The rail used to speak materials science on its own
-// ("Tensile modulus XY", "HDT at 0.45 MPa") while the detail drawer three clicks away said
-// "Stiffness" and "Heat resistance" for the same number. Plain name leads, technical name follows.
+// Labels come from the one vocabulary (labels.js), and property names from the registry: the name a data sheet uses,
+// with its method as the line under it. The reader is an engineer (D124).
 //
 // No placeholder numbers. Grey 1400 and 100 sitting in the boxes read as applied settings, which
 // they were not, and an applied value looked almost identical. The example lives in the helper
 // line where it cannot be mistaken for a constraint.
 // The numeric filters come from the registry (headline_definitions.csv: filter group, operator, example).
 
-// Ordered by how often a criterion actually decides something. Mechanical and thermal properties
-// carry the decision; compatibility sits last because for this database it mostly cannot
-// discriminate, and putting it first made the whole rail look like it did nothing.
-// A reader narrows by family first ("a nylon", "a PETG"), and then by the polymer inside it, so that group leads.
-const GROUPS = ['Material family', 'Mechanical', 'Thermal', 'Cost', 'Environment', 'Manufacturing', 'Evidence', 'Compatibility'];
-const OPEN_BY_DEFAULT = new Set(['Material family', 'Mechanical', 'Thermal']);
+// The order an engineer screens in (the owner's ruling of 2026-10-04): what kind of plastic, what it must withstand,
+// whether the H2C can print it, the state the part is used in, then cost and how strict to be about the data. The keys
+// are the constraints' stored group names, which saved scenarios carry; GROUP_LABEL is what the rail shows. The H2C's
+// checks used to sit above every group and again under Compatibility at the bottom; they are one group now.
+const GROUPS = ['Material family', 'Mechanical', 'Thermal', 'Environment', 'Compatibility', 'Part condition', 'Cost', 'Evidence'];
+const GROUP_LABEL = { Compatibility: 'Printing on the H2C', Cost: 'Cost and availability', Evidence: 'Data quality' };
+const OPEN_BY_DEFAULT = new Set(['Material family', 'Mechanical', 'Thermal', 'Compatibility']);
 
 const H2C_STATUSES = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical'];
-const REINFORCEMENT = [
-  ['carbon-fibre', 'Carbon fibre'], ['glass-fibre', 'Glass fibre'], ['unfilled', 'Unfilled'],
-  ['esd', 'ESD'], ['foaming', 'Foaming'], ['undisclosed', 'Undisclosed variant'],
-];
+const REINFORCEMENT = ['carbon-fibre', 'glass-fibre', 'unfilled', 'esd', 'foaming', 'undisclosed'];
 
-// Plain words for the comparison. "≥" is unambiguous to an engineer and opaque to everyone else.
+// The comparison in words; the symbols are in the pills' and the drawer's names of a limit.
 const OP_WORD = { '>=': 'at least', '<=': 'at most', '>': 'more than', '<': 'less than' };
+
+/**
+ * The rail group a requirement is shown and counted in. It is derived from the requirement, not read from the group
+ * name it was saved with: the reinforcement, build-material and drying checks were saved under "Manufacturing", a group
+ * the rail no longer has, and the badge must count them where they now sit.
+ */
+export function railGroupOf(c) {
+  if (c.kind === 'numeric') return numericFilters().find((f) => f.key === c.property)?.group ?? c.__group;
+  if (c.kind === 'facet') return 'Material family';
+  if (c.kind === 'environment') return 'Environment';
+  if (c.kind === 'evidence') return 'Evidence';
+  if (c.kind === 'gate') return c.gate === 'buyable' ? 'Cost' : 'Compatibility';
+  return c.__group;
+}
 
 const find = (cs, pred) => cs.find(pred) ?? null;
 
@@ -66,33 +77,19 @@ export function renderFilters(host, state, actions) {
   const focusKey = focused && FOCUS_KEYS.find((k) => focused.dataset?.[k] !== undefined);
   const focusValue = focusKey ? focused.dataset[focusKey] : null;
 
-  const activeIn = (group) => cs.filter((c) => c.__group === group).length;
+  // What each group's badge counts: its requirements, and for Part condition and Data quality the settings that change
+  // which values are judged, which are not requirements but change answers all the same.
+  const activeIn = (group) => cs.filter((c) => railGroupOf(c) === group).length
+    + (group === 'Part condition' ? (scenario.anneal ? 1 : 0) + (scenario.moisture === 'conditioned' ? 1 : 0) : 0)
+    + (group === 'Evidence' && state.ctx?.evidence === 'as-published' ? 1 : 0);
   const parts = [];
-
-  // One always-visible control above the groups: it is the only compatibility filter that
-  // changes the candidate set for most sessions.
-  const scopeOn = !!find(cs, (c) => c.gate === 'scope');
-  const outOfScope = materials.filter((m) => m.excluded).length;
-  // Printable on the H2C: the three print gates together, which every template asks (D101). Off is research mode.
-  const printable = asksPrintable(cs);
-  parts.push(`<div class="rail-pinned">
-    <label class="toggle"><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}>
-      <span>In the H2C's scope only</span></label>
-    <div class="avail">Hides the ${outOfScope} materials the database places outside the printer's envelope.</div>
-    <label class="toggle printable"><input type="checkbox" data-printable ${printable ? 'checked' : ''}>
-      <span>Printable on the H2C</span></label>
-    <div class="avail">Each product's own nozzle, bed and chamber against the H2C's (350, 120 and 65 °C), from its sheet, a twin's or
-      the printer maker's guide, said which. Off is research mode: a pass then says nothing about printing it.</div>
-  </div>`);
-
-  parts.push(stateControls(scenario, db));
-
   for (const group of GROUPS) {
     const n = activeIn(group);
     const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || n > 0;
+    const inner = group === 'Part condition' ? partCondition(scenario, db) : body(group, materials, cs, db, state.ctx);
     parts.push(`<details class="group" data-group="${group}" ${open ? 'open' : ''}>
-      <summary>${group}<span class="count" data-zero="${n === 0}">${n} set</span></summary>
-      <div class="group-body">${body(group, materials, cs, db, state.ctx)}</div>
+      <summary><span class="chevron" aria-hidden="true"></span>${esc(GROUP_LABEL[group] ?? group)}<span class="count" data-zero="${n === 0}">${n} set</span></summary>
+      <div class="group-body">${inner}</div>
     </details>`);
   }
   host.innerHTML = parts.join('');
@@ -107,29 +104,37 @@ export function renderFilters(host, state, actions) {
 }
 
 /**
- * How the part is made and used (D99): whether the team can anneal it, and whether it lives dry or takes up the air's
- * moisture. A product is judged in a state it can be made in, so these decide which of its values may decide. Pinned
- * beside the scope, because they change what every other requirement reads.
+ * Part condition (D99): the state the part is used in, which decides which of a product's published values are judged.
+ * It adds no requirement. Annealing allowed can only add passes, since as printed is always tried too; conditioned
+ * judges only values measured after moisture conditioning, which few products publish, so it turns most answers to
+ * unknown. Each switch says which it does. It sat above every group as a checkbox and a radio pair, said neither, and
+ * read as a filter.
  */
-function stateControls(scenario, db) {
-  const annealed = db.grades.filter((g) => !g.retired && g.states?.some((s) => s.treatment)).length;
-  const conditioned = db.grades.filter((g) => !g.retired && g.states?.some((s) => s.moisture === 'conditioned')).length;
+function partCondition(scenario, db) {
+  const live = db.grades.filter((g) => !g.retired);
+  const annealed = live.filter((g) => g.states?.some((s) => s.treatment)).length;
+  const conditioned = live.filter((g) => g.states?.some((s) => s.moisture === 'conditioned')).length;
   const on = scenario.anneal === true;
   const dry = scenario.moisture !== 'conditioned';
-  return `<div class="rail-pinned rail-state">
-    <div class="rail-state-head">How the part is made and used</div>
-    <label class="toggle"><input type="checkbox" data-anneal ${on ? 'checked' : ''}><span>We can anneal parts</span></label>
-    <div class="avail">${annealed} products publish values measured only after annealing. Off, every product is judged as printed;
-      on, one may be judged annealed at the schedule its sheet states, and its verdict names the treatment.</div>
-    ${on ? `<label class="sub-check anneal-max">Oven reaches <input type="number" data-anneal-max min="0" step="5" value="${scenario.annealMaxC ?? ''}"
-      placeholder="any" aria-label="The highest annealing temperature your oven reaches, in °C"> °C</label>` : ''}
-    <fieldset class="service-state"><legend>In service the part is</legend>
-      <label><input type="radio" name="service-moisture" data-moisture="dry" ${dry ? 'checked' : ''}> dry, as the sheets test it</label>
-      <label><input type="radio" name="service-moisture" data-moisture="conditioned" ${dry ? '' : 'checked'}> conditioned by the air's moisture</label>
-    </fieldset>
-    <div class="avail">${conditioned} products publish values measured after moisture conditioning. A nylon print takes up water
-      after it is printed: conditioned, only those values decide, and nothing is inferred from a dry one.</div>
-  </div>`;
+  const seg = (attr, value, pressed, text) => `<button type="button" data-${attr}="${value}" aria-pressed="${pressed}">${text}</button>`;
+  return `<div class="avail">The state the part is used in. It selects which published values your requirements are
+      judged on, and adds no requirement of its own.</div>
+    <div class="control part-state" data-active="${on}">
+      <div class="seg-label" id="seg-anneal">Post-processing</div>
+      <div class="segmented seg-sm" role="group" aria-labelledby="seg-anneal">
+        ${seg('anneal', 'off', !on, 'As printed')}${seg('anneal', 'on', on, 'Annealing allowed')}</div>
+      ${on ? `<label class="anneal-max">Oven reaches up to <input type="number" data-anneal-max min="0" step="5" value="${scenario.annealMaxC ?? ''}"
+        placeholder="any" aria-label="The highest annealing temperature your oven reaches, in °C"> °C</label>` : ''}
+      <div class="avail">${annealed} products publish annealed values. With annealing allowed, a product may be judged on them,
+        and its result names the schedule from its data sheet. This can only add passes.</div>
+    </div>
+    <div class="control part-state" data-active="${!dry}">
+      <div class="seg-label" id="seg-moisture">Moisture in service</div>
+      <div class="segmented seg-sm" role="group" aria-labelledby="seg-moisture">
+        ${seg('moisture', 'dry', dry, 'Dry')}${seg('moisture', 'conditioned', !dry, 'Conditioned')}</div>
+      <div class="avail">Data sheets test dry bars. Conditioned judges only values measured after moisture conditioning,
+        which ${conditioned} products publish, so most materials become unknown and Confirmed only leaves them out.</div>
+    </div>`;
 }
 
 function body(group, materials, cs, db, ctx = {}) {
@@ -159,7 +164,8 @@ function body(group, materials, cs, db, ctx = {}) {
     }
     const ordered = [...families].sort((a, b) => b[1].total - a[1].total || a[0].localeCompare(b[0]));
     out.push(`<div class="control family-facet" data-active="${famSel.length > 0}">
-      <div class="avail">Each count is how many of a family the other requirements leave. Choose a family to see its polymers.</div>
+      <div class="avail">Each count is how many of that family your other requirements leave. Tick a family to list its
+        polymers.</div>
       <div class="checks">${ordered.map(([f, e]) => {
         const on = famSel.includes(f);
         const polymers = [...e.polymers].sort((a, b) => b[1].total - a[1].total || a[0].localeCompare(b[0]));
@@ -171,64 +177,115 @@ function body(group, materials, cs, db, ctx = {}) {
           ${esc(f)}<span class="n">${e.open}</span></label>${sub}</div>`;
       }).join('')}</div>
     </div>`);
+
+    // The filler and the build-material check describe the material too, so they sit with its family. They were under
+    // "Manufacturing", which also held drying, a printing question.
+    const sel = find(cs, (c) => c.facet === 'reinforcement')?.in ?? [];
+    const counts = {};
+    for (const m of materials) { const r = m.facets.reinforcement.value; counts[r] = (counts[r] ?? 0) + 1; }
+    out.push(`<div class="control" data-active="${sel.length > 0}">
+      <label>Filler</label>
+      <div class="checks">${REINFORCEMENT.map((k) => `
+        <label><input type="checkbox" data-facet="${k}" ${sel.includes(k) ? 'checked' : ''}>
+        ${esc(FILLER[k])}<span class="n">${counts[k] ?? 0}</span></label>`).join('')}</div>
+    </div>`);
+    const build = find(cs, (c) => c.facet === 'supportMaterial');
+    const supports = materials.filter((m) => m.facets.supportMaterial?.value).length;
+    out.push(`<div class="control" data-active="${!!build}">
+      <label><input type="checkbox" data-build-material ${build ? 'checked' : ''}> Build materials only</label>
+      <div class="avail">Excludes the ${supports} support and interface materials.</div>
+    </div>`);
   }
 
   if (group === 'Compatibility') {
-    const sel = find(cs, (c) => c.gate === 'h2cStatus')?.in ?? [];
-    const counts = {};
-    for (const m of materials) counts[m.h2cStatus] = (counts[m.h2cStatus] ?? 0) + 1;
-    // Named as its requirement pill names it, so the control and the statement of the query agree.
-    out.push(`<div class="control" data-active="${sel.length > 0}">
-      <label>${esc(GATE.h2cStatus.plain)}</label>
-      <div class="checks">${H2C_STATUSES.map((s) => `
-        <label><input type="checkbox" data-status="${esc(s)}" ${sel.includes(s) ? 'checked' : ''}>
-        ${esc(s)}<span class="n">${counts[s] ?? 0}</span></label>`).join('')}</div>
+    // One check for the H2C's temperature limits, with its three parts under it: every template asks all three (D101),
+    // and a reader may drop one. It used to be a box above every group, with the same three gates repeated here.
+    const asked = { nozzle: !!find(cs, (c) => c.gate === 'nozzle'), bed: !!find(cs, (c) => c.gate === 'bed'), chamber: !!find(cs, (c) => c.gate === 'chamber') };
+    const check = printCheck(cs);
+    const gateLine = (gate) => {
+      if (gate !== 'chamber') {
+        const known = materials.filter((m) => m.gates[gate]?.verdict !== 'unknown').length;
+        return `${known} of ${materials.length} publish a ${gate} temperature`;
+      }
+      // The chamber is answered by a temperature or in words, and the two are counted apart: "no heated chamber
+      // needed" settles the question without being a number.
+      const numeric = materials.filter((m) => m.print?.chamberC).length;
+      const words = materials.filter((m) => !m.print?.chamberC && m.print?.chamberGuidance?.state === 'not-required').length;
+      const partial = materials.filter((m) => m.gates.chamber?.verdict === 'partial').length;
+      return `${numeric} of ${materials.length} publish a chamber temperature; ${words} more say none is needed`
+        + `<span class="caveat">${partial} publish a window the H2C reaches only in part; they stay unresolved</span>`;
+    };
+    out.push(`<div class="control print-check" data-active="${check !== 'none'}">
+      <label><input type="checkbox" data-printable ${check === 'all' ? 'checked' : ''}> Within H2C temperature limits</label>
+      <div class="avail">Checks each product's published nozzle, bed and chamber temperatures. Where its data sheet is
+        silent, a data sheet shared with another product, then the Bambu Lab Filament Guide, stands in; the drawer says which.</div>
+      <div class="checks sub-checks">${['nozzle', 'bed', 'chamber'].map((gate) => `
+        <div><label><input type="checkbox" data-gate="${gate}" ${asked[gate] ? 'checked' : ''}> ${esc(GATE[gate].plain)}</label>
+        <div class="avail">${gateLine(gate)}</div></div>`).join('')}</div>
     </div>`);
 
-    for (const [gate, label, limit] of [['nozzle', 'Nozzle', 350], ['bed', 'Bed', 120], ['chamber', 'Chamber', 65]]) {
-      const on = !!find(cs, (c) => c.gate === gate);
-      const known = materials.filter((m) => m.gates[gate]?.verdict !== 'unknown').length;
-      // The chamber is answered by a temperature or in words, and the two are counted apart: "no
-      // heated chamber needed" settles the question without being a number.
-      const avail = gate === 'chamber'
-        ? (() => {
-          const numeric = materials.filter((m) => m.print?.chamberC).length;
-          const words = materials.filter((m) => !m.print?.chamberC && m.print?.chamberGuidance?.state === 'not-required').length;
-          const partial = materials.filter((m) => m.gates.chamber?.verdict === 'partial').length;
-          return `${numeric} of ${materials.length} publish a chamber temperature and ${words} more say no heated chamber is needed<span class="caveat">${partial} publish a window the H2C only partly reaches; those stay unresolved, not passed</span>`;
-        })()
-        : `${known} of ${materials.length} publish a ${label.toLowerCase()} requirement`;
-      out.push(`<div class="control" data-active="${on}">
-        <label><input type="checkbox" data-gate="${gate}" ${on ? 'checked' : ''}> ${label} within the H2C limit of ${limit} °C</label>
-        <div class="avail">${avail}</div>
-      </div>`);
-    }
-
-    // Asked as the hardware you lack. Owning a hardened nozzle removes nothing, so there is nothing
-    // to ask about it.
+    // Asked as the hardware you lack. Owning a hardened nozzle removes nothing, so there is nothing to ask about it.
     const abr = find(cs, (c) => c.gate === 'abrasive' && !c.hardenedAvailable);
     const needsHardened = materials.filter((m) => m.gates.abrasive === 'requires-hardened').length;
     out.push(`<div class="control" data-active="${!!abr}">
-      <label><input type="checkbox" data-gate="abrasive" ${abr ? 'checked' : ''}> I don't have a hardened nozzle</label>
-      <div class="avail">${needsHardened} of ${materials.length} are recorded as needing one, and those are hidden</div>
-      <div class="eg">No record is not proof a filament is safe for brass. Fibre-filled materials
-        without guidance stay unresolved; glow, metal, wood and marble fills are worth checking.
-        With a hardened nozzle, leave this off: it prints everything here.</div>
+      <label><input type="checkbox" data-gate="abrasive" ${abr ? 'checked' : ''}> Brass nozzle only</label>
+      <div class="avail">Excludes the ${needsHardened} materials whose sources call for a hardened nozzle.</div>
+      <div class="eg">A missing statement is not proof a filament is safe for brass. Fibre-filled materials without one stay
+        unresolved; glow, metal, wood and marble fills deserve a check too.</div>
+    </div>`);
+
+    const dry = find(cs, (c) => c.gate === 'dryingKnown');
+    const dryingProfiles = db.profiles.filter((p) => p.drying?.state === 'stated').length;
+    out.push(`<div class="control" data-active="${!!dry}">
+      <label><input type="checkbox" data-gate="dryingKnown" ${dry ? 'checked' : ''}> Drying instructions published</label>
+      <div class="avail">${dryingProfiles} of ${db.profiles.length} print profiles give a drying schedule.</div>
+    </div>`);
+
+    // The scope: materials the database holds for completeness that the H2C cannot finish, named by their families.
+    const scopeOn = !!find(cs, (c) => c.gate === 'scope');
+    const excluded = materials.filter((m) => m.excluded);
+    const byFamily = new Map();
+    for (const m of excluded) byFamily.set(m.family, [...(byFamily.get(m.family) ?? []), m]);
+    const familyWords = [...byFamily].sort((x, y) => y[1].length - x[1].length).map(([f, ms]) => {
+      const polymers = [...new Set(ms.map((m) => m.basePolymer).filter(Boolean))];
+      return `${f} (${ms.length}${polymers.length > 2 ? `, e.g. ${polymers.slice(0, 2).join(', ')}` : ''})`;
+    });
+    out.push(`<div class="control" data-active="${scopeOn}">
+      <label><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}> Exclude materials beyond H2C capability</label>
+      <div class="avail">${excluded.length} materials: ${esc(familyWords.join(' and '))}.</div>
+    </div>`);
+
+    const sel = find(cs, (c) => c.gate === 'h2cStatus')?.in ?? [];
+    const counts = {};
+    for (const m of materials) counts[m.h2cStatus] = (counts[m.h2cStatus] ?? 0) + 1;
+    const meanings = H2C_STATUSES.map((st) => `${H2C_STATUS[st].label}: ${H2C_STATUS[st].meaning}`).join(' ');
+    out.push(`<div class="control" data-active="${sel.length > 0}">
+      <label>${esc(GATE.h2cStatus.plain)} ${explainButton('?', meanings, { cls: 'info-mark', head: 'Bambu Lab status', label: 'What each Bambu Lab status means' })}</label>
+      <div class="avail">Counts are of materials. A material can hold several products.</div>
+      <div class="checks">${H2C_STATUSES.map((st) => `
+        <label title="${esc(H2C_STATUS[st].meaning)}"><input type="checkbox" data-status="${esc(st)}" ${sel.includes(st) ? 'checked' : ''}>
+        ${esc(H2C_STATUS[st].label)}<span class="n">${counts[st] ?? 0}</span></label>`).join('')}</div>
     </div>`);
 
     const verifyGrade = db.profiles.filter((p) => /verify exact grade/i.test(`${p.routing.left} ${p.routing.right}`)).length;
-    out.push(`<div class="note"><strong>Not offered as filters.</strong> H2C left/right routing, AMS 2 Pro and
-      AMS HT read "verify exact grade, no blanket approval" on ${verifyGrade} of ${db.profiles.length} profiles, and printing
-      difficulty is unpublished on all of them. They appear in each material's Printing tab as
-      evidence rather than as filters that would pass everything.</div>`);
+    out.push(`<div class="note"><strong>Not filters:</strong> AMS compatibility, H2C nozzle routing and print difficulty.
+      ${verifyGrade} of ${db.profiles.length} print profiles say only "verify the exact grade", and none rates difficulty, so a
+      filter would pass everything. Each material's Printing tab shows what is recorded.</div>`);
   }
 
-  // The first clause of a headline's Not applicable reason, lower-cased after the colon it follows: "heat deflection is
-  // a rigid-bar test and means nothing for an elastomer".
-  const notApplicableWhy = (def) => {
-    const why = String(def.notApplicableReason ?? '').split(/[:.;(]/)[0].trim();
-    return why ? `: ${why.charAt(0).toLowerCase()}${why.slice(1)}` : '';
+  // Which materials a property does not apply to, by family: "elastomers, sintering filaments". The registry's reason
+  // is a paragraph for the drawer; the rail names who is left out.
+  const notApplicableTo = (key) => {
+    const fams = new Map();
+    for (const m of materials) if (m.headline?.[key]?.notApplicable) fams.set(m.family, (fams.get(m.family) ?? 0) + 1);
+    return [...fams].sort((x, y) => y[1] - x[1]).map(([f, n]) => `${f} ${n}`).join(', ');
   };
+
+  // The basis every value in these two groups is compared on, said once at the top rather than under each property.
+  if (group === 'Mechanical' || group === 'Thermal') {
+    out.push(`<div class="avail">Compared on printed (or unstated) specimens, in the orientation named, as printed and dry unless
+      Part condition says otherwise.</div>`);
+  }
 
   for (const f of numericFilters().filter((x) => x.group === group)) {
     const c = find(cs, (x) => x.property === f.key);
@@ -237,10 +294,8 @@ function body(group, materials, cs, db, ctx = {}) {
     const def = headlineDef(f.key);
     const extra = a.caveats
       ? `${a.caveats} of those ${a.withData} cite a source that states the standard but not the load`
-      : def?.kind === 'price' ? `${priceSampleWords(db.meta)}; a foreign price is converted to CAD`
-      // Why it does not apply, in the registry's own words up to its first stop: the raw rule ("Morphology: amorphous |
-      // semicrystalline; Family: ABS | ...") was printed here, which told an engineer nothing.
-      : def?.appliesTo ? `Does not apply to ${a.notApplicable} material${a.notApplicable === 1 ? '' : 's'}${notApplicableWhy(def)}` : null;
+      : def?.kind === 'price' ? `${priceSampleWords(db.meta)}.`
+      : def?.appliesTo && a.notApplicable ? `Not applicable to ${a.notApplicable} material${a.notApplicable === 1 ? '' : 's'} (${notApplicableTo(f.key)})` : null;
     out.push(`<div class="control" data-active="${!!c}">
       <label title="${esc(P.technical)}">${esc(P.plain)}</label>
       <div class="sub-label">${esc(P.hint)}</div>
@@ -256,27 +311,24 @@ function body(group, materials, cs, db, ctx = {}) {
         ${c ? `<button class="icon-btn clear" data-clear="${f.key}" title="Remove the ${esc(P.plain.toLowerCase())} requirement" aria-label="Remove the ${esc(P.plain.toLowerCase())} requirement">✕</button>` : ''}
       </div>
       <div class="field-error" id="err-${f.key}" role="alert" hidden></div>
-      ${c ? '' : `<div class="eg">${esc(f.eg)}. Applies when you press Enter or leave the box.</div>`}
-      ${c ? `<label style="font-weight:400;font-size:12px;margin-top:5px"><input type="checkbox" data-soft="${f.key}" ${c.mandatory === false ? 'checked' : ''}> Track only: reported on each material, never removes or reorders one</label>` : ''}
+      ${c ? '' : `<div class="eg">${esc(f.eg)}.</div>`}
+      ${c ? `<label class="sub-check"><input type="checkbox" data-soft="${f.key}" ${c.mandatory === false ? 'checked' : ''}> Report only: shown for each material, does not filter</label>` : ''}
     </div>`);
   }
 
-  // Availability. Half the results from a template have no price and nothing said whether they
-  // could be bought at all, so a recommendation could not be acted on. The data supports this:
-  // 48 materials had at least one sampled Canadian offer and 42 had stock on the sampling date of 2026-09-10.
+  // Availability: whether a sampled Canadian shop listed the product, and had it in stock on the day.
   if (group === 'Cost') {
     const buy = find(cs, (c) => c.gate === 'buyable');
     const withOffer = materials.filter((m) => m.buy).length;
     const inStock = materials.filter((m) => m.buy?.anyInStock).length;
     out.push(`<div class="control" data-active="${!!buy}">
-      <label><input type="checkbox" data-buy="any" ${buy ? 'checked' : ''}> Listed in the Canadian price sample</label>
-      <div class="avail">${withOffer} of ${materials.length} were listed by a sampled Canadian retailer</div>
+      <label><input type="checkbox" data-buy="any" ${buy ? 'checked' : ''}> Sold in Canada (sampled)</label>
+      <div class="avail">${withOffer} of ${materials.length} materials had a product listed by a sampled Canadian shop.</div>
       <label class="sub-check"><input type="checkbox" data-buy="stock" ${buy?.inStock ? 'checked' : ''} ${buy ? '' : 'disabled'}>
-        and it was in stock when sampled</label>
-      <div class="avail">${inStock} had stock when sampled. Not live stock.</div>
-      <div class="eg">${esc(priceSampleWords(db.meta, { canadianOnly: true }))}, and each product's own listings: another
-        product's stock is not this one's, and a foreign listing lists nothing in Canada. A product with no offer here is
-        not necessarily unavailable, so it is held as unknown rather than failed.</div>
+        In stock when sampled</label>
+      <div class="avail">${inStock} had one in stock on the sampling day. Not live stock.</div>
+      <div class="eg">Each product is judged on its own listings. No listing does not mean unavailable, so such a product
+        stays unknown, not failed.</div>
     </div>`);
   }
 
@@ -287,55 +339,29 @@ function body(group, materials, cs, db, ctx = {}) {
 
     for (const [key, v] of verdict.sort((a, b) => b[1].usable - a[1].usable)) {
       const on = !!find(cs, (c) => c.kind === 'environment' && c.category === key);
-      // Materials covered only by their base polymer's published behaviour are counted apart: shown, never passing (D64).
-      const polymer = v.polymerMaterials ? `<span class="caveat">${v.polymerMaterials} more from the base polymer, shown but never passing</span>` : '';
+      // Materials covered only by their base polymer's reference data are counted apart: shown, never passing (D64).
+      const own = v.usable ? `Makers state a verdict for ${v.materials} materials` : 'No maker states a verdict';
+      const polymer = v.polymerMaterials ? `<span class="caveat">${v.polymerMaterials} more have base-polymer reference data only, which never passes</span>` : '';
       out.push(`<div class="control" data-active="${on}">
         <label><input type="checkbox" data-env="${esc(key)}" ${on ? 'checked' : ''}> ${esc(envRequirement(key))}</label>
-        <div class="avail">${v.usable} records state a verdict, across ${v.materials} materials${polymer}</div>
+        <div class="avail">${own}.${polymer}</div>
       </div>`);
     }
     if (verdict.length) {
       const anyPolymer = verdict.some(([, v]) => v.polymerMaterials);
-      out.push(`<div class="eg">A product passes on its own records (or its twin's, the same sheet), never another
-        product's. A pass means its source reported resistance to the exposures it tested, not to every chemical in
-        the class; "limited resistance", or a limit stated in words, counts as unresolved. Open the material's
-        Environment tab for the exact agent and conditions.${anyPolymer ? ` Where a material has no record of its
-        own, its base polymer's published behaviour is shown there too: it never passes, and with "Use estimates and polymer
-        data" on, a polymer the reference reports attacked or dissolved screens the material out.` : ''}</div>`);
+      out.push(`<details class="rail-more"><summary><span class="chevron" aria-hidden="true"></span>How these are judged</summary>
+        <p>A product passes only on its own maker's statement, or one in the data sheet it shares with another product.
+        "Resistant" passes; "limited resistance", or a limit stated in words, stays unresolved. A pass covers the agents
+        its source tested, not every chemical in the class.${anyPolymer ? ` Base-polymer reference data never passes; with
+        "Let estimates rule out materials" on, it excludes a material whose polymer the reference reports attacked or
+        dissolved.` : ''} Each material's Environment tab gives the agents and conditions.</p>
+      </details>`);
     }
     if (indicator.length) {
-      out.push(`<div class="note"><strong>Evidence only, not filters.</strong>
-        ${indicator.map(([k, v]) => `${esc(envLabel(k))} (${v.records} records)`).join(', ')}.
-        Every record in these categories is narrative text with no reducible verdict, so no material
-        could pass or fail such a test. Offering them as constraints would return UNKNOWN for all
-        ${materials.length} materials while looking like a working filter. They are shown in each
-        material's Environment tab instead.</div>`);
+      out.push(`<div class="note"><strong>Not filters:</strong>
+        ${indicator.map(([k, v]) => `${esc(envLabel(k).toLowerCase())} (${v.records})`).join(', ')}. These are described in
+        words with no pass or fail, so they cannot filter. Each material's Environment tab shows them.</div>`);
     }
-  }
-
-  if (group === 'Manufacturing') {
-    const sel = find(cs, (c) => c.facet === 'reinforcement')?.in ?? [];
-    const counts = {};
-    for (const m of materials) { const r = m.facets.reinforcement.value; counts[r] = (counts[r] ?? 0) + 1; }
-    out.push(`<div class="control" data-active="${sel.length > 0}">
-      <label>Reinforcement</label>
-      <div class="avail">From the Modifier / filler column</div>
-      <div class="checks">${REINFORCEMENT.map(([k, l]) => `
-        <label><input type="checkbox" data-facet="${k}" ${sel.includes(k) ? 'checked' : ''}>
-        ${esc(l)}<span class="n">${counts[k] ?? 0}</span></label>`).join('')}</div>
-    </div>`);
-    const dry = find(cs, (c) => c.gate === 'dryingKnown');
-    const dryingProfiles = db.profiles.filter((p) => p.drying?.state === 'stated').length;
-    out.push(`<div class="control" data-active="${!!dry}">
-      <label><input type="checkbox" data-gate="dryingKnown" ${dry ? 'checked' : ''}> Drying guidance published</label>
-      <div class="avail">${dryingProfiles} of ${db.profiles.length} print profiles publish one</div>
-    </div>`);
-    const build = find(cs, (c) => c.facet === 'supportMaterial');
-    const supports = materials.filter((m) => m.facets.supportMaterial?.value).length;
-    out.push(`<div class="control" data-active="${!!build}">
-      <label><input type="checkbox" data-build-material ${build ? 'checked' : ''}> Build materials only</label>
-      <div class="avail">Hides the ${supports} support and interface materials</div>
-    </div>`);
   }
 
   if (group === 'Evidence') {
@@ -343,22 +369,24 @@ function body(group, materials, cs, db, ctx = {}) {
     const measured = new Set(db.measurements.map((m) => m.materialId));
     const unmeasured = materials.filter((m) => !measured.has(m.id)).length;
     const conflicts = db.coverage.filter((r) => r.status === 'Conflict' || r.status === 'Quarantined').length;
-    const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
     out.push(`<div class="control" data-active="${!!g?.exactGrade}">
-      <label><input type="checkbox" data-evidence="exactGrade" ${g?.exactGrade ? 'checked' : ''}> Has a product-specific measurement</label>
-      <div class="avail">A numeric property of the product itself, or of its twin (the same sheet). ${unmeasured} of ${materials.length} materials have no property measurements at all</div>
+      <label><input type="checkbox" data-evidence="exactGrade" ${g?.exactGrade ? 'checked' : ''}> Require product-level measurements</label>
+      <div class="avail">A number measured on the product itself, or in the data sheet it shares with another product.
+        ${unmeasured} of ${materials.length} materials have no measurements at all.</div>
     </div>`);
     out.push(`<div class="control" data-active="${!!g?.noConflicts}">
-      <label><input type="checkbox" data-evidence="noConflicts" ${g?.noConflicts ? 'checked' : ''}> Exclude unresolved conflicts</label>
-      <div class="avail">${plural(conflicts, 'coverage record')} flagged as a conflict or quarantined in this snapshot; one about a single product holds out that product only</div>
+      <label><input type="checkbox" data-evidence="noConflicts" ${g?.noConflicts ? 'checked' : ''}> Exclude unresolved data conflicts</label>
+      <div class="avail">Excludes a product whose sources disagree or whose value is held back: ${conflicts} on file, each
+        affecting only the product it names.</div>
     </div>`);
     // Which values decide (D84). Values whose source leaves the test direction or load unstated read like moulded bars
     // and flatter a printed part, so they are counted apart unless the reader admits them.
     const asPublished = db.grades.reduce((n, gr) => n + Object.values(gr.headline ?? {}).filter((v) => v.level === 'as-published').length, 0);
     const admits = ctx?.evidence === 'as-published';
     out.push(`<div class="control" data-active="${admits}">
-      <label><input type="checkbox" data-evidence-level ${admits ? 'checked' : ''}> Also count values published without their test direction or load</label>
-      <div class="avail">${asPublished} product values are published that way. They often read like moulded bars, stiffer and stronger than a printed part, so by default they are shown but not compared</div>
+      <label><input type="checkbox" data-evidence-level ${admits ? 'checked' : ''}> Include values with no stated orientation or load</label>
+      <div class="avail">${asPublished} product values do not state the specimen orientation or the test load. Many are
+        moulded bars, stiffer and stronger than a print, so by default they are shown but not judged.</div>
     </div>`);
   }
 
@@ -372,19 +400,25 @@ function wire(host, state, actions) {
     if (e.target.checked) scenario.constraints.push(...PRINTABLE.map((c) => ({ ...c })));
     actions.changed();
   });
-  host.querySelector('[data-anneal]')?.addEventListener('change', (e) => {
-    scenario.anneal = e.target.checked;
-    if (!scenario.anneal) scenario.annealMaxC = null;
+  // The master box is indeterminate while one or two of the three gates are asked; a property, not an attribute.
+  const master = host.querySelector('[data-printable]');
+  if (master) master.indeterminate = printCheck(scenario.constraints) === 'some';
+  host.querySelectorAll('[data-anneal]').forEach((el) => el.addEventListener('click', () => {
+    const on = el.dataset.anneal === 'on';
+    if (scenario.anneal === on) return;
+    scenario.anneal = on;
+    if (!on) scenario.annealMaxC = null;
     actions.changed();
-  });
+  }));
   host.querySelector('[data-anneal-max]')?.addEventListener('change', (e) => {
     const v = Number(e.target.value);
     scenario.annealMaxC = e.target.value.trim() !== '' && Number.isFinite(v) && v > 0 ? v : null;
     actions.changed();
   });
-  host.querySelectorAll('[data-moisture]').forEach((el) => el.addEventListener('change', () => {
-    if (!el.checked) return;
-    scenario.moisture = el.dataset.moisture === 'conditioned' ? 'conditioned' : 'dry';
+  host.querySelectorAll('[data-moisture]').forEach((el) => el.addEventListener('click', () => {
+    const next = el.dataset.moisture === 'conditioned' ? 'conditioned' : 'dry';
+    if ((scenario.moisture === 'conditioned' ? 'conditioned' : 'dry') === next) return;
+    scenario.moisture = next;
     actions.changed();
   }));
   const cs = () => scenario.constraints;
