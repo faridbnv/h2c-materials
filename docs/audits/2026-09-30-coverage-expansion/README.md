@@ -1,3 +1,7 @@
+> **Selected run complete (2026-10-04):** all 136 materials and 100 selected additional products have
+> reviewed, committed outcomes. [Completion report](SELECTED100-COMPLETION.md) explains the benefit and
+> remaining limits; [STATUS](STATUS.md) owns current counts. Historical tranche sections below retain their dated results.
+
 # Coverage expansion, 2026-09-30
 
 GOALS steps 2 and 5; C3/C6/C9/C10/C13. The owner approved a bounded existing-catalogue

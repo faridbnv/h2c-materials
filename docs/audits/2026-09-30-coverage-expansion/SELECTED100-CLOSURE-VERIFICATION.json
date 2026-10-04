@@ -1,0 +1,33 @@
+{
+  "DataCommit": "5397478d80ffee953329936b201548b744aeb819",
+  "Release": "2a8ffade57b4",
+  "FullVerify": {
+    "seconds": 271.5,
+    "exitCode": 0
+  },
+  "UnitTests": 499,
+  "ImportTests": 209,
+  "ContextNew": 0,
+  "ContextStale": 0,
+  "BrowserViews": 69,
+  "RenderedScenarios": 300,
+  "RenderedReadings": 2596,
+  "CompiledDifferences": 0,
+  "MaterialAssessmentsComplete": 136,
+  "SelectedPriorityProductsComplete": 100,
+  "SelectedPriorityRemaining": 0,
+  "FullCatalogueUnselectedRemaining": 930,
+  "AllReleaseReviewInputHashesStillMatch": true,
+  "BackupReceipt": "priority-06-09-custody.json",
+  "Logs": {
+    "verify": {
+      "file": "evidence/selected100-closure-verify.log",
+      "SHA256": "1ecda938a0907fd37134f2249eb35151c5b4409c38baef1721b777a29c8973ed"
+    },
+    "build-diff": {
+      "file": "evidence/selected100-closure-build-diff.log",
+      "SHA256": "d953410fe53dfb395298dbc2a61c77e032e292f4cc119a2d895dc347c39c14ac"
+    }
+  },
+  "ReviewLimitation": "All independent source reviews are AI review; human spot-check/team trial/physical tests remain."
+}

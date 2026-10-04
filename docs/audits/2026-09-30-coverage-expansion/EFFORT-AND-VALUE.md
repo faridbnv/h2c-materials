@@ -14,7 +14,7 @@ The original forecast for these 61 tasks was 8–16 active agent-hours and 0.5�
 
 A research pass is a disposition of all assigned product questions, not a new measurement and not a product that passes selection. At resumption, 21 of 1051 historical passes were complete; 13 ended conflicting and 8 context only. Those passes did produce useful print recipes and source corrections, but the outcome labels show how often useful public evidence still leaves a handoff. They were selected targets, so their yield cannot be projected directly to the other 1030.
 
-For all 1030 remaining historical passes, estimate **150–350 active agent-hours and 12–30 million total model tokens**, including source reading/search, review, injection and verification work. That is roughly 9–20 active minutes and 11–28 thousand tokens per product after maker/document reuse. It is not elapsed clock time and excludes the owner's testing/vendor work. A difficult tail can exceed the range: the 20-minute initial manual-search cap alone would allow 343 hours; a 10-minute extension on every target would add 172 hours, before review. Search caps are ceilings, not targets.
+The resumption forecast for the then-remaining 1030 historical passes was **150–350 active agent-hours and 12–30 million total model tokens**, including source reading/search, review, injection and verification work. That is roughly 9–20 active minutes and 11–28 thousand tokens per product after maker/document reuse. It is not elapsed clock time and excludes the owner's testing/vendor work. A difficult tail can exceed the range: the 20-minute initial manual-search cap alone would allow 343 hours; a 10-minute extension on every target would add 172 hours, before review. Search caps are ceilings, not targets.
 
 The additional benefit should concentrate in missing print/drying/treatment gates, source/identity corrections and usable exact-product properties near actual selection thresholds. I would budget on a **low-confidence 5–15% of the remaining products** yielding a decision-relevant new fact or important correction (about 50–160 products), with more yielding only helpful guidance or a documented gap. That is a planning assumption to test, not an observed rate or a forecast of how many selection answers will change. A new fact may change several questions, none, or narrow a pass to an honest failure. Published exposure conditions, humid/annealed test states and printed certification will remain sparse even after 100% of searches are finished. Public research cannot manufacture those tests.
 
@@ -26,4 +26,21 @@ The proposed stopping/reassessment trigger is five maker batches with no admitte
 
 These token estimates combine researcher and reviewer input, source/tool text, output and reasoning allowance. Provider accounting, cached input and model choice can change reported totals; no historical token/hour rate or dollar forecast is claimed. Keep a compact source/question packet per maker batch, reuse originals and prior searches, avoid copying entire source registries into each review, and combine up to five reviewed batches per verified tranche. Measure actual tokens and active time going forward; report useful admitted findings, corrected answers and unresolved handoffs after each five-batch checkpoint.
 
-The material phase is now complete. The remaining near-term allocation is the **targeted product tranche**, originally estimated at **20–40 active hours and 1.5–3 million tokens**; STATUS.md owns actual completed/remaining targets. The previous combined estimate of 28–56 active hours and 2.0–4.2 million tokens included the now-completed material phase. Finishing the entire retained catalogue backlog would instead be roughly **158–366 active hours and 12.5–31.2 million tokens**, with substantial diminishing returns. 100% refers to documented worklist outcomes; it never promises 100% evidence coverage.
+The material phase and selected 100-product tranche are now complete; STATUS.md owns committed completion. The targeted tranche was originally estimated at 20–40 active hours and 1.5–3 million tokens, but historical active time/token use was not reliably measured. No further allocation is needed to finish these selected targets. The previous combined estimate of 28–56 active hours and 2.0–4.2 million tokens included the now-completed material phase. The earlier combined full-catalogue forecast was **158–366 active hours and 12.5–31.2 million tokens**, with substantial diminishing returns. 100% refers to documented worklist outcomes; it never promises 100% evidence coverage.
+
+## Observed checkpoint after 100 selected products (2026-10-04)
+
+All 136 materials and 100 selected additional products have reviewed, committed bounded outcomes. Overall
+product dispositions are 11 found, 77 context only and 12 conflicting. These labels are not suitability
+verdicts: useful guidance and corrections also occur in context-only passes. The final 46 alone add 22
+missing drying schedules, scoped chemical ratings, nozzle guidance and honest source/revision limits.
+Their replays move 8 frozen, 24 template and 45 environmental answers; suites overlap and counts are not summed.
+No measurement/estimate-model expansion follows from those final 46.
+
+Recommendation: stop the broad sweep at 100. The optional next 50 have not been frozen; spend no new
+50-product research budget now. Use the retained exact-product drying-admission holds, the human
+decisive-source spot-check and a team trial to identify the next concrete deciding questions. Public
+research still cannot settle missing specimen/exposure/certification conditions or maker identity
+conflicts. A 100% catalogue search quota offers accountability, with substantially diminishing selection
+benefit; it is outside this completed narrowed run. Historical forecasts above remain forecasts, not
+measured usage.

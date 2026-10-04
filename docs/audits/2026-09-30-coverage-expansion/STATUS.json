@@ -1,6 +1,6 @@
 {
   "dataRelease": "2a8ffade57b4",
-  "latestCompletedDataCommit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+  "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
     "total": 136,
@@ -9,8 +9,8 @@
   },
   "productPasses": {
     "total": 1051,
-    "completed": 75,
-    "remaining": 976,
+    "completed": 121,
+    "remaining": 930,
     "mergedIntoAnother": 26
   },
   "applicationCells": {
@@ -322,6 +322,10 @@
     {
       "hash": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
       "subject": "data: verify thirty Polymaker and Bambu product coverage passes"
+    },
+    {
+      "hash": "5397478d80ffee953329936b201548b744aeb819",
+      "subject": "Complete reviewed evidence for the final 46 priority products"
     }
   ],
   "resumedScope": {
@@ -330,7 +334,7 @@
     "materialCompleted": 61,
     "targetAdditionalProducts": 100,
     "selectedProducts": 100,
-    "completedSelectedProducts": 54,
+    "completedSelectedProducts": 100,
     "selectionState": "100 live priority products frozen after all 136 material assessments completed; nine maker batches of at most12."
   },
   "completionMeaning": "Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes."
