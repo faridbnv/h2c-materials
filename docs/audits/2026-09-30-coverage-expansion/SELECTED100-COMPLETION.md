@@ -10,9 +10,12 @@ Compared with the reconciled-main build before this resumed run, the completed m
 
 [STATUS](STATUS.md) is the generated authority for completion, current coverage and commit history. [Final tranche](priority-06-09-report.md) is the immutable release-reviewed snapshot from before ledger closure; its pre-closure wording is superseded by this report and STATUS. It links admission/review/verification records. [Remaining limitations](../../OPEN-PROBLEMS.md) retain release conditions. [Effort and value](EFFORT-AND-VALUE.md) now recommends stopping broad searches at these 100; the optional next 50 were never frozen. Historical hours and tokens were not reliably measured and are not presented as actual costs. Next work should follow a concrete shortlist question, a held source-admission lead, maker clarification, or the human/team validation findings.
 
-All work is committed locally on `codex/coverage-gap-fill-2026-09-30`. This resumed run follows GOALS' local-commit boundary; the earlier main publication is a separate historical receipt.
+The research and closure were committed on `codex/coverage-gap-fill-2026-09-30`. On 2026-10-04 the owner
+subsequently authorized publishing the completed selected run to main after checking documentation
+and file names. The [publication check](PUBLICATION-2026-10-04.md) records that authority and its gates;
+the earlier 2026-10-01 publication remains a separate historical receipt.
 
-Completion documentation also passed full verification in 271.50seconds, including all browser gates.
+Completion documentation also passed full verification in 271.50 seconds, including all browser gates.
 Its compiled comparison against the data commit reports 0 differences. The retained
 [closure receipt](SELECTED100-CLOSURE-VERIFICATION.json) checks every signed release-review artifact
 remains byte-identical and all 100 selected targets are absent from the pending list.

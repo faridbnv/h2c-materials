@@ -1,0 +1,49 @@
+{
+  "Date": "2026-10-04",
+  "PreviousRemoteMain": "20b4a6a5ead70a88c9d72c499b65a75dfb9a8176",
+  "ReviewedCompletedTip": "23b2cde",
+  "FinalDataCommit": "5397478d80ffee953329936b201548b744aeb819",
+  "Release": "2a8ffade57b4",
+  "TrackedFileCount": 5166,
+  "PathAndDirectoryCaseUnicodeCollisions": [],
+  "ExecutableMigrationIDConflicts": [],
+  "LocalMarkdownTargetsChecked": 206,
+  "MissingLocalMarkdownTargets": [],
+  "SignedFinalReleaseArtifactsMatched": 21,
+  "ApprovedOutcomePacketsMatched": 28,
+  "AppliedCampaignSources": 90,
+  "DuplicateCampaignSources": 2,
+  "MaterialAssessmentCount": 136,
+  "SelectedProductCount": 100,
+  "UnselectedCatalogueTargets": 930,
+  "NamingPolicy": "Retain signed/history file names, sidecar CSV/JSON and explicitly named shared helpers; same basename in different audit directories is not a collision.",
+  "Scope": "Current entry points and all top-level campaign Markdown links, all tracked paths/directory prefixes and executable migration IDs; source packets and original bytes remain private/unchanged.",
+  "Verification": {
+    "full": {
+      "seconds": 275.5,
+      "exitCode": 0
+    },
+    "unitTests": 499,
+    "importTests": 209,
+    "contextFindingsAccepted": 142,
+    "newContextFindings": 0,
+    "staleContextAcceptances": 0,
+    "browserViews": 69,
+    "renderedScenarios": 300,
+    "renderedReadings": 2596,
+    "compiledDifferences": 0,
+    "logs": [
+      {
+        "file": "evidence/publication-2026-10-04-verify.log",
+        "sha256": "f726394f113c522ae36bf60582775aeb70c1314b0195830b8053301950520f66"
+      },
+      {
+        "file": "evidence/publication-2026-10-04-build-diff.log",
+        "sha256": "d953410fe53dfb395298dbc2a61c77e032e292f4cc119a2d895dc347c39c14ac"
+      }
+    ],
+    "ExternalEvidenceRoot": "/Users/farid/Documents/H2C-v2.1-Review-2026-09-27/COVERAGE-EXPANSION-2026-09-30/resume-2026-10-02",
+    "CoherenceChecker": "scripts/publication-2026-10-04-check.py",
+    "CoherenceCheckerSHA256": "f2c0c5e1ed2ebc716b135a6e103a988e96d4f649818764f25ccf9ac80842f610"
+  }
+}

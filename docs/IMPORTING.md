@@ -19,7 +19,8 @@ batch b40 took nine exact-product pages its research saved, staged from those co
 each; facts the research found on pages already registered were recorded from those pages by a migration, not
 imported again. The price pass of 2026-09-30 admitted only its reviewed listings through the price pipeline.
 The same day's approved coverage-expansion campaign is a bounded exception for existing-catalogue source gaps;
-its isolated c01–c05 batches admitted 18 sources. The [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md)
+its isolated c01–c14 batches admitted 90 sources. The owner narrowed the resumed run to material assessment
+and 100 additional priority products, now complete; unselected catalogue targets remain outside that run. The [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md)
 lists completed and remaining targets, and its [isolated ledger](audits/2026-09-30-coverage-expansion/ingest/ledger.csv)
 retains source revisions and pipeline outcomes. The general import pause remains outside those exceptions.
 What follows is the procedure for an authorized batch.

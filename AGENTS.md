@@ -266,8 +266,9 @@ sheet (b38) and the frozen chamber-target maker searches (b39), as bounded in GO
 gap-closure section; on 2026-09-29, the gap-fill tranche's nine saved product pages (b40, GOALS' gap-fill tranche
 section); on 2026-09-30, the price pass (p01 to p04, GOALS' price pass section). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
 2026-09-30 (GOALS, coverage-expansion campaign): isolated campaign batches c01–c14 have admitted 90 sources;
-its remaining frozen targets may admit defensible new documents through the same pipeline. The campaign
-is incomplete; [current status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) distinguish
+the selected resumed run has completed all 136 material assessments and 100 additional priority products.
+The unselected full-catalogue backlog remains outside that narrowed run; any further work follows the
+owner-authorized scope and the same guarded pipeline. [Current status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) distinguish
 that authority from completed research. The general import pause remains outside this campaign. A page a reader saved enters from its copy by digest
 (`ingest:witness --from`). A document never enters by hand: it travels the import
 pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing

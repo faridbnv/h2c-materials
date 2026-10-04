@@ -452,3 +452,13 @@ The selected run closed on 2026-10-04: all 136 material assessments and 100 addi
 have reviewed outcomes; final data commit `5397478` is named in the completion ledger. Optional
 expansion to 150 was not frozen: observed yield favours targeted held-source admission and human/team
 validation over another broad sweep. The full-catalogue backlog and source limits remain explicit.
+
+## Authorized on 2026-10-04: publish the completed selected run to main
+
+The owner requested a final documentation, naming and coherence check, then publication to main of
+this completed selected run. This supersedes its local-only publication boundary, without extending
+research to the 930 unselected historical catalogue targets or the optional next 50 products.
+Preserve signed source/review artifacts and dated historical reports. Current status and the selected
+completion report own current counts; the publication check records links, path/migration naming,
+source-review hashes and a zero-behaviour documentation diff. Push normally after full verification,
+retain remote changes, and let the existing Verify/Pages workflows run their gates.

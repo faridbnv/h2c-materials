@@ -13,7 +13,7 @@ exposure-specific screening, manufacturer messaging and physical testing remain 
 **Read [STATUS.md](STATUS.md) for the current counts, completed commits and every remaining target.**
 The sections below are the historical tranche record: their “now” counts describe that tranche's
 release, not today's build. [EFFORT-AND-VALUE.md](EFFORT-AND-VALUE.md) gives estimates and a proposed
-allocation; the owner accepted its material-first/priority-product recommendations on 2026-10-02. [RESUME-2026-10-02.md](RESUME-2026-10-02.md) reconciles current main and narrows this run to material assessment followed by 100 additional priority products, with up to 150 dependent on yield. The [documentation reconciliation](DOCUMENTATION-RECONCILIATION.md) records the freshness checks and publication boundary.
+allocation; the owner accepted its material-first/priority-product recommendations on 2026-10-02. [RESUME-2026-10-02.md](RESUME-2026-10-02.md) reconciles current main and narrows this run to material assessment followed by 100 additional priority products, with up to 150 dependent on yield. The [2026-10-01 documentation snapshot](DOCUMENTATION-RECONCILIATION.md) records the earlier freshness checks and publication boundary. The [2026-10-04 publication check](PUBLICATION-2026-10-04.md) records the final selected-run naming/coherence checks and the renewed main publication authority.
 
 The resumed material phase is complete. The [first resumed priority batch](priority-01-report.md) records twelve Nanovia products, their bounded outcomes and reviewed source changes. Current completion remains owned by STATUS.md and its committed outcome ledger.
 

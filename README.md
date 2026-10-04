@@ -15,7 +15,9 @@ What the database holds (materials, products, measurements, sources) is counted 
 [docs/GOALS.md](docs/GOALS.md).
 
 **Coverage campaign status:** [completed work and exact remaining targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md).
-The campaign is incomplete: filled coverage cells do not mean all products have been researched.
+The selected run is complete: all 136 H2C-relevant materials and 100 additional priority products have reviewed outcomes.
+The 930 unselected historical catalogue targets remain outside this run. Filled coverage cells and completed research
+do not establish product suitability. [Completion and remaining limits](docs/audits/2026-09-30-coverage-expansion/SELECTED100-COMPLETION.md).
 [Estimated benefit and effort](docs/audits/2026-09-30-coverage-expansion/EFFORT-AND-VALUE.md) distinguishes completing
 material judgments from researching every product. After a build, `npm run audit:coverage-status` refreshes its
 status and task inventories; `verify:fast` refuses stale campaign documentation.
