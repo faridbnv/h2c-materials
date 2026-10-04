@@ -36,7 +36,7 @@ const tables = {
   measurements: [
     { MeasurementID: 'V1', SourceID: 'S-1', GradeID: 'G001-01', MaterialID: 'M001', Property: 'Tensile modulus', 'Data status': 'Published value', 'Raw value': '3000 MPa', 'Raw unit': 'MPa', 'Raw numeric': '3000', 'Raw uncertainty ±': 'Not applicable', 'Raw upper bound': 'Not applicable', Operator: '=', 'Normalized value': '3', Locator: 'p. 1: Modulus' },
   ],
-  profiles: [{ ProfileID: 'P1', SourceID: 'S-2', GradeID: 'G001-02', MaterialID: 'M001', Profile: 'Manufacturer published guidance', Plate: 'Not published', Locator: 'p. 1: Settings', 'Nozzle °C': '230', 'Nozzle min °C': '230', 'Nozzle max °C': '230', 'Nozzle state': 'range', 'Bed °C': 'Not published' }, { ProfileID: 'P0', SourceID: 'S-0', GradeID: 'G001-01', MaterialID: 'M001', Profile: 'Manufacturer published guidance', Locator: 'p. 1' }],
+  profiles: [{ ProfileID: 'P3', SourceID: 'S-3', GradeID: 'G001-01', MaterialID: 'M001', Profile: 'Manufacturer published guidance', 'Nozzle diameter': '0.2 mm', Locator: 'p. 1: Nozzle' }, { ProfileID: 'P1', SourceID: 'S-2', GradeID: 'G001-02', MaterialID: 'M001', Profile: 'Manufacturer published guidance', Plate: 'Not published', Locator: 'p. 1: Settings', 'Nozzle °C': '230', 'Nozzle min °C': '230', 'Nozzle max °C': '230', 'Nozzle state': 'range', 'Bed °C': 'Not published' }, { ProfileID: 'P0', SourceID: 'S-0', GradeID: 'G001-01', MaterialID: 'M001', Profile: 'Manufacturer published guidance', Locator: 'p. 1' }],
   page_context: [],
 };
 const build = (rows, ctx = {}) => buildProposals({ rows, tables, ctx });
@@ -220,7 +220,7 @@ test('applyProposals writes the ready rows, is a no-op the second time, and stop
   const sheet = (_t, source, quote) => seen.push([source, quote]);
   const opts = { migration: 'm000', read: 'Read 2026-10-05 by Claude Sonnet vision readers (reader round)', sheet };
   const first = applyProposals(t, dir, opts);
-  assert.deepEqual(first, { profilesAdded: 1, profileCells: 0, valueCells: 4, valuesAdded: 1, contextAdded: 1 });
+  assert.deepEqual(first, { profilesAdded: 1, profileCells: 0, valueCells: 4, valuesAdded: 1, contextAdded: 1, causes: { 'gap-fill': 2, 'page-contradicts': 4, 'page-context': 1 } });
   assert.ok(seen.length >= 4 && seen.every(([s, q]) => s && q), 'every quote goes through the sheet guard');
   const profile = t.rows('profiles').find((p) => p.SourceID === 'S-FIXTURE');
   assert.equal(profile['Nozzle min °C'], '260'); assert.equal(profile['Bed state'], 'range'); assert.equal(profile.GradeID, 'G116-01');
@@ -228,7 +228,7 @@ test('applyProposals writes the ready rows, is a no-op the second time, and stop
   assert.equal(added['Normalized value'], '2.01'); assert.equal(added.Direction, 'XY'); assert.match(added.Notes, /m000/);
   const fixed = t.get('measurements', 'V000544');
   assert.equal(fixed['Raw numeric'], '75'); assert.equal(fixed['Data status'], 'Published value (transcription corrected)'); assert.match(fixed.Notes, /\(m000/);
-  assert.deepEqual(applyProposals(t, dir, opts), { profilesAdded: 0, profileCells: 0, valueCells: 0, valuesAdded: 0, contextAdded: 0 }, 'a re-run changes nothing');
+  assert.deepEqual(applyProposals(t, dir, opts), { profilesAdded: 0, profileCells: 0, valueCells: 0, valuesAdded: 0, contextAdded: 0, causes: {} }, 'a re-run changes nothing');
   // the data moved: the held row is no longer what the proposal expected
   const moved = openTables();
   moved.set('measurements', 'V000544', 'Raw value', '99°C');
@@ -271,4 +271,45 @@ test('the view that bore a quote out is recorded, and a quote the reading-order 
   assert.equal(out.valuesAdd[0].quote_view, 'block');
   assert.equal(quoteViews(null, 'x'), null);
   assert.equal(build(rows, { quoteOnSheet: () => false }).valuesAdd.length, 0);
+});
+
+test('a bound the page prints where the record holds a point value becomes an Operator edit, only when the sign sits against the number on that page', () => {
+  const held = (o) => value({ Class: 'confirms', Field: 'Tensile modulus', Label: 'Modulus', Lo: '3000', HeldIDs: 'V1', Unit: 'MPa', ...o });
+  const onPage = (view) => ({ needleOnPage: (s, page, needles) => (needles.includes('>3000') || needles.includes('<3000') || needles.includes('≤3000') ? view : '') });
+  const inCell = build([held({ Raw: '> 3000 MPa', Operator: '>' })], onPage('line'));
+  assert.deepEqual(inCell.valuesSet.map((r) => [r.column, r.expect, r.value, r.cause]), [['Operator', '=', '>', 'bound-sign'], ['Raw value', '3000 MPa', '> 3000 MPa', 'bound-sign']]);
+  assert.equal(inCell.valuesSet[0].sign_view, 'line');
+  const operatorOnly = build([held({ Class: 'mismatch', Raw: '3000 MPa', Operator: '<' })], onPage('block'));
+  assert.deepEqual(operatorOnly.valuesSet.map((r) => [r.column, r.value]), [['Operator', '<']], 'the cell is kept where it prints no sign');
+  const atMost = build([held({ Raw: '≤ 3000 MPa', Operator: '' })], onPage('ocr'));
+  assert.equal(atMost.valuesSet[0].value, '<', 'at most is the nearest of the two bounds the database keeps');
+  const absent = build([held({ Raw: '> 3000 MPa', Operator: '>' })], onPage(''));
+  assert.equal(absent.valuesSet.length, 0); assert.ok(absent.held[0].reason.includes('bound-sign-not-on-page'));
+  assert.equal(build([held({ Raw: '> 3001 MPa', Operator: '>', Lo: '3001' })], onPage('line')).valuesSet.length, 0, 'another number is no bound on this one');
+  assert.equal(build([held({ Raw: '3000 MPa', Operator: '=' })], onPage('line')).valuesSet.length, 0, 'no sign, no bound');
+});
+
+test('a held list of nozzle sizes cut short is replaced by the page\'s longer list, as printed, when it holds every size the record has', () => {
+  const size = (o) => setting({ Class: 'confirms', Field: 'nozzle_diameter', Label: 'Nozzle Diameter', Unit: 'mm', HeldIDs: 'P3', Lo: '0.2', ...o });
+  const out = build([size({ Raw: '0.2, 0.4, 0.6, 0.8 mm' })]);
+  const cells = out.profilesSet.filter((r) => r.column === 'Nozzle diameter');
+  assert.deepEqual(cells.map((r) => [r.id, r.expect, r.value, r.cause]), [['P3', '0.2 mm', '0.2, 0.4, 0.6, 0.8 mm', 'nozzle-list']]);
+  assert.equal(build([size({ Raw: '0.2 mm' })]).profilesSet.length, 0, 'a list no longer than the record\'s changes nothing');
+  assert.equal(build([size({ Raw: '0.4, 0.6 mm', Lo: '0.4' })]).profilesSet.length, 0, 'a list that lacks a size the record holds is not its completion');
+});
+
+test('a mismatch whose held number is also on the page is held, unless a blind second reading agreed with the first', () => {
+  const mismatch = (o) => value({ Class: 'mismatch', Field: 'Tensile modulus', Raw: '3300 MPa', Lo: '3300', Label: 'Modulus', HeldIDs: 'V1', ...o });
+  const ctx = { numberOnPage: () => true };
+  assert.equal(build([mismatch({ SecondRead: 'pending' })], ctx).valuesSet.length, 0);
+  assert.equal(build([mismatch({ SecondRead: 'agreed-text' })], ctx).valuesSet.length, 0, 'only a second reading of the page lifts it');
+  const agreed = build([mismatch({ SecondRead: 'agreed' })], ctx);
+  assert.ok(agreed.valuesSet.length >= 3 && agreed.valuesSet.every((r) => r.cause === 'agreed-mismatch'));
+  assert.match(agreed.valuesSet[0].note, /record held 3000 MPa/);
+  assert.equal(build([mismatch({ SecondRead: 'agreed' })], { numberOnPage: () => false }).valuesSet[0].cause, 'page-contradicts');
+});
+
+test('every proposal carries its cause', () => {
+  const out = build([value({ Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus 2', Direction: 'Z' }), setting({ Field: 'nozzle', Label: 'Nozzle', Raw: '230 °C', Lo: '230' })]);
+  assert.equal(out.valuesAdd[0].cause, 'gap-fill'); assert.equal(out.profilesAdd[0].cause, 'gap-fill');
 });

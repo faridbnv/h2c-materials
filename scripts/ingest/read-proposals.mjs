@@ -56,7 +56,7 @@ const isMissing = (v) => v == null || v === '' || /^Not (published|applicable)/i
 // ---- the gate ---------------------------------------------------------------------------------------------------
 
 export const READY_PRESENCE = ['text', 'block', 'ocr'];
-export const AGREED = ['agreed', 'agreed-reader'];
+export const AGREED = ['agreed', 'agreed-reader', 'agreed-text'];
 
 /** `ready`, or `held` with why: low confidence and a disagreeing second reading always hold; otherwise a page that bears the row out, or a second reading that agrees, passes. */
 export function gateOf(row) {
@@ -105,10 +105,68 @@ export function quoteViews(sha, quote) {
   return ['line', 'block', 'ocr'].filter((v) => used.includes(v)).join('+') || 'line';
 }
 
+const pageViews = new Map();
+/** The cached sheet page by page in each view, spaces gone: [[view, Map page -> text]]. */
+function sheetPages(sha) {
+  if (!pageViews.has(sha)) {
+    const c = cachedText(sha);
+    const ocr = ocrSidecar(sha);
+    const byPage = (pages) => new Map(pages.map((p) => [Number(p.page), flatBound(p.lines.map((l) => l.text).join(' '))]));
+    let block = null;
+    if (c) { try { block = byPage(withReadingOrder(c).pages); } catch { block = null; } }
+    pageViews.set(sha, [
+      ['line', c ? byPage(c.pages) : null],
+      ['block', block],
+      ['ocr', ocr ? new Map([...ocr].map(([n, lines]) => [Number(n), flatBound(lines.join(' '))])) : null],
+    ]);
+  }
+  return pageViews.get(sha);
+}
+
+/** The view (line, block or ocr) in which one of the needles is printed on the page, contiguous once spaces are gone; '' when none is; null when no text is cached. */
+export function needleOnPage(sha, page, needles) {
+  if (!sha) return null;
+  const views = sheetPages(sha);
+  if (views.every(([, m]) => m == null)) return null;
+  for (const [view, pages] of views) {
+    const t = pages?.get(Number(page));
+    if (t != null && needles.some((n) => t.includes(flatBound(n)))) return view;
+  }
+  return '';
+}
+
 /** Is every piece of the quote on the cached sheet in some view? true, false, or null when no text is cached. */
 export function quoteOnCachedSheet(sha, quote) {
   const v = quoteViews(sha, quote);
   return v == null ? null : v !== '';
+}
+
+// ---- a sign the page prints before a number ------------------------------------------------------------------------
+
+const SIGNS = { '<': '<', '＜': '<', '≤': '≤', '≦': '≤', '>': '>', '＞': '>', '≥': '≥', '≧': '≥' };
+/** A page's text as the sign check reads it: no spaces, fullwidth and slanted signs made plain, a decimal comma kept. */
+export const flatBound = (t) => String(t ?? '').toLowerCase().replace(/[＜＞≦≧]/g, (c) => SIGNS[c]).replace(/\s+/g, '');
+
+/**
+ * The bound a reading states: its sign (as printed), the operator the database keeps for it (< or >; ≤ and ≥ are the nearest, as
+ * the import reads them), the number after it, and whether the sign is inside the value cell. Null when it states none.
+ */
+export function boundOf(row) {
+  const raw = text(row.Raw);
+  const inCell = /([<>＜＞≤≥≦≧])\s*([\d]+(?:[.,]\d+)?|[.,]\d+)/.exec(raw);
+  if (inCell) { const sign = SIGNS[inCell[1]]; return { sign, operator: sign === '<' || sign === '≤' ? '<' : '>', number: inCell[2], inCell: true }; }
+  if (row.Operator === '<' || row.Operator === '>') {
+    const number = /[\d]+(?:[.,]\d+)?|[.,]\d+/.exec(raw)?.[0];
+    if (number) return { sign: row.Operator, operator: row.Operator, number, inCell: false };
+  }
+  return null;
+}
+
+/** The strings a page would print for a bound: its own sign (or, for an operator alone, the strict or the inclusive one) and the number with either decimal mark. */
+export function boundNeedles(b) {
+  const signs = b.inCell ? [b.sign] : b.operator === '<' ? ['<', '≤'] : ['>', '≥'];
+  const numbers = [...new Set([b.number, b.number.replace(',', '.'), b.number.replace('.', ',')])];
+  return signs.flatMap((sg) => numbers.map((n) => `${sg}${n}`));
 }
 
 // ---- mapping the reader's words to the vocabularies --------------------------------------------------------------
@@ -415,6 +473,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   const sources = new Map(tables.sources.map((s) => [s.SourceID, s]));
   const registry = new Map(tables.properties.map((p) => [p.Property, p]));
   const numberOnPage = ctx.numberOnPage ?? (() => null);
+  const needleOnPageOf = ctx.needleOnPage ?? (() => null);
   const live = (p) => p.Profile !== 'Retired duplicate record';
   const profilesBySource = new Map();
   for (const p of tables.profiles.filter(live)) { if (!profilesBySource.has(p.SourceID)) profilesBySource.set(p.SourceID, []); profilesBySource.get(p.SourceID).push(p); }
@@ -589,13 +648,13 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       Locator: rowsUsed.map((r) => `p. ${r.Page}: ${text(r.Label) || r.Field}`).join('; '),
       quote: [...new Set(rowsUsed.flatMap((r) => text(r.Quote).split(' | ')))].join(' | '),
       ...Object.fromEntries(TYPED_COLUMNS.map((c) => [c, typedKept[c]])),
-      parsed_vs_read: 'agrees', quote_view: viewOf(...rowsUsed), grade_from: [...new Set(rowsUsed.map((r) => gradeFromOf.get(r.RowID)))].join('+'), reader: [...new Set(rowsUsed.map((r) => r.Reader))].join(' '), rows: rowsUsed.map((r) => r.RowID).join(' '),
+      parsed_vs_read: 'agrees', cause: 'gap-fill', quote_view: viewOf(...rowsUsed), grade_from: [...new Set(rowsUsed.map((r) => gradeFromOf.get(r.RowID)))].join('+'), reader: [...new Set(rowsUsed.map((r) => r.Reader))].join(' '), rows: rowsUsed.map((r) => r.RowID).join(' '),
       note: `${rowsUsed.length} setting(s) read from ${[...new Set(rowsUsed.map((r) => `p. ${r.Page}`))].join(', ')}.`,
     });
   }
 
   // A cell of a held profile set to the page's raw text: the typed cells follow (retype), and the page is named in the Locator.
-  function setCell(profile, field, cell, row, { mismatch }) {
+  function setCell(profile, field, cell, row, { mismatch, cause = null, force = false }) {
     const column = SETTING_COLUMN[field];
     const current = profile[column];
     if (!mismatch && !isMissing(current)) return { error: 'cell-already-published', detail: `${profile.ProfileID} ${column}: ${current}` };
@@ -604,20 +663,51 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const typedAfter = typedOf(after), typedBefore = typedOf(profile);
     const verdict = parsedVsRead(field, row, typedAfter, cell);
     if (verdict !== 'agrees') return { error: 'parsed-vs-read', detail: `${profile.ProfileID} ${column}: ${verdict}` };
-    if (mismatch && TYPED[column] && TYPED[column].every((c) => typedAfter[c] === profile[c])) return { error: 'same-reading', detail: `${profile.ProfileID} ${column}: "${current}" reads as "${cell}"` };
-    if (mismatch && !TYPED[column]) {
+    if (mismatch && !force && ['nozzle', 'bed', 'drying'].includes(field) && num(row.Lo) == null && numbersIn(current).length) {
+      return { error: 'drops-held-numbers', detail: `${profile.ProfileID} ${column}: "${current}" would become "${cell}", which states no number` };
+    }
+    if (mismatch && !force && ['nozzle', 'bed', 'chamber'].includes(field) && num(row.Lo) != null) {
+      // A single recommended temperature inside the window the record holds narrows nothing the sheet contradicts.
+      const label = { nozzle: 'Nozzle', bed: 'Bed', chamber: 'Chamber' }[field];
+      const min = num(profile[`${label} min °C`]), max = num(profile[`${label} max °C`]), lo = num(row.Lo), hi = num(row.Hi) ?? lo;
+      if (min != null && max != null && min < max && lo >= min && hi <= max) return { error: 'inside-held-range', detail: `${profile.ProfileID} ${column}: ${lo}-${hi} is inside "${current}"` };
+    }
+    if (mismatch && !force && TYPED[column] && TYPED[column].every((c) => typedAfter[c] === profile[c])) return { error: 'same-reading', detail: `${profile.ProfileID} ${column}: "${current}" reads as "${cell}"` };
+    if (mismatch && !force && !TYPED[column]) {
       // a nozzle diameter or plate has no typed twin: a differing text alone is not a contradiction
       if (field === 'nozzle_diameter' && numbersIn(current).some((n) => sameNumber(n, num(row.Lo)))) return { error: 'same-reading', detail: `${profile.ProfileID} ${column}: "${current}" reads as "${cell}"` };
     }
     void typedBefore;
-    const base = { gate: 'ready', table: 'profiles', id: profile.ProfileID, source: row.SourceID, quote: text(row.Quote), parsed_vs_read: verdict, quote_view: viewOf(row), grade_from: gradeFromOf.get(row.RowID) ?? 'held', reader: row.Reader, rows: row.RowID, GradeID: profile.GradeID };
-    const note = `p. ${row.Page}, "${text(row.Label) || field}": the page prints "${text(row.Raw)}" (reader ${row.Reader}, ${row.Presence}).`;
+    const base = { gate: 'ready', table: 'profiles', id: profile.ProfileID, source: row.SourceID, quote: text(row.Quote), parsed_vs_read: verdict, quote_view: viewOf(row), grade_from: gradeFromOf.get(row.RowID) ?? 'held', cause: cause ?? (!mismatch ? 'gap-fill' : field === 'plate' ? 'plate-label' : 'page-contradicts'), reader: row.Reader, rows: row.RowID, GradeID: profile.GradeID };
+    const note = `p. ${row.Page}, "${text(row.Label) || field}": the page prints "${text(row.Raw)}" (reader ${row.Reader}, ${row.Presence}).${mismatch ? ` The record held "${current}".` : ''}`;
     const rows = [{ ...base, column, expect: current ?? '', value: cell, note }];
     return { rows, where: `p. ${row.Page}: ${text(row.Label) || field}`, base };
   }
 
+  // -- 1b. a held list of nozzle sizes cut short: every size the record holds is in the page's longer list
+  const listHandled = new Set();
+  for (const r of considered.filter((x) => x.Kind === 'setting' && x.Field === 'nozzle_diameter' && ['confirms', 'mismatch'].includes(x.Class))) {
+    const ids = String(r.HeldIDs).split(/\s+/).filter(Boolean);
+    const profile = ids.length === 1 ? tables.profiles.find((p) => p.ProfileID === ids[0]) : null;
+    if (!profile || !live(profile)) continue;
+    const cell = cellOf(r);
+    const heldSizes = numbersIn(profile['Nozzle diameter']);
+    const pageSizes = [...new Set(numbersIn(cell))];
+    if (!heldSizes.length || pageSizes.length <= heldSizes.length || pageSizes.some((n) => n > 4)) continue;
+    if (!heldSizes.every((h) => pageSizes.some((p) => sameNumber(p, h)))) continue;
+    listHandled.add(r.RowID);
+    const reasons = [];
+    if (squash(profile['Nozzle diameter']) === squash(cell)) reasons.push('same-text');
+    if (!reasons.length && quoteReason(r)) reasons.push(quoteReason(r));
+    if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'profiles'); continue; }
+    if (gateOf(r).gate !== 'ready') { hold(r, [gateOf(r).reason], 'profiles'); continue; }
+    const proposal = setCell(profile, 'nozzle_diameter', cell, r, { mismatch: true, force: true, cause: 'nozzle-list' });
+    if (proposal.error) hold(r, proposal.error, 'profiles', proposal.detail ?? '');
+    else { out.profilesSet.push(...proposal.rows); noteWhere(profile, proposal); }
+  }
+
   // -- 2. print settings the page contradicts
-  for (const r of considered.filter((x) => x.Kind === 'setting' && x.Class === 'mismatch')) {
+  for (const r of considered.filter((x) => x.Kind === 'setting' && x.Class === 'mismatch' && !listHandled.has(x.RowID))) {
     const reasons = [];
     const column = SETTING_COLUMN[r.Field];
     if (!column) reasons.push('no-table-column');
@@ -632,14 +722,14 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (profile && column && !reasons.length) {
       // The held number also on the page means the reader and the held row may be reading two different things.
       const heldNumbers = numbersIn(profile[column]).filter((n) => !sameNumber(n, num(r.Lo)));
-      if (heldNumbers.some((n) => numberOnPage(r.SourceID, r.Page, n) === true)) reasons.push('held-number-also-on-page');
+      if (heldNumbers.some((n) => numberOnPage(r.SourceID, r.Page, n) === true) && r.SecondRead !== 'agreed') reasons.push('held-number-also-on-page');
     }
     if (!reasons.length && quoteReason(r)) reasons.push(quoteReason(r));
     if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'profiles'); continue; }
     const gate = gateOf(r);
     if (gate.gate !== 'ready') { hold(r, [gate.reason], 'profiles'); continue; }
     if (r.Field === 'chamber' && enclosedElsewhere(profile.GradeID, profile.SourceID)) { hold(r, 'chamber-conflicts-enclosed-profile', 'profiles', enclosedElsewhere(profile.GradeID, profile.SourceID).ProfileID); continue; }
-    const proposal = setCell(profile, r.Field, cell, r, { mismatch: true });
+    const proposal = setCell(profile, r.Field, cell, r, { mismatch: true, cause: r.SecondRead === 'agreed' && profile[column] && numbersIn(profile[column]).some((n) => numberOnPage(r.SourceID, r.Page, n) === true && !sameNumber(n, num(r.Lo))) ? 'agreed-mismatch' : null });
     if (proposal.error) hold(r, proposal.error, 'profiles', proposal.detail ?? '');
     else { out.profilesSet.push(...proposal.rows); noteWhere(profile, proposal); }
   }
@@ -712,19 +802,45 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       gate: 'ready', task: 'reader-round', like: c.like.MeasurementID, SourceID: c.row.SourceID, GradeID: c.grade, MaterialID: grades.get(c.grade).MaterialID,
       ...p, Locator: c.locator, quote: text(c.row.Quote),
       note: `p. ${c.row.Page}, "${text(c.row.Label)}"${text(c.row.TableHeading) ? ` under "${text(c.row.TableHeading)}"` : ''}: the page prints "${text(c.row.Raw)}"${text(c.row.TestConditions) ? ` (${text(c.row.TestConditions)})` : ''}; read by ${c.row.Reader}, ${c.row.Presence}${AGREED.includes(c.row.SecondRead) ? ', second reading agrees' : ''}.`,
-      presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
+      cause: 'gap-fill', presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
     });
   }
 
-  // -- 4. values a held row has wrong
+  // -- 3b. a bound the page prints where the record holds a point value: the number is the record's, the sign is the page's
   const measurementsById = new Map(tables.measurements.map((m) => [m.MeasurementID, m]));
-  for (const r of considered.filter((x) => x.Kind === 'value' && (x.Class === 'mismatch' || x.Class === 'not-on-page'))) {
+  const boundHandled = new Set();
+  for (const r of considered.filter((x) => x.Kind === 'value' && ['mismatch', 'confirms'].includes(x.Class))) {
+    const bound = boundOf(r);
+    const ids = String(r.HeldIDs).split(/\s+/).filter(Boolean);
+    const held = bound && ids.length === 1 ? measurementsById.get(ids[0]) : null;
+    if (!held || !(held.Operator === '=' || isMissing(held.Operator))) continue;
+    if (num(r.Lo) == null || num(held['Raw numeric']) == null || !sameNumber(r.Lo, held['Raw numeric'])) continue;
+    boundHandled.add(r.RowID);
+    const reasons = [];
+    if (r.Unit && held['Raw unit'] && unitKey(cleanUnit(r.Unit)) !== unitKey(held['Raw unit'])) reasons.push(`unit-differs:${r.Unit}/${held['Raw unit']}`);
+    const view = needleOnPageOf(r.SourceID, r.Page, boundNeedles(bound));
+    if (!reasons.length && view == null) reasons.push('no-cached-text');
+    if (!reasons.length && view === '') reasons.push('bound-sign-not-on-page');
+    if (!reasons.length && quoteReason(r)) reasons.push(quoteReason(r));
+    if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
+    const gate = gateOf(r);
+    if (gate.gate !== 'ready') { hold(r, [gate.reason], 'values'); continue; }
+    const base = { gate: 'ready', task: 'reader-round', table: 'measurements', id: held.MeasurementID, source: r.SourceID, quote: text(r.Quote), quote_view: viewOf(r), sign_view: view, cause: 'bound-sign', reader: r.Reader, rows: r.RowID,
+      note: `p. ${r.Page}, "${text(r.Label)}": the page prints the bound "${bound.sign}${bound.number}" (${view} view); the record held ${held['Raw value']} as a point value (reader ${r.Reader}, ${r.Presence}).` };
+    out.valuesSet.push({ ...base, column: 'Operator', expect: held.Operator ?? '', value: bound.operator });
+    // A sign the sheet prints inside the value cell belongs to the cell as printed.
+    if (bound.inCell && !flatBound(held['Raw value']).includes(bound.sign) && rawNumber(text(r.Raw)) === num(held['Raw numeric'])) out.valuesSet.push({ ...base, column: 'Raw value', expect: held['Raw value'] ?? '', value: text(r.Raw) });
+  }
+
+  // -- 4. values a held row has wrong
+  for (const r of considered.filter((x) => x.Kind === 'value' && (x.Class === 'mismatch' || x.Class === 'not-on-page') && !boundHandled.has(x.RowID))) {
     const reasons = [];
     if (r.Class === 'not-on-page') { hold(r, reasonsFor(r, 'held-row-not-on-page'), 'values'); continue; }
     const ids = String(r.HeldIDs).split(/\s+/).filter(Boolean);
     const held = ids.length === 1 ? measurementsById.get(ids[0]) : null;
     if (!held) reasons.push(ids.length === 1 ? 'held-row-unknown' : 'ambiguous-held-rows');
     let p = null;
+    let agreedMismatch = false;
     if (held) {
       p = valueProposal(r, { registry, grade: held.GradeID, standards: ctx.standardsVocab });
       if (p.error) reasons.push(p.error);
@@ -734,7 +850,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
         const heldUncertain = !isMissing(held['Raw uncertainty ±']);
         if (heldUncertain && p['Raw uncertainty ±'] === NA) reasons.push('uncertainty-differs');
         if (!isMissing(held['Raw upper bound']) !== (p['Raw upper bound'] !== NA)) reasons.push('range-differs');
-        if (!reasons.length && numberOnPage(r.SourceID, r.Page, held['Raw numeric']) === true) reasons.push('held-number-also-on-page');
+        if (!reasons.length && numberOnPage(r.SourceID, r.Page, held['Raw numeric']) === true) { if (r.SecondRead === 'agreed') agreedMismatch = true; else reasons.push('held-number-also-on-page'); }
         if (!reasons.length && num(held['Raw numeric']) === num(p['Raw numeric']) && held['Normalized value'] === p['Normalized value']) reasons.push('same-number');
       }
     }
@@ -742,8 +858,8 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
     const gate = gateOf(r);
     if (gate.gate !== 'ready') { hold(r, [gate.reason], 'values'); continue; }
-    const base = { gate: 'ready', task: 'reader-round', table: 'measurements', id: held.MeasurementID, source: r.SourceID, quote: text(r.Quote), quote_view: viewOf(r), reader: r.Reader, rows: r.RowID,
-      note: `p. ${r.Page}, "${text(r.Label)}": the page prints "${text(r.Raw)}"; the record held ${held['Raw value']} (reader ${r.Reader}, ${r.Presence}).` };
+    const base = { gate: 'ready', task: 'reader-round', table: 'measurements', id: held.MeasurementID, source: r.SourceID, quote: text(r.Quote), quote_view: viewOf(r), cause: agreedMismatch ? 'agreed-mismatch' : 'page-contradicts', reader: r.Reader, rows: r.RowID,
+      note: `p. ${r.Page}, "${text(r.Label)}": the page prints "${text(r.Raw)}"; the record held ${held['Raw value']} (reader ${r.Reader}, ${r.Presence}${agreedMismatch ? '; a blind second reading agrees, though the held number is also printed on the page' : ''}).` };
     for (const [column, value] of [['Raw value', p['Raw value']], ['Raw numeric', p['Raw numeric']], ['Normalized value', p['Normalized value']],
       ['Raw uncertainty ±', p['Raw uncertainty ±']], ['Normalized uncertainty ±', p['Normalized uncertainty ±']]]) {
       if ((held[column] ?? '') !== value && !(column.includes('uncertainty') && p['Raw uncertainty ±'] === NA)) out.valuesSet.push({ ...base, column, expect: held[column] ?? '', value });
@@ -780,7 +896,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       gate: 'ready', SourceID: r.SourceID, Page: r.Page, 'Applies to': r.Field, Statement: statement, 'Specimen type': specimenValue, 'Moisture state': moisture.state,
       'Post-processing state': post.state, 'Anneal °C': post.state === 'annealed' ? post.tempC : NA, 'Anneal h': post.state === 'annealed' ? post.hours : NA,
       Standard: standard, 'Test temperature °C': testTemp, Locator: `p. ${r.Page}: ${text(r.TableHeading) || text(r.Label) || statement}`, quote: text(r.Quote),
-      moisture_words: text(r.Moisture), post_processing_words: text(r.PostProcessing), inherits: r.HeldValues, quote_view: viewOf(r), reader: r.Reader, rows: r.RowID,
+      cause: 'page-context', moisture_words: text(r.Moisture), post_processing_words: text(r.PostProcessing), inherits: r.HeldValues, quote_view: viewOf(r), reader: r.Reader, rows: r.RowID,
     });
   }
 
@@ -794,14 +910,14 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
 
 // ---- files -------------------------------------------------------------------------------------------------------
 
-const PROFILE_ADD_HEADER = ['gate', 'SourceID', 'GradeID', 'MaterialID', 'like', 'Profile', ...CELL_COLUMNS, 'Locator', 'quote', ...TYPED_COLUMNS, 'parsed_vs_read', 'quote_view', 'grade_from', 'reader', 'rows', 'note'];
-const SET_HEADER = ['gate', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'parsed_vs_read', 'quote_view', 'grade_from', 'reader', 'rows', 'GradeID'];
+const PROFILE_ADD_HEADER = ['gate', 'SourceID', 'GradeID', 'MaterialID', 'like', 'Profile', ...CELL_COLUMNS, 'Locator', 'quote', ...TYPED_COLUMNS, 'parsed_vs_read', 'cause', 'quote_view', 'grade_from', 'reader', 'rows', 'note'];
+const SET_HEADER = ['gate', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'parsed_vs_read', 'cause', 'quote_view', 'grade_from', 'reader', 'rows', 'GradeID'];
 const VALUE_ADD_HEADER = ['gate', 'task', 'like', 'SourceID', 'GradeID', 'MaterialID', 'Property', 'Raw value', 'Raw unit', 'Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Conversion factor', 'Normalized value',
   'Normalized uncertainty ±', 'Normalized upper bound', 'Normalized unit', 'Operator', 'Specimen type', 'Direction', 'Notch', 'Moisture condition', 'Moisture state', 'Post-processing', 'Post-processing state',
-  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'presence', 'second_read', 'quote_view', 'grade_from', 'reader', 'rows'];
-const VALUE_SET_HEADER = ['gate', 'task', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'quote_view', 'reader', 'rows'];
+  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'cause', 'presence', 'second_read', 'quote_view', 'grade_from', 'reader', 'rows'];
+const VALUE_SET_HEADER = ['gate', 'task', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'cause', 'quote_view', 'sign_view', 'reader', 'rows'];
 const CONTEXT_HEADER = ['gate', 'SourceID', 'Page', 'Applies to', 'Statement', 'Specimen type', 'Moisture state', 'Post-processing state', 'Anneal °C', 'Anneal h', 'Standard', 'Test temperature °C', 'Locator', 'quote',
-  'moisture_words', 'post_processing_words', 'inherits', 'quote_view', 'reader', 'rows'];
+  'moisture_words', 'post_processing_words', 'inherits', 'cause', 'quote_view', 'reader', 'rows'];
 const HELD_HEADER = ['gate', 'reason', 'stage', 'RowID', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Presence', 'SecondRead', 'Confidence', 'Reader', 'grade_from', 'GradeResolved', 'Detail'];
 const DUP_HEADER = ['RowID', 'KeptRowID', 'SourceID', 'Page', 'Grade', 'Field', 'Raw', 'Reader'];
 
@@ -845,7 +961,7 @@ export function writeProposals(out, dir, { run, readRows }) {
 
 /** The reconcile run's rows that can become proposals, from its CSVs. */
 export function readRunRows(runDir) {
-  const names = ['new-settings.csv', 'new-values.csv', 'mismatches.csv', 'context.csv'];
+  const names = ['new-settings.csv', 'new-values.csv', 'mismatches.csv', 'context.csv', 'confirms.csv'];
   const rows = [];
   for (const name of names) {
     const path = join(runDir, name);
@@ -877,6 +993,7 @@ async function main() {
     return pageCache.get(sourceId);
   };
   const ctx = {
+    needleOnPage: (sourceId, page, needles) => needleOnPage(shaOf.get(sourceId), page, needles),
     standardsVocab: new Set(readCsv(join(projectRoot, 'schema/vocab/standards.csv')).records.map((r) => r.values.Value)),
     quoteOnSheet: (sourceId, quote) => { const v = quoteViews(shaOf.get(sourceId), quote); return v == null ? null : v === '' ? false : v; },
     numberOnPage: (sourceId, page, number) => {

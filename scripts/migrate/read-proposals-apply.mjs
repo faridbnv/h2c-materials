@@ -69,7 +69,8 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     if (e.gate !== 'ready') throw new Error(`${migration}: ${name} holds a row with gate "${e.gate}"; only ready rows are applied (hold it in held.csv)`);
     return e;
   });
-  const counts = { profilesAdded: 0, profileCells: 0, valueCells: 0, valuesAdded: 0, contextAdded: 0 };
+  const counts = { profilesAdded: 0, profileCells: 0, valueCells: 0, valuesAdded: 0, contextAdded: 0, causes: {} };
+  const because = (e) => { const c = e.cause || 'unspecified'; counts.causes[c] = (counts.causes[c] ?? 0) + 1; return c; };
   const grades = new Map(t.rows('grades').map((g) => [g.GradeID, g]));
   const live = (p) => p.Profile !== 'Retired duplicate record';
   const formulation = (gradeId) => {
@@ -97,7 +98,7 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
       if (value(typed[c]) !== value(e[c])) throw new Error(`${migration}: profile for ${e.GradeID} on ${e.SourceID}: the parsers now read ${c} as "${typed[c]}", the proposal has "${e[c]}"; propose again`);
     }
     t.append('profiles', { ...row, ...typed });
-    counts.profilesAdded++;
+    because(e); counts.profilesAdded++;
   }
 
   // ---------------------------------------------------------------- cells of held profiles
@@ -109,7 +110,7 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     const view = guard(t, e.source, e.quote, migration) || 'line';
     t.set('profiles', e.id, e.column, e.value, { expect: e.expect ?? '', migration });
     if (TYPED[e.column]) retype(t, e.id, [e.column], migration);
-    counts.profileCells++;
+    because(e); counts.profileCells++;
   }
 
   // ---------------------------------------------------------------- cells of held measurements
@@ -121,18 +122,19 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     if (r.SourceID !== e.source) throw new Error(`${migration}: ${e.id} cites ${r.SourceID}, not ${e.source}`);
     const view = guard(t, e.source, e.quote, migration) || 'line';
     t.set('measurements', e.id, e.column, e.value, { expect: e.expect ?? '', migration });
-    if (!touched.has(e.id)) touched.set(e.id, { columns: new Set(), reader: e.reader, views: new Set() });
+    if (!touched.has(e.id)) touched.set(e.id, { columns: new Set(), reader: e.reader, views: new Set(), causes: new Set() });
+    touched.get(e.id).causes.add(because(e));
     touched.get(e.id).views.add(view);
     touched.get(e.id).columns.add(e.column);
     counts.valueCells++;
   }
-  for (const [id, { columns, reader, views }] of touched) {
+  for (const [id, { columns, reader, views, causes }] of touched) {
     const r = t.get('measurements', id);
     if (NUM(Number(r['Raw numeric']) * Number(r['Conversion factor'])) !== NUM(Number(r['Normalized value']))) {
       throw new Error(`${migration}: ${id}: ${r['Raw numeric']} × ${r['Conversion factor']} is not ${r['Normalized value']}`);
     }
     if (String(r.Notes).includes(`(${migration})`)) continue;
-    t.set('measurements', id, 'Notes', withNote(r.Notes, `${read} (${migration}${reader ? `, ${reader}` : ''}): ${[...columns].join(', ')} as the page prints them.${viewNote([...views].join('+'))}`), { expect: r.Notes, migration });
+    t.set('measurements', id, 'Notes', withNote(r.Notes, `${read} (${migration}${reader ? `, ${reader}` : ''}): ${[...columns].join(', ')} as the page prints them (${[...causes].join(', ')}).${viewNote([...views].join('+'))}`), { expect: r.Notes, migration });
   }
 
   // ---------------------------------------------------------------- values never transcribed
@@ -159,8 +161,8 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     }
     set['Data status'] = 'Published value';
     set['Parse review'] = NA;
-    const id = addValue(t, { like: like.MeasurementID, set, migration, why: 'published in the source, never transcribed.', note: `${e.note} ${read}.${viewNote(view)}` });
-    if (id) counts.valuesAdded++;
+    const id = addValue(t, { like: like.MeasurementID, set, migration, why: 'published in the source, never transcribed.', note: `${e.note} ${read} (${e.cause || 'unspecified'}).${viewNote(view)}` });
+    if (id) { because(e); counts.valuesAdded++; }
   }
 
   // ---------------------------------------------------------------- what a page states once
@@ -172,7 +174,7 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
       'Specimen type': e['Specimen type'], 'Moisture state': e['Moisture state'], 'Post-processing state': e['Post-processing state'], 'Anneal °C': e['Anneal °C'], 'Anneal h': e['Anneal h'],
       Standard: e.Standard, 'Test temperature °C': e['Test temperature °C'], Locator: e.Locator, 'Reviewed by': `${read} (${migration}${e.reader ? `, ${e.reader}` : ''})${viewNote(view)}`,
     });
-    counts.contextAdded++;
+    because(e); counts.contextAdded++;
   }
   return counts;
 }
