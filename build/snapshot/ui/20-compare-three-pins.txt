@@ -56,7 +56,7 @@ ABS-CF
 29
 27.3–46 · 3
 5.95
-307
+281
 all 153 candidates
 Tensile strength (Z) MPa
 ABS
@@ -74,7 +74,7 @@ ABS
 10
 3.9–40 · 15
 ABS-AF
-~1–15†
+~3–17†
 ABS-CF
 1.9
 1.8–2 · 2
