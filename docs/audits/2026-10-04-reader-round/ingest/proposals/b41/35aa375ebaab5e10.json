@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b41.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "35aa375ebaab5e10fc4e76fd7cdf6546025a56c32f75be8803fe1dbdf8827df8",
+    "url": "https://fillamentum.com/wp-content/uploads/2024/11/3D_PRINT_GUIDE_NONOILEN_8_2024.pdf",
+    "pages": 1,
+    "provider": "Fillamentum",
+    "manufacturer": "Fillamentum",
+    "docKey": "https://fillamentum.com/wp-content/uploads/2024/11/3D_PRINT_GUIDE_NONOILEN_8_2024.pdf#witness-for=source:R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G146-01 (Fillamentum NonOilen) of M146; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILLAMENTUM-READER-20261004-35aa375ebaab",
+      "Publisher": "Fillamentum",
+      "Title": "NonOilen 3D printing guide (version updated 8/2024)",
+      "Revision": "Version updated in 8/2024",
+      "Publication date": "2024-08",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Fillamentum's own 3D printing guide for NonOilen, version updated 8/2024 (one page). It prints two printer setups (basic non high-speed printers, and high-speed printers), a heated-chamber statement and a drying schedule that the registered 2020 TDS does not, or prints differently (nozzle 175-195 C, re-dry 65 C for 2 h); both stand.",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2024/11/3D_PRINT_GUIDE_NONOILEN_8_2024.pdf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G146-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "35aa375ebaab5e10fc4e76fd7cdf6546025a56c32f75be8803fe1dbdf8827df8"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "NonOilen 3D printing guide (version updated 8/2024)"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b41), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G146-01",
+        "MaterialID": "M146",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "NonOilen",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M146",
+        "GradeID": "G146-01",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "170 – 195 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "170",
+        "Nozzle max °C": "195",
+        "Nozzle requirement": "required",
+        "Bed °C": "0 – 50 °C",
+        "Bed state": "range",
+        "Bed min °C": "0",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not required",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Heated Chamber: not necessary",
+        "Enclosure state": "not-needed",
+        "Plate": "PEI, mirror/glass, Lockpad",
+        "Drying": "75 °C for 5 hours",
+        "Drying state": "stated",
+        "Drying °C": "75",
+        "Drying hours": "5",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILLAMENTUM-READER-20261004-35aa375ebaab",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Basic non high-speed printers setup",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20 – 50 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100 %"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Adhesive: Magigoo PP, 3DLac, PVA glue, DimaFix; Raft/skirt/brim: In most cases, a 5 mm brim will help."
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print Temp: Bed Temp:"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "visual": true,
+        "note": "Read from the cached text and the page image; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M146",
+        "GradeID": "G146-01",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "180 – 215 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "180",
+        "Nozzle max °C": "215",
+        "Nozzle requirement": "required",
+        "Bed °C": "0 – 60 °C",
+        "Bed state": "range",
+        "Bed min °C": "0",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not required",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Heated Chamber: not necessary",
+        "Enclosure state": "not-needed",
+        "Plate": "PEI, mirror/glass, Lockpad",
+        "Drying": "75 °C for 5 hours",
+        "Drying state": "stated",
+        "Drying °C": "75",
+        "Drying hours": "5",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILLAMENTUM-READER-20261004-35aa375ebaab",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: High speed printers setup",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "50 – 200 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "80 – 100 %"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Adhesive: Magigoo PP, 3DLac, PVA glue, DimaFix; Raft/skirt/brim: In most cases, a 5 mm brim will help."
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Bed Temp: 180 – 215 °C 0 – 60 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "visual": true,
+        "note": "Read from the cached text and the page image; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The two printer setups are read from the page image as well as the text layer, which scrambles their order. Tip 5 also says a heated chamber \"can help with adhesion and overall print quality\" (its sentence is split by the radar labels in the text layer; the Enclosure cell keeps the words on one line). The overview radar (hardness, impact resistance, density, tensile modulus, temperature resistance up to 110 C, Charpy unnotched) is drawn without numbers: nothing entered from it. The registered 2020 TDS prints 175-195 C, bed 0-50 C and a re-drying schedule of 65 C for 2 hours; the guide's settings are a second statement from a newer edition, and both stand. A third drying statement for NonOilen (70 C, 2 h) is in the maker's drying table already registered as R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442 (not applied to this grade here)."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+    "note": "Maker document for the existing product G146-01: print settings only (2 profile row(s)); no measurement is entered. The two printer setups are read from the page image as well as the text layer, which scrambles their order. Tip 5 also says a heated chamber \"can help with adhesion and overall print quality\" (its sentence is split by the radar labels in the text layer; the Enclosure cell keeps the words on one line). The overview radar (hardness, impact resistance, density, tensile modulus, temperature resistance up to 110 C, Charpy unnotched) is drawn without numbers: nothing entered from it. The registered 2020 TDS prints 175-195 C, bed 0-50 C and a re-drying schedule of 65 C for 2 hours; the guide's settings are a second statement from a newer edition, and both stand. A third drying statement for NonOilen (70 C, 2 h) is in the maker's drying table already registered as R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442 (not applied to this grade here)."
+  }
+}

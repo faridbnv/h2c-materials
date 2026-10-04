@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b41.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "9ee12a12747c5ab51dd99be8fbfdb3cdf61a9e54702bf8e36f478529c2556e2a",
+    "url": "http://web.archive.org/web/20250917152246id_/https://www.3dxtech.com/products/hyperlite%E2%84%A2-pp",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "http://web.archive.org/web/20250917152246id_/https://www.3dxtech.com/products/hyperlite%E2%84%A2-pp#witness-for=source:X-Hyperlite-PP-TDS-v1"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G103-01 (3DXTECH Hyperlite PP) of M103; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DXTECH-READER-20261004-9ee12a12747c",
+      "Publisher": "3DXTECH",
+      "Title": "Hyperlite PP product page (archived 2025-09-17)",
+      "Revision": "Internet Archive capture of 2025-09-17 15:22:46 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The 3DXTECH product page for Hyperlite PP as the Internet Archive captured it on 2025-09-17 (the live address now redirects to the maker's polypropylene collection). The registered TDS prints no print settings (its only profile is the test-bar conditions); this page prints all of them.",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20250917152246id_/https://www.3dxtech.com/products/hyperlite%E2%84%A2-pp",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G103-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/products/hyperlite%E2%84%A2-pp; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "9ee12a12747c5ab51dd99be8fbfdb3cdf61a9e54702bf8e36f478529c2556e2a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Hyperlite PP product page (archived 2025-09-17)"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b41), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G103-01",
+        "MaterialID": "M103",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "Hyperlite PP",
+        "Shared formulation key": "X-Hyperlite-PP-TDS-v1",
+        "Composition / filler": "Specialty additive for ultra low density; the manufacturer states 0.75 g/cc (\"HyperLite PP HGB1\", R-TRINITY3DS-HYPERLITE-PP). A lightweight variant, not unfilled PP.",
+        "Variant": "lightweight additive",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-Hyperlite-PP-TDS-v1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M103",
+        "GradeID": "G103-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "210-240°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "60-90°C",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not required",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not needed",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "No special concerns",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DXTECH-READER-20261004-9ee12a12747c",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Recommendations",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "No special concerns"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temp  210-240°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "Page also prints \"Very low density, only 0.9g/cc\" (a feature claim with no method; the database already holds the TDS's 0.81 and an older edition's 0.75 for this product): not entered."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+    "note": "Maker document for the existing product G103-01: print settings only (1 profile row(s)); no measurement is entered. Page also prints \"Very low density, only 0.9g/cc\" (a feature claim with no method; the database already holds the TDS's 0.81 and an older edition's 0.75 for this product): not entered."
+  }
+}

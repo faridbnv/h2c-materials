@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b41.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "e4755c0876bd7f511c6c97d4fd6632b6b4baf506b7e8f6d926230f612f6e4e14",
+    "url": "http://web.archive.org/web/20231002212720id_/https://www.3dxtech.com/product/3dxmax-pc-asa/",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "http://web.archive.org/web/20231002212720id_/https://www.3dxtech.com/product/3dxmax-pc-asa/#witness-for=source:X-ECOMAX-3DXMAX-PCASA-TDS-v3"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G119-01 (3DXTECH 3DXMAX PC/ASA) of M119; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DXTECH-READER-20261004-e4755c0876bd",
+      "Publisher": "3DXTECH",
+      "Title": "3DXMAX PC/ASA product page (archived 2023-10-02)",
+      "Revision": "Internet Archive capture of 2023-10-02 21:27:20 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The 3DXTECH product page for 3DXMAX PC/ASA as the Internet Archive captured it on 2023-10-02. The page states that the product is discontinued, and the live address now redirects to the maker's 3DXMAX r-ASA page. The registered TDS (v3) prints no print settings; this page prints the nozzle and bed windows and an enclosure recommendation.",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20231002212720id_/https://www.3dxtech.com/product/3dxmax-pc-asa/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G119-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/product/3dxmax-pc-asa/; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "e4755c0876bd7f511c6c97d4fd6632b6b4baf506b7e8f6d926230f612f6e4e14"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "3DXMAX PC/ASA product page (archived 2023-10-02)"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b41), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G119-01",
+        "MaterialID": "M119",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXMAX PC/ASA",
+        "Shared formulation key": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M119",
+        "GradeID": "G119-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "270 – 290°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "270",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "110 – 120°C",
+        "Bed state": "range",
+        "Bed min °C": "110",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "We recommend using a printer with an enclosure to help keep some heat in while printing with PC/ASA",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DXTECH-READER-20261004-e4755c0876bd",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended Print Conditions",
+        "Parse review": "Fields: Enclosure state. The page asks for a printer with an enclosure to keep some heat in (\"Enclosure: We recommend using a printer with an enclosure to help keep some heat in while printing with PC/ASA\", p. 1); the parser does not read that wording, so the state is typed by the reviewer as a recommendation. No chamber temperature is published. The other typed columns are the parsers' reading."
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Bed Prep: 3DXTech Polyimide Tape, ABS / Acetone Slurry, or Hairspray on clean glass; cool the bed down by about 10-20°C after the first couple of layers"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temp: 270 – 290°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "Drying is not printed on the page: it says \"Please see the following instructions\" and links a separate drying page, so Drying stays Not published. The page also says \"Note : This product is discontinued.\"; no nozzle statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+    "note": "Maker document for the existing product G119-01: print settings only (1 profile row(s)); no measurement is entered. Drying is not printed on the page: it says \"Please see the following instructions\" and links a separate drying page, so Drying stays Not published. The page also says \"Note : This product is discontinued.\"; no nozzle statement."
+  }
+}

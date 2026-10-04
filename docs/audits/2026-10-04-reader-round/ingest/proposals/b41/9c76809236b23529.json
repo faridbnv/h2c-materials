@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b41.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "9c76809236b23529cc7c1d4d11eb75c64223910abded7bab32397b857f74d2ea",
+    "url": "http://web.archive.org/web/20240528134142id_/https://www.3dxtech.com/product/3dxstat-esd-pps/",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "http://web.archive.org/web/20240528134142id_/https://www.3dxtech.com/product/3dxstat-esd-pps/#witness-for=source:X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G124-01 (3DXTECH 3DXSTAT ESD-PPS) of M124; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DXTECH-READER-20261004-9c76809236b2",
+      "Publisher": "3DXTECH",
+      "Title": "3DXSTAT ESD-PPS product page (archived 2024-05-28)",
+      "Revision": "Internet Archive capture of 2024-05-28 13:41:42 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The 3DXTECH product page for 3DXSTAT ESD-PPS as the Internet Archive captured it on 2024-05-28 (the live address now redirects to the ESD-safe collection). The registered TDS (v3) prints no print settings; this page prints the nozzle, bed, chamber and drying settings.",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20240528134142id_/https://www.3dxtech.com/product/3dxstat-esd-pps/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G124-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/product/3dxstat-esd-pps/; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "9c76809236b23529cc7c1d4d11eb75c64223910abded7bab32397b857f74d2ea"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "3DXSTAT ESD-PPS product page (archived 2024-05-28)"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b41), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G124-01",
+        "MaterialID": "M124",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD-PPS",
+        "Shared formulation key": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M124",
+        "GradeID": "G124-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "315-345°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "315",
+        "Nozzle max °C": "345",
+        "Nozzle requirement": "required",
+        "Bed °C": "120-160°C",
+        "Bed state": "range",
+        "Bed min °C": "120",
+        "Bed max °C": "160",
+        "Bed requirement": "required",
+        "Chamber °C": "Recommended 60-90°C if possible",
+        "Chamber state": "range",
+        "Chamber min °C": "60",
+        "Chamber max °C": "90",
+        "Chamber requirement": "recommended",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "110°C for 4 hours",
+        "Drying state": "stated",
+        "Drying °C": "110",
+        "Drying hours": "4",
+        "Nozzle material": "No special concerns",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DXTECH-READER-20261004-9c76809236b2",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Recommendations",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "No special concerns"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Nano Polymer Adhesive"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temp 315-345°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The \"Benefits of PPS include\" list prints \"Melting temperatures (Tm) of 285°C\" and \"Glass Transition temperature (Tg) of 85°C\": statements about PPS the polymer, with no method or product scope, beside the registered TDS's product Tg of 83 °C; the reader proposed them as measurements and the reviewer rejected both. The annealing instructions are post-processing for PPS parts, not a column of the profile."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+    "note": "Maker document for the existing product G124-01: print settings only (1 profile row(s)); no measurement is entered. The \"Benefits of PPS include\" list prints \"Melting temperatures (Tm) of 285°C\" and \"Glass Transition temperature (Tg) of 85°C\": statements about PPS the polymer, with no method or product scope, beside the registered TDS's product Tg of 83 °C; the reader proposed them as measurements and the reviewer rejected both. The annealing instructions are post-processing for PPS parts, not a column of the profile."
+  }
+}

@@ -46,6 +46,8 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA12-CF (M053) | Indoor prototype; Warm environment | collected | 1 of 15 | 5 / 4 / 9 | MatterHackers (matterhackers.com) |
 | PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 9 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 5 / 4 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PP Lightweight (M103) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PVDF-ESD (M120) | Indoor prototype; Warm environment | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ABS-AF (M106) | Indoor prototype; Warm environment | collected | 0 of 3 | 0 / 1 / 1 | — |
 | CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 5 | 2 / 2 / 3 | — |
 | HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 11 | 5 / 7 / 9 | — |
@@ -59,6 +61,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 9 / 9 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 6 / 6 / 10 | — |
 | PLA blend (M168) | Indoor prototype; Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
+| PLA-PHB (M146) | Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 17 | 9 / 9 / 17 | — |
 | TPU 90A class (M160) | Flexible component; Indoor prototype | collected | 0 of 12 | 4 / 3 / 11 | — |
 | TPU 95A class (M161) | Flexible component; Indoor prototype | collected | 0 of 27 | 13 / 9 / 24 | — |
@@ -101,8 +104,8 @@ documents were read and give none of one is listed under "Recipe silent".
 | PEI / ULTEM (M099) | — | collected | 3 of 13 | 6 / 7 / 9 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEEK-CF (M125) | — | collected | 2 of 5 | 3 / 4 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ABS-CF (M029) | — | collected | 1 of 11 | 2 / 2 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PC-ABS-CF (M128) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PC-ASA (M119) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PC-ABS-CF (M128) | — | sheet-silent | 1 of 1 | 1 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PC-ASA (M119) | — | sheet-silent | 1 of 1 | 0 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ESD (M116) | — | collected | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PCL (M149) | — | collected | 1 of 4 | 3 / 3 / 3 | iSANMATE (isanmate.com) |
 | PEEK-GF (M127) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
@@ -110,19 +113,17 @@ documents were read and give none of one is listed under "Recipe silent".
 | PEI-GF (M117) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEKK (M098) | — | collected | 1 of 5 | 1 / 1 / 3 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEKK-ESD (M115) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PP Lightweight (M103) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PPS-ESD (M124) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PPS-ESD (M124) | — | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PVA (M075) | — | collected | 1 of 11 | 8 / 8 / 11 | Yousu (ysfilament.com) |
 | PVDF (M096) | — | collected | 1 of 3 | 2 / 2 / 2 | Filament2Print (filament2print.com) |
-| PVDF-ESD (M120) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPC / TPEE (M046) | — | collected | 1 of 11 | 4 / 4 / 4 | FormFutura (formfutura.com) |
 | TPC-ESD (M114) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPI (M121) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | BVOH (M076) | — | collected | 0 of 4 | 2 / 1 / 3 | — |
 | COC (M137) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
 | LCP (M139) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
-| PA-ESD (M064) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
-| PA12-AF (M154) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
+| PA-ESD (M064) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
+| PA12-AF (M154) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PAHT-CE (M148) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PBT-GF (M132) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-GF (M038) | — | collected | 0 of 3 | 2 / 1 / 2 | — |
@@ -132,7 +133,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PEEK (M097) | — | collected | 0 of 7 | 1 / 2 / 5 | — |
 | PEKK-CF (M122) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PLA-GR (M155) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
-| PLA-PHB (M146) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 4 | 2 / 1 / 3 | — |
 | PPE-PS (M130) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PPS (M072) | — | collected | 0 of 2 | 0 / 0 / 1 | — |

@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b41.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "119857e63f29761d70a8e726d1c28e225eeac33063d627d58650675209df9533",
+    "url": "https://fillamentum.com/wp-content/uploads/2020/10/FI_Printing_Guide_Nylon_AF80_Aramid.pdf",
+    "pages": 1,
+    "provider": "Fillamentum",
+    "manufacturer": "Fillamentum",
+    "docKey": "https://fillamentum.com/wp-content/uploads/2020/10/FI_Printing_Guide_Nylon_AF80_Aramid.pdf#witness-for=source:R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G154-01 (Fillamentum Nylon AF80 Aramid) of M154; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILLAMENTUM-READER-20261004-119857e63f29",
+      "Publisher": "Fillamentum",
+      "Title": "Fillamentum Nylon AF80 Aramid 3D printing guide",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Fillamentum's own 3D printing guide for Nylon AF80 Aramid (polyamide 12 with 8 % aramid fibres), one page. It prints the heated chamber / enclosure recommendation, the re-drying schedule and the wear-resistant nozzle advice that the registered TDS does not.",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2020/10/FI_Printing_Guide_Nylon_AF80_Aramid.pdf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G154-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "119857e63f29761d70a8e726d1c28e225eeac33063d627d58650675209df9533"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Fillamentum Nylon AF80 Aramid 3D printing guide"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b41), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G154-01",
+        "MaterialID": "M154",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Nylon AF80 Aramid",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+        "Composition / filler": "a material filled with aramid fibres for (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M154",
+        "GradeID": "G154-01",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "235 – 255 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "235",
+        "Nozzle max °C": "255",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 – 110 °C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "recommended",
+        "Chamber state": "recommended",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "recommended",
+        "Enclosure": "Heated chamber / enclosure: recommended",
+        "Enclosure state": "recommended",
+        "Plate": "PEI, mirror / glass",
+        "Drying": "80 °C for 3 hours",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "3",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "It is recommended to use wear-resistant nozzles (hardened steel, ruby, Dexdo nozzle etc.) due to the content of aramid fibers",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILLAMENTUM-READER-20261004-119857e63f29",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Printing guide",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 – 50 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0 %"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Adhesive: Magigoo PA, PVA glue; Raft / skirt / brim: Brim >10 mm / raft"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Printing temperature: 235 – 255 °C Heated bed surface: PEI, mirror / glass"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "visual": true,
+        "note": "Read from the cached text and the page image; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The guide's nozzle and bed windows equal the registered TDS's; the guide adds the enclosure recommendation, the re-drying schedule (80 C for 3 hours; the maker's drying table, already registered, prints 80 C, minimum 4 h, as a separate statement) and the wear-resistant nozzle advice."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+    "note": "Maker document for the existing product G154-01: print settings only (1 profile row(s)); no measurement is entered. The guide's nozzle and bed windows equal the registered TDS's; the guide adds the enclosure recommendation, the re-drying schedule (80 C for 3 hours; the maker's drying table, already registered, prints 80 C, minimum 4 h, as a separate statement) and the wear-resistant nozzle advice."
+  }
+}

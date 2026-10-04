@@ -8,9 +8,9 @@
   },
   "coverage": {
     "baseline": 805,
-    "current": 947,
-    "added": 142,
-    "edited_existing": 79,
+    "current": 948,
+    "added": 143,
+    "edited_existing": 80,
     "removed": 0
   },
   "evidence": {
@@ -85,15 +85,15 @@
   },
   "profile_notes": {
     "baseline": 2061,
-    "current": 2169,
-    "added": 108,
+    "current": 2199,
+    "added": 138,
     "edited_existing": 0,
     "removed": 0
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1392,
-    "added": 76,
+    "current": 1403,
+    "added": 87,
     "edited_existing": 768,
     "removed": 0
   },
@@ -106,8 +106,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 1918,
-    "added": 90,
+    "current": 1928,
+    "added": 100,
     "edited_existing": 63,
     "removed": 0
   }

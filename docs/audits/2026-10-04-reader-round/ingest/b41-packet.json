@@ -1,0 +1,1108 @@
+{
+  "PacketID": "b41-maker-pages",
+  "Batch": "b41",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G064-01",
+      "MaterialID": "M064",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DXTECH",
+      "Product name": "3DXSTAT ESD PA12",
+      "Shared formulation key": "X-3DXSTAT-ESD-PA12-TDS-v1",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "X-3DXSTAT-ESD-PA12-TDS-v1",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G103-01",
+      "MaterialID": "M103",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DXTECH",
+      "Product name": "Hyperlite PP",
+      "Shared formulation key": "X-Hyperlite-PP-TDS-v1",
+      "Composition / filler": "Specialty additive for ultra low density; the manufacturer states 0.75 g/cc (\"HyperLite PP HGB1\", R-TRINITY3DS-HYPERLITE-PP). A lightweight variant, not unfilled PP.",
+      "Variant": "lightweight additive",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "X-Hyperlite-PP-TDS-v1",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G119-01",
+      "MaterialID": "M119",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DXTECH",
+      "Product name": "3DXMAX PC/ASA",
+      "Shared formulation key": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "X-ECOMAX-3DXMAX-PCASA-TDS-v3",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G120-01",
+      "MaterialID": "M120",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DXTECH",
+      "Product name": "3DXSTAT ESD-PVDF",
+      "Shared formulation key": "X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "X-ECOMAX-3DXSTAT-ESD-PVDF-v3-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G124-01",
+      "MaterialID": "M124",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DXTECH",
+      "Product name": "3DXSTAT ESD-PPS",
+      "Shared formulation key": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "X-ECOMAX-3DXSTAT-ESD-PPS-v3-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G128-01",
+      "MaterialID": "M128",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "3DXTECH",
+      "Product name": "CarbonX Carbon Fiber PC/ABS",
+      "Shared formulation key": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+      "Composition / filler": "Technical Data Sheet: CarbonX™ Carbon Fiber PC/ABS 3D Printing Filament (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "X-ECOMAX-CarbonX-CF-PC-ABS-TDS-v1-1",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G132-01",
+      "MaterialID": "M132",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Flashforge",
+      "Product name": "PBT-GF",
+      "Shared formulation key": "D-FLASH-PBT-GF-TDS-EN",
+      "Composition / filler": "PBT-GF is a polyester modified material containing 5-10% glass fiber, characterized by (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "D-FLASH-PBT-GF-TDS-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G133-01",
+      "MaterialID": "M133",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Flashforge",
+      "Product name": "Flexible",
+      "Shared formulation key": "D-FLASH-PBAT-TDS-EN",
+      "Composition / filler": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "D-FLASH-PBAT-TDS-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G146-01",
+      "MaterialID": "M146",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fillamentum",
+      "Product name": "NonOilen",
+      "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G154-01",
+      "MaterialID": "M154",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fillamentum",
+      "Product name": "Nylon AF80 Aramid",
+      "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+      "Composition / filler": "a material filled with aramid fibres for (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedCoverage": [
+    {
+      "CoverageID": "C01407",
+      "MaterialID": "M103",
+      "GradeID": "Not applicable",
+      "Domain": "Print setup",
+      "Status": "Gap",
+      "Manufacturer count": "Not applicable",
+      "Finding": "No printing settings published: the only settings on record were the conditions its specimens were printed under, which are not printing guidance (m170-the-test-bars-are-not-the-recipe, 2026-09-26)."
+    }
+  ],
+  "Documents": [
+    {
+      "File": "1e9273d6658caf6b.json",
+      "Extension": "html",
+      "ProposalSHA256": "d8542a82f455ecdafdf5824e0eb4dd362cbd5ccc277ed5f601159b55d165cea2",
+      "OriginalSHA256": "1e9273d6658caf6b5bb675f2f9b5569f2a16d558b1c534d4df73bb691a4e4db7",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-1e9273d6658c",
+        "Publisher": "3DXTECH",
+        "Title": "3DXSTAT ESD-Nylon 12 product page (archived 2025-11-15)",
+        "Revision": "Internet Archive capture of 2025-11-15 02:02:29 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The 3DXTECH product page for 3DXSTAT ESD-Nylon 12 as the Internet Archive captured it on 2025-11-15 (the product is sold out; the live address now redirects to the maker's ESD-safe collection). Adds the chamber, nozzle and drying statements the registered TDS (v1) does not print; its extruder window (275-295 C) differs from the TDS's (265-285 C) and both stand.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20251115020229id_/https://www.3dxtech.com/products/3dxstat-esd-nylon-12",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G064-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/products/3dxstat-esd-nylon-12; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "1e9273d6658caf6b5bb675f2f9b5569f2a16d558b1c534d4df73bb691a4e4db7"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M064",
+            "GradeID": "G064-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "275-295C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "275",
+            "Nozzle max °C": "295",
+            "Nozzle requirement": "required",
+            "Bed °C": "90-110C",
+            "Bed state": "range",
+            "Bed min °C": "90",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Recommended",
+            "Chamber state": "recommended",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "recommended",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "90C for 4 hours",
+            "Drying state": "stated",
+            "Drying °C": "90",
+            "Drying hours": "4",
+            "Nozzle material": "Hardened Steel with .4mm diameter minimum",
+            "Nozzle diameter": ".4mm diameter minimum",
+            "Abrasion / clogging": "Hardened Steel with .4mm diameter minimum",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-1e9273d6658c",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "0.25mm or higher"
+            }
+          ]
+        }
+      ],
+      "Skipped": "Page also prints \"High thermal properties, with an HDT of 150C\" (a feature claim with no load or standard; the registered TDS prints HDT 0.45 MPa 142) and a sales price: not entered."
+    },
+    {
+      "File": "9ee12a12747c5ab5.json",
+      "Extension": "html",
+      "ProposalSHA256": "1eea31b110b44781816b3ad88b84ea49704ff3da92529de58af94dd2b74be970",
+      "OriginalSHA256": "9ee12a12747c5ab51dd99be8fbfdb3cdf61a9e54702bf8e36f478529c2556e2a",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-9ee12a12747c",
+        "Publisher": "3DXTECH",
+        "Title": "Hyperlite PP product page (archived 2025-09-17)",
+        "Revision": "Internet Archive capture of 2025-09-17 15:22:46 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The 3DXTECH product page for Hyperlite PP as the Internet Archive captured it on 2025-09-17 (the live address now redirects to the maker's polypropylene collection). The registered TDS prints no print settings (its only profile is the test-bar conditions); this page prints all of them.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20250917152246id_/https://www.3dxtech.com/products/hyperlite%E2%84%A2-pp",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G103-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/products/hyperlite%E2%84%A2-pp; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "9ee12a12747c5ab51dd99be8fbfdb3cdf61a9e54702bf8e36f478529c2556e2a"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M103",
+            "GradeID": "G103-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "210-240°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "210",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "60-90°C",
+            "Bed state": "range",
+            "Bed min °C": "60",
+            "Bed max °C": "90",
+            "Bed requirement": "required",
+            "Chamber °C": "Not required",
+            "Chamber state": "not-required",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "none",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not needed",
+            "Drying state": "stated",
+            "Drying °C": "Not published",
+            "Drying hours": "Not published",
+            "Nozzle material": "No special concerns",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-9ee12a12747c",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "No special concerns"
+            }
+          ]
+        }
+      ],
+      "Skipped": "Page also prints \"Very low density, only 0.9g/cc\" (a feature claim with no method; the database already holds the TDS's 0.81 and an older edition's 0.75 for this product): not entered."
+    },
+    {
+      "File": "e4755c0876bd7f51.json",
+      "Extension": "html",
+      "ProposalSHA256": "178650487e1dfdf48f926ca6592aa4315ea6915356dcff8adb1fb651fd6a73a7",
+      "OriginalSHA256": "e4755c0876bd7f511c6c97d4fd6632b6b4baf506b7e8f6d926230f612f6e4e14",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-e4755c0876bd",
+        "Publisher": "3DXTECH",
+        "Title": "3DXMAX PC/ASA product page (archived 2023-10-02)",
+        "Revision": "Internet Archive capture of 2023-10-02 21:27:20 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The 3DXTECH product page for 3DXMAX PC/ASA as the Internet Archive captured it on 2023-10-02. The page states that the product is discontinued, and the live address now redirects to the maker's 3DXMAX r-ASA page. The registered TDS (v3) prints no print settings; this page prints the nozzle and bed windows and an enclosure recommendation.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20231002212720id_/https://www.3dxtech.com/product/3dxmax-pc-asa/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G119-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/product/3dxmax-pc-asa/; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "e4755c0876bd7f511c6c97d4fd6632b6b4baf506b7e8f6d926230f612f6e4e14"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M119",
+            "GradeID": "G119-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "270 – 290°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "270",
+            "Nozzle max °C": "290",
+            "Nozzle requirement": "required",
+            "Bed °C": "110 – 120°C",
+            "Bed state": "range",
+            "Bed min °C": "110",
+            "Bed max °C": "120",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "We recommend using a printer with an enclosure to help keep some heat in while printing with PC/ASA",
+            "Enclosure state": "recommended",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-e4755c0876bd",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Recommended Print Conditions",
+            "Parse review": "Fields: Enclosure state. The page asks for a printer with an enclosure to keep some heat in (\"Enclosure: We recommend using a printer with an enclosure to help keep some heat in while printing with PC/ASA\", p. 1); the parser does not read that wording, so the state is typed by the reviewer as a recommendation. No chamber temperature is published. The other typed columns are the parsers' reading."
+          },
+          "notes": [
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Bed Prep: 3DXTech Polyimide Tape, ABS / Acetone Slurry, or Hairspray on clean glass; cool the bed down by about 10-20°C after the first couple of layers"
+            }
+          ]
+        }
+      ],
+      "Skipped": "Drying is not printed on the page: it says \"Please see the following instructions\" and links a separate drying page, so Drying stays Not published. The page also says \"Note : This product is discontinued.\"; no nozzle statement."
+    },
+    {
+      "File": "53a83297c7cf59a6.json",
+      "Extension": "html",
+      "ProposalSHA256": "057c3ecb1af60531244f3c9940a1357bfd7604dd4dbd4366f214e761ec96663e",
+      "OriginalSHA256": "53a83297c7cf59a6b5f24aecd5e52973ee0f090439e5555f56c212db39b82170",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-53a83297c7cf",
+        "Publisher": "3DXTECH",
+        "Title": "3DXSTAT ESD-PVDF product page (archived 2023-10-02)",
+        "Revision": "Internet Archive capture of 2023-10-02 20:42:10 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The 3DXTECH product page for 3DXSTAT ESD-PVDF as the Internet Archive captured it on 2023-10-02 (the live address now redirects to the ESD-safe collection). The registered TDS (v3) prints no print settings; this page prints them twice (the Print Recommendations list and the Recommended Print Settings text), and the two agree.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20231002204210id_/https://www.3dxtech.com/product/3dxstat-esd-pvdf/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G120-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/product/3dxstat-esd-pvdf/; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "53a83297c7cf59a6b5f24aecd5e52973ee0f090439e5555f56c212db39b82170"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M120",
+            "GradeID": "G120-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "250-270°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "250",
+            "Nozzle max °C": "270",
+            "Nozzle requirement": "required",
+            "Bed °C": "90-110°C",
+            "Bed state": "range",
+            "Bed min °C": "90",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Not required",
+            "Chamber state": "not-required",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "none",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not required",
+            "Drying state": "stated",
+            "Drying °C": "Not published",
+            "Drying hours": "Not published",
+            "Nozzle material": "No special concerns",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-53a83297c7cf",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations; Recommended Print Settings",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "No special concerns"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Nano Polymer Adhesive"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "No or very slow cooling fan"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "40-60mm/s as a good starting point"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The second print block adds \"Some need to get as high as 280°C\" and a degradation warning above 290°C (a limit on the extruder, not a setting a column holds): not entered. \"High Thermal Properties: 130°C CUT\" and \"Rated for uses up to 150°C\" are feature claims with no method: not entered."
+    },
+    {
+      "File": "9c76809236b23529.json",
+      "Extension": "html",
+      "ProposalSHA256": "292b4ae1f886a72e436b97fa0eb78b2c23dc6997f88f37cbd88c007ef22d1132",
+      "OriginalSHA256": "9c76809236b23529cc7c1d4d11eb75c64223910abded7bab32397b857f74d2ea",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-9c76809236b2",
+        "Publisher": "3DXTECH",
+        "Title": "3DXSTAT ESD-PPS product page (archived 2024-05-28)",
+        "Revision": "Internet Archive capture of 2024-05-28 13:41:42 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The 3DXTECH product page for 3DXSTAT ESD-PPS as the Internet Archive captured it on 2024-05-28 (the live address now redirects to the ESD-safe collection). The registered TDS (v3) prints no print settings; this page prints the nozzle, bed, chamber and drying settings.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20240528134142id_/https://www.3dxtech.com/product/3dxstat-esd-pps/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G124-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/product/3dxstat-esd-pps/; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "9c76809236b23529cc7c1d4d11eb75c64223910abded7bab32397b857f74d2ea"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M124",
+            "GradeID": "G124-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "315-345°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "315",
+            "Nozzle max °C": "345",
+            "Nozzle requirement": "required",
+            "Bed °C": "120-160°C",
+            "Bed state": "range",
+            "Bed min °C": "120",
+            "Bed max °C": "160",
+            "Bed requirement": "required",
+            "Chamber °C": "Recommended 60-90°C if possible",
+            "Chamber state": "range",
+            "Chamber min °C": "60",
+            "Chamber max °C": "90",
+            "Chamber requirement": "recommended",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "110°C for 4 hours",
+            "Drying state": "stated",
+            "Drying °C": "110",
+            "Drying hours": "4",
+            "Nozzle material": "No special concerns",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-9c76809236b2",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "No special concerns"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Nano Polymer Adhesive"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The \"Benefits of PPS include\" list prints \"Melting temperatures (Tm) of 285°C\" and \"Glass Transition temperature (Tg) of 85°C\": statements about PPS the polymer, with no method or product scope, beside the registered TDS's product Tg of 83 °C; the reader proposed them as measurements and the reviewer rejected both. The annealing instructions are post-processing for PPS parts, not a column of the profile."
+    },
+    {
+      "File": "9bf1f9fec02084e8.json",
+      "Extension": "html",
+      "ProposalSHA256": "d860488a1da9610bedb58831e0e24c59763b7f75b45e6202a68c5652a044a72b",
+      "OriginalSHA256": "9bf1f9fec02084e8496234f4427aad04255cb8ce94db8e7d9335839a49755ecb",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-9bf1f9fec020",
+        "Publisher": "3DXTECH",
+        "Title": "CarbonX PC-ABS+CF product page (archived 2023-06-03)",
+        "Revision": "Internet Archive capture of 2023-06-03 15:03:15 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The 3DXTECH product page for CarbonX PC-ABS+CF as the Internet Archive captured it on 2023-06-03 (the live address now redirects to the carbon-fibre collection). The registered TDS (v1.1) prints no print settings besides the test-bar conditions; this page prints the nozzle, bed, chamber, nozzle hardness and drying settings.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20230603150315id_/https://www.3dxtech.com/product/carbonx-pc-abs-cf/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G128-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.3dxtech.com/product/carbonx-pc-abs-cf/; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "9bf1f9fec02084e8496234f4427aad04255cb8ce94db8e7d9335839a49755ecb"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M128",
+            "GradeID": "G128-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "280-300°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "280",
+            "Nozzle max °C": "300",
+            "Nozzle requirement": "required",
+            "Bed °C": "110-120°C",
+            "Bed state": "range",
+            "Bed min °C": "110",
+            "Bed max °C": "120",
+            "Bed requirement": "required",
+            "Chamber °C": "Recommended",
+            "Chamber state": "recommended",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "recommended",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "110°C for 4 hours",
+            "Drying state": "stated",
+            "Drying °C": "110",
+            "Drying hours": "4",
+            "Nozzle material": "0.4mm diameter minimum Hardened Steel Nozzle",
+            "Nozzle diameter": "0.4mm diameter minimum",
+            "Abrasion / clogging": "0.4mm diameter minimum Hardened Steel Nozzle",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-9bf1f9fec020",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations; Recommended Print Settings",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "0.25mm or higher"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Magigoo Bed Prep"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The second print block says \"110°C for 4+ hours\" and that layers below 0.25mm \"may create too much back pressure in the hot end\"; the first block's 4 hours is the drying schedule entered."
+    },
+    {
+      "File": "09ddb7416c0cca16.json",
+      "Extension": "html",
+      "ProposalSHA256": "6ef9fa05b0df1101ab12d3f1ce149804911a5882a0e31ecc6b996913527595f1",
+      "OriginalSHA256": "09ddb7416c0cca16a1d3cd13a64bedb58839c0e08545790916dbd819e4ddbf5d",
+      "Source": {
+        "SourceID": "R-FLASHFORGE-READER-20261004-09ddb7416c0c",
+        "Publisher": "Flashforge",
+        "Title": "Flashforge PBT-GF product page (archived 2024-08-13)",
+        "Revision": "Internet Archive capture of 2024-08-13 22:38:34 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The Flashforge product page for PBT-GF as the Internet Archive captured it on 2024-08-13 (the product was listed \"Sold out / Coming soon\"; the live address now answers 404). Its drying schedule (80 C, 3 h) differs from the registered TDS's (80 C, at least 12 h) and both stand. The parameters sentence names the product \"PET-GF\" once; the title, the URL and the BASF Ultradur B 4300 G2 resin it names make it the PBT-GF.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20240813223834id_/https://flashforge.com/products/pbt-gf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G132-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://flashforge.com/products/pbt-gf; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "09ddb7416c0cca16a1d3cd13a64bedb58839c0e08545790916dbd819e4ddbf5d"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M132",
+            "GradeID": "G132-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "260~280°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "260",
+            "Nozzle max °C": "280",
+            "Nozzle requirement": "required",
+            "Bed °C": "100~120°C",
+            "Bed state": "range",
+            "Bed min °C": "100",
+            "Bed max °C": "120",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "80°C, 3h (convection oven)",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "3",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "φ0.4/0.6mm (φ0.4mm recommended)",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FLASHFORGE-READER-20261004-09ddb7416c0c",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Recommended Printing Parameters",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "0.12~0.3mm"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "40~100mm/s"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0~50%"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Length: 1~2mm; Retraction Speed: 40~60mm/s"
+            },
+            {
+              "Topic": "Storage humidity",
+              "Text": "Room temperature to 40°C, ≤20% RH (sealed with desiccant)"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page says the filament \"makes it easy to print even on non-heated chamber FFF 3D printers\" and \"can withstand continuous use at temperatures up to 150°C\" (statements with no setpoint or method), and once calls the product \"PET-GF\" in the parameters sentence: not entered. The registered TDS prints an ambient temperature of 50~70 C and a drying schedule of 80 C for at least 12 hours; this page's 3 hours stands as a second statement."
+    },
+    {
+      "File": "b37ec3e8655169ce.json",
+      "Extension": "html",
+      "ProposalSHA256": "bfd1aad4014e5e106b0aa24fa51c4898147ff9f4d1e8a56219df579a368fce60",
+      "OriginalSHA256": "b37ec3e8655169ce1ca8e94f89f498b26d7b054ed37c3273024c0b0f4deb9ef0",
+      "Source": {
+        "SourceID": "R-FLASHFORGE-READER-20261004-b37ec3e86551",
+        "Publisher": "Flashforge",
+        "Title": "Flashforge Flexible product page (archived 2025-10-08)",
+        "Revision": "Internet Archive capture of 2025-10-08 15:25:50 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "The Flashforge product page for Flexible as the Internet Archive captured it on 2025-10-08 (the live address now answers 404). The page titles the product \"Flashforge PLA Flexible Filament\" where the registered TDS says PBAT; it is taken as the same product (same name, shop address and SKU). Its windows differ from the TDS's (nozzle 190~240 vs 200~240 C, bed 25~60 vs room temperature~60 C, speed 20~200 vs 30~150 mm/s) and its drying schedule is 70 C for 5 hours where the TDS says 60 C for at least 5 hours: both statements stand.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20251008152550id_/https://www.flashforge.com/products/flexible",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G133-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.flashforge.com/products/flexible; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "b37ec3e8655169ce1ca8e94f89f498b26d7b054ed37c3273024c0b0f4deb9ef0"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M133",
+            "GradeID": "G133-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "190~240°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "25~60°C",
+            "Bed state": "range",
+            "Bed min °C": "25",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Before Printing: 70°C, 5 hours (Convection Oven)",
+            "Drying state": "stated",
+            "Drying °C": "70",
+            "Drying hours": "5",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "φ0.4/0.6mm (Recommended φ0.6mm)",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FLASHFORGE-READER-20261004-b37ec3e86551",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Specification",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "0.2~0.3mm"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "20~200mm/s"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50~100%"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Length: 0.3~1mm; Retraction Speed: 30~50mm/s"
+            },
+            {
+              "Topic": "Storage humidity",
+              "Text": "Room temperature to 40°C, ≤20% RH (Sealed with desiccant)"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page also says the filament is \"Ideal for direct drive extruders with 0.6mm or larger nozzles\" (the diameter cell holds the specification line). Identity: the page titles the product \"Flashforge PLA Flexible Filament\", the registered TDS \"Flexible Filament\" made of PBAT; the product name, the shop address (/products/flexible), the SKU (DLZ-Flexible), the nozzle-diameter and support-material lines are the same, so the page is taken as this product's, with the naming difference recorded here."
+    },
+    {
+      "File": "35aa375ebaab5e10.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "d57040de8a112c726fd24113625631943b22222b7903e9343578aed827622e31",
+      "OriginalSHA256": "35aa375ebaab5e10fc4e76fd7cdf6546025a56c32f75be8803fe1dbdf8827df8",
+      "Source": {
+        "SourceID": "R-FILLAMENTUM-READER-20261004-35aa375ebaab",
+        "Publisher": "Fillamentum",
+        "Title": "NonOilen 3D printing guide (version updated 8/2024)",
+        "Revision": "Version updated in 8/2024",
+        "Publication date": "2024-08",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Fillamentum's own 3D printing guide for NonOilen, version updated 8/2024 (one page). It prints two printer setups (basic non high-speed printers, and high-speed printers), a heated-chamber statement and a drying schedule that the registered 2020 TDS does not, or prints differently (nozzle 175-195 C, re-dry 65 C for 2 h); both stand.",
+        "Citation role": "cited",
+        "URL": "https://fillamentum.com/wp-content/uploads/2024/11/3D_PRINT_GUIDE_NONOILEN_8_2024.pdf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G146-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "35aa375ebaab5e10fc4e76fd7cdf6546025a56c32f75be8803fe1dbdf8827df8"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M146",
+            "GradeID": "G146-01",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "170 – 195 °C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "170",
+            "Nozzle max °C": "195",
+            "Nozzle requirement": "required",
+            "Bed °C": "0 – 50 °C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "50",
+            "Bed requirement": "required",
+            "Chamber °C": "Not required",
+            "Chamber state": "not-required",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "none",
+            "Enclosure": "Heated Chamber: not necessary",
+            "Enclosure state": "not-needed",
+            "Plate": "PEI, mirror/glass, Lockpad",
+            "Drying": "75 °C for 5 hours",
+            "Drying state": "stated",
+            "Drying °C": "75",
+            "Drying hours": "5",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FILLAMENTUM-READER-20261004-35aa375ebaab",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Basic non high-speed printers setup",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "20 – 50 mm/s"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "100 %"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Adhesive: Magigoo PP, 3DLac, PVA glue, DimaFix; Raft/skirt/brim: In most cases, a 5 mm brim will help."
+            }
+          ]
+        },
+        {
+          "row": {
+            "MaterialID": "M146",
+            "GradeID": "G146-01",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "180 – 215 °C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "180",
+            "Nozzle max °C": "215",
+            "Nozzle requirement": "required",
+            "Bed °C": "0 – 60 °C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not required",
+            "Chamber state": "not-required",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "none",
+            "Enclosure": "Heated Chamber: not necessary",
+            "Enclosure state": "not-needed",
+            "Plate": "PEI, mirror/glass, Lockpad",
+            "Drying": "75 °C for 5 hours",
+            "Drying state": "stated",
+            "Drying °C": "75",
+            "Drying hours": "5",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FILLAMENTUM-READER-20261004-35aa375ebaab",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: High speed printers setup",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "50 – 200 mm/s"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "80 – 100 %"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Adhesive: Magigoo PP, 3DLac, PVA glue, DimaFix; Raft/skirt/brim: In most cases, a 5 mm brim will help."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The two printer setups are read from the page image as well as the text layer, which scrambles their order. Tip 5 also says a heated chamber \"can help with adhesion and overall print quality\" (its sentence is split by the radar labels in the text layer; the Enclosure cell keeps the words on one line). The overview radar (hardness, impact resistance, density, tensile modulus, temperature resistance up to 110 C, Charpy unnotched) is drawn without numbers: nothing entered from it. The registered 2020 TDS prints 175-195 C, bed 0-50 C and a re-drying schedule of 65 C for 2 hours; the guide's settings are a second statement from a newer edition, and both stand. A third drying statement for NonOilen (70 C, 2 h) is in the maker's drying table already registered as R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442 (not applied to this grade here)."
+    },
+    {
+      "File": "119857e63f29761d.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "b96d2e7a96e56530a01e531a87bfeae0ff7c865f93f117773b7b5e6ed7e4db03",
+      "OriginalSHA256": "119857e63f29761d70a8e726d1c28e225eeac33063d627d58650675209df9533",
+      "Source": {
+        "SourceID": "R-FILLAMENTUM-READER-20261004-119857e63f29",
+        "Publisher": "Fillamentum",
+        "Title": "Fillamentum Nylon AF80 Aramid 3D printing guide",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Fillamentum's own 3D printing guide for Nylon AF80 Aramid (polyamide 12 with 8 % aramid fibres), one page. It prints the heated chamber / enclosure recommendation, the re-drying schedule and the wear-resistant nozzle advice that the registered TDS does not.",
+        "Citation role": "cited",
+        "URL": "https://fillamentum.com/wp-content/uploads/2020/10/FI_Printing_Guide_Nylon_AF80_Aramid.pdf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G154-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "119857e63f29761d70a8e726d1c28e225eeac33063d627d58650675209df9533"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M154",
+            "GradeID": "G154-01",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "235 – 255 °C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "235",
+            "Nozzle max °C": "255",
+            "Nozzle requirement": "required",
+            "Bed °C": "90 – 110 °C",
+            "Bed state": "range",
+            "Bed min °C": "90",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "recommended",
+            "Chamber state": "recommended",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "recommended",
+            "Enclosure": "Heated chamber / enclosure: recommended",
+            "Enclosure state": "recommended",
+            "Plate": "PEI, mirror / glass",
+            "Drying": "80 °C for 3 hours",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "3",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "It is recommended to use wear-resistant nozzles (hardened steel, ruby, Dexdo nozzle etc.) due to the content of aramid fibers",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FILLAMENTUM-READER-20261004-119857e63f29",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Printing guide",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "30 – 50 mm/s"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0 %"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Adhesive: Magigoo PA, PVA glue; Raft / skirt / brim: Brim >10 mm / raft"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The guide's nozzle and bed windows equal the registered TDS's; the guide adds the enclosure recommendation, the re-drying schedule (80 C for 3 hours; the maker's drying table, already registered, prints 80 C, minimum 4 h, as a separate statement) and the wear-resistant nozzle advice."
+    }
+  ],
+  "Review": {
+    "prepared_by": "Claude Sonnet (reader round b41)",
+    "for": "Claude Opus",
+    "scope": "print settings only; no measurement"
+  },
+  "NotAdmitted": [
+    {
+      "Material": "M114",
+      "Why": "the lead is the TPU 90A page (ESD-Flex), a different product from ESD-TPC 92A"
+    },
+    {
+      "Material": "M174",
+      "Why": "the nice-cdn \"v2\" Crystal Flex sheet has the same SHA-256 (95dd0c3f...) as the registered S-PET-TDS-Crystal-Flex: a copy is not a source; the 3DJake page is a retailer"
+    },
+    {
+      "Material": "M078/M079/M137/M139/M175/M166/M056/M058/M060",
+      "Why": "as the owner's instruction: nothing new, complete, no fetchable source or no exact product"
+    },
+    {
+      "Material": "M146/M154 drying table",
+      "Why": "the 12 Oct 2023 drying table is already registered (R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442)"
+    }
+  ]
+}

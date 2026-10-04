@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b41.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "b37ec3e8655169ce1ca8e94f89f498b26d7b054ed37c3273024c0b0f4deb9ef0",
+    "url": "http://web.archive.org/web/20251008152550id_/https://www.flashforge.com/products/flexible",
+    "pages": 1,
+    "provider": "Flashforge",
+    "manufacturer": "Flashforge",
+    "docKey": "http://web.archive.org/web/20251008152550id_/https://www.flashforge.com/products/flexible#witness-for=source:D-FLASH-PBAT-TDS-EN"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G133-01 (Flashforge Flexible) of M133; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FLASHFORGE-READER-20261004-b37ec3e86551",
+      "Publisher": "Flashforge",
+      "Title": "Flashforge Flexible product page (archived 2025-10-08)",
+      "Revision": "Internet Archive capture of 2025-10-08 15:25:50 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The Flashforge product page for Flexible as the Internet Archive captured it on 2025-10-08 (the live address now answers 404). The page titles the product \"Flashforge PLA Flexible Filament\" where the registered TDS says PBAT; it is taken as the same product (same name, shop address and SKU). Its windows differ from the TDS's (nozzle 190~240 vs 200~240 C, bed 25~60 vs room temperature~60 C, speed 20~200 vs 30~150 mm/s) and its drying schedule is 70 C for 5 hours where the TDS says 60 C for at least 5 hours: both statements stand.",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20251008152550id_/https://www.flashforge.com/products/flexible",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G133-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b41) as the raw capture (id_) of https://www.flashforge.com/products/flexible; the Internet Archive replays the page's own content encoding, and the decoded HTML is the document hashed. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "b37ec3e8655169ce1ca8e94f89f498b26d7b054ed37c3273024c0b0f4deb9ef0"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Flashforge Flexible product page (archived 2025-10-08)"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b41), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G133-01",
+        "MaterialID": "M133",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "Flexible",
+        "Shared formulation key": "D-FLASH-PBAT-TDS-EN",
+        "Composition / filler": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-PBAT-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M133",
+        "GradeID": "G133-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "190~240°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "25~60°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Before Printing: 70°C, 5 hours (Convection Oven)",
+        "Drying state": "stated",
+        "Drying °C": "70",
+        "Drying hours": "5",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "φ0.4/0.6mm (Recommended φ0.6mm)",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FLASHFORGE-READER-20261004-b37ec3e86551",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Specification",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.2~0.3mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "20~200mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "50~100%"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Length: 0.3~1mm; Retraction Speed: 30~50mm/s"
+        },
+        {
+          "Topic": "Storage humidity",
+          "Text": "Room temperature to 40°C, ≤20% RH (Sealed with desiccant)"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature: 190~240°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page also says the filament is \"Ideal for direct drive extruders with 0.6mm or larger nozzles\" (the diameter cell holds the specification line). Identity: the page titles the product \"Flashforge PLA Flexible Filament\", the registered TDS \"Flexible Filament\" made of PBAT; the product name, the shop address (/products/flexible), the SKU (DLZ-Flexible), the nozzle-diameter and support-material lines are the same, so the page is taken as this product's, with the naming difference recorded here."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b41), checked by Claude Opus",
+    "note": "Maker document for the existing product G133-01: print settings only (1 profile row(s)); no measurement is entered. The page also says the filament is \"Ideal for direct drive extruders with 0.6mm or larger nozzles\" (the diameter cell holds the specification line). Identity: the page titles the product \"Flashforge PLA Flexible Filament\", the registered TDS \"Flexible Filament\" made of PBAT; the product name, the shop address (/products/flexible), the SKU (DLZ-Flexible), the nozzle-diameter and support-material lines are the same, so the page is taken as this product's, with the naming difference recorded here."
+  }
+}

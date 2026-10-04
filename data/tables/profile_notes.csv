@@ -2168,3 +2168,33 @@ P1249,Storage humidity,Dry box recommended No
 P1266,Storage humidity,Dry box recommended No
 P1288,Storage humidity,Drybox recommended
 P1305,Storage humidity,Drybox recommended
+P1393,Layer height,0.12~0.3mm
+P1393,Speed,40~100mm/s
+P1393,Cooling,0~50%
+P1393,Retraction,Length: 1~2mm; Retraction Speed: 40~60mm/s
+P1393,Storage humidity,"Room temperature to 40°C, ≤20% RH (sealed with desiccant)"
+P1394,Speed,30 – 50 mm/s
+P1394,Cooling,0 %
+P1394,Adhesion / release,"Adhesive: Magigoo PA, PVA glue; Raft / skirt / brim: Brim >10 mm / raft"
+P1395,Layer height,0.25mm or higher
+P1396,Speed,20 – 50 mm/s
+P1396,Cooling,100 %
+P1396,Adhesion / release,"Adhesive: Magigoo PP, 3DLac, PVA glue, DimaFix; Raft/skirt/brim: In most cases, a 5 mm brim will help."
+P1397,Speed,50 – 200 mm/s
+P1397,Cooling,80 – 100 %
+P1397,Adhesion / release,"Adhesive: Magigoo PP, 3DLac, PVA glue, DimaFix; Raft/skirt/brim: In most cases, a 5 mm brim will help."
+P1398,Layer height,No special concerns
+P1398,Adhesion / release,Nano Polymer Adhesive
+P1398,Cooling,No or very slow cooling fan
+P1398,Speed,40-60mm/s as a good starting point
+P1399,Layer height,0.25mm or higher
+P1399,Adhesion / release,Magigoo Bed Prep
+P1400,Layer height,No special concerns
+P1400,Adhesion / release,Nano Polymer Adhesive
+P1401,Layer height,No special concerns
+P1402,Layer height,0.2~0.3mm
+P1402,Speed,20~200mm/s
+P1402,Cooling,50~100%
+P1402,Retraction,Length: 0.3~1mm; Retraction Speed: 30~50mm/s
+P1402,Storage humidity,"Room temperature to 40°C, ≤20% RH (Sealed with desiccant)"
+P1403,Adhesion / release,"Bed Prep: 3DXTech Polyimide Tape, ABS / Acetone Slurry, or Hairspray on clean glass; cool the bed down by about 10-20°C after the first couple of layers"

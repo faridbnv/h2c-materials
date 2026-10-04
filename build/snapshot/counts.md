@@ -20,8 +20,8 @@ rather than repeat a number.
 | Product values | 4,565 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 665 | headline cells of in-scope materials |
 | Material values estimated | 148 | where no product publishes (D43) |
-| Print profiles | 1,313 |  |
+| Print profiles | 1,324 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 4,867 | the makers' words, shown in the panel only (D85) |
 | Price observations | 357 | sampled 2026-09-30 |
-| Sources | 1,918 |  |
+| Sources | 1,928 |  |
