@@ -118,3 +118,36 @@ test('a replaced property keeps its record, and no measurement or headline may u
   }, { estimates: false }).errors;
   assert.ok(chained.some((e) => /itself replaced/.test(e)), chained.slice(0, 5).join(' | '));
 });
+
+test('a headline lower bound and the physical relations order the same pairs (RELATIONS-HEADLINE-DRIFT)', () => {
+  const drift = (edit) => {
+    const wb = structuredClone(base);
+    edit(wb);
+    const issues = [];
+    compileRegistry(wb, issues);
+    return issues.filter((i) => i.code === 'RELATIONS-HEADLINE-DRIFT').map((i) => i.message);
+  };
+  assert.deepEqual(drift(() => {}), []);
+  // A relation the headline projection reads cannot go: the break stress would bound the headline with no physics behind it.
+  const without = drift((wb) => { wb['Physical relations'].rows = wb['Physical relations'].rows.filter((r) => r.RelationID !== 'PR09'); });
+  assert.equal(without.length, 1);
+  assert.match(without[0], /tensileStrengthXY takes Tensile break strength as a lower bound/);
+  // Nor can a relation that says it is a headline's go unread: HDT at 1.8 MPa under HDT at 0.45 MPa is hdt045's bound.
+  const unread = drift((wb) => { wb['Headline definitions'].rows.find((r) => r.HeadlineKey === 'hdt045')['Lower bound properties'] = 'Not applicable'; });
+  assert.equal(unread.length, 1);
+  assert.match(unread[0], /PR08 .* has Scope both, but no headline/);
+  // A bound load the relation does not state is a different bound.
+  const load = drift((wb) => { wb['Physical relations'].rows.find((r) => r.RelationID === 'PR08')['Lower load MPa'] = '3.2'; });
+  assert.ok(load.some((m) => /hdt045 takes HDT as a lower bound at 1.8 MPa/.test(m)));
+});
+
+test("the physical relations travel in the registry, each over real properties and a test it can read", () => {
+  assert.equal(registry.relations.length, base['Physical relations'].rows.length);
+  const names = new Set(registry.properties.map((p) => p.name));
+  for (const rel of registry.relations) {
+    assert.ok(names.has(rel.lower) && names.has(rel.higher), rel.id);
+    assert.ok(rel.sameTest.length > 0, rel.id);
+    // One property ordered against itself is ordered by its test load.
+    if (rel.lower === rel.higher) assert.ok(rel.lowerLoadMPa > rel.higherLoadMPa, `${rel.id}: the heavier load is the lower value`);
+  }
+});

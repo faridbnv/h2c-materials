@@ -25,6 +25,7 @@ export const TABLES = [
   { file: 'material_links', sheet: 'Material links' },
   { file: 'properties', sheet: 'Property registry' },
   { file: 'headline_definitions', sheet: 'Headline definitions' },
+  { file: 'physical_relations', sheet: 'Physical relations' },
   { file: 'family_entries', sheet: 'Family entries' },
   { file: 'family_members', sheet: 'Family members' },
   { file: 'chamber_bands', sheet: 'Chamber bands' },

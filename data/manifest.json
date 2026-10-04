@@ -101,6 +101,10 @@
       "rows": 128,
       "sha256": "fff5629c602c2d9dac608a79bbb1cd88b95de3f9bf48f7e927d29967ec2bda93"
     },
+    "physical_relations": {
+      "rows": 11,
+      "sha256": "a183d4bfff8b4a3230a683a7130cb7f30c51d0ffee42a6e354ee42e41f135150"
+    },
     "chamber_bands": {
       "rows": 39,
       "sha256": "85e84f111e5c123ee8f38216db042911ca42a160bedefde734fadd40fbdc41f6"

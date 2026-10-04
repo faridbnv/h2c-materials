@@ -62,6 +62,13 @@
     "edited_existing": 0,
     "removed": 0
   },
+  "physical_relations": {
+    "baseline": 0,
+    "current": 11,
+    "added": 11,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "prices": {
     "baseline": 357,
     "current": 357,

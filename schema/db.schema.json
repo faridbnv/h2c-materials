@@ -1463,11 +1463,40 @@
           "items": {
             "$ref": "#/$defs/registryHeadline"
           }
+        },
+        "relations": {
+          "description": "The orderings physics fixes between two properties (data/tables/physical_relations.csv, build/src/physical-relations.js): the lint's list for published measurements and the source of a headline's lower bounds.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registryRelation"
+          }
         }
       }
     }
   },
   "$defs": {
+    "registryRelation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "lower", "higher", "lowerLoadMPa", "higherLoadMPa", "sameTest", "relativeMargin", "absoluteMargin", "appliesTo", "appliesToText", "exempt", "code", "findingOn", "scope", "basis"],
+      "properties": {
+        "id": { "type": "string" },
+        "lower": { "type": "string" },
+        "higher": { "type": "string" },
+        "lowerLoadMPa": { "type": ["number", "null"] },
+        "higherLoadMPa": { "type": ["number", "null"] },
+        "sameTest": { "type": "array", "items": { "type": "string" } },
+        "relativeMargin": { "type": "number" },
+        "absoluteMargin": { "type": "number" },
+        "appliesTo": { "$ref": "#/$defs/rule" },
+        "appliesToText": { "type": ["string", "null"] },
+        "exempt": { "type": ["string", "null"] },
+        "code": { "type": "string" },
+        "findingOn": { "enum": ["lower", "higher"] },
+        "scope": { "enum": ["measurement", "headline", "both"] },
+        "basis": { "type": "string" }
+      }
+    },
     "knowHowState": {
       "description": "collected: at least one statement (or, for a recipe part, a stated value); searched-nothing: the maker's site was searched and gave nothing; sheet-silent: the product's documents were read and gave nothing, the site not yet searched; no-document-read: none of its documents was read.",
       "enum": ["collected", "searched-nothing", "sheet-silent", "no-document-read"]

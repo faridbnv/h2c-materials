@@ -7,6 +7,8 @@
 
 import { indexPageContext, contextFor, rowStates, pageStates, specimenApplies } from './page-context.js';
 import { DATA_STATUS } from './normalize/values.js';
+import { parseAppliesTo, applies, NOT_MODELLED } from './registry.js';
+import { compileRelations, relationFindings, specimenForm } from './physical-relations.js';
 
 export const LINT_RULES = {
   'TEXT-LIGATURE': 'A typographic ligature (ﬁ, ﬂ ...) from PDF extraction; write the plain letters.',
@@ -20,7 +22,7 @@ export const LINT_RULES = {
   'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY. A thermal or physical row recorded with no direction (Not applicable) is left alone: there the locator names how the bar was printed.',
   'MEAS-PHYSICS-HDT-LOADS': 'One grade, source and state publish HDT at 0.45 MPa below HDT at 1.8 MPa; a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, or accept with the reason.',
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
-  'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round. A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. A Vicat whose own words name the heavy load (50 N, method B) is not ordered against the glass transition, because that needle sinks into a glassy bar once it yields. Re-read the rows and correct whichever is on the wrong line.',
+  'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round (the pairs, margins and what a pair must share are data/tables/physical_relations.csv). A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. A Vicat whose own words name the heavy load (50 N, method B) is not ordered against the glass transition, because that needle sinks into a glassy bar once it yields. Re-read the rows and correct whichever is on the wrong line.',
   'MEAS-PHYSICS-WINDOW': 'A value outside what its polymer can do (data/tables/plausibility_windows.csv). Beyond a hard bound it is impossible and the row is a defect: re-read the sheet, and if the sheet really prints it, flag it Published value (physically implausible) with the reason (D55). Beyond a soft bound it is surprising: check it, and accept it with what makes it credible.',
   'CONTEXT-ROW-CONTRADICTS-PAGE': 'A measurement states a specimen form, moisture state or treatment its page states the opposite of (page_context.csv, D116). The row keeps its own words and the build reads them; re-read the page and correct the row, or accept with why this row differs from its page.',
   'MEAS-PHYSICS-NOTCH': 'One grade, source, direction and state publish a notched impact above the unnotched one; a notch only concentrates stress, so the labels, the units or the sheet are wrong (data audit 2026-10-01, RC6). Re-read the sheet; if it really prints this, flag the pair Published value (physically implausible).',
@@ -209,12 +211,6 @@ export function lintData(tables, schemas) {
   const twinPairs = valueTwins(active, tables.grades?.rows ?? []);
   for (const rows of groups.values()) {
     const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
-    const load = (r) => Number(r['Test load MPa']);
-    for (const lo of of('HDT', (r) => Math.abs(load(r) - 0.45) < 0.02)) {
-      for (const hi of of('HDT', (r) => Math.abs(load(r) - 1.8) < 0.05)) {
-        if (num(lo) < num(hi)) add('MEAS-PHYSICS-HDT-LOADS', 'measurements', lo.MeasurementID, 'Normalized value', `${num(lo)} °C at 0.45 MPa < ${num(hi)} °C at 1.8 MPa (${hi.MeasurementID})`);
-      }
-    }
     for (const property of ['Tensile modulus', 'Flexural modulus', 'Tensile strength (endpoint unspecified)', 'Tensile break strength', 'Flexural strength', 'Charpy strength', 'Izod impact strength']) {
       const stiffness = /modulus/.test(property);
       for (const z of of(property, (r) => r.Direction === 'Z')) {
@@ -376,22 +372,14 @@ export function lintData(tables, schemas) {
     }
   }
 
-  // Relations physics fixes between two values of one grade, source and state. These catch what a window cannot: a
-  // value that landed under the wrong property. A sheet prints its glass transition, heat deflection, Vicat and
-  // melting point as four numbers in one unit and one range, so a swapped pair is individually ordinary.
+  // Relations physics fixes between two values of one grade, source and state (data/tables/physical_relations.csv, read
+  // through build/src/physical-relations.js). These catch what a window cannot: a value that landed under the wrong
+  // property. A sheet prints its glass transition, heat deflection, Vicat and melting point as four numbers in one unit
+  // and one range, so a swapped pair is individually ordinary. Each relation says which keys the two values must
+  // share, its margin (two different tests cross by a little where the polymer puts them close: a PLA's Vicat at 10 N
+  // and its glass transition sit within a couple of degrees, and which comes first is scatter), and the materials it
+  // holds for.
   const elastomerIdentities = new Set((tables.polymers?.rows ?? []).filter((p) => p.Morphology === 'elastomer').map((p) => p.PolymerID));
-  const ORDERED = [
-    ['Glass transition temperature', 'Vicat softening temperature', 'a bar softens above the temperature at which its polymer goes rubbery'],
-    ['Vicat softening temperature', 'Melting temperature', 'a crystalline polymer melts above the temperature at which a needle sinks into it'],
-    ['Glass transition temperature', 'Melting temperature', 'a polymer melts above its glass transition'],
-    ['Crystallization temperature', 'Melting temperature', 'a polymer crystallises on cooling, below where it melted'],
-    ['Elongation at yield', 'Elongation at break', 'a bar yields before it breaks'],
-    ['Tensile yield strength', 'Tensile strength (endpoint unspecified)', 'the ultimate stress is the highest the bar reached, so it is at least the stress at yield'],
-  ];
-  // Two different tests can cross by a little where the polymer puts them close together: a PLA's Vicat at 10 N
-  // and its glass transition sit within a couple of degrees of each other, and which comes first is scatter. An
-  // inversion is only evidence of a swapped line when it is larger than that, so the margin is a tenth.
-  const ORDER_MARGIN = 0.1;
   const elastomers = new Set((tables.materials?.rows ?? []).filter((m) => elastomerIdentities.has(m['Estimate identity'])).map((m) => m.MaterialID));
   // Physics orders two values of one specimen. A film or a filament strand is not the bar the sheet's other rows
   // were measured on — FormFutura prints Ingeo's film tensile strength (110 MPa, ASTM D882) beside its own printed
@@ -399,35 +387,13 @@ export function lintData(tables, schemas) {
   // them on the wrong line. The window check already leaves those forms out (below) for the same reason. So is a bar
   // printed at a setting its product is not meant for (D95): colorFabb's unfoamed PET column is ordered against its own
   // column, never against the foamed bar beside it.
-  const unlikeBar = (r) => (/^(Film|Filament)/.test(r['Specimen type'] ?? '') ? 'strand' : r['Specimen type'] === "Printed off the product's recipe" ? 'off-recipe' : 'bar');
-  const sameSpecimen = (a, b) => unlikeBar(a) === unlikeBar(b);
-  // A Vicat point is where a loaded needle sinks 1 mm, and the load decides where that is. Under the light load
-  // (10 N, method A) the needle waits for the polymer to go rubbery, so the Vicat sits at or above the glass
-  // transition. Under the heavy one (50 N on a 1 mm² tip, method B) it presses at 50 MPa and sinks as soon as a glassy
-  // bar has softened enough to yield, which on a printed PLA or ABS is below the glass transition, by as much as the
-  // polymer's hot strength allows. So the order holds for the light load and a Vicat whose own words name the heavy
-  // one ("5 kg", "50 N", ISO 306's "B50" or "B120") is not ordered against the glass transition; a load the row does
-  // not state is still ordered. ASTM D1525's "Rate B" is a heating rate, not a load, and names nothing here. The Vicat
-  // is still ordered against the melting point, which no load moves a needle past.
-  const HEAVY_VICAT = /\b5\s?kg\b|\b50\s?N\b|(?<!Rate\s?)\bB\s?\/?\s?(50|120)\b/i;
-  const heavyVicat = (r) => r.Property === 'Vicat softening temperature' && HEAVY_VICAT.test(r['Standard / load'] ?? '');
-  for (const rows of groups.values()) {
-    const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
-    for (const [lower, higher, why] of ORDERED) {
-      for (const a of of(lower)) {
-        for (const b of of(higher, (r) => r['Normalized unit'] === a['Normalized unit'] && r.Direction === a.Direction && sameSpecimen(a, r))) {
-          if (lower === 'Glass transition temperature' && heavyVicat(b)) continue;
-          if (num(a) > num(b) * (1 + ORDER_MARGIN)) add('MEAS-PHYSICS-ORDER', 'measurements', a.MeasurementID, 'Normalized value', `${lower} ${num(a)} above ${higher} ${num(b)} (${b.MeasurementID}): ${why}`);
-        }
-      }
-    }
-    // A bar bends harder than it pulls, because its outer fibre carries the load: a flexural strength below the
-    // tensile strength of the same specimen is one of the two on the wrong line. An elastomer is left out: it
-    // never reaches the conventional deflection, so what its sheet calls a flexural strength is another quantity.
-    for (const flexural of of('Flexural strength', (r) => !elastomers.has(r.MaterialID))) {
-      for (const tensile of of('Tensile strength (endpoint unspecified)', (r) => r['Normalized unit'] === flexural['Normalized unit'] && r.Direction === flexural.Direction && sameSpecimen(flexural, r))) {
-        if (num(flexural) < num(tensile) * (1 - ORDER_MARGIN)) add('MEAS-PHYSICS-ORDER', 'measurements', flexural.MeasurementID, 'Normalized value', `Flexural strength ${num(flexural)} below tensile strength ${num(tensile)} (${tensile.MeasurementID}): a bar bends harder than it pulls, because its outer fibre carries the load`);
-      }
+  const sameSpecimen = (a, b) => specimenForm(a) === specimenForm(b);
+  const polymerMorphology = new Map((tables.polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
+  const materialRows = (tables.materials?.rows ?? []).map((m) => ({ ...m, Morphology: polymerMorphology.get(m['Estimate identity']) ?? NOT_MODELLED }));
+  const materialById = new Map(materialRows.map((m) => [m.MaterialID, m]));
+  for (const relation of compileRelations(tables.physical_relations?.rows, parseAppliesTo, materialRows)) {
+    for (const f of relationFindings(relation, active, (r) => materialById.get(r.MaterialID) ?? { Morphology: NOT_MODELLED }, applies)) {
+      add(relation.code, 'measurements', f.record.MeasurementID, 'Normalized value', f.message);
     }
   }
 

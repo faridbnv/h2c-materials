@@ -61,6 +61,7 @@ export const RULES = {
   'REGISTRY-NA-REASON': r('error', 'registry', 'Applies to is set without a Not applicable reason.', 'Say why the property does not apply elsewhere.'),
   'REGISTRY-CODE-REFERENCE': r('error', 'registry', 'Code relies on a property name that is not in properties.csv.', 'Rename the property in build/src/property-references.js and the code that uses it, or restore the property.'),
   'REGISTRY-REPLACED': r('error', 'registry', 'A property replaced by another is still used by a measurement or a headline, or its replacement is missing or itself replaced.', 'Move the rows to the replacement with a migration; keep the replaced record.'),
+  'RELATIONS-HEADLINE-DRIFT': r('error', 'registry', 'A headline lower bound (headline_definitions.csv) that no physical relation with Scope headline or both covers, or a headline relation that no headline reads; the lint and the headline would order the same properties differently.', 'Add or correct the row in physical_relations.csv, or the headline\'s Lower bound properties, so the two name the same pairs.'),
   'REGISTRY-HEADLINE': r('error', 'registry', 'A headline definition is inconsistent (value properties, evidence group, unit, price kind).', 'Correct the definition in headline_definitions.csv.'),
 
   // ---- measurements (build/src/measurement-rules.js) -----------------------------------------------------

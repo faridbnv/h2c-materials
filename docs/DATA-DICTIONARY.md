@@ -27,6 +27,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
 | [method](#method) | Topic | Method rules in words. The Scope / Snapshot row sets the database snapshot date. |
 | [page_context](#page_context) | PageContextID | What a source page states once for the values printed on it: a heading such as "Mechanical properties (dry state)" or "printed, non-injection moulded specimens", a footnote such as "all specimens annealed at 80 °C for 12 h", a block standard or a test temperature. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page and scope; a page no row names states nothing (D116). |
+| [physical_relations](#physical_relations) | RelationID | One row per ordering that physics fixes between two properties: the lower one cannot exceed the higher one when both are measured in the same test. The rows are the one list the data lint (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS) reads for published measurements, and the headline definitions' lower bounds (headline_definitions.csv) are their projection onto a material's headline: the build refuses a headline bound that no relation with Scope headline or both covers (RELATIONS-HEADLINE-DRIFT). A relation judges the values a sheet prints for one product; the estimate model's bounds are separate and looser. |
 | [plausibility_windows](#plausibility_windows) | WindowID | One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser. |
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
@@ -325,6 +326,27 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Test temperature °C | canonical | number | yes | Not published |  | The test temperature the page states for these rows, or Not published. |
 | Locator | canonical | string | yes |  |  | Where on the page: the heading, footnote or line quoted. |
 | Reviewed by | editorial | string | yes |  |  | Who read the page, and when: a person, or an agent named as one. |
+
+### physical_relations
+
+`data/tables/physical_relations.csv` (Physical relations). One row per ordering that physics fixes between two properties: the lower one cannot exceed the higher one when both are measured in the same test. The rows are the one list the data lint (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS) reads for published measurements, and the headline definitions' lower bounds (headline_definitions.csv) are their projection onto a material's headline: the build refuses a headline bound that no relation with Scope headline or both covers (RELATIONS-HEADLINE-DRIFT). A relation judges the values a sheet prints for one product; the estimate model's bounds are separate and looser.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| RelationID | key | string | yes |  | `^PR\d{2,}$` | Stable relation identifier, never reused. |
+| Lower property | canonical | string | yes |  | → properties.Property | The property that cannot exceed the higher one (beyond the margin). |
+| Higher property | canonical | string | yes |  | → properties.Property | The property that is at least the lower one. It may be the same property as the lower one where a test load orders the two results (HDT at 1.8 MPa and at 0.45 MPa). |
+| Lower load MPa | canonical | number | yes | Not applicable |  | Test load the lower value must state, within 5 %. Not applicable: any load, or a property with none. |
+| Higher load MPa | canonical | number | yes | Not applicable |  | Test load the higher value must state, within 5 %. Not applicable: any load, or a property with none. |
+| Same test | canonical | list (";") | yes |  | list of [relation-keys](#vocab-relation-keys) | What the two values must share for the pair to apply. A source prints a dry and a conditioned table, an XY and a Z column, a bar and a film: values across such a divide are two claims about two things, not one of them on the wrong line. |
+| Relative margin | canonical | number | yes |  |  | The lower value may exceed the higher one by this fraction of the higher one before the pair is a finding: lower > higher x (1 + relative margin) + absolute margin. Two different tests cross by a little where the polymer puts them close, and which comes first is scatter. |
+| Absolute margin | canonical | number | yes |  |  | The lower value may exceed the higher one by this much, in the normalized unit, before the pair is a finding: the rounding of a printed value, or the scatter of a transition measured twice. |
+| Applies to | canonical | string |  |  |  | Which materials the relation holds for, in the syntax of properties.csv: 'Morphology: semicrystalline' (a melting point means something only there) or 'Morphology: amorphous \| semicrystalline \| not modelled' (every morphology but elastomer), the morphology being that of the polymer the material's Estimate identity names (polymers.csv). Blank: all materials. |
+| Exempt rows | canonical | string | yes | Not applicable | Heavy-load Vicat | A kind of row the relation does not judge. Heavy-load Vicat: a Vicat whose own words name the heavy load (50 N, method B) as the higher value is not ordered against the glass transition, because that needle sinks into a glassy bar once it yields. |
+| Finding code | canonical | string | yes |  | MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS | The data lint code a pair that breaks the relation raises (docs/RULES.md). |
+| Finding on | canonical | string | yes |  | lower, higher | Which of the two measurements the finding is recorded on (and accepted against): the lower or the higher one. |
+| Scope | canonical | string | yes |  | measurement, headline, both | Where the ordering is used: measurement (the lint on published values), headline (a material's headline bound, headline_definitions.csv Lower bound properties), or both. |
+| Basis | prose | string | yes |  |  | One sentence of physics: why the order holds. The lint shows it after the pair, with its first letter lowered and its full stop dropped. |
 
 ### plausibility_windows
 
@@ -1313,6 +1335,21 @@ lists the missing states a column accepts instead of a value; a blank required c
 | elongation | Elongation at break envelope. | % |
 | fractureToughness | Fracture toughness envelope. | MPa.m^0.5 |
 | thermalExpansion | Coefficient of thermal expansion envelope. | um/m/K |
+
+<a id="vocab-relation-keys"></a>
+### relation-keys
+
+`schema/vocab/relation-keys.csv`, used by physical_relations.Same test.
+
+| Value | Meaning |
+|---|---|
+| grade | The two values belong to one grade (GradeID). |
+| source | The two values come from one source (SourceID). |
+| direction | The two values carry one build direction (XY, Z, Not applicable ...). |
+| unit | The two values are in one normalized unit. |
+| specimen form | The two values are measured on one kind of specimen: a bar, a film or filament strand, or a bar printed off the product's recipe. A film is not the bar a sheet's other rows were measured on. |
+| moisture condition | The two values state one moisture condition (the Moisture condition column as printed). |
+| post-processing | The two values state one post-processing (the Post-processing column as printed). |
 
 <a id="vocab-rubrics"></a>
 ### rubrics

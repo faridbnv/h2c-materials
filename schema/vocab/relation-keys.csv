@@ -1,0 +1,8 @@
+Value,Meaning
+grade,The two values belong to one grade (GradeID).
+source,The two values come from one source (SourceID).
+direction,"The two values carry one build direction (XY, Z, Not applicable ...)."
+unit,The two values are in one normalized unit.
+specimen form,"The two values are measured on one kind of specimen: a bar, a film or filament strand, or a bar printed off the product's recipe. A film is not the bar a sheet's other rows were measured on."
+moisture condition,The two values state one moisture condition (the Moisture condition column as printed).
+post-processing,The two values state one post-processing (the Post-processing column as printed).

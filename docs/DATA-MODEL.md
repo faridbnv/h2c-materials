@@ -41,6 +41,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `properties.csv` | Every measured property: domain (mechanical, thermal, physical), the canonical units a usable measurement may carry, and which materials it applies to |
 | `headline_definitions.csv` | Every headline: kind, unit, value and related properties, direction and what a value with none is to it, test load, notch and test temperature, a comparison note, labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
 | `plausibility_windows.csv` | The range a published value can credibly fall in, per property, unit and class of material: outside a hard bound it is impossible, outside a soft bound a person looks at it (D82, MEAS-PHYSICS-WINDOW) |
+| `physical_relations.csv` | The orderings physics fixes between two properties, one row each: the lower and the higher property, what the two values must share to be one test (grade, source, direction, unit, specimen form, moisture, post-processing; for HDT the test load), the margin, the materials it holds for, the code a broken pair raises, and where it is used. The data lint reads it for published measurements (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS), and the build refuses a headline lower bound (`headline_definitions.csv`) it does not cover (RELATIONS-HEADLINE-DRIFT) |
 
 **Mappings**
 

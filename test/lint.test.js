@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { lintData } from '../build/src/lint-rules.js';
+import { readCsv } from '../build/src/csv.js';
 
 const schemas = { measurements: { primaryKey: 'MeasurementID' } };
 const row = (o) => ({
@@ -11,7 +12,12 @@ const row = (o) => ({
   'Specimen type': 'Printed specimen', 'Specimen / print parameters': 'Printing temperature 300 °C', SourceID: 'S1', Locator: 'p. 4: Young’s modulus (X-Y)',
   'Normalized value': '4.431', 'Normalized unit': 'GPa', 'Data status': 'Published value', ...o,
 });
-const codes = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows } }, schemas).filter((f) => f.code.startsWith('MEAS-')).map((f) => `${f.code} ${f.record}`);
+// The orderings physics fixes are data (physical_relations.csv); the lint reads them from the table it is given.
+const physicalRelations = (() => {
+  const { header, records } = readCsv(fileURLToPath(new URL('../data/tables/physical_relations.csv', import.meta.url)));
+  return { header, rows: records.map((r) => r.values) };
+})();
+const codes = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows }, physical_relations: physicalRelations }, schemas).filter((f) => f.code.startsWith('MEAS-')).map((f) => `${f.code} ${f.record}`);
 
 test('two tables of one data sheet with the same stated conditions are caught', () => {
   const dry = row({ MeasurementID: 'V1' });
@@ -274,7 +280,7 @@ test('a grade that declares its load is judged by the window for that load, not 
 test('two values a sheet orders the wrong way round are a swapped line, unless they are merely close', () => {
   const thermal = (id, property, value) => row({ MeasurementID: id, Property: property, 'Normalized value': String(value),
     'Normalized unit': '°C', Direction: 'Not applicable', Locator: `p. 1: ${property}` });
-  const run = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows } }, schemas)
+  const run = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows }, physical_relations: physicalRelations }, schemas)
     .filter((f) => f.code === 'MEAS-PHYSICS-ORDER').map((f) => f.record);
 
   // A needle cannot sink into a bar below the temperature at which its polymer goes rubbery.
@@ -307,6 +313,52 @@ test('two values a sheet orders the wrong way round are a swapped line, unless t
   assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, film)]), []);
   // The same two values measured on one kind of specimen are still one of them on the wrong line.
   assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, bar)]), ['V1']);
+});
+
+test('the stress at break cannot exceed the ultimate stress, nor the strain at maximum stress the strain at break, within one test', () => {
+  const cell = (id, property, value, o = {}) => row({ MeasurementID: id, Property: property, 'Normalized value': String(value),
+    'Normalized unit': /strain|Elongation/.test(property) ? '%' : 'MPa', Direction: 'XY', Locator: `p. 1: ${property}`, ...o });
+  const run = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows }, physical_relations: physicalRelations }, schemas)
+    .filter((f) => f.code === 'MEAS-PHYSICS-ORDER').map((f) => f.record);
+  const ultimate = 'Tensile strength (endpoint unspecified)';
+  // A stress at break of 26 MPa above an ultimate stress of 12 MPa printed in the same table: one is on the wrong line.
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 26), cell('V2', ultimate, 12)]), ['V1']);
+  // The ultimate stress is the highest on the curve, so a break stress below it, or equal to it, is ordinary; a rounding
+  // half a megapascal wide is not a finding.
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 11), cell('V2', ultimate, 12)]), []);
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 12.4), cell('V2', ultimate, 12)]), []);
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 12.6), cell('V2', ultimate, 12)]), ['V1']);
+  // Not one test: another direction, another source, a conditioned table or a film.
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 26), cell('V2', ultimate, 12, { Direction: 'Z' })]), []);
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 26), cell('V2', ultimate, 12, { SourceID: 'S2' })]), []);
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 26), cell('V2', ultimate, 12, { 'Moisture condition': 'Conditioned: 50% RH' })]), []);
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 26), cell('V2', ultimate, 12, { 'Specimen type': 'Film specimen (ASTM D882); not a printed or moulded bar' })]), []);
+  // A value flagged physically implausible has been dealt with.
+  assert.deepEqual(run([cell('V1', 'Tensile break strength', 26, { 'Data status': 'Published value (physically implausible)' }), cell('V2', ultimate, 12)]), []);
+  // The strain where the stress peaks is reached on the way to the break.
+  assert.deepEqual(run([cell('V1', 'Tensile strain at strength', 9), cell('V2', 'Elongation at break', 4)]), ['V1']);
+  assert.deepEqual(run([cell('V1', 'Tensile strain at strength', 4.3), cell('V2', 'Elongation at break', 4)]), []);
+});
+
+test('a semicrystalline bar does not deflect under load above its melting point; a Vicat above the HDT is ordinary', () => {
+  const thermal = (id, property, value, o = {}) => row({ MeasurementID: id, MaterialID: 'M1', Property: property, 'Normalized value': String(value),
+    'Normalized unit': '°C', Direction: 'Not applicable', 'Test load MPa': 'Not applicable', Locator: `p. 1: ${property}`, ...o });
+  const run = (rows, morphology = 'semicrystalline') => lintData({
+    measurements: { header: Object.keys(rows[0]), rows }, physical_relations: physicalRelations,
+    materials: { header: ['MaterialID', 'Estimate identity'], rows: [{ MaterialID: 'M1', 'Estimate identity': 'POLY' }] },
+    polymers: { header: ['PolymerID', 'Morphology'], rows: [{ PolymerID: 'POLY', Morphology: morphology }] },
+  }, schemas).filter((f) => f.code === 'MEAS-PHYSICS-ORDER').map((f) => f.record);
+  const hdt = (id, load, value, o = {}) => thermal(id, 'HDT', value, { 'Test load MPa': String(load), ...o });
+  assert.deepEqual(run([hdt('V1', 0.45, 270), thermal('V2', 'Melting temperature', 255)]), ['V1']);
+  assert.deepEqual(run([hdt('V1', 1.8, 270), thermal('V2', 'Melting temperature', 255)]), ['V1']);
+  // Five degrees of scatter between a heat deflection and a melting point read twice.
+  assert.deepEqual(run([hdt('V1', 0.45, 259), thermal('V2', 'Melting temperature', 255)]), []);
+  // An annealed bar is still no stiffer than its crystals: the pair holds across a post-processing the sheet states.
+  assert.deepEqual(run([hdt('V1', 0.45, 270, { 'Post-processing': 'Annealed at 100 °C for 4 h' }), thermal('V2', 'Melting temperature', 255)]), ['V1']);
+  // An amorphous polymer has no melting point to order against.
+  assert.deepEqual(run([hdt('V1', 0.45, 270), thermal('V2', 'Melting temperature', 255)], 'amorphous'), []);
+  // HDT is not ordered against the Vicat: a heavily filled bar can deflect above it.
+  assert.deepEqual(run([hdt('V1', 0.45, 130), thermal('V2', 'Vicat softening temperature', 110)]), []);
 });
 
 test('a Shore number whose scale the sheet does not publish is judged against both scales, and no wider', async () => {

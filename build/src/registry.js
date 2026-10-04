@@ -16,6 +16,8 @@
 // Clauses are separated by ";" and must all hold; values within a clause are alternatives. Morphology is the material's
 // polymer's (polymers.csv, through its Estimate identity), "not modelled" where it names none.
 
+import { compileRelations, headlineDrift } from './physical-relations.js';
+
 const NA = 'Not applicable';
 
 /** Materials columns an applicability rule may test, and the compiled material field each becomes. */
@@ -141,7 +143,17 @@ export function compileRegistry(wb, issues) {
   });
   if (headlines.filter((h) => h.kind === 'price').length > 1) err('REGISTRY-HEADLINE', 'headline_definitions', 'Only one price headline exists');
 
-  return { properties, headlines };
+  // The orderings physics fixes between two properties (physical_relations.csv). A headline's lower bounds are their
+  // projection onto a material, so the two lists must agree (RELATIONS-HEADLINE-DRIFT).
+  const relations = compileRelations(wb['Physical relations']?.rows, parseAppliesTo, materialRows, issues);
+  for (const rel of relations) {
+    for (const name of [rel.lower, rel.higher]) {
+      if (propertyByName.get(name)?.replacedBy) err('REGISTRY-REPLACED', `physical_relations ${rel.id}`, `${name} is replaced by ${propertyByName.get(name).replacedBy}; name that instead`);
+    }
+  }
+  if (wb['Physical relations']) for (const problem of headlineDrift(relations, headlines.filter((h) => h.kind === 'measurement'))) err('RELATIONS-HEADLINE-DRIFT', 'physical_relations', problem);
+
+  return { properties, headlines, relations };
 }
 
 /** Convenience lookups over a compiled registry (db.registry). */
