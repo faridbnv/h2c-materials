@@ -38,12 +38,14 @@ if (current.length) chunks.push(current);
 
 const out = join(round, 'second');
 mkdirSync(join(out, 'out'), { recursive: true });
-const cols = ['task_id', 'source_id', 'page', 'kind', 'field', 'product', 'label', 'locator', 'images', 'text'];
+// Where on the page the item is (its column's direction, moisture state, treatment and test conditions) is given; what
+// the page prints there is not.
+const cols = ['task_id', 'source_id', 'page', 'kind', 'field', 'product', 'label', 'locator', 'direction', 'moisture', 'post_processing', 'test_conditions', 'images', 'text'];
 chunks.forEach((list, i) => {
   const name = `${prefix}-${String(i + 1).padStart(2, '0')}`;
   const tasks = list.map((r) => ({
     task_id: r.RowID, source_id: r.SourceID, page: r.Page, kind: r.Kind, field: r.Field, product: r.Product, label: r.Label,
-    locator: r.TableHeading ?? '', images: join(round, r.SourceID, `p-${r.Page}.png`), text: join(round, r.SourceID, 'text.txt'),
+    locator: r.TableHeading ?? '', direction: r.Direction, moisture: r.Moisture, post_processing: r.PostProcessing, test_conditions: r.TestConditions, images: join(round, r.SourceID, `p-${r.Page}.png`), text: join(round, r.SourceID, 'text.txt'),
   }));
   writeFileSync(join(out, `${name}.csv`), csvText(cols, tasks));
 });
