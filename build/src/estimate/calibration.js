@@ -112,7 +112,7 @@ export function calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible
     if (!hide.length) continue;
     const p = holdOut(m, f, S.grades.get(t.gradeId)?.manufacturer, hide);
     const rest = obs.some((o, i) => o.m.id === m.id && !hide.includes(i));
-    loo.push({ m, y: transform(key, model)(t.value) - tmMean(m), p, rest, measured: t.value, unit: t.unit });
+    loo.push({ m, f, y: transform(key, model)(t.value) - tmMean(m), p, rest, measured: t.value, unit: t.unit });
   }
   const zs = loo.map((l) => Math.abs((l.y - l.p.mu) / l.p.sd));
   const clamp = (x, [lo, hi]) => Math.min(hi, Math.max(lo, x));

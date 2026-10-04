@@ -1,7 +1,7 @@
 MaterialID,Material,Headline,Products,Comparable,Min,Q1,Median,Q3,Max,Typical,AsPublished,Variants,Twins
 M001,PLA,density,179,147,1170,1220,1240,1240,1329,G001-01,,17: 800-4000,11
 M001,PLA,tensileModulusXY,179,42,0.4328,1.77825,2.55554,2.879575,4.24,G001-30,40: 0.379426-4.78,9: 0.7153-4.73,2
-M001,PLA,tensileStrengthXY,179,59,25.976,39.465,45,53.025,70.72,G001-39,50: 30-71,12: 12.6-65,2
+M001,PLA,tensileStrengthXY,179,59,25.976,39.465,45,53.025,70.91,G001-39,50: 30-71,12: 12.6-65,2
 M001,PLA,tensileStrengthZ,179,33,8.7,22,30.55,33.9,43.5,G001-86,,2: 14.5-18,1
 M001,PLA,elongationXY,179,55,1.2,4.155,6.3,13.25,65,G001-122,43: 2.9-84,12: 2.4-40,2
 M001,PLA,charpyNotched,179,9,4.94,6.7,17.1,20.76,72.3,G001-27,21: 1.8-29.8,4: 1.8-2.97,
@@ -81,7 +81,7 @@ M016,PLA Glow,glassTransition,7,2,55,,58.5,,62,G016-01,,,
 M016,PLA Glow,priceCADkg,7,2,31.99,,35.97,,39.95,G016-01,,,
 M017,PLA Aero,density,12,7,840,1000,1200,1210,1240,G017-12,,,
 M017,PLA Aero,tensileModulusXY,12,7,0.86,0.9715,1.35,1.51925,3.1,G017-01,1: 3.25-3.25,,
-M017,PLA Aero,tensileStrengthXY,12,8,9,10.2775,20,24.1,39.2,G017-05,2: 47-60,,
+M017,PLA Aero,tensileStrengthXY,12,8,9,10.57,20,24.1,39.2,G017-05,2: 47-60,,
 M017,PLA Aero,tensileStrengthZ,12,3,3.57,,18,,20.8,G017-01,,,
 M017,PLA Aero,elongationXY,12,7,1.8,4.75,8.8,13.9,16.87,G017-03,1: 8-8,,
 M017,PLA Aero,charpyNotched,12,3,1,,2.4,,8.2,G017-03,1: 3.7-3.7,,
@@ -141,7 +141,7 @@ M025,PETG-GF,glassTransition,5,2,75,,77.5,,80,G025-02,,,
 M025,PETG-GF,priceCADkg,5,1,36.99,,36.99,,36.99,G025-04,,,
 M026,PETG-ESD,density,10,9,1220,1240,1240,1280,1320,G026-02,,,
 M026,PETG-ESD,tensileModulusXY,10,6,1.4,1.84575,1.983,1.983,2.13,G026-02,3: 1.8-2.4,,
-M026,PETG-ESD,tensileStrengthXY,10,7,35,36.05,36.1,45.555,50,G026-02,3: 26-50,,
+M026,PETG-ESD,tensileStrengthXY,10,7,35,36.05,36.1,45.555,50,G026-02,3: 48-50,,
 M026,PETG-ESD,tensileStrengthZ,10,3,19.34,,20.7,,20.7,G026-02,,,
 M026,PETG-ESD,elongationXY,10,6,5,7.3,7.3,8.5525,13,G026-02,3: 5-58,,
 M026,PETG-ESD,charpyNotched,10,2,5.7,,5.7,,5.7,G026-02,,,
@@ -658,7 +658,7 @@ M087,POM / Acetal,glassTransition,4,1,-50,,-50,,-50,G087-02,,,
 M087,POM / Acetal,priceCADkg,4,0,,,,,,,,,
 M088,PCTG,density,8,7,1230,1230,1230,1230,1230,G088-01,,,2
 M088,PCTG,tensileModulusXY,8,1,1.755,,1.755,,1.755,G088-01,1: 2-2,,
-M088,PCTG,tensileStrengthXY,8,1,45,,45,,45,G088-01,6: 43-50,,
+M088,PCTG,tensileStrengthXY,8,1,45,,45,,45,G088-01,6: 45-52.95591,,
 M088,PCTG,tensileStrengthZ,8,0,,,,,,,,,
 M088,PCTG,elongationXY,8,1,24,,24,,24,G088-01,6: 14-340,,
 M088,PCTG,charpyNotched,8,0,,,,,,,,,
@@ -668,7 +668,7 @@ M088,PCTG,glassTransition,8,2,78,,83,,88,G088-01,,,
 M088,PCTG,priceCADkg,8,1,47.99,,47.99,,47.99,G088-02,,,
 M089,CPE,density,5,3,1180,,1250,,1270,G089-01,,,
 M089,CPE,tensileModulusXY,5,2,1.5,,1.675,,1.85,G089-04,2: 1.5-1.548,,
-M089,CPE,tensileStrengthXY,5,2,50,,52.5,,55,G089-04,3: 43-52,,
+M089,CPE,tensileStrengthXY,5,2,50,,52.5,,55,G089-04,3: 48-58,,
 M089,CPE,tensileStrengthZ,5,0,,,,,,,,,
 M089,CPE,elongationXY,5,2,6.2,,16.1,,26,G089-04,3: 150-200,,
 M089,CPE,charpyNotched,5,0,,,,,,,2: 5-6.4,,
@@ -1380,7 +1380,7 @@ M160,TPU 90A class,glassTransition,12,2,-20,,-20,,-20,G039-25,,,1
 M160,TPU 90A class,priceCADkg,12,2,53.99,,74.985,,95.98,G042-01,,,
 M161,TPU 95A class,density,27,23,1000,1180,1210,1220,1240,G039-05,,,2
 M161,TPU 95A class,tensileModulusXY,27,7,0.006,0.0115,0.027,0.028,0.065,G039-21,4: 0.02275-0.0502,,1
-M161,TPU 95A class,tensileStrengthXY,27,10,17,26.7,27.3,28.575,31.81,G039-21,12: 8.6-55,,1
+M161,TPU 95A class,tensileStrengthXY,27,10,17,26.7,27.3,28.575,31.81,G039-21,12: 17.2-55,,1
 M161,TPU 95A class,tensileStrengthZ,27,3,22,,22,,22.3,G039-21,,,1
 M161,TPU 95A class,elongationXY,27,9,265,471,501.3,650,900,G039-21,11: 350-1063,,1
 M161,TPU 95A class,charpyNotched,27,0,,,,,,,1: 78-78,,

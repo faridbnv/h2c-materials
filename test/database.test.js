@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { validate } from '../build/src/validate.js';
 import { validateEstimates } from '../build/src/estimate/validate.js';
+import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
 import { readCsv } from '../build/src/csv.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -355,9 +356,9 @@ test('a resin reference never vetoes a screen: implied bounds are the filament\'
     for (const [key, h] of Object.entries(m.headline)) {
       for (const b of h?.impliedBounds ?? []) {
         const x = db.measurements.find((y) => y.id === b.measurementId);
-        // Only a printed part or an unstated specimen bounds a printed headline: film strengths once kept PLA a
+        // Only a printed part or an unstated specimen bounds a printed headline (D126): film strengths once kept PLA a
         // candidate for 140 MPa (audit 2026-09-15, C-02). A state the headline is not in bounds nothing either.
-        assert.equal(x.specimenForm, 'printed', `${m.name} ${b.measurementId} is a ${x.specimenForm} specimen`);
+        assert.ok(['printed', 'not-stated'].includes(x.specimenForm), `${m.name} ${b.measurementId} is a ${x.specimenForm} specimen`);
         assert.equal(b.lo, x.value, `${m.name} ${b.measurementId} bounds at ${b.lo}, not its published value ${x.value}`);
         // The estimate respects what the material's own data prove (B-16).
         if (h.estimate) assert.ok(h.estimate.plausible.lo >= b.lo * 0.98, `${m.name} ${key} plausible from ${h.estimate.plausible.lo}, below its own ${b.measurementId} ${b.lo}`);
@@ -395,7 +396,13 @@ test('estimates follow the physics of printing: under the melting point and the 
     // deflects near its own Vicat, not near a crystalline bar's.
     if (m.modifier !== 'Unfilled / unspecified') continue;
     const vicat = db.measurements.filter((x) => x.materialId === m.id && x.property === 'Vicat softening temperature' && x.numeric && !x.implausible).map((x) => x.value);
-    if (vicat.length) { held.vicat++; assert.ok(e.centre <= Math.max(...vicat), `${m.name} is estimated to deflect at ${e.centre} °C, above its own Vicat ${Math.max(...vicat)} °C`); }
+    // The cap is Vicat plus a margin (estimate-model.json bounds.ownVicat). A bar whose own HDT at 1.8 MPa lies within
+    // that margin of its Vicat (PET: 65.7 against 65.9 °C) has a heat deflection at 0.45 MPa between the two, and one whose
+    // 1.8 MPa value lies above its Vicat (the LCP: 193 against 145 °C) deflects no lower than that: its floor (D126) wins.
+    const floor = Math.max(0, ...(m.headline.hdt045.impliedBounds ?? []).map((b) => b.lo));
+    const top = Math.max(...vicat), lift = ESTIMATE_MODEL.bounds.ownVicat.lift;
+    const cap = Math.max(top + (floor >= top - lift ? lift : 0), floor);
+    if (vicat.length) { held.vicat++; assert.ok(e.centre <= cap, `${m.name} is estimated to deflect at ${e.centre} °C, above its own Vicat ${top} °C`); }
   }
   // Fibre in a polymer: estimated no lighter, stiffer, and stretching less than the same polymer unfilled.
   const ORDER = { density: (f, u) => f >= u, tensileModulusXY: (f, u) => f > u, elongationXY: (f, u) => f < u };

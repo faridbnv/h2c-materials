@@ -5,6 +5,7 @@
 
 import { issue } from '../rules.js';
 import { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
+import { orderViolations } from './order.js';
 
 const err = (code, where, message, extra) => issue(code, where, message, extra);
 const warn = err; // the catalogue (rules.js) decides each code's level
@@ -168,6 +169,15 @@ export function validateEstimates(db) {
   }
   if (order.length) issues.push(warn('EST-FAMILY-ORDER', 'materials', `${order.length} reinforced materials sit below their unfilled sibling: ${order.map((o) => o.text).join('; ')}`, { records: order.map((o) => o.record) }));
 
+  // The physical order of the numbers shown (D126, order.js): no estimate below what the material's or the grade's own
+  // measurements prove, no heat deflection above the melting point. A product's published value is its own measurement
+  // and is never moved by another sheet's number; where two sheets of one product disagree the order is a finding.
+  const violations = orderViolations(db);
+  const orderIssues = violations.filter((v) => v.kind !== 'grade-value');
+  const productOrder = violations.filter((v) => v.kind === 'grade-value');
+  if (orderIssues.length) issues.push(err('EST-ORDER', 'estimates', `${orderIssues.length} estimates break the physical order their own measurements set: ${orderIssues.map((v) => v.message).join('; ')}`, { records: orderIssues.map((v) => v.record) }));
+  if (productOrder.length) issues.push(warn('PRODUCT-ORDER', 'grades', `${productOrder.length} products publish a value under another of their own measurements that bounds it from below (another source, direction, specimen or state than the value's): ${productOrder.map((v) => v.message).join('; ')}`, { records: productOrder.map((v) => v.record) }));
+
   return issues;
 }
 
@@ -212,6 +222,20 @@ export function estimateReportLines(db) {
   }
   L.push('');
   screeningLines();
+  const floorRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.floors);
+  if (floorRows.length) {
+    L.push('Floors (D126): the shown ranges of the same hidden headlines, floored by what the material\'s other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "printed" is the rule before D126, "unstated" the rule now, "formulation" what a grade\'s range takes.');
+    L.push('');
+    L.push('| Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |');
+    L.push('|---|---|---:|---:|---:|---:|---:|---:|');
+    for (const [key, p] of floorRows) {
+      for (const [name, f] of Object.entries(p.floors)) {
+        const width = ESTIMATE_MODEL.properties[key].scale === 'log' ? `×${f.medianLikelyWidth}` : `${f.medianLikelyWidth} °C`;
+        L.push(`| ${key} | ${name} | ${f.held} | ${f.moved} | ${Math.round((f.likelyCoverage ?? 0) * 1000) / 10}% | ${Math.round((f.plausibleCoverage ?? 0) * 1000) / 10}% | ${width} | ${f.underPlausible} |`);
+      }
+    }
+    L.push('');
+  }
   const gradeRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.gradeCalibration);
   if (gradeRows.length) {
     L.push('Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.');

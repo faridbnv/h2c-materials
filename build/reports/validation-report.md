@@ -136,7 +136,7 @@ its plausible range wholly fails.
 | tensileModulusXY | 49 | 13 | 23 | 3 | 4 | 6 | 39 |
 | tensileStrengthXY | 45 | 12 | 20 | 2 | 4 | 7 | 34 |
 | elongationXY | 49 | 12 | 21 | 6 | 4 | 6 | 39 |
-| hdt045 | 50 | 11 | 9 | 8 | 19 | 3 | 28 |
+| hdt045 | 50 | 11 | 9 | 8 | 19 | 3 | 27 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
 
@@ -157,6 +157,32 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | hdt045 | this-grade | 56 | 3 | 98.21% point | 1 | 2.5% point |
 | hdt045 | this-material | 60 | 5 | 99.82% point | 1 | 2.5% point |
 | hdt045 | family | 81 | 2 | 97.5% point | 0 | 2.5% point |
+
+Floors (D126): the shown ranges of the same hidden headlines, floored by what the material's other measurements prove (a yield or break stress under the ultimate strength, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa); build/src/estimate/floors.js says what each row floors by. "printed" is the rule before D126, "unstated" the rule now, "formulation" what a grade's range takes.
+
+| Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |
+|---|---|---:|---:|---:|---:|---:|---:|
+| tensileStrengthXY | none | 64 | 0 | 81.3% | 95.3% | ×1.46 | 3 |
+| tensileStrengthXY | printed | 64 | 46 | 64.1% | 78.1% | ×1.45 | 14 |
+| tensileStrengthXY | printedXY | 64 | 7 | 78.1% | 92.2% | ×1.46 | 5 |
+| tensileStrengthXY | unstated | 64 | 59 | 29.7% | 31.3% | ×1.22 | 44 |
+| tensileStrengthXY | sameSource | 64 | 46 | 62.5% | 76.6% | ×1.45 | 15 |
+| tensileStrengthXY | lowestOfProducts | 64 | 59 | 79.7% | 85.9% | ×1.45 | 9 |
+| tensileStrengthXY | formulation | 64 | 33 | 78.1% | 87.5% | ×1.45 | 8 |
+| elongationXY | none | 83 | 0 | 80.7% | 95.2% | ×3.74 | 2 |
+| elongationXY | printed | 83 | 55 | 53% | 67.5% | ×2.86 | 25 |
+| elongationXY | printedXY | 83 | 14 | 77.1% | 91.6% | ×3.74 | 5 |
+| elongationXY | unstated | 83 | 70 | 32.5% | 38.6% | ×2.03 | 51 |
+| elongationXY | sameSource | 83 | 56 | 50.6% | 65.1% | ×2.81 | 27 |
+| elongationXY | lowestOfProducts | 83 | 70 | 67.5% | 83.1% | ×3.41 | 13 |
+| elongationXY | formulation | 83 | 42 | 69.9% | 84.3% | ×3.18 | 12 |
+| hdt045 | none | 81 | 0 | 77.8% | 92.6% | 18.1 °C | 1 |
+| hdt045 | printed | 81 | 37 | 65.4% | 80.2% | 17.7 °C | 11 |
+| hdt045 | printedXY | 81 | 0 | 77.8% | 92.6% | 18.1 °C | 1 |
+| hdt045 | unstated | 81 | 53 | 54.3% | 69.1% | 13.7 °C | 21 |
+| hdt045 | sameSource | 81 | 40 | 63% | 77.8% | 16.8 °C | 13 |
+| hdt045 | lowestOfProducts | 81 | 47 | 72.8% | 87.7% | 16.4 °C | 6 |
+| hdt045 | formulation | 81 | 26 | 77.8% | 93.8% | 18.1 °C | 1 |
 
 Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.
 

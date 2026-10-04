@@ -2,7 +2,7 @@ Across its products: median and range, and what their makers say
 Property Median Range Products Left out of the range
 Density kg/m³ 1,240 1,170–1,329 147 of 179 17 special formulations (800–4,000)
 Tensile modulus (XY) GPa 2.56 0.433–4.24 42 of 179 40 with no stated orientation (0.379–4.78); 9 special formulations (0.715–4.73)
-Tensile strength (XY) MPa 45 26–70.7 59 of 179 50 with no stated orientation (30–71); 12 special formulations (12.6–65)
+Tensile strength (XY) MPa 45 26–70.9 59 of 179 50 with no stated orientation (30–71); 12 special formulations (12.6–65)
 Tensile strength (Z) MPa 30.6 8.7–43.5 33 of 179 2 special formulations (14.5–18)
 Elongation at break (XY) % 6.3 1.2–65 55 of 179 43 with no stated orientation (2.9–84); 12 special formulations (2.4–40)
 Notched Charpy impact kJ/m² 17.1 4.94–72.3 9 of 179 21 with no stated orientation (1.8–29.8); 4 special formulations (1.8–2.97)

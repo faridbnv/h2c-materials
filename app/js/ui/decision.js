@@ -509,7 +509,8 @@ function inspector(state, ws) {
       v.uncertainty ? `the source reports ± ${fmtNumber(v.uncertainty)} ${esc(d.unit)}, its statistic as published` : null,
       v.from?.label ? esc(v.from.label) : null,
       v.admitted?.length ? `${esc(v.admitted.join(', '))} not stated` : null,
-      m && /strength/i.test(m.property ?? '') ? `endpoint: ${esc(m.property)}` : null,
+      v.endpoints?.length ? `the highest of ${v.endpoints.map((e) => `${/yield/i.test(e.property) ? 'yield' : /break/i.test(e.property) ? 'break' : 'unspecified-endpoint'} ${fmtNumber(e.value)}`).join(' and ')} ${esc(d.unit)}, which one test prints`
+        : m && /strength/i.test(m.property ?? '') ? `endpoint: ${esc(m.property)}` : null,
       m?.standards?.length ? `to ${esc(m.standards.join(', '))}` : null,
     ].filter(Boolean);
     return `<dd>${value} <span class="fine">${where}${extra.length ? `; ${extra.join('; ')}` : ''}</span></dd>`;

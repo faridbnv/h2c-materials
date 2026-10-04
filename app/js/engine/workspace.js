@@ -116,7 +116,7 @@ export function axisValue(j, key, ctx) {
     value: h.value, unit: h.unit, origin: 'source', measurementId: h.measurementId ?? null, sourceId: h.sourceId ?? null,
     sourceStateId: from.id, stateInvariantByRegistry: from.id !== state.id,
     interval: h.interval ?? null, uncertainty: h.uncertainty ?? null, from: h.from ?? null, admitted: h.admitted ?? [],
-    direction: h.direction ?? null, anneal: h.anneal ?? null, level: h.level ?? null, priceIds: h.priceIds ?? [], assumed: false,
+    direction: h.direction ?? null, anneal: h.anneal ?? null, level: h.level ?? null, priceIds: h.priceIds ?? [], endpoints: h.endpoints ?? null, assumed: false,
   };
 }
 

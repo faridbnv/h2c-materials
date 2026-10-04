@@ -180,7 +180,37 @@ function chooseValue(grade, def, gradeMeasurements, pinnedIds, state = null) {
   const pinned = candidates.find((c) => pinnedIds.has(c.m.id));
   if (pinned) return productValue(pinned.m, pinned.a, def, true);
   candidates.sort((x, y) => compareKeys(preference(x.m, x.a, grade, def), preference(y.m, y.a, grade, def)) || (x.m.id < y.m.id ? -1 : 1));
-  return productValue(candidates[0].m, candidates[0].a, def, false);
+  const { chosen, endpoints } = endpointMaximum(candidates[0], candidates, def);
+  const v = productValue(chosen.m, chosen.a, def, false);
+  if (endpoints) v.endpoints = endpoints;
+  return v;
+}
+
+/**
+ * The ultimate strength of a test is its maximum stress, so it is at least the stress at yield and at break that the same
+ * test prints (headline_definitions.csv Lower bound properties; D126). Where the rule chose one of these endpoints, the
+ * value is the greatest of the endpoints of that test: the same source, product, direction, specimen, moisture and
+ * post-processing state, test temperature. Another source's number is another test and is not compared. Returns the
+ * candidate to read and, where more than one endpoint was compared, which ones, so the drawer can say "maximum of yield 43
+ * and break 52". A headline whose bound is another test (heat deflection at a heavier load) has no endpoints and is
+ * untouched, and so is a published upper bound ("< 60"), which proves nothing about the value.
+ */
+function endpointMaximum(first, candidates, def) {
+  const rel = def.lowerBounds;
+  const m = first.m;
+  const upper = (x) => !!x.m.interval && x.m.interval.lo == null && x.m.interval.hi != null;
+  if (!rel || rel.loadMPa != null || !rel.properties.includes(m.property) || upper(first)) return { chosen: first, endpoints: null };
+  const sameTest = (x) => rel.properties.includes(x.m.property) && !upper(x)
+    && x.m.sourceId === m.sourceId && x.m.gradeId === m.gradeId && x.m.direction === m.direction && x.m.specimenType === m.specimenType
+    && x.m.moistureState === m.moistureState && x.m.postProcessingState === m.postProcessingState && sameSchedule(x.m.anneal, m.anneal)
+    && (x.m.testTemperatureC ?? null) === (m.testTemperatureC ?? null);
+  // One endpoint per property, the one the rule prefers: two rows of one property are repeats of a test, not its endpoints.
+  const test = [];
+  for (const x of candidates) if (sameTest(x) && !test.some((y) => y.m.property === x.m.property)) test.push(x);
+  if (test.length < 2) return { chosen: first, endpoints: null };
+  // The preferred endpoint wins a tie, so a test whose endpoints agree or that already ends on its maximum is unchanged.
+  const chosen = test.reduce((best, x) => (x.m.value > best.m.value ? x : best), first);
+  return { chosen, endpoints: test.map((x) => ({ measurementId: x.m.id, property: x.m.property, value: x.m.value })) };
 }
 
 /** The value the rule alone chooses for a product, pins ignored: what `scripts/audit/rule-vs-hand-picks.mjs` compares. */

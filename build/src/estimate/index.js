@@ -40,8 +40,9 @@ import { meltingPoint, hyperparameters, spreadObservations, predict } from './ga
 import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.js';
 import { makeRangeFor } from './bounds.js';
 import { backTest, screenDecision } from './screening.js';
+import { floorBackTest } from './floors.js';
 import { attachPrintEstimates } from './print.js';
-import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta } from './grades.js';
+import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta, formulationFloors } from './grades.js';
 
 export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
 
@@ -61,6 +62,8 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     const { raw, rejected, bounds: oneSided, ownerOfF } = rawObservations(key, S, model);
     diagnostics.rejected.push(...rejected);
     diagnostics.bounds.push(...oneSided);
+    // What each formulation's own measurements prove the headline is at least, once per headline: a grade's range takes it.
+    const floorsOf = formulationFloors(registry.headlines.find((h) => h.key === key), S);
     const conv = conversions(key, raw, model);
     const converted = convert(key, raw, conv, S, model);
     const tmMean = meltingPoint(key, S, model).offset;
@@ -86,6 +89,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     };
 
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
+    diagnostics.properties[key].floors = floorBackTest({ key, def: registry.headlines.find((h) => h.key === key), model, S, tmMean, loo, rangeFor });
     const certification = backTest({ key, model, S, obs, tmMean, rangeFor, holdOut });
     diagnostics.properties[key].screening = certification;
 
@@ -103,7 +107,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       diagnostics.properties[key].gradeCalibration.why = 'its grade scales reach the calibration clamp: a product\'s published value scatters about its material more than the model can say, so no grade range is shown';
     } else {
       const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
-      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF });
+      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF, floorsOf });
     }
 
     for (const m of S.pool) {

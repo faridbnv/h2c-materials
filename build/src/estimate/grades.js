@@ -18,6 +18,7 @@
 import { quantile } from './numerics.js';
 import { HEAD, identityOf, sig3 } from './model.js';
 import { predict } from './gaussian.js';
+import { lowerBoundsOf } from '../lower-bounds.js';
 
 /**
  * Hide each grade's own observations of the headline's own kind and predict them: the grade-level scales, their
@@ -69,10 +70,28 @@ export function calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausib
 }
 
 /**
+ * What each formulation's own measurements prove a headline is at least (lower-bounds.js), as a function of the
+ * formulation key: the list a grade's range is floored by. Built once per headline from the snapshot's usable
+ * measurements, so a twin that prints its sibling's table is floored by that table too.
+ */
+export function formulationFloors(def, S) {
+  const byF = new Map();
+  if (def?.lowerBounds) {
+    for (const list of S.byMaterial.values()) for (const x of list) {
+      const f = S.fkey(x.gradeId);
+      if (!byF.has(f)) byF.set(f, []);
+      byF.get(f).push(x);
+    }
+  }
+  const floors = new Map([...byF].map(([f, own]) => [f, lowerBoundsOf(def, own)]));
+  return (f) => floors.get(f) ?? [];
+}
+
+/**
  * The estimate of every active grade of every material in the pool, for one headline: attached to the grade as
  * `estimate[key]`. Grades that share a formulation share one posterior and say so.
  */
-export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF }) {
+export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor, ownerOfF, floorsOf }) {
   const byFormulation = new Map();
   for (const g of S.grades.values()) {
     if (g.retired || !S.inPool.has(g.materialId)) continue;
@@ -94,8 +113,9 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
     const manufacturer = g0.manufacturer ?? null;
     const p = predict(P, hp, subject, f, manufacturer);
     p.mu += tmMean(subject);
-    // Every grade takes the bounds its own sheets publish (bounds.js).
-    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f });
+    // Every grade takes the bounds its own sheets publish, and the floors its own measurements prove: a yield or break
+    // stress under its ultimate strength, a heat deflection at 1.8 MPa under the one at 0.45 MPa (bounds.js, D126).
+    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f, implied: floorsOf(f) });
     const own = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.f === f && (o.m.id === m.id || o.m.id === subject.id));
     const mine = obs.some((o) => o.m.id === m.id);
     const strength = own.length ? 'this-grade' : mine ? 'this-material' : 'family';

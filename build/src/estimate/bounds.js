@@ -5,7 +5,7 @@ import { boundedQuantile, boundedCdf } from './numerics.js';
 import { HEAD, transform } from './model.js';
 
 /**
- * A range function for one headline: (m, subject, p, unit, { ownBounds }) => { bounds, centre, range, wide, at }, where p is
+ * A range function for one headline: (m, subject, p, unit, { ownBounds, formulation, implied }) => { bounds, centre, range, wide, at }, where p is
  * the prediction on the model scale with the melting-point offset already added, and subject the material whose
  * product is predicted (itself, or the material its product is filed under). at(pr) is the quantile pr
  * with the plausible range's calibration and the same limits, for a range wider than the plausible one; cdf(value)
@@ -16,7 +16,7 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
   // `formulation` predicts one grade rather than the material: its own published bounds take part, not its siblings',
   // and the density limit asks whether that grade is a declared variant (D81). A material call passes none: the
   // material's own bounds take part, and the density limit asks whether all its products are variants.
-  return (m, subject, p, unit, { ownBounds = true, formulation } = {}) => {
+  return (m, subject, p, unit, { ownBounds = true, formulation, implied } = {}) => {
     const h = { unit };
     const bounds = [];
     // Physical limits bound every estimate softly (estimate-model.json bounds): the property's outer
@@ -40,15 +40,17 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       bounds.push({ side: b.side, own: b.value, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
     }
-    // What the material's own printed measurements prove (compile.js impliedBounds, from headline_definitions.csv Lower bound: a yield or break stress under
-    // the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa) limits its
-    // estimate from below, as a published one-sided bound does. PA6's plausible HDT reached down to 72 °C though
-    // its own 1.8 MPa value is 90 °C (audit 2026-09-15, B-16).
-    // What the material's own printed measurements prove bounds the material, not one grade: a grade's range does
-    // not take it.
-    if (ownBounds && formulation === undefined) {
+    // What the material's own measurements prove (lower-bounds.js, from headline_definitions.csv Lower bound: a yield or
+    // break stress under the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at
+    // 0.45 MPa) limits its estimate from below, as a published one-sided bound does. PA6's plausible HDT reached down
+    // to 72 °C though its own 1.8 MPa value is 90 °C (audit 2026-09-15, B-16).
+    // A material's range takes the bounds of all its products (its compiled implied bounds), a grade's the ones its own
+    // formulation proves (`implied`, passed by grades.js): a grade is not bounded by a sibling. The back-test passes the
+    // bounds it allows, with the hidden value left out.
+    const floors = implied ?? (ownBounds && formulation === undefined ? m.headline[key]?.impliedBounds : null) ?? [];
+    {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
-      for (const b of m.headline[key]?.impliedBounds ?? []) {
+      for (const b of floors) {
         if (!(b.lo > 0) && scaleName === 'log') continue;
         bounds.push({ side: 'lower', own: b.lo, value: toModel(b.lo), sd: model.bounds.oneSided.sd[scaleName], why: `at least ${b.lo} ${h.unit}: its own ${b.property.toLowerCase()} (${b.measurementId}) bounds it` });
       }

@@ -2638,6 +2638,21 @@
           "description": "The test standards the measurement names, which a reason states: a pooled method is not an equal one.",
           "type": "array",
           "items": { "type": "string" }
+        },
+        "endpoints": {
+          "description": "Present where the value is the greatest of the stress endpoints one test prints (D126): the yield, break and unspecified strengths of the same source, product, direction, specimen, state and temperature, in the order the rule prefers them. The value is the largest of them, and its measurement is that endpoint's.",
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["measurementId", "property", "value"],
+            "properties": {
+              "measurementId": { "type": "string" },
+              "property": { "type": "string" },
+              "value": { "type": "number" }
+            }
+          }
         }
       }
     },

@@ -20,6 +20,7 @@ import { readRecipe, checkMakerEnclosed } from './recipe.js';
 import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { aggregateGate } from './gates.js';
+import { lowerBoundsOf } from './lower-bounds.js';
 import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
@@ -312,26 +313,10 @@ function conditionNote(m, def, props) {
 /**
  * Measurements of the material that bound a missing headline from below (headline_definitions.csv Lower bound). The
  * engine lets one veto an estimate's screen when it meets the requirement: the headline is at least that value.
+ * lower-bounds.js says which specimens and states bound.
  */
 function impliedBounds(mat, def, measurementsByMaterial) {
-  const rel = def.lowerBounds;
-  if (!rel) return [];
-  const own = measurementsByMaterial.get(mat.MaterialID) ?? [];
-  // Only a printed part bounds a printed headline. A moulded bar, a drawn film or a filament strand is another
-  // specimen (ASTM D882 film strengths once kept PLA a candidate for 140 MPa), and so, often, is a filament sheet's
-  // unstated specimen (Spectrum PA12-CF's 125 MPa kept it in searches for 95 MPa; printed PA12-CF is 70-90 MPa).
-  // A state the headline is not in bounds nothing either: an annealed value where the grade publishes the
-  // as-printed one, or a moisture state the rule excludes (conditioning raises a nylon's strain at break).
-  return own
-    .filter((m) => m.numeric && !m.quarantined && !m.implausible && m.specimenForm === 'printed' && m.operator !== '<' && m.operator !== '<=')
-    .filter((m) => !annealedBesideAsPrinted(m, own))
-    .filter((m) => !(rel.excludeMoisture ?? []).includes(m.moistureState))
-    .filter((m) => rel.properties.includes(m.property) && (rel.loadMPa == null || (m.thermal?.loadStated && Math.abs(m.thermal.loadMPa - rel.loadMPa) < 0.05)))
-    .map((m) => ({ measurementId: m.id, property: m.property, direction: m.direction,
-      // The published value (the low end of a published range, the bound of a "> x"), never value + SD: a spread of
-      // specimens is not a guarantee, and 30 ± 23 % once read as "at least 53 %" (audit 2026-09-15, B-02).
-      lo: m.value, unit: m.unit }))
-    .filter((b) => Number.isFinite(b.lo));
+  return lowerBoundsOf(def, measurementsByMaterial.get(mat.MaterialID) ?? []);
 }
 
 const FORM_NOTE = {

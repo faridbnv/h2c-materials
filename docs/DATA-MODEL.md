@@ -312,7 +312,8 @@ a material's headline is derived from them, and no product stands for a material
   annealing", "Changes with moisture"). A value in one state is never another's: the engine judges a product in each
   state the scenario permits and answers with the best. `grades[].headline` stays the product's published value, which
   the table and the spread show, labelled with its annealing. Every value carries `admitted` (the conditions that could
-  change it and its source left unstated) and `standards`. A measurement that took a statement from its page (`page_context.csv`, D116) says which
+  change it and its source left unstated) and `standards`; a strength that is the greatest endpoint one test prints says
+  which it compared in `endpoints` (D126). A measurement that took a statement from its page (`page_context.csv`, D116) says which
   in `measurements[].pageContext`, by PageContextID per field.
 - **`grades[].buy`** (D98): the product's own sampled offers; **`grades[].twins`**: the products that print its sheet.
 
@@ -379,7 +380,7 @@ Not measured:
   known: false, missing: 'not-published', unit: '%',
   related: { … } | null,      // real measurements of this property that are no product's value: how many, the
                               // closest, and up to ten, each with why (below)
-  impliedBounds: [ … ],       // its own printed values that bound it from below (D55)
+  impliedBounds: [ … ],       // its own printed values, or those of a source that states no specimen, that bound it from below (D55, D126)
   estimate: { … } | null      // the calibrated estimate (below)
 }
 ```
@@ -538,9 +539,10 @@ inside the plausible range and moves outwards only where the tail proved too thi
 end; with fewer, an end screens only where the family model's end agrees. An end the material's own evidence lies beyond
 never screens (`meta.estimateModel.properties.*.screening`, `build/snapshot/screening.csv`).
 In Explore with Estimates on, an estimate screens a material out when the range it may screen on wholly fails, and no
-printed measurement of the material bounds the headline from below and meets the requirement (`impliedBounds`: yield or
+printed measurement of the material (or one whose source states no specimen) bounds the headline from below and meets the requirement (`impliedBounds`: yield or
 break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa, each at its
-published value; D55). The same bounds limit the estimate's own range from below. Not
+published value; D55, D126). The same bounds limit the estimate's own range from below, and a grade's range is limited by its own
+formulation's (`lower-bounds.js`); EST-ORDER fails the build when a shown estimate lies under them. Not
 applicable screens the same way. (An unstated-load heat deflection bracket screened too until phase 4 removed it: a value
 published without its load is now as published, D84.) Strict neither shows nor uses estimates. The earlier models are recorded in D10,
 D11, D40, D42 and D43.

@@ -129,6 +129,8 @@ function productValueHeadline(base, grade, v, measurementById) {
   if (v.anneal) h.anneal = v.anneal;
   if (v.admitted) h.admitted = v.admitted;
   if (v.standards) h.standards = v.standards;
+  // The greatest endpoint one test prints, and the endpoints compared (build/src/products.js, D126).
+  if (v.endpoints) h.endpoints = v.endpoints;
   if (v.priceIds) Object.assign(h, { priceIds: v.priceIds, observations: v.observations });
   // A twin's value is its sibling's, from the same sheet (D89); the reason says so.
   if (v.from) h.from = v.from;
