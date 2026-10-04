@@ -39,6 +39,8 @@
     "ingest:batch": "node scripts/ingest/batch.mjs",
     "ingest:readings": "node scripts/ingest/readings.mjs",
     "ingest:witness": "node scripts/ingest/witness.mjs",
+    "ingest:read-packet": "node scripts/ingest/read-packet.mjs",
+    "ingest:read-reconcile": "node scripts/ingest/read-reconcile.mjs",
     "ingest:blockers": "node scripts/ingest/blockers.mjs",
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",
