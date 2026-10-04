@@ -272,7 +272,12 @@ const sameNumbers = (a, b) => {
 
 /** Does a second reading of the same page give this row's numbers? 'agreed', 'disagrees', or 'pending' when nobody has read it. */
 export function secondStatus(row, seconds) {
-  const sameSheet = seconds.filter((s) => s.kind !== 'none' && s.source_id === row.source_id && s.page === row.page && s.field === row.field
+  // A second reader answers a task by its id ("task:<RowID>" in its note), so the answer is matched to the reading it
+  // was asked about even where the two readers word the field or the product differently; "not found" is no agreement.
+  const named = (s) => (s.note ?? '').split(/[\s,;]+/).some((w) => w.replace(/^task:/, '') === row.RowID && /^task:|^not/.test(w + (s.note ?? '')));
+  const answers = row.RowID ? seconds.filter((s) => (s.note ?? '').includes(row.RowID) && named(s)) : [];
+  if (answers.length && answers.every((s) => s.kind === 'none')) return 'disagrees';
+  const sameSheet = answers.length ? answers.filter((s) => s.kind !== 'none') : seconds.filter((s) => s.kind !== 'none' && s.source_id === row.source_id && s.page === row.page && s.field === row.field
     && (!productKey(s) || !productKey(row) || productKey(s) === productKey(row)));
   if (!sameSheet.length) return 'pending';
   const agree = sameSheet.some((s) => sameNumbers(row, s) && conditionsCompatible(row, { Direction: s.direction, 'Moisture state': moistureOf(s.moisture), 'Post-processing state': treatmentOf(s.post_processing) }).ok);
