@@ -44,7 +44,7 @@ and the reasoning a count cannot carry. Start there, not here.
 ```bash
 npm run ingest:fetch -- --provider "SUNLU"                  # two at a time per host, by digest
 npm run ingest:fetch -- --stage <file|folder> --doc <key>   # a document the owner saved from a browser (R084)
-npm run ingest:capture -- --provider "BASF Forward AM / Ultrafuse"   # a page whose numbers a script draws
+npm run ingest:capture -- --provider "BASF Forward AM / Ultrafuse"   # a page whose numbers a script draws; tabs and accordions are opened first (--no-expand leaves it as drawn)
 npm run ingest:harvest -- --provider "BASF Forward AM / Ultrafuse"   # a page that is an index of documents
 npm run ingest:extract -- --provider "SUNLU"                # the text, cached by digest, and the twins
 npm run ingest:ocr -- --all                                 # a scan: an optical reading, and its page images

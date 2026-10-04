@@ -26,7 +26,7 @@ const READER = 'lines/gap v2';
 const EXTRACTOR = `pdfjs-dist ${createRequire(import.meta.url)('pdfjs-dist/package.json').version}; ${READER}`;
 // A maker who publishes a sheet as a web page publishes the same table, and it is read into the same shape by
 // its own reader, with its own version. Both readings are cached in one place, under the document's digest.
-const HTML_READER = 'html/tables v4';
+const HTML_READER = 'html/tables v5';
 const CURRENT = new Set([EXTRACTOR, HTML_READER]);
 
 export const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');

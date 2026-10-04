@@ -134,7 +134,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `data/new-material.mjs` | `npm run data:new-material`: a material and its first grade in one write, and a list of the records it still needs. |
 | `lib/cdp.mjs` | Headless Chrome for `ui-probe.mjs` and `ui-fuzz.mjs`: where it is, how it is launched, the debugging port. |
 | `lib/pdf-text.mjs` | A source document's bytes, digest and text page by page, cached by SHA-256 in `.cache/`: the reader the audits, the import and the migrations prove a number on its page with. |
-| `lib/html-text.mjs` | A data sheet that is a web page read into the same lines and columns a PDF reads into; a page whose table is drawn by script is not run. |
+| `lib/html-text.mjs` | A data sheet that is a web page read into the same lines and columns a PDF reads into: tables (colspan and rowspan expanded), definition lists, grids of label/value blocks, and the product data a page carries as JSON-LD or product JSON. A page whose table is drawn by script is not run here; `ingest/capture.mjs` renders it, opening its tabs and accordions. |
 | `lib/offers.mjs` | The offers a saved shop document holds, read from its bytes alone: a Shopify catalogue page (with the shop's `/meta.json` for its currency), a product page's schema.org offers, an Amazon page as a browser drew it; and a listing's net mass and diameter from its own words (D113). |
 | `lib/comparison-table.mjs` | Reading a one-page comparison table by column heading and row label, and a mark drawn in a cell by its fill colour: how m150 proves each guide cell stands where its Locator says (D88). |
 | `lib/nanovia-tabs.mjs` | Nanovia's tensile tables, one tab per raster, read from the page's own hash-checked bytes (m155, m167, m168). |
