@@ -1,0 +1,619 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+    "url": "https://ca.store.bambulab.com/products/pa6-gf",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/pa6-gf#witness-for=source:B-pa6-gf-TDS"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pa6"
+    ],
+    "materialId": "M049",
+    "materialName": "PA6",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+      "Publisher": "Bambu Lab",
+      "Title": "PA6-GF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/pa6-gf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G051-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PA6-GF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G051-01",
+      "row": {
+        "GradeID": "G051-01",
+        "MaterialID": "M051",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PA6-GF",
+        "Shared formulation key": "B-pa6-gf-TDS",
+        "Composition / filler": "Nylon 6, glass fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "2.56 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.56",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.56",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "25\u00b0C",
+        "Test temperature \u00b0C": "25",
+        "Standard / load": "25 \u00b0C 55 RH",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-pa6-gf",
+        "Locator": "p. 1: Saturated Water Absorption Rate (25 \u00b0C, 55% RH)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Saturated Water Absorption Rate (25 \u00b0C, 55% RH)  2.56%  2.35%  0.88%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c10-0419c91c-e1",
+      "gradeKey": "G051-01",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "G051-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "PA6-GF boasts a high heat deflection temperature and superior dimensional stability, enabling it to retain its mechanical properties even under elevated temperatures. This makes it ideal for demanding industrial and automotive applications.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 122"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PA6-GF boasts a high heat deflection temperature and superior dimensional stability, enabling it to retain its mechanical properties even under elevated temperatures. This makes it ideal for demanding industrial and automotive applications."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-0419c91c-e2",
+      "gradeKey": "G051-01",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "G051-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Placing the printed part in a convection oven set between 80 to 130 degrees Celsius for 5 to 12 hours can further enhance the strength and rigidity of the print. Note: The effectiveness of this process depends on the structure, size, and conditions of the printed model. Some models may warp or deform after annealing. For more details, please refer to: Work after Printing Finished on WIKI.",
+        "Exposure / conditions": "Maker80\u2013130\u00b0C5\u201312h schedule with geometry/warping warning retained as guidance; no scalar schedule or new measurement state invented.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 158"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Placing the printed part in a convection oven set between 80 to 130 degrees Celsius for 5 to 12 hours can further enhance the strength and rigidity of the print. Note: The effectiveness of this process depends on the structure, size, and conditions of the printed model. Some models may warp or deform after annealing. For more details, please refer to: Work after Printing Finished on WIKI."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-0419c91c-e3",
+      "gradeKey": "G051-01",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "G051-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Note: PA6-GF Yellow, Lime and Brown have been discontinued and will not be restocked.",
+        "Exposure / conditions": "Only named colour availability notice; no product retirement or properties transfer.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 47"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Note: PA6-GF Yellow, Lime and Brown have been discontinued and will not be restocked."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$76.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 77 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: PA6-GF Yellow, Lime and Brown have been discontinued and will not be restocked.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: PA6-GF Yellow, Lime and Brown have been discontinued and will not be restocked.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$76.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 77 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: PA6-GF Yellow, Lime and Brown have been discontinued and will not be restocked.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu PA6-GF is exceptionally strong and durable due to reinforced glass fibers, making it the perfect choice for prints that need to withstand heavy use and re",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF boasts unparalleled dimensional stability thanks to its glass fiber reinforcement, minimizing warping in comparison to standard PA filaments. Print with ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF boasts a high heat deflection temperature and superior dimensional stability, enabling it to retain its mechanical properties even under elevated tempera",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF offers excellent resistance to chemicals, oils, and many kinds of solvents, ensuring long-term performance in challenging environments.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu PA6-GF filaments are compatible with the Bambu AMS system, ready to print in multi-color. The special surface texture also blurs the layer lines, providin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-GF  PA6-CF  PAHT-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Composition  PA6, glass fiber  PA6, carbon fiber  PA12 and other long-chain PA, carbon fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (Impact Strength - XY, dry state)  27.2 kJ/m&sup2;  40.3 kJ/m&sup2;  57.5 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (Impact Strength - XY, wet state)  55.8 kJ/m&sup2;  57.2 kJ/m&sup2;  62.3 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Bending Strength - XY, dry state)  120 MPa  151 MPa  125 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Bending Strength - XY, wet state)  71 MPa  95 MPa  115 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Strength (Bending Strength - Z, dry state)  51 MPa  80 MPa  61 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Strength (Bending Strength - Z, wet state)  33 MPa  45 MPa  49 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY, dry state)  3670 MPa  5460 MPa  4230 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY, wet state)  2120 MPa  3560 MPa  3640 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Adhesion (Impact Strength - Z, dry state)  4.1 kJ/m&sup2;  15.5 kJ/m&sup2;  13.3 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Resistance\uff08HDT, 0.45 MPa, Dry State)  182 \u2103  186 \u2103  194 \u2103",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not compatible with Cool Plate SuperTack, Hotend with Stainless Steel Nozzle 0.2 mm, Liquid Glue, and AMS lite .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Warping Prevention Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Post-processing Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We recommend removing the support structures within 2 hours after printing to prevent them from sticking after absorbing moisture. If sticking occurs, dry the m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Placing the printed part in a convection oven set between 80 to 130 degrees Celsius for 5 to 12 hours can further enhance the strength and rigidity of the print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$76.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-pa6-gf",
+      "previousSHA256": "ae5167fcfafc4c88d6c0bc31607627aad5039dac2849926c8ab508d01b5296ef",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-pa6-gf",
+        "Composition / filler": "Bambu PA6-GF is exceptionally strong and durable due to reinforced glass fibers, making it the perfect choice for prints that need to withstand heavy use and re (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-pa6-gf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

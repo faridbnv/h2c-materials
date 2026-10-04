@@ -1,0 +1,407 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "50cc660662857577dede51d7fa0d37a1e060e44090a8fb0dfa30193d17c44f7a",
+    "url": "https://ca.store.bambulab.com/products/petg-hf",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/petg-hf#witness-for=source:B-petg-hf-TDS"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+      "Publisher": "Bambu Lab",
+      "Title": "PETG HF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/petg-hf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G022-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "50cc660662857577dede51d7fa0d37a1e060e44090a8fb0dfa30193d17c44f7a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PETG HF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G022-01",
+      "row": {
+        "GradeID": "G022-01",
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PETG HF",
+        "Shared formulation key": "B-petg-hf-TDS",
+        "Composition / filler": "PETG",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c09-50cc6606-e1",
+      "gradeKey": "G022-01",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "G022-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "PETG HF maintains the inherent strengths of regular PETG, providing superior resistance to water, UV, and temperatures. Tougher and more durable than PLA, with higher temperature resistance, it's the perfect choice for printing outdoor items such as planter pots, bird cages, watering cans, and automotive parts. Additionally, it's ideal for outdoor toys that require long-term exposure and the ability to withstand impacts, collisions, and falls.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 138"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PETG HF maintains the inherent strengths of regular PETG, providing superior resistance to water, UV, and temperatures. Tougher and more durable than PLA, with higher temperature resistance, it's the perfect choice for printing outdoor items such as planter pots, bird cages, watering cans, and automotive parts. Additionally, it's ideal for outdoor toys that require long-term exposure and the ability to withstand impacts, collisions, and falls."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c09-50cc6606-e2",
+      "gradeKey": "G022-01",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "G022-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "PETG HF is discontinued and will not be restocked once sold out. A new and improved PETG is available now! Buy Now >",
+        "Exposure / conditions": "Observed2026-10-03 maker availability notice; no stock, retirement or replacement-formulation equivalence inferred.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 49"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PETG HF is discontinued and will not be restocked once sold out. A new and improved PETG is available now! Buy Now >"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 17",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$13.29 CAD /roll (Lowest price for 10+ rolls)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MSRP: $18.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 19 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 40% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 40% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 40% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$13.29 CAD /roll (Lowest price for 10+ rolls)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MSRP: $18.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 19 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dry before use to ensure the best print quality and consistent finish. PETG HF must be dried before use and remain moisture-free during the printing process, es",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Refill Guidelines",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$18.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-petg-hf",
+      "previousSHA256": "ef9caee9ccd90241e7b895db6c3780ccd7c46b0323cfe515fb656b947c25e45c",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-petg-hf",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-petg-hf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

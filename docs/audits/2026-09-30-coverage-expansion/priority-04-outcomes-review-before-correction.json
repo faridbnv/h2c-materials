@@ -1,0 +1,901 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "c25370e3cda7738338d4a9f70ed260b76cb71fd698db32719c00d5f47784a95e",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "Corrections": [
+    {
+      "GradeID": "G040-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-693bcb42a47c",
+            "SHA256": "693bcb42a47c314d4b66c92b422527ea3dfb4e313189a093e634edc2f4e2937e",
+            "Locator": "p.1: own Safety Tips; source text line 151",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G040-01",
+      "QuestionID": "print-treatment-state",
+      "Before": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+        "Basis": [
+          {
+            "RecordID": "P0051",
+            "SourceID": "B-tpu-for-ams-TDS",
+            "SHA256": "587ca053a17fdeb1b40d5e639b178c5d980f4c440789d8c2842d67057a0b9b8c",
+            "Locator": "Recommended printing settings"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  The own TDS explicitly does not recommend annealing finished TPU prints because complex shapes/structures may deform. Datasheet specimen annealing is test preparation and does not override this finished-print warning.",
+        "Basis": [
+          {
+            "RecordID": "P0051",
+            "SourceID": "B-tpu-for-ams-TDS",
+            "SHA256": "587ca053a17fdeb1b40d5e639b178c5d980f4c440789d8c2842d67057a0b9b8c",
+            "Locator": "Recommended printing settings"
+          },
+          {
+            "RecordID": "Q03284",
+            "SourceID": "B-tpu-for-ams-TDS",
+            "SHA256": "587ca053a17fdeb1b40d5e639b178c5d980f4c440789d8c2842d67057a0b9b8c",
+            "Locator": "p. 3"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G021-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-6e425b0d7ce7",
+            "SHA256": "6e425b0d7ce7fcf7ac9fc9f1d62b51057895cc2ea648ab8cabe4fd67775fd8f2",
+            "Locator": "p.1: own Safety Tips; source text line 164",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G021-01",
+      "QuestionID": "print-treatment-state",
+      "Before": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+        "Basis": [
+          {
+            "RecordID": "P0024",
+            "SourceID": "B-petg-basic-TDS",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6",
+            "Locator": "Recommended printing settings; p. 1: Drying Settings before Printing: Blast Drying Oven"
+          },
+          {
+            "RecordID": "Q00515",
+            "SourceID": "B-petg-basic-TDS",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6",
+            "Locator": "p. 3: Annealing note"
+          },
+          {
+            "RecordID": "Q01976",
+            "SourceID": "B-petg-basic-TDS",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6",
+            "Locator": "p. 2"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  The own TDS explicitly does not recommend annealing finished PETG prints because complex shapes/structures may deform and expected property gains are limited. Datasheet specimen annealing is test preparation and does not override this finished-print warning.",
+        "Basis": [
+          {
+            "RecordID": "P0024",
+            "SourceID": "B-petg-basic-TDS",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6",
+            "Locator": "Recommended printing settings; p. 1: Drying Settings before Printing: Blast Drying Oven"
+          },
+          {
+            "RecordID": "Q00515",
+            "SourceID": "B-petg-basic-TDS",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6",
+            "Locator": "p. 3: Annealing note"
+          },
+          {
+            "RecordID": "Q01976",
+            "SourceID": "B-petg-basic-TDS",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6",
+            "Locator": "p. 2"
+          },
+          {
+            "RecordID": "Q01977",
+            "SourceID": "B-petg-basic-TDS",
+            "SHA256": "fc23b725a4632bd931f28d0076461180e0ba87b7c2ddb6b1f16478ad5c5db6c6",
+            "Locator": "p. 3"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G022-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+            "SHA256": "50cc660662857577dede51d7fa0d37a1e060e44090a8fb0dfa30193d17c44f7a",
+            "Locator": "p.1: own Safety Tips; source text line 158",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G022-01",
+      "QuestionID": "print-treatment-state",
+      "Before": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+        "Basis": [
+          {
+            "RecordID": "P0025",
+            "SourceID": "B-petg-hf-TDS",
+            "SHA256": "51981f734b941947f3fe696cc370c1a4b7419f4eb4cffa77ea97c3d5d4b53ab4",
+            "Locator": "Recommended printing settings"
+          },
+          {
+            "RecordID": "Q00516",
+            "SourceID": "B-petg-hf-TDS",
+            "SHA256": "51981f734b941947f3fe696cc370c1a4b7419f4eb4cffa77ea97c3d5d4b53ab4",
+            "Locator": "p. 3: Annealing note"
+          },
+          {
+            "RecordID": "Q01983",
+            "SourceID": "B-petg-hf-TDS",
+            "SHA256": "51981f734b941947f3fe696cc370c1a4b7419f4eb4cffa77ea97c3d5d4b53ab4",
+            "Locator": "p. 2"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  The own TDS explicitly does not recommend annealing finished PETG prints because complex shapes/structures may deform and expected property gains are limited. Datasheet specimen annealing is test preparation and does not override this finished-print warning.",
+        "Basis": [
+          {
+            "RecordID": "P0025",
+            "SourceID": "B-petg-hf-TDS",
+            "SHA256": "51981f734b941947f3fe696cc370c1a4b7419f4eb4cffa77ea97c3d5d4b53ab4",
+            "Locator": "Recommended printing settings"
+          },
+          {
+            "RecordID": "Q00516",
+            "SourceID": "B-petg-hf-TDS",
+            "SHA256": "51981f734b941947f3fe696cc370c1a4b7419f4eb4cffa77ea97c3d5d4b53ab4",
+            "Locator": "p. 3: Annealing note"
+          },
+          {
+            "RecordID": "Q01983",
+            "SourceID": "B-petg-hf-TDS",
+            "SHA256": "51981f734b941947f3fe696cc370c1a4b7419f4eb4cffa77ea97c3d5d4b53ab4",
+            "Locator": "p. 2"
+          },
+          {
+            "RecordID": "Q01984",
+            "SourceID": "B-petg-hf-TDS",
+            "SHA256": "51981f734b941947f3fe696cc370c1a4b7419f4eb4cffa77ea97c3d5d4b53ab4",
+            "Locator": "p. 3"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G023-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-72581be8410a",
+            "SHA256": "72581be8410a03e66099f65c539171f1ac5a42cc0095ee7d1f08c19e5083f4d8",
+            "Locator": "p.1: own Safety Tips; source text line 163",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G023-01",
+      "QuestionID": "print-treatment-state",
+      "Before": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+        "Basis": [
+          {
+            "RecordID": "P0026",
+            "SourceID": "B-petg-translucent-TDS",
+            "SHA256": "76246afc09c01b232869072208abbace373650b5b1e661ab222b4605f67a5229",
+            "Locator": "Recommended printing settings"
+          },
+          {
+            "RecordID": "P0746",
+            "SourceID": "B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet",
+            "SHA256": "c10469d003d22c496a7f6d05912f7d28583c72d2208a869cd0b1bf07fc780901",
+            "Locator": "p. 1: Recommended printing settings: Nozzle Temperature; p. 1: Drying Settings before Printing: Blast Drying Oven"
+          },
+          {
+            "RecordID": "Q00517",
+            "SourceID": "B-petg-translucent-TDS",
+            "SHA256": "76246afc09c01b232869072208abbace373650b5b1e661ab222b4605f67a5229",
+            "Locator": "p. 3: Annealing note"
+          },
+          {
+            "RecordID": "Q05656",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-72581be8410a",
+            "SHA256": "72581be8410a03e66099f65c539171f1ac5a42cc0095ee7d1f08c19e5083f4d8",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 157"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  The own TDS explicitly does not recommend annealing finished PETG prints because complex shapes/structures may deform and expected property gains are limited. Datasheet specimen annealing is test preparation and does not override this finished-print warning.",
+        "Basis": [
+          {
+            "RecordID": "P0026",
+            "SourceID": "B-petg-translucent-TDS",
+            "SHA256": "76246afc09c01b232869072208abbace373650b5b1e661ab222b4605f67a5229",
+            "Locator": "Recommended printing settings"
+          },
+          {
+            "RecordID": "P0746",
+            "SourceID": "B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet",
+            "SHA256": "c10469d003d22c496a7f6d05912f7d28583c72d2208a869cd0b1bf07fc780901",
+            "Locator": "p. 1: Recommended printing settings: Nozzle Temperature; p. 1: Drying Settings before Printing: Blast Drying Oven"
+          },
+          {
+            "RecordID": "Q00517",
+            "SourceID": "B-petg-translucent-TDS",
+            "SHA256": "76246afc09c01b232869072208abbace373650b5b1e661ab222b4605f67a5229",
+            "Locator": "p. 3: Annealing note"
+          },
+          {
+            "RecordID": "Q05656",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-72581be8410a",
+            "SHA256": "72581be8410a03e66099f65c539171f1ac5a42cc0095ee7d1f08c19e5083f4d8",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 157"
+          },
+          {
+            "RecordID": "Q01988",
+            "SourceID": "B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet",
+            "SHA256": "c10469d003d22c496a7f6d05912f7d28583c72d2208a869cd0b1bf07fc780901",
+            "Locator": "p. 3"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G024-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f3c24780db60",
+            "SHA256": "f3c24780db60c9a97cf873713285c849000b844c6262853d54443b9c0c8bedc3",
+            "Locator": "p.1: own Safety Tips; source text line 138",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G027-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+            "SHA256": "f9c029df1bc8a7745108413b36b897ec6df515d40a27439e21ebdaae4574c828",
+            "Locator": "p.1: own Safety Tips; source text line 153",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G028-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf",
+            "SHA256": "a8afbb5aeeafc3b8f78024e5db0798d8c0c04848087240b18914218cbb72c9e2",
+            "Locator": "p.1: own Safety Tips; source text line 168",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G031-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+            "SHA256": "4c2eebbe6cf6578319e1c8ce44a57d9402d8929fcb5e83d77d2f7faf5ece99ec",
+            "Locator": "p.1: own Safety Tips; source text line 145",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "SHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a",
+            "Locator": "p.1: own Safety Tips; source text line 173",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "print-treatment-state",
+      "Before": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Foaming depends on temperature, flow and model geometry; exclusions include hardened0.6/0.8mm and stainless0.2mm hotends. Wiki guide fetchedHTTP200but no article text retrieved from its served HTML; no retry loop or guessed foam schedule. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+        "Basis": [
+          {
+            "RecordID": "P0039",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "Recommended printing settings"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "conflicting",
+        "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Foaming depends on temperature, flow and model geometry; exclusions include hardened0.6/0.8mm and stainless0.2mm hotends. Wiki guide fetchedHTTP200but no article text retrieved from its served HTML; no retry loop or guessed foam schedule. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  Own TDS specimen nozzle225°C is outside its recommended240–280°C recipe. Foam state is unstated; current printed-specimen classification is not a resolved off-recipe distinction. Exact source-condition correction is pending independent guarded review. The user anneal paragraph names Bambu ASA rather than ASA Aero, so its applicability remains uncertain; no foamed or annealed product identity is assumed.",
+        "Basis": [
+          {
+            "RecordID": "P0039",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "Recommended printing settings"
+          },
+          {
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p.1: Recommended Printing Settings; p.3: Specimen Test / specimen footnote",
+            "RawSourceStatement": "Nozzle Temperature 240 - 280 °C; Nozzle Temperature 225 °C; All the specimens were annealed and dried at 80 °C for 12 h before testing; suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "properties-conditions",
+      "Before": {
+        "ID": "properties-conditions",
+        "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+        "Outcome": "context only",
+        "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. Foamed density varies with process; unfoamed/off-recipe properties stay distinct.",
+        "Basis": [
+          {
+            "RecordID": "V000633",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Density"
+          },
+          {
+            "RecordID": "V000634",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Melting Temperature"
+          },
+          {
+            "RecordID": "V000635",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Glass Transition Temperature"
+          },
+          {
+            "RecordID": "V000636",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Crystallization Temperature"
+          },
+          {
+            "RecordID": "V000637",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Vicar Softening Temperature"
+          },
+          {
+            "RecordID": "V000638",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Heat Deflection Temperature"
+          },
+          {
+            "RecordID": "V000639",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Heat Deflection Temperature"
+          },
+          {
+            "RecordID": "V000640",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Saturated Water Absorption Rate"
+          },
+          {
+            "RecordID": "V000641",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Young's Modulus (X-Y)"
+          },
+          {
+            "RecordID": "V000642",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Young's Modulus (Z)"
+          },
+          {
+            "RecordID": "V000643",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Tensile Strength (X-Y)"
+          },
+          {
+            "RecordID": "V000644",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Tensile Strength (Z)"
+          },
+          {
+            "RecordID": "V000645",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+          },
+          {
+            "RecordID": "V000646",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Breaking Elongation Rate (Z)"
+          },
+          {
+            "RecordID": "V000647",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Modulus (X-Y)"
+          },
+          {
+            "RecordID": "V000648",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Modulus (Z)"
+          },
+          {
+            "RecordID": "V000649",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Strength (X-Y)"
+          },
+          {
+            "RecordID": "V000650",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Strength (Z)"
+          },
+          {
+            "RecordID": "V000651",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Impact Strength (X-Y)"
+          },
+          {
+            "RecordID": "V000652",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Impact Strength (Z)"
+          },
+          {
+            "RecordID": "V002103",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Impact Strength (X-Y) (notched)"
+          },
+          {
+            "RecordID": "V002133",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Melt Index"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "properties-conditions",
+        "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+        "Outcome": "conflicting",
+        "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. Foamed density varies with process; neither unfoamed nor foamed specimen identity is established. Own TDS specimen nozzle225°C is outside its recommended240–280°C recipe. Foam state is unstated; current printed-specimen classification is not a resolved off-recipe distinction. Exact source-condition correction is pending independent guarded review. The user anneal paragraph names Bambu ASA rather than ASA Aero, so its applicability remains uncertain; no foamed or annealed product identity is assumed.",
+        "Basis": [
+          {
+            "RecordID": "V000633",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Density"
+          },
+          {
+            "RecordID": "V000634",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Melting Temperature"
+          },
+          {
+            "RecordID": "V000635",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Glass Transition Temperature"
+          },
+          {
+            "RecordID": "V000636",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Crystallization Temperature"
+          },
+          {
+            "RecordID": "V000637",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Vicar Softening Temperature"
+          },
+          {
+            "RecordID": "V000638",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Heat Deflection Temperature"
+          },
+          {
+            "RecordID": "V000639",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Heat Deflection Temperature"
+          },
+          {
+            "RecordID": "V000640",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Saturated Water Absorption Rate"
+          },
+          {
+            "RecordID": "V000641",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Young's Modulus (X-Y)"
+          },
+          {
+            "RecordID": "V000642",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Young's Modulus (Z)"
+          },
+          {
+            "RecordID": "V000643",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Tensile Strength (X-Y)"
+          },
+          {
+            "RecordID": "V000644",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Tensile Strength (Z)"
+          },
+          {
+            "RecordID": "V000645",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+          },
+          {
+            "RecordID": "V000646",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Breaking Elongation Rate (Z)"
+          },
+          {
+            "RecordID": "V000647",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Modulus (X-Y)"
+          },
+          {
+            "RecordID": "V000648",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Modulus (Z)"
+          },
+          {
+            "RecordID": "V000649",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Strength (X-Y)"
+          },
+          {
+            "RecordID": "V000650",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Bending Strength (Z)"
+          },
+          {
+            "RecordID": "V000651",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Impact Strength (X-Y)"
+          },
+          {
+            "RecordID": "V000652",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Impact Strength (Z)"
+          },
+          {
+            "RecordID": "V002103",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Impact Strength (X-Y) (notched)"
+          },
+          {
+            "RecordID": "V002133",
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p. 2: Melt Index"
+          },
+          {
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p.1: Recommended Printing Settings; p.3: Specimen Test / specimen footnote",
+            "RawSourceStatement": "Nozzle Temperature 240 - 280 °C; Nozzle Temperature 225 °C; All the specimens were annealed and dried at 80 °C for 12 h before testing; suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "already recorded",
+        "Finding": "Exact current product header and TDS digest verified. Earlier same-URL site registrations are retained, but their18historical originals are absent; no formulation continuity or recency superiority is assumed. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05668",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "SHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 119"
+          },
+          {
+            "RecordID": "Q05669",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "SHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 159"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Exact current product header and TDS digest verified. Earlier same-URL site registrations are retained, but their18historical originals are absent; no formulation continuity or recency superiority is assumed. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer.  Own TDS specimen nozzle225°C is outside its recommended240–280°C recipe. Foam state is unstated; current printed-specimen classification is not a resolved off-recipe distinction. Exact source-condition correction is pending independent guarded review. The user anneal paragraph names Bambu ASA rather than ASA Aero, so its applicability remains uncertain; no foamed or annealed product identity is assumed.",
+        "Basis": [
+          {
+            "RecordID": "Q05668",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "SHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 119"
+          },
+          {
+            "RecordID": "Q05669",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "SHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 159"
+          },
+          {
+            "SourceID": "B-asa-aero-TDS",
+            "SHA256": "c5f128401819ebcad88fbbd4818eea9b1ceda7b99e58ab43550672633dc8e851",
+            "Locator": "p.1: Recommended Printing Settings; p.3: Specimen Test / specimen footnote",
+            "RawSourceStatement": "Nozzle Temperature 240 - 280 °C; Nozzle Temperature 225 °C; All the specimens were annealed and dried at 80 °C for 12 h before testing; suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G035-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-b02fd3e64625",
+            "SHA256": "b02fd3e64625f7e35ab623736014a6177b8f632857443fb9fc4b3966f4551d89",
+            "Locator": "p.1: own Safety Tips; source text line 128",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G036-01",
+      "QuestionID": "environment-food-contact",
+      "Before": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a85ff09cee52",
+            "SHA256": "a85ff09cee52595e57f5aeb1e8363984a36b2c6468e62337fcfcaf951fe9730c",
+            "Locator": "p.1: own Safety Tips; source text line 120",
+            "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+          }
+        ]
+      }
+    }
+  ],
+  "SourceReviewScope": "Signed actual current page and CTI rereads reused;17 food exclusions rechecked from own-page original text, available own TDS PDFs digest-verified and reread for narrative overlap, specimen/treatment context.18 absent historical maker-page originals were not compared.",
+  "review_signature_sha256": "43357c5c047c50274f57f0cac6af71da8d7bd91667d96083f5fd438cd240f1fa"
+}

@@ -1,0 +1,757 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+    "url": "https://ca.store.bambulab.com/products/paht-cf",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/paht-cf#witness-for=source:B-paht-cf-TDS"
+  },
+  "identity": {
+    "polymer": "PAHT",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: paht"
+    ],
+    "materialId": "M147",
+    "materialName": "PAHT",
+    "estimateIdentity": "PAHT",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+      "Publisher": "Bambu Lab",
+      "Title": "PAHT-CF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/paht-cf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G048-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PAHT-CF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G048-01",
+      "row": {
+        "GradeID": "G048-01",
+        "MaterialID": "M048",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PAHT-CF",
+        "Shared formulation key": "B-paht-cf-TDS",
+        "Composition / filler": "PA 12 and other long-chain PA, carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "151 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "151",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "151",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature \u00b0C": "Not published",
+        "Standard / load": "141 MPa Dry 61 48 Strength Bending Strength - XY dry state",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-paht-cf",
+        "Locator": "p. 1: Bending Strength - Z/MPa (Dry) 61 48 Strength (Bending Strength - XY, dry state)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Strength (Bending Strength - XY, dry state)  151 MPa  141 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "45 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "45",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.045",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature \u00b0C": "Not published",
+        "Standard / load": "31 MPa Dry 4230 4420 Layer Strength Bending Strength - Z wet state",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-paht-cf",
+        "Locator": "p. 1: Bending Modulus - XY/MPa (Dry) 4230 4420 Layer Strength (Bending Strength - Z, wet state)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Layer Strength (Bending Strength - Z, wet state)  45 MPa  31 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min \u00b0C": "Not applicable",
+        "Nozzle max \u00b0C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed \u00b0C": "Not published",
+        "Bed state": "unknown",
+        "Bed min \u00b0C": "Not applicable",
+        "Bed max \u00b0C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Printer Required",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "80 \u00b0C for 12 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "80",
+        "Drying hours": "12",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-paht-cf",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure Printer Required"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c10-a100c1bb-e1",
+      "gradeKey": "G048-01",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "G048-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Bambu PAHT-CF is designed to meet the demands of various industrial and engineering applications where high strength and durability are required.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 152"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambu PAHT-CF is designed to meet the demands of various industrial and engineering applications where high strength and durability are required."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-a100c1bb-e2",
+      "gradeKey": "G048-01",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "G048-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Supports and removal",
+        "Finding": "When printing a model with support, we recommend removing the support structures within 2 hours after printing to prevent them from sticking after absorbing moisture. If sticking occurs, dry the model to ease the removal.",
+        "Exposure / conditions": "Own2hour removal recommendation avoids moisture sticking; no universal post-processing or hydrolysis property.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 166"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "When printing a model with support, we recommend removing the support structures within 2 hours after printing to prevent them from sticking after absorbing moisture. If sticking occurs, dry the model to ease the removal."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-a100c1bb-e3",
+      "gradeKey": "G048-01",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "G048-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing.",
+        "Exposure / conditions": "Copied wood-fibre sentence on PAHT-CF page; not evidence of wood filler/composition. Own humidity guidance remains separate; maker clarification needed.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 176"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printer Required",
+      "fromBelow": false,
+      "line": "Enclosure Printer Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printer Required",
+      "fromBelow": false,
+      "line": "Enclosure Printer Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printer Required",
+      "fromBelow": false,
+      "line": "Enclosure Printer Required"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "80 \u00b0C for 12 hours",
+      "fromBelow": false,
+      "line": "*Both PA-CF and PAHT-CF need to be dried at 80 \u00b0C for 12 hours before printing. PAHT-CF Normal PA6-CF"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $63.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 64-121 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.6 mm Nozzle Recommended",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.6 mm Nozzle Recommended",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 10% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $63.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 64-121 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.6 mm Nozzle Recommended",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With a 50% lower water absorption rate compared to normal PA-CF, Bambu PAHT-CF maintains excellent mechanical properties and dimensional stability even when exp",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*Both PA-CF and PAHT-CF need to be dried at 80 \u00b0C for 12 hours before printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PAHT-CF  Normal PA6-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saturated Water Absorption Rate/% ( 25 \u00b0C, 55% RH )  0.88  1.70",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bending Strength - XY/MPa (Dry)  125  128",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Bending Strength - XY/MPa (Wet)  115  76",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Bending Strength - Z/MPa (Wet)  49  34",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Bending Modulus - XY/MPa (Wet)  3640  2210",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Bending Modulus - Z/MPa (Dry)  1820  1470",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Decline rate of mechanical properties after absorbing water/%  12%-18%  40%-45%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bending Modulus - Z/MPa (Wet)  1480  770",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Saturated Water Absorption Rate / % (25 \u00b0C\uff0c55% RH)  2.35  3.80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*Both PA-CF and PAHT-CF need to be dried at 80 \u00b0C for 12 hours before printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PAHT-CF  Normal PA6-CF  Improved %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bending Strength - Z/MPa  61  48  27%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Bending Modulus - Z/MPa  1820  1470  24%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not compatible with Cool Plate SuperTack, Hotend with Stainless Steel Nozzle 0.2 mm, and Bambu Liquid Glue .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Usage Guide",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "When printing a model with support, we recommend removing the support structures within 2 hours after printing to prevent them from sticking after absorbing moi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $63.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength - Z/(kJ/m&sup2;)  13.3  5.7  133%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-paht-cf",
+      "previousSHA256": "c54e6d5d2d3ae10071b7586cb785aa8bb527d0ebed9889b3b49dd320950a3371",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M147",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-paht-cf",
+        "Composition / filler": "This product is a carbon fiber reinforced filament that may produce fine fiber debris during use, post-processing, or contact with rough or fractured surfaces,  (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-paht-cf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

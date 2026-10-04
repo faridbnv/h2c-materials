@@ -1174,3 +1174,33 @@ product and release condition. These are bounded findings, not evidence that no 
 ABS V5.6 p.1's PolyBox/PolyDryer sentence explicitly names HT-PLA-GF. Q02150 retains the raw sentence
 as an attribution problem with a scope warning (m316), not ABS moisture guidance. Source correction or
 maker clarification is required; the campaign does not invent the intended sentence.
+
+### Priority Polymaker and Bambu passes: retained source limits (2026-10-03)
+
+These limits concern the thirty products in priority03–05; the signed per-product outcomes record every
+question and original digest. They are not catalogue-wide absence claims.
+
+- Polymaker PC/nylon maker pages disagree with their own TDS/PIS on chamber recommendations, drying,
+  annealing and specimen preparation. PolyLite PC drying is75°C/12h on the page,75°C/6h on the TDS and
+ 80°C/8h on the PIS. CoPA page80°C/10h differs from TDS100°C/8h and older PIS80°C/12h. Preserve each
+  source-specific schedule; maker clarification must identify the intended revision and use.
+- PA6-CF20, PA6-GF25 and PA12-CF10 pages repeat2.57% uptake where their own tested TDS values are5.30%,
+  4.57% and2.92%. PA612-CF15's2.57% agrees. Repeated FAQ prose does not supersede the test table.
+- Bambu ASA Aero's TDS prints specimens at225°C, below its240–280°C recommended nozzle window. m325
+  marks twenty already-printed records as off-recipe and corrects two uncertainty-as-central transcriptions.
+  Foam state remains unstated. Separate user annealing prose names Bambu ASA; its applicability to ASA Aero
+  requires maker clarification. Density and melt-flow forms remain explicitly unstated.
+- Bambu PA6-GF page80–130°C/5–12h differs from its TDS80–130°C/6–12h. PAHT-CF and TPU95A-HF pages
+  include copied wood-fibre wording; this is an attribution problem, not evidence of wood composition.
+- The PC FR CTI report establishes its named128×12.9×3.3mm sample's UL94-2023 V-0 result, with room/aged
+  protocols. Sample identity is client-supplied; manufacturing form, print settings and colour are unstated.
+  The report limits purposes to research/education/internal quality/product development and related uses.
+  No universal printed-product approval follows. The PETG Basic GREENGUARD2904 badge lacks its underlying
+  retrieved certificate. PPA-CF's227°C prolonged-use and underwater marketing lacks service load/duration.
+- Eighteen historical Bambu same-URL page originals remain within the known missing-custody inventory.
+  New witnessed revisions are separate sources; neither recency nor a matching URL proves equivalence.
+  Current maker claims and source-specific test records remain distinct.
+
+Reproduce these holds from the reviewed priority03–05 outcome packets and their SourceID/SHA/locator
+bases. Resolve them only with a source correction, exact revision/specimen identification or an appropriate
+product test; narrative claims, resin references and laboratory sample results do not establish suitability.

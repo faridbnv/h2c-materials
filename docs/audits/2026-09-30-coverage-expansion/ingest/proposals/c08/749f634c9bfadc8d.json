@@ -1,0 +1,1994 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f",
+    "url": "https://shop.polymaker.com/products/fiberon-asa-cf08",
+    "pages": 1,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://shop.polymaker.com/products/fiberon-asa-cf08#witness-for=source:R-POLYMAKER-FIBERON-TDS-FIBERON-ASA-CF08-V1-0-EN"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: asa"
+    ],
+    "materialId": "M031",
+    "materialName": "ASA",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+      "Publisher": "Polymaker",
+      "Title": "FIBERON ASA CF08 official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://shop.polymaker.com/products/fiberon-asa-cf08",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G033-11",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FIBERON ASA CF08"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G033-11",
+      "row": {
+        "GradeID": "G033-11",
+        "MaterialID": "M033",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "FIBERON ASA CF08",
+        "Shared formulation key": "R-POLYMAKER-FIBERON-TDS-FIBERON-ASA-CF08-V1-0-EN",
+        "Composition / filler": "better mechanical properties by adding 8% carbon fiber. It also (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "V1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.094 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.094",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1094",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Density g/cm³·ISO 1183 —",
+        "Notes": "\"1.094\" may be a thousands separator or a decimal one; read as 1.094 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm³·ISO 1183 — 1.094 g/cm³ Important ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.094 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.094",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1094",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Density g/cm³·ISO 1183 —",
+        "Notes": "\"1.094\" may be a thousands separator or a decimal one; read as 1.094 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm³·ISO 1183 — 1.094 g/cm³ Important ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "24.95 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "24.95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "24.95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Tensile strength MPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength MPa·ISO 527 24.95 MPa Important — ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.68 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.68",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.68",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Elongation at break %·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break %·ISO 527 2.68 % Important — ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "46.46 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "46.46",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "46.46",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Bending strength MPa·ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending strength MPa·ISO 178 46.46 MPa Important — ISO 178"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "1743.42 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "1743.42",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1743.42",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Bending modulus GPa·ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending modulus GPa·ISO 178 1743.42 GPa Important — ISO 178"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1903.75 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "1903.75",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1903.75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Young's modulus GPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young's modulus GPa·ISO 527 1903.75 GPa Important — ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "11.86 KJ/m²",
+        "Raw unit": "KJ/m²",
+        "Raw numeric": "11.86",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "11.86",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Charpy, unnotched KJ/m²·ISO 179",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy, unnotched KJ/m²·ISO 179 11.86 KJ/m² Important — ISO 179"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "106.58 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "106.58",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "106.58",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357— 106.58 °C Important ISO 11357"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "106.58 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "106.58",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "106.58",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357 — 106.58 °C Important ISO 11357"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "111.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "111.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306— 111.8 °C Important ISO 306"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "111.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "111.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306 — 111.8 °C Important ISO 306"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "103.1 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "103.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "103.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: HDT (0.45 MPa) °C·ISO 75—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (0.45 MPa) °C·ISO 75— 103.1 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "103.1 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "103.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "103.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: HDT (0.45 MPa) °C·ISO 75 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (0.45 MPa) °C·ISO 75 — 103.1 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "97.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "97.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "97.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1.8 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: HDT (1.8 MPa) °C·ISO 75 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (1.8 MPa) °C·ISO 75 — 97.5 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "97.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "97.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "97.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1.8 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Locator": "p. 1: HDT (1.8 MPa) °C·ISO 75 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (1.8 MPa) °C·ISO 75 — 97.5 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260°C - 280°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Needed",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "90˚C for 6h",
+        "Drying state": "stated",
+        "Drying °C": "90",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temperature: 260˚C - 280˚C Bed Temperature: 90˚C - 100˚C Printing Speed: up to 350mm/s Fan: OFF Direct Drive: Retraction Distance: 1-3mm Retraction Speed: 20-40mm/s Drying Settings: 90˚C for "
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260-280 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Needed",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "90˚C for 6h",
+        "Drying state": "stated",
+        "Drying °C": "90",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 260-280 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c08-749f634c-e1",
+      "gradeKey": "G033-11",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "G033-11",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "This material is a great choice for outdoor fixtures, housings, automotive prototypes, marine and agricultural equipment, jigs, drone frames, and more.",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 293"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "This material is a great choice for outdoor fixtures, housings, automotive prototypes, marine and agricultural equipment, jigs, drone frames, and more."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-749f634c-e2",
+      "gradeKey": "G033-11",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "G033-11",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Yes. Like all ASA filaments, it releases VOCs such as styrene when heated. Always print in a well-ventilated space, and ideally use an enclosure with a filtration system.",
+        "Exposure / conditions": "Maker heated-processing/VOC ventilation guidance only; no measured emission rate, exposure threshold or regulatory certification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 305"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yes. Like all ASA filaments, it releases VOCs such as styrene when heated. Always print in a well-ventilated space, and ideally use an enclosure with a filtration system."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-749f634c-e3",
+      "gradeKey": "G033-11",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "G033-11",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "No. ASA-CF08 is electrically insulating, with a surface resistivity greater than 10¹² Ω. It should not be used for electrostatic-sensitive applications.",
+        "Exposure / conditions": "Maker ESD exclusion and unqualified surface-resistivity claim; no independent protocol or printed geometry; retained know-how, not a measurement/pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 307"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "No. ASA-CF08 is electrically insulating, with a surface resistivity greater than 10¹² Ω. It should not be used for electrostatic-sensitive applications."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temperature",
+      "raw": "260°C - 280°C",
+      "fromBelow": false,
+      "line": "Printing Temperature: 260˚C - 280˚C Bed Temperature: 90˚C - 100˚C Printing Speed: up to 350mm/s Fan: OFF Direct Drive: Retraction Distance: 1-3mm Retraction Speed: 20-40mm/s Drying Settings: 90˚C for "
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "260-280 °C",
+      "fromBelow": false,
+      "line": "Nozzle 260-280 °C"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Needed",
+      "fromBelow": false,
+      "line": "Enclosure Needed"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "90˚C for 6h",
+      "fromBelow": false,
+      "line": "Printing Temperature: 260˚C - 280˚C Bed Temperature: 90˚C - 100˚C Printing Speed: up to 350mm/s Fan: OFF Direct Drive: Retraction Distance: 1-3mm Retraction Speed: 20-40mm/s Drying Settings: 90˚C for "
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "90°C for 6h",
+      "fromBelow": false,
+      "line": "Drying 90°C for 6h Compatibility 0.4mm+ hardened nozzle required"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "📦 FREE SHIPPING ON ORDERS OVER $35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NEW Polymaker™ HT-PLA Pro 1st purchase 10% off. Heat Ready. Impact Ready. Still PLA. Shop HT-PLA Pro FLASH SALE PETG Flash Sale 4 spools - 15% off. 6 spools - 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fiberon™ ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sale Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fibe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ Sale CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DRY & PRINT PolyDryer™ Modular drying for moisture-sensitive filament, ready while you print. Shop PolyDryer XL PolyDryer™ Box XL Roomy dry storage for 3KG spoo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Sale Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Sale Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Polymaker™ HT-PLA Polymaker™ HT-P",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Sale Polymaker™ HT-PLA Sale Polym",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New To 3D Printing - Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ ASA-CF08",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / of 34",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 3 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 4 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 5 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 6 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 7 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 8 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 9 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 10 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 11 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 12 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 13 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 14 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 15 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 16 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 17 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 18 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 19 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 20 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 21 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 22 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 23 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 24 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 25 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 26 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 27 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 28 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 29 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 30 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 31 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 32 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Play video 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Play video 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Delivery Time 5–10 days",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "60 Day Return",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ ASA-CF08 combines the UV and weather resistance of ASA with 8% carbon fiber by weight, delivering high rigidity, reduced warping, and a professional ma",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With a bending strength of 69.1 MPa (XY) and tensile strength of 43.5 MPa (XY), ASA-CF08 offers the reliability needed for load-bearing and precision parts.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 has an HDT of up to 103 °C @0.45 MPa, making it perfect for enclosures, fixtures, and components exposed to direct sunlight or extreme heat without def",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With 6 color options available and a high quality matte finish that hides layer lines, ASA-CF08 is ideal for applications where aesthetics matter as much as fun",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 supports high-speed printing up to 350 mm/s, is less prone to warping and requires minimal chamber heating, making it a versatile choice for both profe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: Due to the brittle and abrasive nature of ASA-CF08, caution is advised when used with AMS and other multi material systems.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "35 reviews",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ ASA-CF08",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$19.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm SKU: FF02001 HEX Code: #000000",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "<p>Earn%20[points_amount]%20when%20completing%20this%20purchase.</p>",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Black #000000 Black Dark Grey #4D5E70 Dark Grey Light Grey #ADC4D6 Light Grey Navy Blue #30548E Navy Blue Dark Red #855261 Dark Red Desert Sand #CEB69C Desert S",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "6",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg 3kg",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ ASA-CF08 - Black / 0.5kg is backordered and will ship as soon as it is back in stock.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ ASA-CF08",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "From $19.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Bed 90-100 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Max Speed 350 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Compatibility 0.4mm+ hardened nozzle required",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Store and print under dry conditions (relative humidity below 20%); dry at 90°C for 6 hours before use.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Because the filament is brittle, keep its bending diameter greater than 60 mm during feeding.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength MPa·ISO 52743.51 MPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break %·ISO 5271.78 % Important — ISO 527",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending strength MPa·ISO 17869.06 MPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus GPa·ISO 1783264.99 GPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Young's modulus GPa·ISO 5273611.66 GPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, unnotched KJ/m²·ISO 17910.99 KJ/m² Important — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 1795.46 KJ/m² Important — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 179 — — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Tested on 100% infill specimens. X-Y = across the layers, Z = between the layers (layer adhesion).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What is ASA-CF08?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 is a carbon fiber–reinforced ASA filament containing 8% carbon fiber. It’s engineered for outdoor, UV-exposed applications where strength, stability, a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 maintains integrity at high temperatures. It offers a heat deflection temperature of 103 °C at 0.45 MPa and 97.3 °C at 1.8 MPa, making it dependable fo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 has a tensile strength of 43.5 MPa, a bending strength of 69.1 MPa, and a bending modulus of 3265 MPa. This combination of rigidity and toughness makes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "No. ASA-CF08 prints reliably without a heated chamber. However, using an enclosure helps maintain consistent temperatures, especially for taller or larger print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. ASA-CF08 is moisture-sensitive and should be stored in a dry environment with relative humidity below 20 percent.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "No. ASA-CF08 is electrically insulating, with a surface resistivity greater than 10¹² Ω. It should not be used for electrostatic-sensitive applications.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolySupport™ for PA12 is recommended when soluble or breakaway supports are required.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Is ASA-CF08 AMS Compatible?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Due to the brittle and abrasive nature of ASA-CF08, caution is advised when used with AMS and other multi material systems.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 is offered in Light Grey, Dark Grey, Sand, Dark Red, Navy Blue, and Black.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "No. ASA-CF08 reaches its full performance directly after printing and does not require annealing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REACH | RoHS | 889 | PCP | ISO9001 CERT | PROP65WARNING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This 3D printing material delivers exceptional results with carbon fiber reinforcement. Customers praised its \"beautiful\" prints, excellent surface finish, and ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 stars: 30 (86%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4 stars: 3 (9%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 stars: 0 (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 stars: 1 (3%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 star: 1 (3%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Performance 3.P.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Loving this filament. I've used about 20 spools so far and they've all come out great! Definitely needs to be printed with a 0.6mm nozzle. The 0.4mm nozzles wou",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dark Red / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dark Red / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Navy Blue / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Love it. Prints great on my x2d and my works H2D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This is my new go-to filament. I work in maintenance and fabrication, especially for mechanical and exterior parts. I needed something easy to print, strong yet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I've tried to print this part twice and failed. The second time, I used glue on the heated bed, but it still warped. My printer is a BBL P2S; I don't know if yo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Very impressed with the surface texture and appearance of my parts. I used this material for an outdoor transformer enclosure and it came out great. Printing wa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dark Red / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dark Red / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prints pretty well. The profile did not work on the p1s and I had to modify it to make it work. I had to slow the flow down to .9 and even then it still pulls u",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Its on me that I didn't see the spool wasn't 1kg. I am not sure why they are shipping half spools of this stuff.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Very sorry if you had printing issues or you do not like the color! We have tested those profiles so I wonder why you are having these issues with flow. As for ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Navy Blue / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Navy Blue / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ya de por sí el ASA tiene baja tendencia a despegarse de la cama y con las partículas de carbono, este se levanta a un menos. Simplemente me encanta que genere ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Navy Blue / 0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I love the ASA-CF08. Aside from having one bad batch, it has always printed very well for me and the 8% Carbon Fiber is a perfect catalyst for ASA to stabilize ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Subtotal:$0.00 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Join the Polymaker Rewards Program at checkout to unlock exclusive perks and earn up to 5% cashback on every purchase.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ ASA-CF08",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $19.99 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ ASA-CF08 combines the UV and weather resistance of ASA with 8% carbon fiber by weight, delivering high rigidity, reduced warping, and a professional ma",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With a bending strength of 69.1 MPa (XY) and tensile strength of 43.5 MPa (XY), ASA-CF08 offers the reliability needed for load-bearing and precision parts.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 has an HDT of up to 103 °C @0.45 MPa, making it perfect for enclosures, fixtures, and components exposed to direct sunlight or extreme heat without def",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With 6 color options available and a high quality matte finish that hides layer lines, ASA-CF08 is ideal for applications where aesthetics matter as much as fun",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-CF08 supports high-speed printing up to 350 mm/s, is less prone to warping and requires minimal chamber heating, making it a versatile choice for both profe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: Due to the brittle and abrasive nature of ASA-CF08, caution is advised when used with AMS and other multi material systems.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New to 3D Printing? Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Polymaker .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$19.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "United States",
+        "Shared formulation key": "S-POLYCN-fiberon-asa-cf08",
+        "Composition / filler": "Fiberon™ ASA-CF08 combines the UV and weather resistance of ASA with 8% carbon fiber by weight, delivering high rigidity, reduced warping, and a professional ma (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "No. ASA-CF08 reaches its full performance directly after printing and does not require annealing. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-fiberon-asa-cf08",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "📦 FREE SHIPPING ON ORDERS OVER $35"
+      }
+    }
+  ],
+  "newMaterial": null
+}

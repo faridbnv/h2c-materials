@@ -1,0 +1,1859 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b",
+    "url": "https://shop.polymaker.com/products/fiberon-pet-gf15",
+    "pages": 1,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://shop.polymaker.com/products/fiberon-pet-gf15#witness-for=source:R-FIBERON-PETGF15-TDS"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pet",
+      "filler: gf15 (from the sheet, not the name)"
+    ],
+    "materialId": "M068",
+    "materialName": "PET-GF",
+    "estimateIdentity": "PET",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+      "Publisher": "Polymaker",
+      "Title": "Fiberon PET-GF15 official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://shop.polymaker.com/products/fiberon-pet-gf15",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G068-02",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Fiberon PET-GF15"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G068-02",
+      "row": {
+        "GradeID": "G068-02",
+        "MaterialID": "M068",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Fiberon PET-GF15",
+        "Shared formulation key": "R-FIBERON-PETGF15-TDS",
+        "Composition / filler": "PET, glass fibre (GF15 product designation)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Use exact TDS scope",
+        "Availability": "Official Fiberon TDS retrieved 2026-09-13; product page returned HTTP 403",
+        "Certification claims": "UL 94 HB at 1.5 mm per TDS; not printed-part certification",
+        "Selected-grade rationale": "Second exact PET-GF formulation, recorded 2026-09-13 because it publishes printed XY and Z test data. Flashforge PET-GF (G068-01) is retained unchanged; its values were not overwritten",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+        "Source locator": "TDS V1.0, p. 1",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "48.2 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "48.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Tensile strength MPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength MPa·ISO 527 48.2 MPa Important — ISO 527"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Elongation at break %·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break %·ISO 527 2.6 % Important — ISO 527"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "80.3 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "80.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Bending strength MPa·ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending strength MPa·ISO 178 80.3 MPa Important — ISO 178"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2998.4 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "2998.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2998.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Bending modulus GPa·ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending modulus GPa·ISO 178 2998.4 GPa Important — ISO 178"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3428.9 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "3428.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3428.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Young's modulus GPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young's modulus GPa·ISO 527 3428.9 GPa Important — ISO 527"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "13.9 KJ/m²",
+        "Raw unit": "KJ/m²",
+        "Raw numeric": "13.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Charpy, unnotched KJ/m²·ISO 179",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy, unnotched KJ/m²·ISO 179 13.9 KJ/m² Important — ISO 179"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "231.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "231.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "231.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Melting temperature °C·ISO 11357—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature °C·ISO 11357— 231.6 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "231.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "231.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "231.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Melting temperature °C·ISO 11357 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature °C·ISO 11357 — 231.6 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "59.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "59.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357— 59.5 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "59.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "59.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "59.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357 — 59.5 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "232.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "232.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "232.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306— 232.6 °C Important ISO 306"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "232.6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "232.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "232.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306 — 232.6 °C Important ISO 306"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "280°C - 310°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "280",
+        "Nozzle max °C": "310",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "100˚C for 10h",
+        "Drying state": "stated",
+        "Drying °C": "100",
+        "Drying hours": "10",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temperature: 280˚C - 310˚C Bed Temperature: 70˚C - 80˚C Printing Speed: up to 250mm/s Fan: OFF Direct Drive: Retraction Distance: 1mm Retraction Speed: 20mm/s Indirect Drive: Retraction Dista"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "280-310 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "280",
+        "Nozzle max °C": "310",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "100˚C for 10h",
+        "Drying state": "stated",
+        "Drying °C": "100",
+        "Drying hours": "10",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 280-310 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c08-67deefea-e1",
+      "gradeKey": "G068-02",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "G068-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Ideal for functional prototypes, jigs, fixtures, automotive parts, brackets, and enclosures.",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Ideal for functional prototypes, jigs, fixtures, automotive parts, brackets, and enclosures."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-67deefea-e2",
+      "gradeKey": "G068-02",
+      "row": {
+        "MaterialID": "M068",
+        "GradeID": "G068-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "During annealing, avoid applied loads and non-uniform oven temperature, and retain supports where needed to limit deformation.",
+        "Exposure / conditions": "Maker annealing handling guidance, not a design allowable. Own TDS annealing schedule remains explicit; avoid service loads or unsupported dimensional performance claims.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 274"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "During annealing, avoid applied loads and non-uniform oven temperature, and retain supports where needed to limit deformation."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temperature",
+      "raw": "280°C - 310°C",
+      "fromBelow": false,
+      "line": "Printing Temperature: 280˚C - 310˚C Bed Temperature: 70˚C - 80˚C Printing Speed: up to 250mm/s Fan: OFF Direct Drive: Retraction Distance: 1mm Retraction Speed: 20mm/s Indirect Drive: Retraction Dista"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "280-310 °C",
+      "fromBelow": false,
+      "line": "Nozzle 280-310 °C"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Recommended",
+      "fromBelow": false,
+      "line": "Enclosure Recommended"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "100˚C for 10h",
+      "fromBelow": false,
+      "line": "Printing Temperature: 280˚C - 310˚C Bed Temperature: 70˚C - 80˚C Printing Speed: up to 250mm/s Fan: OFF Direct Drive: Retraction Distance: 1mm Retraction Speed: 20mm/s Indirect Drive: Retraction Dista"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "100°C for 10h",
+      "fromBelow": false,
+      "line": "Drying 100°C for 10h Compatibility 0.4mm+ hardened nozzle required"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "📦 FREE SHIPPING ON ORDERS OVER $35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NEW Polymaker™ HT-PLA Pro 1st purchase 10% off. Heat Ready. Impact Ready. Still PLA. Shop HT-PLA Pro FLASH SALE PETG Flash Sale 4 spools - 15% off. 6 spools - 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fiberon™ ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sale Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fibe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ Sale CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DRY & PRINT PolyDryer™ Modular drying for moisture-sensitive filament, ready while you print. Shop PolyDryer XL PolyDryer™ Box XL Roomy dry storage for 3KG spoo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Sale Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Sale Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Polymaker™ HT-PLA Polymaker™ HT-P",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Sale Polymaker™ HT-PLA Sale Polym",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New To 3D Printing - Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / of 42",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 3 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 4 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 5 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 6 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 7 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 8 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 9 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 10 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 11 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 12 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 13 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 14 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 15 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 16 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 17 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 18 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 19 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 20 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 21 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 22 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 23 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 24 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 25 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 26 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 27 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 28 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 29 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 30 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 31 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 32 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 33 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 34 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 35 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 36 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 37 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 38 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 39 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 40 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 41 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Play video 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Delivery Time 5–10 days",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "60 Day Return",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 – Glass-Fiber-Reinforced PET Filament Bridge the gap between everyday usability and industrial performance.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High-Strength, Heat-Resistant Engineering Filament Fiberon™ PET-GF15 combines PET with 15% glass fiber reinforcement to deliver exceptional stiffness, dimension",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Industrial-Level Performance, Everyday Usability With a bending strength of 104 MPa and HDT up to 133 °C (0.45MPa, after annealing), PET-GF15 withstands high st",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Excellent Surface Finish & AMS Compatible Achieve smooth, professional-grade prints with a refined texture that minimizes visible layer lines. Available in six ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dimensional Stability & Low Warping PET-GF15 maintains consistent accuracy and minimal warping, even on large projects. After annealing, dimensional change stay",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Designed for Professionals & Makers Alike Ideal for automotive parts, jigs, fixtures, Industrial parts, and prototyping, PET-GF15 offers excellent toughness and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "47 reviews",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$29.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm SKU: FL02001 HEX Code: #000000",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "<p>Earn%20[points_amount]%20when%20completing%20this%20purchase.</p>",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Black #000000 Black Dark Grey #0F191F Dark Grey Light Grey #A9ABAF Light Grey White #FFFFFF White Blue #6E9EFF Blue Red #CC0033 Red",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "6",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1kg 3kg",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 - Black / 1kg is backordered and will ship as soon as it is back in stock.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "From $29.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Bed 70-80 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Max Speed 250 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Compatibility 0.4mm+ hardened nozzle required",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Use a wear-resistant nozzle, such as hardened steel or ruby; the TDS notes that brass-nozzle life may be approximately 9 hours.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Store and print under dry conditions (relative humidity below 20%); dry at 100°C for 10 hours before use.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Anneal at 120°C for 16 hours for the best heat resistance and mechanical performance.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength MPa·ISO 52759.9 MPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break %·ISO 5274 % Important — ISO 527",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending strength MPa·ISO 178104.2 MPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus GPa·ISO 1783705.4 GPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Young's modulus GPa·ISO 5274144.2 GPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, unnotched KJ/m²·ISO 17927.2 KJ/m² Important — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 1798.7 KJ/m² Important — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 179 — — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Tested on 100% infill specimens. X-Y = across the layers, Z = between the layers (layer adhesion).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What is PET-GF15?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET-GF15 is a glass-fiber-reinforced PET filament that combines industrial-grade strength with everyday printability.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Is Fiberon™ PET-GF15 easy to print with?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. Despite its industrial-level strength, PET-GF15 is designed for accessible printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Do I need a hardened nozzle to print PET-GF15?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes, because it contains glass fibers Fiberon™ PET-GF15 will wear out regular nozzles quickly.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Can I print PET-GF15 on an open-frame printer?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "No. Annealing is only needed if your printed part must resist temperatures above 80°C. You can anneal PET-GF15 at",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "120°C for 16 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "How should I store PET-GF15?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET-GF15 is moisture-sensitive. Keep it sealed and dry, ideally below 20% relative humidity.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Is Fiberon™ PET-GF15 AMS-compatible?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. PET-GF15 feeds smoothly through Bambu AMS and other multi-material systems.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What applications is PET-GF15 best suited for?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET-GF15 produces smoother prints with less fiber exposure compared to other CF or GF Filaments.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. Fiberon™ PET-GF15 is shipped in a fully recyclable cardboard spool and box.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REACH | RoHS | 889 | PCP | ISO9001 CERT | PROP65WARNING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Customers praised this glass fiber-reinforced engineering filament for exceptional strength, durability, and ease of printing. \"Most versatile filament I've use",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 stars: 44 (94%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4 stars: 1 (2%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 stars: 2 (4%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 stars: 0 (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 star: 0 (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dark Grey / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This is my new go-to filament. I work in a place that demands parts that can hold up to UV, rain, impact, and daily wear-and-tear. I also do some prototyping. T",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Blue / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dark Grey / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker PET-GF15 is an excellent engineering filament with impressive strength, stiffness, dimensional stability, and heat resistance. It prints cleanly and p",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "White / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dark Grey / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This is easily the most versatile filament I've used. Extremely tough, heat and weather resistance beyond what you would expect, and easier to print/keep dry th",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 is a high-quality filament that stands out for its impressive strength and durability. The glass fiber reinforcement provides excellent stiffn",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sans aucun doute le meilleur filament que j’ai pus utiliser. Grand adepte de fiberon mais le PET GF15 a tout d’un grand filament à un prix très convenable. Un r",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Mattysc42",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "It does take some work to get it to print overhangs properly, though slowing down the outer wall speed to 40mm/s and having the cooling fan turn on at 50% for a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I print at 0.25mm layer height, 1mm line width, and 3 walls on 0.6mm HF nozzles. The printers I use are Bambu X1C, P2S, and H2D. The nozzle temp is 300C, and th",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The only drawbacks I’ve found with this PET-GF15 are: 1) It’s difficult to dry after it absorbs moisture and prints terribly when damp, 2) It really doesn’t lik",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This is a fantastic filament. I’ve found it easy and reliable to print large objects using the the H2D/H2, Polymaker profile, Bambu Engineering Plate, Visionmin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Red / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I ordered this filament for the first time about a month ago. I have gone through 12 spools already. It is really impressive stuff. Hopefully Polymaker will rel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "White / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Light Grey / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I thought PET-GF15 was going to be an intimidating filament to work with as it was the 1st 300 degree print I had ever made. BUT, it went super smooth. Well it'",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Blue / 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prints really well and is super strong! I am using a bambu a1 with a .6 nozzle set to 300c and pei plate set to 80. The layer adhesion is fantastic! I printed a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Subtotal:$0.00 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Join the Polymaker Rewards Program at checkout to unlock exclusive perks and earn up to 5% cashback on every purchase.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $29.99 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 – Glass-Fiber-Reinforced PET Filament Bridge the gap between everyday usability and industrial performance.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High-Strength, Heat-Resistant Engineering Filament Fiberon™ PET-GF15 combines PET with 15% glass fiber reinforcement to deliver exceptional stiffness, dimension",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Industrial-Level Performance, Everyday Usability With a bending strength of 104 MPa and HDT up to 133 °C (0.45MPa, after annealing), PET-GF15 withstands high st",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Excellent Surface Finish & AMS Compatible Achieve smooth, professional-grade prints with a refined texture that minimizes visible layer lines. Available in six ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dimensional Stability & Low Warping PET-GF15 maintains consistent accuracy and minimal warping, even on large projects. After annealing, dimensional change stay",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Designed for Professionals & Makers Alike Ideal for automotive parts, jigs, fixtures, Industrial parts, and prototyping, PET-GF15 offers excellent toughness and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New to 3D Printing? Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Polymaker .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$29.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M068",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "United States",
+        "Shared formulation key": "S-POLYCN-fiberon-pet-gf15",
+        "Composition / filler": "High-Strength, Heat-Resistant Engineering Filament Fiberon™ PET-GF15 combines PET with 15% glass fiber reinforcement to deliver exceptional stiffness, dimension (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH | RoHS | 889 | PCP | ISO9001 CERT | PROP65WARNING (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-fiberon-pet-gf15",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "📦 FREE SHIPPING ON ORDERS OVER $35"
+      }
+    }
+  ],
+  "newMaterial": null
+}

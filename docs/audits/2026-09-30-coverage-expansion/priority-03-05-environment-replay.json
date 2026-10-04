@@ -1,0 +1,877 @@
+{
+  "before_release": "b847b43260f9",
+  "after_release": "4e5ce68f19f3",
+  "questions": 48,
+  "evaluations": 56880,
+  "answer_changes": 24,
+  "changes": [
+    {
+      "question": "alkali-strict-false",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05608"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-strict-false",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05611"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-strict-true",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05608"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-strict-true",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05611"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-exploration-false",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05608"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-exploration-false",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05611"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-exploration-true",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05608"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-exploration-true",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00144) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "contextIds": [
+            "Q00144"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05611"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-strict-false",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00145) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "contextIds": [
+            "Q00145"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05646"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-strict-true",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00145) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "contextIds": [
+            "Q00145"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05646"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-exploration-false",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00145) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "contextIds": [
+            "Q00145"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05646"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-exploration-true",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00145) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "contextIds": [
+            "Q00145"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "FAIL",
+          "reason": "1 record(s) report not-resistant",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05646"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-false",
+      "level": "material",
+      "id": "M035",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-strict-false",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05609"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-false",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05612"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-true",
+      "level": "material",
+      "id": "M035",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-strict-true",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05609"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-true",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05612"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-false",
+      "level": "material",
+      "id": "M035",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-exploration-false",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05609"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-false",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05612"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-true",
+      "level": "material",
+      "id": "M035",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-exploration-true",
+      "level": "product",
+      "id": "G035-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05609"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-true",
+      "level": "product",
+      "id": "G035-10",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00146) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00146"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05612"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af",
+    "url": "https://ca.store.bambulab.com/products/pet-cf",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/pet-cf#witness-for=source:B-pet-cf-TDS"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pet"
+    ],
+    "materialId": "M066",
+    "materialName": "PET",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+      "Publisher": "Bambu Lab",
+      "Title": "PET-CF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/pet-cf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G067-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PET-CF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G067-01",
+      "row": {
+        "GradeID": "G067-01",
+        "MaterialID": "M067",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PET-CF",
+        "Shared formulation key": "B-pet-cf-TDS",
+        "Composition / filler": "Polyethylene terephthalate, carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c10-b7ddfea7-e1",
+      "gradeKey": "G067-01",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "G067-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Bambu PET-CF is a blend of tough PET and carbon fiber. Carbon fiber improves hardness and mechanical strength, while still help maintain the low warping and shrinkage of ordinary PET. Bambu PET-CF has excellent high temperature resistance and a soft glow appearance. Its excellent strength, heat resistance, dimensional stability and low moisture absorption make Bambu PET-CF an ideal choice for load-bearing structures or prints used in high temperature and humid environments.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 112"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambu PET-CF is a blend of tough PET and carbon fiber. Carbon fiber improves hardness and mechanical strength, while still help maintain the low warping and shrinkage of ordinary PET. Bambu PET-CF has excellent high temperature resistance and a soft glow appearance. Its excellent strength, heat resistance, dimensional stability and low moisture absorption make Bambu PET-CF an ideal choice for load-bearing structures or prints used in high temperature and humid environments."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-b7ddfea7-e2",
+      "gradeKey": "G067-01",
+      "row": {
+        "MaterialID": "M067",
+        "GradeID": "G067-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Due to the creep and warping resistance of PET-CF, prints can achieve excellent matching accuracy. *Specimens size (L*W*H): 240*8*15 mm\u00b3, Infill density: 60%",
+        "Exposure / conditions": "Maker creep/matching-accuracy claim only,240\u00d78\u00d715mm60%infill specimen named. No load, duration, temperature or creep design limit inferred.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 116"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Due to the creep and warping resistance of PET-CF, prints can achieve excellent matching accuracy. *Specimens size (L*W*H): 240*8*15 mm\u00b3, Infill density: 60%"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $57.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 58-109 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $57.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 58-109 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Due to the creep and warping resistance of PET-CF, prints can achieve excellent matching accuracy. *Specimens size (L*W*H): 240*8*15 mm\u00b3, Infill density: 60%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\u2022 Specimen size (L*W*H): 95*10*4 mm\u00b3 \u2022 Test conditions: Specimens were put in an oven at 70 \u00b0C and 150 \u00b0C respectively for 0.5 hour. \u2022 As a crystalline material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not compatible with Hotend with Stainless Steel Nozzle 0.2 mm, Bambu Liquid Glue .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Storage Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $57.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-pet-cf",
+      "previousSHA256": "7e4ce9aad103255ed5e79cb0569dc2c193e5185324daadcf1d44fa651eb23b7b",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M066",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-pet-cf",
+        "Composition / filler": "Bambu PET-CF is a blend of tough PET and carbon fiber. Carbon fiber improves hardness and mechanical strength, while still help maintain the low warping and shr (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-pet-cf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

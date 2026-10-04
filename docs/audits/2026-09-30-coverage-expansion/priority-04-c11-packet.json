@@ -1,0 +1,86 @@
+{
+  "PacketID": "PRIORITY-04-C11-PCFR-SAMPLE-REPORT",
+  "Batch": "c11",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "ExpectedGrades": [
+    {
+      "GradeID": "G036-01",
+      "MaterialID": "M036",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PC FR",
+      "Shared formulation key": "B-pc-fr-TDS",
+      "Composition / filler": "Polycarbonate",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-pc-fr-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [],
+  "ExistingProfileEdits": [],
+  "Documents": [
+    {
+      "File": "6b07419000151967.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "13ac0e6504ebfbb007ef7a6485d96be6b49814b5ba3a71cf1c7102a8d7f230b4",
+      "OriginalSHA256": "6b0741900015196712696f8e5f8119f2dae7d767c575a1fa4a52568109c99e2b",
+      "Source": {
+        "SourceID": "R-CTI-PCFR-20241028-6b0741900015",
+        "Publisher": "Centre Testing International Group Co., Ltd.",
+        "Title": "CTI A2240623890101 Bambu PC FR vertical burning report",
+        "Revision": "A2240623890101",
+        "Publication date": "2024-10-28",
+        "Access date": "2026-10-03",
+        "Source class": "Reference or register",
+        "Source note": "Sample-only laboratory report provided on maker website; source class follows prior campaign lab-report reference contract. Client supplies sample identity, which CTI has not independently verified. Printed/bulk manufacturing form not stated; no product-wide certification.",
+        "Citation role": "cited",
+        "URL": "https://store.bblcdn.com/s1/default/a7ac91acf11b41bea0883615f46ed557.pdf",
+        "Locator": "pp. 1\u20135: sample identity, conditions, results and limitations",
+        "Applicable grades": "G036-01",
+        "Access state": "retrieved",
+        "Access note": "Staged maker-linked laboratory PDF; exact original digest retained, no overwritten revision.",
+        "SHA256": "6b0741900015196712696f8e5f8119f2dae7d767c575a1fa4a52568109c99e2b"
+      },
+      "OriginalPath": ".cache/sources/by-sha/6b0741900015196712696f8e5f8119f2dae7d767c575a1fa4a52568109c99e2b.pdf",
+      "ProposedEvidence": [
+        {
+          "id": "c11-pcfr-V0-sample",
+          "gradeKey": "G036-01",
+          "row": {
+            "MaterialID": "M036",
+            "GradeID": "G036-01",
+            "Domain": "Flammability",
+            "Topic": "Flammability",
+            "Finding": "Conclusion: This sample test results comply with the requirements of UL 94-2023 V-0.",
+            "Exposure / conditions": "CTI report A2240623890101, supplied sample Bambu PC FR C01-xx;128\u00d712.9\u00d73.3mm. Test UL94-2023 vertical burning at23\u00b12\u00b0C50\u00b15%RH; precondition23\u00b12\u00b0C50\u00b110%RH48h and separately70\u00b0C168h followed by calcium chloride desiccator\u22654h.20\u00b11mm flame applied twice10\u00b10.5s. Room and aged five-specimen sets meetV-0. Report limits results to tested samples; client identification not verified by CTI. Specimen manufacturing/printed form, build orientation, nozzle recipe and colour not stated. No universal printed-part certification or continuous service/fire design allowable. Report p.5 restricts data/results to scientific research, education, internal quality control and product development etc.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-CTI-PCFR-20241028-6b0741900015",
+            "Locator": "pp. 1\u20135: sample identity p.1/2; protocol p.3; room/aged results p.4/5; conclusion and scope p.5"
+          },
+          "evidence": {
+            "page": 5,
+            "text": "Conclusion: This sample test results comply with the requirements of UL 94-2023 V-0."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review, not human review",
+            "note": "Exact sample-only lab observation; complete conditions and form/identity limitations."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": []
+    }
+  ]
+}

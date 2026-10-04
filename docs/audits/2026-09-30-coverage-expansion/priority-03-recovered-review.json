@@ -1,0 +1,27 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "081be3e13d35144231863c58498d0412c1097ed49ea7eaffdb6b5bf71f5d98c5",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 2,
+  "OriginalRereadScope": "Actual PolyMax PC V5.5 p.1 curve and PolyLite PC V5.3 p.2 table were independently reread during the immediately preceding outcomes review; original digests rebound here. V5.1 same organic-solvent cell corroborates, without revision adjudication.",
+  "ExpectedGuardChecks": "Both full grade rows and both full source rows match current canonical rows. Exact-grade source identity retained.",
+  "Operations": [
+    {
+      "OperationID": "PC-moisture-equilibrium",
+      "verdict": "APPROVE",
+      "source_sha256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+      "locator": "p.1: Moisture absorption curve; 70% RH,23°C; equilibrium annotation",
+      "limitations": "0.253% is the printed equilibrium curve result. Conditioned humidity exposure retained; curve specimen form/method/duration/treatment not stated. Mechanical diagram does not establish curve specimen form; no immersion, hydrolysis or service qualification."
+    },
+    {
+      "OperationID": "PC-organic-solvent-own",
+      "verdict": "APPROVE",
+      "source_sha256": "89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d",
+      "locator": "p.2: Effect of organic solvent | Not resistant",
+      "limitations": "Source literal qualitative class result; missing individual solvent, concentration, duration, temperature and specimen preserved. V5.1 agrees; no supported slight-resistant conflict. Existing category contract may screen this generic source claim; it is not universal chemical resistance or certification."
+    }
+  ],
+  "ReleaseCondition": "Guarded admission, duplicate detection/idempotent rerun and full native verification required before commit. Outcome holds may be replaced with actual admitted record IDs only after successful injection.",
+  "review_signature_sha256": "d79c1a8825bd779324563dd69b00a3ad8144ce5ea0c438f18e2a2f1c03bb4467"
+}

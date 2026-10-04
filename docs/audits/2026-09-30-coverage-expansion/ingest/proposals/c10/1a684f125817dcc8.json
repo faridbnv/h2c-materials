@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77",
+    "url": "https://ca.store.bambulab.com/products/tpu-95a-hf",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/tpu-95a-hf#witness-for=source:B-tpu-95a-hf-TDS"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpu"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "a TPU is filed by the Shore rating its maker gives it, and \"Expand your creative boundry with the ALL NEW A2L.\" states none: find the maker's rating (its product page, its safety data sheet, its other sheets) and rule it (D106)",
+      "\"TPU\" has no row in polymers.csv, so a material of it cannot be created"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+      "Publisher": "Bambu Lab",
+      "Title": "TPU 95A HF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/tpu-95a-hf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G041-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TPU 95A HF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G041-01",
+      "row": {
+        "GradeID": "G041-01",
+        "MaterialID": "M161",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "TPU 95A HF",
+        "Shared formulation key": "B-tpu-95a-hf-TDS",
+        "Composition / filler": "Thermoplastic polyurethane",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "/ \u00b0C 230",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "230",
+        "Nozzle max \u00b0C": "230",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "Not published",
+        "Bed state": "unknown",
+        "Bed min \u00b0C": "Not applicable",
+        "Bed max \u00b0C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying \u00b0C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-tpu-95a-hf",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "/ (mm&sup3;/s)12"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "/ (mm/s) 44"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature / \u00b0C  230  230"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c10-1a684f12-e1",
+      "gradeKey": "G041-01",
+      "row": {
+        "MaterialID": "M161",
+        "GradeID": "G041-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Bambu TPU HF is an exceptionally soft and flexible filament with extraordinary impact resistance, enabling you to print parts that need withstand impact, collision, and falling.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 119"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambu TPU HF is an exceptionally soft and flexible filament with extraordinary impact resistance, enabling you to print parts that need withstand impact, collision, and falling."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-1a684f12-e2",
+      "gradeKey": "G041-01",
+      "row": {
+        "MaterialID": "M161",
+        "GradeID": "G041-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing.",
+        "Exposure / conditions": "Copied wood-fibre sentence on TPU95AHF page; not evidence of wood filler/composition. Own humidity guidance remains separate; maker clarification needed.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 139"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "/ \u00b0C 230",
+      "fromBelow": false,
+      "line": "Nozzle Temperature / \u00b0C  230  230"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max Volumetric Speed",
+      "raw": "/ (mm&sup3;/s)12",
+      "fromBelow": false,
+      "line": "Max Volumetric Speed / (mm&sup3;/s)  12  3.6"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "/ (mm/s) 44",
+      "fromBelow": false,
+      "line": "Printing Speed / (mm/s)  44  147"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$53.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 54 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 10% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 10% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$53.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 54 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elevate your TPU printing efficiency to the next level with Bambu TPU 95A HF, featuring a print speed that's 3 times faster than standard TPU 95A.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu TPU 95A HF  Bambu TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Model Specimens  Diameter: 50 mm Height: 100 mm Infill:40%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not compatible with Cool Plate SuperTack, Hotend with Stainless Steel Nozzle 0.2 mm .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF is highly sensitive to humidity. To achieve optimal printing performance, it is recommended further drying before use and after storage. For more det",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Printing Guide",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$53.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-tpu-95a-hf",
+      "previousSHA256": "e8d72a6c87679f35a2413339c5d8e7bcd421607f6369792334bf3ab058c46cca",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-tpu-95a-hf",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-tpu-95a-hf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

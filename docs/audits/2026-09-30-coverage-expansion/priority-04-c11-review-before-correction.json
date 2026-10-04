@@ -1,0 +1,26 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "c9ebfb20b2ea416a39565dca083f473b91ea354a00845c1a80bc7dc396f85d68",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_documents": 1,
+  "reviewed_operations": 1,
+  "OriginalReadScope": "Actual original PDF all five pages decoded by pdfPages/pageLines; digest checked. Original p.2 rendered and visually inspected. Source/proposal row content and hashes checked.",
+  "Operations": [
+    {
+      "OperationID": "c11-pcfr-V0-sample",
+      "verdict": "CHANGES_REQUIRED",
+      "source_sha256": "6b0741900015196712696f8e5f8119f2dae7d767c575a1fa4a52568109c99e2b",
+      "locator": "pp.1–5; result and restriction p.5",
+      "Confirmed": "Exact original conclusion; sample Bambu PC FR/C01-xx,128×12.9×3.3mm, environmental/preconditioning/flame details and separate five-specimen room/aged sets agree. Source photo establishes neither manufacturing form nor printed orientation.",
+      "RequiredAddition": "The report states its testing data and results are just for scientific research, education, internal quality control and product development etc.",
+      "Reason": "Explicit report-purpose restriction must accompany the deciding laboratory observation alongside its existing sample-only and client-identity limitations."
+    }
+  ],
+  "Limitations": [
+    "No product-wide printed-part certification, continuous-service/fire allowable or independent client-identity validation.",
+    "Report validation conditions include approved signature/seals; reading the supplied PDF is not external authentication.",
+    "Chinese version prevails if a conflicting Chinese version is generated; no separate Chinese report retrieved/reviewed."
+  ],
+  "review_signature_sha256": "77fa661497ade36e191e87b2d9d6fcb94a07d2fcc2d1c8d3417b083727ce52d8"
+}

@@ -15,8 +15,8 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5606,
-    "added": 300,
+    "current": 5688,
+    "added": 382,
     "edited_existing": 211,
     "removed": 0
   },
@@ -43,9 +43,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 11818,
-    "added": 282,
-    "edited_existing": 1303,
+    "current": 11819,
+    "added": 283,
+    "edited_existing": 1323,
     "removed": 0
   },
   "method": {
@@ -99,8 +99,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 1870,
-    "added": 42,
+    "current": 1901,
+    "added": 73,
     "edited_existing": 63,
     "removed": 0
   }

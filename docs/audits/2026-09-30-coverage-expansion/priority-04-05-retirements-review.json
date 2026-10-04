@@ -1,0 +1,86 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "d71f48c8955d5a018e0c8510d40b9b4321619c4af845f7f521d6ae6b6a059cdd",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 12,
+  "retired_narratives": 4,
+  "guard_only_keepers": 8,
+  "SourceGroundedReviewReused": "priority-04-05-semantic-duplicates-review.json; own-page quotations and hash-verified TDS p.1 keepers already reread.",
+  "GuardChecks": "All full current evidence/source/grade rows match. Exactly four Evidence type changes and appended retirement notes; eight live keepers unchanged, no deletion or raw-wording rewrite.",
+  "Operations": [
+    {
+      "OperationID": "Q05678-retire",
+      "verdict": "APPROVE",
+      "guard_only": false,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03287-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q05683-retire",
+      "verdict": "APPROVE",
+      "guard_only": false,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03406-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03405-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q05675-retire",
+      "verdict": "APPROVE",
+      "guard_only": false,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03471-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03472-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q05686-retire",
+      "verdict": "APPROVE",
+      "guard_only": false,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03838-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03839-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    },
+    {
+      "OperationID": "Q03840-guard",
+      "verdict": "APPROVE",
+      "guard_only": true,
+      "Preservation": "Full source wording/record ownership/history unchanged; keeper remains live."
+    }
+  ],
+  "review_signature_sha256": "1e224c9dd95d058082dd1e9cdd13e573825134470b956412c11313ae3b21ff41"
+}

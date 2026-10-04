@@ -12,7 +12,7 @@ A build material, not a support
 ×
 Heat deflection (HDT, 0.45 MPa) at least 80 °C
 ×
-Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 3 more pass
+Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 2 more pass
 Not checked by this template: The H2C heats its chamber actively, up to 65 °C
 Properties
 Printing

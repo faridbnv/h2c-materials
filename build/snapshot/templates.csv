@@ -948,7 +948,6 @@ Warm environment,"Strict, annealing permitted",M027,ABS,PASS,some,19,3,34,56,G02
 Warm environment,"Strict, annealing permitted",M028,ABS-GF,PASS,all,8,0,3,11,G028-01,annealed:80:12,yes,
 Warm environment,"Strict, annealing permitted",M030,ABS-ESD,PASS,some,1,1,9,11,G030-03,as-printed,yes,
 Warm environment,"Strict, annealing permitted",M031,ASA,PASS,some,16,1,24,41,G031-01,annealed:80:12,yes,
-Warm environment,"Strict, annealing permitted",M032,ASA Aero,PASS,some,1,1,2,4,G032-01,annealed:80:12,yes,
 Warm environment,"Strict, annealing permitted",M033,ASA-CF,PASS,all,8,0,9,17,G033-01,annealed:80:12,yes,
 Warm environment,"Strict, annealing permitted",M034,ASA-GF,PASS,all,3,0,3,6,G034-03,as-printed,yes,
 Warm environment,"Strict, annealing permitted",M035,PC,PASS,some,5,3,14,22,G035-04,as-printed,yes,

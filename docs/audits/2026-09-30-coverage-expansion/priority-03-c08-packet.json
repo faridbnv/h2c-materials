@@ -1,0 +1,1329 @@
+{
+  "PacketID": "PRIORITY-03-C08-EXACT-OFFICIAL-MAKER-CONTEXT",
+  "Batch": "c08",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "ExpectedGrades": [
+    {
+      "GradeID": "G033-11",
+      "MaterialID": "M033",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "FIBERON ASA CF08",
+      "Shared formulation key": "R-POLYMAKER-FIBERON-TDS-FIBERON-ASA-CF08-V1-0-EN",
+      "Composition / filler": "better mechanical properties by adding 8% carbon fiber. It also (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "V1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-ASA-CF08-V1-0-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G035-06",
+      "MaterialID": "M035",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "PolyMax PC",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Named \"PolyMax PC\" since 2026-09-27 (m193-esun-plus-and-polymax-pc-identities): its sheet heads p. 1 \"PolyMax™ PC\".",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G035-10",
+      "MaterialID": "M035",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker PolyLite PC Transparent",
+      "Shared formulation key": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G050-11",
+      "MaterialID": "M050",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "FIBERON PA6 CF20",
+      "Shared formulation key": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+      "Composition / filler": "Fiberon™ PA6-CF20 is a carbon fiber reinforced PA6 (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "V1.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G051-09",
+      "MaterialID": "M051",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "FIBERON PA6 GF25",
+      "Shared formulation key": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+      "Composition / filler": "Fiberon™ PA6-GF25 is a glass fiber reinforced PA6 (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "V1.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G053-08",
+      "MaterialID": "M053",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "FIBERON PA12 CF10",
+      "Shared formulation key": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+      "Composition / filler": "Fiberon™ PA12-CF10 is carbon fiber reinforced long chain (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "V1.1 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G057-03",
+      "MaterialID": "M057",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker PolyMide CoPA",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G059-01",
+      "MaterialID": "M059",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Fiberon PA612-CF15",
+      "Shared formulation key": "S-FIBER-PA612",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-FIBER-PA612",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G065-01",
+      "MaterialID": "M065",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Fiberon PA612-ESD",
+      "Shared formulation key": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G068-02",
+      "MaterialID": "M068",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Fiberon PET-GF15",
+      "Shared formulation key": "R-FIBERON-PETGF15-TDS",
+      "Composition / filler": "PET, glass fibre (GF15 product designation)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Use exact TDS scope",
+      "Availability": "Official Fiberon TDS retrieved 2026-09-13; product page returned HTTP 403",
+      "Certification claims": "UL 94 HB at 1.5 mm per TDS; not printed-part certification",
+      "Selected-grade rationale": "Second exact PET-GF formulation, recorded 2026-09-13 because it publishes printed XY and Z test data. Flashforge PET-GF (G068-01) is retained unchanged; its values were not overwritten",
+      "SourceID": "R-FIBERON-PETGF15-TDS",
+      "Source locator": "TDS V1.0, p. 1",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G051-03",
+      "MaterialID": "M051",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "PolyMide PA6 GF",
+      "Shared formulation key": "S-POLYCN-PolyMide-PA6-GF-TDS-V5-1",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence. Re-filed 2026-09-13 from G063-02: Polymaker PolyMide PA6-GF is a PA6-GF (TDS: \"a glass fiber reinforced PA6 (Nylon 6) filament\")",
+      "SourceID": "S-POLYCN-PolyMide-PA6-GF-TDS-V5-1",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G053-02",
+      "MaterialID": "M053",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "PolyMide PA12 CF",
+      "Shared formulation key": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [],
+  "ExistingProfileEdits": [],
+  "Documents": [
+    {
+      "File": "749f634c9bfadc8d.json",
+      "Extension": "html",
+      "ProposalSHA256": "9313b8eabf3aa10ba3666f49c41385b55dd84227b73a1229a65afe476cf4f071",
+      "OriginalSHA256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+        "Publisher": "Polymaker",
+        "Title": "FIBERON ASA CF08 official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-asa-cf08",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G033-11",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f"
+      },
+      "OriginalPath": ".cache/sources/by-sha/749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-749f634c-e1",
+          "gradeKey": "G033-11",
+          "row": {
+            "MaterialID": "M033",
+            "GradeID": "G033-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "This material is a great choice for outdoor fixtures, housings, automotive prototypes, marine and agricultural equipment, jigs, drone frames, and more.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 293"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "This material is a great choice for outdoor fixtures, housings, automotive prototypes, marine and agricultural equipment, jigs, drone frames, and more."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-749f634c-e2",
+          "gradeKey": "G033-11",
+          "row": {
+            "MaterialID": "M033",
+            "GradeID": "G033-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Yes. Like all ASA filaments, it releases VOCs such as styrene when heated. Always print in a well-ventilated space, and ideally use an enclosure with a filtration system.",
+            "Exposure / conditions": "Maker heated-processing/VOC ventilation guidance only; no measured emission rate, exposure threshold or regulatory certification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 305"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Yes. Like all ASA filaments, it releases VOCs such as styrene when heated. Always print in a well-ventilated space, and ideally use an enclosure with a filtration system."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-749f634c-e3",
+          "gradeKey": "G033-11",
+          "row": {
+            "MaterialID": "M033",
+            "GradeID": "G033-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. ASA-CF08 is electrically insulating, with a surface resistivity greater than 10¹² Ω. It should not be used for electrostatic-sensitive applications.",
+            "Exposure / conditions": "Maker ESD exclusion and unqualified surface-resistivity claim; no independent protocol or printed geometry; retained know-how, not a measurement/pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 307"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. ASA-CF08 is electrically insulating, with a surface resistivity greater than 10¹² Ω. It should not be used for electrostatic-sensitive applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 16,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "56f93938420607fa.json",
+      "Extension": "html",
+      "ProposalSHA256": "f788a114a1f8965adbb3fc5ddf96757f1c13606d21820093ad127e0a7ebe84eb",
+      "OriginalSHA256": "56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-56f939384206",
+        "Publisher": "Polymaker",
+        "Title": "PolyMax PC official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polymax-pc",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G035-06",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184"
+      },
+      "OriginalPath": ".cache/sources/by-sha/56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-56f93938-e1",
+          "gradeKey": "G035-06",
+          "row": {
+            "MaterialID": "M035",
+            "GradeID": "G035-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Exceptional Strength and Heat Resistance This filament is ideal for projects where both mechanical strength and high thermal stability are essential. PolyMax™ PC withstands challenging environments, making it perfect for functional prototypes, tooling, and end-use parts.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-56f939384206",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 191"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Exceptional Strength and Heat Resistance This filament is ideal for projects where both mechanical strength and high thermal stability are essential. PolyMax™ PC withstands challenging environments, making it perfect for functional prototypes, tooling, and end-use parts."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-56f93938-e2",
+          "gradeKey": "G035-06",
+          "row": {
+            "MaterialID": "M035",
+            "GradeID": "G035-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The short answer is yes, PolyLite™ PC will absorb moisture slightly faster than regular PLA. We recommend using a dry box to achieve high quality and strong prints.",
+            "Exposure / conditions": "Attribution conflict: own PolyMax PC page sentence explicitly names PolyLite PC. Retained only as source-wording problem, not own PolyMax PC moisture guidance; clarification needed.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-56f939384206",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 281"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "The short answer is yes, PolyLite™ PC will absorb moisture slightly faster than regular PLA. We recommend using a dry box to achieve high quality and strong prints."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "eb1e58e6f9675439.json",
+      "Extension": "html",
+      "ProposalSHA256": "e88ad28afb870d228eb35131ffe619eebda530468b4245f07bfd8a5db0dea862",
+      "OriginalSHA256": "eb1e58e6f96754395f781d92c8653c360b541f78c0fb88d9d46767c7fd003d67",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker PolyLite PC Transparent official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polylite-pc",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G035-10",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "eb1e58e6f96754395f781d92c8653c360b541f78c0fb88d9d46767c7fd003d67"
+      },
+      "OriginalPath": ".cache/sources/by-sha/eb1e58e6f96754395f781d92c8653c360b541f78c0fb88d9d46767c7fd003d67.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-eb1e58e6-e1",
+          "gradeKey": "G035-10",
+          "row": {
+            "MaterialID": "M035",
+            "GradeID": "G035-10",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Light Diffusing and Translucent Properties With its impressive translucency, PolyLite™ PC allows light to pass through, making it an excellent choice for projects that require light diffusion or aesthetic illumination effects.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 168"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Light Diffusing and Translucent Properties With its impressive translucency, PolyLite™ PC allows light to pass through, making it an excellent choice for projects that require light diffusion or aesthetic illumination effects."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-eb1e58e6-e2",
+          "gradeKey": "G035-10",
+          "row": {
+            "MaterialID": "M035",
+            "GradeID": "G035-10",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Actively heated chamber highly recommended. Minimum 60˚C chamber temp highly recommended.",
+            "Exposure / conditions": "Maker recommends minimum60°C; large/dense parts have a separate heated-chamber statement. This limited recommendation is not a universal required gate, closed temperature band, specimen recipe or proof H2C can print every geometry.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 173"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Actively heated chamber highly recommended. Minimum 60˚C chamber temp highly recommended."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "aa05f44c143764d3.json",
+      "Extension": "html",
+      "ProposalSHA256": "20a148279c75056da7b169a158b5a0a1f9a4c7ce2f737c1e1f1c4789e0a79faf",
+      "OriginalSHA256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+        "Publisher": "Polymaker",
+        "Title": "FIBERON PA6 CF20 official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-pa6-cf20",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G050-11",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94"
+      },
+      "OriginalPath": ".cache/sources/by-sha/aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-aa05f44c-e1",
+          "gradeKey": "G050-11",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Engineered for Demanding Applications Fiberon™ PA6-CF20 is a carbon fiber reinforced PA6 (Nylon 6) filament containing 20% carbon fiber, designed for exceptional mechanical strength, stiffness, and heat resistance. The carbon fiber reinforcement dramatically improves rigidity and dimensional stability, making it ideal for functional prototypes, industrial tooling, automotive, and composite manufacturing applications.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 202"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Engineered for Demanding Applications Fiberon™ PA6-CF20 is a carbon fiber reinforced PA6 (Nylon 6) filament containing 20% carbon fiber, designed for exceptional mechanical strength, stiffness, and heat resistance. The carbon fiber reinforcement dramatically improves rigidity and dimensional stability, making it ideal for functional prototypes, industrial tooling, automotive, and composite manufacturing applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-aa05f44c-e2",
+          "gradeKey": "G050-11",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%.",
+            "Exposure / conditions": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "02efe50f9eac6aec.json",
+      "Extension": "html",
+      "ProposalSHA256": "4ad0b49d361421c5abe12464aa73d188b5b841f8c5ff36834e51a332a7bdf24d",
+      "OriginalSHA256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+        "Publisher": "Polymaker",
+        "Title": "FIBERON PA6 GF25 official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-pa6-gf25",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G051-09",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72"
+      },
+      "OriginalPath": ".cache/sources/by-sha/02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-02efe50f-e1",
+          "gradeKey": "G051-09",
+          "row": {
+            "MaterialID": "M051",
+            "GradeID": "G051-09",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Exceptional Strength, Stiffness, and Heat Resistance Fiberon™ PA6-GF25 is a glass fiber reinforced PA6 (Nylon 6) filament containing 25% glass fiber by weight. This advanced composite material delivers outstanding mechanical strength, high stiffness, and excellent thermal properties, making it ideal for demanding engineering, automotive, aerospace, and industrial applications.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 193"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Exceptional Strength, Stiffness, and Heat Resistance Fiberon™ PA6-GF25 is a glass fiber reinforced PA6 (Nylon 6) filament containing 25% glass fiber by weight. This advanced composite material delivers outstanding mechanical strength, high stiffness, and excellent thermal properties, making it ideal for demanding engineering, automotive, aerospace, and industrial applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-02efe50f-e2",
+          "gradeKey": "G051-09",
+          "row": {
+            "MaterialID": "M051",
+            "GradeID": "G051-09",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%.",
+            "Exposure / conditions": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "effcc17a7754d4c6.json",
+      "Extension": "html",
+      "ProposalSHA256": "e5bf1967c5d3dfda7049c0b986c1b619ddb998779fabdf86fd37fff3df071d6a",
+      "OriginalSHA256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+        "Publisher": "Polymaker",
+        "Title": "FIBERON PA12 CF10 official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-pa12-cf10",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G053-08",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20"
+      },
+      "OriginalPath": ".cache/sources/by-sha/effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-effcc17a-e1",
+          "gradeKey": "G053-08",
+          "row": {
+            "MaterialID": "M053",
+            "GradeID": "G053-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Professional-Grade Mechanical Strength and Dimensional Stability Fiberon™ PA12-CF10 is a carbon fiber reinforced long-chain copolyamide (PA12) filament engineered for demanding industrial and engineering applications. With 10% carbon fiber content, it delivers outstanding mechanical strength, rigidity, and thermal resistance, making it ideal for parts that require durability, precision, and minimal warping.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 187"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Professional-Grade Mechanical Strength and Dimensional Stability Fiberon™ PA12-CF10 is a carbon fiber reinforced long-chain copolyamide (PA12) filament engineered for demanding industrial and engineering applications. With 10% carbon fiber content, it delivers outstanding mechanical strength, rigidity, and thermal resistance, making it ideal for parts that require durability, precision, and minimal warping."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-effcc17a-e2",
+          "gradeKey": "G053-08",
+          "row": {
+            "MaterialID": "M053",
+            "GradeID": "G053-08",
+            "Domain": "Makers' know-how",
+            "Topic": "Moisture sensitivity",
+            "Finding": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%.",
+            "Exposure / conditions": "Maker FAQ treatment sequence and moisture context only; compare to own TDS conditions before using it. No additional measurement or service/hydrolysis test inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 282"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "46df2b78af773495.json",
+      "Extension": "html",
+      "ProposalSHA256": "489adf409b641e89eadb598e8aa6746d59c3107fa65d5a84c838e23812215402",
+      "OriginalSHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker PolyMide CoPA official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/polymide-copa",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G057-03",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433"
+      },
+      "OriginalPath": ".cache/sources/by-sha/46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-46df2b78-e1",
+          "gradeKey": "G057-03",
+          "row": {
+            "MaterialID": "M057",
+            "GradeID": "G057-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Ideal for Engineering and Industrial Parts Choose PolyMide™ CoPA when your project demands high strength, toughness, and heat resistance - perfect for automotive, mechanical, and industrial applications.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 177"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Ideal for Engineering and Industrial Parts Choose PolyMide™ CoPA when your project demands high strength, toughness, and heat resistance - perfect for automotive, mechanical, and industrial applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-46df2b78-e2",
+          "gradeKey": "G057-03",
+          "row": {
+            "MaterialID": "M057",
+            "GradeID": "G057-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%.",
+            "Exposure / conditions": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 275"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 15,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "540bc284ede58ca2.json",
+      "Extension": "html",
+      "ProposalSHA256": "ec729c34804426943ef101d4abfb51827f530e807086ff700e9d5fc5659f2d31",
+      "OriginalSHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon PA612-CF15 official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-pa612-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G059-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2"
+      },
+      "OriginalPath": ".cache/sources/by-sha/540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-540bc284-e1",
+          "gradeKey": "G059-01",
+          "row": {
+            "MaterialID": "M059",
+            "GradeID": "G059-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Ideal for Industrial and Engineering Applications Perfect for automotive, aerospace, robotics, jigs, fixtures, and end-use components where dimensional stability, moisture resistance, and mechanical performance are critical.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 202"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Ideal for Industrial and Engineering Applications Perfect for automotive, aerospace, robotics, jigs, fixtures, and end-use components where dimensional stability, moisture resistance, and mechanical performance are critical."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-540bc284-e2",
+          "gradeKey": "G059-01",
+          "row": {
+            "MaterialID": "M059",
+            "GradeID": "G059-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%.",
+            "Exposure / conditions": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 11,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "d06cdcda8dca1d77.json",
+      "Extension": "html",
+      "ProposalSHA256": "202ab51b2cdc08650d66da534dc12bbf2f47b46d31c6e67ab06b6919d538b8f1",
+      "OriginalSHA256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon PA612-ESD official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-pa612-esd",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G065-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554"
+      },
+      "OriginalPath": ".cache/sources/by-sha/d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-d06cdcda-e1",
+          "gradeKey": "G065-01",
+          "row": {
+            "MaterialID": "M065",
+            "GradeID": "G065-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "• PCB storage boxes",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 289"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "• PCB storage boxes"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-d06cdcda-e2",
+          "gradeKey": "G065-01",
+          "row": {
+            "MaterialID": "M065",
+            "GradeID": "G065-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "• ESD-safe shelves and racks",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 290"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "• ESD-safe shelves and racks"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-d06cdcda-e3",
+          "gradeKey": "G065-01",
+          "row": {
+            "MaterialID": "M065",
+            "GradeID": "G065-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "• High-temperature electronic housings",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 291"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "• High-temperature electronic housings"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-d06cdcda-e4",
+          "gradeKey": "G065-01",
+          "row": {
+            "MaterialID": "M065",
+            "GradeID": "G065-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "• Structural components for cleanrooms",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 292"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "• Structural components for cleanrooms"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-d06cdcda-e5",
+          "gradeKey": "G065-01",
+          "row": {
+            "MaterialID": "M065",
+            "GradeID": "G065-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "• Industrial jigs and fixtures",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 293"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "• Industrial jigs and fixtures"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-d06cdcda-e6",
+          "gradeKey": "G065-01",
+          "row": {
+            "MaterialID": "M065",
+            "GradeID": "G065-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "NOTE: Fiberon ™ PA612-ESD is compounded with carbon nano-tubes: Here is a research regarding ABS compounded with carbon nano-tubes.",
+            "Exposure / conditions": "Maker links research on ABS compounded with carbon nanotubes, not a PA612-ESD printed-product test or certification. No result transfer between polymers, formulations or product identities.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 190"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "NOTE: Fiberon ™ PA612-ESD is compounded with carbon nano-tubes: Here is a research regarding ABS compounded with carbon nano-tubes."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 13,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "67deefea2e325bd6.json",
+      "Extension": "html",
+      "ProposalSHA256": "b5679c1e39cd1efdb39320f68bc146d92e448eb40641aef99dd8edceff1f8e92",
+      "OriginalSHA256": "67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon PET-GF15 official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://shop.polymaker.com/products/fiberon-pet-gf15",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G068-02",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b"
+      },
+      "OriginalPath": ".cache/sources/by-sha/67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-67deefea-e1",
+          "gradeKey": "G068-02",
+          "row": {
+            "MaterialID": "M068",
+            "GradeID": "G068-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Ideal for functional prototypes, jigs, fixtures, automotive parts, brackets, and enclosures.",
+            "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Ideal for functional prototypes, jigs, fixtures, automotive parts, brackets, and enclosures."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c08-67deefea-e2",
+          "gradeKey": "G068-02",
+          "row": {
+            "MaterialID": "M068",
+            "GradeID": "G068-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "During annealing, avoid applied loads and non-uniform oven temperature, and retain supports where needed to limit deformation.",
+            "Exposure / conditions": "Maker annealing handling guidance, not a design allowable. Own TDS annealing schedule remains explicit; avoid service loads or unsupported dimensional performance claims.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 274"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "During annealing, avoid applied loads and non-uniform oven temperature, and retain supports where needed to limit deformation."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 12,
+        "profiles": 2,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "edf1439487e09279.json",
+      "Extension": "html",
+      "ProposalSHA256": "02b94e73e745a90acdd5e31189501456acc44b6909ca3555036fbd37731e2b3c",
+      "OriginalSHA256": "edf1439487e09279f3ed7b708960d9c671b63c9a3aabee57d925e01be25dadce",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-edf1439487e0",
+        "Publisher": "Polymaker",
+        "Title": "PolyMide PA6 GF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://us-wholesale.polymaker.com/products/polymide-pa6-gf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G051-03",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "edf1439487e09279f3ed7b708960d9c671b63c9a3aabee57d925e01be25dadce"
+      },
+      "OriginalPath": ".cache/sources/by-sha/edf1439487e09279f3ed7b708960d9c671b63c9a3aabee57d925e01be25dadce.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-edf14394-e1",
+          "gradeKey": "G051-03",
+          "row": {
+            "MaterialID": "M051",
+            "GradeID": "G051-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns.",
+            "Exposure / conditions": "Exact legacy maker listing notice, observed2026-10-03. No stock/price/retirement assertion or replacement-formulation equivalence inferred; current Fiberon measurements do not transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-edf1439487e0",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 89"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "c606d37e008e0c1c.json",
+      "Extension": "html",
+      "ProposalSHA256": "f8bb242dc87a8292a2281c2f84b409260e77ad19e394f18fc08a9de22936d7e8",
+      "OriginalSHA256": "c606d37e008e0c1cd85c3e2b7a8e6d021588e3673effcfa3a892777ad3517a4a",
+      "Source": {
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-c606d37e008e",
+        "Publisher": "Polymaker",
+        "Title": "PolyMide PA12 CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://us-wholesale.polymaker.com/products/polymide-pa12-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G053-02",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "c606d37e008e0c1cd85c3e2b7a8e6d021588e3673effcfa3a892777ad3517a4a"
+      },
+      "OriginalPath": ".cache/sources/by-sha/c606d37e008e0c1cd85c3e2b7a8e6d021588e3673effcfa3a892777ad3517a4a.html",
+      "ProposedEvidence": [
+        {
+          "id": "c08-c606d37e-e1",
+          "gradeKey": "G053-02",
+          "row": {
+            "MaterialID": "M053",
+            "GradeID": "G053-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns.",
+            "Exposure / conditions": "Exact legacy maker listing notice, observed2026-10-03. No stock/price/retirement assertion or replacement-formulation equivalence inferred; current Fiberon measurements do not transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-c606d37e008e",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 85"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    }
+  ],
+  "ScreeningContract": "Record-only claims; source wording conflicts held explicitly, no numerical/property/gate substitution. Original test conditions remain controlling."
+}

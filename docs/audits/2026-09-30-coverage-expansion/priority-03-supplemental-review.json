@@ -1,0 +1,80 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "dfb182db5e3186129f7de493e3866fe32ff6615ad26599b00166fa3309be0872",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 4,
+  "originals_read": {
+    "own_sources": 5,
+    "additional_referenced_TDS_PIS": 5,
+    "method": "Actual original bytes hash-verified and reread via htmlText/v4 or pdfPages/pageLines. HTML own Printing Requirements/Print Settings/FAQ and PDF relevant complete page/footnotes inspected."
+  },
+  "per_operation": [
+    {
+      "OperationID": "G035-06-current-limited-recipe",
+      "verdict": "APPROVE",
+      "GradeID": "G035-06",
+      "raw_check": "Own literal clause matches original page; PA12 raw FAQ is unchanged.",
+      "conditions_check": "Maker recommendation only; separate large/dense-part requirement is geometry-specific. Current TDS says Not needed (70°C–100°C), with separate enclosure/heated-large-part recommendations. No universal required gate or closed temperature band inferred."
+    },
+    {
+      "OperationID": "G035-10-current-limited-recipe",
+      "verdict": "APPROVE",
+      "GradeID": "G035-10",
+      "raw_check": "Own literal clause matches original page; PA12 raw FAQ is unchanged.",
+      "conditions_check": "Current maker page 75°C/12h differs from V5.5 TDS 75°C/6H and older PIS 80°C/8h. Instructions retained by revision; no recency arbitration or mandatory drying gate."
+    },
+    {
+      "OperationID": "G057-03-current-limited-recipe",
+      "verdict": "APPROVE",
+      "GradeID": "G057-03",
+      "raw_check": "Own literal clause matches original page; PA12 raw FAQ is unchanged.",
+      "conditions_check": "Current maker page 80°C/10h differs from V5.5 TDS 100°C/8H. Separate source instructions retained; no invented equivalence or change to published specimen states."
+    },
+    {
+      "OperationID": "PA12-FAQ-limit",
+      "verdict": "APPROVE",
+      "GradeID": "G053-08",
+      "raw_check": "Own literal clause matches original page; PA12 raw FAQ is unchanged.",
+      "conditions_check": "Maker FAQ treatment statement only. Its 2.57% moisture content conflicts with own Fiberon PA12-CF10 V1.1 wet-table footnote 2.92% after 100°C/16h annealing and 60°C/48h water immersion. Raw FAQ retained; original TDS state/conditions control its measurements. No added moisture-service/hydrolysis measurement; corrected exact-product FAQ or maker clarification required."
+    }
+  ],
+  "cross_source_pins": [
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+      "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+      "locator": "p.1 Recommended printing settings/own note"
+    },
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+      "SHA256": "dfee4768b7e136b457d0d44dc8420e4bc8a7ff29219664de9e104a491cc5954b",
+      "locator": "p.1 Recommended printing settings/own note"
+    },
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+      "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+      "locator": "p.1 Recommended printing settings/own note"
+    },
+    {
+      "SourceID": "S-POLYCN-PolyLite-PC-PIS-EN",
+      "SHA256": "7a00c7bc653e9f28d5415ff7883af8469f1b1e3efa2d4486202a3cb564e37673",
+      "locator": "p.6 Drying settings"
+    },
+    {
+      "SourceID": "S-POLYCN-PolyMide-CoPA-PIS-EN",
+      "SHA256": "a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b",
+      "locator": "p.6 Drying settings"
+    }
+  ],
+  "guard_check": "All four full ExpectedGrade and five ExpectedSource rows match canonical originals. Exact expected Q05642 row agrees; only Exposure / conditions changes. Three append findings have no same-grade/source raw duplicate.",
+  "limits": [
+    "No new profile, numeric moisture result or required print gate approved. Minimum70°C highly recommended is not an open required temperature gate.",
+    "PolyMax TDS Not needed(70°C–100°C) plus large-part recommended heated chamber retained; no silent override of geometry-specific or ambiguous source instructions.",
+    "PolyLite page75°C12h versus V5.5TDS75°C6H versus olderPIS80°C8h remain separate instructions.",
+    "CoPA page80°C10h versus V5.5TDS100°C8H remain separate instructions; independently reread older own PISp6 additionally states80°C12h. Include that extra source-specific schedule in upcoming joined outcomes; no equivalence inferred.",
+    "PA12 own V1.1 wet table prints2.92% after100°C16h anneal and60°C48h immersion; FAQ2.57% remains raw and conflicting. TDS footnote controls only its own measurement conditions, not every printed part.",
+    "No recency arbitration, specimen-to-processing transfer, service allowable or printed-product certification.",
+    "AI-only review; no human/vendor/physical-test confirmation."
+  ],
+  "review_signature_sha256": "186fa4383bc86971b82d1d715c5ba1ec037d40dfcf5b0afab99ad07b2e9894a1"
+}

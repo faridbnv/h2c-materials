@@ -1,0 +1,1567 @@
+{
+  "PacketID": "PRIORITY-04-C09-EXACT-OFFICIAL-MAKER-CONTEXT",
+  "Batch": "c09",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "ExpectedGrades": [
+    {
+      "GradeID": "G040-01",
+      "MaterialID": "M162",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "TPU for AMS",
+      "Shared formulation key": "B-tpu-for-ams-TDS",
+      "Composition / filler": "Thermoplastic polyurethane",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-tpu-for-ams-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G021-01",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PETG Basic",
+      "Shared formulation key": "B-petg-basic-TDS",
+      "Composition / filler": "PETG",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-petg-basic-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G022-01",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PETG HF",
+      "Shared formulation key": "B-petg-hf-TDS",
+      "Composition / filler": "PETG",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-petg-hf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G023-01",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PETG Translucent",
+      "Shared formulation key": "B-petg-translucent-TDS",
+      "Composition / filler": "PETG",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-petg-translucent-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G024-01",
+      "MaterialID": "M024",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PETG-CF",
+      "Shared formulation key": "B-petg-cf-TDS",
+      "Composition / filler": "PETG, carbon fiber",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-petg-cf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G027-01",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "ABS",
+      "Shared formulation key": "B-abs-filament-TDS",
+      "Composition / filler": "ABS",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-abs-filament-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G028-01",
+      "MaterialID": "M028",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "ABS-GF",
+      "Shared formulation key": "B-abs-gf-TDS",
+      "Composition / filler": "Acrylonitrile - butadiene - styrene, glass fiber",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-abs-gf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G031-01",
+      "MaterialID": "M031",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "ASA",
+      "Shared formulation key": "B-asa-filament-TDS",
+      "Composition / filler": "acrylonitrile - styrene - acrylate",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-asa-filament-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G032-01",
+      "MaterialID": "M032",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "ASA Aero",
+      "Shared formulation key": "B-asa-aero-TDS",
+      "Composition / filler": "acrylonitrile - styrene - acrylate",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-asa-aero-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G033-01",
+      "MaterialID": "M033",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "ASA-CF",
+      "Shared formulation key": "B-asa-cf-TDS",
+      "Composition / filler": "acrylonitrile - styrene - acrylate",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-asa-cf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G035-01",
+      "MaterialID": "M035",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PC",
+      "Shared formulation key": "B-PC-TDS",
+      "Composition / filler": "PC",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable and self-extinguishing in the air \u2014 verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-PC-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G036-01",
+      "MaterialID": "M036",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PC FR",
+      "Shared formulation key": "B-pc-fr-TDS",
+      "Composition / filler": "Polycarbonate",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-pc-fr-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "B-tpu-for-ams",
+      "Publisher": "Bambu Lab",
+      "Title": "TPU for AMS | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/tpu-for-ams",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f76f53b345ba71d18714100b496f39546dfadf9a9abb22e74b1728754b687f70"
+    },
+    {
+      "SourceID": "B-petg-basic",
+      "Publisher": "Bambu Lab",
+      "Title": "PETG Basic | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/petg-basic",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3350a2adc747ca24b0711bcda4125ab42c1be484de21e08459033c3c06b73ad3"
+    },
+    {
+      "SourceID": "B-petg-hf",
+      "Publisher": "Bambu Lab",
+      "Title": "PETG HF | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/petg-hf",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ef9caee9ccd90241e7b895db6c3780ccd7c46b0323cfe515fb656b947c25e45c"
+    },
+    {
+      "SourceID": "B-petg-translucent",
+      "Publisher": "Bambu Lab",
+      "Title": "PETG Translucent | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/petg-translucent",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b6e6fe83466e26c496afda722552580726cb8a0edc4cf89905702e01c19c127d"
+    },
+    {
+      "SourceID": "B-petg-cf",
+      "Publisher": "Bambu Lab",
+      "Title": "PETG-CF | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/petg-cf",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "816927d039b606a67d85645419a12d7798c5ceb1b0bb3bc31495595b8924ace2"
+    },
+    {
+      "SourceID": "B-abs-filament",
+      "Publisher": "Bambu Lab",
+      "Title": "ABS | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/abs-filament",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "feac5616b65acf62dd19a73f1d5cbd266c00bb4b55e9e934eacd1c8f7baa8bbd"
+    },
+    {
+      "SourceID": "B-abs-gf",
+      "Publisher": "Bambu Lab",
+      "Title": "ABS-GF | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/abs-gf",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f69f1eda39d24c46c0e83ea3b31d2aa564152832cbdc38ea3166876cf2918554"
+    },
+    {
+      "SourceID": "B-asa-filament",
+      "Publisher": "Bambu Lab",
+      "Title": "ASA | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/asa-filament",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1807d7f84317a3e28c07b031667e789cee72e9c46c948ff165c036e598a98995"
+    },
+    {
+      "SourceID": "B-asa-aero",
+      "Publisher": "Bambu Lab",
+      "Title": "ASA Aero | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/asa-aero",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "265753247b413cf063d77109b5e27cc047673bd9340ca6de8ddd7ed0fe532f79"
+    },
+    {
+      "SourceID": "B-asa-cf",
+      "Publisher": "Bambu Lab",
+      "Title": "ASA-CF | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/asa-cf",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5fce3dad396754b6743592309955549301512bbff4cd689f19c1f6f9e40d59c6"
+    },
+    {
+      "SourceID": "B-PC",
+      "Publisher": "Bambu Lab",
+      "Title": "PC | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/pc-filament",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e10e15aa9a90f4713a18d8785d376f296eda2b53671bf05a686a4b9d677523c9"
+    },
+    {
+      "SourceID": "B-pc-fr",
+      "Publisher": "Bambu Lab",
+      "Title": "PC FR | Bambu Lab CA Store",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-10",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/pc-fr",
+      "Locator": "Document / product page",
+      "Applicable grades": "Family / scope guidance",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "809f9fb9ae24cb5d7a5cf22c2e9fffad3a4849b79e0b5d0e8575adb596a5008f"
+    }
+  ],
+  "ExistingProfileEdits": [],
+  "Documents": [
+    {
+      "File": "693bcb42a47c314d.json",
+      "Extension": "html",
+      "ProposalSHA256": "3c069669233d595750ab0981947f3df40d2f9bcbd26041b90c2fa1e55d139a01",
+      "OriginalSHA256": "693bcb42a47c314d4b66c92b422527ea3dfb4e313189a093e634edc2f4e2937e",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-693bcb42a47c",
+        "Publisher": "Bambu Lab",
+        "Title": "TPU for AMS official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/tpu-for-ams",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G040-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "693bcb42a47c314d4b66c92b422527ea3dfb4e313189a093e634edc2f4e2937e"
+      },
+      "OriginalPath": ".cache/sources/by-sha/693bcb42a47c314d4b66c92b422527ea3dfb4e313189a093e634edc2f4e2937e.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-693bcb42-e1",
+          "gradeKey": "G040-01",
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G040-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "With a Shore hardness of 68D, Bambu TPU for AMS combines exceptional toughness with the flexibility and durability of TPU. It's ideal for printing durable, impact-resistant parts like protective cases, phone covers, door stoppers, sports equipment, automotive parts, and much more!",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-693bcb42a47c",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 118"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "With a Shore hardness of 68D, Bambu TPU for AMS combines exceptional toughness with the flexibility and durability of TPU. It's ideal for printing durable, impact-resistant parts like protective cases, phone covers, door stoppers, sports equipment, automotive parts, and much more!"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-693bcb42-e2",
+          "gradeKey": "G040-01",
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G040-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "0.2 mm Nozzle NOT Compatible",
+            "Exposure / conditions": "Maker explicitly excludes0.2mm; no other diameter or AMS mechanism implied.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-693bcb42a47c",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 43"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "0.2 mm Nozzle NOT Compatible"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-tpu-for-ams",
+        "previousSHA256": "f76f53b345ba71d18714100b496f39546dfadf9a9abb22e74b1728754b687f70",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "6e425b0d7ce7fcf7.json",
+      "Extension": "html",
+      "ProposalSHA256": "468b979a666830b849e0a422fffd769fde3a32ca25e6703992c9b085abcfff92",
+      "OriginalSHA256": "6e425b0d7ce7fcf7ac9fc9f1d62b51057895cc2ea648ab8cabe4fd67775fd8f2",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-6e425b0d7ce7",
+        "Publisher": "Bambu Lab",
+        "Title": "PETG Basic official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/petg-basic",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G021-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "6e425b0d7ce7fcf7ac9fc9f1d62b51057895cc2ea648ab8cabe4fd67775fd8f2"
+      },
+      "OriginalPath": ".cache/sources/by-sha/6e425b0d7ce7fcf7ac9fc9f1d62b51057895cc2ea648ab8cabe4fd67775fd8f2.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-6e425b0d-e1",
+          "gradeKey": "G021-01",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G021-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Engineered for long-lasting performance in outdoor environments, Bambu Lab PETG Basic combines durability with affordability. Its strong resistance to water, UV, and temperature makes it a highly cost-effective option for outdoor applications. From garden labels to bathroom accessories, it\u2019s a practical, budget-friendly choice for prints that need to withstand everyday conditions.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Current listing may be a new formulation; registered older TDS values are not reattributed to it.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-6e425b0d7ce7",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 130"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Engineered for long-lasting performance in outdoor environments, Bambu Lab PETG Basic combines durability with affordability. Its strong resistance to water, UV, and temperature makes it a highly cost-effective option for outdoor applications. From garden labels to bathroom accessories, it\u2019s a practical, budget-friendly choice for prints that need to withstand everyday conditions."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-6e425b0d-e2",
+          "gradeKey": "G021-01",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G021-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Low indoor printing emissions, certified to UL GREENGUARD 2904",
+            "Exposure / conditions": "Maker GREENGUARD2904 claim; underlying test/certificate and printed-specimen scope not yet retrieved. No food/contact, universal emissions or printed-product certification inferred.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-6e425b0d7ce7",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 42"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Low indoor printing emissions, certified to UL GREENGUARD 2904"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-petg-basic",
+        "previousSHA256": "3350a2adc747ca24b0711bcda4125ab42c1be484de21e08459033c3c06b73ad3",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "50cc660662857577.json",
+      "Extension": "html",
+      "ProposalSHA256": "1b1e290bc1addba502d4c7a04708570e205e9983b5afc2c77fa5ae4b65ddb808",
+      "OriginalSHA256": "50cc660662857577dede51d7fa0d37a1e060e44090a8fb0dfa30193d17c44f7a",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+        "Publisher": "Bambu Lab",
+        "Title": "PETG HF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/petg-hf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G022-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "50cc660662857577dede51d7fa0d37a1e060e44090a8fb0dfa30193d17c44f7a"
+      },
+      "OriginalPath": ".cache/sources/by-sha/50cc660662857577dede51d7fa0d37a1e060e44090a8fb0dfa30193d17c44f7a.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-50cc6606-e1",
+          "gradeKey": "G022-01",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G022-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "PETG HF maintains the inherent strengths of regular PETG, providing superior resistance to water, UV, and temperatures. Tougher and more durable than PLA, with higher temperature resistance, it's the perfect choice for printing outdoor items such as planter pots, bird cages, watering cans, and automotive parts. Additionally, it's ideal for outdoor toys that require long-term exposure and the ability to withstand impacts, collisions, and falls.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 138"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PETG HF maintains the inherent strengths of regular PETG, providing superior resistance to water, UV, and temperatures. Tougher and more durable than PLA, with higher temperature resistance, it's the perfect choice for printing outdoor items such as planter pots, bird cages, watering cans, and automotive parts. Additionally, it's ideal for outdoor toys that require long-term exposure and the ability to withstand impacts, collisions, and falls."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-50cc6606-e2",
+          "gradeKey": "G022-01",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G022-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "PETG HF is discontinued and will not be restocked once sold out. A new and improved PETG is available now! Buy Now >",
+            "Exposure / conditions": "Observed2026-10-03 maker availability notice; no stock, retirement or replacement-formulation equivalence inferred.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-50cc66066285",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 49"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PETG HF is discontinued and will not be restocked once sold out. A new and improved PETG is available now! Buy Now >"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-petg-hf",
+        "previousSHA256": "ef9caee9ccd90241e7b895db6c3780ccd7c46b0323cfe515fb656b947c25e45c",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "72581be8410a03e6.json",
+      "Extension": "html",
+      "ProposalSHA256": "b6f2202c287306bd457c6e38b366318cf4396e566b92099005bb07dacf9b9103",
+      "OriginalSHA256": "72581be8410a03e66099f65c539171f1ac5a42cc0095ee7d1f08c19e5083f4d8",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-72581be8410a",
+        "Publisher": "Bambu Lab",
+        "Title": "PETG Translucent official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/petg-translucent",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G023-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "72581be8410a03e66099f65c539171f1ac5a42cc0095ee7d1f08c19e5083f4d8"
+      },
+      "OriginalPath": ".cache/sources/by-sha/72581be8410a03e66099f65c539171f1ac5a42cc0095ee7d1f08c19e5083f4d8.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-72581be8-e1",
+          "gradeKey": "G023-01",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G023-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Optimized for exceptional light transmittance, Bambu PETG Translucent provides unmatched levels of translucency. * Please note that the transparency of the prints may vary depending on factors such as size and structure, as well as printing parameters (including speed, nozzle temperature, and infill density).",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Geometry and process limits remain in raw quotation.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-72581be8410a",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 135"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Optimized for exceptional light transmittance, Bambu PETG Translucent provides unmatched levels of translucency. * Please note that the transparency of the prints may vary depending on factors such as size and structure, as well as printing parameters (including speed, nozzle temperature, and infill density)."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-72581be8-e2",
+          "gradeKey": "G023-01",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G023-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Printing PETG Translucent with the appropriate print parameters can achieve an appearance ranging from tinted translucent to tinted transparent. Learn more about Printing tips for transparent PETG on WIKI.",
+            "Exposure / conditions": "Maker transparent-appearance guidance; no quantified transmission or strength equivalence inferred.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-72581be8410a",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 157"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Printing PETG Translucent with the appropriate print parameters can achieve an appearance ranging from tinted translucent to tinted transparent. Learn more about Printing tips for transparent PETG on WIKI."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-petg-translucent",
+        "previousSHA256": "b6e6fe83466e26c496afda722552580726cb8a0edc4cf89905702e01c19c127d",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "f3c24780db60c9a9.json",
+      "Extension": "html",
+      "ProposalSHA256": "5ca9ed264ec738f5f568847d39c3be0dca42b57b910620d8dfa41aecf630c3bb",
+      "OriginalSHA256": "f3c24780db60c9a97cf873713285c849000b844c6262853d54443b9c0c8bedc3",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f3c24780db60",
+        "Publisher": "Bambu Lab",
+        "Title": "PETG-CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/petg-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G024-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "f3c24780db60c9a97cf873713285c849000b844c6262853d54443b9c0c8bedc3"
+      },
+      "OriginalPath": ".cache/sources/by-sha/f3c24780db60c9a97cf873713285c849000b844c6262853d54443b9c0c8bedc3.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-f3c24780-e1",
+          "gradeKey": "G024-01",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Thanks to its enhanced resistance to heat and moisture, Bambu PETG-CF is ideal for outdoor applications. Feel free to create durable tools for your garden or any outdoor environment.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f3c24780db60",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 116"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Thanks to its enhanced resistance to heat and moisture, Bambu PETG-CF is ideal for outdoor applications. Feel free to create durable tools for your garden or any outdoor environment."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-f3c24780-e2",
+          "gradeKey": "G024-01",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Due to the addition of carbon fiber, PETG-CF requires a more wear-resistant hardened steel nozzle. While a 0.4 mm hardened steel nozzle can be used, a 0.6 mm hardened steel nozzle is recommended to further reduce the risk of clogging.",
+            "Exposure / conditions": "Own hardened-nozzle requirement and0.6mm recommendation are separate; no mandatory0.6mm or AMS verdict introduced.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f3c24780db60",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 140"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Due to the addition of carbon fiber, PETG-CF requires a more wear-resistant hardened steel nozzle. While a 0.4 mm hardened steel nozzle can be used, a 0.6 mm hardened steel nozzle is recommended to further reduce the risk of clogging."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-petg-cf",
+        "previousSHA256": "816927d039b606a67d85645419a12d7798c5ceb1b0bb3bc31495595b8924ace2",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "f9c029df1bc8a774.json",
+      "Extension": "html",
+      "ProposalSHA256": "71abffec5db0cb250077282002565a0c4c632a85928c4ee4c32c8e1d2aa75b78",
+      "OriginalSHA256": "f9c029df1bc8a7745108413b36b897ec6df515d40a27439e21ebdaae4574c828",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+        "Publisher": "Bambu Lab",
+        "Title": "ABS official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/abs-filament",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G027-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "f9c029df1bc8a7745108413b36b897ec6df515d40a27439e21ebdaae4574c828"
+      },
+      "OriginalPath": ".cache/sources/by-sha/f9c029df1bc8a7745108413b36b897ec6df515d40a27439e21ebdaae4574c828.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-f9c029df-e1",
+          "gradeKey": "G027-01",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Bambu ABS filament offers exceptional heat resistance (Heat Deflection Temperature: 87 \u00b0C) coupled with commendable mechanical properties. This makes it an outstanding choice for everyday functional parts that require high-temperature resistance.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Listed87\u00b0CHDT is not continuous-service temperature; own TDS load/specimen controls.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 125"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu ABS filament offers exceptional heat resistance (Heat Deflection Temperature: 87 \u00b0C) coupled with commendable mechanical properties. This makes it an outstanding choice for everyday functional parts that require high-temperature resistance."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-f9c029df-e2",
+          "gradeKey": "G027-01",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Warping and shrinkage",
+            "Finding": "ABS is prone to warping when printing a large size and/or high infill density model. To avoid warping: 1) Not recommended to print too large size and/or high infill density model. 2) Use enclosure printers and ensure the build plate is properly glued before printing. 3) Set lower printing speed and higher heatbed temperature. For more details please refer to: Common print quality problems and solutions on WIKI.",
+            "Exposure / conditions": "Own model-size/infill-dependent instructions; no universal chamber band inferred.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 147"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "ABS is prone to warping when printing a large size and/or high infill density model. To avoid warping: 1) Not recommended to print too large size and/or high infill density model. 2) Use enclosure printers and ensure the build plate is properly glued before printing. 3) Set lower printing speed and higher heatbed temperature. For more details please refer to: Common print quality problems and solutions on WIKI."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-abs-filament",
+        "previousSHA256": "feac5616b65acf62dd19a73f1d5cbd266c00bb4b55e9e934eacd1c8f7baa8bbd",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "a8afbb5aeeafc3b8.json",
+      "Extension": "html",
+      "ProposalSHA256": "3d011b7a9f0e0e65a4e9a38261396fdc0c3655ca9519e8b544da9465e88ba40f",
+      "OriginalSHA256": "a8afbb5aeeafc3b8f78024e5db0798d8c0c04848087240b18914218cbb72c9e2",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf",
+        "Publisher": "Bambu Lab",
+        "Title": "ABS-GF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/abs-gf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G028-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "a8afbb5aeeafc3b8f78024e5db0798d8c0c04848087240b18914218cbb72c9e2"
+      },
+      "OriginalPath": ".cache/sources/by-sha/a8afbb5aeeafc3b8f78024e5db0798d8c0c04848087240b18914218cbb72c9e2.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-a8afbb5a-e1",
+          "gradeKey": "G028-01",
+          "row": {
+            "MaterialID": "M028",
+            "GradeID": "G028-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "ABS-GF outclasses regular ABS in strength and stiffness, making it perfect for load-bearing and bending-resistance parts.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 124"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "ABS-GF outclasses regular ABS in strength and stiffness, making it perfect for load-bearing and bending-resistance parts."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-a8afbb5a-e2",
+          "gradeKey": "G028-01",
+          "row": {
+            "MaterialID": "M028",
+            "GradeID": "G028-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Warping and shrinkage",
+            "Finding": "To minimize warping, avoid printing large-sized high infill density models. Use enclosed printers and ensure the build plate is properly applied with glue for better print adhesion before printing. Set lower printing speed and higher heatbed temperature. For more details please refer to: Common print quality problems and solutions on WIKI .",
+            "Exposure / conditions": "Own large/high-infill caution and mitigation; comparative numerical tables not extracted without matching method/specimen.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 162"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "To minimize warping, avoid printing large-sized high infill density models. Use enclosed printers and ensure the build plate is properly applied with glue for better print adhesion before printing. Set lower printing speed and higher heatbed temperature. For more details please refer to: Common print quality problems and solutions on WIKI ."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-abs-gf",
+        "previousSHA256": "f69f1eda39d24c46c0e83ea3b31d2aa564152832cbdc38ea3166876cf2918554",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "4c2eebbe6cf65783.json",
+      "Extension": "html",
+      "ProposalSHA256": "f53bbd75d1bb46b9dd2109df6f70440994aa9092d74db8c8b3bee965d1dae8bb",
+      "OriginalSHA256": "4c2eebbe6cf6578319e1c8ce44a57d9402d8929fcb5e83d77d2f7faf5ece99ec",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+        "Publisher": "Bambu Lab",
+        "Title": "ASA official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/asa-filament",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G031-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "4c2eebbe6cf6578319e1c8ce44a57d9402d8929fcb5e83d77d2f7faf5ece99ec"
+      },
+      "OriginalPath": ".cache/sources/by-sha/4c2eebbe6cf6578319e1c8ce44a57d9402d8929fcb5e83d77d2f7faf5ece99ec.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-4c2eebbe-e1",
+          "gradeKey": "G031-01",
+          "row": {
+            "MaterialID": "M031",
+            "GradeID": "G031-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "ASA is ideal for outdoor applications, such as automotive exterior parts, signage, and outdoor equipment, thanks to its enhanced weather resistance and color stability. ABS is a versatile material with excellent mechanical properties that is commonly used for indoor applications.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Maker comparison to ABS is not a product-specific service/weathering test.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 137"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "ASA is ideal for outdoor applications, such as automotive exterior parts, signage, and outdoor equipment, thanks to its enhanced weather resistance and color stability. ABS is a versatile material with excellent mechanical properties that is commonly used for indoor applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-4c2eebbe-e2",
+          "gradeKey": "G031-01",
+          "row": {
+            "MaterialID": "M031",
+            "GradeID": "G031-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Bambu ASA offers extraordinary UV, oxidation, and aging resistance, providing effective protection against breakage and color degradation when used outdoors for long-term purposes.",
+            "Exposure / conditions": "Maker UV/aging claim only; dose, spectrum, duration, colour, specimen and retained-property criterion not published in this paragraph.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 110"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu ASA offers extraordinary UV, oxidation, and aging resistance, providing effective protection against breakage and color degradation when used outdoors for long-term purposes."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 1,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-asa-filament",
+        "previousSHA256": "1807d7f84317a3e28c07b031667e789cee72e9c46c948ff165c036e598a98995",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "f50ef28e766c4974.json",
+      "Extension": "html",
+      "ProposalSHA256": "5142280ece5b34eae89f401efd19dec47795d8190d89a4059121f40cd4fecc1a",
+      "OriginalSHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+        "Publisher": "Bambu Lab",
+        "Title": "ASA Aero official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/asa-aero",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G032-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a"
+      },
+      "OriginalPath": ".cache/sources/by-sha/f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-f50ef28e-e1",
+          "gradeKey": "G032-01",
+          "row": {
+            "MaterialID": "M032",
+            "GradeID": "G032-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Only 50%-75% the density of regular ASA prints, ASA Aero is as light as feather, designed for weight-sensitive objects, such as RC planes and unmanned aerial vehicles (UAVs). With controllable foaming characteristic, ASA Aero achieves lower density of prints by increasing printing temperature or lowering flow rate.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Foamed print density varies with temperature/flow/speed/geometry; no fixed density added.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 118"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Only 50%-75% the density of regular ASA prints, ASA Aero is as light as feather, designed for weight-sensitive objects, such as RC planes and unmanned aerial vehicles (UAVs). With controllable foaming characteristic, ASA Aero achieves lower density of prints by increasing printing temperature or lowering flow rate."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-f50ef28e-e2",
+          "gradeKey": "G032-01",
+          "row": {
+            "MaterialID": "M032",
+            "GradeID": "G032-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The average density of prints will vary with changes in parameters such as actual printing temperature, flow rate ratio, printing speed, model size, wall thickness and infill density.",
+            "Exposure / conditions": "Foaming/process-dependent density, not equivalent to unfoamed TDS filament density.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 119"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "The average density of prints will vary with changes in parameters such as actual printing temperature, flow rate ratio, printing speed, model size, wall thickness and infill density."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-f50ef28e-e3",
+          "gradeKey": "G032-01",
+          "row": {
+            "MaterialID": "M032",
+            "GradeID": "G032-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Not compatible with Cool Plate SuperTack, Hotend with Hardened Steel Nozzle 0.6 mm / 0.8 mm, and Hotend with Stainless Steel Nozzle 0.2 mm.",
+            "Exposure / conditions": "Maker explicit plate/nozzle exclusions retained; no tested universal machine pass inferred.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 159"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Not compatible with Cool Plate SuperTack, Hotend with Hardened Steel Nozzle 0.6 mm / 0.8 mm, and Hotend with Stainless Steel Nozzle 0.2 mm."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 4,
+        "profiles": 1,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-asa-aero",
+        "previousSHA256": "265753247b413cf063d77109b5e27cc047673bd9340ca6de8ddd7ed0fe532f79",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "94bc784d0793c472.json",
+      "Extension": "html",
+      "ProposalSHA256": "04d8cf9c7fb3c464f101cafa1ef55e2b0d897ccd482e8cf304ea7f96b8cd734f",
+      "OriginalSHA256": "94bc784d0793c472a98ba3e855736cda6a691a0557ad567fad1bbc1721610e67",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+        "Publisher": "Bambu Lab",
+        "Title": "ASA-CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/asa-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G033-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "94bc784d0793c472a98ba3e855736cda6a691a0557ad567fad1bbc1721610e67"
+      },
+      "OriginalPath": ".cache/sources/by-sha/94bc784d0793c472a98ba3e855736cda6a691a0557ad567fad1bbc1721610e67.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-94bc784d-e1",
+          "gradeKey": "G033-01",
+          "row": {
+            "MaterialID": "M033",
+            "GradeID": "G033-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Bambu ASA-CF stands out as one of the top materials for outdoor use, with excellent resistance to harsh weather and UV exposure. Reinforced with carbon fiber, it\u2019s ideal for creating durable garden tools, outdoor furniture, and protective enclosures for electronics.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 118"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu ASA-CF stands out as one of the top materials for outdoor use, with excellent resistance to harsh weather and UV exposure. Reinforced with carbon fiber, it\u2019s ideal for creating durable garden tools, outdoor furniture, and protective enclosures for electronics."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-94bc784d-e2",
+          "gradeKey": "G033-01",
+          "row": {
+            "MaterialID": "M033",
+            "GradeID": "G033-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Supports and removal",
+            "Finding": "High heatbed temperatures and glue stick can cause strong adhesion between the print and the build plate. Please allow the print to cool down to room temperature naturally for easier removal and to avoid damage to the model. For more details, please refer to: Work After Printing Finished on WIKI.",
+            "Exposure / conditions": "Maker cool-to-room-temperature removal advice; no service/environment result.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 153"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "High heatbed temperatures and glue stick can cause strong adhesion between the print and the build plate. Please allow the print to cool down to room temperature naturally for easier removal and to avoid damage to the model. For more details, please refer to: Work After Printing Finished on WIKI."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-94bc784d-e3",
+          "gradeKey": "G033-01",
+          "row": {
+            "MaterialID": "M033",
+            "GradeID": "G033-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Note: ASA-CF 1kg variant is discontinued and will not be restocked once sold out. We will be introducing a new size specification in the future. Stay tuned for further updates.",
+            "Exposure / conditions": "Specific1kg size notice only; not retirement of entire product line or source revision.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 47"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Note: ASA-CF 1kg variant is discontinued and will not be restocked once sold out. We will be introducing a new size specification in the future. Stay tuned for further updates."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 1,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-asa-cf",
+        "previousSHA256": "5fce3dad396754b6743592309955549301512bbff4cd689f19c1f6f9e40d59c6",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "b02fd3e64625f7e3.json",
+      "Extension": "html",
+      "ProposalSHA256": "096fa6c79ffac469a10df7ce34eceef7870acf3561574429cbc98d51c1a76492",
+      "OriginalSHA256": "b02fd3e64625f7e35ab623736014a6177b8f632857443fb9fc4b3966f4551d89",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-b02fd3e64625",
+        "Publisher": "Bambu Lab",
+        "Title": "PC official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/pc-filament",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G035-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "b02fd3e64625f7e35ab623736014a6177b8f632857443fb9fc4b3966f4551d89"
+      },
+      "OriginalPath": ".cache/sources/by-sha/b02fd3e64625f7e35ab623736014a6177b8f632857443fb9fc4b3966f4551d89.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-b02fd3e6-e1",
+          "gradeKey": "G035-01",
+          "row": {
+            "MaterialID": "M035",
+            "GradeID": "G035-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Moisture sensitivity",
+            "Finding": "As this filament is highly moisture-absorbent, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing. For more details, please refer to: Filament drying instructions on WIKI.",
+            "Exposure / conditions": "Filament storage/drying instruction only; not moisture-service performance or hydrolysis test.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-b02fd3e64625",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 121"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "As this filament is highly moisture-absorbent, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing. For more details, please refer to: Filament drying instructions on WIKI."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-PC",
+        "previousSHA256": "e10e15aa9a90f4713a18d8785d376f296eda2b53671bf05a686a4b9d677523c9",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    },
+    {
+      "File": "a85ff09cee52595e.json",
+      "Extension": "html",
+      "ProposalSHA256": "e2444b06e36edc0d781d388fc807faac409ab211e7451b34220120d6315369b2",
+      "OriginalSHA256": "a85ff09cee52595e57f5aeb1e8363984a36b2c6468e62337fcfcaf951fe9730c",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-a85ff09cee52",
+        "Publisher": "Bambu Lab",
+        "Title": "PC FR official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/pc-fr",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G036-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "a85ff09cee52595e57f5aeb1e8363984a36b2c6468e62337fcfcaf951fe9730c"
+      },
+      "OriginalPath": ".cache/sources/by-sha/a85ff09cee52595e57f5aeb1e8363984a36b2c6468e62337fcfcaf951fe9730c.html",
+      "ProposedEvidence": [
+        {
+          "id": "c09-a85ff09c-e1",
+          "gradeKey": "G036-01",
+          "row": {
+            "MaterialID": "M036",
+            "GradeID": "G036-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Bambu PC FR is an engineering-grade material with toughness comparable to PAHT-CF. Its exceptional stiffness and strength make it a top choice for structural components and protective casings.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a85ff09cee52",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 101"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu PC FR is an engineering-grade material with toughness comparable to PAHT-CF. Its exceptional stiffness and strength make it a top choice for structural components and protective casings."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c09-a85ff09c-e2",
+          "gradeKey": "G036-01",
+          "row": {
+            "MaterialID": "M036",
+            "GradeID": "G036-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Tested to meet the UL 94-2023 V-0 standard, the top level of flame resistance for 3D printing filament, Bambu PC FR is engineered to prevent or slow flame propagation with exceptional self-extinguishing properties. Ideal for critical applications in electronics, automotive, and mechanical engineering. * UL 94 is a plastics flammability standard established by Underwriters Laboratories (USA). V-0\u2014the highest UL 94 V rating\u2014indicates that burning stops within 10 seconds on a vertically positioned specimen, with dripping particles allowed as long as they are not ignited.",
+            "Exposure / conditions": "Maker UL94claim; paragraph lacks test report identity, thickness, colour and printed/bulk specimen scope. No design allowable or universal printed-part fire certification inferred. The linked report is a separate research lead.",
+            "Rating 1\u20135": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a85ff09cee52",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 99"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Tested to meet the UL 94-2023 V-0 standard, the top level of flame resistance for 3D printing filament, Bambu PC FR is engineered to prevent or slow flame propagation with exceptional self-extinguishing properties. Ideal for critical applications in electronics, automotive, and mechanical engineering. * UL 94 is a plastics flammability standard established by Underwriters Laboratories (USA). V-0\u2014the highest UL 94 V rating\u2014indicates that burning stops within 10 seconds on a vertically positioned specimen, with dripping particles allowed as long as they are not ignited."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      },
+      "RetrievalRevision": {
+        "by": "Codex AI injector; independent AI delta review required",
+        "previousSourceID": "B-pc-fr",
+        "previousSHA256": "809f9fb9ae24cb5d7a5cf22c2e9fffad3a4849b79e0b5d0e8575adb596a5008f",
+        "accessed": "2026-10-03",
+        "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+      }
+    }
+  ],
+  "ScreeningContract": "Record-only claims; source wording conflicts held explicitly, no numerical/property/gate substitution. Original test conditions remain controlling.",
+  "HistoricalSourceCustodyLimitation": "The18prior same-URL Bambu page registrations have historical digests but originals are absent from the current private cache/known backup inventory. They could not be reused or freshly compared; current originals are separate revisions, never overwrite old rows/digests."
+}

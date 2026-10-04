@@ -383,3 +383,7 @@ GOALS steps2/5; C3/C6/C9/C10/C13/C15, without re-rating. m273 adds nine independ
 Application now has45 Evidence recorded,57 Reviewed with limitations,34 Gap and0 unassessed cells. The empty cells are gone, but61 of136 material campaign assessments still await review of their historical records after this commit;75 are complete. Joined product research remains21/1077 complete,1056 remaining. The9 newly assessed cells do not close any joined product pass.
 
 No source, measurement, profile, product identity/state/headline, environmental verdict, price or estimate changes. The compiled diff has10 paths:9 coverage records and their count. Reapplying m273 writes0 records. Frozen15-question,48 environmental-question and24 template/mode replays move0 answers across18195/58224/30744 evaluations. Final source/drawer/guard checks and verification receipts are pinned in [eleventh-verification.json](eleventh-verification.json) and [eleventh-release-review.json](eleventh-release-review.json). This is independent AI review, not human review. The private backup retains2397 originals/2800 derivatives/124 known absent entries; no new original is admitted.
+
+## Resumed priority products: batches 03–05
+
+[Thirty-product report](priority-03-05-report.md) records verified changes, source limits, answer movements and remaining work. The generated [STATUS](STATUS.md) advances only after the data commit is named in the completion ledger.

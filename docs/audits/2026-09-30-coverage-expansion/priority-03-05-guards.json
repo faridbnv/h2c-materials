@@ -1,0 +1,32 @@
+{
+  "migration": "m321-batch-c09-priority-04",
+  "tests": [
+    {
+      "table": "grades",
+      "id": "G021-01",
+      "field": "Composition / filler",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "grade G021-01 moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "sources",
+      "id": "R-BAMBU-PRIORITY-20261003-6e425b0d7ce7",
+      "field": "Revision",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "applied source moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "evidence",
+      "id": "Q05653",
+      "field": "Finding",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "previously admitted evidence moved",
+      "tables_manifest_ledger_unchanged": true
+    }
+  ]
+}

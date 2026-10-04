@@ -1,0 +1,235 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "APPROVE_DELTA_PENDING_FULL_VERIFY",
+  "before_release": "b847b43260f9",
+  "after_release": "4e5ce68f19f3",
+  "head": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+  "input_files": {
+    "priority-03-05-frozen-replay.json": "5142ddbef72152b04a1017b13258195765881e9cd828e15dc9de13313c962b38",
+    "priority-03-05-template-replay.json": "341741f209a912daf6c19b12dfcd5523b4266c4dbae7e5942285b0ec623a545e",
+    "priority-03-05-environment-replay.json": "515e0c01edd854efe1f9f136daff1ee2d49ff9fb3fb5bcc659f27acba3598783",
+    "priority-03-05-render.json": "216aab4b6e182862e314ff948b5ec93f811fb16eb5c1371d4fe7610d782f9852",
+    "priority-03-05-guards.json": "0d3618fe3bc3c73e8fe78de1b51eae37737d3d21cb07736f813b7d8de39f36f9",
+    "priority-03-05-asa-guards.json": "2fc70b06e9a5f5bf099115ba1c50131f80b23b61ff8a3b467232ff706827e04d",
+    "priority-03-05-record-diff.csv": "02974d2833a6557038eb9d64ba36802c7fd3b15f1cdc4533afb3302fb1721087",
+    "priority-03-outcomes-packet.json": "5f1e341ea81016e9336f11d37d1f8b4d37d00c2a9049fe1b6c0099f85aaa062f",
+    "priority-03-outcomes-review.json": "9037dcf419c6dba06cbfaf62f9d9c7c573f9f2af136459550176dff71dbaa4d4",
+    "priority-04-outcomes-packet.json": "063b40b3104e05512d029ba63e3cd7760506f0053f7129921300ad0e1b987810",
+    "priority-04-outcomes-review.json": "65189d3f001aa4ffa7e8d7e50f7ac968e1c70a06ab69c71f33dddd1a13f40cfc",
+    "priority-05-outcomes-packet.json": "f9af4a1cad6e32164743a4dfd8929d2e8b03885017b550223a925deb540f291e",
+    "priority-05-outcomes-review.json": "b449d4db9185f9da9578677ebbf546b7d27559abb8bd933270132a7adee92950",
+    "priority-04-asa-aero-correction-packet.json": "8014275a44d08ef9ca5053acee2f1698d88fb63b961f98c5ff520999ebfea582",
+    "priority-04-asa-aero-correction-review.json": "1592b2201363faed6d038e7d1b0257399103819d96fd29fe259ce88ff5a17726",
+    "priority-04-05-retirements-packet.json": "d71f48c8955d5a018e0c8510d40b9b4321619c4af845f7f521d6ae6b6a059cdd",
+    "priority-04-05-retirements-review.json": "5a72ff2982600478360338c996b2d8a548f3afb859561b63926380b8799d8786"
+  },
+  "build_diff_sha256": "822648095d8b8ed16095f7fbce460afc8e23aaf0ea4e3af191164265ae9d41b6",
+  "compiled_db_sha256": "14b237bbcfeac52f04a7670574ff25913d1935e16f58d3317cfb063ddaff7fc3",
+  "reviewed_answer_changes": 24,
+  "changed_answer_groups": [
+    {
+      "id": "G035-06",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "evidence_ids": [
+        "Q05608"
+      ],
+      "questions": [
+        "alkali-strict-false",
+        "alkali-strict-true",
+        "alkali-exploration-false",
+        "alkali-exploration-true"
+      ],
+      "count": 4,
+      "source_basis": "PolyMax PC V5.5 p1 own strong-alkali Poor; legend says unstable on contact at ambient temperature.",
+      "limitations": "Generic class only; individual agents/concentrations/exact duration/specimen unstated. PASS refers to recorded category evidence with exposure caveat, not universal chemical resistance or independent service qualification."
+    },
+    {
+      "id": "G035-10",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "evidence_ids": [
+        "Q05611"
+      ],
+      "questions": [
+        "alkali-strict-false",
+        "alkali-strict-true",
+        "alkali-exploration-false",
+        "alkali-exploration-true"
+      ],
+      "count": 4,
+      "source_basis": "PolyLite PC Transparent V5.5 p1 own strong-alkali Poor; same own legend.",
+      "limitations": "Generic class only; individual agents/concentrations/exact duration/specimen unstated. PASS refers to recorded category evidence with exposure caveat, not universal chemical resistance or independent service qualification."
+    },
+    {
+      "id": "G035-10",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "evidence_ids": [
+        "Q05646"
+      ],
+      "questions": [
+        "organic-solvent-strict-false",
+        "organic-solvent-strict-true",
+        "organic-solvent-exploration-false",
+        "organic-solvent-exploration-true"
+      ],
+      "count": 4,
+      "source_basis": "PolyLite PC V5.3 p2 own organic solvent Not resistant; older V5.1 agrees, so no unsupported positive contradiction manufactured.",
+      "limitations": "Generic class only; individual agents/concentrations/exact duration/specimen unstated. PASS refers to recorded category evidence with exposure caveat, not universal chemical resistance or independent service qualification."
+    },
+    {
+      "id": "M035",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "evidence_ids": [],
+      "questions": [
+        "oil-grease-strict-false",
+        "oil-grease-strict-true",
+        "oil-grease-exploration-false",
+        "oil-grease-exploration-true"
+      ],
+      "count": 4,
+      "source_basis": "Existing material-level category evaluation reduces all of M035 own records; added exact PC product Good oil/grease rows allow its category PASS. This is not all22products individually qualified.",
+      "limitations": "Generic class only; individual agents/concentrations/exact duration/specimen unstated. PASS refers to recorded category evidence with exposure caveat, not universal chemical resistance or independent service qualification."
+    },
+    {
+      "id": "G035-06",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "evidence_ids": [
+        "Q05609"
+      ],
+      "questions": [
+        "oil-grease-strict-false",
+        "oil-grease-strict-true",
+        "oil-grease-exploration-false",
+        "oil-grease-exploration-true"
+      ],
+      "count": 4,
+      "source_basis": "PolyMax PC V5.5 p1 own oils/grease Good; legend allows minor attack after long storage at ambient temperature.",
+      "limitations": "Generic class only; individual agents/concentrations/exact duration/specimen unstated. PASS refers to recorded category evidence with exposure caveat, not universal chemical resistance or independent service qualification."
+    },
+    {
+      "id": "G035-10",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "evidence_ids": [
+        "Q05612"
+      ],
+      "questions": [
+        "oil-grease-strict-false",
+        "oil-grease-strict-true",
+        "oil-grease-exploration-false",
+        "oil-grease-exploration-true"
+      ],
+      "count": 4,
+      "source_basis": "PolyLite PC Transparent V5.5 p1 own oils/grease Good; same own legend.",
+      "limitations": "Generic class only; individual agents/concentrations/exact duration/specimen unstated. PASS refers to recorded category evidence with exposure caveat, not universal chemical resistance or independent service qualification."
+    }
+  ],
+  "unchanged_replays": {
+    "frozen": {
+      "questions": 15,
+      "evaluations": 17775,
+      "changes": 0
+    },
+    "templates": {
+      "questions": 24,
+      "evaluations": 28440,
+      "changes": 0
+    }
+  },
+  "original_rereads": [
+    {
+      "sha256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+      "page": 1,
+      "scope": "Own PolyMax PC header/chemical rows/full legend and limitations."
+    },
+    {
+      "sha256": "dfee4768b7e136b457d0d44dc8420e4bc8a7ff29219664de9e104a491cc5954b",
+      "page": 1,
+      "scope": "Own PolyLite PC Transparent header/chemical rows/full legend and limitations."
+    },
+    {
+      "sha256": "89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d",
+      "page": 2,
+      "scope": "Own PolyLite PC V5.3 header and organic solvent table."
+    }
+  ],
+  "compiled_delta": {
+    "paths": 10490,
+    "independent_baseline_comparison_matches_build_diff": true,
+    "edited_measurement_ids": [
+      "V000634",
+      "V000635",
+      "V000636",
+      "V000637",
+      "V000638",
+      "V000639",
+      "V000640",
+      "V000641",
+      "V000642",
+      "V000643",
+      "V000644",
+      "V000645",
+      "V000646",
+      "V000647",
+      "V000648",
+      "V000649",
+      "V000650",
+      "V000651",
+      "V000652",
+      "V002103"
+    ],
+    "added_measurement_ids": [
+      "V011819"
+    ],
+    "new_published_value": "Own PolyMax equilibrium uptake0.253% at70%RH23°C, form/method/duration unstated; moisture context not hydrolysis.",
+    "source_transcription_corrections": {
+      "V000645": "5.1±1.6% XY",
+      "V000646": "2.3±0.9% Z"
+    },
+    "published_headline_changes": "Only G032-01 and its material M032 change6published headline keys after off-recipe exclusion: tensileModulusXY,tensileStrengthXY,tensileStrengthZ,elongationXY,charpyNotched,hdt045. Other products/materials do not acquire changed published headlines.",
+    "automatic_estimate_changes": {
+      "grade_estimate_objects": 787,
+      "material_headline_estimate_objects": 51,
+      "cause": "Existing products/observation pipeline excludes off-recipe evidence, removing ASA Aero observations from calibration/headlines. Automatic recalibration is neither new published measurement nor changed model code.",
+      "model_compiler_engine_schema_code_unchanged": true
+    },
+    "unchanged_sections": [
+      "profiles",
+      "prices",
+      "fxRates",
+      "printGuide",
+      "polymerEnvironment",
+      "polymers",
+      "registry"
+    ],
+    "coverage_changes": "Only two derived moisture/environmental summaries; no manually asserted Application suitability."
+  },
+  "render_review": {
+    "actual_grid_rows": 153,
+    "in_scope_grid_rows": 136,
+    "actual_product_drawers": 30,
+    "all_own_evidence_visible": true,
+    "conditions_verified": "Full Q05608/Q05609/Q05611/Q05612/Q05646 exposure fields occur in actual Environment DOM; ASA Evidence DOM has225vs240–280,unknownfoaming and user-anneal applicability notes; Mechanical DOM has off-recipe labels and corrected5.1±1.6/2.3±0.9; Coverage retains named BambuASA applicability caveat.",
+    "scope": "Material drawers include other products; checking30targetproductlabels/evidence does not imply isolated product-only Environment panel."
+  },
+  "guard_review": {
+    "c09_refusal_cases": 3,
+    "asa_refusal_cases": 2,
+    "all_refuse_without_table_manifest_ledger_write": true,
+    "limitation": "Retained disposable-copy receipts reviewed; these5cases are not exhaustive guards of every operation."
+  },
+  "outcome_review": "Final priority03/04/05 outcome packets are approved for30targets510questions. ASA20classification corrections/two central values are admitted and full-row verified; unknown foam/user-anneal applicability remain. Four duplicates retired with unchanged keeper rows. Historical18Bambu pages remain absent; no old-byte comparison claimed.",
+  "verification_status": "Full verification running at request; not represented as passed. Final release approval requires actual full exit0/native scenarios and final receipt/backup pins.",
+  "limitations": [
+    "AI review only, no human validation or physical service testing.",
+    "No universal chemical/food/UL certification or maker-use suitability pass established.",
+    "Sources and rows not changed during this read-only review; root remains sole injector.",
+    "No campaign target is closed by this pending release review."
+  ],
+  "review_signature_sha256": "ff23504515da8d1527cbc7c2cd76da377fb110359b714588cd30c5cfb3ca3526"
+}

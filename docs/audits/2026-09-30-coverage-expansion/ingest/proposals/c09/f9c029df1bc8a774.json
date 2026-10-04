@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "f9c029df1bc8a7745108413b36b897ec6df515d40a27439e21ebdaae4574c828",
+    "url": "https://ca.store.bambulab.com/products/abs-filament",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/abs-filament#witness-for=source:B-abs-filament-TDS"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+      "Publisher": "Bambu Lab",
+      "Title": "ABS official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/abs-filament",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G027-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "f9c029df1bc8a7745108413b36b897ec6df515d40a27439e21ebdaae4574c828"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ABS"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G027-01",
+      "row": {
+        "GradeID": "G027-01",
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ABS",
+        "Shared formulation key": "B-abs-filament-TDS",
+        "Composition / filler": "ABS",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min \u00b0C": "Not applicable",
+        "Nozzle max \u00b0C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed \u00b0C": "Not published",
+        "Bed state": "unknown",
+        "Bed min \u00b0C": "Not applicable",
+        "Bed max \u00b0C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Printers Required",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying \u00b0C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-abs-filament",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure Printers Required"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c09-f9c029df-e1",
+      "gradeKey": "G027-01",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "G027-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Bambu ABS filament offers exceptional heat resistance (Heat Deflection Temperature: 87 \u00b0C) coupled with commendable mechanical properties. This makes it an outstanding choice for everyday functional parts that require high-temperature resistance.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Listed87\u00b0CHDT is not continuous-service temperature; own TDS load/specimen controls.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 125"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambu ABS filament offers exceptional heat resistance (Heat Deflection Temperature: 87 \u00b0C) coupled with commendable mechanical properties. This makes it an outstanding choice for everyday functional parts that require high-temperature resistance."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c09-f9c029df-e2",
+      "gradeKey": "G027-01",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "G027-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Warping and shrinkage",
+        "Finding": "ABS is prone to warping when printing a large size and/or high infill density model. To avoid warping: 1) Not recommended to print too large size and/or high infill density model. 2) Use enclosure printers and ensure the build plate is properly glued before printing. 3) Set lower printing speed and higher heatbed temperature. For more details please refer to: Common print quality problems and solutions on WIKI.",
+        "Exposure / conditions": "Own model-size/infill-dependent instructions; no universal chamber band inferred.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 147"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ABS is prone to warping when printing a large size and/or high infill density model. To avoid warping: 1) Not recommended to print too large size and/or high infill density model. 2) Use enclosure printers and ensure the build plate is properly glued before printing. 3) Set lower printing speed and higher heatbed temperature. For more details please refer to: Common print quality problems and solutions on WIKI."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$13.29 CAD /roll (Lowest price for 10+ rolls)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MSRP: $18.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 19 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 40% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 40% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$13.29 CAD /roll (Lowest price for 10+ rolls)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MSRP: $18.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 19 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu ABS filament offers exceptional heat resistance (Heat Deflection Temperature: 87 \u00b0C) coupled with commendable mechanical properties. This makes it an outs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Ventilation & Odor Notice",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Refill Guidelines",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.Warping Prevention Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS is prone to warping when printing a large size and/or high infill density model. To avoid warping: 1) Not recommended to print too large size and/or high in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$18.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-abs-filament",
+      "previousSHA256": "feac5616b65acf62dd19a73f1d5cbd266c00bb4b55e9e934eacd1c8f7baa8bbd",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-abs-filament",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-abs-filament",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

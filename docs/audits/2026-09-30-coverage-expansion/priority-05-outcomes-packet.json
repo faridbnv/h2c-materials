@@ -1,0 +1,2426 @@
+{
+  "PacketID": "PRIORITY-05-JOINED-BOUNDED-OUTCOMES",
+  "State": "PROPOSED_FINAL_AFTER_VERIFIED_COMMIT",
+  "Purpose": "GOALS steps 2/5: defensible shortlist and practical exact-product understanding. Completed research is not suitability/PASS.",
+  "Targets": [
+    {
+      "TaskID": "PROD-G041-01",
+      "GradeID": "G041-01",
+      "MaterialID": "M161",
+      "Product": "TPU 95A HF",
+      "Outcome": "context only",
+      "Questions": [
+        {
+          "ID": "application-finishing",
+          "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+          "Outcome": "context only",
+          "Finding": "Own TDS retains generic impact resistance, flexibility and cold-temperature resilience; the new generic impact/flexibility sentence duplicates that record. Maker claims remain bounded know-how, not demonstrated application suitability. Distinct newly recorded limitations/procedures remain available. Material assessment is separate.",
+          "Basis": [
+            {
+              "RecordID": "Q03286",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03288",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 3"
+            },
+            {
+              "RecordID": "Q03287",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q05679",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+              "SHA256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 139"
+            }
+          ]
+        },
+        {
+          "ID": "environment-acid",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00157",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Resistance to Acid"
+            }
+          ]
+        },
+        {
+          "ID": "environment-alkali",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00158",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Resistance to Alkali"
+            }
+          ]
+        },
+        {
+          "ID": "environment-organic-solvent",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00159",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Resistance to Organic Solvent"
+            }
+          ]
+        },
+        {
+          "ID": "environment-oil-grease",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00160",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Resistance to Oil and Grease"
+            }
+          ]
+        },
+        {
+          "ID": "environment-water-solubility",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00156",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Solubility"
+            }
+          ]
+        },
+        {
+          "ID": "environment-flammability",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00161",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Flammability"
+            }
+          ]
+        },
+        {
+          "ID": "environment-food-contact",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+          "Basis": [
+            {
+              "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+              "SHA256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77",
+              "Locator": "p.1: own Safety Tips; source text line 138",
+              "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+            }
+          ]
+        },
+        {
+          "ID": "environment-uv-outdoor",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-moisture",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q05679",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+              "SHA256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 139"
+            },
+            {
+              "RecordID": "V000790",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            }
+          ]
+        },
+        {
+          "ID": "environment-creep",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-fatigue",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-hydrolysis",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "print-treatment-state",
+          "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+          "Outcome": "already recorded",
+          "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  The own TDS explicitly does not recommend annealing finished TPU prints because complex shapes/structures may deform. Datasheet specimen annealing is test preparation and does not override this finished-print warning.",
+          "Basis": [
+            {
+              "RecordID": "P0052",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Recommended printing settings"
+            },
+            {
+              "RecordID": "Q03288",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 3"
+            }
+          ]
+        },
+        {
+          "ID": "properties-conditions",
+          "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+          "Outcome": "already recorded",
+          "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. ",
+          "Basis": [
+            {
+              "RecordID": "V000784",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Density"
+            },
+            {
+              "RecordID": "V000785",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Melting Temperature"
+            },
+            {
+              "RecordID": "V000786",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Glass Transition Temperature"
+            },
+            {
+              "RecordID": "V000787",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Crystallization Temperature"
+            },
+            {
+              "RecordID": "V000788",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Vicar Softening Temperature"
+            },
+            {
+              "RecordID": "V000789",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V000790",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            },
+            {
+              "RecordID": "V000791",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Young's Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V000792",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Young's Modulus (Z)"
+            },
+            {
+              "RecordID": "V000793",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Tensile Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000794",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Tensile Strength (Z)"
+            },
+            {
+              "RecordID": "V000795",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+            },
+            {
+              "RecordID": "V000796",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Breaking Elongation Rate (Z)"
+            },
+            {
+              "RecordID": "V000797",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Bending Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V000798",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Bending Modulus (Z)"
+            },
+            {
+              "RecordID": "V000799",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Bending Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000800",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Bending Strength (Z)"
+            },
+            {
+              "RecordID": "V000801",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Impact Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000802",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Impact Strength (Z)"
+            },
+            {
+              "RecordID": "V002138",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 2: Melt Index"
+            },
+            {
+              "RecordID": "V002237",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "Product name: TPU 95A HF"
+            }
+          ]
+        },
+        {
+          "ID": "integrity-conflicts",
+          "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+          "Outcome": "conflicting",
+          "Finding": "Current maker page erroneously says woodfibres for this exact TPU95AHF/PAHTCF product; quote retained only as copied-source attribution limitation, not composition. Historical site originals remain absent. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Copied sentence needs maker correction; no filler reassignment.",
+          "Basis": [
+            {
+              "RecordID": "Q03288",
+              "SourceID": "B-tpu-95a-hf-TDS",
+              "SHA256": "531bd68e500ca41b635584f19d637a3f48e26e31cbe560e80c8020e200f07fb9",
+              "Locator": "p. 3"
+            },
+            {
+              "RecordID": "Q05679",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+              "SHA256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 139"
+            }
+          ]
+        },
+        {
+          "ID": "sourcing",
+          "Question": "Reuse recent price-pass outcomes; only reopen on concrete new lead, no routine price refresh.",
+          "Outcome": "already recorded",
+          "Finding": "Recent price-pass outcomes and prior sourcing searches reused. No concrete new pricing lead; price refresh remains outside this pass. ",
+          "Basis": []
+        }
+      ],
+      "SearchBasis": {
+        "RegisteredOriginals": "priority-05-source-reads.json",
+        "RevisionChecks": "priority-05-revision-comparison.json",
+        "OfficialPages": [
+          "priority-05-pages-reads.json"
+        ],
+        "PromisingLeads": "No additional promising source beyond official page and same-digestTDS.",
+        "PriorSearches": []
+      },
+      "Limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ],
+      "StoppingRule": "Reuse verified originals and prior exact routes, inspect official product/download/guide routes; at most3focused searches and1credible exact-product outside route.20active-minute cap; optional10minutes only for promising documented lead. Finish every assigned question honestly."
+    },
+    {
+      "TaskID": "PROD-G048-01",
+      "GradeID": "G048-01",
+      "MaterialID": "M048",
+      "Product": "PAHT-CF",
+      "Outcome": "context only",
+      "Questions": [
+        {
+          "ID": "application-finishing",
+          "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+          "Outcome": "context only",
+          "Finding": "Own TDS intended uses include functional prototypes, machining fixtures, injection molds, jigs and low-volume production parts; its high-strength/stiffness engineering-use claim is already recorded. Maker claims remain bounded know-how, not demonstrated application suitability. Distinct newly recorded limitations/procedures remain available. Material assessment is separate.",
+          "Basis": [
+            {
+              "RecordID": "Q03405",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03406",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03408",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2"
+            },
+            {
+              "RecordID": "Q05684",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+              "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 166"
+            },
+            {
+              "RecordID": "Q05685",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+              "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 176"
+            }
+          ]
+        },
+        {
+          "ID": "environment-acid",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00179",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "Resistance to Acid"
+            }
+          ]
+        },
+        {
+          "ID": "environment-alkali",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00180",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "Resistance to Alkali"
+            }
+          ]
+        },
+        {
+          "ID": "environment-organic-solvent",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00181",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "Resistance to Organic Solvent"
+            }
+          ]
+        },
+        {
+          "ID": "environment-oil-grease",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00182",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "Resistance to Oil and Grease"
+            }
+          ]
+        },
+        {
+          "ID": "environment-water-solubility",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00178",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "Solubility"
+            }
+          ]
+        },
+        {
+          "ID": "environment-flammability",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00183",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "Flammability"
+            }
+          ]
+        },
+        {
+          "ID": "environment-food-contact",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+          "Basis": [
+            {
+              "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+              "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+              "Locator": "p.1: own Safety Tips; source text line 175",
+              "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+            }
+          ]
+        },
+        {
+          "ID": "environment-uv-outdoor",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-moisture",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q05684",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+              "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 166"
+            },
+            {
+              "RecordID": "Q05685",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+              "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 176"
+            },
+            {
+              "RecordID": "V000903",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            }
+          ]
+        },
+        {
+          "ID": "environment-creep",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-fatigue",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-hydrolysis",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "print-treatment-state",
+          "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+          "Outcome": "already recorded",
+          "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+          "Basis": [
+            {
+              "RecordID": "P0063",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "Recommended printing settings"
+            },
+            {
+              "RecordID": "Q00532",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 3: Annealing note"
+            },
+            {
+              "RecordID": "Q03408",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2"
+            },
+            {
+              "RecordID": "Q05684",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+              "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 166"
+            }
+          ]
+        },
+        {
+          "ID": "properties-conditions",
+          "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+          "Outcome": "already recorded",
+          "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. ",
+          "Basis": [
+            {
+              "RecordID": "V000896",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Density"
+            },
+            {
+              "RecordID": "V000897",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Melting Temperature"
+            },
+            {
+              "RecordID": "V000898",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Glass Transition Temperature"
+            },
+            {
+              "RecordID": "V000899",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Crystallization Temperature"
+            },
+            {
+              "RecordID": "V000900",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Vicar Softening Temperature"
+            },
+            {
+              "RecordID": "V000901",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V000902",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V000903",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            },
+            {
+              "RecordID": "V000904",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Young's Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V000905",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Young's Modulus (Z)"
+            },
+            {
+              "RecordID": "V000906",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Tensile Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000907",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Tensile Strength (Z)"
+            },
+            {
+              "RecordID": "V000908",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+            },
+            {
+              "RecordID": "V000909",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Breaking Elongation Rate (Z)"
+            },
+            {
+              "RecordID": "V000910",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Bending Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V000911",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Bending Modulus (Z)"
+            },
+            {
+              "RecordID": "V000912",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Bending Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000913",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Bending Strength (Z)"
+            },
+            {
+              "RecordID": "V000914",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Impact Strength (X-Y) — unnotched"
+            },
+            {
+              "RecordID": "V000915",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Impact Strength (X-Y) — notched"
+            },
+            {
+              "RecordID": "V000916",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Impact Strength (Z)"
+            },
+            {
+              "RecordID": "V002141",
+              "SourceID": "B-paht-cf-TDS",
+              "SHA256": "6bacdcd4acd3f7ca650217d1c2352f5dbc3c4f676f9196a564a05f5da8ef5f11",
+              "Locator": "p. 2: Melt Index"
+            }
+          ]
+        },
+        {
+          "ID": "integrity-conflicts",
+          "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+          "Outcome": "conflicting",
+          "Finding": "Current maker page erroneously says woodfibres for this exact TPU95AHF/PAHTCF product; quote retained only as copied-source attribution limitation, not composition. Historical site originals remain absent. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Copied sentence needs maker correction; no filler reassignment.",
+          "Basis": [
+            {
+              "RecordID": "Q05685",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+              "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 176"
+            }
+          ]
+        },
+        {
+          "ID": "sourcing",
+          "Question": "Reuse recent price-pass outcomes; only reopen on concrete new lead, no routine price refresh.",
+          "Outcome": "already recorded",
+          "Finding": "Recent price-pass outcomes and prior sourcing searches reused. No concrete new pricing lead; price refresh remains outside this pass. ",
+          "Basis": []
+        }
+      ],
+      "SearchBasis": {
+        "RegisteredOriginals": "priority-05-source-reads.json",
+        "RevisionChecks": "priority-05-revision-comparison.json",
+        "OfficialPages": [
+          "priority-05-pages-reads.json"
+        ],
+        "PromisingLeads": "No additional promising source beyond official page and same-digestTDS.",
+        "PriorSearches": []
+      },
+      "Limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ],
+      "StoppingRule": "Reuse verified originals and prior exact routes, inspect official product/download/guide routes; at most3focused searches and1credible exact-product outside route.20active-minute cap; optional10minutes only for promising documented lead. Finish every assigned question honestly."
+    },
+    {
+      "TaskID": "PROD-G050-01",
+      "GradeID": "G050-01",
+      "MaterialID": "M050",
+      "Product": "PA6-CF",
+      "Outcome": "context only",
+      "Questions": [
+        {
+          "ID": "application-finishing",
+          "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+          "Outcome": "context only",
+          "Finding": "Own TDS suggests fixtures, clamps, automotive/mechanical components and structural/engineering parts in dry environments; the new generic dry-load-bearing claim duplicates that scope. Maker claims remain bounded know-how, not demonstrated application suitability. Distinct newly recorded limitations/procedures remain available. Material assessment is separate.",
+          "Basis": [
+            {
+              "RecordID": "Q03471",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03472",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03473",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2"
+            },
+            {
+              "RecordID": "Q05677",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+              "SHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 155"
+            }
+          ]
+        },
+        {
+          "ID": "environment-acid",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00186",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "Resistance to Acid"
+            }
+          ]
+        },
+        {
+          "ID": "environment-alkali",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00187",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "Resistance to Alkali"
+            }
+          ]
+        },
+        {
+          "ID": "environment-organic-solvent",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00188",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "Resistance to Organic Solvent"
+            }
+          ]
+        },
+        {
+          "ID": "environment-oil-grease",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00189",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "Resistance to Oil and Grease"
+            }
+          ]
+        },
+        {
+          "ID": "environment-water-solubility",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00185",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "Solubility"
+            }
+          ]
+        },
+        {
+          "ID": "environment-flammability",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00190",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "Flammability"
+            }
+          ]
+        },
+        {
+          "ID": "environment-food-contact",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+          "Basis": [
+            {
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+              "SHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86",
+              "Locator": "p.1: own Safety Tips; source text line 161",
+              "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+            }
+          ]
+        },
+        {
+          "ID": "environment-uv-outdoor",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-moisture",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q05676",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+              "SHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 151"
+            },
+            {
+              "RecordID": "Q05677",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+              "SHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 155"
+            },
+            {
+              "RecordID": "V000929",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            }
+          ]
+        },
+        {
+          "ID": "environment-creep",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-fatigue",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-hydrolysis",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "print-treatment-state",
+          "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+          "Outcome": "already recorded",
+          "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+          "Basis": [
+            {
+              "RecordID": "P0065",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "Recommended printing settings"
+            },
+            {
+              "RecordID": "Q00533",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 3: Annealing note"
+            },
+            {
+              "RecordID": "Q03473",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2"
+            },
+            {
+              "RecordID": "Q05677",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+              "SHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 155"
+            }
+          ]
+        },
+        {
+          "ID": "properties-conditions",
+          "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+          "Outcome": "already recorded",
+          "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. ",
+          "Basis": [
+            {
+              "RecordID": "V000922",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Density"
+            },
+            {
+              "RecordID": "V000923",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Melting Temperature"
+            },
+            {
+              "RecordID": "V000924",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Glass Transition Temperature"
+            },
+            {
+              "RecordID": "V000925",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Crystallization Temperature"
+            },
+            {
+              "RecordID": "V000926",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Vicat Softening Temperature"
+            },
+            {
+              "RecordID": "V000927",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V000928",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V000929",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            },
+            {
+              "RecordID": "V000930",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Young 's Modulus (X -Y)"
+            },
+            {
+              "RecordID": "V000931",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Young's Modulus (Z)"
+            },
+            {
+              "RecordID": "V000932",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Tensile Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000933",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Tensile Strength (Z)"
+            },
+            {
+              "RecordID": "V000934",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+            },
+            {
+              "RecordID": "V000935",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Breaking Elongation Rate (Z)"
+            },
+            {
+              "RecordID": "V000936",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Bending Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V000937",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Bending Modulus (Z)"
+            },
+            {
+              "RecordID": "V000938",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Bending Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000939",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Bending Strength (Z)"
+            },
+            {
+              "RecordID": "V000940",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Impact Strength (X-Y) — unnotched"
+            },
+            {
+              "RecordID": "V000941",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Impact Strength (X-Y) — notched"
+            },
+            {
+              "RecordID": "V000942",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Impact Strength (Z)"
+            },
+            {
+              "RecordID": "V002142",
+              "SourceID": "B-pa6-cf-TDS",
+              "SHA256": "9308b0da339853daae60a37c109c73a8eb75b2d630f841c3e2b72bc32b00313e",
+              "Locator": "p. 2: Melt Index"
+            }
+          ]
+        },
+        {
+          "ID": "integrity-conflicts",
+          "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+          "Outcome": "already recorded",
+          "Finding": "Exact current product header and TDS digest verified. Earlier same-URL site registrations are retained, but their18historical originals are absent; no formulation continuity or recency superiority is assumed. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+          "Basis": []
+        },
+        {
+          "ID": "sourcing",
+          "Question": "Reuse recent price-pass outcomes; only reopen on concrete new lead, no routine price refresh.",
+          "Outcome": "already recorded",
+          "Finding": "Recent price-pass outcomes and prior sourcing searches reused. No concrete new pricing lead; price refresh remains outside this pass. ",
+          "Basis": []
+        }
+      ],
+      "SearchBasis": {
+        "RegisteredOriginals": "priority-05-source-reads.json",
+        "RevisionChecks": "priority-05-revision-comparison.json",
+        "OfficialPages": [
+          "priority-05-pages-reads.json"
+        ],
+        "PromisingLeads": "No additional promising source beyond official page and same-digestTDS.",
+        "PriorSearches": []
+      },
+      "Limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ],
+      "StoppingRule": "Reuse verified originals and prior exact routes, inspect official product/download/guide routes; at most3focused searches and1credible exact-product outside route.20active-minute cap; optional10minutes only for promising documented lead. Finish every assigned question honestly."
+    },
+    {
+      "TaskID": "PROD-G051-01",
+      "GradeID": "G051-01",
+      "MaterialID": "M051",
+      "Product": "PA6-GF",
+      "Outcome": "context only",
+      "Questions": [
+        {
+          "ID": "application-finishing",
+          "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+          "Outcome": "context only",
+          "Finding": "PA6-GF boasts a high heat deflection temperature and superior dimensional stability, enabling it to retain its mechanical properties even under elevated temperatures. This makes it ideal for demanding industrial and automotive applications. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+          "Basis": [
+            {
+              "RecordID": "Q03554",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03555",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03556",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q05672",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 122"
+            },
+            {
+              "RecordID": "Q05673",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 158"
+            },
+            {
+              "RecordID": "Q05674",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 47"
+            }
+          ]
+        },
+        {
+          "ID": "environment-acid",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00448",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "Resistance to Acid"
+            }
+          ]
+        },
+        {
+          "ID": "environment-alkali",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00449",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "Resistance to Alkali"
+            }
+          ]
+        },
+        {
+          "ID": "environment-organic-solvent",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00450",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "Resistance to Organic Solvent"
+            }
+          ]
+        },
+        {
+          "ID": "environment-oil-grease",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00451",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "Resistance to Oil and Grease"
+            }
+          ]
+        },
+        {
+          "ID": "environment-water-solubility",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00447",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "Solubility"
+            }
+          ]
+        },
+        {
+          "ID": "environment-flammability",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00192",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "Flammability"
+            }
+          ]
+        },
+        {
+          "ID": "environment-food-contact",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+          "Basis": [
+            {
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p.1: own Safety Tips; source text line 164",
+              "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+            }
+          ]
+        },
+        {
+          "ID": "environment-uv-outdoor",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-moisture",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "V000950",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Saturated Water"
+            }
+          ]
+        },
+        {
+          "ID": "environment-creep",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-fatigue",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-hydrolysis",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "print-treatment-state",
+          "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+          "Outcome": "conflicting",
+          "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  Own page recommends80–130°C for5–12h (Q05673), while own TDS recommends80–130°C for6–12h (Q00535). Both retain model/geometry and warping caveats; no recency adjudication or intersected/scalar schedule is inferred.",
+          "Basis": [
+            {
+              "RecordID": "P0066",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "Recommended printing settings"
+            },
+            {
+              "RecordID": "Q00535",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 3: Annealing note"
+            },
+            {
+              "RecordID": "Q03556",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q05673",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 158"
+            }
+          ]
+        },
+        {
+          "ID": "properties-conditions",
+          "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+          "Outcome": "already recorded",
+          "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. ",
+          "Basis": [
+            {
+              "RecordID": "V000943",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Density"
+            },
+            {
+              "RecordID": "V000944",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Melting Temperature"
+            },
+            {
+              "RecordID": "V000945",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Glass Transition Temperature"
+            },
+            {
+              "RecordID": "V000946",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Crystallization Temperature"
+            },
+            {
+              "RecordID": "V000947",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Vicat Softening Temperature"
+            },
+            {
+              "RecordID": "V000948",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V000949",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V000950",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Saturated Water"
+            },
+            {
+              "RecordID": "V000951",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Young's Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V000952",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Young's Modulus (Z)"
+            },
+            {
+              "RecordID": "V000953",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Tensile Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000954",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Tensile Strength (Z)"
+            },
+            {
+              "RecordID": "V000955",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+            },
+            {
+              "RecordID": "V000956",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Breaking Elongation Rate (Z)"
+            },
+            {
+              "RecordID": "V000957",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Bending Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V000958",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Bending Modulus (Z)"
+            },
+            {
+              "RecordID": "V000959",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Bending Strength (X-Y)"
+            },
+            {
+              "RecordID": "V000960",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Bending Strength (Z)"
+            },
+            {
+              "RecordID": "V000961",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Impact Strength (X-Y) — unnotched"
+            },
+            {
+              "RecordID": "V000962",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Impact Strength (X-Y) — notched"
+            },
+            {
+              "RecordID": "V000963",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Impact Strength (Z)"
+            },
+            {
+              "RecordID": "V002143",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 2: Melt Index"
+            }
+          ]
+        },
+        {
+          "ID": "integrity-conflicts",
+          "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+          "Outcome": "conflicting",
+          "Finding": "Exact current product header and TDS digest verified. Earlier same-URL site registrations are retained, but their18historical originals are absent; no formulation continuity or recency superiority is assumed. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer.  Own page recommends80–130°C for5–12h (Q05673), while own TDS recommends80–130°C for6–12h (Q00535). Both retain model/geometry and warping caveats; no recency adjudication or intersected/scalar schedule is inferred.",
+          "Basis": [
+            {
+              "RecordID": "Q05674",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 47"
+            },
+            {
+              "RecordID": "Q05673",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 158"
+            },
+            {
+              "RecordID": "Q00535",
+              "SourceID": "B-pa6-gf-TDS",
+              "SHA256": "0e7397acf2007ff23291004bc1d38f1809dd51a512602b2b6205c23cbe14ea26",
+              "Locator": "p. 3: Annealing note"
+            }
+          ]
+        },
+        {
+          "ID": "sourcing",
+          "Question": "Reuse recent price-pass outcomes; only reopen on concrete new lead, no routine price refresh.",
+          "Outcome": "context only",
+          "Finding": "Recent price-pass outcomes and prior sourcing searches reused. Maker notice specifies product/size/colour discontinuation only, no automatic retirement or replacement equivalence. ",
+          "Basis": [
+            {
+              "RecordID": "Q05674",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+              "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 47"
+            }
+          ]
+        }
+      ],
+      "SearchBasis": {
+        "RegisteredOriginals": "priority-05-source-reads.json",
+        "RevisionChecks": "priority-05-revision-comparison.json",
+        "OfficialPages": [
+          "priority-05-pages-reads.json"
+        ],
+        "PromisingLeads": "No additional promising source beyond official page and same-digestTDS.",
+        "PriorSearches": []
+      },
+      "Limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ],
+      "StoppingRule": "Reuse verified originals and prior exact routes, inspect official product/download/guide routes; at most3focused searches and1credible exact-product outside route.20active-minute cap; optional10minutes only for promising documented lead. Finish every assigned question honestly."
+    },
+    {
+      "TaskID": "PROD-G067-01",
+      "GradeID": "G067-01",
+      "MaterialID": "M067",
+      "Product": "PET-CF",
+      "Outcome": "context only",
+      "Questions": [
+        {
+          "ID": "application-finishing",
+          "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+          "Outcome": "context only",
+          "Finding": "Own TDS already records PET-CF load-bearing/high-temperature/humid-environment intended uses alongside its low-warping and surface-finish claims; the whole repeated webpage paragraph adds no distinct condition. Maker claims remain bounded know-how, not demonstrated application suitability. Distinct newly recorded limitations/procedures remain available. Material assessment is separate.",
+          "Basis": [
+            {
+              "RecordID": "Q03838",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03840",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03841",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2"
+            },
+            {
+              "RecordID": "Q03839",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q05687",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+              "SHA256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 116"
+            }
+          ]
+        },
+        {
+          "ID": "environment-acid",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00453",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "Resistance to Acid"
+            }
+          ]
+        },
+        {
+          "ID": "environment-alkali",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00454",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "Resistance to Alkali"
+            }
+          ]
+        },
+        {
+          "ID": "environment-organic-solvent",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00455",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "Resistance to Organic Solvent"
+            }
+          ]
+        },
+        {
+          "ID": "environment-oil-grease",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00456",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "Resistance to Oil and Grease"
+            }
+          ]
+        },
+        {
+          "ID": "environment-water-solubility",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00452",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "Solubility"
+            }
+          ]
+        },
+        {
+          "ID": "environment-flammability",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00225",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "Flammability"
+            }
+          ]
+        },
+        {
+          "ID": "environment-food-contact",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+          "Basis": [
+            {
+              "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+              "SHA256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af",
+              "Locator": "p.1: own Safety Tips; source text line 135",
+              "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+            }
+          ]
+        },
+        {
+          "ID": "environment-uv-outdoor",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-moisture",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q03838",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03839",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03840",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "V001271",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Saturated Water"
+            }
+          ]
+        },
+        {
+          "ID": "environment-creep",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q05687",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+              "SHA256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 116"
+            }
+          ]
+        },
+        {
+          "ID": "environment-fatigue",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-hydrolysis",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "print-treatment-state",
+          "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+          "Outcome": "already recorded",
+          "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+          "Basis": [
+            {
+              "RecordID": "P0086",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "Recommended printing settings"
+            },
+            {
+              "RecordID": "Q00546",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 3: Annealing note"
+            },
+            {
+              "RecordID": "Q03841",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2"
+            }
+          ]
+        },
+        {
+          "ID": "properties-conditions",
+          "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+          "Outcome": "already recorded",
+          "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. ",
+          "Basis": [
+            {
+              "RecordID": "V001264",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Density"
+            },
+            {
+              "RecordID": "V001265",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Melting Temperature"
+            },
+            {
+              "RecordID": "V001266",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Glass Transition Temperature"
+            },
+            {
+              "RecordID": "V001267",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Crystallization Temperature"
+            },
+            {
+              "RecordID": "V001268",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Vicat Softening Temperature"
+            },
+            {
+              "RecordID": "V001269",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V001270",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V001271",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Saturated Water"
+            },
+            {
+              "RecordID": "V001272",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Young's Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V001273",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Young's Modulus (Z)"
+            },
+            {
+              "RecordID": "V001274",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Tensile Strength (X-Y)"
+            },
+            {
+              "RecordID": "V001275",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Tensile Strength (Z)"
+            },
+            {
+              "RecordID": "V001276",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+            },
+            {
+              "RecordID": "V001277",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Breaking Elongation Rate (Z)"
+            },
+            {
+              "RecordID": "V001278",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Bending Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V001279",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Bending Modulus (Z)"
+            },
+            {
+              "RecordID": "V001280",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Bending Strength (X-Y)"
+            },
+            {
+              "RecordID": "V001281",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Bending Strength (Z)"
+            },
+            {
+              "RecordID": "V001282",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Impact Strength (X-Y) — unnotched"
+            },
+            {
+              "RecordID": "V001283",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Impact Strength (X-Y) — notched"
+            },
+            {
+              "RecordID": "V001284",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Impact Strength (Z)"
+            },
+            {
+              "RecordID": "V002144",
+              "SourceID": "B-pet-cf-TDS",
+              "SHA256": "7045c5d57f9bcfab43799a6e3606ff405ae33143b3c44cf8da2520da089c2f02",
+              "Locator": "p. 2: Melt Index"
+            }
+          ]
+        },
+        {
+          "ID": "integrity-conflicts",
+          "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+          "Outcome": "already recorded",
+          "Finding": "Exact current product header and TDS digest verified. Earlier same-URL site registrations are retained, but their18historical originals are absent; no formulation continuity or recency superiority is assumed. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+          "Basis": [
+            {
+              "RecordID": "Q05687",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+              "SHA256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 116"
+            }
+          ]
+        },
+        {
+          "ID": "sourcing",
+          "Question": "Reuse recent price-pass outcomes; only reopen on concrete new lead, no routine price refresh.",
+          "Outcome": "already recorded",
+          "Finding": "Recent price-pass outcomes and prior sourcing searches reused. No concrete new pricing lead; price refresh remains outside this pass. ",
+          "Basis": []
+        }
+      ],
+      "SearchBasis": {
+        "RegisteredOriginals": "priority-05-source-reads.json",
+        "RevisionChecks": "priority-05-revision-comparison.json",
+        "OfficialPages": [
+          "priority-05-pages-reads.json"
+        ],
+        "PromisingLeads": "No additional promising source beyond official page and same-digestTDS.",
+        "PriorSearches": []
+      },
+      "Limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ],
+      "StoppingRule": "Reuse verified originals and prior exact routes, inspect official product/download/guide routes; at most3focused searches and1credible exact-product outside route.20active-minute cap; optional10minutes only for promising documented lead. Finish every assigned question honestly."
+    },
+    {
+      "TaskID": "PROD-G070-01",
+      "GradeID": "G070-01",
+      "MaterialID": "M070",
+      "Product": "PPA-CF",
+      "Outcome": "context only",
+      "Questions": [
+        {
+          "ID": "application-finishing",
+          "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+          "Outcome": "context only",
+          "Finding": "PPA-CF offers strength approaching metal levels, being 48% stronger and 102% stiffer than normal PA6-CF. This filament excels in mechanical properties, making it ideal for high-performance engineering applications. Perfect for repairs, it can effectively replace automotive and industrial parts with exceptional durability and reliability. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+          "Basis": [
+            {
+              "RecordID": "Q03952",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 1"
+            },
+            {
+              "RecordID": "Q03954",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2"
+            },
+            {
+              "RecordID": "Q03956",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 3"
+            },
+            {
+              "RecordID": "Q05680",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+              "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 115"
+            },
+            {
+              "RecordID": "Q05681",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+              "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 122"
+            },
+            {
+              "RecordID": "Q05682",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+              "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 124"
+            }
+          ]
+        },
+        {
+          "ID": "environment-acid",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00227",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "Resistance to Acid"
+            }
+          ]
+        },
+        {
+          "ID": "environment-alkali",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00228",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "Resistance to Alkali"
+            }
+          ]
+        },
+        {
+          "ID": "environment-organic-solvent",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00229",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "Resistance to Organic Solvent"
+            }
+          ]
+        },
+        {
+          "ID": "environment-oil-grease",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00230",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "Resistance to Oil and Grease"
+            }
+          ]
+        },
+        {
+          "ID": "environment-water-solubility",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00226",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "Solubility"
+            }
+          ]
+        },
+        {
+          "ID": "environment-flammability",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+          "Basis": [
+            {
+              "RecordID": "Q00231",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "Flammability"
+            }
+          ]
+        },
+        {
+          "ID": "environment-food-contact",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "The exact current maker page says this filament is not food-grade and finished prints should avoid food storage or contact. This is an explicit maker-use exclusion, not an independently verified migration/food-safety test or printed-part certification. No universal service result is inferred.",
+          "Basis": [
+            {
+              "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+              "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+              "Locator": "p.1: own Safety Tips; source text line 156",
+              "RawSourceStatement": "As this filament is not food-grade, please avoid using finished prints for food storage or contact."
+            }
+          ]
+        },
+        {
+          "ID": "environment-uv-outdoor",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-moisture",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "context only",
+          "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. Maker humid/underwater claims have no service duration/agent/specimen; own dry/wet TDS conditions remain controlling.",
+          "Basis": [
+            {
+              "RecordID": "Q05681",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+              "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 122"
+            },
+            {
+              "RecordID": "V001309",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            }
+          ]
+        },
+        {
+          "ID": "environment-creep",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-fatigue",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "environment-hydrolysis",
+          "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+          "Outcome": "bounded search exhausted",
+          "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+          "Basis": []
+        },
+        {
+          "ID": "print-treatment-state",
+          "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+          "Outcome": "already recorded",
+          "Finding": "Own registered TDS recipes, nozzle/enclosure limits, drying and recommended treatments inspected; separate specimen preparation and source states preserved. Maker page limitations supply additional bounded handling context. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+          "Basis": [
+            {
+              "RecordID": "P0089",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "Recommended printing settings; p. 1: Drying Settings before Printing: Blast Drying Oven"
+            },
+            {
+              "RecordID": "Q00551",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 3: Annealing note"
+            },
+            {
+              "RecordID": "Q03954",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2"
+            },
+            {
+              "RecordID": "Q03956",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 3"
+            }
+          ]
+        },
+        {
+          "ID": "properties-conditions",
+          "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+          "Outcome": "already recorded",
+          "Finding": "Existing X-Y/Z published properties and source-specific load/notch/dry/wet/treatment conditions retained. Page comparison/thermal marketing was not admitted as new numerical measurement. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. 227°C is publishedTDSHDT at0.45MPa, not a continuous-service allowable. Maker prolonged-exposure assertion lacks load/duration/specimen.",
+          "Basis": [
+            {
+              "RecordID": "V001302",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Density"
+            },
+            {
+              "RecordID": "V001303",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Melting Temperature"
+            },
+            {
+              "RecordID": "V001304",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Glass Transition Temperature"
+            },
+            {
+              "RecordID": "V001305",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Crystallization Temperature"
+            },
+            {
+              "RecordID": "V001306",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Vicar Softening Temperature"
+            },
+            {
+              "RecordID": "V001307",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V001308",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Heat Deflection Temperature"
+            },
+            {
+              "RecordID": "V001309",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Saturated Water Absorption Rate"
+            },
+            {
+              "RecordID": "V001310",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Young's Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V001311",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Young's Modulus (Z)"
+            },
+            {
+              "RecordID": "V001312",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Tensile Strength (X-Y)"
+            },
+            {
+              "RecordID": "V001313",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Tensile Strength (Z)"
+            },
+            {
+              "RecordID": "V001314",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Breaking Elongation Rate (X-Y)"
+            },
+            {
+              "RecordID": "V001315",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Breaking Elongation Rate (Z)"
+            },
+            {
+              "RecordID": "V001316",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Bending Modulus (X-Y)"
+            },
+            {
+              "RecordID": "V001317",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Bending Modulus (Z)"
+            },
+            {
+              "RecordID": "V001318",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Bending Strength (X-Y)"
+            },
+            {
+              "RecordID": "V001319",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Bending Strength (Z)"
+            },
+            {
+              "RecordID": "V001320",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Impact Strength (X-Y)"
+            },
+            {
+              "RecordID": "V001321",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Impact Strength (Z)"
+            },
+            {
+              "RecordID": "V002109",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Impact Strength (X-Y) (notched)"
+            },
+            {
+              "RecordID": "V002145",
+              "SourceID": "B-ppa-cf-TDS",
+              "SHA256": "bfc041b0898b8d0a183e0622143d6978cfb95df12ccf51a7515b4a0934e45951",
+              "Locator": "p. 2: Melt Index"
+            }
+          ]
+        },
+        {
+          "ID": "integrity-conflicts",
+          "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+          "Outcome": "already recorded",
+          "Finding": "Exact current product header and TDS digest verified. Earlier same-URL site registrations are retained, but their18historical originals are absent; no formulation continuity or recency superiority is assumed. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+          "Basis": [
+            {
+              "RecordID": "Q05681",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+              "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 122"
+            },
+            {
+              "RecordID": "Q05682",
+              "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+              "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+              "Locator": "p. 1: exact product features/description/application tips, source text line 124"
+            }
+          ]
+        },
+        {
+          "ID": "sourcing",
+          "Question": "Reuse recent price-pass outcomes; only reopen on concrete new lead, no routine price refresh.",
+          "Outcome": "already recorded",
+          "Finding": "Recent price-pass outcomes and prior sourcing searches reused. No concrete new pricing lead; price refresh remains outside this pass. ",
+          "Basis": []
+        }
+      ],
+      "SearchBasis": {
+        "RegisteredOriginals": "priority-05-source-reads.json",
+        "RevisionChecks": "priority-05-revision-comparison.json",
+        "OfficialPages": [
+          "priority-05-pages-reads.json"
+        ],
+        "PromisingLeads": "No additional promising source beyond official page and same-digestTDS.",
+        "PriorSearches": []
+      },
+      "Limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ],
+      "StoppingRule": "Reuse verified originals and prior exact routes, inspect official product/download/guide routes; at most3focused searches and1credible exact-product outside route.20active-minute cap; optional10minutes only for promising documented lead. Finish every assigned question honestly."
+    }
+  ]
+}

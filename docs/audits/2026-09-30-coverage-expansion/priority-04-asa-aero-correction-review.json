@@ -1,0 +1,161 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "8014275a44d08ef9ca5053acee2f1698d88fb63b961f98c5ff520999ebfea582",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 20,
+  "OriginalReadScope": "Hash-verified actual three-page PDF decoded with pdfPages/pageLines; p.2 rendered and visually reread including all20 affected cells. High-resolution crop confirms1180±210MPA Z modulus unchanged. NumericXY5.1±1.6% andZ2.3±0.9% visually confirmed. p.1 recipe and p.3 all-specimen footnote independently reread.",
+  "Operations": [
+    {
+      "OperationID": "V000634-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Melting Temperature",
+      "literal_row": "Melting Temperature | DSC,10 °C/min | 204 °C",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000635-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Glass Transition Temperature",
+      "literal_row": "Glass Transition Temperature | DSC,10 °C/min | N/A",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000636-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Crystallization Temperature",
+      "literal_row": "Crystallization Temperature | DSC,10 °C/min | N/A",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000637-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Vicar Softening Temperature",
+      "literal_row": "Vicar Softening Temperature | ISO306,GB/T1633 | 80 °C",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000638-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Heat Deflection Temperature",
+      "literal_row": "Heat Deflection Temperature | ISO75 1.8MPa | 78 °C",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000639-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Heat Deflection Temperature",
+      "literal_row": "Heat Deflection Temperature | ISO75 0.45MPa | 85 °C",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000640-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Saturated Water Absorption Rate",
+      "literal_row": "Saturated Water Absorption Rate | 25 °C,55%RH | 0.80%",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000641-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Young's Modulus (X-Y)",
+      "literal_row": "Young's Modulus(X-Y) | ISO527,GB/T1040 | 2010 ±260MPa",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000642-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Young's Modulus (Z)",
+      "literal_row": "Young's Modulus(Z) | ISO527,GB/T1040 | 1180 ±210MPA",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000643-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Tensile Strength (X-Y)",
+      "literal_row": "Tensile Strength(X-Y) | ISO527,GB/T1040 | 32 ±4MPa",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000644-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Tensile Strength (Z)",
+      "literal_row": "Tensile Strength(Z) | ISO527,GB/T1040 | 21 ±4MPa",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000645-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Breaking Elongation Rate (X-Y)",
+      "literal_row": "Breaking Elongation Rate(X-Y) | ISO527,GB/T1040 | 5.1% ±1.6%",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000646-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Breaking Elongation Rate (Z)",
+      "literal_row": "Breaking Elongation Rate(Z) | ISO527,GB/T1040 | 2.3% ±0.9%",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000647-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Bending Modulus (X-Y)",
+      "literal_row": "Bending Modulus(X-Y) | ISO178,GB/T9341 | 1510 ±120MPa",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000648-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Bending Modulus (Z)",
+      "literal_row": "Bending Modulus(Z) | ISO178,GB/T9341 | 1220 ±110MPa",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000649-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Bending Strength (X-Y)",
+      "literal_row": "Bending Strength(X-Y) | ISO178,GB/T9341 | 58 ±6MPa",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000650-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Bending Strength (Z)",
+      "literal_row": "Bending Strength(Z) | ISO178,GB/T9341 | 24 ±3MPa",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000651-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Impact Strength (X-Y)",
+      "literal_row": "Impact Strength(X-Y) | ISO179,GB/T1043 | 32.0 ±2.5kJ/m²",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V000652-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Impact Strength (Z)",
+      "literal_row": "Impact Strength(Z) | ISO179,GB/T1043 | 3.4 ±0.5kJ/m²",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    },
+    {
+      "OperationID": "V002103-off-recipe-source-correction",
+      "verdict": "APPROVE",
+      "locator": "p. 2: Impact Strength (X-Y) (notched)",
+      "literal_row": "Impact Strength(X-Y) | ISO179,GB/T1043 | 8.2 ±1.6kJ/m² (notched)",
+      "limitations": "Off-recipe printed225°C, unknown foam state; existing conditions retained. User-anneal source naming ambiguity unresolved."
+    }
+  ],
+  "AdmissionScope": "20 existing Printed specimen rows, including2N/A entries; no new printed-form inference. Density/MFR excluded. Only2 central-value/uncertainty transcriptions corrected; other numeric cells unchanged.",
+  "Guards": "Full Expected measurement rows, exact source/grade/profile snapshots and original SHA256 pinned. Root must apply guarded serialized migration, prove zero rerun/moved-row refusal, replay changed answers and complete native verification.",
+  "ReleaseLimitations": [
+    "Only current Printed specimen rows from this exact TDS receive the off-recipe class; this changes recipe eligibility without assigning any new specimen form. Literal all-specimens footnote is the scope basis.",
+    "Density V000633 and melt-flow V002133 keep their distinct unstated specimen forms and are excluded from this correction. No blanket change to unknown-form records.",
+    "Two N/A thermal entries V000635/V000636 remain N/A; no numerical values invented.",
+    "All existing directions, standards, loads, moisture/post-processing states and anneal fields are unchanged; no new foaming/annealing product-state model.",
+    "User-anneal text names Bambu ASA, not ASA Aero; source ambiguity remains a vendor handoff.",
+    "The current page gives variable foamed density; neither current PDF nor correction establishes a foamed/unfoamed state for225°C specimens."
+  ],
+  "review_signature_sha256": "4f0a1598ffeebc8a7054745c0c00080a6f9886f1ac9d0a1706b4d9cc228668af"
+}

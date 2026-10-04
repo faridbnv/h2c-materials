@@ -1,0 +1,737 @@
+{
+  "PacketID": "PRIORITY-05-C10-EXACT-OFFICIAL-MAKER-CONTEXT",
+  "Batch": "c10",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "ExpectedGrades": [
+    {
+      "GradeID": "G041-01",
+      "MaterialID": "M161",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "TPU 95A HF",
+      "Shared formulation key": "B-tpu-95a-hf-TDS",
+      "Composition / filler": "Thermoplastic polyurethane",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-tpu-95a-hf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G048-01",
+      "MaterialID": "M048",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PAHT-CF",
+      "Shared formulation key": "B-paht-cf-TDS",
+      "Composition / filler": "PA 12 and other long-chain PA, carbon fiber",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-paht-cf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G050-01",
+      "MaterialID": "M050",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PA6-CF",
+      "Shared formulation key": "B-pa6-cf-TDS",
+      "Composition / filler": "Nylon 6, carbon fiber",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-pa6-cf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G051-01",
+      "MaterialID": "M051",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PA6-GF",
+      "Shared formulation key": "B-pa6-gf-TDS",
+      "Composition / filler": "Nylon 6, glass fiber",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-pa6-gf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G067-01",
+      "MaterialID": "M067",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PET-CF",
+      "Shared formulation key": "B-pet-cf-TDS",
+      "Composition / filler": "Polyethylene terephthalate, carbon fiber",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-pet-cf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G070-01",
+      "MaterialID": "M070",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Bambu Lab",
+      "Product name": "PPA-CF",
+      "Shared formulation key": "B-ppa-cf-TDS",
+      "Composition / filler": "Semi-aromatic Nylon, carbon fiber",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammable — verify grade, thickness and certificate; not assembly certification",
+      "Selected-grade rationale": "Exact Bambu product TDS",
+      "SourceID": "B-ppa-cf-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [],
+  "ExistingProfileEdits": [],
+  "Documents": [
+    {
+      "File": "1a684f125817dcc8.json",
+      "Extension": "html",
+      "ProposalSHA256": "3b80366df3669e75a6dc51ca00475958bb826c3e67865590ddfb0a525d0780d3",
+      "OriginalSHA256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+        "Publisher": "Bambu Lab",
+        "Title": "TPU 95A HF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/tpu-95a-hf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G041-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77"
+      },
+      "OriginalPath": ".cache/sources/by-sha/1a684f125817dcc8cbbed08822be91ac0a496c4405c706a6ec2a03f0c248ac77.html",
+      "ProposedEvidence": [
+        {
+          "id": "c10-1a684f12-e1",
+          "gradeKey": "G041-01",
+          "row": {
+            "MaterialID": "M161",
+            "GradeID": "G041-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Bambu TPU HF is an exceptionally soft and flexible filament with extraordinary impact resistance, enabling you to print parts that need withstand impact, collision, and falling.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 119"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu TPU HF is an exceptionally soft and flexible filament with extraordinary impact resistance, enabling you to print parts that need withstand impact, collision, and falling."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-1a684f12-e2",
+          "gradeKey": "G041-01",
+          "row": {
+            "MaterialID": "M161",
+            "GradeID": "G041-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing.",
+            "Exposure / conditions": "Copied wood-fibre sentence on TPU95AHF page; not evidence of wood filler/composition. Own humidity guidance remains separate; maker clarification needed.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-1a684f125817",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 139"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "a100c1bb3a924846.json",
+      "Extension": "html",
+      "ProposalSHA256": "deee709b42b8865b79287da16b3fd2844f79b9d311b96fbf6012b915a7eea3f5",
+      "OriginalSHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+        "Publisher": "Bambu Lab",
+        "Title": "PAHT-CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/paht-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G048-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb"
+      },
+      "OriginalPath": ".cache/sources/by-sha/a100c1bb3a924846566b74b1426762db92d8912c325cde716505669d8700eedb.html",
+      "ProposedEvidence": [
+        {
+          "id": "c10-a100c1bb-e1",
+          "gradeKey": "G048-01",
+          "row": {
+            "MaterialID": "M048",
+            "GradeID": "G048-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Bambu PAHT-CF is designed to meet the demands of various industrial and engineering applications where high strength and durability are required.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 152"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu PAHT-CF is designed to meet the demands of various industrial and engineering applications where high strength and durability are required."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-a100c1bb-e2",
+          "gradeKey": "G048-01",
+          "row": {
+            "MaterialID": "M048",
+            "GradeID": "G048-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Supports and removal",
+            "Finding": "When printing a model with support, we recommend removing the support structures within 2 hours after printing to prevent them from sticking after absorbing moisture. If sticking occurs, dry the model to ease the removal.",
+            "Exposure / conditions": "Own2hour removal recommendation avoids moisture sticking; no universal post-processing or hydrolysis property.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 166"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "When printing a model with support, we recommend removing the support structures within 2 hours after printing to prevent them from sticking after absorbing moisture. If sticking occurs, dry the model to ease the removal."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-a100c1bb-e3",
+          "gradeKey": "G048-01",
+          "row": {
+            "MaterialID": "M048",
+            "GradeID": "G048-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing.",
+            "Exposure / conditions": "Copied wood-fibre sentence on PAHT-CF page; not evidence of wood filler/composition. Own humidity guidance remains separate; maker clarification needed.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 176"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "As this filament contains highly hygroscopic wood fibers, please place any unused filament in a sealed container with desiccant immediately, and dry thoroughly before printing."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 2,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "0edbf0fe469b4318.json",
+      "Extension": "html",
+      "ProposalSHA256": "ac1f9be0abafc61c09823442d017146b9877492e1dfdd01d2a82402af6a57ae8",
+      "OriginalSHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+        "Publisher": "Bambu Lab",
+        "Title": "PA6-CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/pa6-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G050-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86"
+      },
+      "OriginalPath": ".cache/sources/by-sha/0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86.html",
+      "ProposedEvidence": [
+        {
+          "id": "c10-0edbf0fe-e1",
+          "gradeKey": "G050-01",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "As a new member of Bambu high performance filaments, PA6-CF keeps superior stiffness and strength properties in dry environments, it is perfect for printing load-bearing structural components.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Dry environment scope retained.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 117"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "As a new member of Bambu high performance filaments, PA6-CF keeps superior stiffness and strength properties in dry environments, it is perfect for printing load-bearing structural components."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-0edbf0fe-e2",
+          "gradeKey": "G050-01",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Moisture sensitivity",
+            "Finding": "Bambu PA6-CF will experience a decrease in strength and stiffness after absorbing water, making it not recommended for printing models with high requirements for strength, stiffness, and dimensional stability, especially thin and elongated models. The prints of PA6-CF usually become tougher and more resistant to impacts, drops, and collisions when they get damp; you can dampen and soften the prints in advance if the model requires high toughness.",
+            "Exposure / conditions": "Maker explicitly describes moisture tradeoff; quantitative dry/wet TDS specimens remain controlling, not a universal condition or service test.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 151"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu PA6-CF will experience a decrease in strength and stiffness after absorbing water, making it not recommended for printing models with high requirements for strength, stiffness, and dimensional stability, especially thin and elongated models. The prints of PA6-CF usually become tougher and more resistant to impacts, drops, and collisions when they get damp; you can dampen and soften the prints in advance if the model requires high toughness."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-0edbf0fe-e3",
+          "gradeKey": "G050-01",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Fully impregnating the surface of the prints with paint, wax and other waterproof coatings can inhibit water absorption and prevent them from becoming soft.",
+            "Exposure / conditions": "Maker coating suggestion only; no quantified permeability, certification or durability result.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 155"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Fully impregnating the surface of the prints with paint, wax and other waterproof coatings can inhibit water absorption and prevent them from becoming soft."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "0419c91c324199cc.json",
+      "Extension": "html",
+      "ProposalSHA256": "2f00cdf96f975a0c6ca297e3cf0dac98280c8872574a9e5f857d655342ec30dc",
+      "OriginalSHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+        "Publisher": "Bambu Lab",
+        "Title": "PA6-GF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/pa6-gf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G051-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75"
+      },
+      "OriginalPath": ".cache/sources/by-sha/0419c91c324199cce28135489198d77e0dc9b839a50128c809c6dcb3bbda7c75.html",
+      "ProposedEvidence": [
+        {
+          "id": "c10-0419c91c-e1",
+          "gradeKey": "G051-01",
+          "row": {
+            "MaterialID": "M051",
+            "GradeID": "G051-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "PA6-GF boasts a high heat deflection temperature and superior dimensional stability, enabling it to retain its mechanical properties even under elevated temperatures. This makes it ideal for demanding industrial and automotive applications.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 122"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PA6-GF boasts a high heat deflection temperature and superior dimensional stability, enabling it to retain its mechanical properties even under elevated temperatures. This makes it ideal for demanding industrial and automotive applications."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-0419c91c-e2",
+          "gradeKey": "G051-01",
+          "row": {
+            "MaterialID": "M051",
+            "GradeID": "G051-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Placing the printed part in a convection oven set between 80 to 130 degrees Celsius for 5 to 12 hours can further enhance the strength and rigidity of the print. Note: The effectiveness of this process depends on the structure, size, and conditions of the printed model. Some models may warp or deform after annealing. For more details, please refer to: Work after Printing Finished on WIKI.",
+            "Exposure / conditions": "Maker80–130°C5–12h schedule with geometry/warping warning retained as guidance; no scalar schedule or new measurement state invented.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 158"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Placing the printed part in a convection oven set between 80 to 130 degrees Celsius for 5 to 12 hours can further enhance the strength and rigidity of the print. Note: The effectiveness of this process depends on the structure, size, and conditions of the printed model. Some models may warp or deform after annealing. For more details, please refer to: Work after Printing Finished on WIKI."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-0419c91c-e3",
+          "gradeKey": "G051-01",
+          "row": {
+            "MaterialID": "M051",
+            "GradeID": "G051-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Note: PA6-GF Yellow, Lime and Brown have been discontinued and will not be restocked.",
+            "Exposure / conditions": "Only named colour availability notice; no product retirement or properties transfer.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-0419c91c3241",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 47"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Note: PA6-GF Yellow, Lime and Brown have been discontinued and will not be restocked."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "b7ddfea7fab9bee5.json",
+      "Extension": "html",
+      "ProposalSHA256": "c4777ff0eba1920ebc2c41933eefe6d82fe8b9ef5cc2eeed4280dc93e580c764",
+      "OriginalSHA256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+        "Publisher": "Bambu Lab",
+        "Title": "PET-CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/pet-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G067-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af"
+      },
+      "OriginalPath": ".cache/sources/by-sha/b7ddfea7fab9bee520ec2e7c7e3523b4738fd4385f68bb7768b9940aaeda29af.html",
+      "ProposedEvidence": [
+        {
+          "id": "c10-b7ddfea7-e1",
+          "gradeKey": "G067-01",
+          "row": {
+            "MaterialID": "M067",
+            "GradeID": "G067-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Bambu PET-CF is a blend of tough PET and carbon fiber. Carbon fiber improves hardness and mechanical strength, while still help maintain the low warping and shrinkage of ordinary PET. Bambu PET-CF has excellent high temperature resistance and a soft glow appearance. Its excellent strength, heat resistance, dimensional stability and low moisture absorption make Bambu PET-CF an ideal choice for load-bearing structures or prints used in high temperature and humid environments.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 112"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu PET-CF is a blend of tough PET and carbon fiber. Carbon fiber improves hardness and mechanical strength, while still help maintain the low warping and shrinkage of ordinary PET. Bambu PET-CF has excellent high temperature resistance and a soft glow appearance. Its excellent strength, heat resistance, dimensional stability and low moisture absorption make Bambu PET-CF an ideal choice for load-bearing structures or prints used in high temperature and humid environments."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-b7ddfea7-e2",
+          "gradeKey": "G067-01",
+          "row": {
+            "MaterialID": "M067",
+            "GradeID": "G067-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Due to the creep and warping resistance of PET-CF, prints can achieve excellent matching accuracy. *Specimens size (L*W*H): 240*8*15 mm³, Infill density: 60%",
+            "Exposure / conditions": "Maker creep/matching-accuracy claim only,240×8×15mm60%infill specimen named. No load, duration, temperature or creep design limit inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 116"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Due to the creep and warping resistance of PET-CF, prints can achieve excellent matching accuracy. *Specimens size (L*W*H): 240*8*15 mm³, Infill density: 60%"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "277d60e34028d087.json",
+      "Extension": "html",
+      "ProposalSHA256": "f962db30121a4a63f25256b8cf379ad5b049766a0060208f6ab06c94bcf7dfd4",
+      "OriginalSHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a",
+      "Source": {
+        "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+        "Publisher": "Bambu Lab",
+        "Title": "PPA-CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://ca.store.bambulab.com/products/ppa-cf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G070-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a"
+      },
+      "OriginalPath": ".cache/sources/by-sha/277d60e34028d087dd260c4161c0643a88186933a6b8734ab64918321396ab6a.html",
+      "ProposedEvidence": [
+        {
+          "id": "c10-277d60e3-e1",
+          "gradeKey": "G070-01",
+          "row": {
+            "MaterialID": "M070",
+            "GradeID": "G070-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "PPA-CF offers strength approaching metal levels, being 48% stronger and 102% stiffer than normal PA6-CF. This filament excels in mechanical properties, making it ideal for high-performance engineering applications. Perfect for repairs, it can effectively replace automotive and industrial parts with exceptional durability and reliability.",
+            "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Marketing comparison not equivalent to metal or unqualified replacement/design permission.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 115"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PPA-CF offers strength approaching metal levels, being 48% stronger and 102% stiffer than normal PA6-CF. This filament excels in mechanical properties, making it ideal for high-performance engineering applications. Perfect for repairs, it can effectively replace automotive and industrial parts with exceptional durability and reliability."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-277d60e3-e2",
+          "gradeKey": "G070-01",
+          "row": {
+            "MaterialID": "M070",
+            "GradeID": "G070-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Bambu PPA-CF supports long-term, stable use in humid environments, even underwater. With a moisture absorption rate 66% lower than normal PA6-CF, it maintains its stiffness and thermal properties over time. Whether printing propellers, customizing surfboards, or any other water-resistant application, PPA-CF delivers reliable performance.",
+            "Exposure / conditions": "Maker humid/underwater claim; no immersion duration, water agent, specimen or retained-service criterion. Published dry/wet test conditions remain controlling.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 122"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu PPA-CF supports long-term, stable use in humid environments, even underwater. With a moisture absorption rate 66% lower than normal PA6-CF, it maintains its stiffness and thermal properties over time. Whether printing propellers, customizing surfboards, or any other water-resistant application, PPA-CF delivers reliable performance."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c10-277d60e3-e3",
+          "gradeKey": "G070-01",
+          "row": {
+            "MaterialID": "M070",
+            "GradeID": "G070-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Bambu PPA-CF boasts unmatched heat resistance, capable of withstanding prolonged exposure to temperatures up to 227°C without compromising its structural integrity or performance. This filament remains reliable and robust in extreme environments, making it perfect for industrial, mechanical, or automotive parts that must tolerate ultra-high temperatures.",
+            "Exposure / conditions": "Maker227°Cprolonged-exposure claim lacks duration/load/specimen. TDSHDT at its stated load is not a continuous-service allowable; no new thermal measurement admitted.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-BAMBU-PRIORITY-20261003-277d60e34028",
+            "Locator": "p. 1: exact product features/description/application tips, source text line 124"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Bambu PPA-CF boasts unmatched heat resistance, capable of withstanding prolonged exposure to temperatures up to 227°C without compromising its structural integrity or performance. This filament remains reliable and robust in extreme environments, making it perfect for industrial, mechanical, or automotive parts that must tolerate ultra-high temperatures."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 2,
+        "profiles": 1,
+        "evidence": 0
+      }
+    }
+  ],
+  "ScreeningContract": "Record-only claims; source wording conflicts held explicitly, no numerical/property/gate substitution. Original test conditions remain controlling."
+}

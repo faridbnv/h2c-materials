@@ -1,0 +1,167 @@
+table,record,action,field,before,after
+evidence,Q05607,Added,,,
+evidence,Q05608,Added,,,
+evidence,Q05609,Added,,,
+evidence,Q05610,Added,,,
+evidence,Q05611,Added,,,
+evidence,Q05612,Added,,,
+evidence,Q05613,Added,,,
+evidence,Q05614,Added,,,
+evidence,Q05615,Added,,,
+evidence,Q05616,Added,,,
+evidence,Q05617,Added,,,
+evidence,Q05618,Added,,,
+evidence,Q05619,Added,,,
+evidence,Q05620,Added,,,
+evidence,Q05621,Added,,,
+evidence,Q05622,Added,,,
+evidence,Q05623,Added,,,
+evidence,Q05624,Added,,,
+evidence,Q05625,Added,,,
+evidence,Q05626,Added,,,
+evidence,Q05627,Added,,,
+evidence,Q05628,Added,,,
+evidence,Q05629,Added,,,
+evidence,Q05630,Added,,,
+evidence,Q05631,Added,,,
+evidence,Q05632,Added,,,
+evidence,Q05633,Added,,,
+evidence,Q05634,Added,,,
+evidence,Q05635,Added,,,
+evidence,Q05636,Added,,,
+evidence,Q05637,Added,,,
+evidence,Q05638,Added,,,
+evidence,Q05639,Added,,,
+evidence,Q05640,Added,,,
+evidence,Q05641,Added,,,
+evidence,Q05642,Added,,,
+evidence,Q05643,Added,,,
+evidence,Q05644,Added,,,
+evidence,Q05645,Added,,,
+evidence,Q05646,Added,,,
+evidence,Q05647,Added,,,
+evidence,Q05648,Added,,,
+evidence,Q05649,Added,,,
+evidence,Q05650,Added,,,
+evidence,Q05651,Added,,,
+evidence,Q05652,Added,,,
+evidence,Q05653,Added,,,
+evidence,Q05654,Added,,,
+evidence,Q05655,Added,,,
+evidence,Q05656,Added,,,
+evidence,Q05657,Added,,,
+evidence,Q05658,Added,,,
+evidence,Q05659,Added,,,
+evidence,Q05660,Added,,,
+evidence,Q05661,Added,,,
+evidence,Q05662,Added,,,
+evidence,Q05663,Added,,,
+evidence,Q05664,Added,,,
+evidence,Q05665,Added,,,
+evidence,Q05666,Added,,,
+evidence,Q05667,Added,,,
+evidence,Q05668,Added,,,
+evidence,Q05669,Added,,,
+evidence,Q05670,Added,,,
+evidence,Q05671,Added,,,
+evidence,Q05672,Added,,,
+evidence,Q05673,Added,,,
+evidence,Q05674,Added,,,
+evidence,Q05675,Added,,,
+evidence,Q05676,Added,,,
+evidence,Q05677,Added,,,
+evidence,Q05678,Added,,,
+evidence,Q05679,Added,,,
+evidence,Q05680,Added,,,
+evidence,Q05681,Added,,,
+evidence,Q05682,Added,,,
+evidence,Q05683,Added,,,
+evidence,Q05684,Added,,,
+evidence,Q05685,Added,,,
+evidence,Q05686,Added,,,
+evidence,Q05687,Added,,,
+evidence,Q05688,Added,,,
+measurements,V000634,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000634,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000635,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000635,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000636,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000636,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000637,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000637,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000638,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000638,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000639,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000639,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000640,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000640,Edited,Notes,"Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Test temperature 25°C (p. 2: Saturated Water Absorption Rate 25 °C, 55% RH); the value is unchanged.","Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Test temperature 25°C (p. 2: Saturated Water Absorption Rate 25 °C, 55% RH); the value is unchanged. Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000641,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000641,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000642,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000642,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000643,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000643,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000644,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000644,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000645,Edited,Raw value,1.6 %,5.1% ± 1.6%
+measurements,V000645,Edited,Raw numeric,1.6,5.1
+measurements,V000645,Edited,Raw uncertainty ±,Not applicable,1.6
+measurements,V000645,Edited,Normalized value,1.6,5.1
+measurements,V000645,Edited,Normalized uncertainty ±,Not applicable,1.6
+measurements,V000645,Edited,Data status,Published value,Published value (transcription corrected)
+measurements,V000645,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000645,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved. Transcription corrected: previous central value incorrectly copied the source uncertainty; original p.2 prints 5.1% ± 1.6%."
+measurements,V000646,Edited,Raw value,0.9 %,2.3% ± 0.9%
+measurements,V000646,Edited,Raw numeric,0.9,2.3
+measurements,V000646,Edited,Raw uncertainty ±,Not applicable,0.9
+measurements,V000646,Edited,Normalized value,0.9,2.3
+measurements,V000646,Edited,Normalized uncertainty ±,Not applicable,0.9
+measurements,V000646,Edited,Data status,Published value,Published value (transcription corrected)
+measurements,V000646,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000646,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved. Transcription corrected: previous central value incorrectly copied the source uncertainty; original p.2 prints 2.3% ± 0.9%."
+measurements,V000647,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000647,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000648,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000648,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000649,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000649,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000650,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000650,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000651,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000651,Edited,Notes,Corrected 2026-09-14 (m15) against the source: the sheet pairs this value with 8.2 ± 1.6 kJ/m² marked (notched).,"Corrected 2026-09-14 (m15) against the source: the sheet pairs this value with 8.2 ± 1.6 kJ/m² marked (notched). Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V000652,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V000652,Edited,Notes,Not applicable,"Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V002103,Edited,Specimen type,Printed specimen,Printed off the product's recipe
+measurements,V002103,Edited,Notes,"Added 2026-09-14 (m15): published in the source, never transcribed (npm run audit:sources).","Added 2026-09-14 (m15): published in the source, never transcribed (npm run audit:sources). Source-condition correction: own TDS p.3 says all specimens were printed at225°C,100mm/s,85°C bed and100%infill, outside p.1 recommended nozzle240–280°C. Existing printed form is retained; foamed/unfoamed state is not specified. This off-recipe specimen does not establish intended-use recipe performance. Source specimen annealing80°C/12h remains test preparation; separate user anneal prose names Bambu ASA, so ASA Aero applicability remains unresolved."
+measurements,V011819,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-02efe50f9eac,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-46df2b78af77,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-540bc284ede5,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-56f939384206,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-67deefea2e32,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-749f634c9bfa,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-aa05f44c1437,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-c606d37e008e,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-edf1439487e0,Added,,,
+sources,R-POLYMAKER-PRIORITY-20261003-effcc17a7754,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-50cc66066285,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-693bcb42a47c,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-6e425b0d7ce7,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-72581be8410a,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-94bc784d0793,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-a85ff09cee52,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-b02fd3e64625,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-f3c24780db60,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-f50ef28e766c,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-f9c029df1bc8,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-0419c91c3241,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-1a684f125817,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-277d60e34028,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-a100c1bb3a92,Added,,,
+sources,R-BAMBU-PRIORITY-20261003-b7ddfea7fab9,Added,,,
+sources,R-CTI-PCFR-20241028-6b0741900015,Added,,,

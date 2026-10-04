@@ -1,0 +1,110 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "cfc9af6c9e7862a90addac2e2daa155cab80a788c2da42b3f7ad70495fa9d1c9",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 9,
+  "reviewed_originals": 3,
+  "original_scope": "Three actual PDF originals SHA-verified and freshly read via pdfPages/pageLines; each has one page. Product header, revisionV5.5, own test-footer product/SKU, each proposed chemical cell and complete Good/Fair/Poor legend checked.",
+  "per_operation": [
+    {
+      "OperationID": "P03-CHEM-1",
+      "verdict": "APPROVE",
+      "GradeID": "G035-06",
+      "original_sha256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis and its own generic-rating legend",
+      "original_row": "Effect of weak alkalis Fair",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No existing same-grade/topic active record."
+    },
+    {
+      "OperationID": "P03-CHEM-2",
+      "verdict": "APPROVE",
+      "GradeID": "G035-06",
+      "original_sha256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis and its own generic-rating legend",
+      "original_row": "Effect of strong alkalis Poor",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No existing same-grade/topic active record."
+    },
+    {
+      "OperationID": "P03-CHEM-3",
+      "verdict": "APPROVE",
+      "GradeID": "G035-06",
+      "original_sha256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease and its own generic-rating legend",
+      "original_row": "Effect of oils and grease Good",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No existing same-grade/topic active record."
+    },
+    {
+      "OperationID": "P03-CHEM-4",
+      "verdict": "APPROVE",
+      "GradeID": "G035-10",
+      "original_sha256": "dfee4768b7e136b457d0d44dc8420e4bc8a7ff29219664de9e104a491cc5954b",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis and its own generic-rating legend",
+      "original_row": "Effect of weak alkalis Fair",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No existing same-grade/topic active record."
+    },
+    {
+      "OperationID": "P03-CHEM-5",
+      "verdict": "APPROVE",
+      "GradeID": "G035-10",
+      "original_sha256": "dfee4768b7e136b457d0d44dc8420e4bc8a7ff29219664de9e104a491cc5954b",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis and its own generic-rating legend",
+      "original_row": "Effect of strong alkalis Poor",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No existing same-grade/topic active record."
+    },
+    {
+      "OperationID": "P03-CHEM-6",
+      "verdict": "APPROVE",
+      "GradeID": "G035-10",
+      "original_sha256": "dfee4768b7e136b457d0d44dc8420e4bc8a7ff29219664de9e104a491cc5954b",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease and its own generic-rating legend",
+      "original_row": "Effect of oils and grease Good",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No existing same-grade/topic active record."
+    },
+    {
+      "OperationID": "P03-CHEM-7",
+      "verdict": "APPROVE",
+      "GradeID": "G057-03",
+      "original_sha256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis and its own generic-rating legend",
+      "original_row": "Effect of weak alkalis Fair",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No same-source grade/topic active duplicate. Earlier CoPA recordsQ00202/Q00203/Q00205 retained independently; source wording differs without a supported correction or recency arbitration."
+    },
+    {
+      "OperationID": "P03-CHEM-8",
+      "verdict": "APPROVE",
+      "GradeID": "G057-03",
+      "original_sha256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis and its own generic-rating legend",
+      "original_row": "Effect of strong alkalis Poor",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No same-source grade/topic active duplicate. Earlier CoPA recordsQ00202/Q00203/Q00205 retained independently; source wording differs without a supported correction or recency arbitration."
+    },
+    {
+      "OperationID": "P03-CHEM-9",
+      "verdict": "APPROVE",
+      "GradeID": "G057-03",
+      "original_sha256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+      "locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease and its own generic-rating legend",
+      "original_row": "Effect of oils and grease Good",
+      "conditions_check": "Own legend retained: ambient temperature; Good minor attack after long periods; Fair short-time contact; Poor unstable on contact. Agent/concentration/exact duration/specimen missing states explicit.",
+      "existing_record_check": "No same-source grade/topic active duplicate. Earlier CoPA recordsQ00202/Q00203/Q00205 retained independently; source wording differs without a supported correction or recency arbitration."
+    }
+  ],
+  "guards": "Full three ExpectedGrade and ExpectedSource rows agree with current canonical tables; source hashes/citation role/applicable grade coherent.",
+  "limitations": [
+    "Generic class maker ratings are current category-level screening evidence, not exact-agent chemical service approval or printed-product certification.",
+    "CoPA prior weak-alkali Slight resistant/strong-alkali Not resistant/oil Resistant remain; new Fair/Poor/Good do not resolve a formulation, condition or revision disagreement.",
+    "No organic-solvent result, numeric measurement, profile or universal class verdict inferred from these three cells.",
+    "Independent AI review only; no human/vendor/physical test or certificate validation.",
+    "Fresh private reading receipts retained at external-campaign/resume-2026-10-02/private/reviewer-cached03/<sha>.json."
+  ],
+  "review_signature_sha256": "86695e630fe6d564b5bc62f79d1b7507ec05384f94b58b7bb234a5890d562bea"
+}

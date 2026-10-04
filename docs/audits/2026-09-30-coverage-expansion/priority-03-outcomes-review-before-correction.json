@@ -1,0 +1,1248 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "c2ea0590b86eaefc005400f6c4171068aea2e67a5e4044ea1bd2e90f253ce48f",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "corrections": [
+    {
+      "GradeID": "G035-06",
+      "QuestionID": "environment-moisture",
+      "Before": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own PolyMax PC V5.5 moisture-absorption curve states equilibrium water absorption 0.253% at 70% RH and 23°C. Specimen form, method and equilibrium duration are not stated. This is humidity-uptake context, not immersion, hydrolysis or printed-part service qualification. Its missing numeric admission remains explicitly held; the separately recorded page FAQ names PolyLite PC and does not establish PolyMax moisture performance.",
+        "Basis": [
+          {
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p.1: PolyMax PC moisture absorption curve; 70% RH, 23°C; equilibrium annotation",
+            "RawSourceStatement": "*Equilibrium Water Absorption Rate (%)= 0.253%"
+          },
+          {
+            "RecordID": "Q05623",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-56f939384206",
+            "SHA256": "56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 281"
+          }
+        ],
+        "AdmissionHold": {
+          "State": "held",
+          "ReleaseCondition": "Prepare and independently review a guarded exact-grade moisture-uptake measurement proposal from this original curve, preserving unstated specimen/method/duration and its 70% RH/23°C conditions; no inferred service or hydrolysis verdict."
+        }
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G035-06",
+      "QuestionID": "properties-conditions",
+      "Before": {
+        "ID": "properties-conditions",
+        "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+        "Outcome": "already recorded",
+        "Finding": "Existing own X-Y/Z and state-specific tables assessed; their load, notch and method limits remain explicit. No additional deciding numerical input admitted in this batch. Existing source-backed values and comparison conditions are retained; no synthetic measurements or estimate-model changes. ",
+        "Basis": [
+          {
+            "RecordID": "V003433",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Density ISO1183, GB/T 1033"
+          },
+          {
+            "RecordID": "V003434",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Melt index 260°C, 1.2kg"
+          },
+          {
+            "RecordID": "V003435",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Glass transition temp. DSC, 10°C/min"
+          },
+          {
+            "RecordID": "V003436",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Vicat softening temp. ISO 306, GB/T 1633"
+          },
+          {
+            "RecordID": "V003437",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Young’s modulus (X-Y)"
+          },
+          {
+            "RecordID": "V003438",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Young’s modulus (Z)"
+          },
+          {
+            "RecordID": "V003439",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Tensile strength (X-Y)"
+          },
+          {
+            "RecordID": "V003440",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Tensile strength (Z)"
+          },
+          {
+            "RecordID": "V003441",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Elongation at break (X-Y)"
+          },
+          {
+            "RecordID": "V003442",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Elongation at break (Z)"
+          },
+          {
+            "RecordID": "V003443",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Bending modulus (X-Y)"
+          },
+          {
+            "RecordID": "V003444",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Bending strength (X-Y)"
+          },
+          {
+            "RecordID": "V003445",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Notched charpy impact strength (X-Y) ISO 179, GB/T 1043"
+          },
+          {
+            "RecordID": "V003600",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Density ASTM D792 (ISO 1183, GB/T 1033)"
+          },
+          {
+            "RecordID": "V003601",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Glass transition temperature DSC, 10 °C/min"
+          },
+          {
+            "RecordID": "V003602",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Melt index 260 °C, 1.2 kg"
+          },
+          {
+            "RecordID": "V003603",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+          },
+          {
+            "RecordID": "V003604",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+          },
+          {
+            "RecordID": "V003605",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+          },
+          {
+            "RecordID": "V003606",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)"
+          },
+          {
+            "RecordID": "V003607",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)"
+          },
+          {
+            "RecordID": "V003608",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)"
+          },
+          {
+            "RecordID": "V003609",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "properties-conditions",
+        "Question": "Missing published properties, bounds and comparison conditions in current release; reuse main corrections and preserve state-limited gaps.",
+        "Outcome": "context only",
+        "Finding": "Existing own measured values and comparison conditions remain recorded. Additionally, the own V5.5 curve publishes equilibrium water absorption 0.253% at 70% RH and 23°C, with specimen form, method and equilibrium duration unstated. This newly identified numeric context is held for a separate guarded, independently reviewed measurement proposal. No additional deciding number is admitted in this batch.",
+        "Basis": [
+          {
+            "RecordID": "V003433",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Density ISO1183, GB/T 1033"
+          },
+          {
+            "RecordID": "V003434",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Melt index 260°C, 1.2kg"
+          },
+          {
+            "RecordID": "V003435",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Glass transition temp. DSC, 10°C/min"
+          },
+          {
+            "RecordID": "V003436",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Vicat softening temp. ISO 306, GB/T 1633"
+          },
+          {
+            "RecordID": "V003437",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Young’s modulus (X-Y)"
+          },
+          {
+            "RecordID": "V003438",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Young’s modulus (Z)"
+          },
+          {
+            "RecordID": "V003439",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Tensile strength (X-Y)"
+          },
+          {
+            "RecordID": "V003440",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Tensile strength (Z)"
+          },
+          {
+            "RecordID": "V003441",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Elongation at break (X-Y)"
+          },
+          {
+            "RecordID": "V003442",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Elongation at break (Z)"
+          },
+          {
+            "RecordID": "V003443",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Bending modulus (X-Y)"
+          },
+          {
+            "RecordID": "V003444",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Bending strength (X-Y)"
+          },
+          {
+            "RecordID": "V003445",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1: Notched charpy impact strength (X-Y) ISO 179, GB/T 1043"
+          },
+          {
+            "RecordID": "V003600",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Density ASTM D792 (ISO 1183, GB/T 1033)"
+          },
+          {
+            "RecordID": "V003601",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Glass transition temperature DSC, 10 °C/min"
+          },
+          {
+            "RecordID": "V003602",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Melt index 260 °C, 1.2 kg"
+          },
+          {
+            "RecordID": "V003603",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Young’s modulus (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+          },
+          {
+            "RecordID": "V003604",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Tensile strength (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+          },
+          {
+            "RecordID": "V003605",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Elongation at break (X-Y) ASTM D638 (ISO 527, GB/T 1040)"
+          },
+          {
+            "RecordID": "V003606",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Bending modulus ASTMD790 (ISO 178, GB/T 9341)"
+          },
+          {
+            "RecordID": "V003607",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Bending strength ASTMD790 (ISO 178, GB/T 9341)"
+          },
+          {
+            "RecordID": "V003608",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Charpy impact strength ASTM D256 (ISO 179, GB/T 1043)"
+          },
+          {
+            "RecordID": "V003609",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1: Tensile strength (Z) ASTM D638 (ISO 527, GB/T 1040)"
+          },
+          {
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p.1: PolyMax PC moisture absorption curve; 70% RH, 23°C; equilibrium annotation",
+            "RawSourceStatement": "*Equilibrium Water Absorption Rate (%)= 0.253%"
+          }
+        ],
+        "AdmissionHold": {
+          "State": "held",
+          "ReleaseCondition": "Prepare and independently review a guarded exact-grade moisture-uptake measurement proposal from this original curve, preserving unstated specimen/method/duration and its 70% RH/23°C conditions; no inferred service or hydrolysis verdict."
+        }
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G035-06",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Own page moisture FAQ names PolyLite PC, retained as attribution limitation only. Earlier TDS anneal100°C/2h and V5.5/page90°C/2h differ; revision alone does not resolve them. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Own page moisture FAQ names PolyLite PC, retained as attribution limitation only. Earlier TDS anneal100°C/2h and V5.5/page90°C/2h differ; revision alone does not resolve them. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05623",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-56f939384206",
+            "SHA256": "56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 281"
+          },
+          {
+            "RecordID": "Q02774",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q02779",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+            "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d",
+            "Locator": "p.1: Recommended printing settings / printing tips; Annealing setting",
+            "RawSourceStatement": "Annealing setting 90°C/2H"
+          },
+          {
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-167",
+            "SHA256": "4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012",
+            "Locator": "p.1: Printing tips; annealing settings",
+            "RawSourceStatement": "Annealing settings: 100˚C for 2h"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G035-10",
+      "QuestionID": "environment-organic-solvent",
+      "Before": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own PolyLite PC V5.1 and V5.3 chemical tables both state “Effect of organic solvent Not resistant”. They do not name the solvent, concentration, exposure duration, temperature or specimen. This is a generic maker-class statement retained as source context, not universal solvent qualification. No source-backed slight-resistant solvent counterpart was established; the earlier conflict assertion is withdrawn. These missing canonical narrative rows are held for a later guarded source-backed admission packet.",
+        "Basis": [
+          {
+            "SourceID": "S-POLYCN-PolyLite-PC-TDS-V5-1",
+            "SHA256": "819ca676a2a6fd349ea05d0ab92da14e1a817d8c977ad93ea322890b08e9673e",
+            "Locator": "p.2: Chemical properties; Effect of organic solvent",
+            "RawSourceStatement": "Effect of organic solvent Not resistant"
+          },
+          {
+            "SourceID": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+            "SHA256": "89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d",
+            "Locator": "p.2: Chemical properties; Effect of organic solvent",
+            "RawSourceStatement": "Effect of organic solvent Not resistant"
+          }
+        ],
+        "AdmissionHold": {
+          "State": "held",
+          "ReleaseCondition": "Independently review and admit any useful nonduplicate exact-grade narrative chemical statement through a guarded packet; retain unknown agents and exposure conditions without creating a universal solvent claim."
+        }
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G035-10",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Legacy PIS and current TDS anneal100°C/2h vs90°C/2h; organic solvent slight-resistant vs not-resistant remains unresolved. Older oil no-data is absence, not contradiction with current Good. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "The own PIS post-processing section recommends 100°C/2h annealing, while own V5.1/V5.3 and V5.5 TDS instructions state 90°C/2h. This source-specific treatment disagreement remains unresolved; revision alone does not settle it. V5.1 and V5.3 organic-solvent cells both say Not resistant; no slight-resistant solvent counterpart was established, so that prior conflict assertion is withdrawn. Older oil no-data is absence, not contradiction with current Good. Existing stable GradeID is retained without cross-product or legacy/current formulation transfer.",
+        "Basis": [
+          {
+            "SourceID": "S-POLYCN-PolyLite-PC-PIS-EN",
+            "SHA256": "7a00c7bc653e9f28d5415ff7883af8469f1b1e3efa2d4486202a3cb564e37673",
+            "Locator": "p.5: 5) Post process",
+            "RawSourceStatement": "PolyLite™ PC can be annealed right after the printing process at 100˚C for 2 hours"
+          },
+          {
+            "RecordID": "Q00523",
+            "SourceID": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+            "SHA256": "89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d",
+            "Locator": "p. 4: Annealing note"
+          },
+          {
+            "RecordID": "Q00527",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+            "SHA256": "dfee4768b7e136b457d0d44dc8420e4bc8a7ff29219664de9e104a491cc5954b",
+            "Locator": "p. 1: Annealing note"
+          },
+          {
+            "SourceID": "S-POLYCN-PolyLite-PC-TDS-V5-1",
+            "SHA256": "819ca676a2a6fd349ea05d0ab92da14e1a817d8c977ad93ea322890b08e9673e",
+            "Locator": "p.2: Chemical properties; Effect of organic solvent",
+            "RawSourceStatement": "Effect of organic solvent Not resistant"
+          },
+          {
+            "SourceID": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+            "SHA256": "89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d",
+            "Locator": "p.2: Chemical properties; Effect of organic solvent",
+            "RawSourceStatement": "Effect of organic solvent Not resistant"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G050-11",
+      "QuestionID": "environment-moisture",
+      "Before": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. Copied current FAQ moisture2.57% differs from own TDS wet-table 5.30%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement.",
+        "Basis": [
+          {
+            "RecordID": "Q03519",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+            "SHA256": "f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03524",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+            "SHA256": "f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05630",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+            "SHA256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. Copied current FAQ moisture2.57% differs from own TDS wet-table 5.30%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement.",
+        "Basis": [
+          {
+            "RecordID": "Q03519",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+            "SHA256": "f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03524",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+            "SHA256": "f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05630",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+            "SHA256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306"
+          },
+          {
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+            "SHA256": "f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4",
+            "Locator": "p.1: Mechanical properties - wet status; specimen-conditioning footnote",
+            "RawSourceStatement": "average moisture content of specimens is 5.30%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G050-11",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Copied current FAQ moisture2.57% differs from own TDS wet-table 5.30%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05630",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+            "SHA256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Copied current FAQ moisture2.57% differs from own TDS wet-table 5.30%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05630",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+            "SHA256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306"
+          },
+          {
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+            "SHA256": "f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4",
+            "Locator": "p.1: Mechanical properties - wet status; specimen-conditioning footnote",
+            "RawSourceStatement": "average moisture content of specimens is 5.30%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G051-09",
+      "QuestionID": "environment-moisture",
+      "Before": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. Copied current FAQ moisture2.57% differs from own TDS wet-table 4.57%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement.",
+        "Basis": [
+          {
+            "RecordID": "Q03604",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+            "SHA256": "90be757860575b59d2c3e70437407b94bf4206445e1302d622530b7e1544ce2a",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03609",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+            "SHA256": "90be757860575b59d2c3e70437407b94bf4206445e1302d622530b7e1544ce2a",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05617",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+            "SHA256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. Copied current FAQ moisture2.57% differs from own TDS wet-table 4.57%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement.",
+        "Basis": [
+          {
+            "RecordID": "Q03604",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+            "SHA256": "90be757860575b59d2c3e70437407b94bf4206445e1302d622530b7e1544ce2a",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03609",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+            "SHA256": "90be757860575b59d2c3e70437407b94bf4206445e1302d622530b7e1544ce2a",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05617",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+            "SHA256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          },
+          {
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+            "SHA256": "90be757860575b59d2c3e70437407b94bf4206445e1302d622530b7e1544ce2a",
+            "Locator": "p.1: Mechanical properties - wet status; specimen-conditioning footnote",
+            "RawSourceStatement": "average moisture content of specimens is 4.57%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G051-09",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Copied current FAQ moisture2.57% differs from own TDS wet-table 4.57%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05617",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+            "SHA256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Copied current FAQ moisture2.57% differs from own TDS wet-table 4.57%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05617",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+            "SHA256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          },
+          {
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN",
+            "SHA256": "90be757860575b59d2c3e70437407b94bf4206445e1302d622530b7e1544ce2a",
+            "Locator": "p.1: Mechanical properties - wet status; specimen-conditioning footnote",
+            "RawSourceStatement": "average moisture content of specimens is 4.57%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G053-08",
+      "QuestionID": "environment-moisture",
+      "Before": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. Copied current FAQ moisture2.57% differs from own TDS wet-table 2.92%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement.",
+        "Basis": [
+          {
+            "RecordID": "Q03690",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03691",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03696",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05642",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+            "SHA256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 282"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. Copied current FAQ moisture2.57% differs from own TDS wet-table 2.92%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement.",
+        "Basis": [
+          {
+            "RecordID": "Q03690",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03691",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03696",
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05642",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+            "SHA256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 282"
+          },
+          {
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p.1: Mechanical properties - wet status; specimen-conditioning footnote",
+            "RawSourceStatement": "average moisture content of specimens is 2.92%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G053-08",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Copied current FAQ moisture2.57% differs from own TDS wet-table 2.92%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement. TDS description typo copolyimide versus own page copolyamide does not establish a new polymer identity. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": []
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Copied current FAQ moisture2.57% differs from own TDS wet-table 2.92%, after100°C/16h anneal and60°C/48h water immersion. No replacement measurement. TDS description typo copolyimide versus own page copolyamide does not establish a new polymer identity. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p.1: Mechanical properties - wet status; specimen-conditioning footnote",
+            "RawSourceStatement": "average moisture content of specimens is 2.92%"
+          },
+          {
+            "RecordID": "Q05642",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+            "SHA256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 282"
+          },
+          {
+            "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN",
+            "SHA256": "6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e",
+            "Locator": "p.1: Description",
+            "RawSourceStatement": "copolyimide filament"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G057-03",
+      "QuestionID": "environment-moisture",
+      "Before": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+        "Basis": [
+          {
+            "RecordID": "Q03756",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-PIS-EN",
+            "SHA256": "a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03757",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-PIS-EN",
+            "SHA256": "a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03758",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-PIS-EN",
+            "SHA256": "a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03761",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03766",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03767",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-236",
+            "SHA256": "3925acba6dc081db8570fe1729827489ed40d33a5812e9292d0aba01f7566be4",
+            "Locator": "p. 2"
+          },
+          {
+            "RecordID": "Q03770",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+            "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03774",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+            "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05619",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 275"
+          },
+          {
+            "RecordID": "Q05645",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+            "Locator": "p. 1: own product Printing Requirements/Recommendations, source text line 186"
+          },
+          {
+            "RecordID": "V002155",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p. 2: Equilibrium water absorption (%)"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "conflicting",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+        "Basis": [
+          {
+            "RecordID": "Q03756",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-PIS-EN",
+            "SHA256": "a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03757",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-PIS-EN",
+            "SHA256": "a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03758",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-PIS-EN",
+            "SHA256": "a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03761",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03766",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p. 5"
+          },
+          {
+            "RecordID": "Q03767",
+            "SourceID": "S-POLYCN-index-php-controller-attachment-id-attachment-236",
+            "SHA256": "3925acba6dc081db8570fe1729827489ed40d33a5812e9292d0aba01f7566be4",
+            "Locator": "p. 2"
+          },
+          {
+            "RecordID": "Q03770",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+            "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03774",
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+            "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05619",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 275"
+          },
+          {
+            "RecordID": "Q05645",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+            "Locator": "p. 1: own product Printing Requirements/Recommendations, source text line 186"
+          },
+          {
+            "RecordID": "V002155",
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p. 2: Equilibrium water absorption (%)"
+          },
+          {
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p.4: Dry and wet mechanical tables; separate footnotes",
+            "RawSourceStatement": "All specimens were annealed at 80 °C for 30 min, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing"
+          },
+          {
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+            "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+            "Locator": "p.1: Mechanical properties - Dry status; separate recommended annealing setting 80°C/6H"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G057-03",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "CoPA page copied100°C/16h immersion60°C/48h2.57% differs from its source-specific dry/wet test conditioning. Older/modern class statements retain their conditions; no recency adjudication. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05619",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 275"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "CoPA page copied100°C/16h immersion60°C/48h2.57% differs from its source-specific dry/wet test conditioning. Older/modern class statements retain their conditions; no recency adjudication. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05619",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+            "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 275"
+          },
+          {
+            "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+            "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee",
+            "Locator": "p.4: Dry and wet mechanical tables; separate footnotes",
+            "RawSourceStatement": "All specimens were annealed at 80 °C for 30 min, and conditioned at 70% relative humidity and ambient temperature for 15 days prior to testing"
+          },
+          {
+            "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+            "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50",
+            "Locator": "p.1: Mechanical properties - Dry status; separate recommended annealing setting 80°C/6H"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G059-01",
+      "QuestionID": "environment-moisture",
+      "Before": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+        "Basis": [
+          {
+            "RecordID": "Q03795",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03796",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03801",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05620",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "SHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 202"
+          },
+          {
+            "RecordID": "Q05621",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "SHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          },
+          {
+            "RecordID": "V002060",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1: Equilibrium water absorption"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+        "Basis": [
+          {
+            "RecordID": "Q03795",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03796",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03801",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q05620",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "SHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 202"
+          },
+          {
+            "RecordID": "Q05621",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "SHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          },
+          {
+            "RecordID": "V002060",
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p. 1: Equilibrium water absorption"
+          },
+          {
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p.1: Mechanical properties - wet status; annealed/immersed specimen footnote",
+            "RawSourceStatement": "average moisture content of specimens is 2.57%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G059-01",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "already recorded",
+        "Finding": "Own TDS wet table2.57% agrees with FAQ for PA612-CF15. Description typo copolyimide retained, not a polymer reassignment. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05621",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "SHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "already recorded",
+        "Finding": "Own TDS wet table2.57% agrees with FAQ for PA612-CF15. Description typo copolyimide retained, not a polymer reassignment. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05621",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+            "SHA256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295"
+          },
+          {
+            "SourceID": "S-FIBER-PA612",
+            "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f",
+            "Locator": "p.1: Mechanical properties - wet status; annealed/immersed specimen footnote",
+            "RawSourceStatement": "average moisture content of specimens is 2.57%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G065-01",
+      "QuestionID": "environment-moisture",
+      "Before": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+        "Basis": [
+          {
+            "RecordID": "Q03817",
+            "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+            "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03822",
+            "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+            "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Exact-product source statements/results listed below were assessed with their own conditions. Generic chemical class ratings retain missing agents, concentrations, temperature, duration and specimen. Maker claims, drying/handling and moisture uptake do not establish hydrolysis or qualified service exposure; no printed-product certification inferred. ",
+        "Basis": [
+          {
+            "RecordID": "Q03817",
+            "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+            "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f",
+            "Locator": "p. 1"
+          },
+          {
+            "RecordID": "Q03822",
+            "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+            "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+            "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f",
+            "Locator": "p.1: Mechanical properties - wet status; annealed/immersed specimen footnote",
+            "RawSourceStatement": "average moisture content of specimens is 4.64%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    },
+    {
+      "GradeID": "G065-01",
+      "QuestionID": "integrity-conflicts",
+      "Before": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "already recorded",
+        "Finding": "Linked ABS-CNT study is outside this PA612 product; no research-result/certification transfer. Own TDS moisture4.64% pertains to its annealed/immersed wet specimens only. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05637",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "SHA256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 190"
+          }
+        ]
+      },
+      "Corrected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "already recorded",
+        "Finding": "Linked ABS-CNT study is outside this PA612 product; no research-result/certification transfer. Own TDS moisture4.64% pertains to its annealed/immersed wet specimens only. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. ",
+        "Basis": [
+          {
+            "RecordID": "Q05637",
+            "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+            "SHA256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+            "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 190"
+          },
+          {
+            "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+            "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f",
+            "Locator": "p.1: Mechanical properties - wet status; annealed/immersed specimen footnote",
+            "RawSourceStatement": "average moisture content of specimens is 4.64%"
+          }
+        ]
+      },
+      "Reason": "Original-source context/attribution/condition basis must be retained; canonical absence alone is not evidence of source absence."
+    }
+  ],
+  "OriginalRereadScope": "Reuse signed original-backed C08/cached/supplemental reviews; additionally reread actual hash-verified PC TDS/PIS, PolyMax legacy attachment and nylon TDS conditioning footnotes, not report excerpts.",
+  "Limitations": [
+    "No canonical injection authorized by this outcome edit; newly identified numerical/chemical source context remains held.",
+    "No physical testing, human review, polymer reassignment, product suitability or printed certification inferred."
+  ],
+  "review_signature_sha256": "e7df96f528d0db3c19170486dd776ea2432c0562f3cf2dbb7d58318804c29271"
+}

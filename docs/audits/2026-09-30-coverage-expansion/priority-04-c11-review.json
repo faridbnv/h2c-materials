@@ -1,0 +1,29 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "a383b92a6963ec8369bea52be2a0b05c1b797d7c6e01f5dbb7582aa8f01f32f9",
+  "overall_verdict": "APPROVE",
+  "reviewed_documents": 1,
+  "reviewed_operations": 1,
+  "PriorReview": {
+    "file": "priority-04-c11-review-before-correction.json",
+    "verdict": "CHANGES_REQUIRED",
+    "input_sha256": "c9ebfb20b2ea416a39565dca083f473b91ea354a00845c1a80bc7dc396f85d68"
+  },
+  "DeltaAttestation": "Only requested original p.5 purpose restriction added to evidence/proposal conditions; source/finding/protocol/identity unchanged. Proposal digest/equality checked. Prior actual-five-page reread and rendered p.2 photo review reused.",
+  "Operations": [
+    {
+      "OperationID": "c11-pcfr-V0-sample",
+      "verdict": "APPROVE",
+      "original_sha256": "6b0741900015196712696f8e5f8119f2dae7d767c575a1fa4a52568109c99e2b",
+      "locator": "pp.1–5; conclusion and purpose/client/sample limitations p.5",
+      "limitations": "CTI report A2240623890101, supplied sample Bambu PC FR C01-xx;128×12.9×3.3mm. Test UL94-2023 vertical burning at23±2°C50±5%RH; precondition23±2°C50±10%RH48h and separately70°C168h followed by calcium chloride desiccator≥4h.20±1mm flame applied twice10±0.5s. Room and aged five-specimen sets meetV-0. Report limits results to tested samples; client identification not verified by CTI. Specimen manufacturing/printed form, build orientation, nozzle recipe and colour not stated. No universal printed-part certification or continuous service/fire design allowable. Report p.5 restricts data/results to scientific research, education, internal quality control and product development etc."
+    }
+  ],
+  "Limitations": [
+    "Laboratory sample-only V-0 observation; client-supplied identity not independently verified by CTI.",
+    "Manufacturing form, build orientation, nozzle recipe and colour remain unstated; photograph does not establish printed form.",
+    "No universal printed-part certification or fire/continuous-service allowable. Report-purpose restriction now displayed with result."
+  ],
+  "review_signature_sha256": "89f58046c1ffee284ba528ed5933faf4ce4d91e37a8abf80f247e3b5258a6d8a"
+}

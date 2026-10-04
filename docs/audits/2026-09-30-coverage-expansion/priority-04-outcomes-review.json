@@ -1,0 +1,206 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "063b40b3104e05512d029ba63e3cd7760506f0053f7129921300ad0e1b987810",
+  "overall_verdict": "APPROVE",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "PriorReviewFile": "priority-04-outcomes-review-before-correction.json",
+  "CorrectedQuestions": [
+    {
+      "GradeID": "G040-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G040-01",
+      "QuestionID": "print-treatment-state"
+    },
+    {
+      "GradeID": "G021-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G021-01",
+      "QuestionID": "print-treatment-state"
+    },
+    {
+      "GradeID": "G022-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G022-01",
+      "QuestionID": "print-treatment-state"
+    },
+    {
+      "GradeID": "G023-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G023-01",
+      "QuestionID": "print-treatment-state"
+    },
+    {
+      "GradeID": "G024-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G027-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G028-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G031-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "print-treatment-state"
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "properties-conditions"
+    },
+    {
+      "GradeID": "G032-01",
+      "QuestionID": "integrity-conflicts"
+    },
+    {
+      "GradeID": "G035-01",
+      "QuestionID": "environment-food-contact"
+    },
+    {
+      "GradeID": "G036-01",
+      "QuestionID": "environment-food-contact"
+    }
+  ],
+  "TargetResults": [
+    {
+      "GradeID": "G040-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G021-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G022-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G023-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G024-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G027-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G028-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G031-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G032-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer.",
+        "ASA Aero published225°C specimen preparation remains outside the recommended240–280°C user recipe;20 existing printed-form classifications and two elongation central-value errors have been corrected. Foam state remains unstated. The user anneal paragraph naming Bambu ASA has unresolved applicability to ASA Aero; density/MFR form stays unstated. No in-recipe foamed service value or suitability qualification is inferred."
+      ]
+    },
+    {
+      "GradeID": "G033-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G035-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    },
+    {
+      "GradeID": "G036-01",
+      "verdict": "APPROVE",
+      "questions": 17,
+      "limitations": [
+        "Claims are maker context only; no demonstrated suitability, service exposure, universal certification or numerical property transfer."
+      ]
+    }
+  ],
+  "Limits": [
+    "Four semantic duplicate retirements are admitted through guarded operations; outcome basis uses retained live keepers.",
+    "Food exclusions are maker-only original context;17 present, ASA-CF no own exclusion found in inspected page.",
+    "ASA Aero20 off-recipe classifications and two elongation transcription corrections are admitted. Published specimen treatment remains separate from the ambiguous user-anneal paragraph; no in-recipe foamed property is inferred.",
+    "PA6-GF5–12h page versus6–12h TDS retains treatment conflict and geometry/warping limitations.",
+    "No source-based suitability, chemistry/weathering, food or universal certification pass inferred.",
+    "Exactly18 product targets/306questions across two packets; shared originals reused. Historical Bambu page originals remain absent; no byte/revision comparison claimed.",
+    "Wiki ASA guide servedHTML lacked article text; no guide procedure inferred.",
+    "Product final closure remains conditional on verified local commit."
+  ],
+  "ReleaseScope": "Outcome judgments approved with admitted corrections accurately cited. Final product closure remains conditional on independent changed-answer review, full verification and local commit; source recipe/foam-state and user-anneal scope limitations remain.",
+  "AdmissionDeltaReview": {
+    "PriorPacketSHA256": "66eb8903060eee5bfd951167af7493395d5e5cfaf3651ff3332eb7ac24a2b9a6",
+    "PriorApprovedReview": "priority-04-outcomes-review-before-asa-aero-admission.json",
+    "CorrectionPacketSHA256": "8014275a44d08ef9ca5053acee2f1698d88fb63b961f98c5ff520999ebfea582",
+    "ReviewedQuestionIDs": [
+      "print-treatment-state",
+      "properties-conditions",
+      "integrity-conflicts"
+    ],
+    "CanonicalCheck": "All20 full Proposed measurement rows match current canonical rows; full source row and original SHA unchanged. Density and MFR form remain Not published. No other target/question operation changed.",
+    "Limitations": "Only correction admission status/basis changed; genuine specimen-vs-recipe conflict, unknown foam state and separate user-anneal applicability remain. Replays and full release QA still required."
+  },
+  "review_signature_sha256": "52f88c95d74028884910dc210df74e3d9ae2a5ff45b84d7d960262a6cc56d926"
+}

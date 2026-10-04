@@ -2367,12 +2367,6 @@ G031-43,M031,ASA,tensileModulusXY,1.87,as-published,unstated-direction,V002997,,
 G031-43,M031,ASA,tensileStrengthXY,46,as-published,unstated-direction,V002996,,,,twin G031-04
 G031-43,M031,ASA,hdt045,86,as-published,load-not-stated,V002999,,,,twin G031-04
 G032-01,M032,ASA Aero,density,990,comparable,,V000633,80 °C 12 h,,,
-G032-01,M032,ASA Aero,tensileModulusXY,2.01,comparable,,V000641,80 °C 12 h,,,
-G032-01,M032,ASA Aero,tensileStrengthXY,32,comparable,,V000643,80 °C 12 h,,,
-G032-01,M032,ASA Aero,tensileStrengthZ,21,comparable,,V000644,80 °C 12 h,,,
-G032-01,M032,ASA Aero,elongationXY,1.6,comparable,,V000645,80 °C 12 h,,,
-G032-01,M032,ASA Aero,charpyNotched,8.2,comparable,,V002103,80 °C 12 h,,,
-G032-01,M032,ASA Aero,hdt045,85,comparable,,V000639,80 °C 12 h,,,
 G032-01,M032,ASA Aero,priceCADkg,63.99,comparable,,CA0043,,,,
 G032-02,M032,LW-ASA UltraFoam,density,1080,comparable,,V003040,,,,
 G032-02,M032,LW-ASA UltraFoam,tensileModulusXY,1.6,as-published,unstated-direction,V003043,,,,

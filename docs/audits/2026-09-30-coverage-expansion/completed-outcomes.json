@@ -1,6 +1,6 @@
 {
-  "LatestCompletedDataCommit": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
-  "LatestCompletedDataRelease": "c890d0421b03",
+  "LatestCompletedDataCommit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+  "LatestCompletedDataRelease": "b847b43260f9",
   "Authority": "Final bounded task dispositions reproduced from committed audit packets and named local commits; completing a material Application task never completes its joined product tasks.",
   "Outcomes": [
     {
@@ -5024,6 +5024,90 @@
       "Commit": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
       "Packet": "priority-01-outcomes",
       "Finding": "Twelve-product joined pass: all17assigned questions have bounded original-source outcomes; not suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G020-15",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G020-16",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G039-11",
+      "Outcome": "found",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G039-12",
+      "Outcome": "found",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G035-09",
+      "Outcome": "found",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G020-13",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G026-02",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G026-05",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G027-07",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G027-08",
+      "Outcome": "found",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G027-09",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G031-06",
+      "Outcome": "context only",
+      "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
     }
   ]
 }

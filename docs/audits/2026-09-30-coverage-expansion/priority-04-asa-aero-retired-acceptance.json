@@ -1,0 +1,12 @@
+{
+  "migration": "m325",
+  "reason": "Reproduced source central-value correction removes the lint finding; previous review retained here.",
+  "previous": {
+    "Code": "MEAS-PHYSICS-STRAIN",
+    "Table": "measurements",
+    "Record": "V000646",
+    "Field": "Normalized value",
+    "Reason": "Brittle printed bars whose sheets give a strain at break 10-60 % below stress / modulus. Systematic across Bambu Lab, IPCON and others, so the modulus basis (chord or crosshead) differs from the strain measurement; not a transcription error, and no headline decision rests on the ratio.",
+    "Accepted": "2026-09-15"
+  }
+}

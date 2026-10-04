@@ -1,0 +1,403 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "f02e6deb314f8c9980bba43237f11d6a1e666c210dee3bb9b6a59633af84b43b",
+  "overall_verdict": "APPROVE",
+  "reviewed_sources": 12,
+  "reviewed_operations": 27,
+  "review_scope": "All12 original HTML bytes SHA-verified and independently decoded with current v4 reader; page title/H1/product body/FAQ scope reread. Every27 raw finding and qualifier reviewed, exceeding requested narrative sample. Repeated2.57% pattern swept across all proposed occurrences. Full ExpectedGrade/Source guards and12 proposal byte hashes/accepted row sets checked; zero accepted numbers/profiles.",
+  "per_source": [
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+      "original_sha256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G033-11",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-749f634c-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G033-11",
+          "source_sha256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 293",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-749f634c-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G033-11",
+          "source_sha256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 305",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker heated-processing/VOC ventilation guidance only; no measured emission rate, exposure threshold or regulatory certification."
+        },
+        {
+          "OperationID": "c08-749f634c-e3",
+          "verdict": "APPROVE",
+          "GradeID": "G033-11",
+          "source_sha256": "749f634c9bfadc8dc3df5360e5700575391535f9b6d59bf2b41d2eb918b4036f",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 307",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker ESD exclusion and unqualified surface-resistivity claim; no independent protocol or printed geometry; retained know-how, not a measurement/pass."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-56f939384206",
+      "original_sha256": "56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G035-06",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-56f93938-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G035-06",
+          "source_sha256": "56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 191",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-56f93938-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G035-06",
+          "source_sha256": "56f93938420607faf5113cafe5cd792579e9b4d61ef31adc40329566e4b8e184",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 281",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Attribution conflict: own PolyMax PC page sentence explicitly names PolyLite PC. Retained only as source-wording problem, not own PolyMax PC moisture guidance; clarification needed."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967",
+      "original_sha256": "eb1e58e6f96754395f781d92c8653c360b541f78c0fb88d9d46767c7fd003d67",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G035-10",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-eb1e58e6-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G035-10",
+          "source_sha256": "eb1e58e6f96754395f781d92c8653c360b541f78c0fb88d9d46767c7fd003d67",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 168",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-eb1e58e6-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G035-10",
+          "source_sha256": "eb1e58e6f96754395f781d92c8653c360b541f78c0fb88d9d46767c7fd003d67",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 173",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker recommends minimum60°C; large/dense parts have a separate heated-chamber statement. This limited recommendation is not a universal required gate, closed temperature band, specimen recipe or proof H2C can print every geometry."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+      "original_sha256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G050-11",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-aa05f44c-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G050-11",
+          "source_sha256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 202",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-aa05f44c-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G050-11",
+          "source_sha256": "aa05f44c143764d3f05d9b3a8e30a7b8bfba68f743b2bdf5403d29f4e84cfa94",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+      "original_sha256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G051-09",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-02efe50f-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G051-09",
+          "source_sha256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 193",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-02efe50f-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G051-09",
+          "source_sha256": "02efe50f9eac6aecb05f6ea50774be67c462e419dfa74d7cbed12a7a7e77bd72",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+      "original_sha256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G053-08",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-effcc17a-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G053-08",
+          "source_sha256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 187",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-effcc17a-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G053-08",
+          "source_sha256": "effcc17a7754d4c6aa0cfa9962755dc2db2d184db24316e00d73a2c20ceccd20",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 282",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker FAQ treatment sequence and moisture context only; compare to own TDS conditions before using it. No additional measurement or service/hydrolysis test inferred."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+      "original_sha256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G057-03",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-46df2b78-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G057-03",
+          "source_sha256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 177",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-46df2b78-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G057-03",
+          "source_sha256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 275",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+      "original_sha256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G059-01",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-540bc284-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G059-01",
+          "source_sha256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 202",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-540bc284-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G059-01",
+          "source_sha256": "540bc284ede58ca2c4bdf8cf3e13a7e85141a42252bb3cf69abf6788622fa3e2",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 295",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+      "original_sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G065-01",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-d06cdcda-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G065-01",
+          "source_sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 289",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-d06cdcda-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G065-01",
+          "source_sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 290",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-d06cdcda-e3",
+          "verdict": "APPROVE",
+          "GradeID": "G065-01",
+          "source_sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 291",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-d06cdcda-e4",
+          "verdict": "APPROVE",
+          "GradeID": "G065-01",
+          "source_sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 292",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-d06cdcda-e5",
+          "verdict": "APPROVE",
+          "GradeID": "G065-01",
+          "source_sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 293",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-d06cdcda-e6",
+          "verdict": "APPROVE",
+          "GradeID": "G065-01",
+          "source_sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 190",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker links research on ABS compounded with carbon nanotubes, not a PA612-ESD printed-product test or certification. No result transfer between polymers, formulations or product identities."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+      "original_sha256": "67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G068-02",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-67deefea-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G068-02",
+          "source_sha256": "67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 306",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass."
+        },
+        {
+          "OperationID": "c08-67deefea-e2",
+          "verdict": "APPROVE",
+          "GradeID": "G068-02",
+          "source_sha256": "67deefea2e325bd68baf680a7394da8058525523082a0a524f1ba4e1e36e552b",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 274",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Maker annealing handling guidance, not a design allowable. Own TDS annealing schedule remains explicit; avoid service loads or unsupported dimensional performance claims."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-edf1439487e0",
+      "original_sha256": "edf1439487e09279f3ed7b708960d9c671b63c9a3aabee57d925e01be25dadce",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G051-03",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-edf14394-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G051-03",
+          "source_sha256": "edf1439487e09279f3ed7b708960d9c671b63c9a3aabee57d925e01be25dadce",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 89",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact legacy maker listing notice, observed2026-10-03. No stock/price/retirement assertion or replacement-formulation equivalence inferred; current Fiberon measurements do not transfer."
+        }
+      ]
+    },
+    {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-c606d37e008e",
+      "original_sha256": "c606d37e008e0c1cd85c3e2b7a8e6d021588e3673effcfa3a892777ad3517a4a",
+      "identity_verdict": "APPROVE",
+      "bound_grade": "G053-02",
+      "header_check": "Original page title/H1 matches exact current product or explicitly named legacy product; new/current formulations are not transferred.",
+      "operations": [
+        {
+          "OperationID": "c08-c606d37e-e1",
+          "verdict": "APPROVE",
+          "GradeID": "G053-02",
+          "source_sha256": "c606d37e008e0c1cd85c3e2b7a8e6d021588e3673effcfa3a892777ad3517a4a",
+          "locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 85",
+          "original_check": "Literal wording found in own product-body or labelled FAQ from direct hash-verified HTML reread.",
+          "limitations": "Exact legacy maker listing notice, observed2026-10-03. No stock/price/retirement assertion or replacement-formulation equivalence inferred; current Fiberon measurements do not transfer."
+        }
+      ]
+    }
+  ],
+  "specific_checks": [
+    {
+      "subject": "Copied2.57% FAQ",
+      "verdict": "APPROVE_AS_RECORD_ONLY",
+      "reason": "Literal identical anneal100°C16h/immerged60°C48h/average2.57% FAQ occurs across five distinct nylons. Conditions preserve ambiguity or require comparison to own TDS. No new moisture measurement, hydrolysis verdict, universal procedure or overwrite of source-specific states is released."
+    },
+    {
+      "subject": "PolyMax page PolyLite attribution",
+      "verdict": "APPROVE_AS_LIMITATION",
+      "reason": "Own PolyMax H1 does not repair sentence naming PolyLite PC. Raw Finding retained, explicit attribution conflict; not PolyMax moisture guidance."
+    },
+    {
+      "subject": "PA612-ESD ABS research link",
+      "verdict": "APPROVE_AS_LIMITATION",
+      "reason": "Original NOTE says research regarding ABS compounded with CNT; does not establish PA612 test/certification. Linked research itself not read in this bounded source packet."
+    },
+    {
+      "subject": "Legacy discontinued listings",
+      "verdict": "APPROVE",
+      "reason": "Wholesale title says Now Fiberon, H1 still exact legacy PolyMide. Own discontinuation statement retained only on legacy grade, observation date scoped; no source/property transfer, stock or price inference."
+    },
+    {
+      "subject": "PET-GF15 annealing",
+      "verdict": "APPROVE",
+      "reason": "Source Printing Tips literal avoid applied loads/non-uniform oven temperature/retain supports. Explicit handling guidance, no design allowable or guaranteed dimensional result."
+    },
+    {
+      "subject": "PolyLite PC60°C chamber",
+      "verdict": "APPROVE_AS_KNOW_HOW",
+      "reason": "Raw minimum highly recommended and separate large/dense-part caveat preserved. No required gate/closed upper band inferred in this zero-profile packet."
+    }
+  ],
+  "limitations": [
+    "AI source review only; no human review, tests or certificate validation.",
+    "No deciding numeric/profile operations approved; numerical text retained solely as attributed maker statement with qualifiers.",
+    "Current/legacy identity and composition fractions stated in maker prose do not reclassify canonical grades.",
+    "No exact duplicate grade/finding rows found in current active canonical evidence.",
+    "Review does not close any joined product target; frozen outcomes and full release QA remain separate.",
+    "Independent fresh reads retained privately at external-campaign/resume-2026-10-02/private/reviewer-c08/<sha>.json."
+  ],
+  "review_signature_sha256": "2ac8c8baebdbd309c6d72bd9a6be8d4b2fda7cbdc18b46ab5c35b13867ec3d15"
+}

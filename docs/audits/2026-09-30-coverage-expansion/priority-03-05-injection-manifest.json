@@ -1,0 +1,433 @@
+{
+  "release": "4e5ce68f19f3",
+  "Counts": {
+    "new_sources": 31,
+    "new_measurements": 1,
+    "existing_measurements_corrected": 20,
+    "new_evidence_records": 82,
+    "new_evidence_retired_as_duplicates": 4,
+    "new_active_evidence": 78,
+    "deleted_canonical_records": 0
+  },
+  "Migrations": [
+    {
+      "Receipt": "h2c-priority03-05-retire-apply.json",
+      "migration": "m324-priority-04-05-retirements",
+      "packet": "d71f48c8955d5a018e0c8510d40b9b4321619c4af845f7f521d6ae6b6a059cdd",
+      "written": 4,
+      "records": [
+        {
+          "operation": "Q05678-retire",
+          "table": "evidence",
+          "id": "Q05678",
+          "kind": "edit"
+        },
+        {
+          "operation": "Q05683-retire",
+          "table": "evidence",
+          "id": "Q05683",
+          "kind": "edit"
+        },
+        {
+          "operation": "Q05675-retire",
+          "table": "evidence",
+          "id": "Q05675",
+          "kind": "edit"
+        },
+        {
+          "operation": "Q05686-retire",
+          "table": "evidence",
+          "id": "Q05686",
+          "kind": "edit"
+        }
+      ]
+    },
+    {
+      "Receipt": "h2c-priority03-05-aero-apply.json",
+      "migration": "m325-priority-04-asa-aero-correction",
+      "packet": "8014275a44d08ef9ca5053acee2f1698d88fb63b961f98c5ff520999ebfea582",
+      "written": 20,
+      "records": [
+        {
+          "operation": "V000634-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000634",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000635-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000635",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000636-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000636",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000637-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000637",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000638-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000638",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000639-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000639",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000640-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000640",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000641-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000641",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000642-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000642",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000643-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000643",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000644-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000644",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000645-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000645",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000646-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000646",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000647-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000647",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000648-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000648",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000649-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000649",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000650-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000650",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000651-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000651",
+          "kind": "edit"
+        },
+        {
+          "operation": "V000652-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V000652",
+          "kind": "edit"
+        },
+        {
+          "operation": "V002103-off-recipe-source-correction",
+          "table": "measurements",
+          "id": "V002103",
+          "kind": "edit"
+        }
+      ]
+    },
+    {
+      "Receipt": "h2c-priority03-c08-apply.json",
+      "migration": "m318-batch-c08-priority-03",
+      "packet": "f02e6deb314f8c9980bba43237f11d6a1e666c210dee3bb9b6a59633af84b43b",
+      "log": [
+        "source R-POLYMAKER-PRIORITY-20261003-02efe50f9eac",
+        "evidence Q05616 Good for",
+        "evidence Q05617 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+        "evidence Q05618 Good for",
+        "evidence Q05619 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-540bc284ede5",
+        "evidence Q05620 Good for",
+        "evidence Q05621 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-56f939384206",
+        "evidence Q05622 Good for",
+        "evidence Q05623 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-67deefea2e32",
+        "evidence Q05624 Good for",
+        "evidence Q05625 Printing advice",
+        "source R-POLYMAKER-PRIORITY-20261003-749f634c9bfa",
+        "evidence Q05626 Good for",
+        "evidence Q05627 Pitfalls and limitations",
+        "evidence Q05628 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-aa05f44c1437",
+        "evidence Q05629 Good for",
+        "evidence Q05630 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-c606d37e008e",
+        "evidence Q05631 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "evidence Q05632 Good for",
+        "evidence Q05633 Good for",
+        "evidence Q05634 Good for",
+        "evidence Q05635 Good for",
+        "evidence Q05636 Good for",
+        "evidence Q05637 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967",
+        "evidence Q05638 Good for",
+        "evidence Q05639 Printing advice",
+        "source R-POLYMAKER-PRIORITY-20261003-edf1439487e0",
+        "evidence Q05640 Pitfalls and limitations",
+        "source R-POLYMAKER-PRIORITY-20261003-effcc17a7754",
+        "evidence Q05641 Good for",
+        "evidence Q05642 Moisture sensitivity"
+      ],
+      "judgments": [],
+      "applied": 12,
+      "written": 39
+    },
+    {
+      "Receipt": "h2c-priority03-supplemental-apply.json",
+      "migration": "m319-priority-03-supplemental",
+      "packet": "dfb182db5e3186129f7de493e3866fe32ff6615ad26599b00166fa3309be0872",
+      "written": 4,
+      "records": [
+        {
+          "operation": "G035-06-current-limited-recipe",
+          "table": "evidence",
+          "id": "Q05643",
+          "kind": "append"
+        },
+        {
+          "operation": "G035-10-current-limited-recipe",
+          "table": "evidence",
+          "id": "Q05644",
+          "kind": "append"
+        },
+        {
+          "operation": "G057-03-current-limited-recipe",
+          "table": "evidence",
+          "id": "Q05645",
+          "kind": "append"
+        },
+        {
+          "operation": "PA12-FAQ-limit",
+          "table": "evidence",
+          "id": "Q05642",
+          "kind": "edit"
+        }
+      ]
+    },
+    {
+      "Receipt": "h2c-priority03-recovered-apply.json",
+      "migration": "m320-priority-03-recovered",
+      "packet": "081be3e13d35144231863c58498d0412c1097ed49ea7eaffdb6b5bf71f5d98c5",
+      "written": 2,
+      "records": [
+        {
+          "operation": "PC-moisture-equilibrium",
+          "table": "measurements",
+          "id": "V011819",
+          "kind": "append"
+        },
+        {
+          "operation": "PC-organic-solvent-own",
+          "table": "evidence",
+          "id": "Q05646",
+          "kind": "append"
+        }
+      ]
+    },
+    {
+      "Receipt": "h2c-priority03-cached-apply.json",
+      "migration": "m317-priority-03-cached",
+      "packet": "cfc9af6c9e7862a90addac2e2daa155cab80a788c2da42b3f7ad70495fa9d1c9",
+      "written": 9,
+      "records": [
+        {
+          "operation": "P03-CHEM-1",
+          "table": "evidence",
+          "id": "Q05607",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-2",
+          "table": "evidence",
+          "id": "Q05608",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-3",
+          "table": "evidence",
+          "id": "Q05609",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-4",
+          "table": "evidence",
+          "id": "Q05610",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-5",
+          "table": "evidence",
+          "id": "Q05611",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-6",
+          "table": "evidence",
+          "id": "Q05612",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-7",
+          "table": "evidence",
+          "id": "Q05613",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-8",
+          "table": "evidence",
+          "id": "Q05614",
+          "kind": "append"
+        },
+        {
+          "operation": "P03-CHEM-9",
+          "table": "evidence",
+          "id": "Q05615",
+          "kind": "append"
+        }
+      ]
+    },
+    {
+      "Receipt": "h2c-priority04-c11-apply.json",
+      "migration": "m323-batch-c11-priority-04-report",
+      "packet": "a383b92a6963ec8369bea52be2a0b05c1b797d7c6e01f5dbb7582aa8f01f32f9",
+      "log": [
+        "source R-CTI-PCFR-20241028-6b0741900015",
+        "evidence Q05688 Flammability"
+      ],
+      "judgments": [],
+      "applied": 1,
+      "written": 2
+    },
+    {
+      "Receipt": "h2c-priority04-c09-apply.json",
+      "migration": "m321-batch-c09-priority-04",
+      "packet": "fb24f36d252948a4e302e58eb1e28acd65b88233c72cbbf79a70deebf98e44ea",
+      "log": [
+        "source R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+        "evidence Q05647 Good for",
+        "evidence Q05648 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-50cc66066285",
+        "evidence Q05649 Good for",
+        "evidence Q05650 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-693bcb42a47c",
+        "evidence Q05651 Good for",
+        "evidence Q05652 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-6e425b0d7ce7",
+        "evidence Q05653 Good for",
+        "evidence Q05654 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-72581be8410a",
+        "evidence Q05655 Good for",
+        "evidence Q05656 Printing advice",
+        "source R-BAMBU-PRIORITY-20261003-94bc784d0793",
+        "evidence Q05657 Good for",
+        "evidence Q05658 Supports and removal",
+        "evidence Q05659 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-a85ff09cee52",
+        "evidence Q05660 Good for",
+        "evidence Q05661 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf",
+        "evidence Q05662 Good for",
+        "evidence Q05663 Warping and shrinkage",
+        "source R-BAMBU-PRIORITY-20261003-b02fd3e64625",
+        "evidence Q05664 Moisture sensitivity",
+        "source R-BAMBU-PRIORITY-20261003-f3c24780db60",
+        "evidence Q05665 Good for",
+        "evidence Q05666 Printing advice",
+        "source R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+        "evidence Q05667 Good for",
+        "evidence Q05668 Pitfalls and limitations",
+        "evidence Q05669 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-f9c029df1bc8",
+        "evidence Q05670 Good for",
+        "evidence Q05671 Warping and shrinkage"
+      ],
+      "judgments": [],
+      "applied": 12,
+      "written": 37
+    },
+    {
+      "Receipt": "h2c-priority05-c10-apply.json",
+      "migration": "m322-batch-c10-priority-05",
+      "packet": "4fecc7dcfc6902e50f2cb209a0e1b0aeeca1d15f270a65ae5274d48c0801cae3",
+      "log": [
+        "source R-BAMBU-PRIORITY-20261003-0419c91c3241",
+        "evidence Q05672 Good for",
+        "evidence Q05673 Printing advice",
+        "evidence Q05674 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+        "evidence Q05675 Good for",
+        "evidence Q05676 Moisture sensitivity",
+        "evidence Q05677 Printing advice",
+        "source R-BAMBU-PRIORITY-20261003-1a684f125817",
+        "evidence Q05678 Good for",
+        "evidence Q05679 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-277d60e34028",
+        "evidence Q05680 Good for",
+        "evidence Q05681 Pitfalls and limitations",
+        "evidence Q05682 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-a100c1bb3a92",
+        "evidence Q05683 Good for",
+        "evidence Q05684 Supports and removal",
+        "evidence Q05685 Pitfalls and limitations",
+        "source R-BAMBU-PRIORITY-20261003-b7ddfea7fab9",
+        "evidence Q05686 Good for",
+        "evidence Q05687 Pitfalls and limitations"
+      ],
+      "judgments": [],
+      "applied": 6,
+      "written": 22
+    }
+  ],
+  "OriginalCustody": "31 new digest-addressed originals and derivatives exported; old missing inventory unchanged.",
+  "ExpectedValueGuards": [
+    "priority-03-05-guards.json",
+    "priority-03-05-asa-guards.json"
+  ]
+}

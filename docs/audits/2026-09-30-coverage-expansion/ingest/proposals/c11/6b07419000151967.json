@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "6b0741900015196712696f8e5f8119f2dae7d767c575a1fa4a52568109c99e2b",
+    "url": "https://store.bblcdn.com/s1/default/a7ac91acf11b41bea0883615f46ed557.pdf",
+    "pages": 5,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://store.bblcdn.com/s1/default/a7ac91acf11b41bea0883615f46ed557.pdf#witness-for=source:B-pc-fr-TDS"
+  },
+  "identity": {
+    "polymer": "PC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polycarbonate",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pc"
+    ],
+    "materialId": "M035",
+    "materialName": "PC",
+    "estimateIdentity": "PC",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-CTI-PCFR-20241028-6b0741900015",
+      "Publisher": "Centre Testing International Group Co., Ltd.",
+      "Title": "CTI A2240623890101 Bambu PC FR vertical burning report",
+      "Revision": "A2240623890101",
+      "Publication date": "2024-10-28",
+      "Access date": "2026-10-03",
+      "Source class": "Reference or register",
+      "Source note": "Sample-only laboratory report provided on maker website; source class follows prior campaign lab-report reference contract. Client supplies sample identity, which CTI has not independently verified. Printed/bulk manufacturing form not stated; no product-wide certification.",
+      "Citation role": "cited",
+      "URL": "https://store.bblcdn.com/s1/default/a7ac91acf11b41bea0883615f46ed557.pdf",
+      "Locator": "pp. 1\u20135: sample identity, conditions, results and limitations",
+      "Applicable grades": "G036-01",
+      "Access state": "retrieved",
+      "Access note": "Staged maker-linked laboratory PDF; exact original digest retained, no overwritten revision.",
+      "SHA256": "6b0741900015196712696f8e5f8119f2dae7d767c575a1fa4a52568109c99e2b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Bambu PC FR"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review, not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G036-01",
+      "row": {
+        "GradeID": "G036-01",
+        "MaterialID": "M036",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PC FR",
+        "Shared formulation key": "B-pc-fr-TDS",
+        "Composition / filler": "Polycarbonate",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-CTI-PCFR-20241028-6b0741900015",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review, not human review",
+        "note": "Exact existing maker product bound from report p.1; primary grade identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c11-pcfr-V0-sample",
+      "gradeKey": "G036-01",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "G036-01",
+        "Domain": "Flammability",
+        "Topic": "Flammability",
+        "Finding": "Conclusion: This sample test results comply with the requirements of UL 94-2023 V-0.",
+        "Exposure / conditions": "CTI report A2240623890101, supplied sample Bambu PC FR C01-xx;128\u00d712.9\u00d73.3mm. Test UL94-2023 vertical burning at23\u00b12\u00b0C50\u00b15%RH; precondition23\u00b12\u00b0C50\u00b110%RH48h and separately70\u00b0C168h followed by calcium chloride desiccator\u22654h.20\u00b11mm flame applied twice10\u00b10.5s. Room and aged five-specimen sets meetV-0. Report limits results to tested samples; client identification not verified by CTI. Specimen manufacturing/printed form, build orientation, nozzle recipe and colour not stated. No universal printed-part certification or continuous service/fire design allowable. Report p.5 restricts data/results to scientific research, education, internal quality control and product development etc.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-CTI-PCFR-20241028-6b0741900015",
+        "Locator": "pp. 1\u20135: sample identity p.1/2; protocol p.3; room/aged results p.4/5; conclusion and scope p.5"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Conclusion: This sample test results comply with the requirements of UL 94-2023 V-0."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review, not human review",
+        "note": "Exact sample-only lab observation; complete conditions and form/identity limitations."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Report No. A2240623890101 Page 1 of 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ROOM 201, BUILDING A, NO. 1 FIRST QIANWAN ROAD, QIANHAI",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Type C01-xx (xx \u4ee3\u8868\u4efb\u610f\u540e\u7f00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "C01-xx (xx stands for any suffix)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sample Received Date Oct. 11, 2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Testing Period Oct. 11, 2024-Oct. 28, 2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 Flammability (Vertical burning)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Approved by Date Oct. 28, 2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "No. R5B9C22BE7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Centre Testing International Group Co., Ltd. Hongwei Industrial Zone, Bao\u2019an 70 District, Shenzhen, Guangdong, China",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Report No. A2240623890101 Page 2 of 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "C01-xx (xx \u4ee3\u8868\u4efb\u610f\u540e\u7f00)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "A2240623890101001 Bambu PC FR C01-xx (xx stands for any PC FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "A2240623890101001",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Report No. A2240623890101 Page 3 of 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. Test Equipment",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "RH-6033B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Electric constant temperature incubator 600*500*750(230L)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. Environmental Conditions",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Temperature: 23\u00b12\u2103; Humidity: 50\u00b15%RH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3. Test Standard: UL 94-2023",
+      "reason": "properties.csv carries no property for \"3. Test Standard:\""
+    },
+    {
+      "page": 3,
+      "text": "4. Test Condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "\u2460Condition in environment of 23\u00b12\u2103and humidity of 50\u00b110 %RH for 48h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "\u2461Condition in a 70 \u2103oven for 168h, then a calcium chloride desiccators for at least 4h to cool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Test Procedure: Flame height: 20\u00b11 mm. Apply the flame centrally to the middle point of the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "specimen bottom edge so that the top of the burner is 10 \u00b11 mm below the lower end of the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "specimen, and maintain it at that distance for 10 \u00b10.5s. After the application for 10 \u00b10.5s,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "immediately withdraw the burner at a rate of 300 mm/sec, to a distance at least 150 mm away",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10 \u00b10.5s. After that, immediately remove the burner at a rate of 300 mm/sec to a distance of at",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "least 150 mm from the specimen and measure the after flame time t\u2082 and the afterglow time",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Sample size: 128mm\u00d712.9mm\u00d73.3mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Report No. A2240623890101 Page 4 of 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "5. Test Result(s)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Criteria conditions V-0 V-1 V-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "\u226410s \u226430s \u226430s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "t1 and t2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "\u226450s \u2264250s \u2264250s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(t1 plus t2 for the 5 specimens)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "\u226430s \u226460s \u226460s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "application(t2+t3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Criteria conditions 1 2 3 4 5 V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0/2s 0/0s 0/1s 0/1s 0/0s \u226410s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "specimen t1 and t2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "condition set(t1 plus t2 for the 5 4s \u226450s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2s 0s 1s 1s 0s \u226430s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "second flame application(t2+t3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Report No. A2240623890101 Page 5 of 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Criteria conditions 1 2 3 4 5 V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0/1s 0/2s 0/2s 0/0s 0/1s \u226410s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "specimen t1 and t2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "condition set(t1 plus t2 for the 5 6s \u226450s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "each individual specimen after the 1s 2s 2s 0s 1s \u226430s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "second flame application(t2+t3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "UL 94-2023 V-0.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1 2 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1.This report is considered invalid without approved signature, special seal and the seal on the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2.The sample(s) and sample information was/were provided by the client who should be",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3.The result(s) shown in this report refer(s) only to the sample(s) tested;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4.Without written approval of CTI, this report can't be reproduced except in full;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5.In case of any discrepancy between the English version and Chinese version of the testing",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review, not human review",
+    "note": "Independent signed source-grounded review required."
+  },
+  "newMaterial": null
+}

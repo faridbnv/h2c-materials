@@ -1,0 +1,619 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86",
+    "url": "https://ca.store.bambulab.com/products/pa6-cf",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/pa6-cf#witness-for=source:B-pa6-cf-TDS"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pa6"
+    ],
+    "materialId": "M049",
+    "materialName": "PA6",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+      "Publisher": "Bambu Lab",
+      "Title": "PA6-CF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/pa6-cf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G050-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "0edbf0fe469b4318c82fc71e467da3a98da79f722fb88012537c8c46a4844a86"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PA6-CF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G050-01",
+      "row": {
+        "GradeID": "G050-01",
+        "MaterialID": "M050",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "PA6-CF",
+        "Shared formulation key": "B-pa6-cf-TDS",
+        "Composition / filler": "Nylon 6, carbon fiber",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "57 \u2103",
+        "Raw unit": "\u2103",
+        "Raw numeric": "57",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "\u00b0C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature \u00b0C": "Not published",
+        "Standard / load": "0.45 MPa",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-pa6-cf",
+        "Locator": "p. 1: Heat Deflection Temperature / \u2103 (0.45 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temperature / \u2103 (0.45 MPa)  57 \u2103  71 \u2103  87 \u2103  100 \u2103  117 \u2103  186 \u2103  194 \u2103  205 \u2103"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c10-0edbf0fe-e1",
+      "gradeKey": "G050-01",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "G050-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "As a new member of Bambu high performance filaments, PA6-CF keeps superior stiffness and strength properties in dry environments, it is perfect for printing load-bearing structural components.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Dry environment scope retained.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 117"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "As a new member of Bambu high performance filaments, PA6-CF keeps superior stiffness and strength properties in dry environments, it is perfect for printing load-bearing structural components."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-0edbf0fe-e2",
+      "gradeKey": "G050-01",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "G050-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Moisture sensitivity",
+        "Finding": "Bambu PA6-CF will experience a decrease in strength and stiffness after absorbing water, making it not recommended for printing models with high requirements for strength, stiffness, and dimensional stability, especially thin and elongated models. The prints of PA6-CF usually become tougher and more resistant to impacts, drops, and collisions when they get damp; you can dampen and soften the prints in advance if the model requires high toughness.",
+        "Exposure / conditions": "Maker explicitly describes moisture tradeoff; quantitative dry/wet TDS specimens remain controlling, not a universal condition or service test.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 151"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambu PA6-CF will experience a decrease in strength and stiffness after absorbing water, making it not recommended for printing models with high requirements for strength, stiffness, and dimensional stability, especially thin and elongated models. The prints of PA6-CF usually become tougher and more resistant to impacts, drops, and collisions when they get damp; you can dampen and soften the prints in advance if the model requires high toughness."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c10-0edbf0fe-e3",
+      "gradeKey": "G050-01",
+      "row": {
+        "MaterialID": "M050",
+        "GradeID": "G050-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Fully impregnating the surface of the prints with paint, wax and other waterproof coatings can inhibit water absorption and prevent them from becoming soft.",
+        "Exposure / conditions": "Maker coating suggestion only; no quantified permeability, certification or durability result.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-0edbf0fe469b",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 155"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Fully impregnating the surface of the prints with paint, wax and other waterproof coatings can inhibit water absorption and prevent them from becoming soft."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $54.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 55-102 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Up to 10% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $54.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 55-102 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "As a new member of Bambu high performance filaments, PA6-CF keeps superior stiffness and strength properties in dry environments, it is perfect for printing loa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Normal PA-CF  PA6-CF  Improved %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Bending Strength - XY, dry state)  128 MPa  151 MPa  18%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY, dry state)  4420 MPa  5460 MPa  24%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu PA6-CF offers excellent impact resistance, ensuring effective vibration resistance for your prints. It is commonly used to print models that need to withs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Basic  PETG Basic  ABS  ASA  PC  PA6-CF  PAHT-CF  PET-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6-CF  Normal PA6-CF  PAHT-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Composition  Nylon 6, carbon fiber  Nylon 6, carbon fiber  PA12 and other long-chain PA, carbon fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (Impact Strength - XY, dry state)  40.3 kJ/m&sup2;  35.7 kJ/m&sup2;  57.5 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (Impact Strength - XY, wet state)  57.2 kJ/m&sup2;  65.4 kJ/m&sup2;  62.3 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Bending Strength - XY, dry state)  151 MPa  141 MPa  125 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Bending Strength - XY, wet state)  95 MPa  67 MPa  115 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Strength (Bending Strength - Z, dry state)  80 MPa  72 MPa  61 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Strength (Bending Strength - Z, wet state)  45 MPa  31 MPa  49 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY, dry state)  5460 MPa  4870 MPa  4230 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY, wet state)  3560 MPa  1890 MPa  3640 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Adhesion (Impact Strength - Z, dry state)  15.5 kJ/m&sup2;  11.6 kJ/m&sup2;  13.3 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Resistant\uff08HDT, 0.45 MPa\uff09  186 \u2103  177 \u2103  194 \u2103",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saturated Water Absorption Rate / % (25 \u00b0C\uff0c55% RH)  2.35  3.80  0.88",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not compatible with AMS Series, Cool Plate SuperTack, Hotend with Stainless Steel Nozzle 0.2 mm .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Mechanical Properties & Moisture Impact",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu PA6-CF will experience a decrease in strength and stiffness after absorbing water, making it not recommended for printing models with high requirements fo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Support Removal & Post-Printing Timing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "When printing a model with support, it is necessary to remove the support structure within 2 hours to prevent it from being difficult to remove after being damp",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.Surface Protection & Treatment",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $54.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-pa6-cf",
+      "previousSHA256": "1fe4c182422f334df2074676882cc595a64b39325a667e2c430fe05735295c57",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-pa6-cf",
+        "Composition / filler": "Composition Nylon 6, carbon fiber Nylon 6, carbon fiber PA12 and other long-chain PA, carbon fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-pa6-cf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

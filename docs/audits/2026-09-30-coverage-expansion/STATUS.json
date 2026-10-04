@@ -1,6 +1,6 @@
 {
-  "dataRelease": "b847b43260f9",
-  "latestCompletedDataCommit": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
+  "dataRelease": "4e5ce68f19f3",
+  "latestCompletedDataCommit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
     "total": 136,
@@ -9,8 +9,8 @@
   },
   "productPasses": {
     "total": 1051,
-    "completed": 33,
-    "remaining": 1018,
+    "completed": 45,
+    "remaining": 1006,
     "mergedIntoAnother": 26
   },
   "applicationCells": {
@@ -45,20 +45,20 @@
     "familyEntries": 22,
     "retiredDuplicates": {
       "measurements": 310,
-      "evidence": 17,
+      "evidence": 21,
       "profiles": 79
     },
     "excluded": 17,
     "grades": 1163,
-    "measurements": 11508,
-    "numericMeasurements": 11327,
+    "measurements": 11509,
+    "numericMeasurements": 11328,
     "quarantined": 24,
     "profiles": 1287,
-    "evidence": 828,
+    "evidence": 839,
     "prices": 357,
-    "sources": 1870,
+    "sources": 1901,
     "coverage": 947,
-    "knowHow": 4761,
+    "knowHow": 4828,
     "polymerEnvironment": 353,
     "polymerEvidence": 321,
     "coverageDerived": 1144
@@ -80,8 +80,8 @@
     },
     "evidence": {
       "baseline": 5306,
-      "current": 5606,
-      "added": 300,
+      "current": 5688,
+      "added": 382,
       "edited_existing": 211,
       "removed": 0
     },
@@ -108,9 +108,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 11818,
-      "added": 282,
-      "edited_existing": 1303,
+      "current": 11819,
+      "added": 283,
+      "edited_existing": 1323,
       "removed": 0
     },
     "method": {
@@ -164,8 +164,8 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 1870,
-      "added": 42,
+      "current": 1901,
+      "added": 73,
       "edited_existing": 63,
       "removed": 0
     }
@@ -306,6 +306,18 @@
     {
       "hash": "41429e5bf9342cec4bb8b9605ebda3fef202eca5",
       "subject": "Review and admit the first twelve priority Nanovia product passes"
+    },
+    {
+      "hash": "e77ea5ad19ae7f12dbc09972534d1bdc0345a727",
+      "subject": "Preserve context between HTML table rows and close verified priority outcomes"
+    },
+    {
+      "hash": "1392cdc41a77894c94a15ab044794ee0814e091e",
+      "subject": "fix(ingest): preserve distinct statements under shared headings"
+    },
+    {
+      "hash": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+      "subject": "data: complete reviewed Polymaker priority batch of twelve products"
     }
   ],
   "resumedScope": {
@@ -314,7 +326,7 @@
     "materialCompleted": 61,
     "targetAdditionalProducts": 100,
     "selectedProducts": 100,
-    "completedSelectedProducts": 12,
+    "completedSelectedProducts": 24,
     "selectionState": "100 live priority products frozen after all 136 material assessments completed; nine maker batches of at most12."
   },
   "completionMeaning": "Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes."

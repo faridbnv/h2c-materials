@@ -1,0 +1,23 @@
+{
+  "migration": "m325-priority-04-asa-aero-correction",
+  "tests": [
+    {
+      "table": "measurements",
+      "id": "V000645",
+      "field": "Normalized value",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "V000645 moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "profiles",
+      "id": "P0039",
+      "field": "Nozzle °C",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "source profile moved",
+      "tables_manifest_ledger_unchanged": true
+    }
+  ]
+}

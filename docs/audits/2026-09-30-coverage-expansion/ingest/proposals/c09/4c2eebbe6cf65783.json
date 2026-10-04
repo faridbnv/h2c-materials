@@ -1,0 +1,582 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "4c2eebbe6cf6578319e1c8ce44a57d9402d8929fcb5e83d77d2f7faf5ece99ec",
+    "url": "https://ca.store.bambulab.com/products/asa-filament",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/asa-filament#witness-for=source:B-asa-filament-TDS"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: asa"
+    ],
+    "materialId": "M031",
+    "materialName": "ASA",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+      "Publisher": "Bambu Lab",
+      "Title": "ASA official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/asa-filament",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G031-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "4c2eebbe6cf6578319e1c8ce44a57d9402d8929fcb5e83d77d2f7faf5ece99ec"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ASA"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G031-01",
+      "row": {
+        "GradeID": "G031-01",
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ASA",
+        "Shared formulation key": "B-asa-filament-TDS",
+        "Composition / filler": "acrylonitrile - styrene - acrylate",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.45 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.45",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.45",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "25\u00b0C",
+        "Test temperature \u00b0C": "25",
+        "Standard / load": "25 \u00b0C,55 RH",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-asa-filament",
+        "Locator": "p. 1: Saturated Water Absorption Rate (25 \u00b0C,55% RH)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Saturated Water Absorption Rate (25 \u00b0C\uff0c55% RH)  0.45%  0.65%  0.25%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min \u00b0C": "Not applicable",
+        "Nozzle max \u00b0C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed \u00b0C": "Not published",
+        "Bed state": "unknown",
+        "Bed min \u00b0C": "Not applicable",
+        "Bed max \u00b0C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Printers Required",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying \u00b0C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-asa-filament",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure Printers Required"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c09-4c2eebbe-e1",
+      "gradeKey": "G031-01",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "G031-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "ASA is ideal for outdoor applications, such as automotive exterior parts, signage, and outdoor equipment, thanks to its enhanced weather resistance and color stability. ABS is a versatile material with excellent mechanical properties that is commonly used for indoor applications.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Maker comparison to ABS is not a product-specific service/weathering test.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 137"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ASA is ideal for outdoor applications, such as automotive exterior parts, signage, and outdoor equipment, thanks to its enhanced weather resistance and color stability. ABS is a versatile material with excellent mechanical properties that is commonly used for indoor applications."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c09-4c2eebbe-e2",
+      "gradeKey": "G031-01",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "G031-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Bambu ASA offers extraordinary UV, oxidation, and aging resistance, providing effective protection against breakage and color degradation when used outdoors for long-term purposes.",
+        "Exposure / conditions": "Maker UV/aging claim only; dose, spectrum, duration, colour, specimen and retained-property criterion not published in this paragraph.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 110"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambu ASA offers extraordinary UV, oxidation, and aging resistance, providing effective protection against breakage and color degradation when used outdoors for long-term purposes."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$38.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 39 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$38.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 39 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Compared to normal PETG or ABS, Bambu ASA can remain in shape even at a temperature of 100\u00b0C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (Impact Strength - XY)  41.0 kJ/m&sup2;  39.3 kJ/m&sup2;  34.8 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Bending Strength - XY)  65 MPa  62 MPa  108 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY)  1920 MPa  1880 MPa  2310 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Adhesion (Impact Strength - Z)  4.9 kJ/m&sup2;  7.4 kJ/m&sup2;  9.0 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Resistant (HDT, 0.45 MPa)  100 \u2103  87 \u2103  117 \u2103",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.What's the difference between ABS and ASA?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.What are the different applications of ABS and ASA?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.What are the similarities between ABS and ASA?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Ventilation & Odor Notice",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Warping Prevention Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA is prone to warping when printing large size and/or high infill density model. To avoid warping: 1) Not recommended to print too large size and/or high infi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$38.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-asa-filament",
+      "previousSHA256": "1807d7f84317a3e28c07b031667e789cee72e9c46c948ff165c036e598a98995",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-asa-filament",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-asa-filament",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

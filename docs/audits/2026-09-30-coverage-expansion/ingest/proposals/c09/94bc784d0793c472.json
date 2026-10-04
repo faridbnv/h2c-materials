@@ -1,0 +1,657 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "94bc784d0793c472a98ba3e855736cda6a691a0557ad567fad1bbc1721610e67",
+    "url": "https://ca.store.bambulab.com/products/asa-cf",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/asa-cf#witness-for=source:B-asa-cf-TDS"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: asa"
+    ],
+    "materialId": "M031",
+    "materialName": "ASA",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+      "Publisher": "Bambu Lab",
+      "Title": "ASA-CF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/asa-cf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G033-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "94bc784d0793c472a98ba3e855736cda6a691a0557ad567fad1bbc1721610e67"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ASA-CF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G033-01",
+      "row": {
+        "GradeID": "G033-01",
+        "MaterialID": "M033",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ASA-CF",
+        "Shared formulation key": "B-asa-cf-TDS",
+        "Composition / filler": "acrylonitrile - styrene - acrylate",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.33 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.33",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.33",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "25\u00b0C",
+        "Test temperature \u00b0C": "25",
+        "Standard / load": "25 \u00b0C 55 RH",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-asa-cf",
+        "Locator": "p. 1: Saturated Water Absorption Rate (25 \u00b0C, 55% RH)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Saturated Water Absorption Rate (25 \u00b0C, 55% RH)  0.33%  0.45%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min \u00b0C": "Not applicable",
+        "Nozzle max \u00b0C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed \u00b0C": "Not published",
+        "Bed state": "unknown",
+        "Bed min \u00b0C": "Not applicable",
+        "Bed max \u00b0C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Printers Required",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying \u00b0C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Hardened Steel Nozzle",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-asa-cf",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure Printers Required"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c09-94bc784d-e1",
+      "gradeKey": "G033-01",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "G033-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Bambu ASA-CF stands out as one of the top materials for outdoor use, with excellent resistance to harsh weather and UV exposure. Reinforced with carbon fiber, it\u2019s ideal for creating durable garden tools, outdoor furniture, and protective enclosures for electronics.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 118"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambu ASA-CF stands out as one of the top materials for outdoor use, with excellent resistance to harsh weather and UV exposure. Reinforced with carbon fiber, it\u2019s ideal for creating durable garden tools, outdoor furniture, and protective enclosures for electronics."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c09-94bc784d-e2",
+      "gradeKey": "G033-01",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "G033-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Supports and removal",
+        "Finding": "High heatbed temperatures and glue stick can cause strong adhesion between the print and the build plate. Please allow the print to cool down to room temperature naturally for easier removal and to avoid damage to the model. For more details, please refer to: Work After Printing Finished on WIKI.",
+        "Exposure / conditions": "Maker cool-to-room-temperature removal advice; no service/environment result.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 153"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "High heatbed temperatures and glue stick can cause strong adhesion between the print and the build plate. Please allow the print to cool down to room temperature naturally for easier removal and to avoid damage to the model. For more details, please refer to: Work After Printing Finished on WIKI."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c09-94bc784d-e3",
+      "gradeKey": "G033-01",
+      "row": {
+        "MaterialID": "M033",
+        "GradeID": "G033-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Note: ASA-CF 1kg variant is discontinued and will not be restocked once sold out. We will be introducing a new size specification in the future. Stay tuned for further updates.",
+        "Exposure / conditions": "Specific1kg size notice only; not retirement of entire product line or source revision.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-94bc784d0793",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 47"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Note: ASA-CF 1kg variant is discontinued and will not be restocked once sold out. We will be introducing a new size specification in the future. Stay tuned for further updates."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "a list of recommendations",
+      "raw": "Hardened Steel Nozzle",
+      "fromBelow": false,
+      "line": "Hardened Steel Nozzle Mandatory"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$47.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 48 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "External Spool Holder Recommended & Limited Compatibility with AMS, AMS 2 Pro, and AMS HT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: ASA-CF 1kg variant is discontinued and will not be restocked once sold out. We will be introducing a new size specification in the future. Stay tuned for ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "External Spool Holder Recommended & Limited Compatibility with AMS, AMS 2 Pro, and AMS HT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: ASA-CF 1kg variant is discontinued and will not be restocked once sold out. We will be introducing a new size specification in the future. Stay tuned for ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$47.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 48 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "External Spool Holder Recommended & Limited Compatibility with AMS, AMS 2 Pro, and AMS HT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.2 mm Nozzle NOT Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: ASA-CF 1kg variant is discontinued and will not be restocked once sold out. We will be introducing a new size specification in the future. Stay tuned for ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With carbon fiber reducing warping, Bambu ASA-CF ensures outstanding dimensional stability, making it ideal for large models or parts that require high precisio",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu ASA-CF offers 67% more stiffness compared to standard ASA, making it the go-to material for parts that need to withstand significant load and resist bendi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY)  3740 MPa  1920 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Adhesion (Impact Strength - Z)  9.4 kJ/m&sup2;  4.9 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (Impact Strength - XY)  14.0 kJ/m&sup2;  41.0 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Bending Strength - XY)  72 MPa  65 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Bending Modulus - XY)  3740 MPa  1920 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Adhesion (Impact Strength - Z)  9.4 kJ/m&sup2;  4.9 kJ/m&sup2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Resistance (HDT, 0.45 MPa)  110 \u2103  100 \u2103",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not compatible with Cool Plate SuperTack, Hotend with Stainless Steel Nozzle 0.2 mm, and Bambu Liquid Glue .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Filament Handling Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Warping Prevention Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.Post-processing Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$47.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-asa-cf",
+      "previousSHA256": "5fce3dad396754b6743592309955549301512bbff4cd689f19c1f6f9e40d59c6",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-asa-cf",
+        "Composition / filler": "Bambu ASA-CF stands out as one of the top materials for outdoor use, with excellent resistance to harsh weather and UV exposure. Reinforced with carbon fiber, i (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-asa-cf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

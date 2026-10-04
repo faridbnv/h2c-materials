@@ -1,0 +1,819 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a",
+    "url": "https://ca.store.bambulab.com/products/asa-aero",
+    "pages": 1,
+    "provider": "Bambu Lab",
+    "manufacturer": "Bambu Lab",
+    "docKey": "https://ca.store.bambulab.com/products/asa-aero#witness-for=source:B-asa-aero-TDS"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: asa"
+    ],
+    "materialId": "M031",
+    "materialName": "ASA",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+      "Publisher": "Bambu Lab",
+      "Title": "ASA Aero official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://ca.store.bambulab.com/products/asa-aero",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G032-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "f50ef28e766c497472550cf1dbe4b9cfcfd75fe949566acbb44e314adc3a240a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ASA Aero"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G032-01",
+      "row": {
+        "GradeID": "G032-01",
+        "MaterialID": "M032",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "ASA Aero",
+        "Shared formulation key": "B-asa-aero-TDS",
+        "Composition / filler": "acrylonitrile - styrene - acrylate",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammable \u2014 verify grade, thickness and certificate; not assembly certification",
+        "Selected-grade rationale": "Exact Bambu product TDS",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "32.0 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "32",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "32",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m\u00b2",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature \u00b0C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-asa-aero",
+        "Locator": "p. 1: Impact Resistance & Built to Last Toughness (Impact Strength - XY)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Toughness (Impact Strength - XY)  32.0 kJ/m&sup2;  24.5 kJ/m&sup2;  7.9 kJ/m&sup2;"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "3.4 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "3.4",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.4",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m\u00b2",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Dry",
+        "Moisture state": "dry",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature \u00b0C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-asa-aero",
+        "Locator": "p. 1: Impact Resistance & Built to Last Layer Adhesion (Impact Strength - Z, Dry State)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Layer Adhesion (Impact Strength - Z, Dry State)  3.4 kJ/m&sup2;  2.5 kJ/m&sup2;  1.1 kJ/m&sup2;"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "53 \u00b0C",
+        "Raw unit": "\u00b0C",
+        "Raw numeric": "53",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "\u00b0C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature \u00b0C": "Not published",
+        "Standard / load": "0.45 MPa",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-asa-aero",
+        "Locator": "p. 1: Heat Deflection Temperature / \u00b0C (0.45 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temperature / \u00b0C (0.45 MPa)  53 \u00b0C  57 \u00b0C  85 \u00b0C  100 \u00b0C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.05 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.05",
+        "Raw uncertainty \u00b1": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1050",
+        "Normalized uncertainty \u00b1": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m\u00b3",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal \u00b0C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature \u00b0C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-asa-aero",
+        "Locator": "p. 1: Filament Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Filament Density  1.05 g/cm&sup3;  0.99 g/cm&sup3;  1.21 g/cm&sup3;"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M031",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "240 - 270 \u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "240",
+        "Nozzle max \u00b0C": "270",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "Not published",
+        "Bed state": "unknown",
+        "Bed min \u00b0C": "Not applicable",
+        "Bed max \u00b0C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Printers Required",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying \u00b0C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-asa-aero",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "< 250 mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "Expansion Ratio102%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure Printers Required"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c09-f50ef28e-e1",
+      "gradeKey": "G032-01",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "G032-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Only 50%-75% the density of regular ASA prints, ASA Aero is as light as feather, designed for weight-sensitive objects, such as RC planes and unmanned aerial vehicles (UAVs). With controllable foaming characteristic, ASA Aero achieves lower density of prints by increasing printing temperature or lowering flow rate.",
+        "Exposure / conditions": "Exact maker intended-use claim only; no design allowable, guaranteed lifetime, chemical/weathering qualification or suitability PASS. Revision/formulation, geometry and print conditions remain unstated unless the quotation specifies them. Foamed print density varies with temperature/flow/speed/geometry; no fixed density added.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 118"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Only 50%-75% the density of regular ASA prints, ASA Aero is as light as feather, designed for weight-sensitive objects, such as RC planes and unmanned aerial vehicles (UAVs). With controllable foaming characteristic, ASA Aero achieves lower density of prints by increasing printing temperature or lowering flow rate."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c09-f50ef28e-e2",
+      "gradeKey": "G032-01",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "G032-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "The average density of prints will vary with changes in parameters such as actual printing temperature, flow rate ratio, printing speed, model size, wall thickness and infill density.",
+        "Exposure / conditions": "Foaming/process-dependent density, not equivalent to unfoamed TDS filament density.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 119"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "The average density of prints will vary with changes in parameters such as actual printing temperature, flow rate ratio, printing speed, model size, wall thickness and infill density."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c09-f50ef28e-e3",
+      "gradeKey": "G032-01",
+      "row": {
+        "MaterialID": "M032",
+        "GradeID": "G032-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Not compatible with Cool Plate SuperTack, Hotend with Hardened Steel Nozzle 0.6 mm / 0.8 mm, and Hotend with Stainless Steel Nozzle 0.2 mm.",
+        "Exposure / conditions": "Maker explicit plate/nozzle exclusions retained; no tested universal machine pass inferred.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-BAMBU-PRIORITY-20261003-f50ef28e766c",
+        "Locator": "p. 1: exact product features/description/application tips, source text line 159"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Not compatible with Cool Plate SuperTack, Hotend with Hardened Steel Nozzle 0.6 mm / 0.8 mm, and Hotend with Stainless Steel Nozzle 0.2 mm."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Printers Required",
+      "fromBelow": false,
+      "line": "Enclosure Printers Required"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temperature",
+      "raw": "240 - 270 \u00b0C",
+      "fromBelow": false,
+      "line": "Printing Temperature  240 - 270 \u00b0C  240 - 280 \u00b0C  210 - 260 \u00b0C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "< 250 mm/s",
+      "fromBelow": false,
+      "line": "Printing Speed  < 250 mm/s  < 150 mm/s  < 180 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Volumetric",
+      "raw": "Expansion Ratio102%",
+      "fromBelow": false,
+      "line": "Volumetric Expansion Ratio  102%  100% - 210%  100% - 220%"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Meet Bambu Lab R1: 55W CO\u2082 Laser. Big Job. Light Work.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From 24:00 (UTC-4) on October 15, 2026, Bambu Lab Canada will be operated by BAMBULAB CANADA LIMITED. Terms of Sales updated. >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Starting from Aug 14 3:00 AM EDT, Our return period will be extended from 14 days to 30 days.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Expand your creative boundry with the ALL NEW A2L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dual-nozzle printing, made accessible. Meet Bambu Lab X2D. Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Experience the leap in multi-material printing with the ALL NEW H2C! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Classic Evolves. All-New Bambu Lab P2S - Learn More >>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Meet the Ultimate Single-Nozzle 3D Printer! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\ud83c\udf89Reimaging Personal Manufacturing with Bambu Lab H2D! Learn More>>",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$63.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 64 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$63.99 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Earn 64 Bambu Credits with this purchase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS 2 Pro, AMS HT & AMS Compatible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Order will be shipped out from CA warehouse in 1-3 business days once being processed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over CAD $60 (excludes Printers, AMS, and Smoke Purifier). See our Shipping Policy for details.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-Day Returns",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Strength (Bending Strength - Z)  24 MPa  15 MPa  15 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Only 50%-75% the density of regular ASA prints, ASA Aero is as light as feather, designed for weight-sensitive objects, such as RC planes and unmanned aerial ve",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The relationship between the maximum foaming rate, minimum print density, and printing temperature of ASA Aero. * Specimen Test: Nozzle Type: 0.4 mm; Printing S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "220 \u00b0C  ~ 0.93  ~ 100%  ~ 0%  ~ 0.97 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "230 \u00b0C  0.90  106%  6%  0.92 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "240 \u00b0C  0.74  128%  28%  0.78 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "250 \u00b0C  0.60  158%  58%  0.61 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "260 \u00b0C  0.51  186%  86%  0.52 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "270 \u00b0C  0.45  211%  111%  0.46 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "280 \u00b0C  0.44  216%  116%  0.45 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flow Rate Ratio  0.93 - 0.97  0.45 - 0.80  0.5 - 0.8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Foaming Rate  /  0 - 110%  0 - 120%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prints Density  1.03 g/cm&sup3;  0.46 ~ 0.97 g/cm&sup3;  0.55 - 1.05 g/cm&sup3;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.Accessory Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not compatible with Cool Plate SuperTack, Hotend with Hardened Steel Nozzle 0.6 mm / 0.8 mm, and Hotend with Stainless Steel Nozzle 0.2 mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.Drying Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.Warping Prevention Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.Ventilation & Odor Notice",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.Usage Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6.Safety Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$63.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected.",
+    "retrievalRevision": {
+      "by": "Codex AI injector; independent AI delta review required",
+      "previousSourceID": "B-asa-aero",
+      "previousSHA256": "265753247b413cf063d77109b5e27cc047673bd9340ca6de8ddd7ed0fe532f79",
+      "accessed": "2026-10-03",
+      "reason": "Original prior digest remains registered, with known absent private original. Newly captured maker response is a separate hash-addressed revision, without overwriting history or inferring formulation/recency superiority."
+    }
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Expand your creative boundry with the ALL NEW A2L.",
+        "Shared formulation key": "B-PC-asa-aero",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-asa-aero",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bambulab.com"
+      }
+    }
+  ],
+  "newMaterial": null
+}

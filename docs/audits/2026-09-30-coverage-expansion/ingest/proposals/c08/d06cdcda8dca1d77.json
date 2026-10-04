@@ -1,0 +1,1763 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554",
+    "url": "https://shop.polymaker.com/products/fiberon-pa612-esd",
+    "pages": 1,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://shop.polymaker.com/products/fiberon-pa612-esd#witness-for=source:S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1"
+  },
+  "identity": {
+    "polymer": "PA612",
+    "modifier": "ESD formulation",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pa612",
+      "filler: esd (from the sheet, not the name)"
+    ],
+    "materialId": "M065",
+    "materialName": "PA612-ESD",
+    "estimateIdentity": "PA612",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+      "Publisher": "Polymaker",
+      "Title": "Fiberon PA612-ESD official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://shop.polymaker.com/products/fiberon-pa612-esd",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G065-01",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "d06cdcda8dca1d77a337bd1905d5b53a347b4e274ba835f9c288630a196f7554"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Fiberon PA612-ESD"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G065-01",
+      "row": {
+        "GradeID": "G065-01",
+        "MaterialID": "M065",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Fiberon PA612-ESD",
+        "Shared formulation key": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.1 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Density g/cm³·ISO 1183 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm³·ISO 1183 — 1.1 g/cm³ Important ISO 1183"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.1 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Density g/cm³·ISO 1183 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm³·ISO 1183 — 1.1 g/cm³ Important ISO 1183"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "21.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "21.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "21.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Tensile strength MPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength MPa·ISO 527 21.5 MPa Important — ISO 527"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Elongation at break %·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break %·ISO 527 1.4 % Important — ISO 527"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "39.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "39.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "39.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Bending strength MPa·ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending strength MPa·ISO 178 39.5 MPa Important — ISO 178"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "1784.4 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "1784.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1784.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Young's modulus GPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young's modulus GPa·ISO 527 1784.4 GPa Important — ISO 527"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "4.5 KJ/m²",
+        "Raw unit": "KJ/m²",
+        "Raw numeric": "4.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Charpy, unnotched KJ/m²·ISO 179",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy, unnotched KJ/m²·ISO 179 4.5 KJ/m² Important — ISO 179"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "187.3 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "187.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "187.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Melting temperature °C·ISO 11357—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature °C·ISO 11357— 187.3 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "187.3 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "187.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "187.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Melting temperature °C·ISO 11357 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature °C·ISO 11357 — 187.3 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "41.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "41.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "41.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357— 41.8 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "41.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "41.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "41.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357 — 41.8 °C Important ISO 11357"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "190 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "190",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "190",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306— 190 °C Important ISO 306"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "190 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "190",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "190",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306 — 190 °C Important ISO 306"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "280°C - 300°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "280",
+        "Nozzle max °C": "300",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "100°C for 10h",
+        "Drying state": "stated",
+        "Drying °C": "100",
+        "Drying hours": "10",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temperature: 280˚C - 300˚C Bed Temperature: 40˚C - 50˚C Printing Speed: up to 300mm/s Fan: OFF Direct Drive: Retraction Distance: 1-3mm Retraction Speed: 20-40mm/s Drying Settings: 100˚C for "
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260-300 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "300",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "100°C for 10h",
+        "Drying state": "stated",
+        "Drying °C": "100",
+        "Drying hours": "10",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 260-300 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c08-d06cdcda-e1",
+      "gradeKey": "G065-01",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "• PCB storage boxes",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 289"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "• PCB storage boxes"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-d06cdcda-e2",
+      "gradeKey": "G065-01",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "• ESD-safe shelves and racks",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 290"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "• ESD-safe shelves and racks"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-d06cdcda-e3",
+      "gradeKey": "G065-01",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "• High-temperature electronic housings",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 291"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "• High-temperature electronic housings"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-d06cdcda-e4",
+      "gradeKey": "G065-01",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "• Structural components for cleanrooms",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 292"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "• Structural components for cleanrooms"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-d06cdcda-e5",
+      "gradeKey": "G065-01",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "• Industrial jigs and fixtures",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 293"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "• Industrial jigs and fixtures"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-d06cdcda-e6",
+      "gradeKey": "G065-01",
+      "row": {
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "NOTE: Fiberon ™ PA612-ESD is compounded with carbon nano-tubes: Here is a research regarding ABS compounded with carbon nano-tubes.",
+        "Exposure / conditions": "Maker links research on ABS compounded with carbon nanotubes, not a PA612-ESD printed-product test or certification. No result transfer between polymers, formulations or product identities.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 190"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "NOTE: Fiberon ™ PA612-ESD is compounded with carbon nano-tubes: Here is a research regarding ABS compounded with carbon nano-tubes."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temperature",
+      "raw": "280°C - 300°C",
+      "fromBelow": false,
+      "line": "Printing Temperature: 280˚C - 300˚C Bed Temperature: 40˚C - 50˚C Printing Speed: up to 300mm/s Fan: OFF Direct Drive: Retraction Distance: 1-3mm Retraction Speed: 20-40mm/s Drying Settings: 100˚C for "
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "260-300 °C",
+      "fromBelow": false,
+      "line": "Nozzle 260-300 °C"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Recommended",
+      "fromBelow": false,
+      "line": "Enclosure Recommended"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "100°C for 10h",
+      "fromBelow": false,
+      "line": "Drying 100°C for 10h Compatibility 0.4mm+ hardened nozzle required"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "100°C for 10–16h",
+      "fromBelow": false,
+      "line": "• Dry before printing: 100°C for 10–16h • Use a hardened steel or ruby nozzle to avoid wear"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "📦 FREE SHIPPING ON ORDERS OVER $35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NEW Polymaker™ HT-PLA Pro 1st purchase 10% off. Heat Ready. Impact Ready. Still PLA. Shop HT-PLA Pro FLASH SALE PETG Flash Sale 4 spools - 15% off. 6 spools - 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fiberon™ ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sale Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fibe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ Sale CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DRY & PRINT PolyDryer™ Modular drying for moisture-sensitive filament, ready while you print. Shop PolyDryer XL PolyDryer™ Box XL Roomy dry storage for 3KG spoo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Sale Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Sale Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Polymaker™ HT-PLA Polymaker™ HT-P",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Sale Polymaker™ HT-PLA Sale Polym",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New To 3D Printing - Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA612-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / of 22",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 3 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 4 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 5 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 6 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 7 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 8 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 9 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 10 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 11 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 12 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 13 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 14 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 15 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 16 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 17 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 18 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Play video 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 19 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 20 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Play video 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Delivery Time 5–10 days",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "60 Day Return",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print Industrial-Grade ESD Parts with Polymaker™ Fiberon PA612-ESD Engineered for professionals who need performance where it counts. With built-in ESD safety, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ESD-Safe and Ready for Action With a surface resistivity of 10⁴–10⁷ Ω/sq, Fiberon PA612-ESD protects sensitive components from static discharge—ideal for PCBs, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High Strength & Excellent Dimensional Accuracy Reinforced with CNT and 10% carbon fiber, this filament delivers high stiffness, 84 MPa XY tensile strength, and ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Built for High Heat Maintain mechanical integrity in high-temperature environments with a heat deflection temperature of up to 157 °C at 0.45 MPa.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reliable Printing, No Surprises Prints fast—up to 300 mm/s—with low warping and excellent surface finish. Supports self-supporting structures and stays stable a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NOTE: Fiberon ™ PA612-ESD is compounded with carbon nano-tubes: Here is a research regarding ABS compounded with carbon nano-tubes.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All-metal hotend 280˚C+",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "For even better performance, you can anneal this material for 16 hours @ 100°C.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA612-ESD",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$64.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm SKU: FG08001 HEX Code: #161618",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "<p>Earn%20[points_amount]%20when%20completing%20this%20purchase.</p>",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Black #161618 Black",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg 3kg",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA612-ESD - Black / 0.5kg is backordered and will ship as soon as it is back in stock.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA612-ESD",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "From $64.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Bed 25-50 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Max Speed 60 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Compatibility 0.4mm+ hardened nozzle required",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Use an all-metal hotend within 280-300°C and a wear-resistant nozzle, such as hardened steel or ruby.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Store and print under dry conditions (relative humidity below 20%); dry at 100°C for 10 hours before use and feed from a dry box or heated filament dryer during",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Use a 40-50°C build plate, and turn the cooling fan OFF; an actively heated chamber is not required.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Anneal at 100°C for 16 hours when the annealed performance stated in the TDS is required.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength MPa·ISO 52784.3 MPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break %·ISO 5273 % Important — ISO 527",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending strength MPa·ISO 178116.2 MPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus GPa·ISO 1783745.5 GPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus GPa·ISO 178 — — ISO 178",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Young's modulus GPa·ISO 5274293.7 GPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, unnotched KJ/m²·ISO 179— — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 1795.9 KJ/m² Important — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 179 — — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Tested on 100% infill specimens. X-Y = across the layers, Z = between the layers (layer adhesion).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What is Fiberon™ PA612-ESD?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA612-ESD is an advanced ESD-safe nylon filament engineered for demanding applications requiring high mechanical strength, heat resistance, and reliabl",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Compared to PETG-ESD, PA612-ESD offers:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• 2× higher heat resistance (up to ~150°C HDT)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What are the ideal use cases for PA612-ESD?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Nozzle Temp: 280–300°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Bed Temp: 40–50°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Dry before printing: 100°C for 10–16h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Recommended support: PolySupport™ for PA12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Is PA612-ESD moisture sensitive?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. Like most nylons, PA612-ESD is hygroscopic and should be kept dry during storage and printing. Use a dry box or dry it before use. Wet filament will impact",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. PA612-ESD is available in a 1kg format suitable for AMS systems. It is also offered in 500g and 3kg spools depending on your use case. The 3kg spool will n",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Surface resistivity ranges from 10⁴ to 10⁷ Ω/sq depending on temperature and print orientation, ensuring safe static dissipation for sensitive electronics.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. PA612-ESD supports up to 300mm/s print speeds when properly dried and printed with compatible hardware like the Bambu X1C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "No. PA612-ESD is not rated as UL94 V0 flame retardant. If flame resistance is required, consider PPS-ESD or other FR-certified materials.",
+      "reason": "properties.csv carries no property for \"No. PA612-ESD is not rated as\""
+    },
+    {
+      "page": 1,
+      "text": "REACH | RoHS | 889 | PCP | ISO9001 CERT | PROP65WARNING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hi there, yesterday I had an interview with one of your marketing guys. We have some issues with your Fiberon PA612-ESD filament on our Bambulab X1C with a heat",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Unfortunately I just checked the published printer profiles and I do not see any profile for the X1C, but for all other newer Bambu printers like H2.. P2.. X2..",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Do you plan to publish a X1C profile in near future ? If not, is it not recommended to use an X1C with that filament and why not ? Is it possible to use the mai",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I am sorry, we only have one X1C in our company but need that temperature resistance and also humidity resistance after print for our use cases.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Very sorry for issues! Heat creep definitely should not be an issue with a nylon material. But to answer your questions: 1. We do have an X1C legacy profile (ma",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Subtotal:$0.00 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Join the Polymaker Rewards Program at checkout to unlock exclusive perks and earn up to 5% cashback on every purchase.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA612-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $64.99 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print Industrial-Grade ESD Parts with Polymaker™ Fiberon PA612-ESD Engineered for professionals who need performance where it counts. With built-in ESD safety, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ESD-Safe and Ready for Action With a surface resistivity of 10⁴–10⁷ Ω/sq, Fiberon PA612-ESD protects sensitive components from static discharge—ideal for PCBs, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High Strength & Excellent Dimensional Accuracy Reinforced with CNT and 10% carbon fiber, this filament delivers high stiffness, 84 MPa XY tensile strength, and ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Built for High Heat Maintain mechanical integrity in high-temperature environments with a heat deflection temperature of up to 157 °C at 0.45 MPa.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reliable Printing, No Surprises Prints fast—up to 300 mm/s—with low warping and excellent surface finish. Supports self-supporting structures and stays stable a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NOTE: Fiberon ™ PA612-ESD is compounded with carbon nano-tubes: Here is a research regarding ABS compounded with carbon nano-tubes.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New to 3D Printing? Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Polymaker .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$64.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M065",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "United States",
+        "Shared formulation key": "S-POLYCN-fiberon-pa612-esd",
+        "Composition / filler": "High Strength & Excellent Dimensional Accuracy Reinforced with CNT and 10% carbon fiber, this filament delivers high stiffness, 84 MPa XY tensile strength, and  (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "No. PA612-ESD is not rated as UL94 V0 flame retardant. If flame resistance is required, consider PPS-ESD or other FR-certified materials. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-fiberon-pa612-esd",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "📦 FREE SHIPPING ON ORDERS OVER $35"
+      }
+    }
+  ],
+  "newMaterial": null
+}

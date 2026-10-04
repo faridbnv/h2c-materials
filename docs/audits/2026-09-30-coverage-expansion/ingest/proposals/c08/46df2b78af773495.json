@@ -1,0 +1,1713 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433",
+    "url": "https://shop.polymaker.com/products/polymide-copa",
+    "pages": 1,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://shop.polymaker.com/products/polymide-copa#witness-for=source:S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN"
+  },
+  "identity": {
+    "polymer": "PA6/66",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: copa"
+    ],
+    "materialId": "M057",
+    "materialName": "PA6/66",
+    "estimateIdentity": "PA6/66",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+      "Publisher": "Polymaker",
+      "Title": "Polymaker PolyMide CoPA official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://shop.polymaker.com/products/polymide-copa",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G057-03",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "46df2b78af773495746daa3597a5d061e9f209effdce6cf2019e610c55250433"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Polymaker PolyMide CoPA"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G057-03",
+      "row": {
+        "GradeID": "G057-03",
+        "MaterialID": "M057",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker PolyMide CoPA",
+        "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.12 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1120",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Density g/cm³·ISO 1183 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm³·ISO 1183 — 1.12 g/cm³ Important ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.12 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1120",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Density g/cm³·ISO 1183 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density g/cm³·ISO 1183 — 1.12 g/cm³ Important ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "45.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "45.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "45.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Tensile strength MPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength MPa·ISO 527 45.8 MPa Important — ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Elongation at break %·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break %·ISO 527 1.3 % Important — ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2209 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "2209",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2209",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Young's modulus GPa·ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Young's modulus GPa·ISO 527 2209 GPa Important — ISO 527"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "189 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "189",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "189",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Melting temperature °C·ISO 11357—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature °C·ISO 11357— 189 °C Important ISO 11357"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "189 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "189",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "189",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Melting temperature °C·ISO 11357 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature °C·ISO 11357 — 189 °C Important ISO 11357"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "66 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "66",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "66",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357— 66 °C Important ISO 11357"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "66 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "66",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "66",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Glass transition temperature (Tg) °C·ISO 11357 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temperature (Tg) °C·ISO 11357 — 66 °C Important ISO 11357"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "180 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306— 180 °C Important ISO 306"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "180 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: Vicat softening temperature °C·ISO 306 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature °C·ISO 306 — 180 °C Important ISO 306"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "111 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "111",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: HDT (0.45 MPa) °C·ISO 75—",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (0.45 MPa) °C·ISO 75— 111 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "111 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "111",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: HDT (0.45 MPa) °C·ISO 75 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (0.45 MPa) °C·ISO 75 — 111 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "70 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1.8 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · XY column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: HDT (1.8 MPa) °C·ISO 75 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (1.8 MPa) °C·ISO 75 — 70 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "70 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "70",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "70",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1.8 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Property · Z column",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Locator": "p. 1: HDT (1.8 MPa) °C·ISO 75 —",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT (1.8 MPa) °C·ISO 75 — 70 °C Important ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250°C - 270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "80°C for 8h",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "8",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temperature: 250˚C - 270˚C Bed Temperature: 25˚C - 50˚C Printing Speed: 30mm/s - 50mm/s Fan: OFF Direct Drive: Retraction Distance: 3mm Retraction Speed: 50mm/s Indirect Drive: Retraction Dis"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250-270 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "80°C for 8h",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "8",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 250-270 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c08-46df2b78-e1",
+      "gradeKey": "G057-03",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "G057-03",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Ideal for Engineering and Industrial Parts Choose PolyMide™ CoPA when your project demands high strength, toughness, and heat resistance - perfect for automotive, mechanical, and industrial applications.",
+        "Exposure / conditions": "Exact-product maker claim only; printed geometry, test method, service load and lifetime unstated. No suitability or qualification pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 177"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Ideal for Engineering and Industrial Parts Choose PolyMide™ CoPA when your project demands high strength, toughness, and heat resistance - perfect for automotive, mechanical, and industrial applications."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c08-46df2b78-e2",
+      "gradeKey": "G057-03",
+      "row": {
+        "MaterialID": "M057",
+        "GradeID": "G057-03",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%.",
+        "Exposure / conditions": "Maker FAQ statement, not a replacement for source-product TDS wet-test data. Repeated2.57% text across these different nylons is a source ambiguity. Published original TDS states/conditions remain controlling; no new numeric moisture-service result admitted. Vendor clarification or corrected exact-product FAQ needed where they differ.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-46df2b78af77",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 275"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keeping the print in a high humidity climate, or submerging them in water, for 48 hours. All of our test specimens were annealed at 100˚C for 16 hours, and then immerged in water at 60˚C for 48 hours. The average moisture content of specimens is 2.57%."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temperature",
+      "raw": "250°C - 270°C",
+      "fromBelow": false,
+      "line": "Printing Temperature: 250˚C - 270˚C Bed Temperature: 25˚C - 50˚C Printing Speed: 30mm/s - 50mm/s Fan: OFF Direct Drive: Retraction Distance: 3mm Retraction Speed: 50mm/s Indirect Drive: Retraction Dis"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "250-270 °C",
+      "fromBelow": false,
+      "line": "Nozzle 250-270 °C"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "Recommended",
+      "fromBelow": false,
+      "line": "Enclosure Recommended"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "80°C for 8h",
+      "fromBelow": false,
+      "line": "Drying 80°C for 8h Compatibility ☑ Good"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "100°C / 8h",
+      "fromBelow": false,
+      "line": "Keep the filament sealed and dry; use the listed 100°C / 8h drying cycle if moisture-related defects appear. Use an enclosure, avoid drafts, and maintain the recommended bed temperature to reduce warp"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "📦 FREE SHIPPING ON ORDERS OVER $35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NEW Polymaker™ HT-PLA Pro 1st purchase 10% off. Heat Ready. Impact Ready. Still PLA. Shop HT-PLA Pro FLASH SALE PETG Flash Sale 4 spools - 15% off. 6 spools - 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ PETG PolyLite™ Translucent PETG Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PETG-rCF08 PolyMax™ PETG Fiberon™ PETG-ESD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA PolyLite™ ABS Fiberon™ ASA-CF08 Polymaker™ Galaxy ASA PolyLite™ Galaxy ABS PolyLite™ Neon ABS PolyLite™ Metallic ABS Polymaker™ ABS Pro Polymaker",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU95 PolyFlex™ TPU90 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA12-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA612-ESD Fiberon™ PPS-GF20 PolyMide™ CoPA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PPS-GF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fiberon™ ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sale Polymaker™ HT-PLA-GF Fiberon™ ASA-CF08 Fiberon™ PA6-CF20 Fiberon™ PET-CF17 Fiberon™ PET-GF15 Fiberon™ PA612-CF15 Fiberon™ PETG-rCF08 Fiberon™ PPS-CF10 Fibe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyDissolve™ S1 (PVA) PolySupport™ for PA12 PolySupport™ for PLA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker Wood PLA PolySupport™ for PA12 Polymaker PC-ABS PolySupport™ for PLA PolyCast™ Sale CoPE PolySmooth™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DRY & PRINT PolyDryer™ Modular drying for moisture-sensitive filament, ready while you print. Shop PolyDryer XL PolyDryer™ Box XL Roomy dry storage for 3KG spoo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-GF15 Fiberon™ PA6-GF25 Fiberon™ PA6-CF20 Fiberon™ PA12-CF10 Sale Polymaker™ PLA Pro PolyMax™ PLA PolyMax™ PC PolyLite™ PLA Pro PolyLite™ ABS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PA6-CF20 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PET-CF17 Fiberon™ PA12-CF10 PolyMax™ PC Polymaker PC-ABS PolyLite™ PC PolyMid",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PET-CF17 Fiberon™ PPS-CF10 Fiberon™ PETG-rCF08 PolyLite™ PLA-CF PolyLite™ PLA PolyLite™ PLA Pro PolySonic™ PLA Sale Polymaker™ PLA Pro",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyFlex™ TPU90 PolyFlex™ TPU95 PolyFlex™ TPU95-HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-CF20 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 Fiberon™ PA6-GF25 Fiberon™ PA612-ESD Fiberon™ ASA-CF08 Fiberon™ PET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Polymaker™ HT-PLA Polymaker™ HT-P",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker™ ASA Polymaker™ Galaxy ASA Matte PLA for Production Fiberon™ PET-CF17 Fiberon™ PPS-CF10 PolyMax™ PC Polymaker PC-ABS Sale Polymaker™ HT-PLA Sale Polym",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberon™ PA6-CF20 Fiberon™ PPS-CF10 Fiberon™ PET-CF17 Fiberon™ PA6-GF25 Fiberon™ PA612-CF15 Fiberon™ PA12-CF10 PolyMax™ PC PolyMide™ CoPA Fiberon™ PA612-ESD Fib",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New To 3D Printing - Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / of 14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 3 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 4 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 5 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 6 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 7 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 8 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 9 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 10 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 11 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 12 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 13 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 14 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Delivery Time 5–10 days",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "60 Day Return",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Advanced Copolymer Formulation PolyMide™ CoPA is made from a copolymer blend of Nylon 6 and Nylon 6,6, engineered to deliver a superior balance of mechanical pr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High Heat Resistance PolyMide™ CoPA withstands temperatures up to 180˚C, providing excellent thermal stability for components exposed to heat or challenging env",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All-metal hotend that can reach 250˚C recommended.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "29 reviews",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$49.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm SKU: PG05001 HEX Code: #161618",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "<p>Earn%20[points_amount]%20when%20completing%20this%20purchase.</p>",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "✓ Nylon 6/6,6 Copolymer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "✓ Nylon 6/6,6 Copolymer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Black #161618 Black Natural #E8D795 Natural",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.75kg",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "PolyMide™ CoPA - Black / 1.75mm / 0.75kg is backordered and will ship as soon as it is back in stock.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$49.99",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Bed 25-50 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Max Speed 60 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Keep the filament sealed and dry; use the listed 100°C / 8h drying cycle if moisture-related defects appear.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Start within the recommended 250 - 270°C nozzle and 25 - 50°C bed ranges, then make small adjustments for the printer and model.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Use the recommended OFF cooling-fan setting and keep printing speed within 50 - 200 mm/s.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength MPa·ISO 52778 MPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break %·ISO 52712.7 % Important — ISO 527",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending strength MPa·ISO 178109.8 MPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending strength MPa·ISO 178 — — ISO 178",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus GPa·ISO 1782510 GPa Important — ISO 178",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus GPa·ISO 178 — — ISO 178",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Young's modulus GPa·ISO 5272703 GPa Important — ISO 527",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 17927.7 KJ/m² Important — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Charpy, notched KJ/m²·ISO 179 — — ISO 179",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Tested on 100% infill specimens. X-Y = across the layers, Z = between the layers (layer adhesion).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "No, all our Nylon features our Warp-Free™ Technology which means it does not require a heated bed or heated chamber of more than 50˚C. PolyMide™ CoPA can be pri",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Can I use PolySupport™ for PA12 with CoPA?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Unfortunately no - you cannot. PolySupport™ for PA12 was designed specifically for PA12 nylon and CoPA is a copolymer of Nylon 6 and Nylon 6,6.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We would suggest checking out PolyDissolve™ S1 (PVA).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyMide™ CoPA displays outstanding mechanical and thermal properties when fully crystallized. The printed part will not reach full crystallization after the pr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Moisture conditioning refers to allowing the print to absorb moisture. This is inevitble since nylons are hygroscopic, but you can expedite the process by keepi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our nylons come with our Warp-Free™ Technology. In order for this Warp-Free™ technology to work as it should - we want to make sure the build plate and the ambi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REACH | RoHS | 889 | PCP | ISO9001 CERT | PROP65WARNING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Customers praised this nylon filament for producing \"extremely strong\" and durable parts with minimal warping. Many noted it \"prints like a dream\" with proper d",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 stars: 26 (90%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4 stars: 3 (10%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 stars: 0 (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 stars: 0 (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 star: 0 (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Natural / 1.75mm / 0.75kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 1.75mm / 0.75kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This prints really well and has a very nice finish. It didn't warp hardly at all during printing or annealing. I annealed it on my removable build plate with su",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ender 3 all metal hotend. 272c /50c 25mms .6 nozzle. glass bed. You must dry and print from a dryer 70c. dried in oven at 90c for hour then over night at 70c. c",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This stuff is nothing short of amazing with the right setup and prints well open frame whereas ASA prints without a popup are super brittle (for me).Printing th",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black / 1.75mm / 0.75kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This filament works great in my bambu p1s and AMS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "this nylon works great, i had to print a large flange of 22\" in dia on an open printer and this printed great, no curling, no delamination and also the part cam",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This plus 0.4 Obxidian hot end, 275C with X1C presets for their version of the material... Prints are looking very nice. Only complaint is that I wish the spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Printing with a stock ender 5 pro with micro swiss hot end at 260 this stuff works great. even unenclosed. very tough. use painters tape and glue sticks for adh",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I run this on my Ender 3 V2 with a Micro Swiss all-Metal Hot end and direct drive extruder with Marlin firmware. 275DegC at 50mm/s is perfect, prints better tha",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Exactly as the title says, its completely warp-free and extremely strong when printed slower. my print settings are 250c hotend, 50c bed, 5mm^3/s volumetric spe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I used this for printing some 3d printer parts for a vzbot and worked great bo encloser needed and bed temp doesn't have to be as hot as boiling water just need",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "First part delaminated miserably due to poor interlayer adhesion - This was fixed by upping the printhead temperature. We use diamondback nozzles that have extr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "i've used most major carbon fiber infused nylons. this is hands down the best, significantly stronger than either carbonX or NylonX, the print finish looks flaw",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Copa took a bit to dial it in but wow this is strong stuff and prints smooth.. But doesn't like overhangs much.. Could be in my settings tho.. As most know ever",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "I have used this filament for many applications, and it is effortless to print with. I noticed it does absorb moisture rather quickly, causing crackling as the ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Subtotal:$0.00 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Join the Polymaker Rewards Program at checkout to unlock exclusive perks and earn up to 5% cashback on every purchase.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$49.99 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Advanced Copolymer Formulation PolyMide™ CoPA is made from a copolymer blend of Nylon 6 and Nylon 6,6, engineered to deliver a superior balance of mechanical pr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High Heat Resistance PolyMide™ CoPA withstands temperatures up to 180˚C, providing excellent thermal stability for components exposed to heat or challenging env",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "New to 3D Printing? Start Here",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Polymaker .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$49.99",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M057",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "United States",
+        "Shared formulation key": "S-POLYCN-polymide-copa",
+        "Composition / filler": "Took little to no tweaking to get this to print correctly. Had great layer and bed adhesion from what I've experienced with other carbon fiber nylons. I've been (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "All-metal hotend that can reach 250˚C recommended. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-polymide-copa",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "📦 FREE SHIPPING ON ORDERS OVER $35"
+      }
+    }
+  ],
+  "newMaterial": null
+}

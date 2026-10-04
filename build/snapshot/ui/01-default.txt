@@ -26,7 +26,7 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa on a product the H2C
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking, on a product the H2C can print.
 153 materials, 136 of them in H2C scope
-11508 measurements, each traceable to a source
+11509 measurements, each traceable to a source
 145 have a density, 100 a modulus, 101 a price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
@@ -138,15 +138,13 @@ ASA not tested 1,070
 ASA Aero not tested 1,010
 400–1,080 · 4
 typical: annealed
- 0.824
-0.594–2.01 · 3
- 11.5
-8.25–32 · 3
- 3.9
-1.6–11.5 · 3
- 77.5
-70–85 · 2
- 64↗ ☆
+ 0.709
+0.594–0.824 · 2
+ 9.88
+8.25–11.5 · 2
+ 7.71
+3.9–11.5 · 2
+ 70 64↗ ☆
 ASA-AF not tested 1,070
 1,070–1,070 · 3
  2.2* 40* 6* 89* 115

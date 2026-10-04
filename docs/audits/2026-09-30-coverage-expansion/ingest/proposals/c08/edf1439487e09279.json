@@ -1,0 +1,359 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-03"
+  },
+  "document": {
+    "sha256": "edf1439487e09279f3ed7b708960d9c671b63c9a3aabee57d925e01be25dadce",
+    "url": "https://us-wholesale.polymaker.com/products/polymide-pa6-gf",
+    "pages": 1,
+    "provider": "Polymaker",
+    "manufacturer": "Polymaker",
+    "docKey": "https://us-wholesale.polymaker.com/products/polymide-pa6-gf#witness-for=source:S-POLYCN-PolyMide-PA6-GF-TDS-V5-1"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pa6"
+    ],
+    "materialId": "M049",
+    "materialName": "PA6",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-POLYMAKER-PRIORITY-20261003-edf1439487e0",
+      "Publisher": "Polymaker",
+      "Title": "PolyMide PA6 GF official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://us-wholesale.polymaker.com/products/polymide-pa6-gf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G051-03",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "edf1439487e09279f3ed7b708960d9c671b63c9a3aabee57d925e01be25dadce"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PolyMide PA6 GF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G051-03",
+      "row": {
+        "GradeID": "G051-03",
+        "MaterialID": "M051",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyMide PA6 GF",
+        "Shared formulation key": "S-POLYCN-PolyMide-PA6-GF-TDS-V5-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence. Re-filed 2026-09-13 from G063-02: Polymaker PolyMide PA6-GF is a PA6-GF (TDS: \"a glass fiber reinforced PA6 (Nylon 6) filament\")",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-edf1439487e0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c08-edf14394-e1",
+      "gradeKey": "G051-03",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "G051-03",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns.",
+        "Exposure / conditions": "Exact legacy maker listing notice, observed2026-10-03. No stock/price/retirement assertion or replacement-formulation equivalence inferred; current Fiberon measurements do not transfer.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-PRIORITY-20261003-edf1439487e0",
+        "Locator": "p. 1: exact product Description/Printing Requirements/FAQ; source text line 89"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "This Product Is Being Discontinued. Sale is Final And Not Eligible For Returns."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "$1,000 MINIMUM ORDER - FREE SHIPPING OVER $3,500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Panchroma™ is your ultimate filament palette, redefining 3D printing with unmatched colors. Unlock your creativity with 17 finishes and 150+ combinations.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / of 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 1 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 2 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 3 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 4 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 5 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 6 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 7 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 8 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Load image 9 in gallery view",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyMide™ PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$14.99 USD $29.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker | SKU: PG02001 | HEX Code: #615D5C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm 2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg 2kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grey #615D5C Grey",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyMide™ PA6-GF - 1.75mm / 0.5kg / Grey is backordered and will ship as soon as it is back in stock.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PURCHASE BY CASE PACK (10PCS) TO GET 10% OFF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+5 +10 +20 +50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyMide™ PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $14.99 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85mm Filament is being discontinued. This product may not be restocked.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Subtotal:$0.00 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PolyMide™ PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "From $14.99 USD $29.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free Shipping Over $3,500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We provide calculated shipping at checkout and free shipping on orders over $3,500.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$1,000 Order Minimum",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Orders must be over $1,000 to qualify for wholesale.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All payments are 100% secure and we offer buy now pay later options with our partner Shopify.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polymaker is a developer and manufacturer of 3D printing materials committed to innovation, quality and sustainability.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Polymaker US Wholesale .",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "United States",
+        "Shared formulation key": "S-POLYCN-polymide-pa6-gf",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-polymide-pa6-gf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "$1,000 MINIMUM ORDER - FREE SHIPPING OVER $3,500"
+      }
+    }
+  ],
+  "newMaterial": null
+}

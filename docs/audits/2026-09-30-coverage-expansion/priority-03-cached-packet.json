@@ -1,0 +1,276 @@
+{
+  "PacketID": "PRIORITY-03-REGISTERED-CHEMICAL-CLASS-LIMITS",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G035-06",
+      "MaterialID": "M035",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "PolyMax PC",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Named \"PolyMax PC\" since 2026-09-27 (m193-esun-plus-and-polymax-pc-identities): its sheet heads p. 1 \"PolyMax\u2122 PC\".",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G035-10",
+      "MaterialID": "M035",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker PolyLite PC Transparent",
+      "Shared formulation key": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G057-03",
+      "MaterialID": "M057",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Polymaker",
+      "Product name": "Polymaker PolyMide CoPA",
+      "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+      "Publisher": "Polymaker",
+      "Title": "PolyMax\u2122 PC Technical Data Sheet",
+      "Revision": "V5.5",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/uploads/TDS_Polymaker_PolyMax-PC_V5.5_2026-01-05_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G035-06",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2c5428e4c379e53b412eeb83489a8e892ca1a0524540ded390041fc84d9de00d"
+    },
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+      "Publisher": "Polymaker",
+      "Title": "PolyLite\u2122 PC Transparent Technical Data Sheet",
+      "Revision": "V5.5",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_Polymaker_PolyLite-PC-Transparent_V5.5_2026_01_05_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G035-10",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "dfee4768b7e136b457d0d44dc8420e4bc8a7ff29219664de9e104a491cc5954b"
+    },
+    {
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+      "Publisher": "Polymaker",
+      "Title": "PolyMide\u2122 CoPA Technical Data Sheet",
+      "Revision": "V5.5",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_Polymaker_PolyMide-CoPA_V5.5_2026-01-06_EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G057-03",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "a2c0fe021d78962edf1e4b4e5663327460e4240daaaf56625fda54200c210d50"
+    }
+  ],
+  "Operations": [
+    {
+      "OperationID": "P03-CHEM-1",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M035",
+        "GradeID": "G035-06",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of weak alkalis",
+        "Finding": "Fair",
+        "Exposure / conditions": "Fair: Material can be used for short time contact with chemicals at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-2",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M035",
+        "GradeID": "G035-06",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of strong alkalis",
+        "Finding": "Poor",
+        "Exposure / conditions": "Poor: Material becomes unstable on contact with chemical at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-3",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M035",
+        "GradeID": "G035-06",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "Good",
+        "Exposure / conditions": "Good: Material may get minor attack after long periods of storage with chemical at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-4",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M035",
+        "GradeID": "G035-10",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of weak alkalis",
+        "Finding": "Fair",
+        "Exposure / conditions": "Fair: Material can be used for short time contact with chemicals at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-5",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M035",
+        "GradeID": "G035-10",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of strong alkalis",
+        "Finding": "Poor",
+        "Exposure / conditions": "Poor: Material becomes unstable on contact with chemical at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-6",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M035",
+        "GradeID": "G035-10",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "Good",
+        "Exposure / conditions": "Good: Material may get minor attack after long periods of storage with chemical at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-7",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M057",
+        "GradeID": "G057-03",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of weak alkalis",
+        "Finding": "Fair",
+        "Exposure / conditions": "Fair: Material can be used for short time contact with chemicals at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of weak alkalis and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-8",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M057",
+        "GradeID": "G057-03",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of strong alkalis",
+        "Finding": "Poor",
+        "Exposure / conditions": "Poor: Material becomes unstable on contact with chemical at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of strong alkalis and its own generic-rating legend"
+      }
+    },
+    {
+      "OperationID": "P03-CHEM-9",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M057",
+        "GradeID": "G057-03",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "Good",
+        "Exposure / conditions": "Good: Material may get minor attack after long periods of storage with chemical at ambient temperature. Source generic class rating only; specific agents, concentrations, exact durations and specimens not published. No exact-agent service approval or printed-product certification.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN",
+        "Locator": "p. 1: CHEMICAL RESISTANCE DATA, Effect of oils and grease and its own generic-rating legend"
+      }
+    }
+  ]
+}
