@@ -12,7 +12,7 @@ import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnneal
 import { moistureState } from './normalize/moisture.js';
 import { parseNozzleDiameters, H2C_BASELINE, PROCESS_STATE } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
-import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
+import { ENVIRONMENT_CATEGORIES, SPARSE_PROPERTIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped, applyTestTemperatureTyped, checkMeasurementReviewStale } from './typed-values.js';
@@ -725,6 +725,9 @@ export function compile(wb, { snapshot, build }) {
         // The sample as a reader is told it (D113): its dates, how many Canadian retailers, and the rates in force.
         priceSample: priceSampleMeta(prices, fxRates),
         h2cBaseline: H2C_BASELINE,
+        // The properties almost no filament data sheet publishes (coverage-rules.js): the coverage lens lists, for each,
+        // the candidates that do publish it, from the same rule the Sparse properties records are derived by.
+        sparseProperties: SPARSE_PROPERTIES,
         counts: {
           materials: materials.length,
           h2cRelevant: materials.filter((m) => !m.excluded && !m.familyEntry).length,

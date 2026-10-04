@@ -113,6 +113,12 @@
         "h2cBaseline": {
           "type": "object"
         },
+        "sparseProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "counts": {
           "type": "object"
         },

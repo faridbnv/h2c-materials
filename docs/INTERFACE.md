@@ -84,12 +84,15 @@ scale, and "widened" and "past the end" are judged in tens there too.
 **Data coverage** grids eight domains per candidate. Every cell but Application says what the records show, since D114
 derives a gap as it derives evidence: a blank cell is "not assessed", which only Application, a reviewer's column, can
 be. The price column is "CA price": ✓ a Canadian listing, ◐ a price converted from a foreign listing only (D113), – no
-price. A conflict recorded in a domain the grid has no column for (a composition, a source contradicting itself) is named
-under the grid. Rarely published properties (compression strength, thermal expansion, conductivity, fracture
-toughness, fatigue, creep, friction) are not a column: nearly no source publishes them for any filament, so the column
-had been a gap on every row ("0 of 82 recorded") and told one candidate from another by nothing. They are said once
-under the grid, derived from each material's own measurements and grouped by list: which of them the candidates on
-screen do not publish, the materials sharing a list counted and one whose list differs named, opening its Known gaps.
+price. Under the grid, two sections say what the columns cannot, each headed and opened by one line saying what it
+is. **Conflicts outside these columns** lists, one material to a line, a conflict or held-back value recorded in an area
+the grid has no column for (a composition, a source contradicting itself). **Rarely published properties**
+(compression strength, thermal expansion, conductivity, fracture toughness, fatigue, creep, friction; `db.meta.sparseProperties`)
+are not a column: nearly no source publishes them for any filament, so the column had been a gap on every row ("0 of 82
+recorded") and told one candidate from another by nothing. A table lists each property with how many candidates on
+screen publish it and which, by the rule that derives each material's record (a measurement of its own, numeric or in
+words, not held back). It had been one paragraph per distinct list of what was missing, seven near-identical sentences
+that hid the few materials that do publish one (D124). Every name there opens the material's Known gaps.
 A cell of the grid opens the material's Sources tab at its Known gaps, where the Coverage tab's rows now are (D124).
 
 A sixth tab, **Why excluded**, sits beside them and is not a lens: it explains what is *not* in the

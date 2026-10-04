@@ -1473,3 +1473,10 @@ tr.baseline-row .name { color: var(--accent); }
   .maker-says .kv dd { margin-bottom: 8px; }
   .key-props { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
 }
+/* Under the coverage grid: what the columns cannot show, each in a section of its own with one line saying what it is. */
+.cov-notes { margin-top: 22px; max-width: 90ch; }
+.cov-notes .sec { display: flex; align-items: center; gap: 6px; }
+.cov-notes .sw { display: inline-grid; width: 18px; height: 18px; border-radius: 4px; place-items: center; font-size: 11px; font-weight: 700; }
+.cov-notes p.fine { margin: 4px 0 8px; }
+.cov-list { margin: 0; padding-left: 18px; font-size: var(--t-small); color: var(--ink-2); line-height: 1.6; }
+.cov-sparse-table td, .cov-sparse-table th { font-size: var(--t-small); }

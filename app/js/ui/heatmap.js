@@ -8,7 +8,7 @@
 // Method sheet, Verification / Coverage: coverage is terminal. It never feeds the selection engine.
 
 import { coverageMatrix, COVERAGE_DOMAINS } from '../engine/coverage.js';
-import { esc } from './format.js';
+import { esc, scrollTable, markTableOverflow } from './format.js';
 
 // Four readable states, collapsed from the eight the coverage table records.
 const STATE = {
@@ -109,18 +109,23 @@ export function renderCoverage(host, state, actions) {
       </table>
     </div>
     ${otherConflicts(materials, db)}
-    ${sparseNote(materials, db, n)}`;
+    ${sparseTable(materials, db, state.ctx)}`;
 
-  // A cell opens the material at its Coverage tab, where the record behind the mark is, and so does a material named
-  // under the table; the name in the grid opens the Overview.
+  // A cell opens the material at its Known gaps (Sources), where the record behind the mark is, and so does a material
+  // named under the table; the name in the grid opens the Overview.
+  markTableOverflow(host);
   host.querySelectorAll('[data-open]').forEach((e) => e.addEventListener('click', () =>
     actions.openMaterial(e.dataset.open, e.dataset.domain ? 'Coverage' : 'Overview')));
 }
 
+/** A material as a link to its record, in its Sources tab's Known gaps. */
+const link = (id, name, domain) => `<button class="link-btn" data-open="${esc(id)}" data-domain="${esc(domain)}">${esc(name)}</button>`;
+
 /**
- * Conflicts and quarantines recorded in a domain the grid has no column for (a composition, a source that contradicts
- * itself, a measurement that could not be parsed). The legend promises ✕ for a conflict, so one the grid cannot show is
- * named under it rather than left for the drawer alone.
+ * Conflicts and held-back values recorded in an area the grid has no column for (a composition, a source that
+ * contradicts itself, a measurement that could not be parsed). The legend promises ✕ for a conflict, so one the grid
+ * cannot show is listed under it, one material to a line, rather than left for the drawer alone. It was one run-on
+ * sentence naming them all.
  */
 function otherConflicts(materials, db) {
   const shown = new Set([...GRID, SPARSE]);
@@ -129,40 +134,45 @@ function otherConflicts(materials, db) {
   for (const c of db.coverage) {
     if (!on.has(c.materialId) || shown.has(c.domain) || STATE[c.status] !== 'bad') continue;
     if (!byMaterial.has(c.materialId)) byMaterial.set(c.materialId, []);
-    byMaterial.get(c.materialId).push(`${c.domain.toLowerCase()}${c.status === 'Quarantined' ? ', quarantined' : ''}`);
+    byMaterial.get(c.materialId).push(`${c.domain.toLowerCase()}${c.status === 'Quarantined' ? ' (value held back)' : ''}`);
   }
   if (!byMaterial.size) return '';
   const names = new Map(materials.map((m) => [m.id, m.name]));
-  const list = [...byMaterial].map(([id, what]) => `<button class="link-btn" data-open="${esc(id)}" data-domain="Coverage">${esc(names.get(id))}</button> (${esc(what.join('; '))})`).join(', ');
-  return `<p class="cov-other"><span class="sw bad" aria-hidden="true">✕</span> Also recorded as a conflict, in a domain these columns do not show: ${list}. Each material's Sources tab lists it under Known gaps.</p>`;
+  return `<div class="cov-notes">
+      <h3 class="sec"><span class="sw bad" aria-hidden="true">✕</span> Conflicts outside these columns</h3>
+      <p class="fine">Sources that disagree, or a value held back, in an area the grid has no column for. Select a material to
+        read the record in its Sources tab, under Known gaps.</p>
+      <ul class="cov-list">${[...byMaterial].map(([id, what]) => `<li>${link(id, names.get(id), 'Coverage')}: ${esc(what.join('; '))}</li>`).join('')}</ul>
+    </div>`;
 }
 
 /**
- * Which rarely published properties are not recorded for the candidates on screen, one sentence per wording the build
- * wrote: the same list for nearly every material, so the materials sharing it are counted, and one whose list differs is
- * named. A material with no such record, or whose record says it does not apply, is left out.
+ * The rarely published properties (db.meta.sparseProperties): almost no filament data sheet gives them, so each would
+ * be a column of gaps. They are listed under the grid the other way round: for each property, which candidates on
+ * screen do publish it. The same rule derives each material's Sparse properties record (coverage-rules.js): a
+ * measurement of the material, numeric or in words, not held back. It had been one sentence per distinct list of what
+ * is missing ("141 of the 153 candidates on screen: Not published by its own products: …"), seven near-identical
+ * paragraphs that hid the few materials that do publish one.
  */
-function sparseNote(materials, db, n) {
-  const groups = new Map();
-  for (const m of coverageMatrix(materials, db.coverage, [SPARSE])) {
-    const cell = m.cells[0];
-    if (cell.status !== 'Gap') continue;
-    const finding = String(deciding(cell)?.finding ?? '').trim().replace(/\.$/, '');
-    if (!finding) continue;
-    if (!groups.has(finding)) groups.set(finding, []);
-    groups.get(finding).push(m);
+function sparseTable(materials, db, ctx) {
+  const props = db.meta.sparseProperties ?? [];
+  if (!props.length) return '';
+  const sparse = new Map(coverageMatrix(materials, db.coverage, [SPARSE]).map((m) => [m.materialId, m.cells[0]?.status]));
+  const judged = materials.filter((m) => ['Gap', 'Evidence recorded'].includes(sparse.get(m.id)));
+  const by = new Map(props.map((p) => [p, []]));
+  for (const m of judged) {
+    const own = new Set((ctx?.measurementsByMaterial?.get(m.id) ?? []).filter((x) => (x.numeric || x.qualitative) && !x.quarantined).map((x) => x.property));
+    for (const p of props) if (own.has(p)) by.get(p).push(m);
   }
-  if (!groups.size) return '';
-  const named = (list) => list.map((m) => `<button class="link-btn" data-open="${esc(m.materialId)}" data-domain="${esc(SPARSE)}">${esc(m.name)}</button>`).join(', ');
-  const whom = (list) => (list.length === n ? `All ${n} candidate${n === 1 ? '' : 's'} on screen`
-    : list.length <= 4 ? named(list)
-    : `${list.length} of the ${n} candidates on screen`);
-  const lines = [...groups].sort((a, b) => b[1].length - a[1].length)
-    .map(([finding, list]) => `<p><b>${whom(list)}:</b> ${esc(finding)}.</p>`).join('');
-  return `<div class="cov-sparse">
+  const SHOWN = 6;
+  const who = (list) => (!list.length ? '<span class="missing">none</span>'
+    : list.slice(0, SHOWN).map((m) => link(m.id, m.name, SPARSE)).join(', ') + (list.length > SHOWN ? `, and ${list.length - SHOWN} more` : ''));
+  return `<div class="cov-notes">
       <h3 class="sec">Rarely published properties</h3>
-      ${lines}
-      <p class="fine">Not a column: almost no source publishes these for any filament, so the column would be a gap on every
-        row. Each material's Sources tab lists them under Known gaps.</p>
+      <p class="fine">Almost no filament data sheet gives these, so they are not columns above. For each, the candidates on
+        screen whose products publish it; every other candidate has a gap there.</p>
+      ${scrollTable(`<table class="grid cov-sparse-table"><thead><tr><th>Property</th><th class="num">Published for</th><th>Candidates</th></tr></thead>
+        <tbody>${props.map((p) => `<tr><td>${esc(p)}</td><td class="num">${by.get(p).length} of ${judged.length}</td><td>${who(by.get(p))}</td></tr>`).join('')}</tbody>
+      </table>`)}
     </div>`;
 }
