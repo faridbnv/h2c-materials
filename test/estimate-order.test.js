@@ -20,7 +20,7 @@ test('no estimate lies under what its own measurements prove, and none above its
   assert.deepEqual(broken.map((v) => v.message), []);
 });
 
-test('a material\'s estimate is floored by its break, yield or unspecified strength, whatever the direction (M064, M139)', () => {
+test('a one-product material\'s estimate is floored by its break, yield or unspecified strength, whatever the direction (M064, M139)', () => {
   // PA-ESD publishes a break stress of 68 MPa on a bar whose source states no specimen; its estimate ran 44.9 to 66.5.
   const esd = material('M064').headline.tensileStrengthXY;
   assert.ok(esd.impliedBounds.some((b) => b.lo === 68));
@@ -72,6 +72,17 @@ test('another source\'s endpoint is another test and is not compared; a pin keep
   assert.equal(ruleValue(g, d, capped).value, 43);
 });
 
+test('a material\'s range contains every product\'s floor and starts at the lowest only where every product has one (PA6, PE-GF)', () => {
+  // PA6's products prove tensile floors from 27 to 80 MPa. The range reaches 80 from above; the lowest floor, 27, is a
+  // floor only because every active product of the material has one.
+  for (const [id, key] of [['M049', 'tensileStrengthXY'], ['M138', 'tensileStrengthXY']]) {
+    const h = material(id).headline[key];
+    const floors = h.impliedBounds.map((b) => b.lo);
+    assert.ok(h.estimate.plausible.hi >= Math.max(...floors) && h.estimate.hi >= Math.max(...floors), id);
+    assert.ok(h.estimate.plausible.lo < Math.max(...floors), `${id} is floored at the highest of its products' floors`);
+  }
+});
+
 // The check itself, on a small database whose numbers are chosen to break each part of it.
 const tiny = (estimate, overrides = {}) => ({
   registry: { headlines: [
@@ -91,11 +102,31 @@ test('the check names the estimate, the number and the measurement that bounds i
   assert.equal(v.kind, 'material-estimate');
   assert.equal(v.measurementId, 'V1');
   // Only the numbers under the floor are named; its plausible upper end of 68 is not under it.
-  assert.deepEqual(Object.keys(v.shown), ['centre', 'likely lo', 'likely hi', 'plausible lo']);
-  assert.match(v.message, /lies under 68 MPa, its own tensile break strength \(V1\)/);
+  assert.deepEqual(Object.keys(v.shown).sort(), ['centre', 'likely hi', 'likely lo', 'plausible lo']);
+  assert.match(v.message, /lies under 68 MPa, the highest floor among its products, its own tensile break strength \(V1\)/);
   assert.equal(orderViolations(tiny(est(70, 80))).length, 0);
   // Rounded to three figures a floor of 72.04 is shown as 72, which is not a violation.
   assert.equal(orderViolations(tiny(est(74, 80), { measurement: { value: 72.04 } })).length, 0);
+});
+
+test('a material is checked against the highest floor of its products from above, and the lowest from below only if each has one', () => {
+  const two = (estimate, third = false) => {
+    const db = tiny(estimate);
+    const bar = (id, gradeId, value) => ({ ...db.measurements[0], id, gradeId, value });
+    db.measurements = [bar('V1', 'G1', 68), bar('V2', 'G2', 60), ...(third ? [] : [])];
+    db.grades.push({ id: 'G2', materialId: 'M1', formulationKey: null, retired: false, headline: {}, estimate: {} });
+    if (third) db.grades.push({ id: 'G3', materialId: 'M1', formulationKey: null, retired: false, headline: {}, estimate: {} });
+    return db;
+  };
+  const e = (lo, hi) => ({ centre: (lo + hi) / 2, lo, hi, plausible: { lo, hi }, unit: 'MPa' });
+  assert.equal(orderViolations(two(e(61, 70))).filter((v) => v.kind === 'material-estimate').length, 0);
+  const [high] = orderViolations(two(e(61, 66)));
+  assert.match(high.message, /highest floor among its products/);
+  assert.deepEqual(Object.keys(high.shown), ['likely hi', 'plausible hi']);
+  const [low] = orderViolations(two(e(55, 70)));
+  assert.match(low.message, /the lowest floor among its products, which every one has/);
+  // A third product without a floor leaves nothing to floor the lower end by.
+  assert.equal(orderViolations(two(e(55, 70), true)).filter((v) => v.kind === 'material-estimate').length, 0);
 });
 
 test('a bar the data quarantines, flags implausible, or states as film or moulded floors nothing', () => {

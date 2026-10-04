@@ -166,6 +166,7 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 | tensileStrengthXY | printed | 64 | 46 | 64.1% | 78.1% | ×1.45 | 14 |
 | tensileStrengthXY | printedXY | 64 | 7 | 78.1% | 92.2% | ×1.46 | 5 |
 | tensileStrengthXY | unstated | 64 | 59 | 29.7% | 31.3% | ×1.22 | 44 |
+| tensileStrengthXY | containment | 64 | 12 | 85.9% | 92.2% | ×1.73 | 5 |
 | tensileStrengthXY | sameSource | 64 | 46 | 62.5% | 76.6% | ×1.45 | 15 |
 | tensileStrengthXY | lowestOfProducts | 64 | 59 | 79.7% | 85.9% | ×1.45 | 9 |
 | tensileStrengthXY | formulation | 64 | 33 | 78.1% | 87.5% | ×1.45 | 8 |
@@ -173,6 +174,7 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 | elongationXY | printed | 83 | 55 | 53% | 67.5% | ×2.86 | 25 |
 | elongationXY | printedXY | 83 | 14 | 77.1% | 91.6% | ×3.74 | 5 |
 | elongationXY | unstated | 83 | 70 | 32.5% | 38.6% | ×2.03 | 51 |
+| elongationXY | containment | 83 | 13 | 80.7% | 89.2% | ×6.94 | 8 |
 | elongationXY | sameSource | 83 | 56 | 50.6% | 65.1% | ×2.81 | 27 |
 | elongationXY | lowestOfProducts | 83 | 70 | 67.5% | 83.1% | ×3.41 | 13 |
 | elongationXY | formulation | 83 | 42 | 69.9% | 84.3% | ×3.18 | 12 |
@@ -180,6 +182,7 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 | hdt045 | printed | 81 | 37 | 65.4% | 80.2% | 17.7 °C | 11 |
 | hdt045 | printedXY | 81 | 0 | 77.8% | 92.6% | 18.1 °C | 1 |
 | hdt045 | unstated | 81 | 53 | 54.3% | 69.1% | 13.7 °C | 21 |
+| hdt045 | containment | 81 | 6 | 79% | 92.6% | 19.5 °C | 1 |
 | hdt045 | sameSource | 81 | 40 | 63% | 77.8% | 16.8 °C | 13 |
 | hdt045 | lowestOfProducts | 81 | 47 | 72.8% | 87.7% | 16.4 °C | 6 |
 | hdt045 | formulation | 81 | 26 | 77.8% | 93.8% | 18.1 °C | 1 |

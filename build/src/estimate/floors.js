@@ -5,7 +5,10 @@
 //   none              no floor, the range as the calibration scales alone make it
 //   printed           the material's printed bars, any direction (the rule before D126)
 //   printedXY         the same, in the headline's own direction only (the rule without "a printed part is strongest in XY")
-//   unstated          its printed bars and those of a source that states no specimen (the rule now)
+//   unstated          its printed bars and those of a source that states no specimen, floored at the highest product floor
+//                     (the rule first decided for a material, and the grade's rule: bounds.js with a formulation)
+//   containment       the same bars, a material's range as bounds.js makes it now: it reaches the highest product floor and is
+//                     floored at the lowest, only where every product has one
 //   sameSource        the fallback D126 names: an unstated specimen bounds only where its source also prints a bar
 //   lowestOfProducts  the lowest of its products' own floors, not the highest: what is true of every product
 //   formulation       only the hidden product's own other measurements (what a grade's range takes)
@@ -51,15 +54,16 @@ export function floorBackTest({ key, def, model, S, tmMean, loo, rangeFor }) {
       printed,
       printedXY: printed.filter((b) => b.direction === (def.direction ?? 'XY')),
       unstated,
+      containment: unstated,
       sameSource: unstated.filter((b) => printedSources.has(byId.get(b.measurementId).sourceId)),
       lowestOfProducts: perProduct.size ? [[...perProduct.values()].reduce((a, b) => (b.lo < a.lo ? b : a))] : [],
       formulation: lowerBoundsOf(def, left.filter((x) => S.fkey(x.gradeId) === l.f), { forms: BOUNDING_FORMS }),
     };
     const p = { ...l.p, mu: l.p.mu + tmMean(m) };
-    const range = (implied) => rangeFor(m, m, p, l.unit, { ownBounds: false, formulation: l.f, implied });
+    const range = (implied, material = false) => rangeFor(m, m, p, l.unit, { ownBounds: false, formulation: material ? undefined : l.f, implied });
     const plain = range([]);
     for (const [name, implied] of Object.entries(floors)) {
-      const r = name === 'none' ? plain : range(implied);
+      const r = name === 'none' ? plain : range(implied, name === 'containment');
       (cases[name] ??= []).push({
         moved: Math.abs(r.range[0] - plain.range[0]) > 1e-9 * Math.abs(plain.range[0]) || Math.abs(r.wide[0] - plain.wide[0]) > 1e-9 * Math.abs(plain.wide[0]),
         likely: inside(l.measured, r.range), plausible: inside(l.measured, r.wide), under: l.measured < r.wide[0] - 1e-9 * Math.abs(r.wide[0]),

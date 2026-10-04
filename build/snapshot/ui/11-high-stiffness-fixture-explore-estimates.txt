@@ -69,7 +69,7 @@ ABS-AF UNKNOWN
 likely fails: 1 with data misses, 2 publish none
  1,050
 1,040–1,050 · 3
- 1.89 22 ~6–22† 88 127↗ ☆
+ 1.89 22 ~1–15† 88 127↗ ☆
 ABS-CF UNKNOWN
 0 of 2 products
 likely fails: 2 with data miss, 9 publish none
@@ -294,7 +294,7 @@ Nylon / Polyamide
 likely fails: 1 with data misses, 8 publish none
  1,150
 1,130–1,200 · 7
- ~1.4–4.3† ~81–115† ~53–106† 140
+ ~1.4–4.3† ~37–86† ~51–105† 140
 60–143 · 3
  163↗ ☆
 PA6-CE
@@ -417,7 +417,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- ~1,010–1,070† ~1.3–4.6† ~97–140† ~6–60† ~80–190† 246¤ ☆
+ ~1,010–1,070† ~1.3–4.6† ~39–98† ~6–60† ~80–190† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
  UNKNOWN ~1,050–1,180† ~2–13† ~56–147† ~1–12† ~153–252† — ☆
@@ -569,7 +569,7 @@ none judged
 nothing published to judge
  1,280
 1,280–1,280 · 2
- ~1.5–5.9† ~72–108† ~9–27† 77
+ ~1.5–5.9† ~43–87† ~5–21† 77
 76–78 · 2
  138¤ ☆
 PCTG-GF
@@ -579,7 +579,7 @@ none judged
 nothing published to judge
  1,310
 1,310–1,310 · 2
- ~1.3–5.1† ~58–95† ~8–30† 78
+ ~1.3–5.1† ~57–93† ~8–29† 78
 76–78 · 3
  165¤↗
 out of stock
@@ -597,7 +597,7 @@ none judged
 nothing published to judge
  1,050
 1,020–1,080 · 2
- ~1.2–4.8† ~31–53† ~36–80† 85 — ☆
+ ~1.2–4.8† ~20–46† ~10–39† 85 — ☆
 PEBA
 Flexible Elastomers
  UNKNOWN
@@ -623,7 +623,7 @@ likely fails: 3 with data miss, 4 publish none
 52.6–64.2 · 2
  7.8
 7–8.6 · 2
- ~65.8–73.3† 115↗ ☆
+ ~47–68† 115↗ ☆
 PET-CF
 PET Engineering
  UNKNOWN
@@ -735,7 +735,7 @@ none judged
 nothing published to judge
  1,290
 1,290–1,290 · 2
- ~1.5–5.2† ~56–86† ~6–28† ~52–118† 85.8¤ ☆
+ ~1.5–5.2† ~54–84† ~5–27† ~52–118† 85.8¤ ☆
 PLA UNKNOWN
 0 of 38 products
 likely fails: 38 with data miss, 159 publish none
@@ -901,7 +901,7 @@ likely fails: 1 with data misses, 20 publish none
 PLA-CE UNKNOWN
 none judged
 nothing published to judge
- ~1,150–1,310† ~2.6–4.5† ~46–66† ~23.7–33.3† 55 114¤ ☆
+ ~1,150–1,310† ~2.6–4.5† ~46–65† ~23.4–33.1† 55 114¤ ☆
 PLA-CF UNKNOWN
 0 of 6 products
 likely fails: 6 with data miss, 12 publish none
@@ -936,7 +936,7 @@ none judged
 nothing published to judge
  1,240
 1,240–1,240 · 2
- ~2.1–7.2† ~66–95† ~4–18† ~50–110† 42.9
+ ~2.1–7.2† ~59–89† ~4–18† ~50–110† 42.9
 32.1–53.6 · 2
 ¤ ☆
 PLA-NF UNKNOWN
@@ -944,7 +944,7 @@ PLA-NF UNKNOWN
 likely fails: 1 with data misses, 1 publish none
  1,350
 1,250–1,450 · 2
- 2.83 37 ~3–18† 80 — ☆
+ 2.83 37 ~2–17† 80 — ☆
 POM
 also called Acetal · Acetals
  UNKNOWN
@@ -1093,7 +1093,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–8.6† ~47–77† ~370–760† ~50–76† — ☆
+ ~0.1–8.6† ~27–61† ~10–370† ~50–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN

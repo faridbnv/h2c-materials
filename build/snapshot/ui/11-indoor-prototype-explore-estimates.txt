@@ -65,7 +65,7 @@ ABS-AF PASS
 1 of 2 products
  1,050
 1,040–1,050 · 3
- 1.89 22 ~6–22† 88 127↗ ☆
+ 1.89 22 ~1–15† 88 127↗ ☆
 ABS-CF UNKNOWN
 0 of 1 product
 likely fails: 1 with data misses, 10 publish none
@@ -183,7 +183,7 @@ PVB / Specialty Polymers
  UNKNOWN
 none judged
 nothing published to judge
- 1,020 ~0.5–2.6† ~43–92† ~510–880† 160 — ☆
+ 1,020 ~0.5–2.6† ~43–92† ~20–500† 160 — ☆
 CoPE
 Copolyesters
  PASS
@@ -301,7 +301,7 @@ Nylon / Polyamide
 1 of 1 product
  1,010
 1,000–1,020 · 6
- ~0.7–2.2† ~62–94† ~200–360† 135
+ ~0.7–2.2† ~33–77† ~200–350† 135
 100–135 · 3
  183
 123–242 · 2
@@ -342,7 +342,7 @@ Nylon / Polyamide
 2 of 2 products
  1,150
 1,130–1,200 · 7
- ~1.4–4.3† ~81–115† ~53–106† 140
+ ~1.4–4.3† ~37–86† ~51–105† 140
 60–143 · 3
  163↗ ☆
 PA6-CE
@@ -459,7 +459,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- ~1,010–1,070† ~1.3–4.6† ~97–140† ~6–60† ~80–190† 246¤ ☆
+ ~1,010–1,070† ~1.3–4.6† ~39–98† ~6–60† ~80–190† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
  UNKNOWN ~1,050–1,180† ~2–13† ~56–147† ~1–12† ~153–252† — ☆
@@ -467,7 +467,7 @@ PAHT
 Nylon / Polyamide
  PASS
 1 of 1 product
- 1,200 3.1 82.1 ~4–16† ~93–152† — ☆
+ 1,200 3.1 82.1 ~4–15† ~93–152† — ☆
 PAHT-CE
 Nylon / Polyamide
  UNKNOWN
@@ -629,7 +629,7 @@ Polycarbonate
 likely fails: 1 with data misses, 1 publish none
  1,290
 1,260–1,320 · 2
- ~1.0–3.5† ~57–95† ~8–27† 140
+ ~1.0–3.5† ~33–82† ~5–22† 140
 annealed median
  — ☆
 PCL
@@ -639,7 +639,7 @@ none judged
 nothing published to judge
  1,100
 1,100–1,130 · 3
- ~0.21–1.02† ~45–62† 800 57 — ☆
+ ~0.21–1.02† ~8–45† 800 57 — ☆
 PCTG
 Copolyesters
  PASS
@@ -655,7 +655,7 @@ Copolyesters
 2 of 2 products
  1,280
 1,280–1,280 · 2
- ~1.5–5.9† ~72–108† ~9–27† 77
+ ~1.5–5.9† ~43–87† ~5–21† 77
 76–78 · 2
  138¤ ☆
 PCTG-GF
@@ -664,7 +664,7 @@ Copolyesters
 2 of 2 products
  1,310
 1,310–1,310 · 2
- ~1.3–5.1† ~58–95† ~8–30† 78
+ ~1.3–5.1† ~57–93† ~8–29† 78
 76–78 · 3
  165¤↗
 out of stock
@@ -682,7 +682,7 @@ none judged
 nothing published to judge
  1,050
 1,020–1,080 · 2
- ~1.2–4.8† ~31–53† ~36–80† 85 — ☆
+ ~1.2–4.8† ~20–46† ~10–39† 85 — ☆
 PEBA
 Flexible Elastomers
  PASS
@@ -706,7 +706,7 @@ PET Engineering
 52.6–64.2 · 2
  7.8
 7–8.6 · 2
- ~65.8–73.3† 115↗ ☆
+ ~47–68† 115↗ ☆
 PET-CF
 PET Engineering
  PASS
@@ -824,10 +824,10 @@ PETG-GR PASS
 2 of 2 products
  1,290
 1,290–1,290 · 2
- ~1.5–5.2† ~56–86† ~6–28† ~52–118† 85.8¤ ☆
+ ~1.5–5.2† ~54–84† ~5–27† ~52–118† 85.8¤ ☆
 PETG-PTFE PASS
 2 of 2 products
- 1,320 ~0.8–2.9† ~41–70† ~105–189† ~48–73† 86↗ ☆
+ 1,320 ~0.8–2.9† ~25–62† ~104–186† ~48–73† 86↗ ☆
 PLA PASS
 197 of 197 products
  1,240
@@ -981,7 +981,7 @@ PLA Wood PASS
 ↗ ☆
 PLA-CE PASS
 1 of 1 product
- ~1,150–1,310† ~2.6–4.5† ~46–66† ~23.7–33.3† 55 114¤ ☆
+ ~1,150–1,310† ~2.6–4.5† ~46–65† ~23.4–33.1† 55 114¤ ☆
 PLA-CF PASS
 18 of 18 products
  1,250
@@ -1018,14 +1018,14 @@ none judged
 nothing published to judge
  1,240
 1,240–1,240 · 2
- ~2.1–7.2† ~66–95† ~4–18† ~50–110† 42.9
+ ~2.1–7.2† ~59–89† ~4–18† ~50–110† 42.9
 32.1–53.6 · 2
 ¤ ☆
 PLA-NF PASS
 2 of 2 products
  1,350
 1,250–1,450 · 2
- 2.83 37 ~3–18† 80 — ☆
+ 2.83 37 ~2–17† 80 — ☆
 PLA-PHA
 Polymer Blends
  UNKNOWN
@@ -1129,7 +1129,7 @@ Polymer Blends
 likely fails: 1 with data misses, 1 publish none
  1,090
 1,080–1,100 · 2
- 2.25 67 12 ~114–135† 148¤ ☆
+ 2.25 67 12 ~102–133† 148¤ ☆
 PPS
 High-Performance Engineering
  UNKNOWN
@@ -1206,7 +1206,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–8.6† ~47–77† ~370–760† ~50–76† — ☆
+ ~0.1–8.6† ~27–61† ~10–370† ~50–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN
@@ -1336,7 +1336,7 @@ Flexible Elastomers
 2 of 2 products
  1,230
 1,220–1,230 · 3
- ~0.01–0.94† ~64–162† ~20–70† n/a 189
+ ~0.01–0.94† ~16–107† ~18–69† n/a 189
 150–227 · 2
 ¤↗
 out of stock
@@ -1346,7 +1346,7 @@ Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,330 ~0.009–0.48† ~31–81† ~90–350† n/a — ☆
+ 1,330 ~0.009–0.48† ~8–55† ~90–350† n/a — ☆
 TPU-ESD
 Flexible Elastomers
  PASS
@@ -1366,7 +1366,7 @@ none judged
 nothing published to judge
  1,120
 1,120–1,200 · 3
- ~0.003–0.21† ~47–102† ~680–1,310† n/a 70↗ ☆
+ ~0.003–0.21† ~8–54† ~250–960† n/a 70↗ ☆
 TPV
 Flexible Elastomers
  UNKNOWN

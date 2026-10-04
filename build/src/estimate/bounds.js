@@ -40,19 +40,41 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       bounds.push({ side: b.side, own: b.value, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
     }
-    // What the material's own measurements prove (lower-bounds.js, from headline_definitions.csv Lower bound: a yield or
+    // What a product's own measurements prove (lower-bounds.js, from headline_definitions.csv Lower bound: a yield or
     // break stress under the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at
     // 0.45 MPa) limits its estimate from below, as a published one-sided bound does. PA6's plausible HDT reached down
     // to 72 °C though its own 1.8 MPa value is 90 °C (audit 2026-09-15, B-16).
-    // A material's range takes the bounds of all its products (its compiled implied bounds), a grade's the ones its own
-    // formulation proves (`implied`, passed by grades.js): a grade is not bounded by a sibling. The back-test passes the
-    // bounds it allows, with the hidden value left out.
-    const floors = implied ?? (ownBounds && formulation === undefined ? m.headline[key]?.impliedBounds : null) ?? [];
+    // A grade's range (formulation given) is floored at the highest floor its own formulation proves (`implied`, passed by
+    // grades.js): a grade is not bounded by a sibling. A material's is not: its range is the spread of its products,
+    // and what physics requires of a spread is that it contain every product's proven floor, not that it start at the
+    // highest of them (D126; this replaces the D78 floor "held at the highest own printed limit" for materials, which
+    // held the hidden typical product only 31, 39 and 69 % of the time). So the range reaches the highest product floor
+    // from above, and is floored from below at the lowest product floor, only when every active product has one:
+    // otherwise some product's floor is unknown and nothing from measurements keeps the range from going lower.
+    // The back-test passes the bounds it allows, with the hidden value left out.
+    const floors = (implied ?? (ownBounds && formulation === undefined ? m.headline[key]?.impliedBounds : null) ?? []).filter((b) => !b.unit || b.unit === h.unit);
+    let highestFloor = -Infinity;
     {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
-      for (const b of floors) {
-        if (!(b.lo > 0) && scaleName === 'log') continue;
-        bounds.push({ side: 'lower', own: b.lo, value: toModel(b.lo), sd: model.bounds.oneSided.sd[scaleName], why: `at least ${b.lo} ${h.unit}: its own ${b.property.toLowerCase()} (${b.measurementId}) bounds it` });
+      const push = (b, why) => {
+        if (!(b.lo > 0) && scaleName === 'log') return;
+        bounds.push({ side: 'lower', own: b.lo, value: toModel(b.lo), sd: model.bounds.oneSided.sd[scaleName], why });
+      };
+      if (formulation !== undefined) {
+        for (const b of floors) push(b, `at least ${b.lo} ${h.unit}: its own ${b.property.toLowerCase()} (${b.measurementId}) bounds it`);
+      } else if (floors.length) {
+        const perProduct = new Map();
+        for (const b of floors) {
+          const f = S.fkey(b.gradeId);
+          if (!perProduct.has(f) || perProduct.get(f).lo < b.lo) perProduct.set(f, b);
+        }
+        const ranked = [...perProduct.values()].sort((x, y) => x.lo - y.lo);
+        const highest = ranked.at(-1), lowest = ranked[0];
+        highestFloor = highest.lo;
+        const products = new Set((m.gradeIds ?? []).filter((id) => S.grades.has(id) && !S.grades.get(id).retired).map((id) => S.fkey(id)));
+        if ([...products].every((f) => perProduct.has(f))) {
+          push(lowest, `at least ${lowest.lo} ${h.unit}: the lowest of its products' floors, ${lowest.property.toLowerCase()} (${lowest.measurementId}); every product proves one`);
+        }
       }
     }
     if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
@@ -108,7 +130,10 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
     const clamp = (v) => Math.min(Math.max(held(v), wide[0]), wide[1]);
     const centre = clamp(q(0.5, calLikely));
     const range = [clamp(q(0.5 - likely / 2, calLikely)), clamp(q(0.5 + likely / 2, calLikely))];
+    // A material's range contains its highest product floor: its upper ends are raised to it, never its lower ones.
+    wide[1] = Math.max(wide[1], highestFloor);
+    range[1] = Math.max(range[1], highestFloor);
 
-    return { bounds, centre, range, wide, at: (pr) => q(pr, calPlausible), cdf: (value) => boundedCdf(p.mu, p.sd * calPlausible, bounds, toModel(value)) };
+    return { bounds, centre, range, wide, at: (pr) => (pr > 0.5 ? Math.max(q(pr, calPlausible), highestFloor) : q(pr, calPlausible)), cdf: (value) => boundedCdf(p.mu, p.sd * calPlausible, bounds, toModel(value)) };
   };
 }

@@ -1,7 +1,7 @@
-COUNT 92 shown PASS + UNKNOWN
-STATUS ☑ PASS 7 | ☑ UNKNOWN 108 | ☐ FAIL 38 | ☐ SCREENED 23
+COUNT 91 shown PASS + UNKNOWN
+STATUS ☑ PASS 7 | ☑ UNKNOWN 108 | ☐ FAIL 38 | ☐ SCREENED 24
 7 of the 153 materials meet these requirements
-Flexible component template · 108 more could not be checked, listed flagged, except 23 screened out
+Flexible component template · 108 more could not be checked, listed flagged, except 24 screened out
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -174,7 +174,7 @@ PVB / Specialty Polymers
  UNKNOWN
 none judged
 nothing published to judge
- 1,020 ~0.5–2.6† ~43–92† ~510–880† 160 — ☆
+ 1,020 ~0.5–2.6† ~43–92† ~20–500† 160 — ☆
 CoPE
 Copolyesters
  UNKNOWN
@@ -271,7 +271,7 @@ none judged
 nothing published to judge
  1,010
 1,000–1,020 · 6
- ~0.7–2.2† ~62–94† ~200–360† 135
+ ~0.7–2.2† ~33–77† ~200–350† 135
 100–135 · 3
  183
 123–242 · 2
@@ -309,7 +309,7 @@ none judged
 nothing published to judge
  1,150
 1,130–1,200 · 7
- ~1.4–4.3† ~81–115† ~53–106† 140
+ ~1.4–4.3† ~37–86† ~51–105† 140
 60–143 · 3
  163↗ ☆
 PA6-CF
@@ -409,7 +409,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- ~1,010–1,070† ~1.3–4.6† ~97–140† ~6–60† ~80–190† 246¤ ☆
+ ~1,010–1,070† ~1.3–4.6† ~39–98† ~6–60† ~80–190† 246¤ ☆
 PAHT-CF
 Nylon / Polyamide
  UNKNOWN
@@ -530,7 +530,7 @@ none judged
 nothing published to judge
  1,100
 1,100–1,130 · 3
- ~0.21–1.02† ~45–62† 800 57 — ☆
+ ~0.21–1.02† ~8–45† 800 57 — ☆
 PCTG
 Copolyesters
  UNKNOWN
@@ -547,14 +547,6 @@ Polyolefins
 none judged
 nothing published to judge
  954 0.752 18.5 208 66 121¤ ☆
-PE-GF
-Polyolefins
- UNKNOWN
-none judged
-nothing published to judge
- 1,050
-1,020–1,080 · 2
- ~1.2–4.8† ~31–53† ~36–80† 85 — ☆
 PEBA
 Flexible Elastomers
  UNKNOWN
@@ -580,7 +572,7 @@ likely fails: 2 with data miss, 5 publish none
 52.6–64.2 · 2
  7.8
 7–8.6 · 2
- ~65.8–73.3† 115↗ ☆
+ ~47–68† 115↗ ☆
 PET-CF
 PET Engineering
  UNKNOWN
@@ -689,7 +681,7 @@ likely fails: 1 with data misses, 4 publish none
 PETG-PTFE UNKNOWN
 none judged
 nothing published to judge
- 1,320 ~0.8–2.9† ~41–70† ~105–189† ~48–73† 86↗ ☆
+ 1,320 ~0.8–2.9† ~25–62† ~104–186† ~48–73† 86↗ ☆
 PLA UNKNOWN
 0 of 56 products
 likely fails: 56 with data miss, 141 publish none
@@ -1039,7 +1031,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–8.6† ~47–77† ~370–760† ~50–76† — ☆
+ ~0.1–8.6† ~27–61† ~10–370† ~50–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN
@@ -1169,7 +1161,7 @@ none judged
 nothing published to judge
  1,230
 1,220–1,230 · 3
- ~0.01–0.94† ~64–162† ~20–70† n/a 189
+ ~0.01–0.94† ~16–107† ~18–69† n/a 189
 150–227 · 2
 ¤↗
 out of stock
@@ -1179,7 +1171,7 @@ Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,330 ~0.009–0.48† ~31–81† ~90–350† n/a — ☆
+ 1,330 ~0.009–0.48† ~8–55† ~90–350† n/a — ☆
 TPU-ESD
 Flexible Elastomers
  UNKNOWN
@@ -1195,7 +1187,7 @@ none judged
 nothing published to judge
  1,120
 1,120–1,200 · 3
- ~0.003–0.21† ~47–102† ~680–1,310† n/a 70↗ ☆
+ ~0.003–0.21† ~8–54† ~250–960† n/a 70↗ ☆
 TPV
 Flexible Elastomers
  UNKNOWN

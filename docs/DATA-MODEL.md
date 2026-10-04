@@ -541,8 +541,9 @@ never screens (`meta.estimateModel.properties.*.screening`, `build/snapshot/scre
 In Explore with Estimates on, an estimate screens a material out when the range it may screen on wholly fails, and no
 printed measurement of the material (or one whose source states no specimen) bounds the headline from below and meets the requirement (`impliedBounds`: yield or
 break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa, each at its
-published value; D55, D126). The same bounds limit the estimate's own range from below, and a grade's range is limited by its own
-formulation's (`lower-bounds.js`); EST-ORDER fails the build when a shown estimate lies under them. Not
+published value; D55, D126). The same bounds shape the estimate's own range: a grade's is floored at its own formulation's
+highest (`lower-bounds.js`); a material's, the spread of its products, reaches the highest product floor from above and is
+floored at the lowest only when every active product has one. EST-ORDER fails the build when a shown estimate breaks either. Not
 applicable screens the same way. (An unstated-load heat deflection bracket screened too until phase 4 removed it: a value
 published without its load is now as published, D84.) Strict neither shows nor uses estimates. The earlier models are recorded in D10,
 D11, D40, D42 and D43.

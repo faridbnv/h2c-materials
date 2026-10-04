@@ -1146,7 +1146,7 @@ Warm environment,Explore with estimates,M059,PA612-CF,PASS,all,1,0,2,3,G059-01,a
 Warm environment,Explore with estimates,M060,PA612-GF,UNKNOWN,,,,,,,,yes,
 Warm environment,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,as-printed,yes,
 Warm environment,Explore with estimates,M065,PA612-ESD,PASS,all,1,0,0,1,G065-01,as-printed,yes,
-Warm environment,Explore with estimates,M066,PET,UNKNOWN,,0,0,7,7,G066-01,as-printed,yes,
+Warm environment,Explore with estimates,M066,PET,UNKNOWN,,0,0,7,7,G066-01,as-printed,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M067,PET-CF,PASS,some,2,1,5,8,G067-04,as-printed,yes,
 Warm environment,Explore with estimates,M068,PET-GF,PASS,all,2,0,2,4,G068-01,as-printed,yes,
 Warm environment,Explore with estimates,M069,PPA,PASS,all,1,0,1,2,G069-01,as-printed,yes,
@@ -1687,7 +1687,7 @@ Flexible component,Explore with estimates,M134,CPE-LW,UNKNOWN,,0,0,1,1,G134-01,a
 Flexible component,Explore with estimates,M135,PVC,UNKNOWN,,0,0,2,2,G135-01,as-printed,yes,
 Flexible component,Explore with estimates,M136,SAN,UNKNOWN,,0,0,1,1,G136-02,as-printed,yes,
 Flexible component,Explore with estimates,M137,COC,UNKNOWN,,0,0,2,2,G137-01,as-printed,yes,
-Flexible component,Explore with estimates,M138,PE-GF,UNKNOWN,,0,0,2,2,G138-02,as-printed,yes,
+Flexible component,Explore with estimates,M138,PE-GF,UNKNOWN,,0,0,2,2,G138-02,as-printed,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M139,LCP,UNKNOWN,,0,0,1,1,G139-01,as-printed,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M140,PBT,UNKNOWN,,0,0,1,1,G140-01,as-printed,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M143,nGen FLEX,UNKNOWN,,0,0,1,1,G143-01,as-printed,yes,

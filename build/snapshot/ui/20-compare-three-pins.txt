@@ -55,7 +55,7 @@ ABS-AF
 ABS-CF
 29
 27.3–46 · 3
-9.88
+5.95
 307
 all 153 candidates
 Tensile strength (Z) MPa
@@ -74,13 +74,13 @@ ABS
 10
 3.9–40 · 15
 ABS-AF
-~6–22†
+~1–15†
 ABS-CF
 1.9
 1.8–2 · 2
 0.518
 log scale
-2,100
+1,650
 all 153 candidates
 Notched Charpy impact kJ/m²
 ABS

@@ -1,7 +1,8 @@
 // Physical order of the numbers a reader is shown (D126): an ultimate strength is at least the yield and break stress
 // of the same product, a strain at break at least the strain at yield, a heat deflection at 0.45 MPa at least the one at
 // 1.8 MPa, and (for a semicrystalline polymer the model caps) no heat deflection lies above its melting point. The
-// floors are the ones the estimates are built with (lower-bounds.js, headline_definitions.csv Lower bound properties), so
+// floors are the ones the estimates are built with, a grade's own and, for a material (the spread of its products), the
+// range that contains every product's floor (bounds.js) (lower-bounds.js, headline_definitions.csv Lower bound properties), so
 // a number below one is a build that did not apply what it knows, never a matter of opinion. EST-ORDER is raised per
 // material or grade and headline, naming the bounding measurement.
 
@@ -49,8 +50,24 @@ export function orderViolations(db, { forms } = {}) {
       if (m.excluded || m.familyEntry) continue;
       const e = m.headline[key]?.estimate;
       if (!e) continue;
-      const floor = top(lowerBoundsOf(def, byMaterial.get(m.id) ?? [], { forms }), e.unit);
-      if (floor) under(m.id, 'material-estimate', key, shownOf(e), floor, `${m.name} ${key} estimate`, `${m.id} ${key}`);
+      // A material's range is the spread of its products: it contains every product's floor (its upper ends reach the
+      // highest), and starts no lower than the lowest where every active product has one (bounds.js).
+      const formulations = [...new Set(db.grades.filter((g) => g.materialId === m.id && !g.retired).map((g) => fkey(g.id)))];
+      const floors = formulations.map((f) => top(lowerBoundsOf(def, byFormulation.get(f) ?? [], { forms }), e.unit));
+      const known = floors.filter(Boolean);
+      if (!known.length) continue;
+      const highest = known.reduce((a, b) => (b.lo > a.lo ? b : a)), lowest = known.reduce((a, b) => (b.lo < a.lo ? b : a));
+      const all = Object.entries(shownOf(e)), uppers = all.filter(([label]) => label.endsWith('hi'));
+      const shown = {}, said = [];
+      const short = (list, floor, what, each = '') => {
+        const wrong = list.filter(([, v]) => v != null && v < sig3(floor.lo, -1) - EPS);
+        if (!wrong.length) return;
+        Object.assign(shown, Object.fromEntries(wrong));
+        said.push(`${wrong.map(([label, v]) => `${label} ${v}`).join(', ')} ${floor.unit} lies under ${floor.lo} ${floor.unit}, the ${what} floor among its products${each}, its own ${floor.property.toLowerCase()} (${floor.measurementId})`);
+      };
+      short(uppers, highest, 'highest');
+      if (floors.every(Boolean)) short(all, lowest, 'lowest', ', which every one has');
+      if (said.length) out.push({ record: `${m.id} ${key}`, kind: 'material-estimate', key, id: m.id, shown, floor: highest.lo, measurementId: highest.measurementId, message: `${m.name} ${key} estimate ${said.join('; ')}` });
     }
     for (const g of db.grades) {
       const mat = materialById.get(g.materialId);
