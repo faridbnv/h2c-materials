@@ -149,6 +149,26 @@ export function quoteInLines(lines, quote) {
 }
 
 /**
+ * Does the page's own text pair this row's label with its number(s)? One piece of the quote (split on " | ") must hold
+ * the label (or all of its words of four letters or more) and every number, and be found contiguous on the page in
+ * the line view or the block view. A label in one piece and its number in another proves only that both are printed.
+ */
+export function labelPairedWithNumber(doc, row) {
+  const p = doc?.pages.get(Number(row.page));
+  if (!p) return false;
+  const numbers = [row.number_lo, row.number_hi].filter((n) => n !== '' && n != null && Number.isFinite(Number(String(n).replace(',', '.'))));
+  const label = String(row.label ?? '');
+  const words = (label.toLowerCase().match(/\p{L}{4,}/gu) ?? []);
+  if (!numbers.length || !label.trim()) return false;
+  return String(row.quote ?? '').split(' | ').some((piece) => {
+    const lower = piece.toLowerCase();
+    const labelled = words.length ? words.every((w) => lower.includes(w)) : squash(piece).includes(squash(label));
+    if (!labelled || !numbers.every((n) => countInEvidence(piece, n) > 0)) return false;
+    return ['line', 'block'].some((view) => p[view].length && quoteInLines(p[view], piece));
+  });
+}
+
+/**
  * How a reading is borne out by the page's text: { presence: 'text'|'block'|'ocr'|'visual-only', flags: [] }.
  * Every number must be printed on the page and the quote must be on it; the strongest view that bears each out
  * counts, and the weaker of the two names the row. A row with no quote, or a number nobody can find, is visual-only.

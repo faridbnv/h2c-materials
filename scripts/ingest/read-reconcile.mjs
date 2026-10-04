@@ -24,7 +24,7 @@ import { projectRoot } from './context.mjs';
 import { machineAgrees } from './read-machine.mjs';
 import {
   CONFIDENCE, CONTEXT_SCOPES, DECISION_PROPERTY, DECISION_SETTINGS, HEADER, KINDS, NP, SETTING_FIELDS, VERDICTS,
-  heldFor, loadDocument, loadTables, missing, numbersIn, pageOf, presence, sameNumber, squash,
+  heldFor, labelPairedWithNumber, loadDocument, loadTables, missing, numbersIn, pageOf, presence, sameNumber, squash,
 } from './read-common.mjs';
 
 const num = (v) => { if (v == null || v === '') return null; const n = Number(String(v).replace(',', '.').replace(/\s/g, '')); return Number.isFinite(n) ? n : null; };
@@ -356,7 +356,7 @@ export async function reconcile({ rows, seconds = [], tables, documentFor, machi
 
   // The second read: a human-eyed reading of the same page if there is one, else the importer's own rule reader.
   const machines = new Map();
-  const machineStats = { newDecision: 0, newDecisionAgreed: 0, mismatch: 0, mismatchAgreed: 0, noMachineReading: 0 };
+  const machineStats = { newDecision: 0, newDecisionAgreed: 0, mismatch: 0, mismatchAgreed: 0, textAgreed: 0, noMachineReading: 0 };
   for (const r of out.filter((x) => x._need)) {
     r.SecondRead = secondStatus(r._row, seconds);
     let agrees = false;
@@ -371,7 +371,10 @@ export async function reconcile({ rows, seconds = [], tables, documentFor, machi
       });
       if (agrees && r.SecondRead === 'pending') r.SecondRead = 'agreed-reader';
     }
+    // A product named on a multi-product sheet with no grade is not one product: the page cannot say whose number it is.
+    const ambiguous = r._row.product && !r._row.grade_id && heldOf(r.SourceID).products.length > 1;
     const decisionField = r.Kind === 'setting' ? DECISION_SETTINGS.includes(r.Field) : DECISION_PROPERTY.test(r.Field);
+    if (r.SecondRead === 'pending' && r.Class === 'new' && decisionField && r.Presence !== 'visual-only' && !ambiguous && labelPairedWithNumber(await documentFor(r.SourceID), r._row)) { r.SecondRead = 'agreed-text'; machineStats.textAgreed++; }
     if (r.Class === 'new' && decisionField) { machineStats.newDecision++; if (agrees) machineStats.newDecisionAgreed++; }
     if (r.Class === 'mismatch') { machineStats.mismatch++; if (agrees) machineStats.mismatchAgreed++; }
   }
@@ -417,6 +420,7 @@ export function summarize({ rows, invalid, duplicates = [], tasks, unreadHeld, i
     const pct = (a, b) => (b ? `${Math.round((100 * a) / b)} %` : 'n/a');
     lines.push('## Machine second read (the importer\'s sheet reader)', '', table(['rows', 'machine agrees', 'share'], [
       ['new decision-field rows', machineStats.newDecisionAgreed, `${machineStats.newDecisionAgreed} of ${machineStats.newDecision} (${pct(machineStats.newDecisionAgreed, machineStats.newDecision)})`],
+      ['new decision-field rows the page text pairs with their label (agreed-text, no read)', machineStats.textAgreed, `${machineStats.textAgreed} of ${machineStats.newDecision}`],
       ['mismatches (agrees with the page reading, not the held row)', machineStats.mismatchAgreed, `${machineStats.mismatchAgreed} of ${machineStats.mismatch} (${pct(machineStats.mismatchAgreed, machineStats.mismatch)})`],
     ]), `Documents with no machine reading (no current text cache): ${machineStats.noMachineReading} row(s).`, '');
   }
@@ -466,12 +470,17 @@ async function main() {
     const { machineReading } = await import('./read-machine.mjs');
     machineFor = async (id) => { const sha = shaOf(id); const text = sha ? cachedText(sha) : null; return text ? machineReading(text) : null; };
   }
-  const rows = files.flatMap((f) => parseReadings(readFileSync(f, 'utf8'), f.split('/').pop()));
-  const seconds = list('second').flatMap((f) => parseReadings(readFileSync(f, 'utf8'), f.split('/').pop()));
+  // A file that is not a readings CSV (a row with an unquoted comma, a missing column) is skipped whole and named: it is
+  // the reader's to redo, and one broken batch must not stop the others.
+  const skippedFiles = [];
+  const readAll = (list) => list.flatMap((f) => { try { return parseReadings(readFileSync(f, 'utf8'), f.split('/').pop()); } catch (e) { skippedFiles.push(`${f}: ${String(e.message).split('\n')[0]}`); return []; } });
+  const rows = readAll(files);
+  const seconds = readAll(list('second'));
   const vocabOf = (name, col) => readCsv(join(projectRoot, 'schema/vocab', name)).records.map((r) => r.values[col]);
   const result = await reconcile({ rows, seconds, tables, documentFor, machineFor, vocab: { units: vocabOf('units.csv', 'Value'), operators: vocabOf('operators.csv', 'Value') } });
   mkdirSync(out, { recursive: true });
   const written = writeAll(result, out, run);
+  if (skippedFiles.length) { writeFileSync(join(out, 'skipped-files.txt'), `${skippedFiles.join('\n')}\n`); console.log(`skipped ${skippedFiles.length} unreadable file(s):\n${skippedFiles.join('\n')}`); }
   console.log(`${result.rows.length} classified, ${result.invalid.length} invalid, ${result.duplicates.length} duplicate(s), ${result.tasks.length} second-read task(s) -> ${out}`);
   console.log(JSON.stringify(written));
 }

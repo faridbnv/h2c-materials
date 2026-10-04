@@ -196,6 +196,20 @@ test('a second reading of the same place with the same numbers agrees; other num
   assert.deepEqual(Object.keys(result.tasks[0]), ['task_id', 'source_id', 'page', 'kind', 'field', 'product', 'label', 'locator'], 'a task carries no value');
 });
 
+test('a new decision row whose quote holds label and number in one piece the page prints contiguously needs no second read', async () => {
+  const hdt = (o) => value({ field: 'HDT', unit: '°C', number_lo: '55', label: 'Blast Drying Oven', ...o });
+  const paired = await only(hdt({ quote: 'Blast Drying Oven: 55 °C, 8 h' }));
+  assert.equal(paired.SecondRead, 'agreed-text');
+  assert.equal((await only(hdt({ quote: 'Blast Drying Oven | 55 °C, 8 h' }))).SecondRead, 'pending', 'label and number in different pieces prove only that both are printed');
+  assert.equal((await only(hdt({ quote: 'Blast Drying Oven: 56 °C, 8 h', number_lo: '56' }))).SecondRead, 'pending', 'a visual-only row');
+  const two = { ...tables, grades: [...tables.grades, { GradeID: 'G001-02', SourceID: 'S-1', Manufacturer: 'Acme', 'Product name': 'Acme PA' }] };
+  const ambiguous = await reconcile({ rows: [hdt({ product: 'Acme PA', grade_id: '', quote: 'Blast Drying Oven: 55 °C, 8 h' })], tables: two, documentFor: async () => doc });
+  assert.equal(ambiguous.rows[0].SecondRead, 'pending', 'a product named on a multi-product sheet with no grade');
+  const mismatch = await only(value({ field: 'Density', number_lo: '1.30', label: 'Density', unit: 'g/cm³', quote: 'Density ISO 1183 1,22 g/cm³' }));
+  assert.equal(mismatch.Class, 'mismatch');
+  assert.notEqual(mismatch.SecondRead, 'agreed-text');
+});
+
 test('held rows no reading named are reported', async () => {
   const result = await run([value({ field: 'Density', number_lo: '1.22', unit: 'g/cm³', quote: 'Density ISO 1183 1,22 g/cm³' })]);
   assert.deepEqual(result.unreadHeld.filter((u) => u.Kind === 'measurement').map((u) => u.ID), ['V1', 'V2', 'V4']);
