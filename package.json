@@ -29,6 +29,8 @@
     "ingest:fetch": "node scripts/ingest/fetch.mjs",
     "ingest:extract": "node scripts/ingest/extract.mjs",
     "ingest:ocr": "node scripts/ingest/ocr.mjs",
+    "ingest:quality": "node scripts/ingest/quality.mjs",
+    "ingest:ocr-pass": "node scripts/ingest/ocr-pass.mjs",
     "ingest:classify": "node scripts/ingest/classify.mjs",
     "ingest:propose": "node scripts/ingest/propose.mjs",
     "ingest:review": "node scripts/ingest/review.mjs",
