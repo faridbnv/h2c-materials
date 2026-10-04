@@ -41,6 +41,7 @@
     "ingest:witness": "node scripts/ingest/witness.mjs",
     "ingest:read-packet": "node scripts/ingest/read-packet.mjs",
     "ingest:read-reconcile": "node scripts/ingest/read-reconcile.mjs",
+    "ingest:read-proposals": "node scripts/ingest/read-proposals.mjs",
     "ingest:blockers": "node scripts/ingest/blockers.mjs",
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",
