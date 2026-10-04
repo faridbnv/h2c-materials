@@ -484,3 +484,24 @@ did, the collapse marks read as dots, and the drawer's sentences read as the dat
    conditioned and annealed are their words and stay. The project's own coinages ("twin", "admitted for screening",
    "research mode", "in scope", "Theoretical") go, and every text is written knowing whom it serves and what decision it
    supports (D124).
+
+## Decided on 2026-10-04, the reader round
+
+The owner opened makers' sheets the tool called silent and found the values printed there (purefil's LCP sheet prints
+its nozzle, bed and drying), and asked for a reader equal to the sheets' many layouts, the gaps re-read with it, and the
+mismatches it meets corrected: GOALS steps 2 and 5; C3, C4, C9, C11, C12 and C13. The owner's answers:
+
+1. **Every page of every document tied to a gap is re-read**: a material or product missing a print setting (nozzle,
+   bed, chamber, drying), a mechanical value (tensile strength, modulus, elongation, density) or HDT, and the conflicts
+   the coverage page notes. Claude Sonnet reads the page images; the import's reader learns each layout it missed, so
+   its guard checks every profile and value afterwards. What a registered sheet prints enters by migration, each number
+   checked on its page (D123); a number only an image shows needs two independent reads that agree.
+2. **Makers' sites are searched** for the materials with two sources or fewer, for every product still missing a nozzle
+   or bed after the re-read, and for a chamber only where no product of its material states one. A new document enters
+   through the import pipeline (batches b41 onward), a bounded exception to the import pause like b34 to b40. A search
+   that finds nothing is recorded as searched, never as a value.
+3. **What is shown keeps physical order.** An estimate is floored by the product's own yield, break or tensile strength
+   when its bar is printed or its specimen is not stated, in any direction; moulded, film and strand values stay out. No
+   number shown may break an order physics sets: the ultimate strength is at least the yield and break strength,
+   elongation at break at least elongation at yield, HDT at 0.45 MPa at least HDT at 1.8 MPa.
+4. Built on a branch, and pushed to main when done.
