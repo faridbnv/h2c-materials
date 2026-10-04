@@ -1,0 +1,34 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "511b71ee766824497a55458dcf7463158fb43f3c87b672e5c1ddc80e7bbc0c8e",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 1,
+  "original_custody": "Registered own HTML original reread on actual SHA-verified bytes using htmlText; exact ASA+AF heading, body and recommendation before Reviews, not a neighbouring product. No cached-source summary used as evidence.",
+  "results": [
+    {
+      "OperationID": "G113-03-asa-aramid-guidance",
+      "verdict": "APPROVE",
+      "source_id": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+      "source_sha256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+      "locator": "p. 1, own body line 44, before Properties/Reviews",
+      "raw": "To achieve optimal print parameters, it is recommended to use a closed thermal chamber and a hardened steel nozzle that is resistant to the abrasion caused by aramid fibers.",
+      "grade_source_full_guards_match": {
+        "grades": true,
+        "sources": true
+      },
+      "field_checks": {
+        "Enclosure": "Own optional closed thermal chamber recommendation preserved; existing parser yields recommended.",
+        "Nozzle material / Abrasion / Hardened nozzle": "Full own hardened-steel recommendation and aramid abrasion reason preserved. Existing parser yields hardened TRUE; this does not add measured wear or lifetime.",
+        "Chamber": "No numeric temperature published; state/requirement unknown, endpoints Not applicable. No heated65°C gate invented.",
+        "Remaining recipe fields": "Missing, no TDS recipe copied. Existing own TDS and other scope remain distinct."
+      }
+    }
+  ],
+  "limitations": [
+    "Current screening contract reads the recommendation as hardened-nozzle guidance; this review does not establish brass qualification or a universal wear limit.",
+    "No product pass is closed before guarded admission and verified local commit.",
+    "No physical testing, human review or manufacturer clarification."
+  ],
+  "review_signature_sha256": "4123d31ae23adc7eb1ec0b40ebedaddc663019bc9deb72601a239f063f1975c2"
+}

@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628",
+    "url": "https://uk.esun3d.com/news/13182",
+    "pages": 1,
+    "provider": "eSUN",
+    "manufacturer": "eSUN",
+    "docKey": "https://uk.esun3d.com/news/13182#witness-for=source:S-PEBA-eSUN-ABS-Filament-TDS-V4-0"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+      "Publisher": "eSUN",
+      "Title": "ABS+ formulation-change notice published2026-06-15 describing2025update",
+      "Revision": "Not published",
+      "Publication date": "2026-06-15",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://uk.esun3d.com/news/13182",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G027-22",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ABS+"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G027-22",
+      "row": {
+        "GradeID": "G027-22",
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "ABS+",
+        "Shared formulation key": "S-PEBA-eSUN-ABS-Filament-TDS-V4-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Named \"ABS+\" since 2026-09-27 (m193-esun-plus-and-polymax-pc-identities): its sheet heads p. 1 \"Version 4.0 ABS+ Technical Data Sheet\".",
+        "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c14-0da78e0f-e1",
+      "gradeKey": "G027-22",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "G027-22",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "In order to make ABS compatible with both \u201ceasy printing\u201d and \u201chigh performance\u201d, eSUN restructured the formula of the ABS+ filament in 2025 \u2014 the brand-new generation of \u201cZero-Warping ABS+\u201d officially debuts.",
+        "Exposure / conditions": "Maker announces ABS+ polymer-mixture formulation restructuring in2025; existing measurements remain with dated own originals. Current product page marketing89C/33MPa differs its physical/mechanical table73C/40.12MPaXY/14.94MPaZ, and current download still serves registered Nov2021V4.0 injection-moulded-data sheet. No public evidence binds old/new batches or specimen/conditions to new claims. No measurement substitution, lifetime allowable or selection PASS; exact revision/batch correspondence needs maker evidence.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+        "Locator": "p.1: Official formulation notice, source text line66"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "In order to make ABS compatible with both \u201ceasy printing\u201d and \u201chigh performance\u201d, eSUN restructured the formula of the ABS+ filament in 2025 \u2014 the brand-new generation of \u201cZero-Warping ABS+\u201d officially debuts."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    },
+    {
+      "id": "c14-0da78e0f-e2",
+      "gradeKey": "G027-22",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "G027-22",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "In terms of other performances, after multi-party comparison tests, the interlayer bonding strength of the new ABS+ has been significantly improved at present, and the Z-axis tensile strength can reach 33MPa, which is at a leading level among ABS materials on the market. In addition, the heat deflection temperature of the new ABS+ can reach 89\u00b0C , which is also a certain improvement compared to ordinary ABS materials (around 75\u00b0C).",
+        "Exposure / conditions": "Maker announces ABS+ polymer-mixture formulation restructuring in2025; existing measurements remain with dated own originals. Current product page marketing89C/33MPa differs its physical/mechanical table73C/40.12MPaXY/14.94MPaZ, and current download still serves registered Nov2021V4.0 injection-moulded-data sheet. No public evidence binds old/new batches or specimen/conditions to new claims. No measurement substitution, lifetime allowable or selection PASS; exact revision/batch correspondence needs maker evidence.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+        "Locator": "p.1: Official formulation notice, source text line78"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "In terms of other performances, after multi-party comparison tests, the interlayer bonding strength of the new ABS+ has been significantly improved at present, and the Z-axis tensile strength can reach 33MPa, which is at a leading level among ABS materials on the market. In addition, the heat deflection temperature of the new ABS+ can reach 89\u00b0C , which is also a certain improvement compared to ordinary ABS materials (around 75\u00b0C)."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "3D Printing Parameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shipping: $ 5.99, Free Shipping Over $ 99.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2026-06-15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1692 views",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "In the 3D printing circle, when talking about materials that make people \u201clove and hate\u201d, ABS is definitely on the list.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Is ABS easy to use? Of course. It is one of the earliest used 3D printing materials and is currently also a highly cost-effective entry-level engineering 3D pri",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "In order to make ABS compatible with both \u201ceasy printing\u201d and \u201chigh performance\u201d, eSUN restructured the formula of the ABS+ filament in 2025 \u2014 the brand-new gen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineer Hu: Simply put, it is caused by the physical characteristic of \u201cthermal expansion and contraction\u201d. ABS has a relatively high shrinkage rate. After bei",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "In terms of other performances, after multi-party comparison tests, the interlayer bonding strength of the new ABS+ has been significantly improved at present, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What do you think this product upgrade means to the 3D printing circle?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Previous News With a top speed reaching 130 km/h, this race car is exceptionally cool!",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Next News 11,534 Parts and 3,500 Hours of Hard Work: He Replicated the Hall of Prayer for Good Harvests of the Temple of Heaven Using 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Leading the world in 3D printing material standards since 2002. With over 20 years of expertise, eSUN provides end-to-end solutions-including FDM filaments, LCD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ESUN\u6613\u751f3D\u6253\u5370\u6750\u6599",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright \u00a9 2026 All Rights Reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "COPYRIGHT \u00a9 2026 eSUN",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "Toggle Nav",
+        "Shared formulation key": "S-PEBA-13182",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "In terms of other performances, after multi-party comparison tests, the interlayer bonding strength of the new ABS+ has been significantly improved at present,  (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PEBA-13182",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "The store will not work correctly when cookies are disabled."
+      }
+    }
+  ],
+  "newMaterial": null
+}

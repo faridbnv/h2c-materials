@@ -1,0 +1,936 @@
+{
+  "PacketID": "PRIORITY-06-OWN-PAGE-PRINT-AND-DRYING",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G082-10",
+      "MaterialID": "M082",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "PP",
+      "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-PP-TDS",
+      "Composition / filler": "Its density of 1050 kg/m\u00b3 is above what neat PP reaches (960), so the product carries a filler its name does not declare. Not declared on the sheet; recorded as a Variant under D57 (R078).",
+      "Variant": "undisclosed dense filler",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-PP-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G030-07",
+      "MaterialID": "M030",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "ESD ABS",
+      "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-ABS-ESD-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-ABS-ESD-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G109-02",
+      "MaterialID": "M109",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "PETG+PTFE",
+      "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-PETGPTFE-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-PETGPTFE-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G020-69",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "MATTE PET-G",
+      "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-MATTEPETG-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-MATTEPETG-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G026-10",
+      "MaterialID": "M026",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "ESD PET-G",
+      "Shared formulation key": "R-FIBERLOGY-fiberlogypetgesdtds",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-fiberlogypetgesdtds",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G053-16",
+      "MaterialID": "M053",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "Nylon PA12+CF15",
+      "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G088-07",
+      "MaterialID": "M088",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "PCTG",
+      "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-PCTG-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-PCTG-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G089-02",
+      "MaterialID": "M089",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "CPE ANTIBAC",
+      "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-CPEANTIBAC-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-CPEANTIBAC-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "PP Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/pp-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G082-10",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "39b00a1e47b2a7c4c264b7615e7836007e97420b51c350d33a899f31e3b9301e"
+    },
+    {
+      "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "ABS ESD Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/esd-abs-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G030-07",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b"
+    },
+    {
+      "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "PETG+PTFE Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/petgptfe-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G109-02",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d"
+    },
+    {
+      "SourceID": "D-FIBERLOGY-PETG-MATTE-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "PETG Matte Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/petg-matte-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G020-69",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "9b3e284eb290b9779abad85c4bf089405564335feac93025073f7971d0b842fb"
+    },
+    {
+      "SourceID": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "ESD PETG Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/esd-petg-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G026-10",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "1a6ba5abdca78410b7d8b78a98afc7d7f3da6a728aa9a9085d35d4b64f6d9fb6"
+    },
+    {
+      "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "PA12+CF Nylon Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/pa12cf-nylon-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G053-16",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff"
+    },
+    {
+      "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "PCTG Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/pctg-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G088-07",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7"
+    },
+    {
+      "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "CPE HT+Ag Antibac Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/cpe-htag-antibac-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G089-02",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9"
+    }
+  ],
+  "Operations": [
+    {
+      "OperationID": "G082-10-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M082",
+        "GradeID": "G082-10",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "220\u2013250\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "220",
+        "Nozzle max \u00b0C": "250",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "Not required when using packing tape",
+        "Bed state": "not-required",
+        "Bed min \u00b0C": "Not applicable",
+        "Bed max \u00b0C": "Not applicable",
+        "Bed requirement": "none",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Smooth PEI + packing tape (PP); Glass + packing tape (PP); Powder-coated plate \u2013 PP",
+        "Drying": "50\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "50",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+        "SHA256": "39b00a1e47b2a7c4c264b7615e7836007e97420b51c350d33a899f31e3b9301e",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 52,
+            "raw": "Printing temperature: 220\u2013250\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 53,
+            "raw": "Bed temperature: Not required when using packing tape"
+          },
+          {
+            "page": 1,
+            "line": 55,
+            "raw": "Drying conditions: 50\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 56,
+            "raw": "Enclosed chamber: not required"
+          },
+          {
+            "page": 1,
+            "line": 54,
+            "raw": "Build surface: Smooth PEI + packing tape (PP); Glass + packing tape (PP); Powder-coated plate \u2013 PP"
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    },
+    {
+      "OperationID": "G030-07-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M030",
+        "GradeID": "G030-07",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "250\u2013265\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "250",
+        "Nozzle max \u00b0C": "265",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "90\u2013110\u00b0C",
+        "Bed state": "range",
+        "Bed min \u00b0C": "90",
+        "Bed max \u00b0C": "110",
+        "Bed requirement": "required",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+        "Drying": "60\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "60",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Recommended minimum nozzle diameter: 0.6 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+        "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 68,
+            "raw": "Printing temperature: 250\u2013265\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 69,
+            "raw": "Bed temperature: 90\u2013110\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 71,
+            "raw": "Drying conditions: 60\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 72,
+            "raw": "Enclosed chamber: recommended"
+          },
+          {
+            "page": 1,
+            "line": 70,
+            "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive"
+          },
+          {
+            "page": 1,
+            "line": 82,
+            "raw": "NOTE: Recommended minimum nozzle diameter: 0.6 mm"
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    },
+    {
+      "OperationID": "G109-02-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M109",
+        "GradeID": "G109-02",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "220\u2013240\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "220",
+        "Nozzle max \u00b0C": "240",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "90\u00b0C",
+        "Bed state": "range",
+        "Bed min \u00b0C": "90",
+        "Bed max \u00b0C": "90",
+        "Bed requirement": "required",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+        "Drying": "60\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "60",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+        "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 60,
+            "raw": "Printing temperature: 220\u2013240\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 61,
+            "raw": "Bed temperature: 90\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 63,
+            "raw": "Drying conditions: 60\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 64,
+            "raw": "Enclosed chamber: not required"
+          },
+          {
+            "page": 1,
+            "line": 62,
+            "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive"
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    },
+    {
+      "OperationID": "G020-69-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M020",
+        "GradeID": "G020-69",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "250\u2013270\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "250",
+        "Nozzle max \u00b0C": "270",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "90\u00b0C",
+        "Bed state": "range",
+        "Bed min \u00b0C": "90",
+        "Bed max \u00b0C": "90",
+        "Bed requirement": "required",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+        "Drying": "60\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "60",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-PETG-MATTE-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-PETG-MATTE-FILAMENT-PAGE",
+        "SHA256": "9b3e284eb290b9779abad85c4bf089405564335feac93025073f7971d0b842fb",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 52,
+            "raw": "Printing temperature: 250\u2013270\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 53,
+            "raw": "Bed temperature: 90\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 55,
+            "raw": "Drying conditions: 60\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 56,
+            "raw": "Enclosed chamber: not required"
+          },
+          {
+            "page": 1,
+            "line": 54,
+            "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive"
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    },
+    {
+      "OperationID": "G026-10-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M026",
+        "GradeID": "G026-10",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "250\u2013265\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "250",
+        "Nozzle max \u00b0C": "265",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "85\u00b0C",
+        "Bed state": "range",
+        "Bed min \u00b0C": "85",
+        "Bed max \u00b0C": "85",
+        "Bed requirement": "required",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+        "Drying": "60\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "60",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Recommended minimum nozzle diameter: 0.6 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+        "SHA256": "1a6ba5abdca78410b7d8b78a98afc7d7f3da6a728aa9a9085d35d4b64f6d9fb6",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 63,
+            "raw": "Printing temperature: 250\u2013265\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 64,
+            "raw": "Bed temperature: 85\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 66,
+            "raw": "Drying conditions: 60\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 67,
+            "raw": "Enclosed chamber: recommended"
+          },
+          {
+            "page": 1,
+            "line": 65,
+            "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive"
+          },
+          {
+            "page": 1,
+            "line": 69,
+            "raw": "NOTE: Recommended minimum nozzle diameter: 0.6 mm"
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    },
+    {
+      "OperationID": "G053-16-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M053",
+        "GradeID": "G053-16",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "255\u2013270\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "255",
+        "Nozzle max \u00b0C": "270",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "110\u00b0C",
+        "Bed state": "range",
+        "Bed min \u00b0C": "110",
+        "Bed max \u00b0C": "110",
+        "Bed requirement": "required",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models. Enclosed chamber: not required",
+        "Enclosure state": "recommended",
+        "Plate": "Smooth PEI + adhesive; Textured PEI + adhesive; Glass + adhesive",
+        "Drying": "80\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "80",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance; Own product recommendation line53 and printing-table line68 both retained; no chamber setpoint published.",
+        "Parse review": "Fields: Enclosure state. The own product prose recommends an enclosed and heated chamber; the printing table says Enclosed chamber: not required. Both statements are retained. The typed state records the optional recommendation, not a requirement or a temperature limit. No chamber setpoint is published."
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+        "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 64,
+            "raw": "Print temperature: 255\u2013270\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 65,
+            "raw": "Bed temperature: 110\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 67,
+            "raw": "Drying conditions: 80\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 68,
+            "raw": "Enclosed chamber: not required"
+          },
+          {
+            "page": 1,
+            "line": 66,
+            "raw": "Build plate: Smooth PEI + adhesive; Textured PEI + adhesive; Glass + adhesive"
+          },
+          {
+            "page": 1,
+            "line": 53,
+            "raw": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models."
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    },
+    {
+      "OperationID": "G088-07-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M088",
+        "GradeID": "G088-07",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "250\u2013270\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "250",
+        "Nozzle max \u00b0C": "270",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "90\u00b0C",
+        "Bed state": "range",
+        "Bed min \u00b0C": "90",
+        "Bed max \u00b0C": "90",
+        "Bed requirement": "required",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+        "Drying": "60\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "60",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+        "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 69,
+            "raw": "Printing temperature: 250\u2013270\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 70,
+            "raw": "Bed temperature: 90\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 72,
+            "raw": "Drying conditions: 60\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 73,
+            "raw": "Enclosed chamber: not required"
+          },
+          {
+            "page": 1,
+            "line": 71,
+            "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive"
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    },
+    {
+      "OperationID": "G089-02-own-page-profile",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M089",
+        "GradeID": "G089-02",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle \u00b0C": "260\u2013280\u00b0C",
+        "Nozzle state": "range",
+        "Nozzle min \u00b0C": "260",
+        "Nozzle max \u00b0C": "280",
+        "Nozzle requirement": "required",
+        "Bed \u00b0C": "120\u00b0C",
+        "Bed state": "range",
+        "Bed min \u00b0C": "120",
+        "Bed max \u00b0C": "120",
+        "Bed requirement": "required",
+        "Chamber \u00b0C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min \u00b0C": "Not applicable",
+        "Chamber max \u00b0C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+        "Drying": "80\u00b0C / 4 hours",
+        "Drying state": "stated",
+        "Drying \u00b0C": "80",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+        "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 46,
+            "raw": "Printing temperature: 260\u2013280\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 47,
+            "raw": "Bed temperature: 120\u00b0C"
+          },
+          {
+            "page": 1,
+            "line": 49,
+            "raw": "Drying conditions: 80\u00b0C / 4 hours"
+          },
+          {
+            "page": 1,
+            "line": 50,
+            "raw": "Enclosed chamber: not required"
+          },
+          {
+            "page": 1,
+            "line": 48,
+            "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive"
+          }
+        ]
+      },
+      "Limitations": "Own page recommendation preserved beside source-specific TDS profiles, without intersecting or resolving conflicting windows. Drying is handling, not moisture-service testing."
+    }
+  ]
+}

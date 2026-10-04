@@ -1,0 +1,2660 @@
+{
+  "input_sha256": "e3d26b026fa80a53104858cdb5e4ed2f4330c22f250fcfc0b187c17b4542a050",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "Corrections": [
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own functional/water-exposed and chemical-use claims; raw FDA/REACH/RoHS compliance does not certify printed food parts. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Own page says reliable printing even without drying and60C0–6h. Numeric optional schedule held from current required-drying representation; source-specific recommendation retained. Permanent outdoor fading/embrittlement caveat.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+            "SHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+            "URL": "https://www.extrudr.com/en/inlt/products/petg/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 87,
+              "Text": "Polyethylene terephthalate glycol (PETG) is one of the world's best-known thermoplastic polymers, valued for its balance of mechanical strength and optical quality. Extrudr PETG is built around low-shrinking technology, so large or detailed parts stay true to shape without warping, even without an enclosure for smaller prints. It offers high chemical resistance and good mechanical properties, making it a dependable choice for functional parts tha"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 88,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 89,
+                "Text": "Functional & Mechanical Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 102,
+                "Text": "Strong bonding between layers creates dependable, water-resistant prints, ideal for parts exposed to moisture."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own functional/water-exposed and chemical-use claims; raw FDA/REACH/RoHS compliance does not certify printed food parts. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Own page says reliable printing even without drying and60C0–6h. Numeric optional schedule held from current required-drying representation; source-specific recommendation retained. Permanent outdoor fading/embrittlement caveat.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+            "SHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+            "URL": "https://www.extrudr.com/en/inlt/products/petg/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 87,
+              "Text": "Polyethylene terephthalate glycol (PETG) is one of the world's best-known thermoplastic polymers, valued for its balance of mechanical strength and optical quality. Extrudr PETG is built around low-shrinking technology, so large or detailed parts stay true to shape without warping, even without an enclosure for smaller prints. It offers high chemical resistance and good mechanical properties, making it a dependable choice for functional parts that need to hold up over time. No hardened nozzle is required, and the raw material is certified to FDA, REACH, and RoHS standards, with a flame-retardant rating of UL 94 V-2 as standard."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 88,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 89,
+                "Text": "Functional & Mechanical Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 90,
+                "Text": "Chemically Resistant Components"
+              },
+              {
+                "Page": 1,
+                "Line": 91,
+                "Text": "Water-Exposed Applications"
+              },
+              {
+                "Page": 1,
+                "Line": 92,
+                "Text": "PETG Highlights"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+            "SHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+            "URL": "https://www.extrudr.com/en/inlt/products/petg/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 87,
+              "Text": "Polyethylene terephthalate glycol (PETG) is one of the world's best-known thermoplastic polymers, valued for its balance of mechanical strength and optical quality. Extrudr PETG is built around low-shrinking technology, so large or detailed parts stay true to shape without warping, even without an enclosure for smaller prints. It offers high chemical resistance and good mechanical properties, making it a dependable choice for functional parts that need to hold up over time. No hardened nozzle is required, and the raw material is certified to FDA, REACH, and RoHS standards, with a flame-retardant rating of UL 94 V-2 as standard."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+            "SHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+            "URL": "https://www.extrudr.com/en/inlt/products/petg/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 87,
+              "Text": "Polyethylene terephthalate glycol (PETG) is one of the world's best-known thermoplastic polymers, valued for its balance of mechanical strength and optical quality. Extrudr PETG is built around low-shrinking technology, so large or detailed parts stay true to shape without warping, even without an enclosure for smaller prints. It offers high chemical resistance and good mechanical properties, making it a dependable choice for functional parts that need to hold up over time. No hardened nozzle is required, and the raw material is certified to FDA, REACH, and RoHS standards, with a flame-retardant rating of UL 94 V-2 as standard."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+            "SHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+            "URL": "https://www.extrudr.com/en/inlt/products/petg/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 87,
+              "Text": "Polyethylene terephthalate glycol (PETG) is one of the world's best-known thermoplastic polymers, valued for its balance of mechanical strength and optical quality. Extrudr PETG is built around low-shrinking technology, so large or detailed parts stay true to shape without warping, even without an enclosure for smaller prints. It offers high chemical resistance and good mechanical properties, making it a dependable choice for functional parts that need to hold up over time. No hardened nozzle is required, and the raw material is certified to FDA, REACH, and RoHS standards, with a flame-retardant rating of UL 94 V-2 as standard."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own matte aesthetic/mechanical balance, raw-material approvals and finished-part certification limit. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C4–6h missing drying schedule admitted; outdoor fading/embrittlement caveat. No weathering protocol or final printed-food certificate.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-matt/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 73,
+              "Text": "MATTE FINISH, HIGHER HEAT RESISTANCE"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 74,
+                "Text": "XPETG MATT takes standard PETG's balance of mechanical and optical properties and adds a refined matte surface finish. Where regular PETG has a glossy surface, XPETG MATT delivers a clean, non-reflective look that visibly reduces layer lines, ideal for design objects and functional parts alike. It also offers improved heat resistance, holding its shape at temperatures up to 85–95°C, well above standard PETG. The raw material is FDA, REACH, and Ro"
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 76,
+                "Text": "Heat-Exposed Functional Parts"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own matte aesthetic/mechanical balance, raw-material approvals and finished-part certification limit. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C4–6h missing drying schedule admitted; outdoor fading/embrittlement caveat. No weathering protocol or final printed-food certificate.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-matt/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 74,
+              "Text": "XPETG MATT takes standard PETG's balance of mechanical and optical properties and adds a refined matte surface finish. Where regular PETG has a glossy surface, XPETG MATT delivers a clean, non-reflective look that visibly reduces layer lines, ideal for design objects and functional parts alike. It also offers improved heat resistance, holding its shape at temperatures up to 85–95°C, well above standard PETG. The raw material is FDA, REACH, and RoHS compliant, and fully recyclable."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 76,
+                "Text": "Heat-Exposed Functional Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 77,
+                "Text": "Technical, Non-Reflective Finishes"
+              },
+              {
+                "Page": 1,
+                "Line": 78,
+                "Text": "Design Objects & Display Models"
+              },
+              {
+                "Page": 1,
+                "Line": 79,
+                "Text": "XPETG MATT Highlights"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-uv-outdoor",
+      "Reason": "FAQ heading is not result; include exact immediately following own answer.",
+      "ExpectedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h missing drying schedule admitted; outdoor fading/embrittlement caveat. No weathering protocol or final printed-food certificate.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-matt/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 95,
+              "Text": "Is XPETG MATT suitable for outdoor use?"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 96,
+                "Text": "XPETG MATT generally performs better outdoors than PLA, offering improved resistance to UV, moisture, and heat. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+              },
+              {
+                "Page": 1,
+                "Line": 330,
+                "Text": "UV resistance  -  Good  -"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h missing drying schedule admitted; outdoor fading/embrittlement caveat. No weathering protocol or final printed-food certificate.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-matt/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 95,
+              "Text": "Is XPETG MATT suitable for outdoor use?"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 96,
+                "Text": "XPETG MATT generally performs better outdoors than PLA, offering improved resistance to UV, moisture, and heat. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own rigid/load-bearing claims with reduced impact trade-off; reinforced product not certified for food. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C4–6h drying admitted; hardened requirement retained. UL94claim3.2mmwall remains bounded maker claim, not certified all printed parts.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 76,
+              "Text": "XPETG CF combines the reliability of standard PETG with the added stiffness of carbon fiber reinforcement. Built for rigid, load-bearing parts, it delivers greater tensile strength and heat resistance, holding its shape under stress where standard PETG would flex. Ideal for functional components, jigs, and technical parts that need to perform under real mechanical demands."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 77,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 78,
+                "Text": "Rigid, Load-Bearing Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 79,
+                "Text": "Functional Components Under Stress"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own rigid/load-bearing claims with reduced impact trade-off; reinforced product not certified for food. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C4–6h drying admitted; hardened requirement retained. UL94claim3.2mmwall remains bounded maker claim, not certified all printed parts.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 76,
+              "Text": "XPETG CF combines the reliability of standard PETG with the added stiffness of carbon fiber reinforcement. Built for rigid, load-bearing parts, it delivers greater tensile strength and heat resistance, holding its shape under stress where standard PETG would flex. Ideal for functional components, jigs, and technical parts that need to perform under real mechanical demands."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 77,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 78,
+                "Text": "Rigid, Load-Bearing Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 79,
+                "Text": "Functional Components Under Stress"
+              },
+              {
+                "Page": 1,
+                "Line": 80,
+                "Text": "Heat-Exposed Technical Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 81,
+                "Text": "Fixtures & Tooling"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 91,
+              "Text": "VERY GOOD CHEMICAL RESISTANCE"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 91,
+              "Text": "VERY GOOD CHEMICAL RESISTANCE"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 91,
+              "Text": "VERY GOOD CHEMICAL RESISTANCE"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-uv-outdoor",
+      "Reason": "FAQ heading is not result; include exact immediately following own answer.",
+      "ExpectedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h drying admitted; hardened requirement retained. UL94claim3.2mmwall remains bounded maker claim, not certified all printed parts.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 108,
+              "Text": "Is XPETG CF suitable for outdoor use?"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 109,
+                "Text": "XPETG CF offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+              },
+              {
+                "Page": 1,
+                "Line": 332,
+                "Text": "UV resistance  -  Good  -"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h drying admitted; hardened requirement retained. UL94claim3.2mmwall remains bounded maker claim, not certified all printed parts.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 108,
+              "Text": "Is XPETG CF suitable for outdoor use?"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 109,
+                "Text": "XPETG CF offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own tough transparent functional parts and raw compliance/cosmetics claims; separate printed-part certification required. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C4–6h drying admitted.94vs4.7kJ/m2/20times comparison remains maker comparison, no new measurement transferred. Permanent outdoor fading caveat.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+            "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 76,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 77,
+                "Text": "Protective Housings & Enclosures"
+              },
+              {
+                "Page": 1,
+                "Line": 89,
+                "Text": "A clear, glass-like finish, ideal for parts where visual brilliance matters as much as durability."
+              },
+              {
+                "Page": 1,
+                "Line": 113,
+                "Text": "PCTG is compliant with FDA, REACH, and EU 10/2011 food contact standards, and holds cosmetics approval as well. Any printed item intended for food contact needs to be separately certified."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own tough transparent functional parts and raw compliance/cosmetics claims; separate printed-part certification required. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C4–6h drying admitted.94vs4.7kJ/m2/20times comparison remains maker comparison, no new measurement transferred. Permanent outdoor fading caveat.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+            "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 75,
+              "Text": "PCTG is a modified copolyester engineered for parts that need to survive real impact, not just look good. It combines high chemical and thermal resistance with genuine mechanical toughness, a notched impact strength of 94 kJ/m², built to resist cracking, chipping, and breaking under everyday stress and repeated use. Excellent transparency and optical brilliance make it equally suited to parts where clarity matters as much as durability, while added scratch resistance keeps surfaces looking clean over time. The raw material meets numerous certifications, including cosmetics approval, FDA, REACH, and RoHS standards."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 76,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 77,
+                "Text": "Protective Housings & Enclosures"
+              },
+              {
+                "Page": 1,
+                "Line": 78,
+                "Text": "Snap-Fit Clips & Living Hinges"
+              },
+              {
+                "Page": 1,
+                "Line": 79,
+                "Text": "Drone & RC Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 80,
+                "Text": "Cosmetics & Consumer Packaging"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+            "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 92,
+              "Text": "VERY GOOD CHEMICAL RESISTANCE"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+            "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 92,
+              "Text": "VERY GOOD CHEMICAL RESISTANCE"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+            "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 92,
+              "Text": "VERY GOOD CHEMICAL RESISTANCE"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-uv-outdoor",
+      "Reason": "FAQ heading is not result; include exact immediately following own answer.",
+      "ExpectedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h drying admitted.94vs4.7kJ/m2/20times comparison remains maker comparison, no new measurement transferred. Permanent outdoor fading caveat.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+            "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 107,
+              "Text": "Is PCTG suitable for outdoor use?"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 108,
+                "Text": "PCTG offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+              },
+              {
+                "Page": 1,
+                "Line": 339,
+                "Text": "UV resistance  -  Good  -"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h drying admitted.94vs4.7kJ/m2/20times comparison remains maker comparison, no new measurement transferred. Permanent outdoor fading caveat.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+            "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 107,
+              "Text": "Is PCTG suitable for outdoor use?"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 108,
+                "Text": "PCTG offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial, weight-critical and impact-resistant functional applications, raw/finished certification distinction. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing65C8–12h schedule reused. Current page toughness/UV/chemical claims lack protocol and specimen; no new suitability pass or measurement.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRINT-20260928-83ec5c0b3125",
+            "SHA256": "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PC/PBT CF is a carbon fiber-reinforced filament built for industrial 3D printing, combining high strength with genuine impact resistance. Unlike most reinforced materials, carbon fiber content here doesn't come at the cost of toughness, both stiffness and impact resistance improve over the standard blend. It offers excellent heat and chemical resistance, low warping, and a lightweight strength-to-weight ratio, finished with a sleek carbon"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "Impact-Resistant Functional Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 94,
+                "Text": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) for smooth, reliable extrusion and consistent nozzle lifespan."
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en",
+            "SHA256": "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-pc-pbt-cf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 9,
+              "Text": "• Carbon composite material for demanding • Smooth surface with carbon look"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 2,
+                "Line": 26,
+                "Text": "smooth extrusion."
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en-3a6807",
+            "SHA256": "3a680734c847431e9ae5fac353a9f64bc3f197c1ca75c470f133c1b3606c2e08",
+            "URL": "https://3d.nice-cdn.com/upload/file/durapro-pc-pbt-cf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 9,
+              "Text": "• Carbon composite material for demanding • Smooth surface with carbon look"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+            "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PC/PBT CF is a carbon fiber-reinforced filament built for industrial 3D printing, combining high strength with genuine impact resistance. Unlike most reinforced materials, carbon fiber content here doesn't come at the cost of toughness, both stiffness and impact resistance improve over the standard blend. It offers excellent heat and chemical resistance, low warping, and a lightweight strength-to-weight ratio, finished with a sleek carbon"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "Impact-Resistant Functional Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 94,
+                "Text": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) for smooth, reliable extrusion and consistent nozzle lifespan."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial, weight-critical and impact-resistant functional applications, raw/finished certification distinction. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing65C8–12h schedule reused. Current page toughness/UV/chemical claims lack protocol and specimen; no new suitability pass or measurement.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+            "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PC/PBT CF is a carbon fiber-reinforced filament built for industrial 3D printing, combining high strength with genuine impact resistance. Unlike most reinforced materials, carbon fiber content here doesn't come at the cost of toughness, both stiffness and impact resistance improve over the standard blend. It offers excellent heat and chemical resistance, low warping, and a lightweight strength-to-weight ratio, finished with a sleek carbon look. A hardened nozzle is required for printing, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "High-Strength Industrial Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 73,
+                "Text": "Weight-Critical Structural Components"
+              },
+              {
+                "Page": 1,
+                "Line": 74,
+                "Text": "Heat-Resistant Technical Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "Impact-Resistant Functional Parts"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+            "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PC/PBT CF is a carbon fiber-reinforced filament built for industrial 3D printing, combining high strength with genuine impact resistance. Unlike most reinforced materials, carbon fiber content here doesn't come at the cost of toughness, both stiffness and impact resistance improve over the standard blend. It offers excellent heat and chemical resistance, low warping, and a lightweight strength-to-weight ratio, finished with a sleek carbon look. A hardened nozzle is required for printing, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+            "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PC/PBT CF is a carbon fiber-reinforced filament built for industrial 3D printing, combining high strength with genuine impact resistance. Unlike most reinforced materials, carbon fiber content here doesn't come at the cost of toughness, both stiffness and impact resistance improve over the standard blend. It offers excellent heat and chemical resistance, low warping, and a lightweight strength-to-weight ratio, finished with a sleek carbon look. A hardened nozzle is required for printing, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+            "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PC/PBT CF is a carbon fiber-reinforced filament built for industrial 3D printing, combining high strength with genuine impact resistance. Unlike most reinforced materials, carbon fiber content here doesn't come at the cost of toughness, both stiffness and impact resistance improve over the standard blend. It offers excellent heat and chemical resistance, low warping, and a lightweight strength-to-weight ratio, finished with a sleek carbon look. A hardened nozzle is required for printing, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+            "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PC/PBT CF is a carbon fiber-reinforced filament built for industrial 3D printing, combining high strength with genuine impact resistance. Unlike most reinforced materials, carbon fiber content here doesn't come at the cost of toughness, both stiffness and impact resistance improve over the standard blend. It offers excellent heat and chemical resistance, low warping, and a lightweight strength-to-weight ratio, finished with a sleek carbon look. A hardened nozzle is required for printing, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial prototypes/tooling/electronic housings; raw FDA statement does not approve finished print. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C10h drying admitted; own not recommended for permanent outdoor use. Enclosed printing and bed guidance remain source-specific.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+            "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 83,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 115,
+                "Text": "DuraPro ABS is compliant with FDA, REACH, and RoHS standards. Any printed item intended for food contact needs to be separately certified."
+              },
+              {
+                "Page": 1,
+                "Line": 119,
+                "Text": "Compliance applies to the raw material, not the finished printed part. Any part intended for a regulated application must undergo separate certification by an accredited third-party laboratory. Requirements vary depending on intended use and applicable standards."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial prototypes/tooling/electronic housings; raw FDA statement does not approve finished print. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 60C10h drying admitted; own not recommended for permanent outdoor use. Enclosed printing and bed guidance remain source-specific.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+            "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 82,
+              "Text": "DuraPro ABS has been specially developed for industrial applications, offering high process reliability for mechanically stressed components. Engineered for low shrinking and warping, addressing one of ABS's best-known printing challenges, it delivers excellent layer and bed adhesion alongside high mechanical stability. The material is electrically insulating, making it well suited to electronic enclosures and housings, and the raw material is approved to REACH, RoHS, and FDA standards."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 83,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 84,
+                "Text": "Automotive Components"
+              },
+              {
+                "Page": 1,
+                "Line": 85,
+                "Text": "Mechanically Stressed Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 86,
+                "Text": "Industrial Prototypes & Tooling"
+              },
+              {
+                "Page": 1,
+                "Line": 87,
+                "Text": "DuraPro ABS Highlights"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own rigid/load-bearing technical use and reduced elongation trade-off; no food certification. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing60C10h drying reused; own FAQ≥0.6mm hardened recommendation admitted, generic0.4mm printer-settings table also retained. Source does not settle0.4mm suitability. No permanent outdoor recommendation.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRINT-20260928-526b472f69cc",
+            "SHA256": "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 59,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 60,
+                "Text": "Rigid, Load-Bearing Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 62,
+                "Text": "Functional Prototypes"
+              },
+              {
+                "Page": 1,
+                "Line": 69,
+                "Text": "MATTE TECHNICAL FINISH"
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+            "SHA256": "63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-abs-cf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 7,
+              "Text": "the filament is easy to print and delivers precise, matte surface finishes with a professional, technical look and feel. Thanks to its"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 8,
+                "Text": "low warping tendency, DuraPro ABS CF is ideal for functional parts, prototypes, and use in mechanical engineering."
+              },
+              {
+                "Page": 1,
+                "Line": 11,
+                "Text": "to carbon fiber reinforcement • Matte, high-quality surface with a technical finish"
+              },
+              {
+                "Page": 1,
+                "Line": 31,
+                "Text": "smooth extrusion."
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "Rigid, Load-Bearing Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 73,
+                "Text": "Functional Prototypes"
+              },
+              {
+                "Page": 1,
+                "Line": 80,
+                "Text": "MATTE TECHNICAL FINISH"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own rigid/load-bearing technical use and reduced elongation trade-off; no food certification. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing60C10h drying reused; own FAQ≥0.6mm hardened recommendation admitted, generic0.4mm printer-settings table also retained. Source does not settle0.4mm suitability. No permanent outdoor recommendation.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 69,
+              "Text": "Stiffer Than Standard ABS"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 70,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "Rigid, Load-Bearing Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "Mechanical Engineering Components"
+              },
+              {
+                "Page": 1,
+                "Line": 73,
+                "Text": "Functional Prototypes"
+              },
+              {
+                "Page": 1,
+                "Line": 74,
+                "Text": "Heat-Exposed Technical Parts"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 102,
+              "Text": "Yes. DuraPro ABS CF offers good chemical resistance, suited to demanding technical applications."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 102,
+              "Text": "Yes. DuraPro ABS CF offers good chemical resistance, suited to demanding technical applications."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 102,
+              "Text": "Yes. DuraPro ABS CF offers good chemical resistance, suited to demanding technical applications."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 102,
+              "Text": "Yes. DuraPro ABS CF offers good chemical resistance, suited to demanding technical applications."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own mechanically stressed outdoor/automotive parts; reinforcement rigidity versus impact/elongation trade-off. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 65C8–12h drying admitted. FAQ≥0.5mm and0.4mm not recommended, generic0.4mm table heading retained as ambiguity. Independent-weather-test maker claim lacks original report; no final food certification.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en",
+            "SHA256": "137f039088e1031d97cf5dc227273e7b5b0672976e34608570d1082b52db1fbb",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-asa-gf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 5,
+              "Text": "reliability. The material is reinforced with glass fibers, making it ideal for mechanically stressed components. DuraPro ASA GF is"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en-458d69",
+            "SHA256": "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d",
+            "URL": "https://3d.nice-cdn.com/upload/file/durapro-asa-gf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 5,
+              "Text": "reliability. The material is reinforced with glass fibers, making it ideal for mechanically stressed components. DuraPro ASA GF is"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+            "SHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-asa-gf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 67,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 69,
+                "Text": "Load-Bearing Technical Components"
+              },
+              {
+                "Page": 1,
+                "Line": 70,
+                "Text": "Weather-Exposed Functional Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 99,
+                "Text": "DuraPro ASA GF and DuraPro ASA CF offer similar performance benefits over standard ASA, increased stiffness, heat resistance, and dimensional stability. The main difference is colour: glass fiber reinforcement is available in a wider range of colours, while carbon fiber reinforcement is typically limited to black. If colour options matter for your application, DuraPro ASA GF is the more flexible choice."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own mechanically stressed outdoor/automotive parts; reinforcement rigidity versus impact/elongation trade-off. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 65C8–12h drying admitted. FAQ≥0.5mm and0.4mm not recommended, generic0.4mm table heading retained as ambiguity. Independent-weather-test maker claim lacks original report; no final food certification.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+            "SHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-asa-gf/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 66,
+              "Text": "DuraPro ASA GF combines ASA's genuine UV and weather resistance with the added stiffness of glass fiber reinforcement. Glass fiber content significantly increases rigidity and heat resistance compared to standard ASA, while maintaining excellent dimensional stability and low shrinking. It's well suited to mechanically stressed components used in outdoor, automotive, and industrial environments. A hardened nozzle is required for printing, due to the abrasive nature of the glass fiber content."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 67,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 68,
+                "Text": "Rigid Outdoor & Automotive Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 69,
+                "Text": "Load-Bearing Technical Components"
+              },
+              {
+                "Page": 1,
+                "Line": 70,
+                "Text": "Weather-Exposed Functional Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "Precision Industrial Parts"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial flexible parts and UV-exposed use context; underlying independent weather test not retrieved. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing60C12h drying reused. Exact food exclusion and raw/finished certification limits retained; no quantified outdoor lifetime.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRINT-20260929-245381f760f8",
+            "SHA256": "245381f760f896df6f09ffa2589fa6520d421c927ad893a6ff5c442328f29839",
+            "URL": "https://extrudr.com/en/at/products/flex-hard/",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 67,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 69,
+                "Text": "Impact-Prone Protective Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 104,
+                "Text": "Compliance applies to the raw material, not the finished printed part. Any part intended for a regulated application must undergo separate certification by an accredited third-party laboratory. Requirements vary depending on intended use and applicable standards."
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 75,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 77,
+                "Text": "Impact-Prone Protective Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 112,
+                "Text": "Compliance applies to the raw material, not the finished printed part. Any part intended for a regulated application must undergo separate certification by an accredited third-party laboratory. Requirements vary depending on intended use and applicable standards."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial flexible parts and UV-exposed use context; underlying independent weather test not retrieved. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing60C12h drying reused. Exact food exclusion and raw/finished certification limits retained; no quantified outdoor lifetime.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 74,
+              "Text": "TPU FLEX Hard has been specially developed for the FDM/FFF process. Based on Polycaprolactone-Polyester, it offers an extensibility of up to 480%, high material quality, high chemical resistance, and a heat distortion resistance of up to 140°C, making the material suitable for numerous industrial applications. The raw material is compliant with REACH and RoHS standards."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 76,
+                "Text": "Industrial Gaskets & Seals"
+              },
+              {
+                "Page": 1,
+                "Line": 77,
+                "Text": "Impact-Prone Protective Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 78,
+                "Text": "Outdoor & UV-Exposed Components"
+              },
+              {
+                "Page": 1,
+                "Line": 79,
+                "Text": "Vibration Dampers & Mechanical Mounts"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 74,
+              "Text": "TPU FLEX Hard has been specially developed for the FDM/FFF process. Based on Polycaprolactone-Polyester, it offers an extensibility of up to 480%, high material quality, high chemical resistance, and a heat distortion resistance of up to 140°C, making the material suitable for numerous industrial applications. The raw material is compliant with REACH and RoHS standards."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 74,
+              "Text": "TPU FLEX Hard has been specially developed for the FDM/FFF process. Based on Polycaprolactone-Polyester, it offers an extensibility of up to 480%, high material quality, high chemical resistance, and a heat distortion resistance of up to 140°C, making the material suitable for numerous industrial applications. The raw material is compliant with REACH and RoHS standards."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 74,
+              "Text": "TPU FLEX Hard has been specially developed for the FDM/FFF process. Based on Polycaprolactone-Polyester, it offers an extensibility of up to 480%, high material quality, high chemical resistance, and a heat distortion resistance of up to 140°C, making the material suitable for numerous industrial applications. The raw material is compliant with REACH and RoHS standards."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Existing60C12h drying reused. Exact food exclusion and raw/finished certification limits retained; no quantified outdoor lifetime.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-flex-hard-TDS-en",
+            "SHA256": "61e6ca2d9fa285888efc4306b2bd75f23c986d1dcb2e1f7936e2927c1720647b",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/flex-hard-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "• Free of silicone, plasticisers and oils • Extreme layer adhesion"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-EXTRUDR-flex-hard-TDS-en-cbd667",
+            "SHA256": "cbd667aaf13501cc6ac1583c430e228004edd8484d295939bd2abd693757da68",
+            "URL": "https://3d.nice-cdn.com/upload/file/flex-hard-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 10,
+              "Text": "• Free of silicone, plasticisers and oils • Extreme layer adhesion"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 74,
+              "Text": "TPU FLEX Hard has been specially developed for the FDM/FFF process. Based on Polycaprolactone-Polyester, it offers an extensibility of up to 480%, high material quality, high chemical resistance, and a heat distortion resistance of up to 140°C, making the material suitable for numerous industrial applications. The raw material is compliant with REACH and RoHS standards."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own electronics-adjacent ESD/cleanroom claims and flexible protective parts. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing60C6h drying reused. Own not recommended outdoors. FDAclaim raw-material only;0.7–0.9Mohm context has no new ESD qualification fixture/printed cert.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRINT-20260929-3793d04515ce",
+            "SHA256": "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+            "URL": "https://extrudr.com/en/at/products/flex-medium-esd/",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 63,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 98,
+                "Text": "Yes. FLEX Medium ESD is compliant with FDA standards. Any printed item intended for food contact needs to be separately certified."
+              },
+              {
+                "Page": 1,
+                "Line": 100,
+                "Text": "Compliance applies to the raw material, not the finished printed part. Any part intended for a regulated application must undergo separate certification by an accredited third-party laboratory. Requirements vary depending on intended use and applicable standards."
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+            "SHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-medium-esd/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 71,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 106,
+                "Text": "Yes. FLEX Medium ESD is compliant with FDA standards. Any printed item intended for food contact needs to be separately certified."
+              },
+              {
+                "Page": 1,
+                "Line": 108,
+                "Text": "Compliance applies to the raw material, not the finished printed part. Any part intended for a regulated application must undergo separate certification by an accredited third-party laboratory. Requirements vary depending on intended use and applicable standards."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own electronics-adjacent ESD/cleanroom claims and flexible protective parts. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Existing60C6h drying reused. Own not recommended outdoors. FDAclaim raw-material only;0.7–0.9Mohm context has no new ESD qualification fixture/printed cert.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+            "SHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-medium-esd/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "TPU FLEX Medium ESD is a filament specially developed for electronics-adjacent applications, combining the flexibility of TPU with genuine electrostatic discharge protection. The material effectively dissipates static electricity, protecting sensitive electronic devices from damage. With an electrostatic resistance of 0.7–0.9 MΩ, it's ESD-C conductive and cleanroom compliant, offering broad chemical resistance to oils, gasoline, esters, ketones, and chlorinated hydrocarbons."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "Electronics Enclosures & Cases"
+              },
+              {
+                "Page": 1,
+                "Line": 73,
+                "Text": "Cleanroom & ESD-Sensitive Environments"
+              },
+              {
+                "Page": 1,
+                "Line": 74,
+                "Text": "Component Handling & Assembly Tools"
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "Chemically Exposed Electronic Parts"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+            "SHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-medium-esd/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "TPU FLEX Medium ESD is a filament specially developed for electronics-adjacent applications, combining the flexibility of TPU with genuine electrostatic discharge protection. The material effectively dissipates static electricity, protecting sensitive electronic devices from damage. With an electrostatic resistance of 0.7–0.9 MΩ, it's ESD-C conductive and cleanroom compliant, offering broad chemical resistance to oils, gasoline, esters, ketones, and chlorinated hydrocarbons."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+            "SHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-medium-esd/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "TPU FLEX Medium ESD is a filament specially developed for electronics-adjacent applications, combining the flexibility of TPU with genuine electrostatic discharge protection. The material effectively dissipates static electricity, protecting sensitive electronic devices from damage. With an electrostatic resistance of 0.7–0.9 MΩ, it's ESD-C conductive and cleanroom compliant, offering broad chemical resistance to oils, gasoline, esters, ketones, and chlorinated hydrocarbons."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+            "SHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+            "URL": "https://www.extrudr.com/en/inlt/products/flex-medium-esd/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "TPU FLEX Medium ESD is a filament specially developed for electronics-adjacent applications, combining the flexibility of TPU with genuine electrostatic discharge protection. The material effectively dissipates static electricity, protecting sensitive electronic devices from damage. With an electrostatic resistance of 0.7–0.9 MΩ, it's ESD-C conductive and cleanroom compliant, offering broad chemical resistance to oils, gasoline, esters, ketones, and chlorinated hydrocarbons."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial reinforced PA6 use; moisture/toughness/electrical-insulation trade-offs preserve named counterpart. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 65C8–12h drying and≥0.6mm hardened advice admitted. Generic0.4mm table heading retained. Source9%text versus9.2%table is rounding context, not a forced conflict; PA12CF1.6% is not transferred to plainPA12. No food certification.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-durapro-pa6-cf-TDS-en",
+            "SHA256": "d405addac27204e889ed7acca0f743ee93a16753ab55a6772171dfc1c8fc8aa6",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-pa6-cf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 4,
+              "Text": "DuraPro PA6 CF is a carbon fibre reinforced, highly functional polyamide designed for demanding industrial applications. It is"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 41,
+                "Text": "0.6 mm should be used to prevent clogging and ensure smooth extrusion."
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa6-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 71,
+              "Text": "IDEAL FOR"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 93,
+                "Text": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.6mm to prevent clogging and ensure smooth extrusion."
+              },
+              {
+                "Page": 1,
+                "Line": 109,
+                "Text": "Compliance applies to the raw material, not the finished printed part. Any part intended for a regulated application must undergo separate certification by an accredited third-party laboratory. Requirements vary depending on intended use and applicable standards."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial reinforced PA6 use; moisture/toughness/electrical-insulation trade-offs preserve named counterpart. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 65C8–12h drying and≥0.6mm hardened advice admitted. Generic0.4mm table heading retained. Source9%text versus9.2%table is rounding context, not a forced conflict; PA12CF1.6% is not transferred to plainPA12. No food certification.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa6-cf/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA6 CF is a carbon fiber-reinforced polyamide built for demanding industrial applications. Unlike most reinforced materials, it retains genuinely high impact resistance, including no-break performance in unnotched testing, while offering enhanced heat resistance and very good chemical resistance. Reduced warping keeps parts dimensionally reliable during printing. A hardened nozzle is required, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "High-Impact Industrial Parts"
+              },
+              {
+                "Page": 1,
+                "Line": 73,
+                "Text": "Heat-Resistant Technical Components"
+              },
+              {
+                "Page": 1,
+                "Line": 74,
+                "Text": "Chemically Exposed Applications"
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "DuraPro PA6 CF Highlights"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa6-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA6 CF is a carbon fiber-reinforced polyamide built for demanding industrial applications. Unlike most reinforced materials, it retains genuinely high impact resistance, including no-break performance in unnotched testing, while offering enhanced heat resistance and very good chemical resistance. Reduced warping keeps parts dimensionally reliable during printing. A hardened nozzle is required, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa6-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA6 CF is a carbon fiber-reinforced polyamide built for demanding industrial applications. Unlike most reinforced materials, it retains genuinely high impact resistance, including no-break performance in unnotched testing, while offering enhanced heat resistance and very good chemical resistance. Reduced warping keeps parts dimensionally reliable during printing. A hardened nozzle is required, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa6-cf/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA6 CF is a carbon fiber-reinforced polyamide built for demanding industrial applications. Unlike most reinforced materials, it retains genuinely high impact resistance, including no-break performance in unnotched testing, while offering enhanced heat resistance and very good chemical resistance. Reduced warping keeps parts dimensionally reliable during printing. A hardened nozzle is required, due to the abrasive nature of the carbon fiber content."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "application-finishing",
+      "Reason": "Use own product body and explicit use bullets, not IDEAL FOR heading alone.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own low-temperature tough nylon and chemical/cold-use context; low relative water uptake claim. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 65C8–12h drying admitted. Own no-food-use exclusion; no printed food certificate or timed moisture-service test. Comparative uptake is not a new controlled measurement.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+            "SHA256": "51da63ecbeeacbc05e8ca0c32df855dd2535380f4d63467dddcc85ca306c30d4",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/durapro-pa12-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 4,
+              "Text": "DuraPro PA12 is a highly functional polyamide (nylon) that is ideal for industrial applications. It is characterised by exceptionally"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa12/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA12 is a highly functional polyamide (nylon) built for industrial applications. It's characterised by exceptionally high impact and notched impact strength, retaining toughness even at low temperatures, alongside very good heat resistance. Low moisture absorption keeps parts dimensionally stable over time, a genuine advantage of PA12 over other nylon grades, while excellent chemical resistance and easy handling make it a dependable choic"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "IDEAL FOR"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own low-temperature tough nylon and chemical/cold-use context; low relative water uptake claim. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 65C8–12h drying admitted. Own no-food-use exclusion; no printed food certificate or timed moisture-service test. Comparative uptake is not a new controlled measurement.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa12/",
+            "Scope": "Own product body/IDEAL FOR use bullets; maker intended-use context only",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA12 is a highly functional polyamide (nylon) built for industrial applications. It's characterised by exceptionally high impact and notched impact strength, retaining toughness even at low temperatures, alongside very good heat resistance. Low moisture absorption keeps parts dimensionally stable over time, a genuine advantage of PA12 over other nylon grades, while excellent chemical resistance and easy handling make it a dependable choice for demanding, real-world 3D printing projects."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 71,
+                "Text": "IDEAL FOR"
+              },
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "Automotive & Industrial Components"
+              },
+              {
+                "Page": 1,
+                "Line": 73,
+                "Text": "Jigs, Fixtures & Tooling"
+              },
+              {
+                "Page": 1,
+                "Line": 74,
+                "Text": "Electrical Insulation & Enclosures"
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "Parts Exposed to Chemicals or Cold"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-acid",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa12/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA12 is a highly functional polyamide (nylon) built for industrial applications. It's characterised by exceptionally high impact and notched impact strength, retaining toughness even at low temperatures, alongside very good heat resistance. Low moisture absorption keeps parts dimensionally stable over time, a genuine advantage of PA12 over other nylon grades, while excellent chemical resistance and easy handling make it a dependable choice for demanding, real-world 3D printing projects."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa12/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA12 is a highly functional polyamide (nylon) built for industrial applications. It's characterised by exceptionally high impact and notched impact strength, retaining toughness even at low temperatures, alongside very good heat resistance. Low moisture absorption keeps parts dimensionally stable over time, a genuine advantage of PA12 over other nylon grades, while excellent chemical resistance and easy handling make it a dependable choice for demanding, real-world 3D printing projects."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa12/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA12 is a highly functional polyamide (nylon) built for industrial applications. It's characterised by exceptionally high impact and notched impact strength, retaining toughness even at low temperatures, alongside very good heat resistance. Low moisture absorption keeps parts dimensionally stable over time, a genuine advantage of PA12 over other nylon grades, while excellent chemical resistance and easy handling make it a dependable choice for demanding, real-world 3D printing projects."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Own chemical claim exists; free-of-oils composition wording does not establish oil-service resistance.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source supplies a bounded chemical-resistance maker claim. Named groups, when stated, retain their literal scope; this does not establish a result for every acid, alkali, solvent or oil. Exact agent/concentration/duration/specimen/retention for this question remains unavailable in the inspected basis. No universal chemistry PASS or measured service life follows.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+            "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa12/",
+            "Scope": "Own generic or named-group maker chemical claim; no concentration/duration/specimen/retention test supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 70,
+              "Text": "DuraPro PA12 is a highly functional polyamide (nylon) built for industrial applications. It's characterised by exceptionally high impact and notched impact strength, retaining toughness even at low temperatures, alongside very good heat resistance. Low moisture absorption keeps parts dimensionally stable over time, a genuine advantage of PA12 over other nylon grades, while excellent chemical resistance and easy handling make it a dependable choice for demanding, real-world 3D printing projects."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-flammability",
+      "Reason": "Retain explicit web-table not-tested and earlier own UL94 statements together.",
+      "ExpectedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h missing drying schedule admitted; outdoor fading/embrittlement caveat. No weathering protocol or final printed-food certificate.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-xpetg-matt-TDS-en",
+            "SHA256": "011b26032f639cce5969262a139ca5cea7e9b03e12daab9b5b905f1ca0d84cb3",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/xpetg-matt-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 29,
+              "Text": "Flammability UL 94 V-2 3,2 mm"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-matt/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 333,
+              "Text": "Flammability rating (UL 94)  -  (not tested)  -"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Earlier own TDS prints UL94 V-2 at3.2mm, while current own technical table says flammability rating (not tested). These source contexts are unresolved; neither recency nor a marketing claim validates a printed-part certificate. Exact test/report, formulation/specimen and revision correspondence is vendor-needed.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-xpetg-matt-TDS-en",
+            "SHA256": "011b26032f639cce5969262a139ca5cea7e9b03e12daab9b5b905f1ca0d84cb3",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-en/xpetg-matt-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 29,
+              "Text": "Flammability UL 94 V-2 3,2 mm"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-matt/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 333,
+              "Text": "Flammability rating (UL 94)  -  (not tested)  -"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-flammability",
+      "Reason": "Retain explicit web-table not-tested and earlier own UL94 statements together.",
+      "ExpectedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. 60C4–6h drying admitted; hardened requirement retained. UL94claim3.2mmwall remains bounded maker claim, not certified all printed parts.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-xpetg-cf-TDS-en",
+            "SHA256": "e1bc3a9fba2d98e0c2b01b45a949aa425a87e0ee141653345553d04766ed22aa",
+            "URL": "https://3d.nice-cdn.com/upload/file/xpetg-cf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 5,
+              "Text": "and optical material properties. The raw material is certified according to REACH and RoHS standards. PETG is flame retardant"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 6,
+                "Text": "according to UL 94 with a wall thickness of 3.2 mm."
+              },
+              {
+                "Page": 1,
+                "Line": 27,
+                "Text": "Flammability UL 94 V-2 3,2 mm"
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-xpetg-cf-TDS-fr",
+            "SHA256": "07eb2fa3d9324e919b9b428e77157f83c8e4005d20b3246d6c126291c7d819e5",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/xpetg-cf-TDS-fr.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 6,
+              "Text": "selon la norme UL 94, pour une épaisseur de paroi de 3,2 mm."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 28,
+                "Text": "Inflammabilité UL 94 V-2 3,2 mm"
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 93,
+              "Text": "FLAME RETARDANT (UL 94)"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 94,
+                "Text": "Rated flame retardant according to UL 94 at a 3.2mm wall thickness, an added safety margin for technical applications."
+              },
+              {
+                "Page": 1,
+                "Line": 335,
+                "Text": "Flammability rating (UL 94)  -  (not tested)  -"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Earlier own TDS prints UL94 V-2 at3.2mm, while current own technical table says flammability rating (not tested). Current XPETGCF page also claims a UL94 rating at3.2mm without specifying class. These source contexts are unresolved; neither recency nor a marketing claim validates a printed-part certificate. Exact test/report, formulation/specimen and revision correspondence is vendor-needed.",
+        "Basis": [
+          {
+            "SourceID": "R-EXTRUDR-xpetg-cf-TDS-en",
+            "SHA256": "e1bc3a9fba2d98e0c2b01b45a949aa425a87e0ee141653345553d04766ed22aa",
+            "URL": "https://3d.nice-cdn.com/upload/file/xpetg-cf-TDS-en.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 5,
+              "Text": "and optical material properties. The raw material is certified according to REACH and RoHS standards. PETG is flame retardant"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 6,
+                "Text": "according to UL 94 with a wall thickness of 3.2 mm."
+              },
+              {
+                "Page": 1,
+                "Line": 27,
+                "Text": "Flammability UL 94 V-2 3,2 mm"
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-xpetg-cf-TDS-fr",
+            "SHA256": "07eb2fa3d9324e919b9b428e77157f83c8e4005d20b3246d6c126291c7d819e5",
+            "URL": "https://s3.extrudr.com/extrudr-media/datasheets/tds/tds-fr/xpetg-cf-TDS-fr.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 6,
+              "Text": "selon la norme UL 94, pour une épaisseur de paroi de 3,2 mm."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 28,
+                "Text": "Inflammabilité UL 94 V-2 3,2 mm"
+              }
+            ]
+          },
+          {
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+            "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 93,
+              "Text": "FLAME RETARDANT (UL 94)"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 94,
+                "Text": "Rated flame retardant according to UL 94 at a 3.2mm wall thickness, an added safety margin for technical applications."
+              },
+              {
+                "Page": 1,
+                "Line": 335,
+                "Text": "Flammability rating (UL 94)  -  (not tested)  -"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "Scope": "Source-grounded outcome corrections only; no canonical data edits. Actual digest-verified original PDFs/HTML read directly; source admissions reused signed original reviews. For06, narrow post-admission delta reuses prior204-question source review and verifies all admitted full rows.",
+  "review_signature_sha256": "7574dedda2e33ec9d0bd3db745986e5c6cda0721809ecb1288808d6e0f8fd781"
+}

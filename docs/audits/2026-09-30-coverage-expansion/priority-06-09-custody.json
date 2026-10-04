@@ -1,0 +1,134 @@
+{
+  "NewOriginals": 17,
+  "NewOriginalMissing": 0,
+  "Sources": [
+    {
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "OriginalVerified": true,
+      "Bytes": 335662,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+      "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "OriginalVerified": true,
+      "Bytes": 112060,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+      "SHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+      "OriginalVerified": true,
+      "Bytes": 5290674,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+      "SHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+      "OriginalVerified": true,
+      "Bytes": 6660923,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+      "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "OriginalVerified": true,
+      "Bytes": 5293188,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+      "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "OriginalVerified": true,
+      "Bytes": 5640123,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+      "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+      "OriginalVerified": true,
+      "Bytes": 5300839,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+      "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "OriginalVerified": true,
+      "Bytes": 5325997,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+      "SHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "OriginalVerified": true,
+      "Bytes": 5394324,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+      "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "OriginalVerified": true,
+      "Bytes": 5507550,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+      "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+      "OriginalVerified": true,
+      "Bytes": 5399067,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+      "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "OriginalVerified": true,
+      "Bytes": 5314551,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+      "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "OriginalVerified": true,
+      "Bytes": 5478015,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+      "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "OriginalVerified": true,
+      "Bytes": 5293807,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+      "SHA256": "0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628",
+      "OriginalVerified": true,
+      "Bytes": 438513,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-ESUN-PRIORITY-20261003-be26800125b2",
+      "SHA256": "be26800125b288750361183a6206277d042a9c867fbdb3c0eeccbd59b4867f19",
+      "OriginalVerified": true,
+      "Bytes": 327350,
+      "DerivedReadPresent": true
+    },
+    {
+      "SourceID": "R-ESUN-PRIORITY-20261003-e4a67e70f66b",
+      "SHA256": "e4a67e70f66b678cee907d0b2b8f42a80df1e3a1e8ee45f408092463caa79f5a",
+      "OriginalVerified": true,
+      "Bytes": 381219,
+      "DerivedReadPresent": true
+    }
+  ],
+  "ExternalBackup": {
+    "state": "exported after exact owner approval on2026-10-04",
+    "originals": 2469,
+    "derivatives": 2875,
+    "known_absent": 124,
+    "new_missing": 0,
+    "prior_automatic_approval_rejections": 2,
+    "retained_log": "evidence/priority-06-09-backup.log"
+  }
+}

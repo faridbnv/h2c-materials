@@ -1,0 +1,43 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "98cd67ad0dec497457d04e356e843da4a8fda4da2b8af160eb0678ee23193bcd",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 2,
+  "reviewed_sources": 2,
+  "original_scope": "PETG-ESD actual SHA-verified three-page original freshly reread pdfPages/pageLines; TPU64D actual SHA-verified three-page original reread in immediately preceding C14 review. Own p1 identities and p2 chemical rows, complete p3 mechanical specimen conditions/ABS-CF copied tips distinguished. No p3 mechanical recipe assigned to environmental claim.",
+  "binding_checks": "Both full ExpectedGrade and ExpectedSource rows match canonical tables. Exact source rows are not already recorded on either grade; no exact Finding duplicate.",
+  "results": [
+    {
+      "OperationID": "G026-07-service-limit",
+      "GradeID": "G026-07",
+      "verdict": "APPROVE",
+      "original_sha256": "b82fad6b1d2d38bce104e5c37c160af3126a2c3d9037d82eaf18021bf61902f2",
+      "locator": "p.2: UV Resistance, source text line18",
+      "raw_original_row": "UV Resistance Not resistant to light and ageing",
+      "Finding": "Not resistant to light and ageing",
+      "compiled_verdict": "narrative",
+      "usable_for_PASS_FAIL": false,
+      "checks": "Own exact chemical-table row retained verbatim; conditions missing explicit; no measurement, numeric limit gate or category rating invented."
+    },
+    {
+      "OperationID": "G039-44-service-limit",
+      "GradeID": "G039-44",
+      "verdict": "APPROVE",
+      "original_sha256": "e0d3f8ad51f7fd576a157bfb77ec7b8fbcfeb37e9fd3c080513c8c2701dd4351",
+      "locator": "p.2: Water Repellency, source text line19",
+      "raw_original_row": "Water Repellency Resistance to less than 60℃ of water environment",
+      "Finding": "Resistance to less than 60℃ of water environment",
+      "compiled_verdict": "narrative",
+      "usable_for_PASS_FAIL": false,
+      "checks": "Own exact chemical-table row retained verbatim; conditions missing explicit; no measurement, numeric limit gate or category rating invented."
+    }
+  ],
+  "limitations": [
+    "Both exact complete Findings classify narrative under current classifyFinding; zero usable category verdicts introduced. Source evidence presence can affect polymer-context fallback; replay required before release.",
+    "UV statement retains light/ageing scope and missing dose/spectrum/duration/specimen/retention. It is not a validated outdoor lifetime.",
+    "Water Repellency is source wording about water environment strictly below60C; no exposure duration/chemistry/specimen/method/retention provided. It is not solubility, hydrolysis or steam qualification.",
+    "Printed mechanical conditions on p3 do not supply environmental specimen or exposure settings. Existing copied ABS-CF tips do not change own p1/p2 product identity."
+  ],
+  "review_signature_sha256": "f594926a2794254ebb9e4cc96c3d4768552a11c67b6d00420c0f51d7e49f1d1b"
+}

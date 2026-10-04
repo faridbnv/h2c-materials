@@ -197,7 +197,7 @@ likely fails: 1 measured below, 1 unpublished
 CPE
 Copolyesters
  PASS
-1 of 2 products
+2 of 3 products
  1,250
 1,180–1,270 · 3
  1.68
@@ -206,7 +206,7 @@ Copolyesters
 50–55 · 2
  16.1
 6.2–26 · 2
- passing: 80
+ passing: 80–99
 all products: 89.5
 70–100 · 4
  62.7↗ ☆

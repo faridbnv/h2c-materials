@@ -1,0 +1,35 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "0f84511b682d9acd034533c35edb6f28d7d1b077fc03f39f4109acec91449b90",
+  "overall_verdict": "APPROVE",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "OriginalReviewScope": {
+    "html": "Registered digest-verified own page originals reread on actual bytes; own product body/printing block before navigation/related products. Shared originals reused across narrative/profile review. Direct claims retain literal locators and no canonical-row absence inferred.",
+    "pdf": "18 cited hash-verified one-page original TDS files independently reread for exact identity, recipe/load/specimen scope and standard-reference/supplier-data footers. Thirteen predominantly optical files rendered and visually reread; remaining5native text pages read with pdfPages/pageLines on actual bytes. This is a question-outcome scope review, not a new audit of every numeric cell.",
+    "Checks": "All cited SourceID/SHA values in current204questions agree with canonical source registry."
+  },
+  "CorrectedDelta": {
+    "question_replacements": 44,
+    "target_outcome_changes": 4,
+    "method": "Full expected old question objects matched before replacements; only the signed required corrections applied. All 204 identities/questions retained."
+  },
+  "PriorReview": {
+    "file": "priority-06-outcomes-before-correction-review.json",
+    "input_sha256": "40537f9cbeb4c1aaef4716abc4407896b900aa68c60e4059427153b31df14f78",
+    "overall_verdict": "CHANGES_REQUIRED",
+    "review_signature_sha256": "a05d635bad5761ff93bf2811dcd5f1a84baafcd60b55451502f4673ba5f503c3"
+  },
+  "limits": [
+    "No new canonical measurements, environment verdicts or source rows proposed here. Generic chemical wording never names a particular acid/alkali/solvent and stays context only; direct links retain affected question scope without adding duplicate statements for counts.",
+    "PCTG PureTR supplier claim is not a printed-part certificate; CPE bacterial percentages remain maker report claims, not a new selectable bacterial category.",
+    "All source-derived drying is handling, not exposure performance. Eight new own-page profiles still held until admitted; three prior own-page drying records already exist.",
+    "Source-specific recommendations/known identity ambiguity remain honest; a different quantity or absent qualification is not automatically a conflict.",
+    "The ASA+AF own hardened-steel/thermal-chamber recommendation is a concrete unadmitted profile lead; do not close the question as no published fact.",
+    "Review is AI-only, no human or physical validation.",
+    "No product pass is finalized until reviewed injections/changed-answer/full verification/local commit.",
+    "ASA+AF profile proposal independently approved separately; this outcomes snapshot still holds admission until root applies and verifies it. Eight dry/recipe proposals remain held until admission; no product target is closed before verified local commit."
+  ],
+  "review_signature_sha256": "1c6c6f3a1472e7e7cc02fbea7924c21ae42565cbb365f9eca8fd2952114693c6"
+}

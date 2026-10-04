@@ -1,0 +1,1496 @@
+{
+  "overall_verdict": "APPROVE",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "release": "2a8ffade57b4",
+  "before_release": "4e5ce68f19f3",
+  "head_before_data_tranche": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+  "input_sha256": "e4b66942321415f5a77825d31dbe5e9ffe94b3f823e8eb41be96c98dc9579ff1",
+  "input_files_sha256": {
+    "priority-06-09-report.md": "974ee5de52c413d2839ce9b8e6de9dc3d8ef6adc73e31a4ea62886cc2262cc34",
+    "priority-06-09-verification.json": "e4b66942321415f5a77825d31dbe5e9ffe94b3f823e8eb41be96c98dc9579ff1",
+    "priority-06-09-injection-manifest.json": "04b1cbfecf0f6aca3859d5ac2f380bd125f6810fc6978db5c9d30b75f59c4fa0",
+    "priority-06-09-record-diff.csv": "184096283e7c4b015650cf1e9b25c167c2262c5d0c127d50bb59240f78de23f4",
+    "priority-06-09-compiled-diff.json": "c228b8b71ed1b8f68ea541ea6bde72fd5b81aa9d6db2aaec82655c5c5b39c0c1",
+    "priority-06-09-answer-explanations.json": "8189ea5f094281f3fa0d011f04b7a8ac83e84e48f0a8a0560ec2d0199e8764d2",
+    "priority-06-09-custody.json": "b568260edeeccc490e4fd479841a6c61c0b62ced3712ea01227fbbda5d968bf9",
+    "priority-06-09-guards.json": "a294cd6018dea3fca6fa8c94b727ed7a91f7413180f42c3294be3a1e64c54dae",
+    "priority-06-09-render.json": "d56e7dcda83c457486ef35eeaf7bc12185ff8a4555186f45f5f00613e42e6850",
+    "priority-06-09-context-scope-packet.json": "5c6d322b5f3a1d5ead1afc9101c9b494575046359d9d27a6be6201a5ac5715ee",
+    "priority-06-09-context-scope-review.json": "d52d6ed724a47c0918a51742f85b74b7bbfea156b4132113aa94c97b123d0382",
+    "priority-06-outcomes-packet.json": "9ee6c519d674f7774d459b9e6744257ed6994d28c9ea006888314b9a2c800f0b",
+    "priority-06-outcomes-review.json": "79c839e7f779e0e7d3b4f99fcf36dc5cf98160d9dfedd54f785a98fe5cf4ead5",
+    "priority-07-outcomes-packet.json": "bd4b0e0c5e4fe65b6d53d2270d0ed5dea84f7e5dea526723a866f06faef76c30",
+    "priority-07-outcomes-review.json": "b82b90ec3de9778b0057bd821ef1b8ca3d3bd42af020c71fffa22ee5b62d8833",
+    "priority-08-outcomes-packet.json": "fb2a8c786f4881e17d79c23488af9bcdd896f41489ec2126517e9f29029a35dd",
+    "priority-08-outcomes-review.json": "2d0c99b441d7f9258ebffb66f7d80bfa8a7eda34776a681649de717f005e8f10",
+    "priority-09-outcomes-packet.json": "8bc7a9a87265705577608eaa826c50934c51d76598b54446b58a11380ba7342c",
+    "priority-09-outcomes-review.json": "4b57a65314c36ed4da348f30cf2f4beb24a6d8a401342dfb56692f551c58944f",
+    "repo/test/coverage-priority06-09.test.js": "2bd17d5e133fb3980b916745f0714a368213e5edba5b6c9b5275611ae199512a",
+    "repo/scripts/migrate/m336-priority-06-09-context-scope.mjs": "db01f34775038682fd661af6332638ad5efca88f19012243df77cb1e4b938035"
+  },
+  "ReviewedScope": "Bounded final release delta and retained gates; original-source operation/outcome reviews reused, no new searches, no canonical data/Git writes. Manifest all111 new rows exactly matches current canonical data; unchanged decisive tables independently byte-compared against frozen committed baseline.",
+  "DataDelta": {
+    "Sources": 17,
+    "Profiles": 26,
+    "EvidenceKnowHow": 68,
+    "Measurements": 0,
+    "OwnershipPricesModelChanges": 0,
+    "CompiledPaths": 647,
+    "HeadlineEstimateObjectsChanged": 0,
+    "ContextAcceptedKeys": 39
+  },
+  "Verification": {
+    "FullExit": 0,
+    "FullSeconds": 259.31,
+    "StandaloneFastSeconds": 50.79,
+    "WarmBudgetSeconds": 90,
+    "UnitTests": 499,
+    "ImportTests": 209,
+    "ContextAccepted": 142,
+    "ContextNew": 0,
+    "ContextStale": 0,
+    "BrowserViews": 69,
+    "RenderedScenarios": 300,
+    "Readings": 2596,
+    "GridMaterials": 136,
+    "Drawers": 46,
+    "FinalBasisRecordLinksRechecked": 25,
+    "SourceBackupOriginals": 2469,
+    "SourceBackupDerivatives": 2875,
+    "HistoricAbsent": 124,
+    "NewCitedOriginalMissing": 0
+  },
+  "VerifiedLogs": {
+    "full": {
+      "Path": "evidence/priority-06-09-full.log",
+      "SHA256": "e9e9976bcb03f8a047ee5d2f213856e29b6af02c2defb406c86f1ae8fea6b51a"
+    },
+    "fast": {
+      "Path": "evidence/priority-06-09-fast.log",
+      "SHA256": "cc083f9f4396ec8977590b85f3e3433c6f4f364b321acb3e443e7488762a632f"
+    },
+    "ui": {
+      "Path": "evidence/priority-06-09-ui.log",
+      "SHA256": "432216e51f2281a7f3ed0b7b2f12e77fc9d18b4d7d83a5ea805609c3d8691c96"
+    },
+    "render": {
+      "Path": "evidence/priority-06-09-render.log",
+      "SHA256": "21001c98ba614fe0b46980fd0edc275675288c40e186b01b8e4a2dbf11b8bd00"
+    },
+    "build-diff": {
+      "Path": "evidence/priority-06-09-build-diff.log",
+      "SHA256": "c5aab9edbf7749c49cb2a2a16e1bc2b7d09cb1d76c17486b52e162f0a7febca8"
+    },
+    "context": {
+      "Path": "evidence/priority-06-09-context.log",
+      "SHA256": "db81f0c747bf887ebba2801944e9baaeb15a71b835f61051b23005dbea3fec0a"
+    },
+    "backup": {
+      "Path": "evidence/priority-06-09-backup.log",
+      "SHA256": "b2aa34c79d51806372b09ddaf787f0b0cced08c6650c154db6d0d0d3880a9c2c"
+    }
+  },
+  "RerunReceipts": [
+    {
+      "Path": "evidence/h2c-c12-rerun.json",
+      "SHA256": "0b86aecfa0fa6cec5ffc55e1d47de978e9f894e2372d0fe9c27d1ca8349e82a4",
+      "Migration": "m330-batch-c12-priority-07",
+      "Written": 0
+    },
+    {
+      "Path": "evidence/h2c-c13-rerun.json",
+      "SHA256": "6eb61345bd34c68289928c071efe45a9fef1b84516aab19f5aba180bdfba0605",
+      "Migration": "m332-batch-c13-priority-08",
+      "Written": 0
+    },
+    {
+      "Path": "evidence/h2c-c14-rerun.json",
+      "SHA256": "e5e70a0a5f08afd162219870e32e3ec5d68a3d46e97baf3c54a1ba9a155b694e",
+      "Migration": "m334-batch-c14-priority-09",
+      "Written": 0
+    },
+    {
+      "Path": "evidence/h2c-priority07-cached-rerun.json",
+      "SHA256": "7c15122accd183008680d417ef839433652810756a4e2fdc3d8be528cd7b8e31",
+      "Migration": "m333-priority-07-cached",
+      "Written": 0
+    },
+    {
+      "Path": "evidence/h2c-priority09-cached-rerun.json",
+      "SHA256": "e17211155ed9a7856f2438c1935e1c642b58f8d4d9bcb82811e1ef099916f669",
+      "Migration": "m335-priority-09-cached",
+      "Written": 0
+    },
+    {
+      "Path": "evidence/h2c-priority06-reference-rerun.json",
+      "SHA256": "fabde855e09d54f4c155bfde68c27e4f7dffabb2bee3ff5f2b903cdc4ef050ba",
+      "Migration": "m329-priority-06-h2c-reference",
+      "Written": 0
+    },
+    {
+      "ReceiptName": "h2c-priority06-09-context-rerun.json",
+      "SHA256": "07378acf414de6dd2b1ab3236a4fb48752b671164fd86f587a8cee44e77d956a",
+      "Migration": "m336-priority-06-09-context-scope",
+      "Written": 0
+    }
+  ],
+  "MigrationLimits": [
+    "m327/m328 predecessor profile reruns intentionally refuse after guarded m329 H2C-reference correction, preserving history instead of overwriting later fields.",
+    "m336 code pins approved packet SHA, full expected source/profile fields and original digest; conflicting/duplicate acceptance keys or concurrent acceptance-file changes refuse before append. Its acceptance file changes no canonical source fact or audit logic.",
+    "Three disposable guard refusals cover grade/profile/H2C-source movement and retain table/manifest/ledger unchanged; not claimed as exhaustive fault testing."
+  ],
+  "ChangedAnswerGroups": [
+    {
+      "Cause": "Own Fiberlogy print guidance fills genuinely unknown bed/enclosure fields",
+      "Products": [
+        "G082-10",
+        "G088-07",
+        "G089-02",
+        "G109-02"
+      ],
+      "Basis": "Signed own-source profiles P1367–P1374; PP plate use remains conditional; no heated-chamber requirement is inferred from a decorative/use claim. Existing selection semantics read own guidance.",
+      "Limit": "Printer gate PASS is not application suitability or all-purpose service qualification."
+    },
+    {
+      "Cause": "ASA+AF enclosure/thermal-chamber recommendation replaces unsupported implicit chamber PASS",
+      "Products": [
+        "G113-03"
+      ],
+      "Basis": "Own source sentence retained by signed P1375; chamber has no numeric setpoint, so numeric H2C gate becomes UNKNOWN.",
+      "Limit": "No temperature or mandatory requirement invented."
+    },
+    {
+      "Cause": "Own PP2320 chemical table at25°C prints good for acids/alkalis and acetone/alcohols",
+      "Products": [
+        "G082-07"
+      ],
+      "Materials": [
+        "M082"
+      ],
+      "Basis": "Signed priority07 cached rows Q05752–Q05755; original first chemical group, missing concentrations/duration/form/method/retained properties. Material verdict derives own product spread.",
+      "Limit": "Current category-screening exposure caveat applies; no universal chemical approval."
+    },
+    {
+      "Cause": "Flexfill exact TPU92/98 columns print GOOD oils/greases at25°C",
+      "Products": [
+        "G039-29",
+        "G039-30"
+      ],
+      "Materials": [
+        "M162"
+      ],
+      "Basis": "Signed C12 matrix and literal-source fixture; both columns named explicitly. BAD acetone/alcohols remain narrative, so mixed organic-solvent record set stays INDETERMINATE.",
+      "Limit": "No chemical lifetime, certification or hydrolysis/solubility result inferred from water BAD."
+    },
+    {
+      "Cause": "Porthcurno exact-product Low chemical resistance prose supersedes polymer inference screen",
+      "Products": [
+        "G049-01",
+        "G049-02",
+        "G049-03",
+        "G049-04",
+        "G049-05",
+        "G049-06",
+        "G049-07",
+        "G049-08",
+        "G049-09"
+      ],
+      "Basis": "Own Q05749 remains qualified narrative; other product records are material context, not transferred own-grade proof, under existing D64 reduction.",
+      "Limit": "All nine UNKNOWN remain UNKNOWN; only inferred screen clears. No product PASS or translated Ne/grease typo inference."
+    }
+  ],
+  "AllChangedAnswers": {
+    "material": {
+      "evaluations": 17775,
+      "changed_answers": 8,
+      "all_changed_answers": [
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G082-10",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "No heated requirement stated",
+              "evidence": null
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G088-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G109-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype",
+          "level": "product",
+          "id": "G113-03",
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "PASS",
+              "after": "UNKNOWN",
+              "explanation": "No numeric requirement published",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Warm environment",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "S06",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "S06",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05753"
+              ]
+            }
+          ],
+          "screening_changed": false
+        }
+      ]
+    },
+    "priority_templates": {
+      "evaluations": 28440,
+      "changed_answers": 24,
+      "all_changed_answers": [
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G082-10",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "No heated requirement stated",
+              "evidence": null
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G088-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G109-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G113-03",
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "PASS",
+              "after": "UNKNOWN",
+              "explanation": "No numeric requirement published",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G082-10",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "No heated requirement stated",
+              "evidence": null
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G088-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G109-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G113-03",
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "PASS",
+              "after": "UNKNOWN",
+              "explanation": "No numeric requirement published",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G082-10",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "No heated requirement stated",
+              "evidence": null
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G088-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G109-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G113-03",
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "PASS",
+              "after": "UNKNOWN",
+              "explanation": "No numeric requirement published",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G082-10",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Bed temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "No heated requirement stated",
+              "evidence": null
+            },
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G088-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G109-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Indoor prototype{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G113-03",
+          "before": "PASS",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "PASS",
+              "after": "UNKNOWN",
+              "explanation": "No numeric requirement published",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Warm environment{\"unknownPolicy\":\"strict\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Warm environment{\"unknownPolicy\":\"exploration\",\"useEstimates\":false}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Warm environment{\"unknownPolicy\":\"exploration\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "Warm environment{\"unknownPolicy\":\"strict\",\"useEstimates\":true}",
+          "level": "product",
+          "id": "G089-02",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Chamber temperature within H2C baseline",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "The source says an enclosure is not needed, so no heated chamber is required",
+              "evidence": null
+            }
+          ],
+          "screening_changed": false
+        }
+      ]
+    },
+    "priority_environment": {
+      "evaluations": 56880,
+      "changed_answers": 45,
+      "all_changed_answers": [
+        {
+          "question": "acid-strict-false",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "acid-strict-false",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05753"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "acid-strict-true",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "acid-strict-true",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05753"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "acid-exploration-false",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "acid-exploration-false",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05753"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-01",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-02",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-03",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-04",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-05",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "Records exist but none state a verdict",
+              "evidence": [
+                "Q05749"
+              ]
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-06",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-07",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-08",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G049-09",
+          "before": "UNKNOWN",
+          "after": "UNKNOWN",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "UNKNOWN",
+              "explanation": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+              "evidence": null
+            }
+          ],
+          "screening_changed": true
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "acid-exploration-true",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Acid resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05753"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-strict-false",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-strict-false",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05754"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-strict-true",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-strict-true",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05754"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-exploration-false",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-exploration-false",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05754"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-exploration-true",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "alkali-exploration-true",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Alkali resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05754"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-strict-false",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-strict-false",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Organic solvent resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05752",
+                "Q05755"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-strict-true",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-strict-true",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Organic solvent resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05752",
+                "Q05755"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-exploration-false",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-exploration-false",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Organic solvent resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05752",
+                "Q05755"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-exploration-true",
+          "level": "material",
+          "id": "M082",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "organic-solvent-exploration-true",
+          "level": "product",
+          "id": "G082-07",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Organic solvent resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05752",
+                "Q05755"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-strict-false",
+          "level": "product",
+          "id": "G039-30",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05700",
+                "Q05701"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-strict-false",
+          "level": "material",
+          "id": "M162",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-strict-false",
+          "level": "product",
+          "id": "G039-29",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05709",
+                "Q05710"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-strict-true",
+          "level": "product",
+          "id": "G039-30",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05700",
+                "Q05701"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-strict-true",
+          "level": "material",
+          "id": "M162",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-strict-true",
+          "level": "product",
+          "id": "G039-29",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05709",
+                "Q05710"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-exploration-false",
+          "level": "product",
+          "id": "G039-30",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05700",
+                "Q05701"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-exploration-false",
+          "level": "material",
+          "id": "M162",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-exploration-false",
+          "level": "product",
+          "id": "G039-29",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05709",
+                "Q05710"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-exploration-true",
+          "level": "product",
+          "id": "G039-30",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05700",
+                "Q05701"
+              ]
+            }
+          ],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-exploration-true",
+          "level": "material",
+          "id": "M162",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [],
+          "screening_changed": false
+        },
+        {
+          "question": "oil-grease-exploration-true",
+          "level": "product",
+          "id": "G039-29",
+          "before": "UNKNOWN",
+          "after": "PASS",
+          "causes": [
+            {
+              "criterion": "Oil and grease resistance evidence",
+              "before": "UNKNOWN",
+              "after": "PASS",
+              "explanation": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+              "evidence": [
+                "Q05709",
+                "Q05710"
+              ]
+            }
+          ],
+          "screening_changed": false
+        }
+      ]
+    }
+  },
+  "ReplayLimits": "8 frozen,24template and45environment moves are overlapping suites; do not sum. No measurement/estimate recalibration in this tranche. Scope-qualified source chemistry and exact-product print gates explain all changes.",
+  "RenderedLimits": "Retained actual tab DOM text and literal source fixtures preserve guide open bound, drying precautions, matrix conditions, eSUN open water temperature and nozzle ambiguity. Full native views match reviewed snapshots. Material context appearing in product drawer is not transferred product evidence.",
+  "ClosureConditions": [
+    "Approval authorizes reviewed local data commit only; no push/main commit. Product-outcome closure must cite actual verified commit after it exists.",
+    "136 material assessments and selected100 product pass are bounded scope; full catalogue research is not complete.",
+    "Current eSUN drying recommendations remain explicit not-admitted holds pending guarded source/revision operation or vendor clarification.",
+    "124 historic absent originals remain; no new admitted source original missing. Independent AI review is not human source/laboratory/printed-service validation.",
+    "Historical time/token productivity not measured reliably; no rate invented."
+  ],
+  "review_signature_sha256": "74e9c651665fe18ee89108c4f5543f3c97c6cc37f5bf5038d57f803bde34a650"
+}

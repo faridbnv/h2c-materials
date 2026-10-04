@@ -1,0 +1,32 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "ad0c0abcf08f1e5e9a7bb4aef257454444cf40b0757fbcd475d65ee8e2f04d06",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_sources": 12,
+  "reviewed_operations": 33,
+  "original_scope": "All12actual registered newHTML originals SHA-verified and read via nativehtmlText, own headers/body/FAQ and complete relevant technicaltable rows. All25raw narrative quotes matched exactly to one own line; no complete semanticduplicates versus existing exact-grade records. FullExpectedgrades/sources and actualproposal byte/equality checked.",
+  "RequiredCorrections": [
+    {
+      "Scope": "G034-05 ASA GF profile",
+      "Finding": "Full own hardened recommendation is quoted but Hardened nozzle and Abrasion/clogging NP. Source explicitly requires hardened in ownbody,FAQandtable.",
+      "Correction": "Set Abrasion/clogging to exact own recommendation and Hardened nozzle TRUE."
+    },
+    {
+      "Scope": "All8newscopedprofiles",
+      "Finding": "Locator calls allotherrecipefields unstated, but originals print fullnozzle/bed/etc.tables.",
+      "Correction": "Say nottranscribed inthisscopedprofile, no sourceabsence inference."
+    },
+    {
+      "Scope": "G029-03/G034-05/G050-05 diameterprofiles",
+      "Finding": "Generic technicaltable0.4mm recommendedsettings coexist with specificFAQ≥0.6/≥0.5andASAexplicit0.4notrecommended.",
+      "Correction": "Preserve fullgenericfootnote and specificFAQ in visibleFailuremodes/qualifier; no claimsource settled0.4suitability."
+    }
+  ],
+  "limits": [
+    "Source claims/independent-tested marketing not independently validated testreports; food/rawmaterialclaims not printed certification.",
+    "Sevenown dryingcells exact; PETG0–6h optional held because existingrequiredflag cannot faithfullyrecordoptional schedule.",
+    "No canonical edits or productclosure; originalpacket retained hash-verified byte-identical."
+  ],
+  "review_signature_sha256": "9c224b8d21b8950b76b0f497c55ce2799a22222c36b75276123b1614f548eeff"
+}

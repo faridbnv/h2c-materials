@@ -1,0 +1,16 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "3831811c28271a7edfeac856f34d273babb264578cbb9691024222f3d6aa52f1",
+  "helper_sha256": "9de333193ceaeba7272af89b8c1112fe713b6f9936d1c3d1a4424f7f42c82ed0",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_operations": 9,
+  "facts": "All9Expected/current profiles and full ExpectedGrades/ExpectedSources match. All9deltas only H2C SourceID Not applicable to H2C-WIKI, matching current profile constructor and required source-reference schema. H2C-WIKI current full source row matches ExistingConstructorH2CSource. No recipe/gate/endorsement changes.",
+  "RequiredCorrection": "The newly referenced H2C-WIKI row is pinned in ExistingConstructorH2CSource but not guarded by helper. Add it to ExpectedSources or explicitly check its full snapshot before any write.",
+  "helper_review": "Reads/pins packet hash and review, verifies expected grade/source fields and original digests before operation preflight. Edits preserve IDs, accept exactProposed state as no-op, otherwise require Expected; append reruns identify unique grade/source/locator and require Proposed agreement; allpreflight completes before save. Packet full snapshots prevent partial guards in this use; no mutating test run yet.",
+  "limits": [
+    "No original rereads needed for this administrative correction; already signed source facts reused.",
+    "No human review, canonical edits or Git mutations."
+  ],
+  "review_signature_sha256": "33dbd29bfc16f0059b8260004ffcaf2c18309280d0ed4e076582e84743f85caa"
+}

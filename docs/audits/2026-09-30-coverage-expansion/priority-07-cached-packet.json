@@ -1,0 +1,309 @@
+{
+  "PacketID": "PRIORITY-07-REGISTERED-CHEMICAL-CONTEXT",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G049-05",
+      "MaterialID": "M049",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fillamentum",
+      "Product name": "Fishy Filaments’ Porthcurno",
+      "Shared formulation key": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flame classification - UL 94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G082-07",
+      "MaterialID": "M082",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fillamentum",
+      "Product name": "PP 2320",
+      "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+      "Publisher": "Fillamentum",
+      "Title": "Fishy Filaments’ Porthcurno by Fillamentum",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2023/04/TDS_Fishy-filament-Porthcurno_EN_06042023.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G049-05",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67"
+    },
+    {
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+      "Publisher": "Fillamentum",
+      "Title": "PP 2320",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_PP-2320.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G082-07",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf"
+    }
+  ],
+  "Operations": [
+    {
+      "OperationID": "G049-05-Acetone",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M049",
+        "GradeID": "G049-05",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "Good chemical resistance",
+        "Exposure / conditions": "Agent/group named in own source row: Acetone. Source prints Good chemical resistance Water, car fluids, oils, grasses, acetone; Low chemical resistance Bases, acids, alcohol, ozone. Unclear grasses wording is not silently corrected to grease. Temperature, concentration, duration, specimen, test method and retained-property criterion not published.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G049-05-Oils",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M049",
+        "GradeID": "G049-05",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "Good chemical resistance",
+        "Exposure / conditions": "Agent/group named in own source row: Oils. Source prints Good chemical resistance Water, car fluids, oils, grasses, acetone; Low chemical resistance Bases, acids, alcohol, ozone. Unclear grasses wording is not silently corrected to grease. Temperature, concentration, duration, specimen, test method and retained-property criterion not published.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G049-05-Acids",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M049",
+        "GradeID": "G049-05",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "Low chemical resistance",
+        "Exposure / conditions": "Agent/group named in own source row: Acids. Source prints Good chemical resistance Water, car fluids, oils, grasses, acetone; Low chemical resistance Bases, acids, alcohol, ozone. Unclear grasses wording is not silently corrected to grease. Temperature, concentration, duration, specimen, test method and retained-property criterion not published.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G049-05-Bases",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M049",
+        "GradeID": "G049-05",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "Low chemical resistance",
+        "Exposure / conditions": "Agent/group named in own source row: Bases. Source prints Good chemical resistance Water, car fluids, oils, grasses, acetone; Low chemical resistance Bases, acids, alcohol, ozone. Unclear grasses wording is not silently corrected to grease. Temperature, concentration, duration, specimen, test method and retained-property criterion not published.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G049-05-Alcohol",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M049",
+        "GradeID": "G049-05",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "Low chemical resistance",
+        "Exposure / conditions": "Agent/group named in own source row: Alcohol. Source prints Good chemical resistance Water, car fluids, oils, grasses, acetone; Low chemical resistance Bases, acids, alcohol, ozone. Unclear grasses wording is not silently corrected to grease. Temperature, concentration, duration, specimen, test method and retained-property criterion not published.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G082-07-Acetone",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M082",
+        "GradeID": "G082-07",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "good",
+        "Exposure / conditions": "Agent/group named in own source row: Acetone. Source chemical table states25°C. First group water/acetone/acids/alkalis/alcohols/salts good; second group oils/greases/carfluids/ozone medium. Exact species/concentrations, duration, specimen, test method and retention criterion not published. These are generic category/group ratings, not exact-agent service qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G082-07-Acids",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M082",
+        "GradeID": "G082-07",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "good",
+        "Exposure / conditions": "Agent/group named in own source row: Acids. Source chemical table states25°C. First group water/acetone/acids/alkalis/alcohols/salts good; second group oils/greases/carfluids/ozone medium. Exact species/concentrations, duration, specimen, test method and retention criterion not published. These are generic category/group ratings, not exact-agent service qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G082-07-Alkalis",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M082",
+        "GradeID": "G082-07",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "good",
+        "Exposure / conditions": "Agent/group named in own source row: Alkalis. Source chemical table states25°C. First group water/acetone/acids/alkalis/alcohols/salts good; second group oils/greases/carfluids/ozone medium. Exact species/concentrations, duration, specimen, test method and retention criterion not published. These are generic category/group ratings, not exact-agent service qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G082-07-Alcohols",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M082",
+        "GradeID": "G082-07",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "good",
+        "Exposure / conditions": "Agent/group named in own source row: Alcohols. Source chemical table states25°C. First group water/acetone/acids/alkalis/alcohols/salts good; second group oils/greases/carfluids/ozone medium. Exact species/concentrations, duration, specimen, test method and retention criterion not published. These are generic category/group ratings, not exact-agent service qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    },
+    {
+      "OperationID": "G082-07-Oils and greases",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M082",
+        "GradeID": "G082-07",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "medium",
+        "Exposure / conditions": "Agent/group named in own source row: Oils and greases. Source chemical table states25°C. First group water/acetone/acids/alkalis/alcohols/salts good; second group oils/greases/carfluids/ozone medium. Exact species/concentrations, duration, specimen, test method and retention criterion not published. These are generic category/group ratings, not exact-agent service qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+        "Locator": "p.1: Chemical properties, own named group row and source rating"
+      },
+      "SourceBasis": {
+        "SHA256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+        "Page": 1,
+        "Scope": "Own Chemical properties table; grade header and full row visual reread"
+      }
+    }
+  ]
+}

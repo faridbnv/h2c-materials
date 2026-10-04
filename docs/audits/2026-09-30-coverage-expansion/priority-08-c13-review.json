@@ -1,0 +1,316 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "e8949a0340b21b41aab0aacbdd5514363b73f560b4149adaeb13a9d90df9b3af",
+  "overall_verdict": "APPROVE",
+  "reviewed_sources": 12,
+  "reviewed_operations": 33,
+  "original_scope": "All12actualSHA-verified capturedHTML originals reread nativehtmlText, ownheaders/body/FAQ/relevant fulltechnicaltables; not extracted snippetonly. All25narratives reviewed beyond10%sampling; all8profilefields checked, allfullExpectedgrade/source/retrievalrevisionpins and serializedsource/acceptedrows/proposalhashes verified.",
+  "results": [
+    {
+      "OperationID": "c13-49ca17b0-e1",
+      "GradeID": "G020-17",
+      "verdict": "APPROVE",
+      "original_sha256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+      "locator": "p.1: Exact product FAQ/highlight, source text line115",
+      "source_line": 115,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-49ca17b0-e2",
+      "GradeID": "G020-17",
+      "verdict": "APPROVE",
+      "original_sha256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+      "locator": "p.1: Exact product FAQ/highlight, source text line118",
+      "source_line": 118,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-967a9be0-e1",
+      "GradeID": "G020-56",
+      "verdict": "APPROVE",
+      "original_sha256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "locator": "p.1: Exact product FAQ/highlight, source text line96",
+      "source_line": 96,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-967a9be0-e2",
+      "GradeID": "G020-56",
+      "verdict": "APPROVE",
+      "original_sha256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "locator": "p.1: Exact product FAQ/highlight, source text line99",
+      "source_line": 99,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-967a9be0-p1",
+      "GradeID": "G020-56",
+      "verdict": "APPROVE",
+      "original_sha256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    },
+    {
+      "OperationID": "c13-88316f65-e1",
+      "GradeID": "G024-09",
+      "verdict": "APPROVE",
+      "original_sha256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "locator": "p.1: Exact product FAQ/highlight, source text line107",
+      "source_line": 107,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-88316f65-e2",
+      "GradeID": "G024-09",
+      "verdict": "APPROVE",
+      "original_sha256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "locator": "p.1: Exact product FAQ/highlight, source text line109",
+      "source_line": 109,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-88316f65-e3",
+      "GradeID": "G024-09",
+      "verdict": "APPROVE",
+      "original_sha256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "locator": "p.1: Exact product FAQ/highlight, source text line112",
+      "source_line": 112,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-88316f65-p1",
+      "GradeID": "G024-09",
+      "verdict": "APPROVE",
+      "original_sha256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    },
+    {
+      "OperationID": "c13-ce91065b-e1",
+      "GradeID": "G088-03",
+      "verdict": "APPROVE",
+      "original_sha256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "locator": "p.1: Exact product FAQ/highlight, source text line108",
+      "source_line": 108,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-ce91065b-e2",
+      "GradeID": "G088-03",
+      "verdict": "APPROVE",
+      "original_sha256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "locator": "p.1: Exact product FAQ/highlight, source text line113",
+      "source_line": 113,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-ce91065b-p1",
+      "GradeID": "G088-03",
+      "verdict": "APPROVE",
+      "original_sha256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    },
+    {
+      "OperationID": "c13-70456e37-e1",
+      "GradeID": "G131-01",
+      "verdict": "APPROVE",
+      "original_sha256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+      "locator": "p.1: Exact product FAQ/highlight, source text line108",
+      "source_line": 108,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-4f4b613e-e1",
+      "GradeID": "G027-11",
+      "verdict": "APPROVE",
+      "original_sha256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "locator": "p.1: Exact product FAQ/highlight, source text line112",
+      "source_line": 112,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-4f4b613e-e2",
+      "GradeID": "G027-11",
+      "verdict": "APPROVE",
+      "original_sha256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "locator": "p.1: Exact product FAQ/highlight, source text line115",
+      "source_line": 115,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-4f4b613e-p1",
+      "GradeID": "G027-11",
+      "verdict": "APPROVE",
+      "original_sha256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    },
+    {
+      "OperationID": "c13-4eb5a754-e1",
+      "GradeID": "G029-03",
+      "verdict": "APPROVE",
+      "original_sha256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "locator": "p.1: Exact product FAQ/highlight, source text line98",
+      "source_line": 98,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-4eb5a754-e2",
+      "GradeID": "G029-03",
+      "verdict": "APPROVE",
+      "original_sha256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "locator": "p.1: Exact product FAQ/highlight, source text line100",
+      "source_line": 100,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-4eb5a754-e3",
+      "GradeID": "G029-03",
+      "verdict": "APPROVE",
+      "original_sha256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "locator": "p.1: Exact product FAQ/highlight, source text line105",
+      "source_line": 105,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-4eb5a754-p1",
+      "GradeID": "G029-03",
+      "verdict": "APPROVE",
+      "original_sha256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile; generic0.4mm table heading and specific FAQ diameter advice retained as different contexts",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    },
+    {
+      "OperationID": "c13-8f1f07e5-e1",
+      "GradeID": "G034-05",
+      "verdict": "APPROVE",
+      "original_sha256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "locator": "p.1: Exact product FAQ/highlight, source text line97",
+      "source_line": 97,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-8f1f07e5-e2",
+      "GradeID": "G034-05",
+      "verdict": "APPROVE",
+      "original_sha256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "locator": "p.1: Exact product FAQ/highlight, source text line102",
+      "source_line": 102,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-8f1f07e5-p1",
+      "GradeID": "G034-05",
+      "verdict": "APPROVE",
+      "original_sha256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile; generic0.4mm table heading and specific FAQ diameter advice retained as different contexts",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    },
+    {
+      "OperationID": "c13-b3aff682-e1",
+      "GradeID": "G039-16",
+      "verdict": "APPROVE",
+      "original_sha256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+      "locator": "p.1: Exact product FAQ/highlight, source text line88",
+      "source_line": 88,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-b3aff682-e2",
+      "GradeID": "G039-16",
+      "verdict": "APPROVE",
+      "original_sha256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+      "locator": "p.1: Exact product FAQ/highlight, source text line110",
+      "source_line": 110,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-1d34d782-e1",
+      "GradeID": "G126-02",
+      "verdict": "APPROVE",
+      "original_sha256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+      "locator": "p.1: Exact product FAQ/highlight, source text line101",
+      "source_line": 101,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-1d34d782-e2",
+      "GradeID": "G126-02",
+      "verdict": "APPROVE",
+      "original_sha256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+      "locator": "p.1: Exact product FAQ/highlight, source text line106",
+      "source_line": 106,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-e49b9123-e1",
+      "GradeID": "G050-05",
+      "verdict": "APPROVE",
+      "original_sha256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "locator": "p.1: Exact product FAQ/highlight, source text line100",
+      "source_line": 100,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-e49b9123-e2",
+      "GradeID": "G050-05",
+      "verdict": "APPROVE",
+      "original_sha256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "locator": "p.1: Exact product FAQ/highlight, source text line107",
+      "source_line": 107,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-e49b9123-p1",
+      "GradeID": "G050-05",
+      "verdict": "APPROVE",
+      "original_sha256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile; generic0.4mm table heading and specific FAQ diameter advice retained as different contexts",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    },
+    {
+      "OperationID": "c13-cafa7124-e1",
+      "GradeID": "G052-02",
+      "verdict": "APPROVE",
+      "original_sha256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "locator": "p.1: Exact product FAQ/highlight, source text line101",
+      "source_line": 101,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-cafa7124-e2",
+      "GradeID": "G052-02",
+      "verdict": "APPROVE",
+      "original_sha256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "locator": "p.1: Exact product FAQ/highlight, source text line106",
+      "source_line": 106,
+      "checks": "Own literal statement matches actualoriginalline. Exact identity/counterpart/rawmaterialvsprinted/articlelimits retained. No complete semanticduplicate found versus existing exact-grade records."
+    },
+    {
+      "OperationID": "c13-cafa7124-p1",
+      "GradeID": "G052-02",
+      "verdict": "APPROVE",
+      "original_sha256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "locator": "p. 1: Exact product drying table and own nozzle recommendation; other recipe fields not transcribed in this scoped profile",
+      "checks": "Own dryingtablecells/typedtemp/hours and exactnozzlerecommendation match. ASA GFhardenedTRUE nowfaithful. Three diameterprofiles preservegeneric0.4mm settingsfootnote beside own ≥0.6/≥0.5mmFAQ; no0.4mm qualification inferred. Locators now say fields nottranscribed, not source silence."
+    }
+  ],
+  "duplicate_review": "No complete semanticduplicates. OldgenericUV/nozzleresistance claims remain distinct from new explicit independent-test marketing(no report)/long-term exclusion/food-final-article limitations and new comparison details. Partial repeatedsubfacts are identified by broader rawsource paragraphs, not new universalclaims.",
+  "PriorReview": {
+    "file": "priority-08-c13-review-before-correction.json",
+    "sha256": "e195044322a2a65e798bf2dd35f00df429d77d41584b47cdecd46d98ddcd8fb3",
+    "input_sha256": "ad0c0abcf08f1e5e9a7bb4aef257454444cf40b0757fbcd475d65ee8e2f04d06",
+    "verdict": "CHANGES_REQUIRED"
+  },
+  "limits": [
+    "Record-only25makerclaims do not establish independent testing/food certification/service/suitability pass.",
+    "Sevenexplicitpositive dryingtable schedules meet existing profilecontract; optionalPETG0–6h/reliablewithoutdrying correctlyheld.",
+    "Generic0.4mmtechnicaltable versus specificminimumFAQ remains differingcontext/vendorclarification; newrows do not settle0.4suitability.",
+    "No recipe copied from otherdocuments; numeric chamber setpoint remains unknown where untranscribed. Existing ownTDS fallback staysdistinct.",
+    "SameURLrevisionpins preserve oldsource/digest, no recency/formulationequivalence inferred.",
+    "AIonly, no human review/physicaltests/canonicaledits/productclosure."
+  ],
+  "review_signature_sha256": "f615da870dcd58a8182cc3a7f732e2a3eeb1a71c99ca99018444ba236b079e3f"
+}

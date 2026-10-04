@@ -1,6 +1,6 @@
 {
-  "LatestCompletedDataCommit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
-  "LatestCompletedDataRelease": "b847b43260f9",
+  "LatestCompletedDataCommit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+  "LatestCompletedDataRelease": "4e5ce68f19f3",
   "Authority": "Final bounded task dispositions reproduced from committed audit packets and named local commits; completing a material Application task never completes its joined product tasks.",
   "Outcomes": [
     {
@@ -417,7 +417,7 @@
       "TaskID": "APP-M149",
       "Commit": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
       "Packet": "application-sunlu-siraya-creatbot",
-      "Finding": "Reviewed 2026-10-01: SUNLU PCL (G149-03) has maker good for statements (Q04916, R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Repeated reshaping and 3D-pen use are maker guidance; the sheet\u2019s specimen recipe at 260 \u00b0C differs from its low-temperature product guidance. No medical or skin-contact qualification follows.",
+      "Finding": "Reviewed 2026-10-01: SUNLU PCL (G149-03) has maker good for statements (Q04916, R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. Repeated reshaping and 3D-pen use are maker guidance; the sheet’s specimen recipe at 260 °C differs from its low-temperature product guidance. No medical or skin-contact qualification follows.",
       "Outcome": "found",
       "Limitations": "Sourced manual material judgment; other joined product passes retain separate pending status."
     },
@@ -441,7 +441,7 @@
       "TaskID": "APP-M164",
       "Commit": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
       "Packet": "application-sunlu-siraya-creatbot",
-      "Finding": "Reviewed 2026-10-01: CreatBot Ultra PA (G164-09) has maker good for statements (Q05306, R-CREATBOT-PRINT-20260928-3148a159f1e5, p. 1: exact-product Good for paragraph; m222 record-tier review). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. The own page\u2019s table and FAQ disagree on nozzle/bed and drying schedules; these are unresolved processing claims, not a qualified application.",
+      "Finding": "Reviewed 2026-10-01: CreatBot Ultra PA (G164-09) has maker good for statements (Q05306, R-CREATBOT-PRINT-20260928-3148a159f1e5, p. 1: exact-product Good for paragraph; m222 record-tier review). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded. The own page’s table and FAQ disagree on nozzle/bed and drying schedules; these are unresolved processing claims, not a qualified application.",
       "Outcome": "found",
       "Limitations": "Sourced manual material judgment; other joined product passes retain separate pending status."
     },
@@ -456,7 +456,7 @@
       },
       "Environmental": {
         "Outcome": "found",
-        "Finding": "English own9chemical agent/result pairs, qualitativeHB at1.5mm and UV-yellowing/storage caveat found. No exposure duration, quantitative retention or weathering protocol. New bilingual acetone\u4e00\u822c differs generic EnglishKetoneGood; Chinese ether/Englishester row remains held.",
+        "Finding": "English own9chemical agent/result pairs, qualitativeHB at1.5mm and UV-yellowing/storage caveat found. No exposure duration, quantitative retention or weathering protocol. New bilingual acetone一般 differs generic EnglishKetoneGood; Chinese ether/Englishester row remains held.",
         "FrozenCategoriesAddressed": [
           "acid",
           "alkali",
@@ -475,7 +475,7 @@
       },
       "DecisionProperties": {
         "Outcome": "conflicting",
-        "Finding": "English800% at260\u00b0C is retainedoffrecipe. New bilingual800%at80\u00b0C45mm/s100%90\u00b0 is separate inrecipe result. SameMFR30\u00b110 has different150/260\u00b0C conditions. Typedrawnumbers unchanged onoldsource. No tensile strength/modulus, notchedimpact,HDT orTg result in examined sheets (slash cells), not proof of universal absence.",
+        "Finding": "English800% at260°C is retainedoffrecipe. New bilingual800%at80°C45mm/s100%90° is separate inrecipe result. SameMFR30±10 has different150/260°C conditions. Typedrawnumbers unchanged onoldsource. No tensile strength/modulus, notchedimpact,HDT orTg result in examined sheets (slash cells), not proof of universal absence.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileModulusXY",
           "tensileStrengthXY",
@@ -489,7 +489,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Own75\u201385\u00b0C nozzle profile; bed table slash and ownproductpage noheatedbed claim are distinct. No chamber/drying/annealing schedule or humid mechanical result in examined originals. Source-specimen260\u00b0C contradiction remains vendor-needed.",
+        "Finding": "Own75–85°C nozzle profile; bed table slash and ownproductpage noheatedbed claim are distinct. No chamber/drying/annealing schedule or humid mechanical result in examined originals. Source-specimen260°C contradiction remains vendor-needed.",
         "FrozenPrintGapsAddressed": [
           "nozzle",
           "bed",
@@ -585,7 +585,7 @@
       },
       "DecisionProperties": {
         "Outcome": "conflicting",
-        "Finding": "Webhardness80/elong10\u00b15/strength40\u00b16/density1.23 differ linked byte-identical TDS90A\u00b12/>=1000/30\u00b13/1.17\u00b1.02. No overwrite by date. TDS modulus,Zstrength,notchedIzod,Tg slash/absent; no publishedCharpy in examined sources.",
+        "Finding": "Webhardness80/elong10±5/strength40±6/density1.23 differ linked byte-identical TDS90A±2/>=1000/30±3/1.17±.02. No overwrite by date. TDS modulus,Zstrength,notchedIzod,Tg slash/absent; no publishedCharpy in examined sources.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileModulusXY",
           "tensileStrengthZ",
@@ -597,7 +597,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Existing220\u2013240\u00b0Cnozzle/30\u201360\u00b0Cbed and230\u00b0C40mm/s100%90\u00b0 specimens retained. Drying60\u201370\u00b0C range without duration is guidance, no narrowed scalar. No chamber or annealing schedule/humid mechanical result in examinedsource. Avoid-high-infill use advice versus100%specimen retained as context.",
+        "Finding": "Existing220–240°Cnozzle/30–60°Cbed and230°C40mm/s100%90° specimens retained. Drying60–70°C range without duration is guidance, no narrowed scalar. No chamber or annealing schedule/humid mechanical result in examinedsource. Avoid-high-infill use advice versus100%specimen retained as context.",
         "FrozenPrintGapsAddressed": [
           "chamber"
         ]
@@ -652,7 +652,7 @@
       "StoppingReason": "Bounded source/route pass yielded documented facts and conflicts; proceed with explicit vendor/test/contract handoffs, rather than repeating searches without a materially new question.",
       "KnownUnretrievedLeads": [
         "SDS/RoHS/Reach downloads exist onSUNLUownpage but are not retrieved or treated as approvals in this pass.",
-        "https://uk.store.sunlu.com/blogs/product-knowledge/sunlu-tpu-90a-filament-everyday-3d-printing-projects \u2014 discovered official source, not retrieved; no application claim/result derived. Follow-up lead retained without repeating completed searches."
+        "https://uk.store.sunlu.com/blogs/product-knowledge/sunlu-tpu-90a-filament-everyday-3d-printing-projects — discovered official source, not retrieved; no application claim/result derived. Follow-up lead retained without repeating completed searches."
       ],
       "ReleaseCondition": "Everyacceptedpacket admitted or held, independentreview,sourcefixtures,replays,fullQA,backup andlocalcommit. Pending untilthosegates pass.",
       "Commit": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
@@ -692,7 +692,7 @@
       },
       "DecisionProperties": {
         "Outcome": "context only",
-        "Finding": "TDS owns fourcoupledprinted states240/250/260/270\u00b0C, eachdensity/Vicat/ShoreA/yield/break/elongation. Those tablevalues preserved in the digest-verified original, full-text pages and held atomic rows; do not flatten to independent favourable density/hardness/strength or call rawfilamentdensity printed density. Tensilemodulus,Zstrength,notchedimpact,Tg not published in examined tables.",
+        "Finding": "TDS owns fourcoupledprinted states240/250/260/270°C, eachdensity/Vicat/ShoreA/yield/break/elongation. Those tablevalues preserved in the digest-verified original, full-text pages and held atomic rows; do not flatten to independent favourable density/hardness/strength or call rawfilamentdensity printed density. Tensilemodulus,Zstrength,notchedimpact,Tg not published in examined tables.",
         "FrozenMissingHeadlinesAddressed": [
           "density",
           "tensileModulusXY",
@@ -707,7 +707,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Existing230\u2013270\u00b0C/30\u201345\u00b0C retained, foaming/flow calibrations conditional. Drying TDS dedicateddryerorconvection vsmanualconvection/dryernotrecommended is unresolved in wet-filament context, distinct from upon-openingdry-storage. Source-gate review requires removing unsourcedhardening/fibreabrasion requirement toNP, no brassapproval. Scalar drying range remains knownlimitation; no annealing/humidstrength result in examinedsource.",
+        "Finding": "Existing230–270°C/30–45°C retained, foaming/flow calibrations conditional. Drying TDS dedicateddryerorconvection vsmanualconvection/dryernotrecommended is unresolved in wet-filament context, distinct from upon-openingdry-storage. Source-gate review requires removing unsourcedhardening/fibreabrasion requirement toNP, no brassapproval. Scalar drying range remains knownlimitation; no annealing/humidstrength result in examinedsource.",
         "FrozenPrintGapsAddressed": [
           "chamber"
         ]
@@ -775,7 +775,7 @@
       },
       "Environmental": {
         "Outcome": "found",
-        "Finding": "Ownpageoil/chemical/longlife claims lack exposure/retention/load protocol. Saturated-water row25\u00b0C55%RH2.595% must retain conditioning words; no hydrolysis or immersion protocol inferred. No ownweathering/creep/fatigue test or food approval in examinedsources.",
+        "Finding": "Ownpageoil/chemical/longlife claims lack exposure/retention/load protocol. Saturated-water row25°C55%RH2.595% must retain conditioning words; no hydrolysis or immersion protocol inferred. No ownweathering/creep/fatigue test or food approval in examinedsources.",
         "FrozenCategoriesAddressed": [
           "acid",
           "alkali",
@@ -794,7 +794,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Own makerTDS hostedbyFilament2Print now has11 canonical measurements: V011343\u2013V011352 plus V011543 admitted by m266 after independent AI review of packet51b3fd9d1868927a781b919d0e99e917a69d1df389fd250d3cf6ed577632d642. V011543 records saturated water absorption2.595% at25\u00b0C55%RH, with duration, standard, specimen form and immersion not published; no hydrolysis or service approval follows. Zstrength/Izod absent orslash; PDF/TDS table has no Tg row, while ownFAQ givesgenericnylon Tg approximately70\u00b0C without measuredexactproduct method. ExistingCharpy9.74ISO179 hasno statednotch inPDF/table, while ownpage MechanicalProperties calls9.74 Notched impact strength. Preserve page-versus-table scope conflict; no silently inferred notchedheadline, genericTg productvalue or printed-specimen recipe. XY orientation and printed source standards retained.",
+        "Finding": "Own makerTDS hostedbyFilament2Print now has11 canonical measurements: V011343–V011352 plus V011543 admitted by m266 after independent AI review of packet51b3fd9d1868927a781b919d0e99e917a69d1df389fd250d3cf6ed577632d642. V011543 records saturated water absorption2.595% at25°C55%RH, with duration, standard, specimen form and immersion not published; no hydrolysis or service approval follows. Zstrength/Izod absent orslash; PDF/TDS table has no Tg row, while ownFAQ givesgenericnylon Tg approximately70°C without measuredexactproduct method. ExistingCharpy9.74ISO179 hasno statednotch inPDF/table, while ownpage MechanicalProperties calls9.74 Notched impact strength. Preserve page-versus-table scope conflict; no silently inferred notchedheadline, genericTg productvalue or printed-specimen recipe. XY orientation and printed source standards retained.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileStrengthZ",
           "charpyNotched",
@@ -805,7 +805,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Officialpage table280\u2013300/70\u201380/dry80\u2013100C6\u20138h versus FAQ260\u2013290/80\u2013100/dry70\u201380C\u226485 conflict retained; no intersected/reconciled window applied. Ownrecommendationchamber40\u201360 conditional, priorchambersearchused onlyits question. Source chamber slash unknown notzero/noenclosure. No exactunfilledUltraPA annealing schedule inferredfrom UltraPA-CF guide.",
+        "Finding": "Officialpage table280–300/70–80/dry80–100C6–8h versus FAQ260–290/80–100/dry70–80C≤85 conflict retained; no intersected/reconciled window applied. Ownrecommendationchamber40–60 conditional, priorchambersearchused onlyits question. Source chamber slash unknown notzero/noenclosure. No exactunfilledUltraPA annealing schedule inferredfrom UltraPA-CF guide.",
         "FrozenPrintGapsAddressed": []
       },
       "Price": {
@@ -1824,7 +1824,7 @@
             "Outcome": "NEEDS_VENDOR",
             "SourceManifestRow": "ROOT-registered-cache-R-FABRU-PUREFIL-4706-material-data-sheet-LCP-purefil",
             "Locator": "Existing TDS property table; compare cited current/archived exact-product search record",
-            "ExactSourceText": "Drying time Heat deflection temperature 193 \u00b0C",
+            "ExactSourceText": "Drying time Heat deflection temperature 193 °C",
             "Property": "HDT specimen condition",
             "RawValue": "Not published",
             "RawUnit": "Not applicable",
@@ -2028,7 +2028,7 @@
             "Outcome": "NEEDS_VENDOR",
             "SourceManifestRow": "ROOT-registered-cache-R-FABRU-PUREFIL-656-Materialdatenblatt-PBT-purefil",
             "Locator": "Existing TDS property table; compare cited current/archived exact-product search record",
-            "ExactSourceText": "120\u00b0C Zug-E-Modul (ISO 527-1/-2) 2600 MPa",
+            "ExactSourceText": "120°C Zug-E-Modul (ISO 527-1/-2) 2600 MPa",
             "Property": "Modulus specimen/build condition",
             "RawValue": "Not published",
             "RawUnit": "Not applicable",
@@ -2160,7 +2160,7 @@
             "Outcome": "NEEDS_VENDOR",
             "SourceManifestRow": "ROOT-registered-cache-R-FABRU-652-Fiche-technique-du-mat-riau-PBT-purefil",
             "Locator": "Existing TDS property table; compare cited current/archived exact-product search record",
-            "ExactSourceText": "120\u00b0C Module de Young (ISO 527-1/-2) 2600 MPa",
+            "ExactSourceText": "120°C Module de Young (ISO 527-1/-2) 2600 MPa",
             "Property": "Modulus specimen/build condition",
             "RawValue": "Not published",
             "RawUnit": "Not applicable",
@@ -2226,7 +2226,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Registered guide drying65\u00b0C6h added; own older TDS nozzle220\u2013230 versus guide220\u2013240 remain separate. Shared guide lacks mechanical form/direction/standard/load and duplicate volumetric4/12 differs. Support article403,70\u00b0C4\u20139h search excerpt lead only.",
+        "Finding": "Registered guide drying65°C6h added; own older TDS nozzle220–230 versus guide220–240 remain separate. Shared guide lacks mechanical form/direction/standard/load and duplicate volumetric4/12 differs. Support article403,70°C4–9h search excerpt lead only.",
         "FrozenMissingHeadlinesAddressed": [
           "density",
           "tensileStrengthZ",
@@ -2237,7 +2237,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Registered guide drying65\u00b0C6h added; own older TDS nozzle220\u2013230 versus guide220\u2013240 remain separate. Shared guide lacks mechanical form/direction/standard/load and duplicate volumetric4/12 differs. Support article403,70\u00b0C4\u20139h search excerpt lead only.",
+        "Finding": "Registered guide drying65°C6h added; own older TDS nozzle220–230 versus guide220–240 remain separate. Shared guide lacks mechanical form/direction/standard/load and duplicate volumetric4/12 differs. Support article403,70°C4–9h search excerpt lead only.",
         "FrozenPrintGapsAddressed": [
           "chamber"
         ],
@@ -2349,7 +2349,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Registered pre-print drying65\u00b0C6h. Guide duplicate speed30 40\u201360/volumetric4/12 malformed/conflicting and properties unconditioned. Clear means un-coloured, explicitly not transparent. No blending of old/new formulation measurements.",
+        "Finding": "Registered pre-print drying65°C6h. Guide duplicate speed30 40–60/volumetric4/12 malformed/conflicting and properties unconditioned. Clear means un-coloured, explicitly not transparent. No blending of old/new formulation measurements.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileStrengthZ",
           "izodNotched",
@@ -2360,7 +2360,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Registered pre-print drying65\u00b0C6h. Guide duplicate speed30 40\u201360/volumetric4/12 malformed/conflicting and properties unconditioned. Clear means un-coloured, explicitly not transparent. No blending of old/new formulation measurements.",
+        "Finding": "Registered pre-print drying65°C6h. Guide duplicate speed30 40–60/volumetric4/12 malformed/conflicting and properties unconditioned. Clear means un-coloured, explicitly not transparent. No blending of old/new formulation measurements.",
         "FrozenPrintGapsAddressed": [
           "chamber"
         ],
@@ -2479,7 +2479,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Guide pre-print drying50\u00b0C4h. Duplicate speeds40\u201360/40\u2013100 and volumetric4/12 differ; missing specimen/method/notch/load prevents mechanical comparison admission.",
+        "Finding": "Guide pre-print drying50°C4h. Duplicate speeds40–60/40–100 and volumetric4/12 differ; missing specimen/method/notch/load prevents mechanical comparison admission.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileStrengthZ",
           "izodNotched",
@@ -2490,7 +2490,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Guide pre-print drying50\u00b0C4h. Duplicate speeds40\u201360/40\u2013100 and volumetric4/12 differ; missing specimen/method/notch/load prevents mechanical comparison admission.",
+        "Finding": "Guide pre-print drying50°C4h. Duplicate speeds40–60/40–100 and volumetric4/12 differ; missing specimen/method/notch/load prevents mechanical comparison admission.",
         "FrozenPrintGapsAddressed": [
           "chamber"
         ],
@@ -2577,7 +2577,7 @@
       },
       "Environmental": {
         "Outcome": "context only",
-        "Finding": "Predrying125\u00b0C6h is handling, not annealing, hydrolysis or moisture-service result. No new exposure test.",
+        "Finding": "Predrying125°C6h is handling, not annealing, hydrolysis or moisture-service result. No new exposure test.",
         "FrozenCategoriesAddressed": [
           "acid",
           "alkali",
@@ -2596,7 +2596,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Guide125\u00b0C6h drying retained. Malformed bed50 30\u201340 and duplicate volumetric4/12 not narrowed; unconditioned combinedHDT/Vicat50 cannot overwrite older TDS. Support route403 remains not retrieved.",
+        "Finding": "Guide125°C6h drying retained. Malformed bed50 30–40 and duplicate volumetric4/12 not narrowed; unconditioned combinedHDT/Vicat50 cannot overwrite older TDS. Support route403 remains not retrieved.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileModulusXY",
           "tensileStrengthZ",
@@ -2609,7 +2609,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Guide125\u00b0C6h drying retained. Malformed bed50 30\u201340 and duplicate volumetric4/12 not narrowed; unconditioned combinedHDT/Vicat50 cannot overwrite older TDS. Support route403 remains not retrieved.",
+        "Finding": "Guide125°C6h drying retained. Malformed bed50 30–40 and duplicate volumetric4/12 not narrowed; unconditioned combinedHDT/Vicat50 cannot overwrite older TDS. Support route403 remains not retrieved.",
         "FrozenPrintGapsAddressed": [
           "chamber"
         ],
@@ -2836,7 +2836,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Exact FFF2019 guide250\u2013280\u00b0C/bed<80/non-heated chamber/standard brass/0.4mm glass/MagigooPA; wet filament hot dry air80\u00b0C at least12h. Older filament printing270\u2013290\u00b0C and compound pellet processing/drying remain separate, no recency override. Introduction100\u00b0C retaining50% versus older120\u00b0C/UL746B descriptions not reconciled as an identical performance test.",
+        "Finding": "Exact FFF2019 guide250–280°C/bed<80/non-heated chamber/standard brass/0.4mm glass/MagigooPA; wet filament hot dry air80°C at least12h. Older filament printing270–290°C and compound pellet processing/drying remain separate, no recency override. Introduction100°C retaining50% versus older120°C/UL746B descriptions not reconciled as an identical performance test.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileStrengthZ",
           "elongationXY",
@@ -2849,7 +2849,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Exact FFF2019 guide250\u2013280\u00b0C/bed<80/non-heated chamber/standard brass/0.4mm glass/MagigooPA; wet filament hot dry air80\u00b0C at least12h. Older filament printing270\u2013290\u00b0C and compound pellet processing/drying remain separate, no recency override. Introduction100\u00b0C retaining50% versus older120\u00b0C/UL746B descriptions not reconciled as an identical performance test.",
+        "Finding": "Exact FFF2019 guide250–280°C/bed<80/non-heated chamber/standard brass/0.4mm glass/MagigooPA; wet filament hot dry air80°C at least12h. Older filament printing270–290°C and compound pellet processing/drying remain separate, no recency override. Introduction100°C retaining50% versus older120°C/UL746B descriptions not reconciled as an identical performance test.",
         "FrozenPrintGapsAddressed": [
           "bed",
           "chamber"
@@ -2931,7 +2931,7 @@
             "StandardLoadWords": "Not applicable",
             "TestLoadMPaProposed": "Not applicable",
             "TestParametersWords": "Not applicable",
-            "ProfileField": "Nozzle wear / material \u2014 unresolved candidate",
+            "ProfileField": "Nozzle wear / material — unresolved candidate",
             "ProfileRawWords": "Not retrieved as an accepted exact-product requirement in this candidate review",
             "KnowHowTopic": "Not applicable",
             "ApplicabilityScope": "LUVOCOM 3F PA 9825 NT (G147-01); bounded current candidate-review outcome only",
@@ -3111,7 +3111,7 @@
             "StandardLoadWords": "Not applicable",
             "TestLoadMPaProposed": "Not applicable",
             "TestParametersWords": "Not applicable",
-            "ProfileField": "Nozzle wear / material \u2014 unresolved candidate",
+            "ProfileField": "Nozzle wear / material — unresolved candidate",
             "ProfileRawWords": "Not retrieved as an accepted exact-product requirement in this candidate review",
             "KnowHowTopic": "Not applicable",
             "ApplicabilityScope": "LUVOCOM 3F PAHT 9936 BK (G148-01); bounded current candidate-review outcome only",
@@ -3138,13 +3138,13 @@
             "Outcome": "OWNER_RULING_REQUIRED",
             "SourceManifestRow": "ROOT-new-LEHVOSS-9936-PRINTED",
             "Locator": "p.1 XY column dry/conditioned; p.2 title/date",
-            "ExactSourceText": "LUVOCOM\u00ae 3F PAHT\u00ae 9936 BK/L",
+            "ExactSourceText": "LUVOCOM® 3F PAHT® 9936 BK/L",
             "Property": "Tensile modulus",
             "RawValue": "3.05 / 2.72",
             "RawUnit": "GPa",
             "SpecimenTypeProposed": "Printed specimen (BK/L only)",
             "DirectionProposed": "XY (BK/L only)",
-            "MoistureWords": "*dry / **conditioned (accelerated method60\u00b0C/16h,moisture1.4%)",
+            "MoistureWords": "*dry / **conditioned (accelerated method60°C/16h,moisture1.4%)",
             "PostProcessingWords": "Non-annealed samples",
             "StandardLoadWords": "ISO527-2",
             "TestLoadMPaProposed": "Not published",
@@ -3176,7 +3176,7 @@
             "Outcome": "NEEDS_VENDOR",
             "SourceManifestRow": "ROOT-registered-cache-S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK",
             "Locator": "Existing TDS property table; compare cited current/archived exact-product search record",
-            "ExactSourceText": "Specific gravity ISO 1183-3 g/cm\u00b3 1,25",
+            "ExactSourceText": "Specific gravity ISO 1183-3 g/cm³ 1,25",
             "Property": "Tensile modulus",
             "RawValue": "Not published",
             "RawUnit": "Not applicable",
@@ -3214,7 +3214,7 @@
             "Outcome": "NEEDS_VENDOR",
             "SourceManifestRow": "ROOT-registered-cache-S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK",
             "Locator": "Existing TDS property table; compare cited current/archived exact-product search record",
-            "ExactSourceText": "Heat distortion temperature HDT A ISO 75 molded sample \u00b0C 90",
+            "ExactSourceText": "Heat distortion temperature HDT A ISO 75 molded sample °C 90",
             "Property": "HDT",
             "RawValue": "Not published",
             "RawUnit": "Not applicable",
@@ -3376,7 +3376,7 @@
             "StandardLoadWords": "Not applicable",
             "TestLoadMPaProposed": "Not applicable",
             "TestParametersWords": "Not applicable",
-            "ProfileField": "Nozzle wear / material \u2014 unresolved candidate",
+            "ProfileField": "Nozzle wear / material — unresolved candidate",
             "ProfileRawWords": "Not retrieved as an accepted exact-product requirement in this candidate review",
             "KnowHowTopic": "Not applicable",
             "ApplicabilityScope": "LUVOCOM 3F PAHT KK 50056 BK (G148-02); bounded current candidate-review outcome only",
@@ -3403,7 +3403,7 @@
             "Outcome": "NEEDS_VENDOR",
             "SourceManifestRow": "ROOT-registered-cache-R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
             "Locator": "Existing TDS property table; compare cited current/archived exact-product search record",
-            "ExactSourceText": "Specific gravity ISO 1183-3 g/cm\u00b3 1,49",
+            "ExactSourceText": "Specific gravity ISO 1183-3 g/cm³ 1,49",
             "Property": "Tensile modulus",
             "RawValue": "Not published",
             "RawUnit": "Not applicable",
@@ -3441,7 +3441,7 @@
             "Outcome": "NEEDS_VENDOR",
             "SourceManifestRow": "ROOT-registered-cache-R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers",
             "Locator": "Existing TDS property table; compare cited current/archived exact-product search record",
-            "ExactSourceText": "Heat distortion temperature HDT A ISO 75 molded sample \u00b0C 90",
+            "ExactSourceText": "Heat distortion temperature HDT A ISO 75 molded sample °C 90",
             "Property": "HDT",
             "RawValue": "Not published",
             "RawUnit": "Not applicable",
@@ -3507,7 +3507,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Both own recipes215\u2013265\u00b0C/60\u201380\u00b0C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40\u2013600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileStrengthZ",
           "charpyNotched",
@@ -3519,7 +3519,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Both own recipes215\u2013265\u00b0C/60\u201380\u00b0C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40\u2013600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
         "FrozenPrintGapsAddressed": [
           "nozzle",
           "bed",
@@ -3599,7 +3599,7 @@
             "Locator": "p.2 mechanical table and FDM note (PET-G); p.2 mechanical table and p.3 section5 (PLA)",
             "ExactSourceText": "XY printing direction.",
             "Property": "Tensile modulus",
-            "RawValue": "1404,00 \u00b1 52,52 MPa",
+            "RawValue": "1404,00 ± 52,52 MPa",
             "RawUnit": "MPa",
             "SpecimenTypeProposed": "Printed specimen (candidate; custody unresolved)",
             "DirectionProposed": "XY (candidate; do not apply)",
@@ -3637,7 +3637,7 @@
             "Locator": "p.2 mechanical table and FDM note (PET-G); p.2 mechanical table and p.3 section5 (PLA)",
             "ExactSourceText": "XY printing direction.",
             "Property": "Elongation at break",
-            "RawValue": "5,62 \u00b1 0,61 %",
+            "RawValue": "5,62 ± 0,61 %",
             "RawUnit": "%",
             "SpecimenTypeProposed": "Printed specimen (candidate; custody unresolved)",
             "DirectionProposed": "XY (candidate; do not apply)",
@@ -3815,7 +3815,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Both own recipes215\u2013265\u00b0C/60\u201380\u00b0C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40\u2013600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileStrengthZ",
           "charpyNotched",
@@ -3827,7 +3827,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Both own recipes215\u2013265\u00b0C/60\u201380\u00b0C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40\u2013600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
+        "Finding": "Both own recipes215–265°C/60–80°C/noenclosure/nohardened requirement added without speed/cooling narrowing. How-to speed40–600 is not a measured specimen speed. Official portfolio February2024 acquisition establishes ownership lead; old AGP2023XY specimen-custody continuity remains held. Grade maker3DJake is not silently corrected in this tranche.",
         "FrozenPrintGapsAddressed": [
           "nozzle",
           "bed",
@@ -4123,7 +4123,7 @@
       },
       "DecisionProperties": {
         "Outcome": "already recorded",
-        "Finding": "Ownpage260\u2013290/80\u2013100/speed30\u2013120/cooling0\u201350/enclosurelargeparts differs TDS265\u2013290/>80/speed30\u201370/cooling0\u201310/noenclosure. New full profile held. Existing thermal values unchanged; CS20 name is not proof of filler fraction.",
+        "Finding": "Ownpage260–290/80–100/speed30–120/cooling0–50/enclosurelargeparts differs TDS265–290/>80/speed30–70/cooling0–10/noenclosure. New full profile held. Existing thermal values unchanged; CS20 name is not proof of filler fraction.",
         "FrozenMissingHeadlinesAddressed": [
           "tensileStrengthZ",
           "elongationXY",
@@ -4136,7 +4136,7 @@
       },
       "PrintingTreatmentMoistureStates": {
         "Outcome": "conflicting",
-        "Finding": "Ownpage260\u2013290/80\u2013100/speed30\u2013120/cooling0\u201350/enclosurelargeparts differs TDS265\u2013290/>80/speed30\u201370/cooling0\u201310/noenclosure. New full profile held. Existing thermal values unchanged; CS20 name is not proof of filler fraction.",
+        "Finding": "Ownpage260–290/80–100/speed30–120/cooling0–50/enclosurelargeparts differs TDS265–290/>80/speed30–70/cooling0–10/noenclosure. New full profile held. Existing thermal values unchanged; CS20 name is not proof of filler fraction.",
         "FrozenPrintGapsAddressed": [],
         "UnresolvedHandoff": "Unknown states, annealing/humid performance and source-context disagreements remain vendor/test-needed; drying does not create an annealed state."
       },
@@ -4335,7 +4335,7 @@
       "TaskID": "APP-M001",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00498. Its own wording is retained: Preheat the oven to an anneal temperature range of (110\u00b0C-120\u00b0C).. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: MatterHackers Tough PLA (G001-115). Source basis: R-MATTERHACKERS-PRO-SERIES-8AWUF9. The other 196 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00498. Its own wording is retained: Preheat the oven to an anneal temperature range of (110°C-120°C).. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: MatterHackers Tough PLA (G001-115). Source basis: R-MATTERHACKERS-PRO-SERIES-8AWUF9. The other 196 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4345,7 +4345,7 @@
       "TaskID": "APP-M008",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00506. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Silk+ is 50 to 55 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Silk+ (G009-01). Source basis: B-pla-silk-upgrade-TDS. The other 33 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00506. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Silk+ is 50 to 55 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Silk+ (G009-01). Source basis: B-pla-silk-upgrade-TDS. The other 33 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4355,7 +4355,7 @@
       "TaskID": "APP-M011",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00507. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Metal is 50 to 60 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Metal (G011-01). Source basis: B-pla-metal-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00507. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Metal is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Metal (G011-01). Source basis: B-pla-metal-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4365,7 +4365,7 @@
       "TaskID": "APP-M012",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00508. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Marble is 50 to 60 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Marble (G012-01). Source basis: B-pla-marble-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00508. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Marble is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Marble (G012-01). Source basis: B-pla-marble-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4385,7 +4385,7 @@
       "TaskID": "APP-M014",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00509. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Wood is 50 to 60 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Wood (G014-01). Source basis: B-pla-wood-TDS. The other 20 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00509. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Wood is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Wood (G014-01). Source basis: B-pla-wood-TDS. The other 20 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4395,7 +4395,7 @@
       "TaskID": "APP-M015",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00510. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Galaxy (G015-01). Source basis: B-pla-galaxy-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00510. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Galaxy (G015-01). Source basis: B-pla-galaxy-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4405,7 +4405,7 @@
       "TaskID": "APP-M016",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00511. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Glow is 50 to 60 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Glow (G016-01). Source basis: B-pla-glow-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00511. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Glow is 50 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA Glow (G016-01). Source basis: B-pla-glow-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4415,7 +4415,7 @@
       "TaskID": "APP-M017",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00512. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Aero is 50 to 55 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source does not recommend annealing very light and thin prints with few walls and low infill density because they can deform and be damaged. Reviewed product: Bambu Lab PLA Aero (G017-01). Source basis: B-pla-aero-TDS. The other 11 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00512. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA Aero is 50 to 55 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source does not recommend annealing very light and thin prints with few walls and low infill density because they can deform and be damaged. Reviewed product: Bambu Lab PLA Aero (G017-01). Source basis: B-pla-aero-TDS. The other 11 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4425,7 +4425,7 @@
       "TaskID": "APP-M018",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00513. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA-CF is 55 to 60 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA-CF (G018-01). Source basis: B-pla-cf-TDS. The other 17 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00513. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PLA-CF is 55 to 60 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PLA-CF (G018-01). Source basis: B-pla-cf-TDS. The other 17 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4435,7 +4435,7 @@
       "TaskID": "APP-M020",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00515. Its own wording is retained: It's not recommended to anneal prints of PETG Basic, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PETG Basic (G021-01). Source basis: B-petg-basic-TDS. The other 73 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00515. Its own wording is retained: It's not recommended to anneal prints of PETG Basic, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PETG Basic (G021-01). Source basis: B-petg-basic-TDS. The other 73 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4445,7 +4445,7 @@
       "TaskID": "APP-M024",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-01",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05069. Its own wording is retained: After the printing process, it is recommended to dry the model in an oven at 70\u00b0C for 1-3 hours in order to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PETGCF10 (G024-08). Source basis: D-FLASH-PETG-CF-TDS-EN. The other 23 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05069. Its own wording is retained: After the printing process, it is recommended to dry the model in an oven at 70°C for 1-3 hours in order to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PETGCF10 (G024-08). Source basis: D-FLASH-PETG-CF-TDS-EN. The other 23 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4475,7 +4475,7 @@
       "TaskID": "APP-M027",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-02",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00518. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS is 80 to 90 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS (G027-01). Source basis: B-abs-filament-TDS. The other 55 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00518. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS (G027-01). Source basis: B-abs-filament-TDS. The other 55 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4485,7 +4485,7 @@
       "TaskID": "APP-M028",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-02",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00520. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS-GF is 80 to 90 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS-GF (G028-01). Source basis: B-abs-gf-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00520. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ABS-GF is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ABS-GF (G028-01). Source basis: B-abs-gf-TDS. The other 10 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4515,7 +4515,7 @@
       "TaskID": "APP-M031",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-02",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00521. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ASA is 80 to 90 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ASA (G031-01). Source basis: B-asa-filament-TDS. The other 40 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00521. Its own wording is retained: the suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab ASA (G031-01). Source basis: B-asa-filament-TDS. The other 40 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4535,7 +4535,7 @@
       "TaskID": "APP-M033",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-02",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05065. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80\u00b0C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASACF10 (G033-07). Source basis: D-FLASH-ASA-CF-TDS-EN. The other 16 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05065. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASACF10 (G033-07). Source basis: D-FLASH-ASA-CF-TDS-EN. The other 16 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4545,7 +4545,7 @@
       "TaskID": "APP-M034",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-02",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05062. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80\u00b0C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASAGF10 (G034-04). Source basis: R-FLASHFORGE-ASA-GF10-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05062. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 80°C for 1-3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge ASAGF10 (G034-04). Source basis: R-FLASHFORGE-ASA-GF10-TDS. The other 5 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4555,7 +4555,7 @@
       "TaskID": "APP-M035",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-02",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00522. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PC is 85 to 100 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PC (G035-01). Source basis: B-PC-Bambu-PC-Technical-Data-Sheet. The other 21 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00522. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PC is 85 to 100 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PC (G035-01). Source basis: B-PC-Bambu-PC-Technical-Data-Sheet. The other 21 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4565,7 +4565,7 @@
       "TaskID": "APP-M037",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-02",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05063. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 100\u00b0C for 1- 3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PCCF10 (G037-05). Source basis: D-FLASH-PC-CF-TDS-EN. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q05063. Its own wording is retained: After the printing process, it is recommended to dry the model in the oven at 100°C for 1- 3 hours to increase the strength of the model.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Flashforge PCCF10 (G037-05). Source basis: D-FLASH-PC-CF-TDS-EN. The other 9 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4595,7 +4595,7 @@
       "TaskID": "APP-M048",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-03",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00532. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PAHT-CF is 80 to 130 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PAHT-CF (G048-01). Source basis: B-paht-cf-TDS. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00532. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PAHT-CF is 80 to 130 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PAHT-CF (G048-01). Source basis: B-paht-cf-TDS. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4615,7 +4615,7 @@
       "TaskID": "APP-M050",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-03",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00533. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PA6-CF is 80 to 130 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PA6-CF (G050-01). Source basis: B-pa6-cf-TDS. The other 13 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00533. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PA6-CF is 80 to 130 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. Reviewed product: Bambu Lab PA6-CF (G050-01). Source basis: B-pa6-cf-TDS. The other 13 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4635,7 +4635,7 @@
       "TaskID": "APP-M053",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-03",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00538. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80\u00b0C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker PolyMide PA12 CF (G053-02). Source basis: S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1. The other 14 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00538. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker PolyMide PA12 CF (G053-02). Source basis: S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1. The other 14 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4665,7 +4665,7 @@
       "TaskID": "APP-M057",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-03",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00541. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80\u00b0C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Polymaker PolyMide CoPA (G057-03). Source basis: S-POLYCN-PolyMide-CoPA-TDS-V5-2. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00541. Its own wording is retained: After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Polymaker PolyMide CoPA (G057-03). Source basis: S-POLYCN-PolyMide-CoPA-TDS-V5-2. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4685,7 +4685,7 @@
       "TaskID": "APP-M059",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-03",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00543. Its own wording is retained: Annealing temp. and time 100 \u00b0C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-CF15 (G059-01). Source basis: S-FIBER-PA612. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00543. Its own wording is retained: Annealing temp. and time 100 °C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-CF15 (G059-01). Source basis: S-FIBER-PA612. The other 2 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4715,7 +4715,7 @@
       "TaskID": "APP-M065",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-04",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00545. Its own wording is retained: Annealing temp. and time 100 \u00b0C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-ESD (G065-01). Source basis: S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00545. Its own wording is retained: Annealing temp. and time 100 °C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. Reviewed product: Polymaker Fiberon PA612-ESD (G065-01). Source basis: S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4725,7 +4725,7 @@
       "TaskID": "APP-M068",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-04",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00549. Its own wording is retained: Annealing temp. and time 120\u00b0C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends using the print without annealing when temperature resistance above 80\u00b0C is unnecessary. If annealed, avoid touching/loading the print, ensure uniform oven heating, retain support for bridges over 3 cm and specified overhang geometries, and consider ribs/increased wall thickness below 4 mm to limit deformation; keep the printing placement, preferably on its base plate. Colour may become lighter. Reviewed product: Polymaker Fiberon PET-GF15 (G068-02). Source basis: R-FIBERON-PETGF15-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00549. Its own wording is retained: Annealing temp. and time 120°C/16H. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends using the print without annealing when temperature resistance above 80°C is unnecessary. If annealed, avoid touching/loading the print, ensure uniform oven heating, retain support for bridges over 3 cm and specified overhang geometries, and consider ribs/increased wall thickness below 4 mm to limit deformation; keep the printing placement, preferably on its base plate. Colour may become lighter. Reviewed product: Polymaker Fiberon PET-GF15 (G068-02). Source basis: R-FIBERON-PETGF15-TDS. The other 3 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4745,7 +4745,7 @@
       "TaskID": "APP-M070",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-04",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00551. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPA-CF is 120 to 140 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPA-CF (G070-01). Source basis: B-ppa-cf-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00551. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPA-CF is 120 to 140 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPA-CF (G070-01). Source basis: B-ppa-cf-TDS. The other 8 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4755,7 +4755,7 @@
       "TaskID": "APP-M071",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-04",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00553. Its own wording is retained: After the printing, it is recommended to anneal the printed part at 80-100\u00b0C for 8 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source notes up to 0.5% Z-axis shrinkage depending on infill and layer height. When used as its own support, remove support after annealing; moisture absorption can otherwise permanently bond it to the model. Reviewed product: Raise3D Industrial PPA GF (G071-04). Source basis: D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00553. Its own wording is retained: After the printing, it is recommended to anneal the printed part at 80-100°C for 8 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source notes up to 0.5% Z-axis shrinkage depending on infill and layer height. When used as its own support, remove support after annealing; moisture absorption can otherwise permanently bond it to the model. Reviewed product: Raise3D Industrial PPA GF (G071-04). Source basis: D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1. The other 4 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4775,7 +4775,7 @@
       "TaskID": "APP-M073",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-04",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00554. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPS-CF is 180 to 220 \u00b0C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPS-CF (G073-01). Source basis: B-pps-cf-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00554. Its own wording is retained: the suggested annealing temperature of models printed with Bambu PPS-CF is 180 to 220 °C, and the time is 6 to 12 hours.. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The effect depends on the part geometry, infill and printing settings; prints may deform or warp. Use a sufficiently large, evenly heated oven with parts away from its heater; the source excludes microwave and kitchen ovens. The source also warns that toughness may decrease after annealing. Reviewed product: Bambu Lab PPS-CF (G073-01). Source basis: B-pps-cf-TDS. The other 6 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4915,7 +4915,7 @@
       "TaskID": "APP-M094",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-05",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00557. Its own wording is retained: Annealing settings: 90\u02daC for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC ABS (G094-02). Source basis: S-POLYCN-Polymaker-PC-ABS-TDS-V5-1. The other 12 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00557. Its own wording is retained: Annealing settings: 90˚C for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC ABS (G094-02). Source basis: S-POLYCN-Polymaker-PC-ABS-TDS-V5-1. The other 12 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -4925,7 +4925,7 @@
       "TaskID": "APP-M095",
       "Commit": "ad5b0adc419418feefbb9a8a719c68ef18bbf4e4",
       "Packet": "resume-material-05",
-      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00558. Its own wording is retained: Annealing settings: 90\u02daC for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC PBT (G095-01). Source basis: S-POLYCN-Polymaker-PC-PBT-TDS-V5-1. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
+      "Finding": "Reviewed 2026-10-02: Published post-print treatment/removal guidance is already recorded as Q00558. Its own wording is retained: Annealing settings: 90˚C for 2h. The source procedure and any specimen-preparation table are distinct; no guaranteed property improvement is inferred. The source recommends this anneal right after printing to release residual internal stress. Reviewed product: Polymaker Polymaker PC PBT (G095-01). Source basis: S-POLYCN-Polymaker-PC-PBT-TDS-V5-1. The other 1 active procurement products are outside this bounded material judgment; their individual passes remain separate.",
       "Outcome": "already recorded",
       "CoverageStatus": "Evidence recorded",
       "Limitations": "Source-grounded bounded material judgment only; no universal absence, application approval or product-pass completion. Exact product and original-custody limitations remain explicit.",
@@ -5107,6 +5107,216 @@
       "Outcome": "context only",
       "Commit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
       "Packet": "priority-02-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G033-11",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G035-06",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G035-10",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G050-11",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G051-03",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G051-09",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G053-02",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G053-08",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G057-03",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G059-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G065-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G068-02",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-03-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G040-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G021-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G022-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G023-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G024-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G027-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G028-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G031-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G032-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G033-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G035-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G036-01",
+      "Outcome": "found",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-04-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G041-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-05-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G048-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-05-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G050-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-05-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G051-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-05-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G067-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-05-outcomes",
+      "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
+    },
+    {
+      "TaskID": "PROD-G070-01",
+      "Outcome": "context only",
+      "Commit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "Packet": "priority-05-outcomes",
       "Finding": "Joined exact-product pass: all 17 assigned questions have independently reviewed, bounded original-source outcomes. Research completion does not establish suitability or a selection PASS."
     }
   ]

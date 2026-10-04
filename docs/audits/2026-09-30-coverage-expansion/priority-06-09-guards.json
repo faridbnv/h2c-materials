@@ -1,0 +1,35 @@
+{
+  "migrations": [
+    "m332-batch-c13-priority-08",
+    "m329-priority-06-h2c-reference"
+  ],
+  "tests": [
+    {
+      "table": "grades",
+      "id": "G034-05",
+      "field": "Composition / filler",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "grade G034-05 moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "sources",
+      "id": "H2C-WIKI",
+      "field": "Revision",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "editorial H2C source moved",
+      "tables_manifest_ledger_unchanged": true
+    },
+    {
+      "table": "profiles",
+      "id": "P1372",
+      "field": "Drying hours",
+      "refused": true,
+      "exitCode": 1,
+      "reason": "P1372 moved",
+      "tables_manifest_ledger_unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,1267 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+    "url": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+    "pages": 2,
+    "provider": "Fillamentum",
+    "manufacturer": "Fillamentum",
+    "docKey": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf#witness-for=source:R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Drying of filaments before processing on 3D printer\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "Publisher": "Fillamentum Manufacturing Czech s.r.o.",
+      "Title": "Drying of filaments before processing on 3D printer",
+      "Revision": "12 October 2023 / 6",
+      "Publication date": "2023-10-12",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Own exact product rows and full source limits retained; processing advice is not service-performance evidence. Independent AI review, not human.",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+      "Locator": "Original PDF, pages1–2",
+      "Applicable grades": "G049-05;G089-01;G027-19;G039-29;G039-30;G082-07;G154-01;G090-01;G094-06;G164-01;G053-14;G020-28",
+      "Access state": "retrieved",
+      "Access note": "Hash-verified saved original entered through isolated campaign witness pipeline.",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Drying of filaments"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI original review required, not human"
+    }
+  },
+  "grades": [
+    {
+      "key": "G049-05",
+      "row": {
+        "GradeID": "G049-05",
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Fishy Filaments’ Porthcurno",
+        "Shared formulation key": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flame classification - UL 94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G089-01",
+      "row": {
+        "GradeID": "G089-01",
+        "MaterialID": "M089",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "CPE HG100",
+        "Shared formulation key": "S-FILLAMENTUM",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G027-19",
+      "row": {
+        "GradeID": "G027-19",
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "ABS Extrafill",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-ABS-Extrafill-03012019-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G039-29",
+      "row": {
+        "GradeID": "G039-29",
+        "MaterialID": "M162",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Flexfill TPU 98A",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G039-30",
+      "row": {
+        "GradeID": "G039-30",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Flexfill TPU 92A",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-92A-26082019",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G082-07",
+      "row": {
+        "GradeID": "G082-07",
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "PP 2320",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G154-01",
+      "row": {
+        "GradeID": "G154-01",
+        "MaterialID": "M154",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Nylon AF80 Aramid",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+        "Composition / filler": "a material filled with aramid fibres for (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G090-01",
+      "row": {
+        "GradeID": "G090-01",
+        "MaterialID": "M090",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "CPE CF112 Carbon",
+        "Shared formulation key": "S-CPECF",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G094-06",
+      "row": {
+        "GradeID": "G094-06",
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "PC/ABS",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-PC-ABS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G164-01",
+      "row": {
+        "GradeID": "G164-01",
+        "MaterialID": "M052",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Nylon FX256",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+        "Composition / filler": "\"Fillamentum Nylon FX256 (Polyamide 12)\" (D-FILLAMENTUM-NYLON-FX256-GUIDE, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under PA12 on 2026-09-28 (m223-what-the-makers-say-it-is), moved from Nylon, polymer not stated: PA12, \"Fillamentum Nylon FX256 (Polyamide 12)\" (D-FILLAMENTUM-NYLON-FX256-GUIDE, p. 1). Fillamentum's printing guide names it Polyamide 12; its sheet's density (1.01) and its safety data sheet's melting point (above 172 °C, D-FILLAMENTUM-NYLON-FX256-SDS) are a PA12's, not a PA6's or a PA66's. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G053-14",
+      "row": {
+        "GradeID": "G053-14",
+        "MaterialID": "M053",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Nylon CF15 Carbon",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-CF15-Carbon-03012019",
+        "Composition / filler": "carbon fibres reinforced material for the (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G020-28",
+      "row": {
+        "GradeID": "G020-28",
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "PETG",
+        "Shared formulation key": "R-FILLAMENTUM-TDS-PETG-EN-30012023",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flame classification - UL 94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "50°C for 24 hours",
+        "Drying state": "stated",
+        "Drying °C": "50",
+        "Drying hours": "24",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FILLAMENTUM-Recommendation-for-filament-processing-drying-EN-12102023",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "It should be noted that the drying temperature is precisely determined by the type of polymer. If a lower temperature is set, the polymer cannot be dried for a longer time with the same result (e.g., "
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Automatic proposal not admitted; only reviewed explicit packet operations."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p1",
+      "gradeKey": "G049-05",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "G049-05",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80 °C; minimum drying time >5 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row PORTHCURNO; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Fields: Drying hours. The source publishes a strict open lower bound >5 h, not an exact or upper duration. Retained verbatim in Drying; the current duration field has no bound operator, so no exact hours are admitted."
+      },
+      "evidence": {
+        "page": 2,
+        "text": "PORTHCURNO"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p2",
+      "gradeKey": "G089-01",
+      "row": {
+        "MaterialID": "M089",
+        "GradeID": "G089-01",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "75 °C; minimum drying time 5 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "75",
+        "Drying hours": "5",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row CPE HG100; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "CPE HG100"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p3",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "100 °C; minimum drying time 3 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "100",
+        "Drying hours": "3",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way. For Flexfill TPU material, we recommend a maximum of 3 drying cycles of 3 hours, after which thermal degradation manifested by yellowing may occur.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row FLEXFILL TPU 98A; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "FLEXFILL TPU 98A"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p4",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80 °C; minimum drying time 3 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "3",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way. For Flexfill TPU material, we recommend a maximum of 3 drying cycles of 3 hours, after which thermal degradation manifested by yellowing may occur.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row FLEXFILL TPU 92A; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "FLEXFILL TPU 92A"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p5",
+      "gradeKey": "G154-01",
+      "row": {
+        "MaterialID": "M154",
+        "GradeID": "G154-01",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80 °C; minimum drying time 4 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way. For Nylon materials, the drying temperature must not exceed 80 °C, otherwise, oxo-degradation of the polymer will occur.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row NYLON AF80 ARAMID; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "NYLON AF80 ARAMID"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p6",
+      "gradeKey": "G090-01",
+      "row": {
+        "MaterialID": "M090",
+        "GradeID": "G090-01",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "75 °C; minimum drying time 5 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "75",
+        "Drying hours": "5",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row CPE CF112 CARBON; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "CPE CF112 CARBON"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p7",
+      "gradeKey": "G094-06",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "G094-06",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80 °C; minimum drying time 4 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row PC/ABS; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "PC/ABS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p8",
+      "gradeKey": "G164-01",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "G164-01",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80 °C; minimum drying time 3 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "3",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way. For Nylon materials, the drying temperature must not exceed 80 °C, otherwise, oxo-degradation of the polymer will occur.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row NYLON FX256; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "NYLON FX256"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-p9",
+      "gradeKey": "G053-14",
+      "row": {
+        "MaterialID": "M053",
+        "GradeID": "G053-14",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80 °C; minimum drying time 4 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "The filament must be dried in the device with exact thermoregulation (ideally laboratory dryer) – before drying the whole spool, put a little piece of filament into the device for the test of functionality. If the material becomes softer or loses its original shape, lower the drying temperature. In the case of loss of transparency, use a different device. The spool can’t be put into the environment without a controlled value of relative humidity after drying. The cooling process must be taken in the desiccator (or in the sealing box with the content of silica gel). If the hot spool is placed into an environment with higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was before drying! The coil should not be left in the dryer after it has been switched off, as there is still evaporated moisture in the environment which can be absorbed back into the filament in the same way. For Nylon materials, the drying temperature must not exceed 80 °C, otherwise, oxo-degradation of the polymer will occur.",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: p.2 Table1 own product row NYLON CF15 CARBON; own minimum-time/temperature/need columns, with p1 restrictions",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "NYLON CF15 CARBON"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Exact guide row; minimum time stays raw; only need5always-needed rows become profiles. No numeric recipe or chamber setpoint copied from adjacent source."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c12-3f22b7dd-e1",
+      "gradeKey": "G027-19",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "G027-19",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "ABS EXTRAFILL: 2 h; 80 °C; 2",
+        "Exposure / conditions": "Table headings: MINIMUM TIME OF DRYING; TEMPERATURE OF DRYING; THE NEED TO DRY. Source scale1notnecessary,5alwaysneeded; this row is2, not an unconditional requirement. Guide p1: exact thermoregulation; test a small piece first; cool in desiccator/sealed silica-gel box; hot spool may reabsorb moisture in about10minutes. Moisture during melt processing is not moisture-service performance.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Locator": "p.2 Table1 own product row ABS EXTRAFILL"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ABS EXTRAFILL"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-3f22b7dd-e2",
+      "gradeKey": "G082-07",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "G082-07",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "PP 2320: 2 h; 80 °C; 1",
+        "Exposure / conditions": "Table headings: MINIMUM TIME OF DRYING; TEMPERATURE OF DRYING; THE NEED TO DRY. Source scale1notnecessary,5alwaysneeded; this row is1, not an unconditional requirement. Guide p1: exact thermoregulation; test a small piece first; cool in desiccator/sealed silica-gel box; hot spool may reabsorb moisture in about10minutes. Moisture during melt processing is not moisture-service performance.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+        "Locator": "p.2 Table1 own product row PP 2320"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "PP 2320"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "50°C for 24 hours",
+      "fromBelow": false,
+      "line": "It should be noted that the drying temperature is precisely determined by the type of polymer. If a lower temperature is set, the polymer cannot be dried for a longer time with the same result (e.g., "
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Revision date: 12 October 2023 / 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Therefore, the materials were divided into scales 1–5 (1 – not necessary to dry, 5 – always needed). See column “The need to dry”",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "in Table 1.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "higher humidity, the moisture may be absorbed back in about 10 minutes. And possibly on a higher level of moisture than it was",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "polymer cannot be dried for a longer time with the same result (e.g., Flexfill TPU 98A will not dry effectively at 50°C for 24 hours).",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "affects the temperature resistance of the filament, and so, for example, for PLA at 80 °C the filament would be deformed, and the",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "temperature must not exceed 50 °C. Therefore, the drying is specified in the table below.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "humidity is described by experimental results when 3D printing wet and dried filaments.",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Note: For Flexfill TPU material, we recommend a maximum of 3 drying cycles of 3 hours, after which thermal degradation",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "For Nylon materials, the drying temperature must not exceed 80 °C, otherwise, oxo-degradation of the polymer will occur.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The material should be stored for a long time in an environment with a humidity of between 5 and 20 %, at a temperature of up",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "to 25 °C. Water molecules passively diffuse from the polymer into the silica gel. The higher the concentration of moisture absorbed,",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "the conditions shown in Table 1.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Fillamentum Manufacturing Czech s.r.o. tel.: +420 720 060 947",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "nam. Miru 1217, 768 24 Hulin helpdesk@fillamentum.com",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "Revision date: 12 October 2023 / 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Table 1:",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "ABS EXTRAFILL 2 h 80 °C 2 process instability",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "ASA EXTRAFILL 2 h 80 °C 3",
+      "reason": "properties.csv carries no property for \"ASA EXTRAFILL\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "CPE CF112 CARBON 5 h 75 °C 5 stringing, MP, oozing",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "CPE HG100 5 h 75 °C 5",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "FLEXFILL PEBA 90A 5 h 70 °C 5",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "FLEXFILL TPE 90A 2 h 80 °C 2 /",
+      "reason": "the sheet publishes no value for \"FLEXFILL TPE 90A\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "FLEXFILL TPE 96A 2 h 80 °C 2 /",
+      "reason": "the sheet publishes no value for \"FLEXFILL TPE 96A\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "FLEXFILL TPU 92A 3 h 80 °C 5",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "FLEXFILL TPU 98A 3 h 100 °C 5",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "FLUORODUR 2 h 80 °C 1 /",
+      "reason": "the sheet publishes no value for \"FLUORODUR\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "HIPS EXTRAFILL 3 h 70 °C 1 /",
+      "reason": "the sheet publishes no value for \"HIPS EXTRAFILL\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "NONOILEN® 2 h 70 °C 2 stringing, MP",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "NYLON AF80 ARAMID 4 h 80 °C 5 MP, colour change",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "NYLON CF15 CARBON 4 h 80 °C 5 stringing, MP",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "NYLON FX256 3 h 80 °C 5 stringing, MP, bubbles",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "OBC 905 2 h 80 °C 1 /",
+      "reason": "the sheet publishes no value for \"OBC 905\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "ORCA® >5 h 80 °C 5",
+      "reason": "properties.csv carries no property for \"ORCA®\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "PC/ABS 4 h 80 °C 5",
+      "reason": "properties.csv carries no property for \"PC/ABS\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "PETG 4 h 65 °C 5",
+      "reason": "properties.csv carries no property for \"PETG\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "PETG HFFR 4 h 65 °C 5",
+      "reason": "properties.csv carries no property for \"PETG HFFR\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "PLA CRYSTAL CLEAR 4 h 50 °C 5",
+      "reason": "properties.csv carries no property for \"PLA CRYSTAL CLEAR\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "PLA EXTRAFILL 3 h 50 °C 5 stringing, MP",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "PORTHCURNO >5 h 80 °C 5",
+      "reason": "properties.csv carries no property for \"PORTHCURNO\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "PP 2320 2 h 80 °C 1 /",
+      "reason": "the sheet publishes no value for \"PP 2320\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "SILIKAGEL 24 h 120 °C 5",
+      "reason": "properties.csv carries no property for \"SILIKAGEL\" (°C)"
+    },
+    {
+      "page": 2,
+      "text": "TIMBERFILL® 2 h 50 °C 5 stringing, MP",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "VINYL 303 2 h 70 °C 1 /",
+      "reason": "the sheet publishes no value for \"VINYL 303\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "Fillamentum Manufacturing Czech s.r.o. tel.: +420 720 060 947",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "nam. Miru 1217, 768 24 Hulin helpdesk@fillamentum.com",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI original review required, not human",
+    "note": "Full signed packet and source independent review gate the injection."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Automatic proposal not admitted; only reviewed explicit packet operations."
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Drying of filaments before processing on 3D printer",
+        "Shared formulation key": "R-FILLAMENTUM-Recommendation-for-filament-processing-drying-EN-12102023",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-Recommendation-for-filament-processing-drying-EN-12102023",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Recommendation for processing"
+      }
+    }
+  ],
+  "newMaterial": null
+}

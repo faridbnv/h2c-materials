@@ -1,0 +1,2289 @@
+{
+  "input_sha256": "4308c50a08ec990d6287c09843a2f24b4d50a884c3ef2518b37b7daef3cfa0fc",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "Corrections": [
+    {
+      "GradeID": "G049-05",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. Guide80C/>5h remains strict open minimum; exact hours unknown. Source UV cell Ne is preserved untranslated; no universal UV verdict. Chemical label grasses is not silently changed to grease.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-01",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. New guide75C/minimum5h differs older75C4h; own TDS also60C3–4h. Guide original for older schedule is absent. Preserve all source-specific schedules without overwrite or final printed-food certification.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G027-19",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. Need-to-dry scale2/minimum2h80C is recommended context, not an unconditional mandatory profile. Published specimen form/conditioning may be incomplete.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-29",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. 100C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix25C named groups. BAD is narrative under existing parser; mixed solvent claims remain indeterminate, oil/grease GOOD remains scoped. Water BAD is not dissolution/hydrolysis proof.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-30",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. 80C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix covers92and98explicitly, no transferred98food exclusion from92PDF. Missing duration/specimen/concentrations remain.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G082-07",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. Need-to-dry scale1 means not necessary; numeric80C/minimum2h stays optional context. Own chemical group ratings25C good/medium retain exact agents and missing duration/specimen.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "bd6dba95a31f8535dff17d4c805f027b2feff9c7ed98607bca6497bf1cd08755",
+            "URL": "https://fillamentum.com/collections/pp-2320-filament",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 31,
+              "Text": "Thermal resistance up to 100 °C, withstands contact with hot water"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 64,
+                "Text": "Chemical resistance* low resistance to  halogenated hydrocarbons, benzene, car fluids, ozone, toluene, oils  aceton, car fluids, acids, alkalis, benzene  acids, long-term contact with hot water  acetone, car fluids, certain types of acids and alkalis  acetone, ethyl acetone, methyl ethyl ketone"
+              },
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "Hydrolytic stability  ****  **  **  ****  ****"
+              }
+            ]
+          },
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "bd6dba95a31f8535dff17d4c805f027b2feff9c7ed98607bca6497bf1cd08755",
+            "URL": "https://fillamentum.com/collections/pp-2320-filament",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 31,
+              "Text": "Thermal resistance up to 100 °C, withstands contact with hot water"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 64,
+                "Text": "Chemical resistance* low resistance to  halogenated hydrocarbons, benzene, car fluids, ozone, toluene, oils  aceton, car fluids, acids, alkalis, benzene  acids, long-term contact with hot water  acetone, car fluids, certain types of acids and alkalis  acetone, ethyl acetone, methyl ethyl ketone"
+              },
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "Hydrolytic stability  ****  **  **  ****  ****"
+              }
+            ]
+          },
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G154-01",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. Current collection route not retrieved; verified own TDS and shared guide80C minimum4h suffice for bounded pass. No repeated retries or universal absence claim.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G090-01",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. Guide75C/minimum5h differs older3h; older guide original absent. Existing chemical mixed-group evidence retained; no silent class-wide solvent verdict or quantified creep life.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G094-06",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. Own80C/minimum4h schedule admitted. Source food-contact exclusion remains; unquantified creep resistance does not supply load-duration test.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G164-01",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. Own80C/minimum3h guide, no new duplicate environmental facts. Hot-water80C statement is not a timed qualification; no service life/dose/specimen inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 35,
+              "Text": "to hydrolysis, it means to hot water up to"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own FX256 source explicitly claims resistance to hydrolysis, meaning hot water up to80C; dose/duration/specimen/retention unstated. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 35,
+              "Text": "to hydrolysis, it means to hot water up to"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-14",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. 80C/minimum4h drying; nylon must not exceed80C. Hardened nozzle and source-specific own recipes retained; no artificial comparison condition.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-28",
+      "QuestionID": "environment-hydrolysis",
+      "Reason": "Source heading passage specifically PLA/Nylon was being reused as own-product context; cite general melt-processing passage and name service gap.",
+      "ExpectedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Hydrolysis during filament melt processing/drying does not establish hydrolysis in service. New guide65C/minimum4h complements older65C3–4h; no duplicate typed schedule added. Chemical limits retain source revision and unqualified group context.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 44,
+              "Text": "The same level of drying is specified for PLA as for Nylon, because hydrolytic degradation of the chains themselves in the"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-hydrolysis",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "No product-specific hydrolysis-in-service result established by the inspected source basis. Shared guide describes irreversible polymer-chain shortening while processing wet hygroscopic filament at melting temperature. This is processing context, not a water-service qualification, and does not assign the PLA/Nylon-specific passage to other polymers.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+            "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/10/Recommendation-for-filament-processing_drying_EN_12102023.pdf",
+            "Scope": "Shared guide general wet-hygroscopic-material processing context; no exact-product hydrolysis-in-service result",
+            "Locator": {
+              "Page": 1,
+              "Line": 11,
+              "Text": "During the processing of wet hygroscopic materials at melting temperature, water molecules attack individual chains, which are"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 12,
+                "Text": "randomly and irreversibly shortened. The reaction takes place at a random point in the polymer chain, thus producing a mixture"
+              },
+              {
+                "Page": 1,
+                "Line": 13,
+                "Text": "of chains of different lengths (short, long, half) and this causes processing instabilities, inhomogeneity of structure and final"
+              },
+              {
+                "Page": 1,
+                "Line": 14,
+                "Text": "properties. The need to dry the polymer is determined by the structure of the polymer, in particular the type of chemical bonding"
+              },
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "forming the polymer chain."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G049-05",
+      "QuestionID": "environment-flammability",
+      "Reason": "UL94 printed beside blank/dash result; no classification or certificate supplied.",
+      "ExpectedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Guide80C/>5h remains strict open minimum; exact hours unknown. Source UV cell Ne is preserved untranslated; no universal UV verdict. Chemical label grasses is not silently changed to grease.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+            "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/04/TDS_Fishy-filament-Porthcurno_EN_06042023.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 23,
+              "Text": "Flame classification - UL 94"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own table prints Flame classification: - with UL94 named as method. The classification result is missing; no flammability result, certificate or printed-part qualification is established. Source context is retained, and a maker/test result is still needed.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+            "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/04/TDS_Fishy-filament-Porthcurno_EN_06042023.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 23,
+              "Text": "Flame classification - UL 94"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-28",
+      "QuestionID": "environment-flammability",
+      "Reason": "UL94 printed beside blank/dash result; no classification or certificate supplied.",
+      "ExpectedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. New guide65C/minimum4h complements older65C3–4h; no duplicate typed schedule added. Chemical limits retain source revision and unqualified group context.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-TDS-PETG-EN-30012023",
+            "SHA256": "5f36ef2dc8efe2bd2df083fd4f08a0d00c908fbeda66f13ec4d49a6a1e4217a0",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/02/TDS_PETG_EN_30012023.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 26,
+              "Text": "Flame classification - UL 94"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-flammability",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own table prints Flame classification: - with UL94 named as method. The classification result is missing; no flammability result, certificate or printed-part qualification is established. Source context is retained, and a maker/test result is still needed.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-TDS-PETG-EN-30012023",
+            "SHA256": "5f36ef2dc8efe2bd2df083fd4f08a0d00c908fbeda66f13ec4d49a6a1e4217a0",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/02/TDS_PETG_EN_30012023.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 26,
+              "Text": "Flame classification - UL 94"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G049-05",
+      "QuestionID": "environment-uv-outdoor",
+      "Reason": "Own comparison header/column must identify Porthcurno; preserve untranslated TDS Ne.",
+      "ExpectedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Source context was found at the original locators below. It is recorded/reused with named scope and missing exposure/test conditions; evidence presence is distinct from a qualified result or a reducible verdict. Guide80C/>5h remains strict open minimum; exact hours unknown. Source UV cell Ne is preserved untranslated; no universal UV verdict. Chemical label grasses is not silently changed to grease.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+            "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/04/TDS_Fishy-filament-Porthcurno_EN_06042023.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 34,
+              "Text": "UV stability Ne"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "f8a4e277b447f74d1245c1035748a47374185874bffd0a3f9d5bd4a89188ce58",
+            "URL": "https://fillamentum.com/collections/fishy-filaments-by-fillamentum/porthcurno/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 50,
+              "Text": "Weather resistance  ••  •  ••  •••• (UV stabilized)  •••• (UV stabilized)"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Registered own TDS UV stability cell is literally Ne (not translated into a universal verdict). Current maker comparison names Porthcurno in the fourth product column and prints four marks (UV stabilized) for that column. Bounded maker context; no spectrum/dose/duration/specimen or lifetime supplied.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+            "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/04/TDS_Fishy-filament-Porthcurno_EN_06042023.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 34,
+              "Text": "UV stability Ne"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "f8a4e277b447f74d1245c1035748a47374185874bffd0a3f9d5bd4a89188ce58",
+            "URL": "https://fillamentum.com/collections/fishy-filaments-by-fillamentum/porthcurno/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 50,
+              "Text": "Weather resistance  ••  •  ••  •••• (UV stabilized)  •••• (UV stabilized)"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "f8a4e277b447f74d1245c1035748a47374185874bffd0a3f9d5bd4a89188ce58",
+            "URL": "https://fillamentum.com/collections/fishy-filaments-by-fillamentum/porthcurno/",
+            "Scope": "Own comparison fourth product column: Porthcurno, not Nylon FX256/AF80/CF15 or Orca",
+            "Locator": {
+              "Page": 1,
+              "Line": 43,
+              "Text": "Nylon FX256  Nylon AF80 Aramid  Nylon CF15 Carbon  Fishy Filaments’ Porthcurno by Fillamentum  Fishy Filaments’ 0rCA® by Fillamentum"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 50,
+                "Text": "Weather resistance  ••  •  ••  •••• (UV stabilized)  •••• (UV stabilized)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G164-01",
+      "QuestionID": "environment-acid",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 31,
+              "Text": "The material has great chemical resistance"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G164-01",
+      "QuestionID": "environment-alkali",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 31,
+              "Text": "The material has great chemical resistance"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G164-01",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 31,
+              "Text": "The material has great chemical resistance"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G164-01",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 31,
+              "Text": "The material has great chemical resistance"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-14",
+      "QuestionID": "environment-acid",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "9cb877a8943f8e0fc40822e50d8f56676f960a018ce07a1c04f05978e6fa381a",
+            "URL": "https://fillamentum.com/collections/nylon-filament/nylon-cf15-carbon-filament/",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "Chemical resistance against wide range of substances"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-14",
+      "QuestionID": "environment-alkali",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "9cb877a8943f8e0fc40822e50d8f56676f960a018ce07a1c04f05978e6fa381a",
+            "URL": "https://fillamentum.com/collections/nylon-filament/nylon-cf15-carbon-filament/",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "Chemical resistance against wide range of substances"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-14",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "9cb877a8943f8e0fc40822e50d8f56676f960a018ce07a1c04f05978e6fa381a",
+            "URL": "https://fillamentum.com/collections/nylon-filament/nylon-cf15-carbon-filament/",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "Chemical resistance against wide range of substances"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-14",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Generic own chemical-resistance claim exists; no named agent or deciding category result established.",
+      "ExpectedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product evidence for this question was found in the inspected originals and bounded official routes below. This ending does not prove universal absence; source/test/vendor evidence is still needed.",
+        "Basis": []
+      },
+      "ProposedQuestion": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "Own source makes a broad chemical-resistance claim. It does not identify the acid/alkali/solvent/oil exposure needed for this question, concentration, duration, specimen or retained-property result. Keep the maker claim as context and retain the exact-agent/vendor/test gap; no class-wide verdict or service allowable follows.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "9cb877a8943f8e0fc40822e50d8f56676f960a018ce07a1c04f05978e6fa381a",
+            "URL": "https://fillamentum.com/collections/nylon-filament/nylon-cf15-carbon-filament/",
+            "Scope": "Exact-product generic chemical-resistance maker context; named agents/tests not supplied",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "Chemical resistance against wide range of substances"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G049-05",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Upcycled fishing-net PA6; maker names decorative/artistic and functional uses, with source-specific chemical limits. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Guide80C/>5h remains strict open minimum; exact hours unknown. Source UV cell Ne is preserved untranslated; no universal UV verdict. Chemical label grasses is not silently changed to grease.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-TDS-Fishy-filament-Porthcurno-EN-06042023",
+            "SHA256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+            "URL": "https://fillamentum.com/wp-content/uploads/2023/04/TDS_Fishy-filament-Porthcurno_EN_06042023.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 24,
+              "Text": "• Smooth and shiny finish"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "f8a4e277b447f74d1245c1035748a47374185874bffd0a3f9d5bd4a89188ce58",
+            "URL": "https://fillamentum.com/collections/fishy-filaments-by-fillamentum/porthcurno/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 27,
+              "Text": "Fishy Filaments’ Porthcurno (Nylon 6) is a type of 3D printing filament that is made from upcycled and recycled fishing nets. Porthcurno is a sustainable and eco-friendly option for 3D printing, as it reduces waste. It has a unique slightly translucent appearance that resembles the sea. Porthcurno is best suited for artistic and decorative 3D printing projects, as its unique appearance makes it a great choice for creating intricate and visually i"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 30,
+                "Text": "Smooth and shiny finish"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Upcycled fishing-net PA6; maker names decorative/artistic and functional uses, with source-specific chemical limits. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Guide80C/>5h remains strict open minimum; exact hours unknown. Source UV cell Ne is preserved untranslated; no universal UV verdict. Chemical label grasses is not silently changed to grease.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "f8a4e277b447f74d1245c1035748a47374185874bffd0a3f9d5bd4a89188ce58",
+            "URL": "https://fillamentum.com/collections/fishy-filaments-by-fillamentum/porthcurno/",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 27,
+              "Text": "Fishy Filaments’ Porthcurno (Nylon 6) is a type of 3D printing filament that is made from upcycled and recycled fishing nets. Porthcurno is a sustainable and eco-friendly option for 3D printing, as it reduces waste. It has a unique slightly translucent appearance that resembles the sea. Porthcurno is best suited for artistic and decorative 3D printing projects, as its unique appearance makes it a great choice for creating intricate and visually interesting designs. It can also be used for functional models that have excellent mechanical and chemical resistance."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-01",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Source names finishing by sanding/painting/smoothing/gluing and supplier food-contact declaration on request. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. New guide75C/minimum5h differs older75C4h; own TDS also60C3–4h. Guide original for older schedule is absent. Preserve all source-specific schedules without overwrite or final printed-food certification.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-CPE-HG100-TDS",
+            "SHA256": "ad4f1420c47b40cc8972c202724dae27c1718c9070938e077c6150f33071f495",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_CPE-HG100_03012019.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 62,
+              "Text": "Moisture sensitive! Keep in protective bag."
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "eebab7369428d855ea06140b64c31b37fb7b50d7f543910745233ae607628e2d",
+            "URL": "https://fillamentum.com/collections/cpe-filament",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 38,
+              "Text": "Post-processing by sanding, painting, smoothing, painting and gluing"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Source names finishing by sanding/painting/smoothing/gluing and supplier food-contact declaration on request. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. New guide75C/minimum5h differs older75C4h; own TDS also60C3–4h. Guide original for older schedule is absent. Preserve all source-specific schedules without overwrite or final printed-food certification.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "eebab7369428d855ea06140b64c31b37fb7b50d7f543910745233ae607628e2d",
+            "URL": "https://fillamentum.com/collections/cpe-filament",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 38,
+              "Text": "Post-processing by sanding, painting, smoothing, painting and gluing"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G027-19",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial ABS properties and chemical context; no tested application suitability. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Need-to-dry scale2/minimum2h80C is recommended context, not an unconditional mandatory profile. Published specimen form/conditioning may be incomplete.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-ABS-Extrafill-03012019-1",
+            "SHA256": "87ec20b459631da615053605d56f609912396a8d98b6d5788bc17a2765d43ee7",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_ABS-Extrafill_03012019-1.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 18,
+              "Text": "for functional prototyping, manufacturing"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 64,
+                "Text": "Adhesive 3Dlac, glue stick"
+              }
+            ]
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "44ae235f7c0ac2b10abdaf2e46d0357b8239604650d57eac41bed9cdf8d969b9",
+            "URL": "https://fillamentum.com/collections/abs-extrafill",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 28,
+              "Text": "It’s excellent for the production of the first functional samples before serial production. For functional prototyping, manufacturing tools and aids, but also for the production of goods for everyday use."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 30,
+                "Text": "Smooth finish"
+              },
+              {
+                "Page": 1,
+                "Line": 68,
+                "Text": "“The printed frame gives us a clear picture of how the carbon frame will look like. It’s all clear and more graspable than on a computer model,” says Jiri Fiedler. The ABS material is ideal for the production of the first functional samples before mass production."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own industrial ABS properties and chemical context; no tested application suitability. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Need-to-dry scale2/minimum2h80C is recommended context, not an unconditional mandatory profile. Published specimen form/conditioning may be incomplete.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "44ae235f7c0ac2b10abdaf2e46d0357b8239604650d57eac41bed9cdf8d969b9",
+            "URL": "https://fillamentum.com/collections/abs-extrafill",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 19,
+              "Text": "Commonly used for prototyping, ABS has good mechanical properties, impact resistance, and long-term usage."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-29",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Flexfill98A flexible prototypes; own product-page exclusion says no food/adult-toy use. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 100C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix25C named groups. BAD is narrative under existing parser; mixed solvent claims remain indeterminate, oil/grease GOOD remains scoped. Water BAD is not dissolution/hydrolysis proof.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+            "SHA256": "6fbb3c6fdfc8a1ebacd3415d134b8fe3cb7fefa0fd88d116342ba7a557a9381e",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Flexfill-TPU-98A_26082019.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "This material is ideal for dynamically"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+            "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+            "URL": "https://fillamentum.com/wp-content/uploads/2024/10/FLEXFILL_TPU_92A_FILLAMENTUM_ADDITIONAL_FILE.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 9,
+              "Text": "as protective corners, covers, gaskets, dampers, flexible joints and other parts."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "GOOD REBOUND RESILIENCE IDEAL FOR PROTOTYPING FLEXIBLE COMPONENTS"
+              },
+              {
+                "Page": 1,
+                "Line": 56,
+                "Text": "This is ideal for parts that need to move or bend, such as flexible joints or guards."
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "resistance are ideal for outdoor use because they keep their properties and"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Flexfill98A flexible prototypes; own product-page exclusion says no food/adult-toy use. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 100C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix25C named groups. BAD is narrative under existing parser; mixed solvent claims remain indeterminate, oil/grease GOOD remains scoped. Water BAD is not dissolution/hydrolysis proof.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+            "SHA256": "6fbb3c6fdfc8a1ebacd3415d134b8fe3cb7fefa0fd88d116342ba7a557a9381e",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Flexfill-TPU-98A_26082019.pdf",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "This material is ideal for dynamically"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 41,
+                "Text": "stressed parts, for example belts, shoe"
+              },
+              {
+                "Page": 1,
+                "Line": 43,
+                "Text": "outsoles, wheels, grippers, flexible covers."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-30",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Flexfill92A protective corners/covers/gaskets/dampers/flexible joints are maker intended uses; own92A food exclusion. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 80C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix covers92and98explicitly, no transferred98food exclusion from92PDF. Missing duration/specimen/concentrations remain.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+            "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+            "URL": "https://fillamentum.com/wp-content/uploads/2024/10/FLEXFILL_TPU_92A_FILLAMENTUM_ADDITIONAL_FILE.pdf",
+            "Scope": "Original explicitly covers this product; shared guide rows mapped only by printed product label.",
+            "Locator": {
+              "Page": 1,
+              "Line": 9,
+              "Text": "as protective corners, covers, gaskets, dampers, flexible joints and other parts."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 15,
+                "Text": "GOOD REBOUND RESILIENCE IDEAL FOR PROTOTYPING FLEXIBLE COMPONENTS"
+              },
+              {
+                "Page": 1,
+                "Line": 56,
+                "Text": "This is ideal for parts that need to move or bend, such as flexible joints or guards."
+              },
+              {
+                "Page": 1,
+                "Line": 75,
+                "Text": "resistance are ideal for outdoor use because they keep their properties and"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Flexfill92A protective corners/covers/gaskets/dampers/flexible joints are maker intended uses; own92A food exclusion. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 80C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix covers92and98explicitly, no transferred98food exclusion from92PDF. Missing duration/specimen/concentrations remain.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+            "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+            "URL": "https://fillamentum.com/wp-content/uploads/2024/10/FLEXFILL_TPU_92A_FILLAMENTUM_ADDITIONAL_FILE.pdf",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 4,
+              "Text": "Thermoplastic polyurethane with hardness 92 Shore A is a technical flexible filament that offers"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 5,
+                "Text": "great mechanical properties such as high tear and tensile strength. Flexfill TPU 92A is a very"
+              },
+              {
+                "Page": 1,
+                "Line": 6,
+                "Text": "flexible, elastic and easily bendable material, which maintains these properties even at low"
+              },
+              {
+                "Page": 1,
+                "Line": 7,
+                "Text": "temperatures. Due to its lower hardness, it is softer and more flexible than other TPU filaments."
+              },
+              {
+                "Page": 1,
+                "Line": 8,
+                "Text": "This material is great for printing products that require flexibility, strength and durability, such"
+              },
+              {
+                "Page": 1,
+                "Line": 9,
+                "Text": "as protective corners, covers, gaskets, dampers, flexible joints and other parts."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G082-07",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own PP2320 prototyping context and supplier compliance statements; no final printed-food certificate. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Need-to-dry scale1 means not necessary; numeric80C/minimum2h stays optional context. Own chemical group ratings25C good/medium retain exact agents and missing duration/specimen.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320",
+            "SHA256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_PP-2320.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 7,
+              "Text": "made of polypropylene. Material is ideal for"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 9,
+                "Text": "prototyping thanks to wide application"
+              },
+              {
+                "Page": 1,
+                "Line": 30,
+                "Text": "adhesion, smooth and matte surface. The Resistance against water, acetone,"
+              }
+            ]
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "bd6dba95a31f8535dff17d4c805f027b2feff9c7ed98607bca6497bf1cd08755",
+            "URL": "https://fillamentum.com/collections/pp-2320-filament",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 19,
+              "Text": "Commodity plastic, perfect choice for functional prototyping and printing of objects for everyday use."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 28,
+                "Text": "This material repels water, therefore, it is ideal for making parts of a pipeline, in the production of sinks and tanks. Since it has good electrical insulation properties, it’s ideal for the printing of insulation of electrical cables as an alternative to PVC."
+              },
+              {
+                "Page": 1,
+                "Line": 40,
+                "Text": "Great interlayer adhesion and smooth surface"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own PP2320 prototyping context and supplier compliance statements; no final printed-food certificate. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Need-to-dry scale1 means not necessary; numeric80C/minimum2h stays optional context. Own chemical group ratings25C good/medium retain exact agents and missing duration/specimen.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "bd6dba95a31f8535dff17d4c805f027b2feff9c7ed98607bca6497bf1cd08755",
+            "URL": "https://fillamentum.com/collections/pp-2320-filament",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 27,
+              "Text": "Fillamentum Polypropylene PP 2320 is a high-tech filament made of commodity plastic polypropylene (PP). It excels by its great mechanical properties, toughness, chemical resistance , or electrical insulation ."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 28,
+                "Text": "This material repels water, therefore, it is ideal for making parts of a pipeline, in the production of sinks and tanks. Since it has good electrical insulation properties, it’s ideal for the printing of insulation of electrical cables as an alternative to PVC."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G154-01",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own AF80 aramid sheet names functional parts under constant stress, such as bearings; no quantified life or design allowable. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Current collection route not retrieved; verified own TDS and shared guide80C minimum4h suffice for bounded pass. No repeated retries or universal absence claim.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+            "SHA256": "c2860553376cdc4fbf427ed6e770c272aaa6db5cfe8d0d879d1f2555e28c65de",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-AF80-Aramid.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 55,
+              "Text": "application is not recommended."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 56,
+                "Text": "Bed adhesive Magigoo PA, PVA glue"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own AF80 aramid sheet names functional parts under constant stress, such as bearings; no quantified life or design allowable. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Current collection route not retrieved; verified own TDS and shared guide80C minimum4h suffice for bounded pass. No repeated retries or universal absence claim.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid",
+            "SHA256": "c2860553376cdc4fbf427ed6e770c272aaa6db5cfe8d0d879d1f2555e28c65de",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-AF80-Aramid.pdf",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 31,
+              "Text": "The material can be with the advantage"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 33,
+                "Text": "used for printing parts that are under"
+              },
+              {
+                "Page": 1,
+                "Line": 34,
+                "Text": "constant stress, for example, bearings, Chemical properties Typical Value Test Method Test Condition"
+              },
+              {
+                "Page": 1,
+                "Line": 35,
+                "Text": "cogwheels, reinforcement parts etc."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G090-01",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own CPECF112 reinforced blend names long-term load and electronic-component uses; food contact not recommended. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Guide75C/minimum5h differs older3h; older guide original absent. Existing chemical mixed-group evidence retained; no silent class-wide solvent verdict or quantified creep life.",
+        "Basis": [
+          {
+            "SourceID": "S-CPECF",
+            "SHA256": "3848af4a10ac9189899dea703d30d1abf6e5b95b1c66b9f6eaa49fc5cf248dca",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/TDS_CPE-CF112-Carbon.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 32,
+              "Text": "smooth surface."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 42,
+                "Text": "for application that come into contact with"
+              }
+            ]
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "d694d26a7539e3522835a0c8dda880e13f724304cf14b6075b71674dbae4f7e1",
+            "URL": "https://fillamentum.com/collections/cpe-cf112-carbon-filament",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 27,
+              "Text": "Carbon-fibers-reinforced CPE HG100 filament was developed for its pressure resistance, hardness, and surface effect. The contained fibers ensure functionality, great printability, dimensional stability, and layer adhesion. The printed objects have a nice smooth surface."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 33,
+                "Text": "Matte finish"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own CPECF112 reinforced blend names long-term load and electronic-component uses; food contact not recommended. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Guide75C/minimum5h differs older3h; older guide original absent. Existing chemical mixed-group evidence retained; no silent class-wide solvent verdict or quantified creep life.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "d694d26a7539e3522835a0c8dda880e13f724304cf14b6075b71674dbae4f7e1",
+            "URL": "https://fillamentum.com/collections/cpe-cf112-carbon-filament",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 27,
+              "Text": "Carbon-fibers-reinforced CPE HG100 filament was developed for its pressure resistance, hardness, and surface effect. The contained fibers ensure functionality, great printability, dimensional stability, and layer adhesion. The printed objects have a nice smooth surface."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 28,
+                "Text": "This material is optimal for applications with long-term loads. It has higher wear resistance, heat distortion temperature, hardness, and chemical resistance in comparison with CPE HG100."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G094-06",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own PC/ABS maker automotive-use, long-term-load and chemical context; no independent application test. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Own80C/minimum4h schedule admitted. Source food-contact exclusion remains; unquantified creep resistance does not supply load-duration test.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PC-ABS",
+            "SHA256": "e62a4187af0d5388c167f4a09c7341c86c12f7a69073ccbe72de6bafc7b7f906",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical_Data_Sheet_PC-ABS.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 41,
+              "Text": "application is not recommended."
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "2656ec7a4cacc49affe82982f1f299b7f45b1fa579f27aa1b2a2fbb88b7cb364",
+            "URL": "https://fillamentum.com/collections/pc-abs-filament",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 19,
+              "Text": "It’s a polycarbonate and acrylonitrile butadiene styrene blend with excellent properties that make it ideal for application in the automotive industry."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 27,
+                "Text": "PC/ABS is a polycarbonate and acrylonitrile butadiene styrene blend with excellent properties that make this high-tech material ideal for application in the automotive industry."
+              },
+              {
+                "Page": 1,
+                "Line": 32,
+                "Text": "Smooth finish"
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own PC/ABS maker automotive-use, long-term-load and chemical context; no independent application test. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Own80C/minimum4h schedule admitted. Source food-contact exclusion remains; unquantified creep resistance does not supply load-duration test.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "2656ec7a4cacc49affe82982f1f299b7f45b1fa579f27aa1b2a2fbb88b7cb364",
+            "URL": "https://fillamentum.com/collections/pc-abs-filament",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 27,
+              "Text": "PC/ABS is a polycarbonate and acrylonitrile butadiene styrene blend with excellent properties that make this high-tech material ideal for application in the automotive industry."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 28,
+                "Text": "It is also resistant to high temperatures and can be used as a part of consumer or office electronics. It’s perfect for printing parts of printers, copiers, game consoles, or keyboards. It’s a filament that is light but strong at the same time and shows minimal signs of wear even after long-term use."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G164-01",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own FX256 functional/technical parts and electronics context; hot-water up to80C and UV/ionizing claims already recorded. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Own80C/minimum3h guide, no new duplicate environmental facts. Hot-water80C statement is not a timed qualification; no service life/dose/specimen inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 26,
+              "Text": "choice for printing functional and technical"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 72,
+                "Text": "Bed adhesive glue stick + 3Dlac Always use brim for better adhesion."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own FX256 functional/technical parts and electronics context; hot-water up to80C and UV/ionizing claims already recorded. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. Own80C/minimum3h guide, no new duplicate environmental facts. Hot-water80C statement is not a timed qualification; no service life/dose/specimen inferred.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256",
+            "SHA256": "1c4020f8343d14d7c20af76cbff9490c3af69d00f3b0872292b41034603d7f03",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-FX256.pdf",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 22,
+              "Text": "Its low friction coefficient and high tempe-"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 24,
+                "Text": "rature resistance make it an excellent"
+              },
+              {
+                "Page": 1,
+                "Line": 26,
+                "Text": "choice for printing functional and technical"
+              },
+              {
+                "Page": 1,
+                "Line": 27,
+                "Text": "parts. no break ISO 179-1eU -40 °C"
+              },
+              {
+                "Page": 1,
+                "Line": 42,
+                "Text": "This material can be used for production of"
+              },
+              {
+                "Page": 1,
+                "Line": 44,
+                "Text": "electrical and electronic equipment. It"
+              },
+              {
+                "Page": 1,
+                "Line": 48,
+                "Text": "doesn’t contain the restricted substances."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-14",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own CF15 bearings/cogwheels/reinforcement and wear/creep context, not measured durability. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 80C/minimum4h drying; nylon must not exceed80C. Hardened nozzle and source-specific own recipes retained; no artificial comparison condition.",
+        "Basis": [
+          {
+            "SourceID": "D-FILLAMENTUM-NYLON-CF15-PAGE",
+            "SHA256": "035387e5b017e7ebf08186b0e840911354edd0a4fef8dc2b5286c23424700d74",
+            "URL": "https://fillamentum.com/collections/nylon-filament/nylon-cf15-carbon-filament/",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 37,
+              "Text": "Nice & smooth surface"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-CF15-Carbon-03012019",
+            "SHA256": "4cff0dfc0c42e48525cc97595a7285f92ca4037aa1f4b489bf24a24e3e5c8074",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Nylon-CF15-Carbon_03012019.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 45,
+              "Text": "Bed adhesive glue stick + 3Dlac Always use brim for better bed adhesion."
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "9cb877a8943f8e0fc40822e50d8f56676f960a018ce07a1c04f05978e6fa381a",
+            "URL": "https://fillamentum.com/collections/nylon-filament/nylon-cf15-carbon-filament/",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 37,
+              "Text": "Nice & smooth surface"
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own CF15 bearings/cogwheels/reinforcement and wear/creep context, not measured durability. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 80C/minimum4h drying; nylon must not exceed80C. Hardened nozzle and source-specific own recipes retained; no artificial comparison condition.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "9cb877a8943f8e0fc40822e50d8f56676f960a018ce07a1c04f05978e6fa381a",
+            "URL": "https://fillamentum.com/collections/nylon-filament/nylon-cf15-carbon-filament/",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 27,
+              "Text": "This filament is made of polyamide 12 reinforced with 15 % of milled carbon fibers. It is characterized by high strength, high thermal and chemical resistance , great processing stability, and rheological properties."
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 28,
+                "Text": "The material is suitable for the production of continually stressed parts, such as bearings, cogwheels, reinforcement parts, etc."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-28",
+      "QuestionID": "application-finishing",
+      "Reason": "Replace regex-selected label/cell with exact own product/use paragraph.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Maker reports PETG factory applications: hopper lid, granulate cups, water-extraction box. Published narrative conditions do not establish selection suitability. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. New guide65C/minimum4h complements older65C3–4h; no duplicate typed schedule added. Chemical limits retain source revision and unqualified group context.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PETG-EN-06052020-FE",
+            "SHA256": "af60aec9fff7554dd1dd6ea96484f08be6ec8ee04d1b8e062e6a458082ce6ae6",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_PETG_EN_06052020_FE.pdf",
+            "Scope": "Registered original linked to this product; context retains its own specimen/form and revision.",
+            "Locator": {
+              "Page": 1,
+              "Line": 74,
+              "Text": "Moisture sensitive! Keep in the protective bag. If"
+            },
+            "AdditionalRelevantLocators": []
+          },
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "549966085054e160575f78093337870edddbadb1cb9a308df27d274402479ced",
+            "URL": "https://fillamentum.com/collections/petg",
+            "Scope": "Exact product route; comparison tables/boilerplate not assigned to product without explicit row identity.",
+            "Locator": {
+              "Page": 1,
+              "Line": 23,
+              "Text": "Material is usually mixed with colored masterbatch. When mixing the material one can manipulate with granulate that reaches high temperatures, sometimes up to 75 °C. Mixing takes place in a special industrial box, in which the hot material is poured. For this application, PETG cups are used. PETG is used because of its long-term dimensional stability in high temperatures."
+            },
+            "AdditionalRelevantLocators": []
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Maker reports PETG factory applications: hopper lid, granulate cups, water-extraction box. Published narrative conditions do not establish selection suitability. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. New guide65C/minimum4h complements older65C3–4h; no duplicate typed schedule added. Chemical limits retain source revision and unqualified group context.",
+        "Basis": [
+          {
+            "SourceID": "Unregistered research capture",
+            "SHA256": "549966085054e160575f78093337870edddbadb1cb9a308df27d274402479ced",
+            "URL": "https://fillamentum.com/collections/petg",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 18,
+              "Text": "Usage of PETG in Fillamentum"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 19,
+                "Text": "Fillamentum is a producer of top-quality filaments for industrial applications. No wonder that we have applied our own 3D printed components into production."
+              },
+              {
+                "Page": 1,
+                "Line": 20,
+                "Text": "Hopper lid"
+              },
+              {
+                "Page": 1,
+                "Line": 21,
+                "Text": "Before a material for filaments is processed it needs to be perfectly dry. The material is dried in the hopper with the metal lid and during drying the temperature can reach up to 70 °C. The original heavy metal lid was replaced with lighter PLA . But this material cannot withstand high temperatures and the lid was twisted by the heat. The new version was printed in PETG that resists high temperatures. At the same time, PETG has a perfect tightness due to minimal shrinkage and excellent dimensional stability."
+              },
+              {
+                "Page": 1,
+                "Line": 22,
+                "Text": "Cups for collecting hot material"
+              },
+              {
+                "Page": 1,
+                "Line": 23,
+                "Text": "Material is usually mixed with colored masterbatch. When mixing the material one can manipulate with granulate that reaches high temperatures, sometimes up to 75 °C. Mixing takes place in a special industrial box, in which the hot material is poured. For this application, PETG cups are used. PETG is used because of its long-term dimensional stability in high temperatures."
+              },
+              {
+                "Page": 1,
+                "Line": 24,
+                "Text": "Boxes for moisture extraction"
+              },
+              {
+                "Page": 1,
+                "Line": 25,
+                "Text": "PETG material is, thanks to its dimensional stability, suitable also for applications where there is necessary high tightness. Like the two-parts box which purpose is to get rid of excess water on the surface of the extruded filament. Leaks were causing problems and the extruded filament was not dry enough. PETG is more resistant to water than CPE HG100 that was used for the box originally."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G039-29",
+      "QuestionID": "application-finishing",
+      "Reason": "Own 98A TDS specific dynamically stressed use list, not unsupported prototype substitution.",
+      "ExpectedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Flexfill98A flexible prototypes; own product-page exclusion says no food/adult-toy use. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 100C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix25C named groups. BAD is narrative under existing parser; mixed solvent claims remain indeterminate, oil/grease GOOD remains scoped. Water BAD is not dissolution/hydrolysis proof.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+            "SHA256": "6fbb3c6fdfc8a1ebacd3415d134b8fe3cb7fefa0fd88d116342ba7a557a9381e",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Flexfill-TPU-98A_26082019.pdf",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "This material is ideal for dynamically"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 41,
+                "Text": "stressed parts, for example belts, shoe"
+              },
+              {
+                "Page": 1,
+                "Line": 43,
+                "Text": "outsoles, wheels, grippers, flexible covers."
+              }
+            ]
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Flexfill98A maker names dynamically stressed belts, shoe outsoles, wheels, grippers and flexible covers; own product-page exclusion says no food/adult-toy use. These maker observations/claims preserve exact-product and resin-versus-print limits; no suitability PASS. 100C minimum3h drying, TPU maximum3cycles3h/yellowing warning; matrix25C named groups. BAD is narrative under existing parser; mixed solvent claims remain indeterminate, oil/grease GOOD remains scoped. Water BAD is not dissolution/hydrolysis proof.",
+        "Basis": [
+          {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+            "SHA256": "6fbb3c6fdfc8a1ebacd3415d134b8fe3cb7fefa0fd88d116342ba7a557a9381e",
+            "URL": "https://fillamentum.com/wp-content/uploads/2020/10/Technical-Data-Sheet_Flexfill-TPU-98A_26082019.pdf",
+            "Scope": "Own product body or published maker application context; no independent validation or suitability pass",
+            "Locator": {
+              "Page": 1,
+              "Line": 39,
+              "Text": "This material is ideal for dynamically"
+            },
+            "AdditionalRelevantLocators": [
+              {
+                "Page": 1,
+                "Line": 41,
+                "Text": "stressed parts, for example belts, shoe"
+              },
+              {
+                "Page": 1,
+                "Line": 43,
+                "Text": "outsoles, wheels, grippers, flexible covers."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "Scope": "Source-grounded outcome corrections only; no canonical data edits. Actual digest-verified original PDFs/HTML read directly; source admissions reused signed original reviews. For06, narrow post-admission delta reuses prior204-question source review and verifies all admitted full rows.",
+  "review_signature_sha256": "5f0f2cc99a4165f96933e577eff5200c380e6015bddf07eda843b64dc86f9c8c"
+}

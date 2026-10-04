@@ -1,0 +1,369 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "56172df982b9286e1cc95ed136ffdae315e268aad36a6076653b84242fe72522",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 8,
+  "original_custody": "Eight digest-verified registered HTML originals reread on actual bytes. All own printing rows and grade/source bindings verified, with adjacent recommended/chamber cautions; fullExpectedsource/grade rows match canonical. Shared originals reused from narrative review.",
+  "results": [
+    {
+      "OperationID": "G082-10-own-page-profile",
+      "GradeID": "G082-10",
+      "source_id": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+      "source_sha256": "39b00a1e47b2a7c4c264b7615e7836007e97420b51c350d33a899f31e3b9301e",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 52,
+          "raw": "Printing temperature: 220–250°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 53,
+          "raw": "Bed temperature: Not required when using packing tape",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 55,
+          "raw": "Drying conditions: 50°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 56,
+          "raw": "Enclosed chamber: not required",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 54,
+          "raw": "Build surface: Smooth PEI + packing tape (PP); Glass + packing tape (PP); Powder-coated plate – PP",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G030-07-own-page-profile",
+      "GradeID": "G030-07",
+      "source_id": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+      "source_sha256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 68,
+          "raw": "Printing temperature: 250–265°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 69,
+          "raw": "Bed temperature: 90–110°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 71,
+          "raw": "Drying conditions: 60°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 72,
+          "raw": "Enclosed chamber: recommended",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 70,
+          "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 82,
+          "raw": "NOTE: Recommended minimum nozzle diameter: 0.6 mm",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G109-02-own-page-profile",
+      "GradeID": "G109-02",
+      "source_id": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+      "source_sha256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 60,
+          "raw": "Printing temperature: 220–240°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 61,
+          "raw": "Bed temperature: 90°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 63,
+          "raw": "Drying conditions: 60°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 64,
+          "raw": "Enclosed chamber: not required",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 62,
+          "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G020-69-own-page-profile",
+      "GradeID": "G020-69",
+      "source_id": "D-FIBERLOGY-PETG-MATTE-FILAMENT-PAGE",
+      "source_sha256": "9b3e284eb290b9779abad85c4bf089405564335feac93025073f7971d0b842fb",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 52,
+          "raw": "Printing temperature: 250–270°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 53,
+          "raw": "Bed temperature: 90°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 55,
+          "raw": "Drying conditions: 60°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 56,
+          "raw": "Enclosed chamber: not required",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 54,
+          "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G026-10-own-page-profile",
+      "GradeID": "G026-10",
+      "source_id": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+      "source_sha256": "1a6ba5abdca78410b7d8b78a98afc7d7f3da6a728aa9a9085d35d4b64f6d9fb6",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 63,
+          "raw": "Printing temperature: 250–265°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 64,
+          "raw": "Bed temperature: 85°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 66,
+          "raw": "Drying conditions: 60°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 67,
+          "raw": "Enclosed chamber: recommended",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 65,
+          "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 69,
+          "raw": "NOTE: Recommended minimum nozzle diameter: 0.6 mm",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G053-16-own-page-profile",
+      "GradeID": "G053-16",
+      "source_id": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+      "source_sha256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 64,
+          "raw": "Print temperature: 255–270°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 65,
+          "raw": "Bed temperature: 110°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 67,
+          "raw": "Drying conditions: 80°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 68,
+          "raw": "Enclosed chamber: not required",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 66,
+          "raw": "Build plate: Smooth PEI + adhesive; Textured PEI + adhesive; Glass + adhesive",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE",
+      "additional_original_check": {
+        "page": 1,
+        "line": 53,
+        "raw": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models.",
+        "matches_original": true
+      },
+      "RequiredChanges": {
+        "Enclosure": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models. Enclosed chamber: not required",
+        "Enclosure state": "recommended",
+        "Parse review": "Fields: Enclosure state. The own product prose recommends an enclosed and heated chamber; the printing table says Enclosed chamber: not required. Both statements are retained. The typed state records the optional recommendation, not a requirement or a temperature limit. No chamber setpoint is published.",
+        "LocatorAddition": "Own product recommendation line53 and printing-table line68 both retained; no chamber setpoint published.",
+        "SourceBasisAddition": {
+          "page": 1,
+          "line": 53,
+          "raw": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models."
+        }
+      },
+      "limits": "Keep Chamber °C Not published, chamber typed unknown/endpoints Not applicable/requirement unknown. The recommendation is not a required heated65°C gate; no temperature invented. All other profile fields can remain unchanged.",
+      "CorrectionVerified": "Exact requested raw/typed/Parse review fields and source line53 appended; no other operation/snapshot changed."
+    },
+    {
+      "OperationID": "G088-07-own-page-profile",
+      "GradeID": "G088-07",
+      "source_id": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+      "source_sha256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 69,
+          "raw": "Printing temperature: 250–270°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 70,
+          "raw": "Bed temperature: 90°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 72,
+          "raw": "Drying conditions: 60°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 73,
+          "raw": "Enclosed chamber: not required",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 71,
+          "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G089-02-own-page-profile",
+      "GradeID": "G089-02",
+      "source_id": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+      "source_sha256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 46,
+          "raw": "Printing temperature: 260–280°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 47,
+          "raw": "Bed temperature: 120°C",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 49,
+          "raw": "Drying conditions: 80°C / 4 hours",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 50,
+          "raw": "Enclosed chamber: not required",
+          "matches_original": true
+        },
+        {
+          "page": 1,
+          "line": 48,
+          "raw": "Bed material: Smooth PEI + adhesive; Textured PEI; Glass + adhesive",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    }
+  ],
+  "limits": [
+    "PP bed-not-required is expressly conditional on packing tape; keep rawcondition/plate visible, not arbitrary buildsurface approval.",
+    "ESD ABS/PETG0.6mm is a recommended minimum, not arbitrary nozzle qualification.",
+    "PA12+CFbed110°C is ownpage source-specific recommendation, retained beside different TDS80–100/90–110 windows; do not intersect or silently overwrite sources.",
+    "PETGMatte250–270°C ownpage source-specific recommendation differs from one260–280°C TDS; preserve both and note source scope.",
+    "All8drying schedules are filament handling, not moisture-service/hydrolysis tests or specimen conditioning.",
+    "Generic new-spool AMS compatibility sentence does not prove preciseAMS2Pro/HT temperature or feeder qualification; those cells remain bounded.",
+    "Nozzle material/hardening and numeric chamber temperatures remain unknown where not published.",
+    "AI review only; no human review or physical validation."
+  ],
+  "PriorReview": {
+    "file": "priority-06-profiles-review-before-correction.json",
+    "input_sha256": "445988e90000fe307930a2ffcaa2de51eee3ef35ec0038cf74e43a2f4bd41ff8",
+    "verdict": "CHANGES_REQUIRED"
+  },
+  "review_signature_sha256": "f73a6a61b7b11adccf99beecb074737dd9942492074fdc384da7eeda7f2e03dd"
+}

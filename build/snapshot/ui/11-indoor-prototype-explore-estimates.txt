@@ -141,7 +141,7 @@ typical: annealed
 3.9–11.5 · 2
  70 64↗ ☆
 ASA-AF PASS
-3 of 3 products
+2 of 2 products
  1,070
 1,070–1,070 · 3
  ~0.9–3.7† ~23–58† ~1–16† ~68–96† 115
@@ -192,7 +192,7 @@ Copolyesters
 CPE
 Copolyesters
  PASS
-1 of 1 product
+2 of 2 products
  1,250
 1,180–1,270 · 3
  1.68
@@ -643,7 +643,7 @@ nothing published to judge
 PCTG
 Copolyesters
  PASS
-5 of 5 products
+6 of 6 products
  1,230
 1,230–1,230 · 7
  1.75 45 24 76
@@ -826,7 +826,7 @@ PETG-GR PASS
 1,290–1,290 · 2
  ~1.5–5.2† ~28–69† ~2–24† ~52–118† 85.8¤ ☆
 PETG-PTFE PASS
-1 of 1 product
+2 of 2 products
  1,320 ~0.8–2.9† ~25–62† ~104–186† ~48–73† 86↗ ☆
 PLA PASS
 197 of 197 products
@@ -1049,7 +1049,7 @@ likely fails: 3 measured below, 1 unpublished
 PP
 Polyolefins
  PASS
-4 of 4 products
+5 of 5 products
  900
 890–960 · 8
  ~0.38–1.17† 19 850 80

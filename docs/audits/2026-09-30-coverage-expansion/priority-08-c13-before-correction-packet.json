@@ -1,0 +1,1769 @@
+{
+  "PacketID": "PRIORITY-08-C13-EXACT-OFFICIAL-MAKER-CONTEXT",
+  "Batch": "c13",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "ExpectedGrades": [
+    {
+      "GradeID": "G020-17",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "PETG",
+      "Shared formulation key": "R-EXTRUDR-petg-bundle-TDS-en",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability UL 94 V-2 3,2 mm (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-petg-bundle-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G020-56",
+      "MaterialID": "M020",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "XPETG MATT",
+      "Shared formulation key": "R-EXTRUDR-xpetg-matt-TDS-en",
+      "Composition / filler": "Its density of 1410 kg/m³ is above what neat PETG reaches (1300), so the product carries a filler its name does not declare. Not declared on the sheet; recorded as a Variant under D57 (R078).",
+      "Variant": "undisclosed dense filler",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability UL 94 V-2 3,2 mm (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-xpetg-matt-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G024-09",
+      "MaterialID": "M024",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "XPETG CF",
+      "Shared formulation key": "R-EXTRUDR-xpetg-cf-TDS-fr",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "selon la norme UL 94, pour une épaisseur de paroi de 3,2 mm. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-xpetg-cf-TDS-fr",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G088-03",
+      "MaterialID": "M088",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "PCTG",
+      "Shared formulation key": "R-EXTRUDR-pctg-TDS-en",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability UL 94 V-2 3,2 mm (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-pctg-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G131-01",
+      "MaterialID": "M131",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "DURAPRO PC-PBT CF",
+      "Shared formulation key": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en",
+      "Composition / filler": "PC-PBT with carbon fibre reinforcement raises the properties of the base material to a new level and makes it one of the most (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability UL 94 (1.5 mm) UL 94 Class HB (Bayer) (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-durapro-pc-pbt-cf-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G027-11",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "DURAPRO ABS",
+      "Shared formulation key": "R-EXTRUDR-durapro-abs-TDS-en",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "• Flame retardant according to UL 94 HB • Low shrinking and warping (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-durapro-abs-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G029-03",
+      "MaterialID": "M029",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "DURAPRO ABS CF",
+      "Shared formulation key": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+      "Composition / filler": "DuraPro ABS CF is a carbon fiber-reinforced high-performance ABS filament designed for technical applications where maximum (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-durapro-abs-cf-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G034-05",
+      "MaterialID": "M034",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "DURAPRO ASA GF",
+      "Shared formulation key": "R-EXTRUDR-durapro-asa-gf-TDS-en",
+      "Composition / filler": "reliability. The material is reinforced with glass fibers, making it ideal for mechanically stressed components. DuraPro ASA GF is (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Flammability UL 94 HB 1,5mm (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-durapro-asa-gf-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-16",
+      "MaterialID": "M162",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "FLEX HARD",
+      "Shared formulation key": "R-EXTRUDR-flex-hard-TDS-en",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-flex-hard-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G126-02",
+      "MaterialID": "M126",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "FLEX MEDIUM ESD",
+      "Shared formulation key": "R-EXTRUDR-flex-medium-esd-TDS-en",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-flex-medium-esd-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G050-05",
+      "MaterialID": "M050",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "DURAPRO PA6 CF",
+      "Shared formulation key": "R-EXTRUDR-durapro-pa6-cf-TDS-en",
+      "Composition / filler": "DuraPro PA6 CF is a carbon fibre reinforced, highly functional polyamide designed for demanding industrial applications. It is (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-durapro-pa6-cf-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G052-02",
+      "MaterialID": "M052",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Extrudr",
+      "Product name": "DURAPRO PA12",
+      "Shared formulation key": "R-EXTRUDR-durapro-pa12-TDS-en",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-EXTRUDR-durapro-pa12-TDS-en",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "R-EXTRUDR-PRINT-20260928-83ec5c0b3125",
+      "Publisher": "Extrudr",
+      "Title": "High-Performance Carbon Filament out of Polycarbonate | Extrudr",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G131-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f"
+    },
+    {
+      "SourceID": "R-EXTRUDR-PRINT-20260928-526b472f69cc",
+      "Publisher": "Extrudr",
+      "Title": "DuraPro ABS CF – Carbon Fiber ABS Filament for High-Strength | Extrudr",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G029-03",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18"
+    }
+  ],
+  "ExistingProfileEdits": [],
+  "Documents": [
+    {
+      "File": "49ca17b005738dd5.json",
+      "Extension": "html",
+      "ProposalSHA256": "d1ea4fbaba365a96074d13279689d234691c1de8eb36e5d982db95039d3485b4",
+      "OriginalSHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "PETG official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/petg/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G020-17",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      },
+      "OriginalPath": ".cache/sources/by-sha/49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-49ca17b0-e1",
+          "gradeKey": "G020-17",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-17",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "PETG generally performs better outdoors than PLA, offering improved resistance to UV, moisture, and heat. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line115"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PETG generally performs better outdoors than PLA, offering improved resistance to UV, moisture, and heat. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-49ca17b0-e2",
+          "gradeKey": "G020-17",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-17",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "PETG is compliant with FDA, REACH, and RoHS standards. Any printed item intended for food contact needs to be separately certified.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-49ca17b00573",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line118"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PETG is compliant with FDA, REACH, and RoHS standards. Any printed item intended for food contact needs to be separately certified."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 17,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "967a9be07d31d403.json",
+      "Extension": "html",
+      "ProposalSHA256": "b5e8a9edfefcde7a3544b73d8ae97f0d429c10e40f21ea776e616ffb92fb9e78",
+      "OriginalSHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "XPETG MATT official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/xpetg-matt/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G020-56",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      },
+      "OriginalPath": ".cache/sources/by-sha/967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-967a9be0-e1",
+          "gradeKey": "G020-56",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-56",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "XPETG MATT generally performs better outdoors than PLA, offering improved resistance to UV, moisture, and heat. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line96"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "XPETG MATT generally performs better outdoors than PLA, offering improved resistance to UV, moisture, and heat. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-967a9be0-e2",
+          "gradeKey": "G020-56",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-56",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "XPETG MATT is compliant with FDA, REACH, and RoHS standards. Any printed item intended for food contact needs to be separately certified.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line99"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "XPETG MATT is compliant with FDA, REACH, and RoHS standards. Any printed item intended for food contact needs to be separately certified."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G020-56",
+          "row": {
+            "MaterialID": "M020",
+            "GradeID": "G020-56",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Drying temperature 60 °C; Drying time 4–6 h",
+            "Drying state": "stated",
+            "Drying °C": "60",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Drying temperature 60 °C; Drying time 4–6 h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-967a9be0-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 18,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "88316f653878efc4.json",
+      "Extension": "html",
+      "ProposalSHA256": "2a54156718279bf705ca0bf5236dcb73068688e1bbede65e722e7f6ab182f282",
+      "OriginalSHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "XPETG CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/xpetg-cf/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G024-09",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      },
+      "OriginalPath": ".cache/sources/by-sha/88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-88316f65-e1",
+          "gradeKey": "G024-09",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-09",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "XPETG CF offers greater tensile strength and heat resistance than standard PETG, thanks to carbon fiber reinforcement, making it well-suited to rigid, load-bearing parts. This added stiffness comes with a trade-off in impact resistance compared to standard PETG, so XPETG CF is best suited to applications where rigidity matters more than shock resistance.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line107"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "XPETG CF offers greater tensile strength and heat resistance than standard PETG, thanks to carbon fiber reinforcement, making it well-suited to rigid, load-bearing parts. This added stiffness comes with a trade-off in impact resistance compared to standard PETG, so XPETG CF is best suited to applications where rigidity matters more than shock resistance."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-88316f65-e2",
+          "gradeKey": "G024-09",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-09",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "XPETG CF offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line109"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "XPETG CF offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-88316f65-e3",
+          "gradeKey": "G024-09",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-09",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. Carbon fiber reinforced filaments, including XPETG CF, are not certified for food contact. Any application requiring food safety should use a non-reinforced filament with confirmed food-contact compliance, such as PETG.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line112"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. Carbon fiber reinforced filaments, including XPETG CF, are not certified for food contact. Any application requiring food safety should use a non-reinforced filament with confirmed food-contact compliance, such as PETG."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G024-09",
+          "row": {
+            "MaterialID": "M024",
+            "GradeID": "G024-09",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Drying temperature 60 °C; Drying time 4–6 h",
+            "Drying state": "stated",
+            "Drying °C": "60",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Drying temperature 60 °C; Drying time 4–6 h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-88316f65-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 18,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "ce91065b0c8a29a3.json",
+      "Extension": "html",
+      "ProposalSHA256": "21b6591de23aa79d2401ffdf6e5813a7ca58ee1d2aa78a1a4340d715cb1b111f",
+      "OriginalSHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "PCTG official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/pctg/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G088-03",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      },
+      "OriginalPath": ".cache/sources/by-sha/ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-ce91065b-e1",
+          "gradeKey": "G088-03",
+          "row": {
+            "MaterialID": "M088",
+            "GradeID": "G088-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "PCTG offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line108"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PCTG offers good resistance to UV, moisture, and heat, making it generally suitable for outdoor use. However, prolonged, permanent outdoor exposure can still cause gradual fading or embrittlement over time."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-ce91065b-e2",
+          "gradeKey": "G088-03",
+          "row": {
+            "MaterialID": "M088",
+            "GradeID": "G088-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "PCTG is compliant with FDA, REACH, and EU 10/2011 food contact standards, and holds cosmetics approval as well. Any printed item intended for food contact needs to be separately certified.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line113"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "PCTG is compliant with FDA, REACH, and EU 10/2011 food contact standards, and holds cosmetics approval as well. Any printed item intended for food contact needs to be separately certified."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G088-03",
+          "row": {
+            "MaterialID": "M088",
+            "GradeID": "G088-03",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Drying temperature 60 °C; Drying time 4–6 h",
+            "Drying state": "stated",
+            "Drying °C": "60",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Drying temperature 60 °C; Drying time 4–6 h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-ce91065b-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 12,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "70456e37bf44a914.json",
+      "Extension": "html",
+      "ProposalSHA256": "e8cae646fee4a7c8121768da1fb35d4c2cf378db607d425ef017390f1973e2ae",
+      "OriginalSHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "DURAPRO PC-PBT CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G131-01",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311"
+      },
+      "OriginalPath": ".cache/sources/by-sha/70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-70456e37-e1",
+          "gradeKey": "G131-01",
+          "row": {
+            "MaterialID": "M131",
+            "GradeID": "G131-01",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. Carbon fiber reinforced filaments, including DuraPro PC/PBT CF, are not certified for food contact.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-70456e37bf44",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line108"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. Carbon fiber reinforced filaments, including DuraPro PC/PBT CF, are not certified for food contact."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 17,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "4f4b613ed9d4be47.json",
+      "Extension": "html",
+      "ProposalSHA256": "e3c85c7085d6580fd570e80a96d8c10a00d07032ec636e227dae927931df8b9f",
+      "OriginalSHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "DURAPRO ABS official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G027-11",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155"
+      },
+      "OriginalPath": ".cache/sources/by-sha/4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-4f4b613e-e1",
+          "gradeKey": "G027-11",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "DuraPro ABS is not recommended for long-term or permanent outdoor use. Like standard ABS, it is prone to UV degradation, which can cause yellowing, brittleness, and reduced mechanical performance over time with prolonged sun exposure. For outdoor applications, consider DuraPro ASA, which is specifically formulated for improved UV resistance.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line112"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "DuraPro ABS is not recommended for long-term or permanent outdoor use. Like standard ABS, it is prone to UV degradation, which can cause yellowing, brittleness, and reduced mechanical performance over time with prolonged sun exposure. For outdoor applications, consider DuraPro ASA, which is specifically formulated for improved UV resistance."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-4f4b613e-e2",
+          "gradeKey": "G027-11",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-11",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "DuraPro ABS is compliant with FDA, REACH, and RoHS standards. Any printed item intended for food contact needs to be separately certified.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line115"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "DuraPro ABS is compliant with FDA, REACH, and RoHS standards. Any printed item intended for food contact needs to be separately certified."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G027-11",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-11",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Drying temperature 60 °C; Drying time 10 h",
+            "Drying state": "stated",
+            "Drying °C": "60",
+            "Drying hours": "10",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Drying temperature 60 °C; Drying time 10 h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-4f4b613e-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 11,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "4eb5a75440e8ae5f.json",
+      "Extension": "html",
+      "ProposalSHA256": "ce7867f4d9b329ea0aed48ff2975495895e0371b095598e2f087221ab4d3b710",
+      "OriginalSHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "DURAPRO ABS CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/durapro-abs-cf/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G029-03",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500"
+      },
+      "OriginalPath": ".cache/sources/by-sha/4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-4eb5a754-e1",
+          "gradeKey": "G029-03",
+          "row": {
+            "MaterialID": "M029",
+            "GradeID": "G029-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "DuraPro ABS CF offers greater stiffness and improved heat resistance than standard ABS, thanks to carbon fiber reinforcement, while also being genuinely lighter in weight. As with all carbon-fiber-reinforced materials, this added rigidity comes with reduced elongation at break compared to standard ABS, making it best suited to applications where stiffness matters more than flexibility.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line98"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "DuraPro ABS CF offers greater stiffness and improved heat resistance than standard ABS, thanks to carbon fiber reinforcement, while also being genuinely lighter in weight. As with all carbon-fiber-reinforced materials, this added rigidity comes with reduced elongation at break compared to standard ABS, making it best suited to applications where stiffness matters more than flexibility."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-4eb5a754-e2",
+          "gradeKey": "G029-03",
+          "row": {
+            "MaterialID": "M029",
+            "GradeID": "G029-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "DuraPro ABS CF is not recommended for long-term or permanent outdoor use. Like standard ABS, it is prone to UV degradation, which can cause yellowing, brittleness, and reduced mechanical performance over time. For outdoor applications, consider DuraPro ASA.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line100"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "DuraPro ABS CF is not recommended for long-term or permanent outdoor use. Like standard ABS, it is prone to UV degradation, which can cause yellowing, brittleness, and reduced mechanical performance over time. For outdoor applications, consider DuraPro ASA."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-4eb5a754-e3",
+          "gradeKey": "G029-03",
+          "row": {
+            "MaterialID": "M029",
+            "GradeID": "G029-03",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. Carbon fiber reinforced filaments, including DuraPro ABS CF, are not certified for food contact.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line105"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. Carbon fiber reinforced filaments, including DuraPro ABS CF, are not certified for food contact."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G029-03",
+          "row": {
+            "MaterialID": "M029",
+            "GradeID": "G029-03",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.6mm for smooth, reliable extrusion and consistent nozzle lifespan.",
+            "Nozzle diameter": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.6mm for smooth, reliable extrusion and consistent nozzle lifespan.",
+            "Abrasion / clogging": "Recommended nozzle material Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.6mm for smooth, reliable extrusion and consistent nozzle lifespan.",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-4eb5a754-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 17,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "8f1f07e586ce6b1e.json",
+      "Extension": "html",
+      "ProposalSHA256": "c6efd1ae4d23c45bdb053f2542df1c550ef6019b05275c025e9f5fb1a2afb372",
+      "OriginalSHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "DURAPRO ASA GF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/durapro-asa-gf/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G034-05",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      },
+      "OriginalPath": ".cache/sources/by-sha/8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-8f1f07e5-e1",
+          "gradeKey": "G034-05",
+          "row": {
+            "MaterialID": "M034",
+            "GradeID": "G034-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "DuraPro ASA GF offers greater stiffness, improved heat resistance, and lower shrinkage than standard ASA, thanks to glass fiber reinforcement. As with all fiber-reinforced materials, this added rigidity comes with a trade-off in impact resistance and elongation compared to standard ASA, making it best suited to applications where stiffness and dimensional accuracy matter more than flexibility.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line97"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "DuraPro ASA GF offers greater stiffness, improved heat resistance, and lower shrinkage than standard ASA, thanks to glass fiber reinforcement. As with all fiber-reinforced materials, this added rigidity comes with a trade-off in impact resistance and elongation compared to standard ASA, making it best suited to applications where stiffness and dimensional accuracy matter more than flexibility."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-8f1f07e5-e2",
+          "gradeKey": "G034-05",
+          "row": {
+            "MaterialID": "M034",
+            "GradeID": "G034-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. Glass fiber reinforced filaments, including DuraPro ASA GF, are not certified for food contact.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line102"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. Glass fiber reinforced filaments, including DuraPro ASA GF, are not certified for food contact."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G034-05",
+          "row": {
+            "MaterialID": "M034",
+            "GradeID": "G034-05",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Drying temperature 65 °C; Drying time 8–12 h",
+            "Drying state": "stated",
+            "Drying °C": "65",
+            "Drying hours": "12",
+            "Nozzle material": "Yes. As with all glass-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.5mm, a 0.4mm nozzle is not recommended for this material.",
+            "Nozzle diameter": "Yes. As with all glass-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.5mm, a 0.4mm nozzle is not recommended for this material.",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Drying temperature 65 °C; Drying time 8–12 h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-8f1f07e5-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 18,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "b3aff68293fcd642.json",
+      "Extension": "html",
+      "ProposalSHA256": "c79f4d45356c9a534557e774ea4493df8f88103385d5840b350504cd98e0a7b9",
+      "OriginalSHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "FLEX HARD official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/flex-hard/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-16",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      },
+      "OriginalPath": ".cache/sources/by-sha/b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-b3aff682-e1",
+          "gradeKey": "G039-16",
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-16",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Independently tested for UV and weather resistance, holding its colour and integrity through extended outdoor exposure.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line88"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Independently tested for UV and weather resistance, holding its colour and integrity through extended outdoor exposure."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-b3aff682-e2",
+          "gradeKey": "G039-16",
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-16",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. FLEX Hard is not certified for food contact.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-b3aff68293fc",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line110"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. FLEX Hard is not certified for food contact."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 10,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "1d34d7823a2a814b.json",
+      "Extension": "html",
+      "ProposalSHA256": "e3a0cdf976213bcc4322834b6ac07db6063dfce9213321b28a850100d36c7004",
+      "OriginalSHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "FLEX MEDIUM ESD official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/flex-medium-esd/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G126-02",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833"
+      },
+      "OriginalPath": ".cache/sources/by-sha/1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-1d34d782-e1",
+          "gradeKey": "G126-02",
+          "row": {
+            "MaterialID": "M126",
+            "GradeID": "G126-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. FLEX Medium ESD is not recommended for outdoor use.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line101"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. FLEX Medium ESD is not recommended for outdoor use."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-1d34d782-e2",
+          "gradeKey": "G126-02",
+          "row": {
+            "MaterialID": "M126",
+            "GradeID": "G126-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Yes. FLEX Medium ESD is compliant with FDA standards. Any printed item intended for food contact needs to be separately certified.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line106"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Yes. FLEX Medium ESD is compliant with FDA standards. Any printed item intended for food contact needs to be separately certified."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 10,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "e49b91234afaaf44.json",
+      "Extension": "html",
+      "ProposalSHA256": "836d9df55c12e5ad07213315d63029f483681a0737ae3c6a7a01d7dd8620f1b3",
+      "OriginalSHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "DURAPRO PA6 CF official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa6-cf/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G050-05",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      },
+      "OriginalPath": ".cache/sources/by-sha/e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-e49b9123-e1",
+          "gradeKey": "G050-05",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "DuraPro PA6 CF offers notably higher impact resistance than DuraPro PA12 CF, including no-break performance in unnotched testing. However, it absorbs significantly more moisture (9% vs. 1.6% at saturation), meaning it requires more careful storage and drying to maintain performance. DuraPro PA6 CF is also not electrically insulating, unlike DuraPro PA12, due to its carbon fiber content.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line100"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "DuraPro PA6 CF offers notably higher impact resistance than DuraPro PA12 CF, including no-break performance in unnotched testing. However, it absorbs significantly more moisture (9% vs. 1.6% at saturation), meaning it requires more careful storage and drying to maintain performance. DuraPro PA6 CF is also not electrically insulating, unlike DuraPro PA12, due to its carbon fiber content."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-e49b9123-e2",
+          "gradeKey": "G050-05",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-05",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. Carbon fiber reinforced filaments, including DuraPro PA6 CF, are not certified for food contact.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line107"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. Carbon fiber reinforced filaments, including DuraPro PA6 CF, are not certified for food contact."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G050-05",
+          "row": {
+            "MaterialID": "M050",
+            "GradeID": "G050-05",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Drying temperature 65 °C; Drying time 8–12 h",
+            "Drying state": "stated",
+            "Drying °C": "65",
+            "Drying hours": "12",
+            "Nozzle material": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.6mm to prevent clogging and ensure smooth extrusion.",
+            "Nozzle diameter": "Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.6mm to prevent clogging and ensure smooth extrusion.",
+            "Abrasion / clogging": "Recommended nozzle material Yes. As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hardened steel or ruby) with a diameter of at least 0.6mm to prevent clogging and ensure smooth extrusion.",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Drying temperature 65 °C; Drying time 8–12 h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-e49b9123-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 17,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "cafa71249318d61f.json",
+      "Extension": "html",
+      "ProposalSHA256": "acfd9b85742570c06a4aa7f5408fe8887b7747488bef1fa765d7a74574a9b42e",
+      "OriginalSHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "Source": {
+        "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+        "Publisher": "Extrudr / FD3D GmbH",
+        "Title": "DURAPRO PA12 official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.extrudr.com/en/inlt/products/durapro-pa12/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G052-02",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      },
+      "OriginalPath": ".cache/sources/by-sha/cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481.html",
+      "ProposedEvidence": [
+        {
+          "id": "c13-cafa7124-e1",
+          "gradeKey": "G052-02",
+          "row": {
+            "MaterialID": "M052",
+            "GradeID": "G052-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "DuraPro PA12 offers significantly lower moisture absorption than PA6-based nylons (1.6% vs. typically around 9-10% at saturation), giving it better long-term dimensional stability. This makes it easier to store and print reliably, with less risk of warping from humidity.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line101"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "DuraPro PA12 offers significantly lower moisture absorption than PA6-based nylons (1.6% vs. typically around 9-10% at saturation), giving it better long-term dimensional stability. This makes it easier to store and print reliably, with less risk of warping from humidity."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c13-cafa7124-e2",
+          "gradeKey": "G052-02",
+          "row": {
+            "MaterialID": "M052",
+            "GradeID": "G052-02",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "No. DuraPro PA12 is not suitable for food contact.",
+            "Exposure / conditions": "Exact-product maker claim or exclusion, not a qualified service test or selection pass. Raw-material certification does not certify a printed article. Outdoor lifetime/protocol, exposure agents/concentrations/duration and printed specimen/test conditions are unstated unless quoted. An independent-test claim is retained as a maker claim; underlying report not retrieved. Comparisons retain their named counterpart; no values transferred to adjacent grades.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "Locator": "p.1: Exact product FAQ/highlight, source text line106"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "No. DuraPro PA12 is not suitable for food contact."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [
+        {
+          "gradeKey": "G052-02",
+          "row": {
+            "MaterialID": "M052",
+            "GradeID": "G052-02",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Drying temperature 65 °C; Drying time 8–12 h",
+            "Drying state": "stated",
+            "Drying °C": "65",
+            "Drying hours": "12",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Exact product drying table and own nozzle recommendation; all other recipe fields unstated",
+            "Parse review": "Not applicable"
+          },
+          "notes": [],
+          "evidence": {
+            "page": 1,
+            "text": "Drying temperature 65 °C; Drying time 8–12 h"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent original review required; not human",
+            "note": "Own-product missing drying or minimum diameter only; no TDS cells copied and no chamber inference."
+          },
+          "id": "c13-cafa7124-p1"
+        }
+      ],
+      "AutomaticRowsRejected": {
+        "measurements": 14,
+        "profiles": 1,
+        "evidence": 0
+      }
+    }
+  ],
+  "ScreeningContract": "Record-only claims; source wording conflicts held explicitly, no numerical/property/gate substitution. Original test conditions remain controlling.",
+  "OptionalPETGDryingHeld": "PETG own page says reliable printing even without drying and0–6h at60C. A profile under current required flag would misstate optionality; source-specific numeric optional advice remains a documented context hold pending faithful representation, without adding a model/interface."
+}

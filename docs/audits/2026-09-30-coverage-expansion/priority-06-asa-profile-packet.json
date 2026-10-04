@@ -1,0 +1,103 @@
+{
+  "PacketID": "PRIORITY-06-ASA-AF-OWN-MAKER-NOZZLE-RECOMMENDATION",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G113-03",
+      "MaterialID": "M113",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fiberlogy",
+      "Product name": "ASA+AF",
+      "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-asa-kevlar",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+      "Publisher": "Fiberlogy",
+      "Title": "ASA+AF Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-26",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/asaaf-filament/",
+      "Locator": "Product page",
+      "Applicable grades": "G113-03",
+      "Access state": "retrieved",
+      "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+      "SHA256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea"
+    }
+  ],
+  "Operations": [
+    {
+      "OperationID": "G113-03-asa-aramid-guidance",
+      "Table": "profiles",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M113",
+        "GradeID": "G113-03",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "To achieve optimal print parameters, it is recommended to use a closed thermal chamber and a hardened steel nozzle that is resistant to the abrasion caused by aramid fibers.",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "To achieve optimal print parameters, it is recommended to use a closed thermal chamber and a hardened steel nozzle that is resistant to the abrasion caused by aramid fibers.",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Optimal print parameters To achieve optimal print parameters, it is recommended to use a closed thermal chamber and a hardened steel nozzle that is resistant to the abrasion caused by aramid fibers.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+        "H2C SourceID": "Not applicable",
+        "Locator": "p. 1: Exact ASA+AF recommended closed thermal chamber and hardened steel nozzle, source line44; no chamber setpoint",
+        "Parse review": "Not applicable"
+      },
+      "SourceBasis": {
+        "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+        "SHA256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+        "Statements": [
+          {
+            "page": 1,
+            "line": 44,
+            "raw": "To achieve optimal print parameters, it is recommended to use a closed thermal chamber and a hardened steel nozzle that is resistant to the abrasion caused by aramid fibers."
+          }
+        ]
+      },
+      "Limitations": "Recommendation, not a chamber temperature limit; the existing abrasion parser records hardened steel. No printing window copied from another source."
+    }
+  ]
+}

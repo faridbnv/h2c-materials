@@ -1,0 +1,290 @@
+{
+  "PacketID": "PRIORITY-09-C14-EXACT-OFFICIAL-MAKER-CONTEXT",
+  "Batch": "c14",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "ExpectedGrades": [
+    {
+      "GradeID": "G027-22",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "eSUN",
+      "Product name": "ABS+",
+      "Shared formulation key": "S-PEBA-eSUN-ABS-Filament-TDS-V4-0",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Named \"ABS+\" since 2026-09-27 (m193-esun-plus-and-polymax-pc-identities): its sheet heads p. 1 \"Version 4.0 ABS+ Technical Data Sheet\".",
+      "SourceID": "S-PEBA-eSUN-ABS-Filament-TDS-V4-0",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G027-22",
+      "MaterialID": "M027",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "eSUN",
+      "Product name": "ABS+",
+      "Shared formulation key": "S-PEBA-eSUN-ABS-Filament-TDS-V4-0",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Named \"ABS+\" since 2026-09-27 (m193-esun-plus-and-polymax-pc-identities): its sheet heads p. 1 \"Version 4.0 ABS+ Technical Data Sheet\".",
+      "SourceID": "S-PEBA-eSUN-ABS-Filament-TDS-V4-0",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-44",
+      "MaterialID": "M162",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "eSUN",
+      "Product name": "TPU-64D",
+      "Shared formulation key": "S-PEBA-TPU-64D-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-PEBA-TPU-64D-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "S-ESUN-PRINT-20260928-76aac354f18d",
+      "Publisher": "eSUN",
+      "Title": "TPU-64D Hard-Flexible 3D Printing Filament | eSUN",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.esun3d.com/tpu64d-product",
+      "Locator": "Document / product page",
+      "Applicable grades": "G039-44",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "76aac354f18dcd3cb302f6a853b0ad75ea36aa12c99221a150fa3d67c950f7a9"
+    }
+  ],
+  "ExistingProfileEdits": [],
+  "Documents": [
+    {
+      "File": "e4a67e70f66b678c.json",
+      "Extension": "html",
+      "ProposalSHA256": "fa834e9b654095c7a678d220863a5b69adbb0e09b0ae06653339b4bccaff1113",
+      "OriginalSHA256": "e4a67e70f66b678cee907d0b2b8f42a80df1e3a1e8ee45f408092463caa79f5a",
+      "Source": {
+        "SourceID": "R-ESUN-PRIORITY-20261003-e4a67e70f66b",
+        "Publisher": "eSUN",
+        "Title": "ABS+ official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.esun3d.com/abs-pro-product",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G027-22",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "e4a67e70f66b678cee907d0b2b8f42a80df1e3a1e8ee45f408092463caa79f5a"
+      },
+      "OriginalPath": ".cache/sources/by-sha/e4a67e70f66b678cee907d0b2b8f42a80df1e3a1e8ee45f408092463caa79f5a.html",
+      "ProposedEvidence": [
+        {
+          "id": "c14-e4a67e70-e1",
+          "gradeKey": "G027-22",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-22",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Heat deflection up to 89'C, it performs reliably even in tough conditions such as in-car heat exposure or areas near heat sources, maintaining long-term structural stability without warping.",
+            "Exposure / conditions": "Maker announces ABS+ polymer-mixture formulation restructuring in2025; existing measurements remain with dated own originals. Current product page marketing89C/33MPa differs its physical/mechanical table73C/40.12MPaXY/14.94MPaZ, and current download still serves registered Nov2021V4.0 injection-moulded-data sheet. No public evidence binds old/new batches or specimen/conditions to new claims. No measurement substitution, lifetime allowable or selection PASS; exact revision/batch correspondence needs maker evidence.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-ESUN-PRIORITY-20261003-e4a67e70f66b",
+            "Locator": "p.1: Official product page, source text line117"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Heat deflection up to 89'C, it performs reliably even in tough conditions such as in-car heat exposure or areas near heat sources, maintaining long-term structural stability without warping."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "0da78e0ff9ef4d1e.json",
+      "Extension": "html",
+      "ProposalSHA256": "7e1f4ab5b1d581da93fa1640b783c188ebbabe5cdd0a2728b09b1cb8db69d1e8",
+      "OriginalSHA256": "0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628",
+      "Source": {
+        "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+        "Publisher": "eSUN",
+        "Title": "ABS+ official 2025 formulation-change notice",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://uk.esun3d.com/news/13182",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G027-22",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628"
+      },
+      "OriginalPath": ".cache/sources/by-sha/0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628.html",
+      "ProposedEvidence": [
+        {
+          "id": "c14-0da78e0f-e1",
+          "gradeKey": "G027-22",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-22",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "In order to make ABS compatible with both “easy printing” and “high performance”, eSUN restructured the formula of the ABS+ filament in 2025 — the brand-new generation of “Zero-Warping ABS+” officially debuts.",
+            "Exposure / conditions": "Maker announces ABS+ polymer-mixture formulation restructuring in2025; existing measurements remain with dated own originals. Current product page marketing89C/33MPa differs its physical/mechanical table73C/40.12MPaXY/14.94MPaZ, and current download still serves registered Nov2021V4.0 injection-moulded-data sheet. No public evidence binds old/new batches or specimen/conditions to new claims. No measurement substitution, lifetime allowable or selection PASS; exact revision/batch correspondence needs maker evidence.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+            "Locator": "p.1: Official formulation notice, source text line66"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "In order to make ABS compatible with both “easy printing” and “high performance”, eSUN restructured the formula of the ABS+ filament in 2025 — the brand-new generation of “Zero-Warping ABS+” officially debuts."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        },
+        {
+          "id": "c14-0da78e0f-e2",
+          "gradeKey": "G027-22",
+          "row": {
+            "MaterialID": "M027",
+            "GradeID": "G027-22",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "In terms of other performances, after multi-party comparison tests, the interlayer bonding strength of the new ABS+ has been significantly improved at present, and the Z-axis tensile strength can reach 33MPa, which is at a leading level among ABS materials on the market. In addition, the heat deflection temperature of the new ABS+ can reach 89°C , which is also a certain improvement compared to ordinary ABS materials (around 75°C).",
+            "Exposure / conditions": "Maker announces ABS+ polymer-mixture formulation restructuring in2025; existing measurements remain with dated own originals. Current product page marketing89C/33MPa differs its physical/mechanical table73C/40.12MPaXY/14.94MPaZ, and current download still serves registered Nov2021V4.0 injection-moulded-data sheet. No public evidence binds old/new batches or specimen/conditions to new claims. No measurement substitution, lifetime allowable or selection PASS; exact revision/batch correspondence needs maker evidence.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-ESUN-PRIORITY-20261003-0da78e0ff9ef",
+            "Locator": "p.1: Official formulation notice, source text line78"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "In terms of other performances, after multi-party comparison tests, the interlayer bonding strength of the new ABS+ has been significantly improved at present, and the Z-axis tensile strength can reach 33MPa, which is at a leading level among ABS materials on the market. In addition, the heat deflection temperature of the new ABS+ can reach 89°C , which is also a certain improvement compared to ordinary ABS materials (around 75°C)."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "be26800125b28875.json",
+      "Extension": "html",
+      "ProposalSHA256": "e2693e1c2f9ce382b5a63116ff90e669d07dfd8825ea2534cd482033dd68c2e0",
+      "OriginalSHA256": "be26800125b288750361183a6206277d042a9c867fbdb3c0eeccbd59b4867f19",
+      "Source": {
+        "SourceID": "R-ESUN-PRIORITY-20261003-be26800125b2",
+        "Publisher": "eSUN",
+        "Title": "TPU-64D official maker product page",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-03",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+        "Citation role": "cited",
+        "URL": "https://www.esun3d.com/tpu64d-product",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-44",
+        "Access state": "retrieved",
+        "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+        "SHA256": "be26800125b288750361183a6206277d042a9c867fbdb3c0eeccbd59b4867f19"
+      },
+      "OriginalPath": ".cache/sources/by-sha/be26800125b288750361183a6206277d042a9c867fbdb3c0eeccbd59b4867f19.html",
+      "ProposedEvidence": [
+        {
+          "id": "c14-be268001-e1",
+          "gradeKey": "G039-44",
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-44",
+            "Domain": "Makers' know-how",
+            "Topic": "Moisture sensitivity",
+            "Finding": "TPU filament is highly hygroscopic and absorbs moisture easily. If it has been left unused for an extended period, we recommend drying it at 60°C for more than 8 hours before your next print.",
+            "Exposure / conditions": "TPU-family FAQ appearing on exact TPU64D page, conditional on storage; not a qualified moisture-service result. Same page recommended parameter says55C/>4h, generic FAQ60C/>8h and old own TDS80C/4–8h; recommendation contexts and durations remain source-specific. Strict lower bounds stay open, no common exact schedule inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-ESUN-PRIORITY-20261003-be26800125b2",
+            "Locator": "p.1: Official product page, source text line158"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "TPU filament is highly hygroscopic and absorbs moisture easily. If it has been left unused for an extended period, we recommend drying it at 60°C for more than 8 hours before your next print."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent AI review required; not human review",
+            "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+          }
+        }
+      ],
+      "ProposedMeasurements": [],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      }
+    }
+  ],
+  "ScreeningContract": "Record-only claims; source wording conflicts held explicitly, no numerical/property/gate substitution. Original test conditions remain controlling."
+}

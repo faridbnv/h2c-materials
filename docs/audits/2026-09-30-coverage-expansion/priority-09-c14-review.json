@@ -1,0 +1,57 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "4c5c8f29af9b6a97085cbc75b62c2451171324222a1783128270ccff30886577",
+  "overall_verdict": "APPROVE",
+  "reviewed_sources": 3,
+  "reviewed_operations": 4,
+  "original_scope": "All three actual SHA-verified maker HTML originals reread through native HTML v4 reader, full own product/article text and tables/FAQ retained. Also independently reread complete ABS+ Nov2021 v4.0 two-page PDF original 1cbaca91b8240010c80ef7459e770431eede7da13a58529971656180ccc3c88e and TPU64D July2024 v1.0 three-page PDF e0d3f8ad51f7fd576a157bfb77ec7b8fbcfeb37e9fd3c080513c8c2701dd4351 to confirm comparison conditions/source scopes.",
+  "required_changes": [],
+  "results": [
+    {
+      "OperationID": "c14-e4a67e70-e1",
+      "GradeID": "G027-22",
+      "verdict": "APPROVE",
+      "original_sha256": "e4a67e70f66b678cee907d0b2b8f42a80df1e3a1e8ee45f408092463caa79f5a",
+      "locator": "p.1: Official product page, source text line117",
+      "checks": "Exact raw wording and qualifiers faithful; existing grade identity retained, record-only scope. No filtered product/chemical/certification pass."
+    },
+    {
+      "OperationID": "c14-0da78e0f-e1",
+      "GradeID": "G027-22",
+      "verdict": "APPROVE",
+      "original_sha256": "0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628",
+      "locator": "p.1: Official formulation notice, source text line66",
+      "checks": "Exact raw wording and qualifiers faithful; existing grade identity retained, record-only scope. No filtered product/chemical/certification pass."
+    },
+    {
+      "OperationID": "c14-0da78e0f-e2",
+      "GradeID": "G027-22",
+      "verdict": "APPROVE",
+      "original_sha256": "0da78e0ff9ef4d1ef769a58744e41c63f62efaa48feb6f23eb56db4d5a296628",
+      "locator": "p.1: Official formulation notice, source text line78",
+      "checks": "Exact raw wording and qualifiers faithful; existing grade identity retained, record-only scope. No filtered product/chemical/certification pass."
+    },
+    {
+      "OperationID": "c14-be268001-e1",
+      "GradeID": "G039-44",
+      "verdict": "APPROVE",
+      "original_sha256": "be26800125b288750361183a6206277d042a9c867fbdb3c0eeccbd59b4867f19",
+      "locator": "p.1: Official product page, source text line158",
+      "checks": "Exact raw wording and qualifiers faithful; existing grade identity retained, record-only scope. No filtered product/chemical/certification pass."
+    }
+  ],
+  "binding_checks": "All full ExpectedGrades (two distinct products, ABS+ repeated consistently) and ExpectedSources matched current CSV rows; all three proposal byte SHA pins matched, source.row and four evidence rows exactly matched packet. Each raw Finding matched its exact source line. No exact live duplicate Finding found. Source old/new TPU URL retrievalRevision full prior ID/digest/access pin retained.",
+  "limits": [
+    "ABS+89C/33MPa claims remain bounded maker know-how; own web table73C/40.12XY/14.94Z and old injection-moulded TDS cannot establish current formulation performance. No measurements or profiles admitted.",
+    "TPU64D family storage FAQ60C morethan8h is not exact product service/moisture result; own technical recommendation55C/>4h and own old TDS80C/4-8h remain source-specific.",
+    "Publication date correction makes no recency correctness or formulation-equivalence inference."
+  ],
+  "correction_history": {
+    "previous_input_sha256": "7aea70deb3bec7ce4c2175d181d8342cff6d1f2aeaaa05b43999fa4a2254d654",
+    "previous_verdict": "CHANGES_REQUIRED",
+    "previous_review_signature_sha256": "58af2435df88f8002e4f648747094fc68dc1d6c64eccedf2a0cf0593d1096e34",
+    "delta": "Only printed Publication date2026-06-15 and source title clarifying2025 formulation event, plus corresponding proposal SHA, changed. All four fact rows/conditions/Expected/source bytes unchanged. Corrected source.row/proposal SHA equality verified."
+  },
+  "review_signature_sha256": "07b169931c07b435497d0a73fe743235444d5a7973d016659a2913085b6df362"
+}

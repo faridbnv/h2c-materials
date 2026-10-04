@@ -1,0 +1,811 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+    "url": "https://fillamentum.com/wp-content/uploads/2024/10/FLEXFILL_TPU_92A_FILLAMENTUM_ADDITIONAL_FILE.pdf",
+    "pages": 2,
+    "provider": "Fillamentum",
+    "manufacturer": "Fillamentum",
+    "docKey": "https://fillamentum.com/wp-content/uploads/2024/10/FLEXFILL_TPU_92A_FILLAMENTUM_ADDITIONAL_FILE.pdf#witness-for=source:R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-92A-26082019"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpu"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "a TPU is filed by the Shore rating its maker gives it, and \"ADDITIONAL INFORMATION\" states none: find the maker's rating (its product page, its safety data sheet, its other sheets) and rule it (D106)",
+      "\"TPU\" has no row in polymers.csv, so a material of it cannot be created"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+      "Publisher": "Fillamentum Manufacturing Czech s.r.o.",
+      "Title": "Flexfill TPU92A Additional information; chemical matrix explicitly covers all Flexfill types",
+      "Revision": "Updated 8/2024",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Own exact product rows and full source limits retained; processing advice is not service-performance evidence. Independent AI review, not human.",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2024/10/FLEXFILL_TPU_92A_FILLAMENTUM_ADDITIONAL_FILE.pdf",
+      "Locator": "Original PDF, pages1–2",
+      "Applicable grades": "G039-30;G039-29",
+      "Access state": "retrieved",
+      "Access note": "Hash-verified saved original entered through isolated campaign witness pipeline.",
+      "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FLEXFILL TPU 92A"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI original review required, not human"
+    }
+  },
+  "grades": [
+    {
+      "key": "G039-30",
+      "row": {
+        "GradeID": "G039-30",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Flexfill TPU 92A",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-92A-26082019",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    },
+    {
+      "key": "G039-29",
+      "row": {
+        "GradeID": "G039-29",
+        "MaterialID": "M162",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Flexfill TPU 98A",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Existing exact identity unchanged; source also explicitly labels this grade."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c12-8404042c-e1",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACETONE. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU92A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ACETONE"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e2",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Ethanol",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: ETHANOL. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU92A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ETHANOL"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e3",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALCOHOLS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU92A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ALCOHOLS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e4",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: OILS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU92A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "OILS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e5",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: GREASES. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU92A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "GREASES"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e6",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACIDS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU92A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ACIDS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e7",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALKALIS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU92A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ALKALIS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e8",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "WATER BAD",
+        "Exposure / conditions": "Exact Flexfill TPU 92A column: source general25°C resistance claims with BAD legend; exact car fluids, concentration, duration and specimen not published. Water BAD does not prove dissolution or hydrolysis. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: WATER exact product column"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "WATER"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e9",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "CAR FLUIDS BAD",
+        "Exposure / conditions": "Exact Flexfill TPU 92A column: source general25°C resistance claims with BAD legend; exact car fluids, concentration, duration and specimen not published. Water BAD does not prove dissolution or hydrolysis. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: CAR FLUIDS exact product column"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "CAR FLUIDS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e10",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACETONE. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU98A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ACETONE"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e11",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Ethanol",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: ETHANOL. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU98A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ETHANOL"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e12",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALCOHOLS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU98A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ALCOHOLS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e13",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: OILS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU98A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "OILS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e14",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: GREASES. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU98A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "GREASES"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e15",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACIDS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU98A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ACIDS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e16",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALKALIS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU98A column; own legend and full conditions"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ALKALIS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e17",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "WATER BAD",
+        "Exposure / conditions": "Exact Flexfill TPU 98A column: source general25°C resistance claims with BAD legend; exact car fluids, concentration, duration and specimen not published. Water BAD does not prove dissolution or hydrolysis. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: WATER exact product column"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "WATER"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e18",
+      "gradeKey": "G039-29",
+      "row": {
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "CAR FLUIDS BAD",
+        "Exposure / conditions": "Exact Flexfill TPU 98A column: source general25°C resistance claims with BAD legend; exact car fluids, concentration, duration and specimen not published. Water BAD does not prove dissolution or hydrolysis. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: CAR FLUIDS exact product column"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "CAR FLUIDS"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    },
+    {
+      "id": "c12-8404042c-e19",
+      "gradeKey": "G039-30",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Certification",
+        "Topic": "Food contact",
+        "Finding": "FLEXFILL TPU 92A is not suitable for food contact.",
+        "Exposure / conditions": "Own92A exclusion only; not transferred to98A. Supplier declaration and EU10/2011/FDA discussion require migration limits for the final article; no printed-product food certification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 FOOD CONTACT, exact TPU92A exclusion"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "FLEXFILL TPU 92A is not suitable for food contact."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Explicit source row and all scope limits retained."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "VERSION UPDATED IN 8/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXFILL TPU 92A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Thermoplastic polyurethane with hardness 92 Shore A is a technical flexible filament that offers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "great mechanical properties such as high tear and tensile strength. Flexfill TPU 92A is a very",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WHY CHOOSE FLEXFILL TPU 92A?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HIGH ELASTICITY AND FLEXIBILITY DEFORMATION TEMPERATURE RESISTANCE -40 TO 80 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXFILL PEBA 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXFILL TPE 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXFILL TPE 96A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXFILL TPU 92A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FLEXFILL TPU 98A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EASY OF 3D PRINTING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With 3D printing, harder materials resist damage better, but they can also be more",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EASE OF 3D PRINTING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "tells you how easy a material is to print on a 3D printer. This factor includes things",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EASE OF 3D PRINTING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "tells you how easy a material is to print on a 3D printer. This factor includes things",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "properties: Tensile modulus, Hardness, Charpy impact strength, Ease of 3D density will be heavier.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "D1 D2 D3 L1 L2 WEIGHT OF EMPTY SPOOL COLOR MATERIAL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "RS 200 GH 52 105 200 45 55 230 TRANSPARENT PC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FLEXFILL TPU 92A is not suitable for food contact.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "REACTION TIME 12 – 16 HOUR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "material suppliers. According to the Commission Regulation (EU) No 10/2011 and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MATERIAL (ALL FLEXFILL) PEBA 90A TPE 90A TPE 96A TPU 92A TPU 98A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(3D printing filaments) are manufactured in compliance with RoHS and REACH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "the exact type of substance. It describes the resistance at 25 °C, the elevated",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "24/7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "INSTANT ANSWER REACTION TIME 12 – 16 HOUR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "CALL US IF YOU WANT +420 725 463 731",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "BETWEEN 8 AM AND 4 PM CENTRAL EUROPEAN TIME.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI original review required, not human",
+    "note": "Full signed packet and source independent review gate the injection."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI original review required, not human",
+        "note": "Automatic proposal not admitted; only reviewed explicit packet operations."
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "ADDITIONAL INFORMATION",
+        "Shared formulation key": "R-FILLAMENTUM-FLEXFILL-TPU-92A-FILLAMENTUM-ADDITIONAL-FILE",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "FLEXFILL TPU 92A is not suitable for food contact. (p. 2, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-FLEXFILL-TPU-92A-FILLAMENTUM-ADDITIONAL-FILE",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VERSION UPDATED IN 8/2024"
+      }
+    }
+  ],
+  "newMaterial": null
+}

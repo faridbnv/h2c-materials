@@ -1,0 +1,372 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "overall_verdict": "SOURCE_QUALIFICATION_ONLY",
+  "original_checks": [
+    {
+      "sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "scope": "Both actual original PDF pages read via pdfPages; p2 actual render visually checked all matrix cells, grade columns, full legend, footnotes and food-contact qualification. p1 is TPU92A-labelled August2024 additional information; p2 table explicitly covers all5Flexfill types including exact92A/98A."
+    },
+    {
+      "sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "scope": "Both actual original pages read; p2 actual render visually checked all12targetrow labels, time/temp/needscale columns; revision12October2023/6; p1 restrictions read. Prior source old numeric guidance is canonical comparison only, not an independent ruling that older records are correct."
+    }
+  ],
+  "matrix": {
+    "locator": "p2 CHEMICAL RESISTANCE, exact TPU92A and TPU98A columns",
+    "grade_ids": [
+      "G039-30",
+      "G039-29"
+    ],
+    "rows": [
+      {
+        "agent": "ACETONE",
+        "TPU 92A": "BAD",
+        "TPU 98A": "BAD"
+      },
+      {
+        "agent": "OILS",
+        "TPU 92A": "GOOD",
+        "TPU 98A": "GOOD"
+      },
+      {
+        "agent": "ALCOHOLS",
+        "TPU 92A": "BAD",
+        "TPU 98A": "BAD"
+      },
+      {
+        "agent": "ETHANOL",
+        "TPU 92A": "GOOD",
+        "TPU 98A": "GOOD"
+      },
+      {
+        "agent": "CAR FLUIDS",
+        "TPU 92A": "BAD",
+        "TPU 98A": "BAD"
+      },
+      {
+        "agent": "GREASES",
+        "TPU 92A": "GOOD",
+        "TPU 98A": "GOOD"
+      },
+      {
+        "agent": "WATER",
+        "TPU 92A": "BAD",
+        "TPU 98A": "BAD"
+      },
+      {
+        "agent": "ACIDS",
+        "TPU 92A": "BAD",
+        "TPU 98A": "BAD"
+      },
+      {
+        "agent": "ALKALIS",
+        "TPU 92A": "BAD",
+        "TPU 98A": "BAD"
+      }
+    ],
+    "legend": {
+      "GOOD": "means that the material resists very well, does not absorb chemicals, does not change volume, color or properties.",
+      "MEDIUM": "means that the material changes shape and weight slightly.",
+      "BAD": "means the material changes its properties significantly, may dissolve or change color."
+    },
+    "conditions": "25°C; these groups are very general and resistance depends on exact substance; elevated temperature must be tested. More perimeters, bottom/top layers and higher print temperature recommended for tightness. Always try a little printed object first. Concentration, exposure duration, standardized method, exact specimen/geometry/print settings and measured retention not published.",
+    "duration_trap": "REACTION TIME12–16HOUR is orange helpdesk email response-time badge, not matrix exposure duration.",
+    "scope_holds": [
+      "ALCOHOLS BAD and ETHANOL GOOD both retained; cannot collapse to universal solvent resistance.",
+      "WATER BAD at25°C does not prove dissolution or hot-water/steam hydrolytic stability; use bounded record-only context if categories would infer these.",
+      "CAR FLUIDS unspecified mixture/class; cannot infer universal oil/grease/organic-solvent applicability.",
+      "Page2 explicitly states FLEXFILL TPU92A not suitable for food contact; restriction is exact92A, not transferred to98A from this sentence.",
+      "No certified performance inferred from supplier compliance declaration or radar graphic."
+    ]
+  },
+  "drying_target_leads": [
+    {
+      "GradeID": "G049-05",
+      "Product": "Fishy Filaments’ Porthcurno",
+      "Locator": "p.2 Table1 own product row PORTHCURNO",
+      "RawCells": {
+        "MATERIAL": "PORTHCURNO",
+        "MINIMUM TIME OF DRYING": ">5 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G089-01",
+      "Product": "CPE HG100",
+      "Locator": "p.2 Table1 own product row CPE HG100",
+      "RawCells": {
+        "MATERIAL": "CPE HG100",
+        "MINIMUM TIME OF DRYING": "5 h",
+        "TEMPERATURE OF DRYING": "75 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0112",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "S-FILLAMENTUM"
+        },
+        {
+          "ProfileID": "P0165",
+          "Drying": "75 °C for 4 h",
+          "Drying °C": "75",
+          "Drying hours": "4",
+          "SourceID": "R-FILLAMENTUM-CPE-HG100-GUIDE"
+        }
+      ],
+      "Disposition": "different published duration; preserve sources",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G027-19",
+      "Product": "ABS Extrafill",
+      "Locator": "p.2 Table1 own product row ABS EXTRAFILL",
+      "RawCells": {
+        "MATERIAL": "ABS EXTRAFILL",
+        "MINIMUM TIME OF DRYING": "2 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "2"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0535",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-ABS-Extrafill-03012019-1"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G039-29",
+      "Product": "Flexfill TPU 98A",
+      "Locator": "p.2 Table1 own product row FLEXFILL TPU 98A",
+      "RawCells": {
+        "MATERIAL": "FLEXFILL TPU 98A",
+        "MINIMUM TIME OF DRYING": "3 h",
+        "TEMPERATURE OF DRYING": "100 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0533",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G039-30",
+      "Product": "Flexfill TPU 92A",
+      "Locator": "p.2 Table1 own product row FLEXFILL TPU 92A",
+      "RawCells": {
+        "MATERIAL": "FLEXFILL TPU 92A",
+        "MINIMUM TIME OF DRYING": "3 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0536",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-92A-26082019"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G082-07",
+      "Product": "PP 2320",
+      "Locator": "p.2 Table1 own product row PP 2320",
+      "RawCells": {
+        "MATERIAL": "PP 2320",
+        "MINIMUM TIME OF DRYING": "2 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "1"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0531",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PP-2320"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G154-01",
+      "Product": "Nylon AF80 Aramid",
+      "Locator": "p.2 Table1 own product row NYLON AF80 ARAMID",
+      "RawCells": {
+        "MATERIAL": "NYLON AF80 ARAMID",
+        "MINIMUM TIME OF DRYING": "4 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P1026",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G090-01",
+      "Product": "CPE CF112 Carbon",
+      "Locator": "p.2 Table1 own product row CPE CF112 CARBON",
+      "RawCells": {
+        "MATERIAL": "CPE CF112 CARBON",
+        "MINIMUM TIME OF DRYING": "5 h",
+        "TEMPERATURE OF DRYING": "75 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0113",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "S-CPECF"
+        },
+        {
+          "ProfileID": "P0166",
+          "Drying": "75 °C for 3 h",
+          "Drying °C": "75",
+          "Drying hours": "3",
+          "SourceID": "R-FILLAMENTUM-CPE-CF112-GUIDE"
+        }
+      ],
+      "Disposition": "different published duration; preserve sources",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G094-06",
+      "Product": "PC/ABS",
+      "Locator": "p.2 Table1 own product row PC/ABS",
+      "RawCells": {
+        "MATERIAL": "PC/ABS",
+        "MINIMUM TIME OF DRYING": "4 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0540",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PC-ABS"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G164-01",
+      "Product": "Nylon FX256",
+      "Locator": "p.2 Table1 own product row NYLON FX256",
+      "RawCells": {
+        "MATERIAL": "NYLON FX256",
+        "MINIMUM TIME OF DRYING": "3 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P1160",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-FX256"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G053-14",
+      "Product": "Nylon CF15 Carbon",
+      "Locator": "p.2 Table1 own product row NYLON CF15 CARBON",
+      "RawCells": {
+        "MATERIAL": "NYLON CF15 CARBON",
+        "MINIMUM TIME OF DRYING": "4 h",
+        "TEMPERATURE OF DRYING": "80 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0993",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Nylon-CF15-Carbon-03012019"
+        },
+        {
+          "ProfileID": "P1260",
+          "Drying": "Not published",
+          "Drying °C": "Not applicable",
+          "Drying hours": "Not applicable",
+          "SourceID": "D-FILLAMENTUM-NYLON-CF15-PAGE"
+        }
+      ],
+      "Disposition": "missing schedule",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    },
+    {
+      "GradeID": "G020-28",
+      "Product": "PETG",
+      "Locator": "p.2 Table1 own product row PETG",
+      "RawCells": {
+        "MATERIAL": "PETG",
+        "MINIMUM TIME OF DRYING": "4 h",
+        "TEMPERATURE OF DRYING": "65 °C",
+        "THE NEED TO DRY": "5"
+      },
+      "existing_canonical_profiles": [
+        {
+          "ProfileID": "P0537",
+          "Drying": "65 °C, 3–4 hours",
+          "Drying °C": "65",
+          "Drying hours": "4",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-PETG-EN-06052020-FE"
+        }
+      ],
+      "Disposition": "already compatible",
+      "MappingLimit": "Exact manufacturer product label, no transfer to other materials/grades."
+    }
+  ],
+  "drying_restrictions": [
+    "Column is MINIMUM TIME OF DRYING, not measured specimen treatment/exposure. Keep lower-bound/minimum wording; Porthcurno >5h is strictopenbound and must not become an exact5h guarantee.",
+    "Needscale1meansnotnecessary,5alwaysneeded. Do not make all table schedules mandatory; e.g.PPneed1/ABSneed2.",
+    "Guidep1 says TPU max3dryingcycles of3h with possible yellowingthermaldegradation afterward; retain context forboth92A/98A.",
+    "Nylon temperature must not exceed80°C; guide drying hydrolytic degradation refers moisture during meltprocessing, not water-service test.",
+    "Controlled thermoregulation/testsmallpiece first; cooling in desiccator/sealed silica-gelbox, reabsorptionabout10minutes ifhotspoolexposedhumidity; storage5–20%RH up to25°C.",
+    "Existing CPEHG10075C4h and CPECF11275C3h differ from guide minimum5h. Do not silently overwrite by recency. Existing PETG65C3–4h has same4h upper schedule but this guide specifies minimum4h.",
+    "No broad Fillamentum catalogue transfer, and no newproduct closure or canonical operation approved by this sourcequalification."
+  ],
+  "review_signature_sha256": "e49d503f34821062abd5757b74c064de8eba92df230d6a8dc86885c6c1782e21"
+}

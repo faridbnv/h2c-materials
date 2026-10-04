@@ -1,0 +1,1484 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "40537f9cbeb4c1aaef4716abc4407896b900aa68c60e4059427153b31df14f78",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "RequiredCorrections": [
+    {
+      "GradeID": "G082-10",
+      "QuestionID": "environment-acid",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+            "SHA256": "39b00a1e47b2a7c4c264b7615e7836007e97420b51c350d33a899f31e3b9301e",
+            "Locator": "p.1: own product body, source text line46",
+            "RawSourceStatement": "Polypropylene (PP) is one of the most widely used industrial polymers, valued for its high flexibility , durability , light weight , and chemical resistance . Fiberlogy PP filament brings these exceptional properties to the world of 3D printing, opening up new design and manufacturing possibilities."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G082-10",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+            "SHA256": "39b00a1e47b2a7c4c264b7615e7836007e97420b51c350d33a899f31e3b9301e",
+            "Locator": "p.1: own product body, source text line46",
+            "RawSourceStatement": "Polypropylene (PP) is one of the most widely used industrial polymers, valued for its high flexibility , durability , light weight , and chemical resistance . Fiberlogy PP filament brings these exceptional properties to the world of 3D printing, opening up new design and manufacturing possibilities."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G082-10",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+            "SHA256": "39b00a1e47b2a7c4c264b7615e7836007e97420b51c350d33a899f31e3b9301e",
+            "Locator": "p.1: own product body, source text line46",
+            "RawSourceStatement": "Polypropylene (PP) is one of the most widely used industrial polymers, valued for its high flexibility , durability , light weight , and chemical resistance . Fiberlogy PP filament brings these exceptional properties to the world of 3D printing, opening up new design and manufacturing possibilities."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G030-07",
+      "QuestionID": "environment-acid",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+            "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "high resistance to electrostatic discharge and chemicals,"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G030-07",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+            "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "high resistance to electrostatic discharge and chemicals,"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G030-07",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+            "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "high resistance to electrostatic discharge and chemicals,"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G109-02",
+      "QuestionID": "environment-acid",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+            "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+            "Locator": "p.1: own product body, source text line45",
+            "RawSourceStatement": "Thanks to its PTFE content, Fiberlogy PETG+PTFE enables the printing of sliding parts, guides, gears, and other components subjected to low or moderate loads , which are characterized by minimal friction and a longer service life. At the same time, the material retains all the advantages of PET-G: ease of printing, high adhesion to the build plate, chemical resistance, and good impact strength ."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G109-02",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+            "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+            "Locator": "p.1: own product body, source text line45",
+            "RawSourceStatement": "Thanks to its PTFE content, Fiberlogy PETG+PTFE enables the printing of sliding parts, guides, gears, and other components subjected to low or moderate loads , which are characterized by minimal friction and a longer service life. At the same time, the material retains all the advantages of PET-G: ease of printing, high adhesion to the build plate, chemical resistance, and good impact strength ."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G109-02",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+            "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+            "Locator": "p.1: own product body, source text line45",
+            "RawSourceStatement": "Thanks to its PTFE content, Fiberlogy PETG+PTFE enables the printing of sliding parts, guides, gears, and other components subjected to low or moderate loads , which are characterized by minimal friction and a longer service life. At the same time, the material retains all the advantages of PET-G: ease of printing, high adhesion to the build plate, chemical resistance, and good impact strength ."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G026-10",
+      "QuestionID": "environment-acid",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+            "SHA256": "1a6ba5abdca78410b7d8b78a98afc7d7f3da6a728aa9a9085d35d4b64f6d9fb6",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "excellent mechanical and chemical resistance typical of PET-G,"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G026-10",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+            "SHA256": "1a6ba5abdca78410b7d8b78a98afc7d7f3da6a728aa9a9085d35d4b64f6d9fb6",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "excellent mechanical and chemical resistance typical of PET-G,"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G026-10",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+            "SHA256": "1a6ba5abdca78410b7d8b78a98afc7d7f3da6a728aa9a9085d35d4b64f6d9fb6",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "excellent mechanical and chemical resistance typical of PET-G,"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G144-03",
+      "QuestionID": "environment-acid",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTGCF-FILAMENT-PAGE",
+            "SHA256": "32242ab37e72b9fdb248ebfd70e65bd97ac532a4225519febcd446cacd484d50",
+            "Locator": "p.1: own product body, source text line50",
+            "RawSourceStatement": "Chemical and Thermal Resistance"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G144-03",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTGCF-FILAMENT-PAGE",
+            "SHA256": "32242ab37e72b9fdb248ebfd70e65bd97ac532a4225519febcd446cacd484d50",
+            "Locator": "p.1: own product body, source text line50",
+            "RawSourceStatement": "Chemical and Thermal Resistance"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G144-03",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTGCF-FILAMENT-PAGE",
+            "SHA256": "32242ab37e72b9fdb248ebfd70e65bd97ac532a4225519febcd446cacd484d50",
+            "Locator": "p.1: own product body, source text line50",
+            "RawSourceStatement": "Chemical and Thermal Resistance"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-07",
+      "QuestionID": "environment-acid",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p.1: own product body, source text line59",
+            "RawSourceStatement": "High chemical resistance"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-07",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p.1: own product body, source text line59",
+            "RawSourceStatement": "High chemical resistance"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-07",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p.1: own product body, source text line59",
+            "RawSourceStatement": "High chemical resistance"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-02",
+      "QuestionID": "environment-acid",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-acid",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line41",
+            "RawSourceStatement": "CPE ANTIBAC filament is resistant to temperatures up to 110°C , UV radiation , chemicals , and lipids. It is odorless and free of BPA, BPS, and styrene, making it safe for use . The material outperforms traditional PET-G and PCTG in terms of temperature resistance, while maintaining ease of printing and the aesthetic quality of the prints."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-02",
+      "QuestionID": "environment-alkali",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-alkali",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line41",
+            "RawSourceStatement": "CPE ANTIBAC filament is resistant to temperatures up to 110°C , UV radiation , chemicals , and lipids. It is odorless and free of BPA, BPS, and styrene, making it safe for use . The material outperforms traditional PET-G and PCTG in terms of temperature resistance, while maintaining ease of printing and the aesthetic quality of the prints."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-02",
+      "QuestionID": "environment-organic-solvent",
+      "Reason": "Own page generic chemical-resistance claim exists; canonical absence does not imply no source context.",
+      "Expected": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-organic-solvent",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The inspected own maker page publishes generic chemical-resistance wording in the literal source basis. It does not name an acid, alkali or individual solvent, concentration, duration, exact temperature or tested specimen for this claim. Retain this bounded product/family marketing context; the specific exposure question remains unanswered and no category verdict or universal service approval follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line41",
+            "RawSourceStatement": "CPE ANTIBAC filament is resistant to temperatures up to 110°C , UV radiation , chemicals , and lipids. It is odorless and free of BPA, BPS, and styrene, making it safe for use . The material outperforms traditional PET-G and PCTG in terms of temperature resistance, while maintaining ease of printing and the aesthetic quality of the prints."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-02",
+      "QuestionID": "environment-oil-grease",
+      "Reason": "Existing own source statement was omitted from outcome context.",
+      "Expected": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-oil-grease",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The own CPE ANTIBAC page explicitly claims resistance to lipids, with chemicals and UV in the same paragraph. This is maker context: lipid identity, concentration, duration, temperature and tested specimen/protocol are unstated. It is not a universal oil/grease rating or service approval.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line41",
+            "RawSourceStatement": "CPE ANTIBAC filament is resistant to temperatures up to 110°C , UV radiation , chemicals , and lipids. It is odorless and free of BPA, BPS, and styrene, making it safe for use . The material outperforms traditional PET-G and PCTG in terms of temperature resistance, while maintaining ease of printing and the aesthetic quality of the prints."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-02",
+      "QuestionID": "environment-uv-outdoor",
+      "Reason": "Existing own source statement was omitted from outcome context.",
+      "Expected": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-uv-outdoor",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The own CPE ANTIBAC page explicitly claims UV resistance. It publishes no UV spectrum, irradiance/dose, duration, temperature, specimen or retained-property criterion. Preserve the maker claim; no demonstrated outdoor lifetime or service qualification follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line41",
+            "RawSourceStatement": "CPE ANTIBAC filament is resistant to temperatures up to 110°C , UV radiation , chemicals , and lipids. It is odorless and free of BPA, BPS, and styrene, making it safe for use . The material outperforms traditional PET-G and PCTG in terms of temperature resistance, while maintaining ease of printing and the aesthetic quality of the prints."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-07",
+      "QuestionID": "environment-food-contact",
+      "Reason": "Existing own source statement was omitted from outcome context.",
+      "Expected": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-food-contact",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The own PCTG page claims food-contact approval only for the Pure TR version; the footnote confines the claim to that version. This is maker context. The underlying approval/supplier report and final printed-article migration compliance are not established by the inspected page; no all-colour or printed-product certification follows.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p.1: own product body, source text line50",
+            "RawSourceStatement": "Fiberlogy PCTG is BPA-free , fully recyclable , and, in its Pure TR version, approved for food contact* , which further expands its range of applications."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G026-10",
+      "QuestionID": "environment-moisture",
+      "Reason": "Existing own source statement was omitted from outcome context.",
+      "Expected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The own ESD PETG page claims Low moisture absorption, without a quantitative uptake, exposure duration/humidity/temperature or specimen protocol. Preserve qualitative maker context; filament drying is separately handling and this is not hydrolysis or demonstrated moisture-service performance.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE",
+            "SHA256": "1a6ba5abdca78410b7d8b78a98afc7d7f3da6a728aa9a9085d35d4b64f6d9fb6",
+            "Locator": "p.1: own product body, source text line60",
+            "RawSourceStatement": "Low moisture absorption"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-16",
+      "QuestionID": "environment-moisture",
+      "Reason": "Existing own source statement was omitted from outcome context.",
+      "Expected": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "No usable exact-product result found in the inspected originals and bounded official routes recorded in SearchBasis. This ending does not prove universal public-source absence; the requirement remains unknown pending a product-specific result. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "environment-moisture",
+        "Question": "Exact-product agent, conditions, specimen and result; context/certification scope separate; moisture handling is not service exposure.",
+        "Outcome": "context only",
+        "Finding": "The own PA12+CF page says PA12 is less prone to moisture uptake than, for example, PA6 filaments. This is a comparative polymer/product maker claim without exact formulation, humidity, duration, temperature or specimen measurements. It is not hydrolysis resistance or a printed-part moisture-service result.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line61",
+            "RawSourceStatement": "PA12 is less prone to absorbing moisture than, for example, PA6 filaments"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-16",
+      "QuestionID": "application-finishing",
+      "Reason": "Own PA12+CF explicitly publishes intended applications; bounded-search-exhausted is unsupported.",
+      "Expected": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "bounded search exhausted",
+        "Finding": "PA12 with15%carbon intended for industrial structural/functional use;160°C page claim is not a continuous-service allowable. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Own PA12+CF page names automotive structural components, engineering/mechanics functional prototypes and technical parts, aviation/drones and final components as intended uses. These are maker suggestions; no structural airframe qualification, service allowable or validated application follows. Its160°C thermal marketing is not a continuous-service allowable.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line48",
+            "RawSourceStatement": "Fiberlogy PA12+CF is a filament designed for professionals. It is ideal for:"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "the automotive industry —for lightweight yet durable structural components,"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line50",
+            "RawSourceStatement": "engineering and mechanics —for functional prototypes and technical parts,"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line51",
+            "RawSourceStatement": "aviation and drones —where low weight and high durability are crucial,"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line52",
+            "RawSourceStatement": "the production of final components that must combine aesthetics, strength, and resistance to external conditions."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G030-07",
+      "QuestionID": "application-finishing",
+      "Reason": "Add exact own-page wording supporting the full intended-use/finishing claim instead of only a shorter recorded fragment.",
+      "Expected": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "ESD electronics protection and explicit machining, gluing, painting and solvent-vapour smoothing guidance; final assembly ESD performance is not certified. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05153",
+            "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+            "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "ESD electronics protection and explicit machining, gluing, painting and solvent-vapour smoothing guidance; final assembly ESD performance is not certified. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05153",
+            "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+            "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+            "SHA256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+            "Locator": "p.1: own product body, source text line65",
+            "RawSourceStatement": "The print can be machined, as well as glued, painted, or smoothed with solvent vapor."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G109-02",
+      "QuestionID": "application-finishing",
+      "Reason": "Add exact own-page wording supporting the full intended-use/finishing claim instead of only a shorter recorded fragment.",
+      "Expected": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Sliding parts, guides and gears are expressly limited to low or moderate loads;10%PTFE and70°C marketing do not supply wear-life or service design limits. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05221",
+            "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+            "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Sliding parts, guides and gears are expressly limited to low or moderate loads;10%PTFE and70°C marketing do not supply wear-life or service design limits. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05221",
+            "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+            "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+            "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+            "Locator": "p.1: own product body, source text line45",
+            "RawSourceStatement": "Thanks to its PTFE content, Fiberlogy PETG+PTFE enables the printing of sliding parts, guides, gears, and other components subjected to low or moderate loads , which are characterized by minimal friction and a longer service life. At the same time, the material retains all the advantages of PET-G: ease of printing, high adhesion to the build plate, chemical resistance, and good impact strength ."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G113-03",
+      "QuestionID": "application-finishing",
+      "Reason": "Add exact own-page wording supporting the full intended-use/finishing claim instead of only a shorter recorded fragment.",
+      "Expected": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Outdoor automotive/drone/device housings and aramid-reinforcement benefits are maker context without UV duration or service protocol. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05223",
+            "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+            "SHA256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Outdoor automotive/drone/device housings and aramid-reinforcement benefits are maker context without UV duration or service protocol. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05223",
+            "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+            "SHA256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+            "SHA256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+            "Locator": "p.1: own product body, source text line43",
+            "RawSourceStatement": "ASA+AF filament retains all the advantages of classic ASA while offering even greater resistance to wear and mechanical damage . The material has a reduced coefficient of friction, which ensures increased resistance to abrasion (tribological wear). Thanks to its resistance to UV radiation and weather conditions, the material is ideal for outdoor applications, such as automotive parts, drone components, device housings, or components exposed to impacts and fluctuating temperatures. The filament is heat-resistant up to 94°C."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G052-06",
+      "QuestionID": "application-finishing",
+      "Reason": "Add exact own-page wording supporting the full intended-use/finishing claim instead of only a shorter recorded fragment.",
+      "Expected": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Machine/functional prototypes, friction and chemical-contact intended uses; painting and metal-tool machining are explicitly published. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05178",
+            "SourceID": "D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE",
+            "SHA256": "cd6679908ca4895fb141a642ae8e5599525f34e6f26986d9a39b59ca6d3fa853",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Machine/functional prototypes, friction and chemical-contact intended uses; painting and metal-tool machining are explicitly published. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05178",
+            "SourceID": "D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE",
+            "SHA256": "cd6679908ca4895fb141a642ae8e5599525f34e6f26986d9a39b59ca6d3fa853",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE",
+            "SHA256": "cd6679908ca4895fb141a642ae8e5599525f34e6f26986d9a39b59ca6d3fa853",
+            "Locator": "p.1: own product body, source text line49",
+            "RawSourceStatement": "Fiberlogy Nylon PA12 is easy to post-process—it can be painted and machined with tools used for metal. This makes the prints not only functional but also aesthetically pleasing and tailored to the user’s specific needs."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-02",
+      "QuestionID": "application-finishing",
+      "Reason": "Add exact own-page wording supporting the full intended-use/finishing claim instead of only a shorter recorded fragment.",
+      "Expected": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Public-space/laboratory/clinical accessory use and bacterial-reduction claims are maker statements; original test protocol/report and medical approval are absent from inspected routes. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05201",
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Public-space/laboratory/clinical accessory use and bacterial-reduction claims are maker statements; original test protocol/report and medical approval are absent from inspected routes. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05201",
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line42",
+            "RawSourceStatement": "Fiberlogy CPE ANTIBAC allows you to create durable, safe, and antibacterial 3D prints that are ideal for public spaces, laboratory equipment, clinical accessories, and anywhere else where protection against microorganisms is required. Thanks to its high mechanical and thermal resistance, the filament is suitable for a wide range of projects—from functional parts to more demanding technical designs. The CPE ANTIBAC production process is monitored at every stage, ensuring consistent filament properties and repeatable print results. As a result, every project made from this material combines durability, safety, and antibacterial effectiveness."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-07",
+      "QuestionID": "application-finishing",
+      "Reason": "Add exact own-page wording supporting the full intended-use/finishing claim instead of only a shorter recorded fragment.",
+      "Expected": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Durable functional/aesthetic prints; Pure TR-only food-contact claim is separated from all-colour and finished-print approval. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05199",
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "application-finishing",
+        "Question": "Exact intended uses, finishing/removal methods, required processing and own-use exclusions; maker claims remain know-how, no suitability pass.",
+        "Outcome": "context only",
+        "Finding": "Durable functional/aesthetic prints; Pure TR-only food-contact claim is separated from all-colour and finished-print approval. Maker claims remain bounded know-how, not demonstrated application suitability. The already completed material assessment remains distinct. ",
+        "Basis": [
+          {
+            "RecordID": "Q05199",
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p.1: own product body, source text line50",
+            "RawSourceStatement": "Fiberlogy PCTG is BPA-free , fully recyclable , and, in its Pure TR version, approved for food contact* , which further expands its range of applications."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G113-03",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Different quantities, compatible recipe recommendations or missing qualification do not establish a conflict.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Page94°C resistance marketing versus TDSHDT89°C0.455MPa/79°C1.82MPa; different quantities/conditions, no service limit or overwritten measurement. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Page94°C resistance marketing versus TDSHDT89°C0.455MPa/79°C1.82MPa; different quantities/conditions, no service limit or overwritten measurement.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "context only",
+        "Finding": "Own ASA+AF page94°C temperature-resistance marketing differs in quantity/conditions from TDS HDT89°C at0.455MPa/79°C at1.82MPa. These are not conflicting measurements of one defined property; retain maker context and the independently published source-specific HDTs, without a service allowable or numerical overwrite.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+            "SHA256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+            "Locator": "p.1: own product body, source text line43",
+            "RawSourceStatement": "ASA+AF filament retains all the advantages of classic ASA while offering even greater resistance to wear and mechanical damage . The material has a reduced coefficient of friction, which ensures increased resistance to abrasion (tribological wear). Thanks to its resistance to UV radiation and weather conditions, the material is ideal for outdoor applications, such as automotive parts, drone components, device housings, or components exposed to impacts and fluctuating temperatures. The filament is heat-resistant up to 94°C."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G144-03",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Different quantities, compatible recipe recommendations or missing qualification do not establish a conflict.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "TDS bed90–110°C versus page100°C; page lies within TDS window, no conflict or narrowed required window invented. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. TDS bed90–110°C versus page100°C; page lies within TDS window, no conflict or narrowed required window invented.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "context only",
+        "Finding": "Own PCTG+CF page bed100°C is inside the TDS90–110°C recommendation. No conflict or narrowed/intersected required window is established. Keep source-specific guidance and unknown printing conditions.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTGCF-FILAMENT-PAGE",
+            "SHA256": "32242ab37e72b9fdb248ebfd70e65bd97ac532a4225519febcd446cacd484d50",
+            "Locator": "p.1: own product body, source text line56",
+            "RawSourceStatement": "Printing temperature: 250–270°C"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G088-07",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Different quantities, compatible recipe recommendations or missing qualification do not establish a conflict.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Pure TR food claim has no retrieved supplier approval or final printed-article migration test; makerpage76°C is HDT context, not lifetime guarantee. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Pure TR food claim has no retrieved supplier approval or final printed-article migration test; makerpage76°C is HDT context, not lifetime guarantee.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "context only",
+        "Finding": "Pure TR-only food-contact claim lacks a retrieved underlying approval/final printed-article migration result, so remains limited maker context with a vendor/test handoff. The page76°C wording and source HDT76°C context are not contradictory measures. Neither missing qualification nor differing quantities establish a source conflict.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+            "SHA256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+            "Locator": "p.1: own product body, source text line50",
+            "RawSourceStatement": "Fiberlogy PCTG is BPA-free , fully recyclable , and, in its Pure TR version, approved for food contact* , which further expands its range of applications."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G089-02",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Different quantities, compatible recipe recommendations or missing qualification do not establish a conflict.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Antibacterial source claims100%E.coli and92%then97%S.aureus but protocol/conditions unavailable; page110°C resistance differs in quantity/conditions from testedHDT99/85°C. Do not infer certification. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Antibacterial source claims100%E.coli and92%then97%S.aureus but protocol/conditions unavailable; page110°C resistance differs in quantity/conditions from testedHDT99/85°C. Do not infer certification.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "context only",
+        "Finding": "CPE ANTIBAC page reports initial100%E.coli and over92%S.aureus, then repeat100%/97%. Original protocol, contact time, specimens and laboratory report are unstated. Its110°C maker resistance claim differs in quantity/conditions from published source HDT99/85°C; this is bounded context, not a demonstrated contradiction or certification. Vendor/test verification remains needed.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line40",
+            "RawSourceStatement": "Fiberlogy CPE ANTIBAC is a modern 3D printing filament that combines high mechanical and thermal strength with unique antibacterial properties. Thanks to the use of silver nanoparticles, the material effectively inhibits the growth of microorganisms on the surface of printed objects, as confirmed by microbiological tests. Fiberlogy CPE ANTIBAC demonstrated a complete (100%) reduction of E. coli and over a 92% reduction of Staphylococcus aureus in the initial test, and in repeat tests, its effectiveness remained at 100% and 97%, respectively."
+          },
+          {
+            "SourceID": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+            "SHA256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+            "Locator": "p.1: own product body, source text line41",
+            "RawSourceStatement": "CPE ANTIBAC filament is resistant to temperatures up to 110°C , UV radiation , chemicals , and lipids. It is odorless and free of BPA, BPS, and styrene, making it safe for use . The material outperforms traditional PET-G and PCTG in terms of temperature resistance, while maintaining ease of printing and the aesthetic quality of the prints."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G082-10",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Conflict narrative needs direct exact original basis in addition to admitted records.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Own TDS labels51°C HDT at1.8MPa; own page labels51°C at0.45MPa. Source-specific load disagreement unresolved; no load correction by recency. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Own TDS labels51°C HDT at1.8MPa; own page labels51°C at0.45MPa. Source-specific load disagreement unresolved; no load correction by recency.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Own TDS labels51°C HDT at1.8MPa; own page labels51°C at0.45MPa. Source-specific load disagreement unresolved; no load correction by recency. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PP-FILAMENT-PAGE",
+            "SHA256": "39b00a1e47b2a7c4c264b7615e7836007e97420b51c350d33a899f31e3b9301e",
+            "Locator": "p.1: own product body, source text line62",
+            "RawSourceStatement": "Deflection temperature under load @ 0.45 MPa: 51°C (ISO 75)"
+          },
+          {
+            "RecordID": "V009228",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-PP-TDS",
+            "SHA256": "78ed9dff8a41bec17280b0f50ab7aa026405cbfcdebe9cb8068fa3aae74e64a9",
+            "Locator": "p. 1: Heat Distortion Temperature @ 1.8 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "P0893",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-PP-TDS",
+            "SHA256": "78ed9dff8a41bec17280b0f50ab7aa026405cbfcdebe9cb8068fa3aae74e64a9",
+            "Locator": "p. 1: Recommended printing settings"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G020-69",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Conflict narrative needs direct exact original basis in addition to admitted records.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Older TDS260–280°C versus newer TDS/page250–270°C; retain source windows without intersection or implied equivalence. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Older TDS260–280°C versus newer TDS/page250–270°C; retain source windows without intersection or implied equivalence.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Older TDS260–280°C versus newer TDS/page250–270°C; retain source windows without intersection or implied equivalence. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PETG-MATTE-FILAMENT-PAGE",
+            "SHA256": "9b3e284eb290b9779abad85c4bf089405564335feac93025073f7971d0b842fb",
+            "Locator": "p.1: own product body, source text line52",
+            "RawSourceStatement": "Printing temperature: 250–270°C"
+          },
+          {
+            "RecordID": "V010551",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-MATTEPETG-TDS",
+            "SHA256": "3bfa1a6ad0fb6f0319615b45550482b7123d1b3856d87405be64bdea86c9aaa5",
+            "Locator": "p. 1: Heat Distortion Temperature @ 1.8 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010924",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-MATTE-PET-G-TDS",
+            "SHA256": "c9f53cd2624a184f1a4d80286d8a6796b3aeae8353299be92e23d3ace5612b66",
+            "Locator": "p. 1: Heat Distortion Temperature @ 0.45 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010925",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-MATTE-PET-G-TDS",
+            "SHA256": "c9f53cd2624a184f1a4d80286d8a6796b3aeae8353299be92e23d3ace5612b66",
+            "Locator": "p. 1: Heat Distortion Temperature @ 1.8 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "P1049",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-MATTEPETG-TDS",
+            "SHA256": "3bfa1a6ad0fb6f0319615b45550482b7123d1b3856d87405be64bdea86c9aaa5",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1083",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-MATTE-PET-G-TDS",
+            "SHA256": "c9f53cd2624a184f1a4d80286d8a6796b3aeae8353299be92e23d3ace5612b66",
+            "Locator": "p. 1: Recommended printing settings"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G052-06",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Conflict narrative needs direct exact original basis in addition to admitted records.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "TDS bed100°C versus page110°C; retain both source-specific recommendations and existing earlier admitted page profile. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. TDS bed100°C versus page110°C; retain both source-specific recommendations and existing earlier admitted page profile.",
+        "Basis": [
+          {
+            "RecordID": "Q05178",
+            "SourceID": "D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE",
+            "SHA256": "cd6679908ca4895fb141a642ae8e5599525f34e6f26986d9a39b59ca6d3fa853",
+            "Locator": "p. 1"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "TDS bed100°C versus page110°C; retain both source-specific recommendations and existing earlier admitted page profile. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer.",
+        "Basis": [
+          {
+            "RecordID": "Q05178",
+            "SourceID": "D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE",
+            "SHA256": "cd6679908ca4895fb141a642ae8e5599525f34e6f26986d9a39b59ca6d3fa853",
+            "Locator": "p. 1"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE",
+            "SHA256": "cd6679908ca4895fb141a642ae8e5599525f34e6f26986d9a39b59ca6d3fa853",
+            "Locator": "p.1: own product body, source text line62",
+            "RawSourceStatement": "Bed temperature: 110°C"
+          },
+          {
+            "RecordID": "V010790",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12-TDS",
+            "SHA256": "9a9e36c1932bea18a01714658959e601857a8ff7a324d8d0ad4ae335b00645ab",
+            "Locator": "p. 1: Heat Distortion Temperature @ 0.45 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010791",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12-TDS",
+            "SHA256": "9a9e36c1932bea18a01714658959e601857a8ff7a324d8d0ad4ae335b00645ab",
+            "Locator": "p. 1: Heat Distortion Temperature @ 1.8 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010909",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12-TDS",
+            "SHA256": "c32884a4768675e093e755c412e8407be97350ff11958f541c6acb2b9b9c588f",
+            "Locator": "p. 1: Heat Distortion Temperature @ 0.45 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010910",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12-TDS",
+            "SHA256": "c32884a4768675e093e755c412e8407be97350ff11958f541c6acb2b9b9c588f",
+            "Locator": "p. 1: Heat Distortion Temperature @ 1.8 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "P1067",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12-TDS",
+            "SHA256": "9a9e36c1932bea18a01714658959e601857a8ff7a324d8d0ad4ae335b00645ab",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1081",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12-TDS",
+            "SHA256": "c32884a4768675e093e755c412e8407be97350ff11958f541c6acb2b9b9c588f",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1303",
+            "SourceID": "R-FIBERLOGY-PRINT-20260928-dff2ce2ac494",
+            "SHA256": "dff2ce2ac4943922247a17e2be1fda783c31fdc31378a0c7cf0b2060895db9bd",
+            "Locator": "p. 1: Exact-product chamber guidance: it is recommended to use a 3D printer with an enclosed and heated chamber"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-16",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Conflict narrative needs direct exact original basis in addition to admitted records.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "TDS beds80–100°C and90–110°C versus page110°C; revision/recipe agreement unresolved. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. TDS beds80–100°C and90–110°C versus page110°C; revision/recipe agreement unresolved.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "TDS beds80–100°C and90–110°C versus page110°C; revision/recipe agreement unresolved. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer.",
+        "Basis": [
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line65",
+            "RawSourceStatement": "Bed temperature: 110°C"
+          },
+          {
+            "RecordID": "V010714",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+            "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+            "Locator": "p. 1: Heat Distortion Temperature @ 0.45 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010715",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+            "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+            "Locator": "p. 1: Heat Distortion Temperature @ 1.8 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010798",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
+            "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+            "Locator": "p. 1: Heat Distortion Temperature @ 0.45 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "V010799",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
+            "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+            "Locator": "p. 1: Heat Distortion Temperature @ 1.8 MPa ISO 75 °C"
+          },
+          {
+            "RecordID": "P1061",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+            "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1068",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
+            "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+            "Locator": "p. 1: Recommended printing settings"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G134-01",
+      "QuestionID": "integrity-conflicts",
+      "Reason": "Direct original scope needed for stated CPE boilerplate/unfoamed identity hold.",
+      "Expected": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Known OPEN-PROBLEMS§28 filing hold: TDS boilerplate saysCPE ANTIBAC, table matchesFiberFlex40D and explicitly unfoamed; current maker calls elastomer family. Do not reclassify or transfer foamed mechanical values. Existing stable GradeID retained, without cross-product, resin-certification or legacy/current formulation transfer. Known OPEN-PROBLEMS§28 filing hold: TDS boilerplate saysCPE ANTIBAC, table matchesFiberFlex40D and explicitly unfoamed; current maker calls elastomer family. Do not reclassify or transfer foamed mechanical values.",
+        "Basis": []
+      },
+      "Proposed": {
+        "ID": "integrity-conflicts",
+        "Question": "Existing identity/source/conditions conflicts; resolve only with explanatory original evidence.",
+        "Outcome": "conflicting",
+        "Finding": "Known OPEN-PROBLEMS§28 filing hold: own FiberFlex Aero TDS description says CPE ANTIBAC, and its note explicitly limits parameters to unfoamed material; the current own maker page names an elastomer-family foaming filament. Keep GradeID and source-specific recorded values, do not infer another material identity or a foamed mechanical value. The inconsistency is unresolved.",
+        "Basis": [
+          {
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+            "SHA256": "f25e6f601d3ba3b2f41f227e4b6297719544843f69c6b1235c1e9d0bcef04ef3",
+            "Locator": "p.1: TRADE NAME / DESCRIPTION and Note below Material Properties",
+            "RawSourceStatement": "TRADE NAME: Fiberlogy FiberFlex Aero; DESCRIPTION: CPE ANTIBAC filament designed for printing in FFF/FDM technology; Note: The parameters listed above apply to the unfoamed material."
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G053-16",
+      "QuestionID": "print-treatment-state",
+      "Reason": "Preserve both own-page optional chamber recommendation and table not-required; revised profile packet pending admission.",
+      "Expected": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own TDS and maker printing/drying blocks re-read. Existing recipe/drying evidence reused; eight missing own-page schedules proposed separately and count as held until admitted. Conditional packing-tape bed advice and recommended versus required enclosure remain literal. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+        "Basis": [
+          {
+            "RecordID": "P1061",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+            "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1068",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
+            "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+            "Locator": "p. 1: Recommended printing settings"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own TDS and maker printing/drying blocks re-read. Existing recipe/drying evidence reused; eight missing own-page schedules proposed separately and count as held until admitted. Conditional packing-tape bed advice and recommended versus required enclosure remain literal. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  Own PA12+CF prose recommends an enclosed and heated chamber, while the table says Enclosed chamber: not required. Retain both as an optional recommendation with no temperature setpoint or mandatory heat inferred; the corrected profile is held pending guarded admission.",
+        "Basis": [
+          {
+            "RecordID": "P1061",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+            "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1068",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
+            "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line53",
+            "RawSourceStatement": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models."
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line68",
+            "RawSourceStatement": "Enclosed chamber: not required"
+          }
+        ]
+      }
+    },
+    {
+      "GradeID": "G113-03",
+      "QuestionID": "print-treatment-state",
+      "Reason": "Own page hardened-steel recommendation is a useful unadmitted deciding print fact, not source absence.",
+      "Expected": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own TDS and maker printing/drying blocks re-read. Existing recipe/drying evidence reused; eight missing own-page schedules proposed separately and count as held until admitted. Conditional packing-tape bed advice and recommended versus required enclosure remain literal. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products. ",
+        "Basis": [
+          {
+            "RecordID": "P1274",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS",
+            "SHA256": "d73f22ceb1679c3aef90be6ec6f76d8035f811c80ecb14ae47b4d66ab1038fdf",
+            "Locator": "p. 1: Print Temperature, Bed Temperature"
+          }
+        ]
+      },
+      "Proposed": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "context only",
+        "Finding": "Own TDS recipe and exact maker page were re-read. The page recommends a closed thermal chamber and a hardened steel nozzle resistant to aramid-fibre abrasion. This deciding fact is not yet represented by the existing own TDS profile P1274; it remains an explicit profile-admission hold under the existing hardening contract. No chamber temperature or required temperature is published, and recommendation is retained verbatim. Specimen preparation/printed-part treatment remain distinct; no anneal or dry schedule is invented.",
+        "Basis": [
+          {
+            "RecordID": "P1274",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS",
+            "SHA256": "d73f22ceb1679c3aef90be6ec6f76d8035f811c80ecb14ae47b4d66ab1038fdf",
+            "Locator": "p. 1: Print Temperature, Bed Temperature"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+            "SHA256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+            "Locator": "p.1: own product body, source text line44",
+            "RawSourceStatement": "To achieve optimal print parameters, it is recommended to use a closed thermal chamber and a hardened steel nozzle that is resistant to the abrasion caused by aramid fibers."
+          }
+        ],
+        "AdmissionHold": {
+          "Question": "Own hardened nozzle and optional closed thermal chamber recommendation",
+          "ReleaseCondition": "Guarded exact own-page profile operation independently reviewed, admitted and verified; no new parser/model semantics."
+        }
+      }
+    }
+  ],
+  "TargetOutcomeChanges": [
+    {
+      "GradeID": "G113-03",
+      "Expected": "conflicting",
+      "Proposed": "context only",
+      "Reason": "No demonstrated same-question source conflict remains after compatible recommendations/different quantities are separated; vendor/test qualification still needed."
+    },
+    {
+      "GradeID": "G144-03",
+      "Expected": "conflicting",
+      "Proposed": "context only",
+      "Reason": "No demonstrated same-question source conflict remains after compatible recommendations/different quantities are separated; vendor/test qualification still needed."
+    },
+    {
+      "GradeID": "G088-07",
+      "Expected": "conflicting",
+      "Proposed": "context only",
+      "Reason": "No demonstrated same-question source conflict remains after compatible recommendations/different quantities are separated; vendor/test qualification still needed."
+    },
+    {
+      "GradeID": "G089-02",
+      "Expected": "conflicting",
+      "Proposed": "context only",
+      "Reason": "No demonstrated same-question source conflict remains after compatible recommendations/different quantities are separated; vendor/test qualification still needed."
+    }
+  ],
+  "OriginalReviewScope": {
+    "html": "Registered digest-verified own page originals reread on actual bytes; own product body/printing block before navigation/related products. Shared originals reused across narrative/profile review. Direct claims retain literal locators and no canonical-row absence inferred.",
+    "pdf": "18 cited hash-verified one-page original TDS files independently reread for exact identity, recipe/load/specimen scope and standard-reference/supplier-data footers. Thirteen predominantly optical files rendered and visually reread; remaining5native text pages read with pdfPages/pageLines on actual bytes. This is a question-outcome scope review, not a new audit of every numeric cell.",
+    "Checks": "All cited SourceID/SHA values in current204questions agree with canonical source registry."
+  },
+  "limits": [
+    "No new canonical measurements, environment verdicts or source rows proposed here. Generic chemical wording never names a particular acid/alkali/solvent and stays context only; direct links retain affected question scope without adding duplicate statements for counts.",
+    "PCTG PureTR supplier claim is not a printed-part certificate; CPE bacterial percentages remain maker report claims, not a new selectable bacterial category.",
+    "All source-derived drying is handling, not exposure performance. Eight new own-page profiles still held until admitted; three prior own-page drying records already exist.",
+    "Source-specific recommendations/known identity ambiguity remain honest; a different quantity or absent qualification is not automatically a conflict.",
+    "The ASA+AF own hardened-steel/thermal-chamber recommendation is a concrete unadmitted profile lead; do not close the question as no published fact.",
+    "Review is AI-only, no human or physical validation.",
+    "No product pass is finalized until reviewed injections/changed-answer/full verification/local commit."
+  ],
+  "review_signature_sha256": "a05d635bad5761ff93bf2811dcd5f1a84baafcd60b55451502f4673ba5f503c3"
+}

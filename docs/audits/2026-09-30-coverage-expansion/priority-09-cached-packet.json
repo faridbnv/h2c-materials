@@ -1,0 +1,129 @@
+{
+  "PacketID": "PRIORITY-09-REGISTERED-EXPOSURE-LIMITS",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G026-07",
+      "MaterialID": "M026",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "eSUN",
+      "Product name": "PETG-ESD",
+      "Shared formulation key": "S-PEBA-PETG-ESD-TDS-EN",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-PEBA-PETG-ESD-TDS-EN",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-44",
+      "MaterialID": "M162",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "eSUN",
+      "Product name": "TPU-64D",
+      "Shared formulation key": "S-PEBA-TPU-64D-TDS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "S-PEBA-TPU-64D-TDS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "S-PEBA-PETG-ESD-TDS-EN",
+      "Publisher": "eSUN",
+      "Title": "Technical Data Sheet PETG-ESD",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is eSUN's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/PETG-ESD-TDS-EN.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G026-07",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b82fad6b1d2d38bce104e5c37c160af3126a2c3d9037d82eaf18021bf61902f2"
+    },
+    {
+      "SourceID": "S-PEBA-TPU-64D-TDS",
+      "Publisher": "eSUN",
+      "Title": "Technical Data Sheet TPU-64D",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-19",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.esun3d.com/media/esun/catalog/certification/product/TPU-64D/TPU-64D_TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G039-44",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e0d3f8ad51f7fd576a157bfb77ec7b8fbcfeb37e9fd3c080513c8c2701dd4351"
+    }
+  ],
+  "Operations": [
+    {
+      "OperationID": "G026-07-service-limit",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M026",
+        "GradeID": "G026-07",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "Not resistant to light and ageing",
+        "Exposure / conditions": "Own UV Resistance row; radiation dose/spectrum, temperature, duration, specimen and retention criterion not published. Current product-page heat/outdoor marketing does not settle UV lifetime.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-PEBA-PETG-ESD-TDS-EN",
+        "Locator": "p.2: UV Resistance, source text line18"
+      },
+      "SourceBasis": {
+        "SourceID": "S-PEBA-PETG-ESD-TDS-EN",
+        "SHA256": "b82fad6b1d2d38bce104e5c37c160af3126a2c3d9037d82eaf18021bf61902f2",
+        "Page": 2,
+        "Line": 18,
+        "Raw": "UV Resistance Not resistant to light and ageing"
+      }
+    },
+    {
+      "OperationID": "G039-44-service-limit",
+      "Table": "evidence",
+      "Kind": "append",
+      "Proposed": {
+        "MaterialID": "M162",
+        "GradeID": "G039-44",
+        "Domain": "Durability",
+        "Topic": "Moisture",
+        "Finding": "Resistance to less than 60℃ of water environment",
+        "Exposure / conditions": "Own Water Repellency row states less than60C water environment, an open upper temperature condition. Duration, water chemistry, specimen geometry, method and retained-property threshold not published. Not steam/hydrolysis qualification or a synthetic measured test.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-PEBA-TPU-64D-TDS",
+        "Locator": "p.2: Water Repellency, source text line19"
+      },
+      "SourceBasis": {
+        "SourceID": "S-PEBA-TPU-64D-TDS",
+        "SHA256": "e0d3f8ad51f7fd576a157bfb77ec7b8fbcfeb37e9fd3c080513c8c2701dd4351",
+        "Page": 2,
+        "Line": 19,
+        "Raw": "Water Repellency Resistance to less than 60℃ of water environment"
+      }
+    }
+  ]
+}

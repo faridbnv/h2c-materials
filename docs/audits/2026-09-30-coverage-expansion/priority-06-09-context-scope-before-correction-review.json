@@ -1,0 +1,375 @@
+{
+  "input_sha256": "d474c7ae0a8b28cbb3eb246e8c03fb4c7ee93fad3c566fa3f6273f432cdabfcd",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_findings": 39,
+  "raw_audit_findings": 62,
+  "ReviewScope": "Verified all full current profile/source guards and original digests; reused original page/body readings from signed C12/C13 and outcome source reread. No canonical edits. Thirty scoped-field explanations approved; nine Fillamentum explanations require truthful provenance wording only, no data correction.",
+  "Findings": [
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1385",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+      "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1385",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+      "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1385",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+      "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1386",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+      "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1386",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+      "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1386",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+      "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1387",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+      "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1387",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+      "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1387",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+      "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1388",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+      "SHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1388",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+      "SHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1388",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce",
+      "SHA256": "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1389",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+      "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1389",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+      "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1389",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+      "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1390",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+      "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1390",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+      "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1391",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+      "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1391",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+      "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1391",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+      "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1392",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+      "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1392",
+      "Field": "Nozzle °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+      "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1392",
+      "Field": "Enclosure",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-e49b91234afa",
+      "SHA256": "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1376",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1377",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1378",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1379",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1380",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1381",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1382",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1383",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1384",
+      "Field": "Drying",
+      "Verdict": "CHANGES_REQUIRED",
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442",
+      "SHA256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "Reason": "Exact p2 product/temperature/minimum-time/need row is faithfully admitted, and p1 thermoregulation/cooling/storage restrictions are retained. The specific importer-selected p1 sentence beginning It should be noted... is not copied verbatim into Failure modes, so the acceptance reason must not say it is.",
+      "RequiredReason": "Exact product row on drying guide page 2, need scale 5, determines the temperature/minimum-time schedule. The importer-selected generic page-1 sentence beginning It should be noted that the drying temperature is precisely determined by the type of polymer remains in the original and explains that the table below specifies drying; it does not replace the row-specific schedule. The page-1 controlled thermoregulation, cooling/desiccator and reabsorption restrictions are retained in Failure modes. No schedule is inferred from the generic sentence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1385",
+      "Field": "Drying",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4eb5a75440e8",
+      "SHA256": "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1386",
+      "Field": "Abrasion / clogging",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-4f4b613ed9d4",
+      "SHA256": "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+      "Reason": "The importer maps hardened-nozzle wording into Abrasion / clogging; that wording is nozzle-material guidance, not a measured wear/clogging result. Scoped drying profile leaves it untranscribed, not absent from source."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1387",
+      "Field": "Abrasion / clogging",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-88316f653878",
+      "SHA256": "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+      "Reason": "The importer maps hardened-nozzle wording into Abrasion / clogging; that wording is nozzle-material guidance, not a measured wear/clogging result. Scoped drying profile leaves it untranscribed, not absent from source."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1389",
+      "Field": "Abrasion / clogging",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-967a9be07d31",
+      "SHA256": "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55",
+      "Reason": "The importer maps hardened-nozzle wording into Abrasion / clogging; that wording is nozzle-material guidance, not a measured wear/clogging result. Scoped drying profile leaves it untranscribed, not absent from source."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1390",
+      "Field": "Bed °C",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+      "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "Reason": "Field is deliberately untranscribed in this scoped supplementary profile, identified in its locator. Original recipe field exists and remains distinct source context; no assertion of source absence."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1390",
+      "Field": "Abrasion / clogging",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-cafa71249318",
+      "SHA256": "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481",
+      "Reason": "The importer maps hardened-nozzle wording into Abrasion / clogging; that wording is nozzle-material guidance, not a measured wear/clogging result. Scoped drying profile leaves it untranscribed, not absent from source."
+    },
+    {
+      "Code": "CONTEXT-PROFILE-SETTING",
+      "Record": "P1391",
+      "Field": "Abrasion / clogging",
+      "Verdict": "APPROVE",
+      "SourceID": "R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a",
+      "SHA256": "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882",
+      "Reason": "The importer maps hardened-nozzle wording into Abrasion / clogging; that wording is nozzle-material guidance, not a measured wear/clogging result. Scoped drying profile leaves it untranscribed, not absent from source."
+    }
+  ],
+  "Limitations": [
+    "Scoped omission is not evidence that the source lacks the field. Acceptances must stay record/field-specific.",
+    "No final release or changed-answer approval implied."
+  ],
+  "review_signature_sha256": "590fc404d3235ceeb8d4f5835443d7b995604a81ccf2b1b4e1806e1e4dfed654"
+}

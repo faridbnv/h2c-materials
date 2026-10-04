@@ -1,0 +1,110 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "9d5cd9d970211a813956844b60c64454dd5eb0868f5b67cb72644bffb7033e13",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 6,
+  "original_custody": "Six digest-verified registered HTML originals reread with htmlText on original bytes; own header/body context and cited paragraph, before reviews/related/footer. Full source/grade Expected rows match current canonical.",
+  "results": [
+    {
+      "OperationID": "G030-07-maker-Post-processing",
+      "GradeID": "G030-07",
+      "source_id": "D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE",
+      "source_sha256": "b0866d4e9b3ecb8884d03f9fb92c174b9d5c26005eb2b9169f4bd4d9e63cfb0b",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 65,
+          "raw": "The print can be machined, as well as glued, painted, or smoothed with solvent vapor.",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G109-02-maker-Good for",
+      "GradeID": "G109-02",
+      "source_id": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+      "source_sha256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 45,
+          "raw": "Thanks to its PTFE content, Fiberlogy PETG+PTFE enables the printing of sliding parts, guides, gears, and other components subjected to low or moderate loads , which are characterized by minimal friction and a longer service life. At the same time, the material retains all the advantages of PET-G: ease of printing, high adhesion to the build plate, chemical resistance, and good impact strength .",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G113-03-maker-Good for",
+      "GradeID": "G113-03",
+      "source_id": "D-FIBERLOGY-ASAAF-FILAMENT-PAGE",
+      "source_sha256": "5c78e92fbed7e7a0fd9c91a1c7b0b48518323f578b76a688382f62a95e8029ea",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 43,
+          "raw": "ASA+AF filament retains all the advantages of classic ASA while offering even greater resistance to wear and mechanical damage . The material has a reduced coefficient of friction, which ensures increased resistance to abrasion (tribological wear). Thanks to its resistance to UV radiation and weather conditions, the material is ideal for outdoor applications, such as automotive parts, drone components, device housings, or components exposed to impacts and fluctuating temperatures. The filament is heat-resistant up to 94°C.",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G052-06-maker-Post-processing",
+      "GradeID": "G052-06",
+      "source_id": "D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE",
+      "source_sha256": "cd6679908ca4895fb141a642ae8e5599525f34e6f26986d9a39b59ca6d3fa853",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 49,
+          "raw": "Fiberlogy Nylon PA12 is easy to post-process—it can be painted and machined with tools used for metal. This makes the prints not only functional but also aesthetically pleasing and tailored to the user’s specific needs.",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G088-07-maker-Pitfalls and limitations",
+      "GradeID": "G088-07",
+      "source_id": "D-FIBERLOGY-PCTG-FILAMENT-PAGE",
+      "source_sha256": "2d46647a40f3603ee8a6d6c2c5cc7695fc336c1d3d930c2f94e7894b468a29f7",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 50,
+          "raw": "Fiberlogy PCTG is BPA-free , fully recyclable , and, in its Pure TR version, approved for food contact* , which further expands its range of applications.",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    },
+    {
+      "OperationID": "G089-02-maker-Pitfalls and limitations",
+      "GradeID": "G089-02",
+      "source_id": "D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE",
+      "source_sha256": "dcb3a7a5c8a8de7bc8056ef29bb042ef55d799595fd2585a9c6f4e2b95912ca9",
+      "original_checks": [
+        {
+          "page": 1,
+          "line": 40,
+          "raw": "Fiberlogy CPE ANTIBAC is a modern 3D printing filament that combines high mechanical and thermal strength with unique antibacterial properties. Thanks to the use of silver nanoparticles, the material effectively inhibits the growth of microorganisms on the surface of printed objects, as confirmed by microbiological tests. Fiberlogy CPE ANTIBAC demonstrated a complete (100%) reduction of E. coli and over a 92% reduction of Staphylococcus aureus in the initial test, and in repeat tests, its effectiveness remained at 100% and 97%, respectively.",
+          "matches_original": true
+        }
+      ],
+      "verdict": "APPROVE"
+    }
+  ],
+  "limits": [
+    "All6maker statements stay know-how, no measurements/environmental category verdict/food or medical qualification.",
+    "PETG+PTFE retains explicit low/moderate loads and unmeasured life/friction claim. ASA+AF94°C is a maker claim, not HDT/service allowable.",
+    "PCTG approval restricted toPureTR; no underlying approval or printed-article migration verification.",
+    "CPE initial100%/>92% versus repeat100%/97% organism claims remain reported by maker; protocol/contact time/specimen/originallabreport unstated.",
+    "Overlap with existing short generic Q05221/Q05201 is partial: new rows add specific low/moderate gear scope and separate organism/initial-repeat percentages; no whole-fact duplicates identified.",
+    "Unrelated variants/AMS spool compatibility and linked page numeric claims are not admitted by this packet.",
+    "AI review only; no human review or physical validation."
+  ],
+  "review_signature_sha256": "5767e895cae60d47eb8d7468d4acdae9bf8d962896cf47904ee89bb95430a59c"
+}

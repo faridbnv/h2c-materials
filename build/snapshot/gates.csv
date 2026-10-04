@@ -107,7 +107,7 @@ M105,ASA-EC,within,within,within,within,requires-hardened,required
 M106,ABS-AF,within,within,within,within,requires-hardened,required
 M107,PLA-ESD,within,within,within,within,no-special-concern,required
 M108,PA6-GS,within,within,within,unknown,requires-hardened,required
-M109,PETG-PTFE,within,within,within,within,no-special-concern,unknown
+M109,PETG-PTFE,within,within,within,within,no-special-concern,required
 M110,PCTG-GF,within,within,within,within,requires-hardened,required
 M111,PLA-EC,within,within,within,within,requires-hardened,required
 M112,PC-PTFE,within,within,within,exceeds,no-special-concern,required
@@ -152,7 +152,7 @@ M150,TPU-LW,within,within,within,unknown,unknown,required
 M151,TPU-GF,within,within,within,within,requires-hardened,required
 M152,PLA-NF,within,within,within,within,no-special-concern,required
 M153,PETG-GR,within,within,within,within,no-special-concern,unknown
-M154,PA12-AF,within,within,within,unknown,unknown,unknown
+M154,PA12-AF,within,within,within,unknown,unknown,required
 M155,PLA-GR,within,unknown,unknown,unknown,unknown,unknown
 M156,PA6/66-CF,within,within,within,unknown,unknown,required
 M157,TPU-EC,within,within,within,unknown,no-special-concern,required

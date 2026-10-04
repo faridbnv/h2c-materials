@@ -387,3 +387,9 @@ No source, measurement, profile, product identity/state/headline, environmental 
 ## Resumed priority products: batches 03–05
 
 [Thirty-product report](priority-03-05-report.md) records verified changes, source limits, answer movements and remaining work. The generated [STATUS](STATUS.md) advances only after the data commit is named in the completion ledger.
+
+## Final selected priority products: batches06–09
+
+[Final46-product report](priority-06-09-report.md) records the four maker batches, source-backed gains,
+reviewed holds and verification. [STATUS](STATUS.md) owns committed completion; the full catalogue is
+not represented as complete by finishing the selected100.

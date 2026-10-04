@@ -15,8 +15,8 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5688,
-    "added": 382,
+    "current": 5756,
+    "added": 450,
     "edited_existing": 211,
     "removed": 0
   },
@@ -85,8 +85,8 @@
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1366,
-    "added": 50,
+    "current": 1392,
+    "added": 76,
     "edited_existing": 768,
     "removed": 0
   },
@@ -99,8 +99,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 1901,
-    "added": 73,
+    "current": 1918,
+    "added": 90,
     "edited_existing": 63,
     "removed": 0
   }

@@ -1,0 +1,390 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "1a6164a936ecea7f6fc471d4df4289b0f65eea684992fbf0a46dc83fda4fe268",
+  "overall_verdict": "WITHDRAWN_NOT_APPLIED",
+  "reviewed_operations": 14,
+  "source_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+  "original_scope": "Reused prior full original p1-p2 reread and visual p2 matrix/legend check; actual original bytes rehashed in this review. Exact two TPU columns, full conditions and agent cell/rating pairs remain faithful. All full expected grade/source/evidence rows matched current canonical tables. Only proposed Finding changed.",
+  "history": "Root inferred bare BAD rows were ignored and ethanol GOOD could create organic-solvent PASS. Independent current engine test disproved this: narrative records are retained by evaluateEnvironment and block a positive-only PASS. Root explicitly withdrew the corrective packet before application. Prior source approval remains; it did not reproduce or claim a parser/engine failure. No model/parser change required.",
+  "results": [
+    {
+      "OperationID": "Q05697-qualified-row",
+      "EvidenceID": "Q05697",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05698-qualified-row",
+      "EvidenceID": "Q05698",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05699-qualified-row",
+      "EvidenceID": "Q05699",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05700-qualified-row",
+      "EvidenceID": "Q05700",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05701-qualified-row",
+      "EvidenceID": "Q05701",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05702-qualified-row",
+      "EvidenceID": "Q05702",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05703-qualified-row",
+      "EvidenceID": "Q05703",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05706-qualified-row",
+      "EvidenceID": "Q05706",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05707-qualified-row",
+      "EvidenceID": "Q05707",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05708-qualified-row",
+      "EvidenceID": "Q05708",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05709-qualified-row",
+      "EvidenceID": "Q05709",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05710-qualified-row",
+      "EvidenceID": "Q05710",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05711-qualified-row",
+      "EvidenceID": "Q05711",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    },
+    {
+      "OperationID": "Q05712-qualified-row",
+      "EvidenceID": "Q05712",
+      "verdict": "WITHDRAWN_NOT_APPLIED",
+      "source_fidelity": "Full agent and rating pair is faithful, but modification is unnecessary to prevent the claimed PASS."
+    }
+  ],
+  "engine_fixture_scope": "Pure evaluateConstraint using all seven matrix category rows per exact grade, current classifyTopic/classifyFinding and verdict category metadata. Isolated matrix fixture, not full release replay. Complete actual results retained below.",
+  "engine_results": [
+    {
+      "grade": "G039-30",
+      "version": "Expected",
+      "category": "organic-solvent",
+      "result": {
+        "status": "INDETERMINATE",
+        "criterion": "organic solvent evidence",
+        "reason": "1 record(s) report resistant, and 2 more say, in words no verdict is read from, \"BAD\" (Q05697); \"BAD\" (Q05699). Read them before relying on it",
+        "evidenceIds": [
+          "Q05697",
+          "Q05698",
+          "Q05699"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "organic-solvent"
+        }
+      }
+    },
+    {
+      "grade": "G039-30",
+      "version": "Expected",
+      "category": "oil-grease",
+      "result": {
+        "status": "PASS",
+        "criterion": "oil grease evidence",
+        "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+        "evidenceIds": [
+          "Q05700",
+          "Q05701"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "oil-grease"
+        }
+      }
+    },
+    {
+      "grade": "G039-30",
+      "version": "Expected",
+      "category": "acid",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "acid evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05702"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "acid"
+        }
+      }
+    },
+    {
+      "grade": "G039-30",
+      "version": "Expected",
+      "category": "alkali",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "alkali evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05703"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "alkali"
+        }
+      }
+    },
+    {
+      "grade": "G039-30",
+      "version": "Proposed",
+      "category": "organic-solvent",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "organic solvent evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05697",
+          "Q05698",
+          "Q05699"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "organic-solvent"
+        }
+      }
+    },
+    {
+      "grade": "G039-30",
+      "version": "Proposed",
+      "category": "oil-grease",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "oil grease evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05700",
+          "Q05701"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "oil-grease"
+        }
+      }
+    },
+    {
+      "grade": "G039-30",
+      "version": "Proposed",
+      "category": "acid",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "acid evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05702"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "acid"
+        }
+      }
+    },
+    {
+      "grade": "G039-30",
+      "version": "Proposed",
+      "category": "alkali",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "alkali evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05703"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "alkali"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Expected",
+      "category": "organic-solvent",
+      "result": {
+        "status": "INDETERMINATE",
+        "criterion": "organic solvent evidence",
+        "reason": "1 record(s) report resistant, and 2 more say, in words no verdict is read from, \"BAD\" (Q05706); \"BAD\" (Q05708). Read them before relying on it",
+        "evidenceIds": [
+          "Q05706",
+          "Q05707",
+          "Q05708"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "organic-solvent"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Expected",
+      "category": "oil-grease",
+      "result": {
+        "status": "PASS",
+        "criterion": "oil grease evidence",
+        "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+        "evidenceIds": [
+          "Q05709",
+          "Q05710"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "oil-grease"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Expected",
+      "category": "acid",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "acid evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05711"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "acid"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Expected",
+      "category": "alkali",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "alkali evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05712"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "alkali"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Proposed",
+      "category": "organic-solvent",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "organic solvent evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05706",
+          "Q05707",
+          "Q05708"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "organic-solvent"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Proposed",
+      "category": "oil-grease",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "oil grease evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05709",
+          "Q05710"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "oil-grease"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Proposed",
+      "category": "acid",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "acid evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05711"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "acid"
+        }
+      }
+    },
+    {
+      "grade": "G039-29",
+      "version": "Proposed",
+      "category": "alkali",
+      "result": {
+        "status": "UNKNOWN",
+        "criterion": "alkali evidence",
+        "reason": "Records exist but none state a verdict",
+        "evidenceIds": [
+          "Q05712"
+        ],
+        "constraint": {
+          "kind": "environment",
+          "category": "alkali"
+        }
+      }
+    }
+  ],
+  "conclusion": "Both exact products: original organic-solvent INDETERMINATE (overall selection treats unresolved as UNKNOWN), oil-grease PASS scoped to recorded exposures, acid/alkali UNKNOWN. Proposed full rows would instead make all four categories UNKNOWN and discard useful positive oil/grease reducibility. Bare BAD remains narrative, not a negative verdict; source conditions remain shown. No unsafe organic-solvent PASS reproduced.",
+  "release_limitations": [
+    "Full release replay and outcome review still required.",
+    "Matrix BAD statements remain recorded narrative; missing concentration/duration/specimen/retention remain explicit.",
+    "Alcohol BAD versus ethanol GOOD must remain visible; category result is not a universal chemical approval."
+  ],
+  "review_signature_sha256": "0b4b705589ace3a0ddb39539470867ca91600d0290131da3786c6a64ef2733a8"
+}

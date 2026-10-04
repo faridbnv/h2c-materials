@@ -441,3 +441,9 @@ and coherent TPU90 ISO37 results, and admits ABS Pro's explicit50°C+ chamber mi
 automatic recalibration and changed scenario answers. All Application judgments remain source-bounded;
 maker know-how creates no suitability passes. C3/C6/C9/C10/C13 verification and remaining source limits
 are recorded with the tranche; the dated score values are unchanged.
+
+The final four selected maker batches (priority06–09,2026-10-04) complete source review of46products,
+including22previously missing drying schedules, scoped chemical claims and unresolved revision/identity
+limits. Their [report](audits/2026-09-30-coverage-expansion/priority-06-09-report.md) records actual
+answer movements, verification and guarded holds. Selected-product closure is counted only after its
+verified local commit in the generated status; full-catalogue targets remain outside this narrowed run.

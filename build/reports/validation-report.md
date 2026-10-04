@@ -17,14 +17,14 @@ Database snapshot 2026-09-21 · build 2026-10-03
 | measurements | 11509 |
 | numericMeasurements | 11328 |
 | quarantined | 24 |
-| profiles | 1287 |
-| evidence | 839 |
+| profiles | 1313 |
+| evidence | 868 |
 | prices | 357 |
-| sources | 1901 |
+| sources | 1918 |
 | coverage | 947 |
-| knowHow | 4828 |
+| knowHow | 4867 |
 | polymerEnvironment | 353 |
-| polymerEvidence | 321 |
+| polymerEvidence | 314 |
 | coverageDerived | 1144 |
 
 ## Headline coverage
@@ -82,34 +82,34 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 | Category | Kind | Records | With a verdict | Materials | From the base polymer |
 |---|---|---:|---:|---:|---:|
-| acid | verdict | 151 | 130 | 43 | 52 |
-| alkali | verdict | 97 | 86 | 42 | 52 |
-| oil-grease | verdict | 75 | 57 | 44 | 50 |
-| organic-solvent | verdict | 93 | 46 | 50 | 51 |
+| acid | verdict | 155 | 131 | 45 | 50 |
+| alkali | verdict | 101 | 87 | 44 | 50 |
+| oil-grease | verdict | 81 | 61 | 46 | 48 |
+| organic-solvent | verdict | 103 | 50 | 51 | 50 |
 | water-solubility | verdict | 42 | 41 | 34 | 34 |
 | flammability | verdict | 46 | 36 | 37 | 13 |
-| food-contact | indicator | 3 | 0 | 3 | 0 |
-| uv-outdoor | verdict | 84 | 0 | 30 | 16 |
-| moisture | verdict | 16 | 0 | 14 | 18 |
+| food-contact | indicator | 4 | 0 | 4 | 0 |
+| uv-outdoor | verdict | 85 | 0 | 31 | 16 |
+| moisture | verdict | 17 | 0 | 15 | 18 |
 | creep | indicator | 2 | 0 | 2 | 0 |
 | fatigue | indicator | 5 | 0 | 5 | 0 |
 | hydrolysis | verdict | 10 | 0 | 10 | 35 |
 
 ## Polymer-level behaviour
 
-353 rows of published base-polymer behaviour, attached as 321 inferred records to 79 materials
+353 rows of published base-polymer behaviour, attached as 314 inferred records to 79 materials
 with no grade-level record in the category (D64). A record is shown in the drawer, counted apart in the filter rail, may screen a
 material out under inference where the polymer is attacked or dissolved, and never passes a requirement.
 
 | Category | Polymers | Agent rows | Materials covered | Of which may screen |
 |---|---:|---:|---:|---:|
-| acid | 21 | 94 | 52 | 15 |
-| alkali | 20 | 43 | 52 | 13 |
+| acid | 21 | 94 | 50 | 14 |
+| alkali | 20 | 43 | 50 | 13 |
 | flammability | 4 | 4 | 13 | 11 |
 | hydrolysis | 12 | 19 | 35 | 10 |
 | moisture | 2 | 2 | 18 | 0 |
-| oil-grease | 20 | 78 | 50 | 0 |
-| organic-solvent | 23 | 87 | 51 | 18 |
+| oil-grease | 20 | 78 | 48 | 0 |
+| organic-solvent | 23 | 87 | 50 | 18 |
 | uv-outdoor | 8 | 8 | 16 | 1 |
 | water-solubility | 15 | 18 | 34 | 1 |
 

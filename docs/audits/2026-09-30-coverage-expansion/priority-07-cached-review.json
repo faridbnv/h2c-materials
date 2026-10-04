@@ -1,0 +1,130 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "6b0bdde5cd9652706a9ba40cae7d9c4f5a97b8428624b7e8606199fc97a67dc5",
+  "overall_verdict": "APPROVE",
+  "reviewed_operations": 10,
+  "reviewed_sources": 2,
+  "original_scope": "Both complete one-page actual SHA-verified PDF originals freshly reread via pdfPages/pageLines and independently rendered visually. Own exact product headings, both complete chemical table rows and column alignment, entire footnotes/disclaimers checked.",
+  "binding_checks": "All full ExpectedGrades and ExpectedSources match current canonical tables. No existing chemical-category record or exact Finding duplicate found on either exact grade. Source reference pins unchanged.",
+  "results": [
+    {
+      "OperationID": "G049-05-Acetone",
+      "GradeID": "G049-05",
+      "verdict": "APPROVE",
+      "original_sha256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "Good chemical resistance",
+      "compiled_verdict": "narrative",
+      "usable_category_verdict": false,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full positive/negative groups and literal grasses ambiguity retained; no grease inference."
+    },
+    {
+      "OperationID": "G049-05-Oils",
+      "GradeID": "G049-05",
+      "verdict": "APPROVE",
+      "original_sha256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "Good chemical resistance",
+      "compiled_verdict": "narrative",
+      "usable_category_verdict": false,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full positive/negative groups and literal grasses ambiguity retained; no grease inference."
+    },
+    {
+      "OperationID": "G049-05-Acids",
+      "GradeID": "G049-05",
+      "verdict": "APPROVE",
+      "original_sha256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "Low chemical resistance",
+      "compiled_verdict": "narrative",
+      "usable_category_verdict": false,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full positive/negative groups and literal grasses ambiguity retained; no grease inference."
+    },
+    {
+      "OperationID": "G049-05-Bases",
+      "GradeID": "G049-05",
+      "verdict": "APPROVE",
+      "original_sha256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "Low chemical resistance",
+      "compiled_verdict": "narrative",
+      "usable_category_verdict": false,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full positive/negative groups and literal grasses ambiguity retained; no grease inference."
+    },
+    {
+      "OperationID": "G049-05-Alcohol",
+      "GradeID": "G049-05",
+      "verdict": "APPROVE",
+      "original_sha256": "0a262443cd0fc268d97516e654cef0e89fb7d3f34e546ff1e5ed059b6b18dd67",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "Low chemical resistance",
+      "compiled_verdict": "narrative",
+      "usable_category_verdict": false,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full positive/negative groups and literal grasses ambiguity retained; no grease inference."
+    },
+    {
+      "OperationID": "G082-07-Acetone",
+      "GradeID": "G082-07",
+      "verdict": "APPROVE",
+      "original_sha256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "good",
+      "compiled_verdict": "resistant",
+      "usable_category_verdict": true,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full PPfirst/second group qualifiers retained; good category result limited to recorded exposures."
+    },
+    {
+      "OperationID": "G082-07-Acids",
+      "GradeID": "G082-07",
+      "verdict": "APPROVE",
+      "original_sha256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "good",
+      "compiled_verdict": "resistant",
+      "usable_category_verdict": true,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full PPfirst/second group qualifiers retained; good category result limited to recorded exposures."
+    },
+    {
+      "OperationID": "G082-07-Alkalis",
+      "GradeID": "G082-07",
+      "verdict": "APPROVE",
+      "original_sha256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "good",
+      "compiled_verdict": "resistant",
+      "usable_category_verdict": true,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full PPfirst/second group qualifiers retained; good category result limited to recorded exposures."
+    },
+    {
+      "OperationID": "G082-07-Alcohols",
+      "GradeID": "G082-07",
+      "verdict": "APPROVE",
+      "original_sha256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "good",
+      "compiled_verdict": "resistant",
+      "usable_category_verdict": true,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full PPfirst/second group qualifiers retained; good category result limited to recorded exposures."
+    },
+    {
+      "OperationID": "G082-07-Oils and greases",
+      "GradeID": "G082-07",
+      "verdict": "APPROVE",
+      "original_sha256": "4886af2bb72ffe75cf0b6fe1375b52e414cad41b890ebeeef825c2a19c521acf",
+      "locator": "p.1: Chemical properties, own named group row and source rating",
+      "raw_rating": "medium",
+      "compiled_verdict": "narrative",
+      "usable_category_verdict": false,
+      "checks": "Own chemical table label, exact source rating and row-scoped temperature/conditions faithful; acid/base strength not invented. Full PPfirst/second group qualifiers retained; good category result limited to recorded exposures."
+    }
+  ],
+  "limits": [
+    "Porthcurno grasses is literally printed and not corrected to grease; oil-only basis scoped in Exposure despite broader existing topic label. No water-hydrolysis or grease fact invented.",
+    "Porthcurno chemical temperature is unstated; mechanical23C does not apply. Good/Low chemical resistance both classify narrative.",
+    "PP2320 both chemical rows explicitly25C. Good rates water/acetone/acids/alkalis/alcohols/salts; medium rates oils/greases/car fluids/ozone. No legend defining magnitude, named acid/alkali/alcohol species or concentration/duration/specimen/method/retention published.",
+    "PPgood entries remain source-scoped reducer-resistant under current contract; four rows can introduce category PASS subject to other exact-grade evidence. Medium stays narrative, not converted to limited/poor or FAIL. Release replay must report actual answer movements and preserve exposure caveat.",
+    "No new measurement/property/state/profile or certification established; source evidence recorded is not equivalent to reducible negative verdict."
+  ],
+  "review_signature_sha256": "0d24e485c8f795c3001d8e9b7a68f4621d1307e81b8fdf25badef6ce80fe5756"
+}

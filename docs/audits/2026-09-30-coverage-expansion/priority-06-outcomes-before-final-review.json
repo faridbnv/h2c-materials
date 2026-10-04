@@ -1,0 +1,92 @@
+{
+  "input_sha256": "64e16f5abdb601670e4ad9fd940950c8e082f490b327f8c1ed2a79e3691e6312",
+  "overall_verdict": "CHANGES_REQUIRED",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "Corrections": [
+    {
+      "GradeID": "G053-16",
+      "QuestionID": "print-treatment-state",
+      "Reason": "P1372 now admitted; remove obsolete pending-admission assertion only.",
+      "ExpectedQuestion": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own TDS and maker printing/drying blocks re-read. Existing recipe/drying evidence reused; eight missing own-page schedules admitted as P1367–P1374, with exact product/source bindings. Conditional packing-tape bed advice and recommended versus required enclosure remain literal. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  Own PA12+CF prose recommends an enclosed and heated chamber, while the table says Enclosed chamber: not required. Retain both as an optional recommendation with no temperature setpoint or mandatory heat inferred; the corrected profile is held pending guarded admission.",
+        "Basis": [
+          {
+            "RecordID": "P1061",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+            "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1068",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
+            "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line53",
+            "RawSourceStatement": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models."
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line68",
+            "RawSourceStatement": "Enclosed chamber: not required"
+          },
+          {
+            "RecordID": "P1372",
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance; Own product recommendation line53 and printing-table line68 both retained; no chamber setpoint published."
+          }
+        ]
+      },
+      "ProposedQuestion": {
+        "ID": "print-treatment-state",
+        "Question": "Exact print gates, drying, annealing and moisture states; comparison and specimen conditions distinct.",
+        "Outcome": "already recorded",
+        "Finding": "Own TDS and maker printing/drying blocks re-read. Existing recipe/drying evidence reused; eight missing own-page schedules admitted as P1367–P1374, with exact product/source bindings. Conditional packing-tape bed advice and recommended versus required enclosure remain literal. Published specimen treatment, recommended user treatment and dry/humid states remain separate. Missing parameters are not filled from adjacent products.  Own PA12+CF prose recommends an enclosed and heated chamber, while the table says Enclosed chamber: not required. Retain both as an optional recommendation with no temperature setpoint or mandatory heat inferred; the corrected own-page profile is admitted as P1372; no mandatory chamber setpoint was inferred.",
+        "Basis": [
+          {
+            "RecordID": "P1061",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLONPA12CF15-TDS",
+            "SHA256": "8252b3f60fa6c47a9a6b6de3741e6b8f5b0fdfaf2d2368e0ce0407880df46c78",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "RecordID": "P1068",
+            "SourceID": "R-FIBERLOGY-FIBERLOGY-NYLON-PA12CF15-TDS",
+            "SHA256": "9e3490411792a8d2b44fe92cc54d203d860e3bf6c31c0eee14f6c50095a9df68",
+            "Locator": "p. 1: Recommended printing settings"
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line53",
+            "RawSourceStatement": "For printing with Nylon PA12+CF filament, we recommend using a 3D printer with an enclosed and heated chamber to ensure process stability and high-quality finished models."
+          },
+          {
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p.1: own product body, source text line68",
+            "RawSourceStatement": "Enclosed chamber: not required"
+          },
+          {
+            "RecordID": "P1372",
+            "SourceID": "D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE",
+            "SHA256": "f88f49a82a1c1ed7b5218ef0dc0f7782d41bc075f3de25cef5968ba9f4928bff",
+            "Locator": "p. 1: Exact product printing block; nozzle, bed, plate, enclosure and drying source-specific guidance; Own product recommendation line53 and printing-table line68 both retained; no chamber setpoint published."
+          }
+        ]
+      }
+    }
+  ],
+  "Scope": "Source-grounded outcome corrections only; no canonical data edits. Actual digest-verified original PDFs/HTML read directly; source admissions reused signed original reviews. For06, narrow post-admission delta reuses prior204-question source review and verifies all admitted full rows.",
+  "review_signature_sha256": "16315a97e6959c794ce440cada4b6dbfd4c240605f7a2be305cdde43648f9af7"
+}

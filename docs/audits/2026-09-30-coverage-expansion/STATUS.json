@@ -1,6 +1,6 @@
 {
-  "dataRelease": "4e5ce68f19f3",
-  "latestCompletedDataCommit": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
+  "dataRelease": "2a8ffade57b4",
+  "latestCompletedDataCommit": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
     "total": 136,
@@ -9,8 +9,8 @@
   },
   "productPasses": {
     "total": 1051,
-    "completed": 45,
-    "remaining": 1006,
+    "completed": 75,
+    "remaining": 976,
     "mergedIntoAnother": 26
   },
   "applicationCells": {
@@ -21,23 +21,23 @@
   },
   "environmentalRecordPresence": {
     "scope": "Seven exposure categories; exact grade records only, not polymer context or approvals",
-    "materials": 65,
+    "materials": 66,
     "byCategory": {
-      "acid": 43,
-      "alkali": 42,
-      "organic-solvent": 50,
-      "oil-grease": 44,
-      "uv-outdoor": 30,
-      "moisture": 12,
+      "acid": 45,
+      "alkali": 44,
+      "organic-solvent": 51,
+      "oil-grease": 46,
+      "uv-outdoor": 31,
+      "moisture": 13,
       "hydrolysis": 6
     }
   },
   "allCataloguePrintGates": {
     "products": 1099,
     "nozzleKnown": 1000,
-    "chamberKnown": 770,
-    "chamberUnknown": 329,
-    "dryingRequired": 526
+    "chamberKnown": 773,
+    "chamberUnknown": 326,
+    "dryingRequired": 550
   },
   "databaseCounts": {
     "materials": 175,
@@ -53,14 +53,14 @@
     "measurements": 11509,
     "numericMeasurements": 11328,
     "quarantined": 24,
-    "profiles": 1287,
-    "evidence": 839,
+    "profiles": 1313,
+    "evidence": 868,
     "prices": 357,
-    "sources": 1901,
+    "sources": 1918,
     "coverage": 947,
-    "knowHow": 4828,
+    "knowHow": 4867,
     "polymerEnvironment": 353,
-    "polymerEvidence": 321,
+    "polymerEvidence": 314,
     "coverageDerived": 1144
   },
   "canonicalTableDelta": {
@@ -80,8 +80,8 @@
     },
     "evidence": {
       "baseline": 5306,
-      "current": 5688,
-      "added": 382,
+      "current": 5756,
+      "added": 450,
       "edited_existing": 211,
       "removed": 0
     },
@@ -150,8 +150,8 @@
     },
     "profiles": {
       "baseline": 1316,
-      "current": 1366,
-      "added": 50,
+      "current": 1392,
+      "added": 76,
       "edited_existing": 768,
       "removed": 0
     },
@@ -164,8 +164,8 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 1901,
-      "added": 73,
+      "current": 1918,
+      "added": 90,
       "edited_existing": 63,
       "removed": 0
     }
@@ -318,6 +318,10 @@
     {
       "hash": "675b70dfb6b1c9850411ce925f43bfcb0dd0c0ab",
       "subject": "data: complete reviewed Polymaker priority batch of twelve products"
+    },
+    {
+      "hash": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+      "subject": "data: verify thirty Polymaker and Bambu product coverage passes"
     }
   ],
   "resumedScope": {
@@ -326,7 +330,7 @@
     "materialCompleted": 61,
     "targetAdditionalProducts": 100,
     "selectedProducts": 100,
-    "completedSelectedProducts": 24,
+    "completedSelectedProducts": 54,
     "selectionState": "100 live priority products frozen after all 136 material assessments completed; nine maker batches of at most12."
   },
   "completionMeaning": "Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes."

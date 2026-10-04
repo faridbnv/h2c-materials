@@ -1,0 +1,2034 @@
+{
+  "input_sha256": "fb2a8c786f4881e17d79c23488af9bcdd896f41489ec2126517e9f29029a35dd",
+  "overall_verdict": "APPROVE",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_targets": 12,
+  "reviewed_questions": 204,
+  "OriginalReadingScope": "Direct native htmlText/pdfPages reads from89 unique hash-verified actual originals across07–09, fullsource headers and relevant own-use/table/condition/limit bodies; prior signedC12/C13/C14/cached source reviews reused.06 uses retained prior204question original review plus full postadmission rows/wording delta. No historical absent-byte comparison claimed. No broad new search.",
+  "CorrectionHistory": [
+    {
+      "input_sha256": "e3d26b026fa80a53104858cdb5e4ed2f4330c22f250fcfc0b187c17b4542a050",
+      "review_signature_sha256": "7574dedda2e33ec9d0bd3db745986e5c6cda0721809ecb1288808d6e0f8fd781",
+      "CorrectionsCount": 48,
+      "retained_packet": "priority-08-outcomes-before-final-review-packet.json",
+      "retained_review": "priority-08-outcomes-before-final-review.json"
+    }
+  ],
+  "ReviewedQuestions": [
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4869c9318b8f419eaa669fe2222c62d438aae0b76bd6dd6dd4bfd137830c3bfa",
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+        "8864ef2742bfc24e5fea43d10d946bc81e8c6aec4bfc2a774bfc22aa8105ab00"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4869c9318b8f419eaa669fe2222c62d438aae0b76bd6dd6dd4bfd137830c3bfa",
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+        "8864ef2742bfc24e5fea43d10d946bc81e8c6aec4bfc2a774bfc22aa8105ab00"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "4869c9318b8f419eaa669fe2222c62d438aae0b76bd6dd6dd4bfd137830c3bfa",
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+        "8864ef2742bfc24e5fea43d10d946bc81e8c6aec4bfc2a774bfc22aa8105ab00"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "4869c9318b8f419eaa669fe2222c62d438aae0b76bd6dd6dd4bfd137830c3bfa",
+        "8864ef2742bfc24e5fea43d10d946bc81e8c6aec4bfc2a774bfc22aa8105ab00"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4869c9318b8f419eaa669fe2222c62d438aae0b76bd6dd6dd4bfd137830c3bfa",
+        "49ca17b005738dd5a915d84c2c95a611a8fde82bc766e452522e4f32cdd4e3e5",
+        "8864ef2742bfc24e5fea43d10d946bc81e8c6aec4bfc2a774bfc22aa8105ab00"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-17",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "011b26032f639cce5969262a139ca5cea7e9b03e12daab9b5b905f1ca0d84cb3",
+        "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "011b26032f639cce5969262a139ca5cea7e9b03e12daab9b5b905f1ca0d84cb3",
+        "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "011b26032f639cce5969262a139ca5cea7e9b03e12daab9b5b905f1ca0d84cb3",
+        "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "011b26032f639cce5969262a139ca5cea7e9b03e12daab9b5b905f1ca0d84cb3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "011b26032f639cce5969262a139ca5cea7e9b03e12daab9b5b905f1ca0d84cb3",
+        "967a9be07d31d403fcea0c6ca55a466136817d7bdf2af15e70086ac5856e4c55"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G020-56",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "07eb2fa3d9324e919b9b428e77157f83c8e4005d20b3246d6c126291c7d819e5",
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+        "e1bc3a9fba2d98e0c2b01b45a949aa425a87e0ee141653345553d04766ed22aa"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+        "e1bc3a9fba2d98e0c2b01b45a949aa425a87e0ee141653345553d04766ed22aa"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "07eb2fa3d9324e919b9b428e77157f83c8e4005d20b3246d6c126291c7d819e5",
+        "e1bc3a9fba2d98e0c2b01b45a949aa425a87e0ee141653345553d04766ed22aa"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "07eb2fa3d9324e919b9b428e77157f83c8e4005d20b3246d6c126291c7d819e5",
+        "88316f653878efc4a72fdc6ee6c6630ba5cedf6ea39f4c4bd920299a75280d6d",
+        "e1bc3a9fba2d98e0c2b01b45a949aa425a87e0ee141653345553d04766ed22aa"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G024-09",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "0a5a908e7469dc3eb2d322f86e3ee6b07e6d4da1c6ea3e4a1c6a7d0eb69437ea",
+        "2aa7e9b2bef4b39703b7751027cb35165ab603d4f77dc48fc6fb3599f80a7b40",
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "0a5a908e7469dc3eb2d322f86e3ee6b07e6d4da1c6ea3e4a1c6a7d0eb69437ea",
+        "2aa7e9b2bef4b39703b7751027cb35165ab603d4f77dc48fc6fb3599f80a7b40",
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "0a5a908e7469dc3eb2d322f86e3ee6b07e6d4da1c6ea3e4a1c6a7d0eb69437ea",
+        "2aa7e9b2bef4b39703b7751027cb35165ab603d4f77dc48fc6fb3599f80a7b40",
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "0a5a908e7469dc3eb2d322f86e3ee6b07e6d4da1c6ea3e4a1c6a7d0eb69437ea",
+        "2aa7e9b2bef4b39703b7751027cb35165ab603d4f77dc48fc6fb3599f80a7b40"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "0a5a908e7469dc3eb2d322f86e3ee6b07e6d4da1c6ea3e4a1c6a7d0eb69437ea",
+        "2aa7e9b2bef4b39703b7751027cb35165ab603d4f77dc48fc6fb3599f80a7b40",
+        "ce91065b0c8a29a328094afc1fbe55f10d16cd47047f3301db9f65e53a894882"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G088-03",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "0a365d65f60db30eac3e3cdc357043e92e9be0e8f15dce6184f2f0fad9bb4fd3",
+        "3a680734c847431e9ae5fac353a9f64bc3f197c1ca75c470f133c1b3606c2e08",
+        "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c",
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+        "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+        "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+        "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "3a680734c847431e9ae5fac353a9f64bc3f197c1ca75c470f133c1b3606c2e08",
+        "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c",
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+        "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "3a680734c847431e9ae5fac353a9f64bc3f197c1ca75c470f133c1b3606c2e08",
+        "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c",
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+        "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "0a365d65f60db30eac3e3cdc357043e92e9be0e8f15dce6184f2f0fad9bb4fd3",
+        "3a680734c847431e9ae5fac353a9f64bc3f197c1ca75c470f133c1b3606c2e08",
+        "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "0a365d65f60db30eac3e3cdc357043e92e9be0e8f15dce6184f2f0fad9bb4fd3",
+        "3a680734c847431e9ae5fac353a9f64bc3f197c1ca75c470f133c1b3606c2e08",
+        "456b354d6fd1828295762e86a95fd8cad34413713d7cc818820e5451266f7b2c",
+        "70456e37bf44a914173ff5ce018ad5435aefe30804b5484ae259f8fbfb6ed311",
+        "83ec5c0b312556303a59a9ded22a3929a57b6d3921b686782f4e77cf0dcee25f"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G131-01",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "272aefa82484186124f3935d5412f90a75b93c3eb7ac746a44701d644c992afa",
+        "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+        "7e8a63da3d9a732b4d8e3e405b0b7cb8488ed7176a31e8f0f83010f3bf54f88e"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "272aefa82484186124f3935d5412f90a75b93c3eb7ac746a44701d644c992afa",
+        "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+        "7e8a63da3d9a732b4d8e3e405b0b7cb8488ed7176a31e8f0f83010f3bf54f88e"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+        "7e8a63da3d9a732b4d8e3e405b0b7cb8488ed7176a31e8f0f83010f3bf54f88e"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "272aefa82484186124f3935d5412f90a75b93c3eb7ac746a44701d644c992afa",
+        "7e8a63da3d9a732b4d8e3e405b0b7cb8488ed7176a31e8f0f83010f3bf54f88e"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "272aefa82484186124f3935d5412f90a75b93c3eb7ac746a44701d644c992afa",
+        "4f4b613ed9d4be47811e9747d2b3d467b9a7b9fca3a1324013f81ad8b1ac0155",
+        "7e8a63da3d9a732b4d8e3e405b0b7cb8488ed7176a31e8f0f83010f3bf54f88e"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G027-11",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+        "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+        "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+        "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+        "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+        "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18",
+        "63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "4eb5a75440e8ae5fc6e459a4ffb710ad567bec23d168a58e715cb223a6511500",
+        "526b472f69cc135aae57de5b0e766ad1733461d90ed4a5001ae08a471fe79f18",
+        "63a7b4a4d35c7847e10696ac90121f3088c9e15cb0c1142362a94fa7d8d03c4b"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G029-03",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "137f039088e1031d97cf5dc227273e7b5b0672976e34608570d1082b52db1fbb",
+        "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d",
+        "45c93d053fe21e1dcf02128eedb2f2764400ab9b1e75dc6e0ca53dab7520e0a2",
+        "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "137f039088e1031d97cf5dc227273e7b5b0672976e34608570d1082b52db1fbb",
+        "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d",
+        "45c93d053fe21e1dcf02128eedb2f2764400ab9b1e75dc6e0ca53dab7520e0a2",
+        "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "137f039088e1031d97cf5dc227273e7b5b0672976e34608570d1082b52db1fbb",
+        "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d",
+        "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "137f039088e1031d97cf5dc227273e7b5b0672976e34608570d1082b52db1fbb",
+        "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d",
+        "45c93d053fe21e1dcf02128eedb2f2764400ab9b1e75dc6e0ca53dab7520e0a2"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "137f039088e1031d97cf5dc227273e7b5b0672976e34608570d1082b52db1fbb",
+        "458d69b9d9fbddbd537297890638920d7fc27b2716382fe54c06d3024d436f5d",
+        "45c93d053fe21e1dcf02128eedb2f2764400ab9b1e75dc6e0ca53dab7520e0a2",
+        "8f1f07e586ce6b1eaed1c7a9efd71d881141b30e9a1c6ad255c20d31a5973017"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G034-05",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "245381f760f896df6f09ffa2589fa6520d421c927ad893a6ff5c442328f29839",
+        "61e6ca2d9fa285888efc4306b2bd75f23c986d1dcb2e1f7936e2927c1720647b",
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "245381f760f896df6f09ffa2589fa6520d421c927ad893a6ff5c442328f29839",
+        "61e6ca2d9fa285888efc4306b2bd75f23c986d1dcb2e1f7936e2927c1720647b",
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+        "cbd667aaf13501cc6ac1583c430e228004edd8484d295939bd2abd693757da68"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "245381f760f896df6f09ffa2589fa6520d421c927ad893a6ff5c442328f29839",
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "245381f760f896df6f09ffa2589fa6520d421c927ad893a6ff5c442328f29839",
+        "61e6ca2d9fa285888efc4306b2bd75f23c986d1dcb2e1f7936e2927c1720647b",
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+        "cbd667aaf13501cc6ac1583c430e228004edd8484d295939bd2abd693757da68"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "61e6ca2d9fa285888efc4306b2bd75f23c986d1dcb2e1f7936e2927c1720647b",
+        "cbd667aaf13501cc6ac1583c430e228004edd8484d295939bd2abd693757da68"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "245381f760f896df6f09ffa2589fa6520d421c927ad893a6ff5c442328f29839",
+        "61e6ca2d9fa285888efc4306b2bd75f23c986d1dcb2e1f7936e2927c1720647b",
+        "b3aff68293fcd642cd54e13e5a9e8d36fc4010741ef7cdfa74418310aa9033c1",
+        "cbd667aaf13501cc6ac1583c430e228004edd8484d295939bd2abd693757da68"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G039-16",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+        "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+        "cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901",
+        "eb4012ca08808445660e6d9b92656f7f1e4b9c9dea155fcec14eab4e19b8f656"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+        "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+        "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+        "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+        "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+        "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9",
+        "cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901",
+        "eb4012ca08808445660e6d9b92656f7f1e4b9c9dea155fcec14eab4e19b8f656"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+        "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+        "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9",
+        "cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901",
+        "eb4012ca08808445660e6d9b92656f7f1e4b9c9dea155fcec14eab4e19b8f656"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9",
+        "cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901",
+        "eb4012ca08808445660e6d9b92656f7f1e4b9c9dea155fcec14eab4e19b8f656"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "1d34d7823a2a814b61f74f0596ff92204e076750334c109ff2db66624f123833",
+        "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+        "5e8817f177e5375a5997d85dbebd9e289d33efdb74563833bb049ee6491c59f9",
+        "cc0f627a49e085355aafb836cf356781a2c44b804d3209e64eaa020c4b642901",
+        "eb4012ca08808445660e6d9b92656f7f1e4b9c9dea155fcec14eab4e19b8f656"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G126-02",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "d405addac27204e889ed7acca0f743ee93a16753ab55a6772171dfc1c8fc8aa6",
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "d405addac27204e889ed7acca0f743ee93a16753ab55a6772171dfc1c8fc8aa6",
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "d405addac27204e889ed7acca0f743ee93a16753ab55a6772171dfc1c8fc8aa6"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "d405addac27204e889ed7acca0f743ee93a16753ab55a6772171dfc1c8fc8aa6",
+        "e49b91234afaaf448d1e91b9441b7d2dad11bd1ed5016ad0bc98ee4338f6b8e3"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G050-05",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "application-finishing",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-acid",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-alkali",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-organic-solvent",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-oil-grease",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-water-solubility",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-flammability",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-food-contact",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-uv-outdoor",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-moisture",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "51da63ecbeeacbc05e8ca0c32df855dd2535380f4d63467dddcc85ca306c30d4",
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-creep",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-fatigue",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "environment-hydrolysis",
+      "Verdict": "APPROVE",
+      "Outcome": "bounded search exhausted",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "print-treatment-state",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "51da63ecbeeacbc05e8ca0c32df855dd2535380f4d63467dddcc85ca306c30d4",
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "properties-conditions",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [
+        "51da63ecbeeacbc05e8ca0c32df855dd2535380f4d63467dddcc85ca306c30d4"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "integrity-conflicts",
+      "Verdict": "APPROVE",
+      "Outcome": "context only",
+      "BasisOriginalSHA256": [
+        "51da63ecbeeacbc05e8ca0c32df855dd2535380f4d63467dddcc85ca306c30d4",
+        "cafa71249318d61f2228eac0e1b1745dbefe81bb330ed953aa5f2cb9a553b481"
+      ],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    },
+    {
+      "GradeID": "G052-02",
+      "QuestionID": "sourcing",
+      "Verdict": "APPROVE",
+      "Outcome": "already recorded",
+      "BasisOriginalSHA256": [],
+      "Limits": "Own exact-grade/material scope and published conditions only. Context/gap/search endings do not establish universal absence or suitability; source-specific holds stay explicit."
+    }
+  ],
+  "ReleaseLimits": [
+    "Outcome state remains proposed final only after verified local commit. No final verification/Git/product-closure approval is implied by source outcome approval.",
+    "Maker claims retain scope; processing drying/hydrolysis is distinct from printed-part service. Missing result N/A/slash is not a rating; menu/link headings alone are not application evidence.",
+    "CurrenteSUN newly identified recommendations remain explicit not-admitted source-context holds with guarded admission/vendor release conditions.",
+    "No canonical measurements/profiles/evidence/grades or automatic estimates changed by this review."
+  ],
+  "review_signature_sha256": "09172ee282c8c444a7c5f3aea59c1e0a88152886ea6073b50b65b51551f5281f"
+}

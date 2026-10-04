@@ -1,0 +1,98 @@
+{
+  "release": "2a8ffade57b4",
+  "head_before_data_tranche": "deac6542e84c778fbf6decbc05d1ac82a9e34058",
+  "origin_main_rechecked": "20b4a6a5ead70a88c9d72c499b65a75dfb9a8176",
+  "full_verify_exit": 0,
+  "full_verify_wall_seconds": 259.31,
+  "warm_verify_fast_seconds": 50.79,
+  "warm_budget_seconds": 90,
+  "unit_tests": 499,
+  "import_tests": 209,
+  "scale": true,
+  "reproducibility": true,
+  "context": {
+    "accepted_findings": 142,
+    "accepted_keys_added": 39,
+    "new": 0,
+    "stale": 0
+  },
+  "lint": {
+    "accepted": 304,
+    "new": 0,
+    "stale": 0
+  },
+  "browser": {
+    "views": 69,
+    "random_scenarios": 300,
+    "rendered_readings": 2596,
+    "layout_failures": 0,
+    "complete_coverage_grid": 136,
+    "changed_products_inspected": 46,
+    "final_reviewed_basis_links_rechecked": 25
+  },
+  "compiled_diff_paths": 647,
+  "backup": {
+    "verified_originals": 2469,
+    "derived_files": 2875,
+    "known_absent_inventory": 124,
+    "new_cited_original_missing": 0,
+    "owner_exact_destination_payload_approval": true
+  },
+  "replays": {
+    "frozen": {
+      "questions": 15,
+      "answers": 17775,
+      "changes": 8
+    },
+    "template": {
+      "questions": 24,
+      "answers": 28440,
+      "changes": 24
+    },
+    "environment": {
+      "questions": 48,
+      "answers": 56880,
+      "changes": 45
+    }
+  },
+  "data_operations": {
+    "new_sources": 17,
+    "new_profiles": 26,
+    "new_evidence": 68,
+    "new_measurements": 0,
+    "canonical_deleted": 0
+  },
+  "headline_estimate_objects_changed": 0,
+  "Review": "Independent AI review, not human; release approval retained separately.",
+  "HistoricalActiveTime": "Historical active time and token use not reliably measured; no invented productivity rate.",
+  "logs": {
+    "full": {
+      "retained_log": "evidence/priority-06-09-full.log",
+      "SHA256": "e9e9976bcb03f8a047ee5d2f213856e29b6af02c2defb406c86f1ae8fea6b51a"
+    },
+    "fast": {
+      "retained_log": "evidence/priority-06-09-fast.log",
+      "SHA256": "cc083f9f4396ec8977590b85f3e3433c6f4f364b321acb3e443e7488762a632f"
+    },
+    "ui": {
+      "retained_log": "evidence/priority-06-09-ui.log",
+      "SHA256": "432216e51f2281a7f3ed0b7b2f12e77fc9d18b4d7d83a5ea805609c3d8691c96"
+    },
+    "render": {
+      "retained_log": "evidence/priority-06-09-render.log",
+      "SHA256": "21001c98ba614fe0b46980fd0edc275675288c40e186b01b8e4a2dbf11b8bd00"
+    },
+    "build-diff": {
+      "retained_log": "evidence/priority-06-09-build-diff.log",
+      "SHA256": "c5aab9edbf7749c49cb2a2a16e1bc2b7d09cb1d76c17486b52e162f0a7febca8"
+    },
+    "context": {
+      "retained_log": "evidence/priority-06-09-context.log",
+      "SHA256": "db81f0c747bf887ebba2801944e9baaeb15a71b835f61051b23005dbea3fec0a"
+    },
+    "backup": {
+      "retained_log": "evidence/priority-06-09-backup.log",
+      "SHA256": "b2aa34c79d51806372b09ddaf787f0b0cced08c6650c154db6d0d0d3880a9c2c"
+    }
+  }
+}

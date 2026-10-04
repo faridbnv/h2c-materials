@@ -1,0 +1,637 @@
+{
+  "PacketID": "PRIORITY-07-QUALIFIED-MATRIX-WORDING",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G039-30",
+      "MaterialID": "M160",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fillamentum",
+      "Product name": "Flexfill TPU 92A",
+      "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-92A-26082019",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-92A-26082019",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G039-29",
+      "MaterialID": "M162",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Fillamentum",
+      "Product name": "Flexfill TPU 98A",
+      "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPU-98A-26082019",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "ExpectedSources": [
+    {
+      "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+      "Publisher": "Fillamentum Manufacturing Czech s.r.o.",
+      "Title": "Flexfill TPU92A Additional information; chemical matrix explicitly covers all Flexfill types",
+      "Revision": "Updated 8/2024",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Own exact product rows and full source limits retained; processing advice is not service-performance evidence. Independent AI review, not human.",
+      "Citation role": "cited",
+      "URL": "https://fillamentum.com/wp-content/uploads/2024/10/FLEXFILL_TPU_92A_FILLAMENTUM_ADDITIONAL_FILE.pdf",
+      "Locator": "Original PDF, pages1–2",
+      "Applicable grades": "G039-30;G039-29",
+      "Access state": "retrieved",
+      "Access note": "Hash-verified saved original entered through isolated campaign witness pipeline.",
+      "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9"
+    }
+  ],
+  "Operations": [
+    {
+      "OperationID": "Q05697-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05697",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACETONE. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU92A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05697",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "ACETONE BAD",
+        "Exposure / conditions": "Agent/group as printed: ACETONE. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU92A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU92A column; own legend and full conditions",
+        "AgentCell": "ACETONE",
+        "RatingCell": "BAD"
+      }
+    },
+    {
+      "OperationID": "Q05698-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05698",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Ethanol",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: ETHANOL. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU92A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05698",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Ethanol",
+        "Finding": "ETHANOL GOOD",
+        "Exposure / conditions": "Agent/group as printed: ETHANOL. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU92A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU92A column; own legend and full conditions",
+        "AgentCell": "ETHANOL",
+        "RatingCell": "GOOD"
+      }
+    },
+    {
+      "OperationID": "Q05699-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05699",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALCOHOLS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU92A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05699",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "ALCOHOLS BAD",
+        "Exposure / conditions": "Agent/group as printed: ALCOHOLS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU92A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU92A column; own legend and full conditions",
+        "AgentCell": "ALCOHOLS",
+        "RatingCell": "BAD"
+      }
+    },
+    {
+      "OperationID": "Q05700-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05700",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: OILS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU92A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05700",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "OILS GOOD",
+        "Exposure / conditions": "Agent/group as printed: OILS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU92A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU92A column; own legend and full conditions",
+        "AgentCell": "OILS",
+        "RatingCell": "GOOD"
+      }
+    },
+    {
+      "OperationID": "Q05701-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05701",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: GREASES. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU92A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05701",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GREASES GOOD",
+        "Exposure / conditions": "Agent/group as printed: GREASES. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU92A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU92A column; own legend and full conditions",
+        "AgentCell": "GREASES",
+        "RatingCell": "GOOD"
+      }
+    },
+    {
+      "OperationID": "Q05702-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05702",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACIDS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU92A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05702",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "ACIDS BAD",
+        "Exposure / conditions": "Agent/group as printed: ACIDS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU92A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU92A column; own legend and full conditions",
+        "AgentCell": "ACIDS",
+        "RatingCell": "BAD"
+      }
+    },
+    {
+      "OperationID": "Q05703-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05703",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALKALIS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU92A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05703",
+        "MaterialID": "M160",
+        "GradeID": "G039-30",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "ALKALIS BAD",
+        "Exposure / conditions": "Agent/group as printed: ALKALIS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU92A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU92A column; own legend and full conditions",
+        "AgentCell": "ALKALIS",
+        "RatingCell": "BAD"
+      }
+    },
+    {
+      "OperationID": "Q05706-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05706",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACETONE. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU98A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05706",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Acetone",
+        "Finding": "ACETONE BAD",
+        "Exposure / conditions": "Agent/group as printed: ACETONE. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU98A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU98A column; own legend and full conditions",
+        "AgentCell": "ACETONE",
+        "RatingCell": "BAD"
+      }
+    },
+    {
+      "OperationID": "Q05707-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05707",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Ethanol",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: ETHANOL. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU98A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05707",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Ethanol",
+        "Finding": "ETHANOL GOOD",
+        "Exposure / conditions": "Agent/group as printed: ETHANOL. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU98A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU98A column; own legend and full conditions",
+        "AgentCell": "ETHANOL",
+        "RatingCell": "GOOD"
+      }
+    },
+    {
+      "OperationID": "Q05708-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05708",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALCOHOLS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU98A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05708",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of organic solvent",
+        "Finding": "ALCOHOLS BAD",
+        "Exposure / conditions": "Agent/group as printed: ALCOHOLS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU98A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU98A column; own legend and full conditions",
+        "AgentCell": "ALCOHOLS",
+        "RatingCell": "BAD"
+      }
+    },
+    {
+      "OperationID": "Q05709-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05709",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: OILS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU98A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05709",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "OILS GOOD",
+        "Exposure / conditions": "Agent/group as printed: OILS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU98A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU98A column; own legend and full conditions",
+        "AgentCell": "OILS",
+        "RatingCell": "GOOD"
+      }
+    },
+    {
+      "OperationID": "Q05710-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05710",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GOOD",
+        "Exposure / conditions": "Agent/group as printed: GREASES. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU98A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05710",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Effect of oils and grease",
+        "Finding": "GREASES GOOD",
+        "Exposure / conditions": "Agent/group as printed: GREASES. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU98A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU98A column; own legend and full conditions",
+        "AgentCell": "GREASES",
+        "RatingCell": "GOOD"
+      }
+    },
+    {
+      "OperationID": "Q05711-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05711",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ACIDS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU98A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05711",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Acid",
+        "Finding": "ACIDS BAD",
+        "Exposure / conditions": "Agent/group as printed: ACIDS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU98A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU98A column; own legend and full conditions",
+        "AgentCell": "ACIDS",
+        "RatingCell": "BAD"
+      }
+    },
+    {
+      "OperationID": "Q05712-qualified-row",
+      "Table": "evidence",
+      "Kind": "edit",
+      "Expected": {
+        "EvidenceID": "Q05712",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "BAD",
+        "Exposure / conditions": "Agent/group as printed: ALKALIS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU98A column; own legend and full conditions"
+      },
+      "Proposed": {
+        "EvidenceID": "Q05712",
+        "MaterialID": "M162",
+        "GradeID": "G039-29",
+        "Domain": "Chemical exposure",
+        "Topic": "Resistance to Alkali",
+        "Finding": "ALKALIS BAD",
+        "Exposure / conditions": "Agent/group as printed: ALKALIS. 25 °C. Source: These groups of chemical substances are very general. The resistance depends on the exact type of substance; elevated temperature must be tested. Always try a little printed object first! For better chemical resistance, more perimeters, bottom/top layers and higher printing temperature are recommended for tightness. Concentration, exposure duration, measured retention, standardized test method, specimen geometry/print settings not published. GOOD: resists very well, does not absorb chemicals, does not change volume, color or properties. BAD: changes properties significantly, may dissolve or change color. The12–16HOURbadge is helpdesk reply time, not exposure duration.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU98A column; own legend and full conditions"
+      },
+      "SourceBasis": {
+        "SourceID": "R-FILLAMENTUM-PRIORITY-20261003-8404042c1271",
+        "SHA256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+        "Page": 2,
+        "Locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU98A column; own legend and full conditions",
+        "AgentCell": "ALKALIS",
+        "RatingCell": "BAD"
+      }
+    }
+  ],
+  "Reason": "Current parser reduces GOOD but not BAD. Preserve complete agent/rating row wording as qualified narrative, preventing unsafe ethanol-positive category screening that ignores acetone/alcohol negative rows. No source words removed, numeric normalization or screening semantics added."
+}

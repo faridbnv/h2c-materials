@@ -1,0 +1,1330 @@
+{
+  "before_release": "4e5ce68f19f3",
+  "after_release": "2a8ffade57b4",
+  "questions": 48,
+  "evaluations": 56880,
+  "answer_changes": 45,
+  "changes": [
+    {
+      "question": "acid-strict-false",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "acid-strict-false",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acids, bases, alcohols, detergents, lower ketones, aldehydes, water-soluble salts (class statement), resistant to Sulfuric Acid (30%), not resistant to Sulfuric Acid (Concentrated), resistant to Hydrochloric Acid (Concentrated), not resistant to Nitric Acid (40%); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "evidenceIds": [
+            "Q05753"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-strict-true",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "acid-strict-true",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acids, bases, alcohols, detergents, lower ketones, aldehydes, water-soluble salts (class statement), resistant to Sulfuric Acid (30%), not resistant to Sulfuric Acid (Concentrated), resistant to Hydrochloric Acid (Concentrated), not resistant to Nitric Acid (40%); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "evidenceIds": [
+            "Q05753"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-false",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "acid-exploration-false",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acids, bases, alcohols, detergents, lower ketones, aldehydes, water-soluble salts (class statement), resistant to Sulfuric Acid (30%), not resistant to Sulfuric Acid (Concentrated), resistant to Hydrochloric Acid (Concentrated), not resistant to Nitric Acid (40%); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "evidenceIds": [
+            "Q05753"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-01",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-02",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-03",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-04",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-05",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "Records exist but none state a verdict",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "evidenceIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-06",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-08",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G049-09",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "before_screened": true,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PA6 is published as not resistant (not resistant to Mineral acids and certain organic acids, not resistant to Sulfuric acid, 2 wt%, not resistant to Hydrochloric acid, 2 wt%, not resistant to Nitric acid, 2 wt%, not resistant to Sulphuric acid 2% aqueous solution, not resistant to Sulphuric acid 10% aqueous solution, not resistant to Sulphuric acid 50% aqueous solution, not resistant to Hydrochloric acid 10% aqueous solution, not resistant to Nitric acid 10% aqueous solution; R-BASF-ULTRAMID-CHEM, R-EMS-GRIVORY-RESISTANCE-TO-CHEMICALS), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "screened": true,
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q05749) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "contextIds": [
+            "Q05749"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "acid-exploration-true",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acids, bases, alcohols, detergents, lower ketones, aldehydes, water-soluble salts (class statement), resistant to Sulfuric Acid (30%), not resistant to Sulfuric Acid (Concentrated), resistant to Hydrochloric Acid (Concentrated), not resistant to Nitric Acid (40%); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Acid resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "acid"
+          },
+          "evidenceIds": [
+            "Q05753"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-strict-false",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "alkali-strict-false",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Sodium Hydroxide Solution (60%), limited to Ammonium Hydroxide (concentrated); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05754"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-strict-true",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "alkali-strict-true",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Sodium Hydroxide Solution (60%), limited to Ammonium Hydroxide (concentrated); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05754"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-exploration-false",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "alkali-exploration-false",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Sodium Hydroxide Solution (60%), limited to Ammonium Hydroxide (concentrated); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05754"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "alkali-exploration-true",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "alkali-exploration-true",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Sodium Hydroxide Solution (60%), limited to Ammonium Hydroxide (concentrated); R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Alkali resistance evidence",
+          "status": "PASS",
+          "reason": "1 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "alkali"
+          },
+          "evidenceIds": [
+            "Q05754"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-strict-false",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "organic-solvent-strict-false",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acetone, resistant to Ethyl Alcohol (95%), not resistant to Toluene, limited to Benzene; R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05752",
+            "Q05755"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-strict-true",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "organic-solvent-strict-true",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acetone, resistant to Ethyl Alcohol (95%), not resistant to Toluene, limited to Benzene; R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05752",
+            "Q05755"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-exploration-false",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "organic-solvent-exploration-false",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acetone, resistant to Ethyl Alcohol (95%), not resistant to Toluene, limited to Benzene; R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05752",
+            "Q05755"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "organic-solvent-exploration-true",
+      "level": "material",
+      "id": "M082",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "organic-solvent-exploration-true",
+      "level": "product",
+      "id": "G082-07",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No evidence record for this material. Its base polymer PP is published as limited (resistant to Acetone, resistant to Ethyl Alcohol (95%), not resistant to Toluene, limited to Benzene; R-LYB-PP-CHEM), the neat resin's behaviour and not a test of this grade, so never enough to pass",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "polymer": true
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Organic solvent resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "organic-solvent"
+          },
+          "evidenceIds": [
+            "Q05752",
+            "Q05755"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-false",
+      "level": "product",
+      "id": "G039-30",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 3 record(s) of other products (Q00441, Q05451, Q05587) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00170",
+            "Q00441",
+            "Q05451",
+            "Q05587"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05700",
+            "Q05701"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-false",
+      "level": "material",
+      "id": "M162",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-strict-false",
+      "level": "product",
+      "id": "G039-29",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00436) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00436"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05709",
+            "Q05710"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-true",
+      "level": "product",
+      "id": "G039-30",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 3 record(s) of other products (Q00441, Q05451, Q05587) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00170",
+            "Q00441",
+            "Q05451",
+            "Q05587"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05700",
+            "Q05701"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-strict-true",
+      "level": "material",
+      "id": "M162",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-strict-true",
+      "level": "product",
+      "id": "G039-29",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00436) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00436"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05709",
+            "Q05710"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-false",
+      "level": "product",
+      "id": "G039-30",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 3 record(s) of other products (Q00441, Q05451, Q05587) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00170",
+            "Q00441",
+            "Q05451",
+            "Q05587"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05700",
+            "Q05701"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-false",
+      "level": "material",
+      "id": "M162",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-exploration-false",
+      "level": "product",
+      "id": "G039-29",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00436) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00436"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05709",
+            "Q05710"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-true",
+      "level": "product",
+      "id": "G039-30",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 3 record(s) of other products (Q00441, Q05451, Q05587) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00170",
+            "Q00441",
+            "Q05451",
+            "Q05587"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05700",
+            "Q05701"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "oil-grease-exploration-true",
+      "level": "material",
+      "id": "M162",
+      "before": "UNKNOWN",
+      "after": "PASS"
+    },
+    {
+      "question": "oil-grease-exploration-true",
+      "level": "product",
+      "id": "G039-29",
+      "state": {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry"
+      },
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "before_screened": false,
+      "after_screened": false,
+      "before_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "UNKNOWN",
+          "reason": "No record of this product's own. 1 record(s) of other products (Q00436) are context, not this product's",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "contextIds": [
+            "Q00436"
+          ]
+        }
+      ],
+      "after_results": [
+        {
+          "criterion": "Oil and grease resistance evidence",
+          "status": "PASS",
+          "reason": "2 record(s) report resistant. Resistance applies to the recorded exposures, not every chemical in the class",
+          "constraint": {
+            "kind": "environment",
+            "category": "oil-grease"
+          },
+          "evidenceIds": [
+            "Q05709",
+            "Q05710"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "e4a67e70f66b678cee907d0b2b8f42a80df1e3a1e8ee45f408092463caa79f5a",
+    "url": "https://www.esun3d.com/abs-pro-product",
+    "pages": 1,
+    "provider": "eSUN",
+    "manufacturer": "eSUN",
+    "docKey": "https://www.esun3d.com/abs-pro-product#witness-for=source:S-PEBA-eSUN-ABS-Filament-TDS-V4-0"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ESUN-PRIORITY-20261003-e4a67e70f66b",
+      "Publisher": "eSUN",
+      "Title": "ABS+ official maker product page",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-03",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact official maker original. Source-wording conflicts, current/legacy identity and undefined use conditions retained. AI review only.",
+      "Citation role": "cited",
+      "URL": "https://www.esun3d.com/abs-pro-product",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G027-22",
+      "Access state": "retrieved",
+      "Access note": "Staged from digest-verified capture through isolated campaign witness pipeline.",
+      "SHA256": "e4a67e70f66b678cee907d0b2b8f42a80df1e3a1e8ee45f408092463caa79f5a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ABS+"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent AI review required; not human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G027-22",
+      "row": {
+        "GradeID": "G027-22",
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "ABS+",
+        "Shared formulation key": "S-PEBA-eSUN-ABS-Filament-TDS-V4-0",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Named \"ABS+\" since 2026-09-27 (m193-esun-plus-and-polymax-pc-identities): its sheet heads p. 1 \"Version 4.0 ABS+ Technical Data Sheet\".",
+        "SourceID": "R-ESUN-PRIORITY-20261003-e4a67e70f66b",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Existing exact product binding; grade primary source and identity unchanged."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "33 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "33",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "33",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PEBA-abs-pro-product",
+        "Locator": "p. 1: Tensile strength up to",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength up to 33 MPa for more stable load-bearing."
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "enclosed-chamber printing",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PEBA-abs-pro-product",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "enclosed-chamber printing"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c14-e4a67e70-e1",
+      "gradeKey": "G027-22",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "G027-22",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Heat deflection up to 89'C, it performs reliably even in tough conditions such as in-car heat exposure or areas near heat sources, maintaining long-term structural stability without warping.",
+        "Exposure / conditions": "Maker announces ABS+ polymer-mixture formulation restructuring in2025; existing measurements remain with dated own originals. Current product page marketing89C/33MPa differs its physical/mechanical table73C/40.12MPaXY/14.94MPaZ, and current download still serves registered Nov2021V4.0 injection-moulded-data sheet. No public evidence binds old/new batches or specimen/conditions to new claims. No measurement substitution, lifetime allowable or selection PASS; exact revision/batch correspondence needs maker evidence.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-ESUN-PRIORITY-20261003-e4a67e70f66b",
+        "Locator": "p.1: Official product page, source text line117"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection up to 89'C, it performs reliably even in tough conditions such as in-car heat exposure or areas near heat sources, maintaining long-term structural stability without warping."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Exact original wording; limited maker context, never deciding a suitability pass."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extruder Temperature",
+      "raw": "(°C)",
+      "fromBelow": false,
+      "line": "Extruder Temperature(°C)"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "(°C)",
+      "fromBelow": false,
+      "line": "Bed Temperature(°C)"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "a sentence",
+      "raw": "enclosed-chamber printing",
+      "fromBelow": false,
+      "line": "enclosed-chamber printing"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "3D Printing Parameters",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shipping: $ 5.99, Free Shipping Over $ 99.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "As low as $15.99 Regular Price $22.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Mix selection Choose a color, then set its quantity. $0.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shipping: $ 5.99, Free Shipping Over $ 99.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "eSUN ABS+ 3D printer material based on the modification of ABS material. ABS+ filament has higher mechanical properties, lower odor and lower shrinkage rate tha",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1KG/Spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "89°C Heat Resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat deflection up to 89'C, it performs reliably even in tough conditions such as in-car heat exposure or areas near heat sources, maintaining long-term structu",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Enhanced ABS+ delivers higher strength, excellent impact resistance, lower odor, and reduced shrinkage. It resists warping and cracking for consistent, high-pre",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.06",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density(g/cm3) (unit to be confirmed)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "15(220℃/10kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow Index(g/10min)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "73",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "40.12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "14.94",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.54",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "59.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "21.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1865.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1506.71",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "26.45",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.77",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "230-270℃/446-518℉",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "95-110℃",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0%",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "＜200mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Download List 0",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ORANGE #FF821B",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "PEAK GREEN #38D844",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "BLACK #272729",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "RED #B40200",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "SILVER #68676C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "WHITE #F6F6F6",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "YELLOW #FFFC01",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "BLUE #01378D",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "BROWN #664033",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "COLD WHITE #DBD6DC",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "FIRE ENGINE RED #BB2028",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "GREEN #1B2D39",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "GREY #606783",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "LIGHT BLUE #169BEA",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "PURPLE #793EB6",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Hi, because we will split the package for shipment depending on the weight and storage warehouse when we ship. If your multiple packages do not arrive within 2 ",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Our restocking cycle is usually 2-3 months. Please contact us for detailed dates. We accept pre-order, if you want to pre-order, please contact us: [email prote",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "1、Print in an enclosed chamber with a stable temperature. Turn off or reduce the cooling fan to minimize shrinkage and warping. 2、Ensure the printing area is we",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Embark on a 3D Journey",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Leading the world in 3D printing material standards since 2002. With over 20 years of expertise, eSUN provides end-to-end solutions-including FDM filaments, LCD",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ESUN易生3D打印材料",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2026 All Rights Reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "COPYRIGHT © 2026 eSUN",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent AI review required; not human review",
+    "note": "Signed packet gates admission; all automatic proposals rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent AI review required; not human review",
+        "note": "Automatic proposal rejected; only signed exact record-only operations accepted."
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "Toggle Nav",
+        "Shared formulation key": "S-PEBA-abs-pro-product",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PEBA-abs-pro-product",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "The store will not work correctly when cookies are disabled."
+      }
+    }
+  ],
+  "newMaterial": null
+}

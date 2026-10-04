@@ -1,0 +1,267 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer",
+  "human_review": false,
+  "input_sha256": "3b5af891978e625028731215f47f94b3d9afeca03de13f53877e6dd0370b28fe",
+  "overall_verdict": "APPROVE",
+  "reviewed_sources": 2,
+  "reviewed_operations": 30,
+  "original_custody": "Both originals hash-verified against actual bytes; original pdfPages reading and p2 visual renders for complete matrix/legend/conditions and target dryingrows reused from independent qualification. All12exactGradeIDs/fullcurrentgrade snapshots checked. Proposal serialized source/accepted9profiles/19evidence rows and proposal hashes match packet.",
+  "results": [
+    {
+      "OperationID": "c12-3f22b7dd-p1",
+      "GradeID": "G049-05",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row PORTHCURNO; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p2",
+      "GradeID": "G089-01",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row CPE HG100; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p3",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row FLEXFILL TPU 98A; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p4",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row FLEXFILL TPU 92A; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p5",
+      "GradeID": "G154-01",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row NYLON AF80 ARAMID; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p6",
+      "GradeID": "G090-01",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row CPE CF112 CARBON; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p7",
+      "GradeID": "G094-06",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row PC/ABS; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p8",
+      "GradeID": "G164-01",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row NYLON FX256; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-p9",
+      "GradeID": "G053-14",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p. 2: p.2 Table1 own product row NYLON CF15 CARBON; own minimum-time/temperature/need columns, with p1 restrictions",
+      "checks": "Exact source row/temp/minimumtime/need5 checked. Full visible Failure modes paragraphs match actual p1 source including separately scoped TPUcycle/nylon80Cwarning. No numerical recipe/chamber change; Porthcurno openbound remains raw with typedhoursNP."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-e1",
+      "GradeID": "G027-19",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p.2 Table1 own product row ABS EXTRAFILL",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-3f22b7dd-e2",
+      "GradeID": "G082-07",
+      "verdict": "APPROVE",
+      "original_sha256": "3f22b7dd74429ee5571b9220f0a24f496d1c4c061ae9807d75c79517a1c442e5",
+      "locator": "p.2 Table1 own product row PP 2320",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e1",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU92A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e2",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU92A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e3",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU92A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e4",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU92A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e5",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU92A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e6",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU92A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e7",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU92A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e8",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: WATER exact product column",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e9",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: CAR FLUIDS exact product column",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e10",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ACETONE row, exact TPU98A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e11",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ETHANOL row, exact TPU98A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e12",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ALCOHOLS row, exact TPU98A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e13",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: OILS row, exact TPU98A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e14",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: GREASES row, exact TPU98A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e15",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ACIDS row, exact TPU98A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e16",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: ALKALIS row, exact TPU98A column; own legend and full conditions",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e17",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: WATER exact product column",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e18",
+      "GradeID": "G039-29",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 CHEMICAL RESISTANCE: CAR FLUIDS exact product column",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    },
+    {
+      "OperationID": "c12-8404042c-e19",
+      "GradeID": "G039-30",
+      "verdict": "APPROVE",
+      "original_sha256": "8404042c1271b4bdaec5f05cab4778fa64724f759e4af6e659e6c51d12c5d5f9",
+      "locator": "p.2 FOOD CONTACT, exact TPU92A exclusion",
+      "checks": "Original own cell/grade/legend/source limits reused from signed reading. Water/car-fluid rows nowatomic Makerknowhow with same boundedconditions. OptionalPP/ABSremain narrative only;92Afoodexclusion not transferred."
+    }
+  ],
+  "CorrectedDelta": "Two combined water/car-fluid rows split into4atomicrows; all9profileFailure modes nowcarry fullsourcep1precautions alongside existing TPU/Nylonwarnings. Unchanged grade/temp/need/agent/rating basis retains original approval. Proposal source/acceptedrow equality and hashes rechecked.",
+  "PriorReview": {
+    "file": "priority-07-c12-review-before-correction.json",
+    "input_sha256": "3b5af891978e625028731215f47f94b3d9afeca03de13f53877e6dd0370b28fe",
+    "sha256": "18751bdc1ea278aef86df790183762fd85bf36b1a129132b79ebc3c74ad196be",
+    "overall_verdict": "CHANGES_REQUIRED"
+  },
+  "limits": [
+    "Maker qualitative25°Cratings, agent/concentration/duration/form gaps remain; not universal chemical/service approval.",
+    "ALCOHOLS BAD versus ETHANOL GOOD is intentionally retained separately; category solvent reduction must not erase agent contrast.",
+    "WATER BAD is neither solubility proof nor hot-water/steam hydrolysis evidence; CARFLUIDS unnamed mixture record-only.",
+    "Nine profiles preserve MINIMUM TIME; currentdurationfield is a scalar and openboundPorthcurno staysNP. Need1and2not unconditional requirement.",
+    "H2C-WIKI is existing editorial reference, no new factual H2C claim or human validation.",
+    "No canonical edits or product closure."
+  ],
+  "review_signature_sha256": "19d536c5df5af5c7a254d1854268cdd01ed04cfc5ce809fa6d7e74e517d6b0ff"
+}
