@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { openTables } from '../scripts/data/table-io.mjs';
 import { applyProposals } from '../scripts/migrate/read-proposals-apply.mjs';
 import {
-  buildProposals, conditionsOf, directionOf, gateOf, loadFullTables, moistureOf, postProcessingOf, valueProposal, writeProposals,
+  buildProposals, conditionsOf, directionOf, gateOf, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
 } from '../scripts/ingest/read-proposals.mjs';
 
 const COLUMNS = ['RowID', 'Class', 'Kind', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Lo', 'Hi', 'Unit', 'Operator', 'Direction', 'Specimen', 'Moisture', 'PostProcessing', 'Standard', 'TestConditions',
@@ -23,9 +23,9 @@ const setting = (o) => reading({ Kind: 'setting', Unit: '°C', Quote: 'q', ...o 
 
 const tables = {
   grades: [
-    { GradeID: 'G001-01', MaterialID: 'M001', Manufacturer: 'Acme', 'Shared formulation key': 'Not applicable' },
-    { GradeID: 'G001-02', MaterialID: 'M001', Manufacturer: 'Acme', 'Shared formulation key': 'KEY' },
-    { GradeID: 'G001-03', MaterialID: 'M001', Manufacturer: 'Acme', 'Shared formulation key': 'KEY' },
+    { GradeID: 'G001-01', MaterialID: 'M001', Manufacturer: 'Acme', 'Product name': 'Acme PA12-CF', Status: 'active', 'Shared formulation key': 'Not applicable' },
+    { GradeID: 'G001-02', MaterialID: 'M001', Manufacturer: 'Acme', 'Product name': 'Silk PLA', Status: 'active', 'Shared formulation key': 'KEY' },
+    { GradeID: 'G001-03', MaterialID: 'M001', Manufacturer: 'Acme', 'Product name': 'Silk PLA Dual-Color', Status: 'active', 'Shared formulation key': 'KEY' },
   ],
   sources: [{ SourceID: 'S-1', SHA256: 'x', 'Applicable grades': 'G001-01' }, { SourceID: 'S-2', SHA256: 'y', 'Applicable grades': 'G001-02 G001-03' }],
   properties: [
@@ -167,7 +167,7 @@ test('a product\'s settings become one profile typed by the parsers; what the pa
   assert.ok(pm.held.some((h) => h.reason === 'parsed-vs-read'));
   const noGrade = build([setting({ Field: 'nozzle', Label: 'x', Raw: '200', Lo: '200', Grade: '', SourceID: 'S-2' })]);
   assert.equal(noGrade.profilesAdd.length, 0);
-  assert.equal(noGrade.held[0].reason, 'no-grade', 'a sheet of two products needs the product');
+  assert.match(noGrade.held[0].reason, /^no-grade:.*G001-02 Silk PLA; G001-03 Silk PLA Dual-Color/, 'a sheet of two products needs the product, and the reason names the candidates');
 });
 
 test('a sheet whose twin already has a profile gets cells set, not a second profile; several recipes only share the product\'s own settings', () => {
@@ -238,4 +238,37 @@ test('applyProposals writes the ready rows, is a no-op the second time, and stop
   const held = mkdtempSync(join(tmpdir(), 'proposals-'));
   writeProposals({ ...out, valuesAdd: out.valuesAdd.map((v) => ({ ...v, gate: 'held' })) }, held, { run: 'fixture', readRows: 0 });
   assert.throws(() => applyProposals(openTables(), held, opts), /only ready rows/);
+});
+
+test('a product name is matched to one of the document\'s products only when exactly one fits, and the match is recorded', () => {
+  assert.deepEqual(nameTokens('Silk PLA™ Filament 1.75 mm - Black'), ['silk', 'pla']);
+  assert.notDeepEqual(nameTokens('PLA+'), nameTokens('PLA'), 'PLA+ is not PLA');
+  const candidates = tables.grades;
+  assert.deepEqual(matchProduct('SILK PLA', candidates), { id: 'G001-02', from: 'matched:exact' });
+  assert.deepEqual(matchProduct('Acme Silk PLA Dual-Color 1.75mm', candidates), { id: 'G001-03', from: 'matched:exact' });
+  assert.equal(matchProduct('PA12', candidates).from, 'matched:tokens', 'the reading\'s tokens are all in one name, and in no other');
+  assert.equal(matchProduct('Acme PA12-CF Pro', candidates).id, undefined, 'a reading with a token the product lacks is a variant');
+  assert.equal(matchProduct('Silk PLA', candidates.concat([{ GradeID: 'G9', Manufacturer: 'Acme', 'Product name': 'Silk PLA Pro' }])).from, 'matched:exact', 'an exact name wins over longer names');
+  assert.equal(matchProduct('PLA', candidates).id, undefined, 'PLA is a subset of two products');
+  assert.equal(matchProduct('Nylon', candidates).why, 'no product has its tokens');
+  assert.equal(matchProduct('', candidates).why, 'no product name');
+
+  const rows = [
+    value({ SourceID: 'S-2', Grade: '', Product: 'Silk PLA', Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus', Direction: 'XY' }),
+    value({ SourceID: 'S-2', Grade: '', Product: 'PLA', Field: 'Tensile modulus', Raw: '2000 MPa', Lo: '2000', Label: 'Modulus', Direction: 'XY' }),
+    value({ SourceID: 'S-1', Grade: '', Product: 'whatever it is called', Field: 'Tensile modulus', Raw: '1000 MPa', Lo: '1000', Label: 'Modulus', Direction: 'XY' }),
+    value({ SourceID: 'S-1', Grade: 'G001-01', Field: 'Tensile modulus', Raw: '1100 MPa', Lo: '1100', Label: 'Modulus 2', Direction: 'XY' }),
+  ];
+  const out = build(rows);
+  assert.deepEqual(out.valuesAdd.map((v) => [v.GradeID, v.grade_from]), [['G001-02', 'matched:exact'], ['G001-01', 'single-product'], ['G001-01', 'reader']]);
+  assert.match(out.held[0].reason, /^no-grade:several products share its tokens: G001-02 Silk PLA; G001-03 Silk PLA Dual-Color/);
+});
+
+test('the view that bore a quote out is recorded, and a quote the reading-order view alone prints is not held', () => {
+  const rows = [value({ Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus', Direction: 'XY', Quote: 'Printing temperature | 280-300 °C' })];
+  const out = build(rows, { quoteOnSheet: () => 'block' });
+  assert.equal(out.valuesAdd.length, 1);
+  assert.equal(out.valuesAdd[0].quote_view, 'block');
+  assert.equal(quoteViews(null, 'x'), null);
+  assert.equal(build(rows, { quoteOnSheet: () => false }).valuesAdd.length, 0);
 });

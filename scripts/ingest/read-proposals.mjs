@@ -2,7 +2,11 @@
 // The reader round's proposals: what the reconciler sorted as new or contradicting (read-reconcile.mjs), turned into the
 // files a migration applies (scripts/migrate/read-proposals-apply.mjs), and into the list of what is held back and why.
 //
-//   npm run ingest:read-proposals -- --run docs/audits/2026-10-04-reader-round/reconcile/<run> [--out <dir>]
+//   npm run ingest:read-proposals -- --run docs/audits/2026-10-04-reader-round/reconcile/<run> [--out <dir>] [--maker-wide]
+//
+// A reading with no grade_id takes its product from the document's own products (its Applicable grades, the grades citing it and the
+// grades of the rows held from it; active ones): a sheet of one product gets it, and otherwise the product name is matched
+// (matchProduct) when exactly one fits. --maker-wide adds the maker's other active products as candidates, for portfolios.
 //
 // Output, in docs/audits/2026-10-04-reader-round/proposals/<run>/ (nothing here writes data/):
 //
@@ -31,6 +35,7 @@ import { projectRoot } from './context.mjs';
 import { NP, numbersIn, ocrSidecar, readTable, sameNumber, squash } from './read-common.mjs';
 import { notchOf, targetUnit } from './propose.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
+import { withReadingOrder } from '../lib/pdf-layout.mjs';
 import { rawNumber, unitKey } from '../../build/src/measurement-rules.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { parseHdtStandard, readTestTemperature } from '../../build/src/normalize/thermal.js';
@@ -64,21 +69,46 @@ export function gateOf(row) {
 // ---- the sheet guard, as the migrations apply it ----------------------------------------------------------------
 
 const sheetTexts = new Map();
-/** Is every piece of the quote (split on " | ") on the cached sheet, or on its OCR sidecar, as onSheet reads it? null when no text is cached. */
-export function quoteOnCachedSheet(sha, quote) {
-  if (!sha) return null;
+/** The cached sheet in each view the quote guard reads: the extractor's lines, the same text in reading order, the OCR sidecar. */
+function sheetViews(sha) {
   if (!sheetTexts.has(sha)) {
     const c = cachedText(sha);
     const ocr = ocrSidecar(sha);
-    sheetTexts.set(sha, {
-      cache: c ? squash(c.pages.map((p) => p.lines.map((l) => l.text).join(' ')).join(' ')) : null,
-      ocr: ocr ? squash([...ocr.values()].map((lines) => lines.join(' ')).join(' ')) : null,
-    });
+    const flat = (pages) => squash(pages.map((p) => p.lines.map((l) => l.text).join(' ')).join(' '));
+    let block = null;
+    if (c) { try { block = flat(withReadingOrder(c).pages); } catch { block = null; } }
+    sheetTexts.set(sha, [
+      ['line', c ? flat(c.pages) : null],
+      ['block', block],
+      ['ocr', ocr ? squash([...ocr.values()].map((lines) => lines.join(' ')).join(' ')) : null],
+    ]);
   }
-  const { cache, ocr } = sheetTexts.get(sha);
-  if (cache == null && ocr == null) return null;
-  const pieces = String(quote ?? '').split(' | ');
-  return pieces.every((q) => (cache != null && cache.includes(squash(q))) || (ocr != null && ocr.includes(squash(q))));
+  return sheetTexts.get(sha);
+}
+
+/**
+ * Which views of the cached sheet bear a quote out. A piece (the quote split on " | ") passes if it is contiguous in any one of
+ * the line view (onSheet's squash), the reading-order view or the OCR sidecar. Returns 'line', 'block', 'ocr', or the views
+ * joined with '+' when different pieces needed different ones; '' when a piece is in none; null when no text is cached.
+ */
+export function quoteViews(sha, quote) {
+  if (!sha) return null;
+  const views = sheetViews(sha);
+  if (views.every(([, t]) => t == null)) return null;
+  const used = [];
+  for (const piece of String(quote ?? '').split(' | ')) {
+    const want = squash(piece);
+    const hit = views.find(([, t]) => t != null && t.includes(want));
+    if (!hit) return '';
+    if (!used.includes(hit[0])) used.push(hit[0]);
+  }
+  return ['line', 'block', 'ocr'].filter((v) => used.includes(v)).join('+') || 'line';
+}
+
+/** Is every piece of the quote on the cached sheet in some view? true, false, or null when no text is cached. */
+export function quoteOnCachedSheet(sha, quote) {
+  const v = quoteViews(sha, quote);
+  return v == null ? null : v !== '';
 }
 
 // ---- mapping the reader's words to the vocabularies --------------------------------------------------------------
@@ -209,7 +239,7 @@ function unitFor(row, property, registry, conditions) {
 }
 
 /** One value the page prints, as a values-add row; or { error } saying why it cannot be proposed. */
-export function valueProposal(row, { registry, grade }) {
+export function valueProposal(row, { registry, grade, standards = null }) {
   const property = row.Field;
   const prop = registry.get(property);
   if (!prop) return { error: `property-unknown:${property}` };
@@ -261,6 +291,9 @@ export function valueProposal(row, { registry, grade }) {
   out['Test temperature °C'] = testTemperatureCell(out['Test temperature']);
   if (out['Test temperature'] !== NP && readTestTemperature(out['Test temperature']) == null) out['Test temperature °C'] = NP;
   out.Standards = readStandards(out['Standard / load']).join('; ') || NP;
+  // A standard the vocabulary lacks is a schema change, which is the owner's: the reading waits for it.
+  const unlisted = standards ? readStandards(out['Standard / load']).filter((s) => !standards.has(s)) : [];
+  if (unlisted.length) return { error: `standard-not-in-vocabulary:${unlisted.join(', ')}` };
   out['Test load MPa'] = NA;
   if (property === 'HDT') {
     const h = parseHdtStandard(out['Standard / load']);
@@ -342,6 +375,35 @@ const dedupeKey = (r) => [r.SourceID, r.Page, r.Grade || squash(r.Product), r.Fi
 const rank = (r) => [gateOf(r).gate === 'ready' ? 0 : 1, PRESENCE_RANK[r.Presence] ?? 4, r.Confidence === 'high' ? 0 : 1];
 const byRank = (a, b) => { const x = rank(a), y = rank(b); for (let i = 0; i < x.length; i++) if (x[i] !== y[i]) return x[i] - y[i]; return String(a.RowID).localeCompare(String(b.RowID), 'en', { numeric: true }); };
 
+// ---- which product of a document a reading's product name is ---------------------------------------------------------
+
+const DROP_WORDS = new Set(['filament', 'filaments', 'diameter', 'mm', 'tds', 'black', 'white', 'natural', 'grey', 'gray', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'brown',
+  'silver', 'gold', 'transparent', 'beige', 'ivory', 'cyan', 'magenta', 'violet']);
+/** A product name as tokens: case, ™ ® ©, punctuation, "filament", the diameter and colour words gone; a "+" stays as a word, so PLA and PLA+ are two products. */
+export function nameTokens(name) {
+  return String(name ?? '').toLowerCase().replace(/[™®©]/g, ' ')
+    .replace(/(?<![\d.,])(?:1[.,]75|2[.,]85|3[.,]0+)\s*(?:mm)?(?![\d])/g, ' ')
+    .replace(/\+/g, ' plus ').replace(/[^\p{L}\p{N}]+/gu, ' ').split(' ').filter((t) => t && !DROP_WORDS.has(t));
+}
+
+/**
+ * The one candidate grade a product name is: the one whose product name (or maker and product name) normalizes to the same
+ * tokens; failing that the one candidate whose tokens (with or without its maker) contain every token of the reading's. The other direction, a reading with tokens the candidate lacks ("PA6 Low Warp CF15S" against "PA6 Low Warp"), is a variant, not that product. More than one
+ * of either, or none, is no match (`why` says which).
+ */
+export function matchProduct(product, candidates) {
+  const wanted = nameTokens(product);
+  if (!wanted.length) return { why: 'no product name' };
+  const forms = (g) => [nameTokens(g['Product name']), nameTokens(`${g.Manufacturer} ${g['Product name']}`)].filter((t) => t.length);
+  const same = (a, b) => new Set([...a, ...b]).size === new Set(a).size && new Set(a).size === new Set(b).size;
+  const exact = candidates.filter((g) => forms(g).some((f) => same(f, wanted)));
+  if (exact.length === 1) return { id: exact[0].GradeID, from: 'matched:exact' };
+  if (exact.length > 1) return { why: 'several products have that name' };
+  const related = candidates.filter((g) => forms(g).some((f) => wanted.every((t) => f.includes(t))));
+  if (related.length === 1) return { id: related[0].GradeID, from: 'matched:tokens' };
+  return { why: related.length ? 'several products share its tokens' : 'no product has its tokens' };
+}
+
 const gradeIdsOf = (source) => new Set(String(source?.['Applicable grades'] ?? '').match(/G\d{3}-(?:R)?\d+/g) ?? []);
 
 /**
@@ -367,7 +429,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (!locatorAdds.has(profile.ProfileID)) locatorAdds.set(profile.ProfileID, { profile, wheres: new Set(), base: proposal.base });
     locatorAdds.get(profile.ProfileID).wheres.add(proposal.where);
   };
-  const hold = (row, reasons, stage, detail = '') => out.held.push({ gate: 'held', reason: [].concat(reasons).join(REASON_SEP), stage, RowID: row.RowID, SourceID: row.SourceID, Page: row.Page, Grade: row.Grade, Product: row.Product, Field: row.Field, Label: row.Label, Raw: row.Raw, Presence: row.Presence, SecondRead: row.SecondRead, Confidence: row.Confidence, Reader: row.Reader, Detail: detail });
+  const hold = (row, reasons, stage, detail = '') => out.held.push({ gate: 'held', reason: [].concat(reasons).join(REASON_SEP), stage, RowID: row.RowID, SourceID: row.SourceID, Page: row.Page, Grade: row.Grade, Product: row.Product, Field: row.Field, Label: row.Label, Raw: row.Raw, Presence: row.Presence, SecondRead: row.SecondRead, Confidence: row.Confidence, Reader: row.Reader, grade_from: gradeFromOf.get(row.RowID) ?? '', GradeResolved: gradeResolvedOf.get(row.RowID) ?? '', Detail: detail });
 
   // -- 0. one reading of each thing: the same place, number and conditions read twice is read once
   const seen = new Map();
@@ -380,23 +442,65 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   }
   considered.sort((a, b) => String(a.RowID).localeCompare(String(b.RowID), 'en', { numeric: true }));
 
-  const soleGrade = (sourceId) => {
-    const ids = gradeIdsOf(sources.get(sourceId));
-    for (const g of grades.values()) if (g.SourceID === sourceId) ids.add(g.GradeID);
-    return ids.size === 1 ? [...ids][0] : null;
+  // The products a document names: its Applicable grades, the grades citing it, and the grades of the rows held from it; active ones only.
+  const namedBySource = new Map();
+  for (const m of [...tables.measurements, ...tables.profiles]) {
+    if (!m.GradeID) continue;
+    if (!namedBySource.has(m.SourceID)) namedBySource.set(m.SourceID, new Set());
+    namedBySource.get(m.SourceID).add(m.GradeID);
+  }
+  for (const g of grades.values()) {
+    if (!g.SourceID) continue;
+    if (!namedBySource.has(g.SourceID)) namedBySource.set(g.SourceID, new Set());
+    namedBySource.get(g.SourceID).add(g.GradeID);
+  }
+  const candidatesCache = new Map();
+  const candidatesOf = (sourceId) => {
+    if (!candidatesCache.has(sourceId)) {
+      const ids = new Set([...gradeIdsOf(sources.get(sourceId)), ...(namedBySource.get(sourceId) ?? [])]);
+      candidatesCache.set(sourceId, [...ids].filter((id) => grades.has(id) && (grades.get(id).Status ?? 'active') === 'active').sort());
+    }
+    return candidatesCache.get(sourceId);
   };
+  const makerCandidates = (sourceId) => {
+    const publisher = squash(sources.get(sourceId)?.Publisher);
+    const makers = new Set(candidatesOf(sourceId).map((id) => squash(grades.get(id).Manufacturer)));
+    return [...grades.values()].filter((g) => (g.Status ?? 'active') === 'active' && squash(g.Manufacturer).length >= 3
+      && (makers.has(squash(g.Manufacturer)) || publisher.includes(squash(g.Manufacturer)))).map((g) => g.GradeID);
+  };
+  const gradeFromOf = new Map();
+  const gradeResolvedOf = new Map();
   const gradeOf = (r) => {
-    const id = r.Grade || soleGrade(r.SourceID);
-    if (!id) return { error: 'no-grade' };
-    if (!grades.has(id)) return { error: `grade-unknown:${id}` };
-    return { id };
+    if (r.Grade) {
+      if (!grades.has(r.Grade)) return { error: `grade-unknown:${r.Grade}` };
+      if ((grades.get(r.Grade).Status ?? 'active') !== 'active') return { error: `grade-retired:${r.Grade}` };
+      gradeFromOf.set(r.RowID, 'reader'); gradeResolvedOf.set(r.RowID, r.Grade);
+      return { id: r.Grade, from: 'reader' };
+    }
+    const candidates = candidatesOf(r.SourceID);
+    if (candidates.length === 1) { gradeFromOf.set(r.RowID, 'single-product'); gradeResolvedOf.set(r.RowID, candidates[0]); return { id: candidates[0], from: 'single-product' }; }
+    // A portfolio names few of the products it prints. With ctx.makerWide the active products of its maker are candidates too, and a
+    // match among them is marked ":maker-wide" so a reviewer can sample it apart.
+    const wide = ctx.makerWide ? makerCandidates(r.SourceID) : [];
+    const pool = [...new Set([...candidates, ...wide])];
+    const list = pool.length > 12 ? `${pool.length} candidate products (${pool.slice(0, 6).map((id) => `${id} ${grades.get(id)['Product name']}`).join('; ')}; ...)` : pool.map((id) => `${id} ${grades.get(id)['Product name']}`).join('; ') || 'no candidate grade';
+    const match = matchProduct(r.Product, pool.map((id) => grades.get(id)));
+    if (match.id) {
+      const from = candidates.includes(match.id) ? match.from : `${match.from}:maker-wide`;
+      gradeFromOf.set(r.RowID, from); gradeResolvedOf.set(r.RowID, match.id);
+      return { id: match.id, from };
+    }
+    return { error: `no-grade:${match.why ? `${match.why}: ` : ''}${list}` };
   };
   const reasonsFor = (r, ...extra) => [gateOf(r).reason, ...extra].filter(Boolean);
   /** Why a ready reading's quote cannot be applied: not on the cached sheet, or no sheet cached. Only a ready reading is asked. */
+  const quoteViewOf = new Map();
+  const viewOf = (...rows) => [...new Set(rows.flatMap((r) => (quoteViewOf.get(r.RowID) ?? '').split('+')).filter(Boolean))].join('+');
   const quoteReason = (r) => {
     if (!ctx.quoteOnSheet || gateOf(r).gate !== 'ready') return null;
     const on = ctx.quoteOnSheet(r.SourceID, r.Quote);
-    return on === true ? null : on === false ? 'quote-not-on-cached-text' : 'no-cached-text';
+    if (on === true || typeof on === 'string') { quoteViewOf.set(r.RowID, typeof on === 'string' ? on : ''); return null; }
+    return on === false ? 'quote-not-on-cached-text' : 'no-cached-text';
   };
 
   // -- 1. print settings
@@ -434,7 +538,11 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     return candidates.map((p) => [rankOf(p), p]).sort((a, b) => a[0] - b[0] || String(a[1].ProfileID).localeCompare(String(b[1].ProfileID)))[0]?.[1] ?? null;
   };
 
+  // A chamber a sheet states decides for its product (D93): where another profile of the product holds it enclosed, the build stops.
+  const enclosedElsewhere = (gradeId, sourceId) => tables.profiles.find((p) => live(p) && p.GradeID === gradeId && p.SourceID !== sourceId && p['Chamber state'] === 'enclosed') ?? null;
   for (const g of groups.values()) {
+    const clash = g.cells.has('chamber') ? enclosedElsewhere(g.gradeId, g.sourceId) : null;
+    if (clash) { hold(g.cells.get('chamber').row, 'chamber-conflicts-enclosed-profile', 'profiles', clash.ProfileID); g.cells.delete('chamber'); if (!g.cells.size) continue; }
     const inFormulation = formulation(g.gradeId);
     const existing = (profilesBySource.get(g.sourceId) ?? []).filter((p) => inFormulation.includes(p.GradeID));
     const entries = [...g.cells.entries()];
@@ -481,7 +589,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       Locator: rowsUsed.map((r) => `p. ${r.Page}: ${text(r.Label) || r.Field}`).join('; '),
       quote: [...new Set(rowsUsed.flatMap((r) => text(r.Quote).split(' | ')))].join(' | '),
       ...Object.fromEntries(TYPED_COLUMNS.map((c) => [c, typedKept[c]])),
-      parsed_vs_read: 'agrees', reader: [...new Set(rowsUsed.map((r) => r.Reader))].join(' '), rows: rowsUsed.map((r) => r.RowID).join(' '),
+      parsed_vs_read: 'agrees', quote_view: viewOf(...rowsUsed), grade_from: [...new Set(rowsUsed.map((r) => gradeFromOf.get(r.RowID)))].join('+'), reader: [...new Set(rowsUsed.map((r) => r.Reader))].join(' '), rows: rowsUsed.map((r) => r.RowID).join(' '),
       note: `${rowsUsed.length} setting(s) read from ${[...new Set(rowsUsed.map((r) => `p. ${r.Page}`))].join(', ')}.`,
     });
   }
@@ -502,7 +610,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       if (field === 'nozzle_diameter' && numbersIn(current).some((n) => sameNumber(n, num(row.Lo)))) return { error: 'same-reading', detail: `${profile.ProfileID} ${column}: "${current}" reads as "${cell}"` };
     }
     void typedBefore;
-    const base = { gate: 'ready', table: 'profiles', id: profile.ProfileID, source: row.SourceID, quote: text(row.Quote), parsed_vs_read: verdict, reader: row.Reader, rows: row.RowID, GradeID: profile.GradeID };
+    const base = { gate: 'ready', table: 'profiles', id: profile.ProfileID, source: row.SourceID, quote: text(row.Quote), parsed_vs_read: verdict, quote_view: viewOf(row), grade_from: gradeFromOf.get(row.RowID) ?? 'held', reader: row.Reader, rows: row.RowID, GradeID: profile.GradeID };
     const note = `p. ${row.Page}, "${text(row.Label) || field}": the page prints "${text(row.Raw)}" (reader ${row.Reader}, ${row.Presence}).`;
     const rows = [{ ...base, column, expect: current ?? '', value: cell, note }];
     return { rows, where: `p. ${row.Page}: ${text(row.Label) || field}`, base };
@@ -530,6 +638,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'profiles'); continue; }
     const gate = gateOf(r);
     if (gate.gate !== 'ready') { hold(r, [gate.reason], 'profiles'); continue; }
+    if (r.Field === 'chamber' && enclosedElsewhere(profile.GradeID, profile.SourceID)) { hold(r, 'chamber-conflicts-enclosed-profile', 'profiles', enclosedElsewhere(profile.GradeID, profile.SourceID).ProfileID); continue; }
     const proposal = setCell(profile, r.Field, cell, r, { mismatch: true });
     if (proposal.error) hold(r, proposal.error, 'profiles', proposal.detail ?? '');
     else { out.profilesSet.push(...proposal.rows); noteWhere(profile, proposal); }
@@ -558,7 +667,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const reasons = [];
     const grade = gradeOf(r);
     if (grade.error) reasons.push(grade.error);
-    const p = grade.error ? { error: null } : valueProposal(r, { registry, grade: grade.id });
+    const p = grade.error ? { error: null } : valueProposal(r, { registry, grade: grade.id, standards: ctx.standardsVocab });
     if (p.error) reasons.push(p.error);
     let like = null;
     if (!grade.error) { like = likeFor(grade.id, r.SourceID); if (!like) reasons.push('no-like-row'); }
@@ -603,7 +712,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       gate: 'ready', task: 'reader-round', like: c.like.MeasurementID, SourceID: c.row.SourceID, GradeID: c.grade, MaterialID: grades.get(c.grade).MaterialID,
       ...p, Locator: c.locator, quote: text(c.row.Quote),
       note: `p. ${c.row.Page}, "${text(c.row.Label)}"${text(c.row.TableHeading) ? ` under "${text(c.row.TableHeading)}"` : ''}: the page prints "${text(c.row.Raw)}"${text(c.row.TestConditions) ? ` (${text(c.row.TestConditions)})` : ''}; read by ${c.row.Reader}, ${c.row.Presence}${AGREED.includes(c.row.SecondRead) ? ', second reading agrees' : ''}.`,
-      presence: c.row.Presence, second_read: c.row.SecondRead, reader: c.row.Reader, rows: c.row.RowID,
+      presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
     });
   }
 
@@ -617,7 +726,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (!held) reasons.push(ids.length === 1 ? 'held-row-unknown' : 'ambiguous-held-rows');
     let p = null;
     if (held) {
-      p = valueProposal(r, { registry, grade: held.GradeID });
+      p = valueProposal(r, { registry, grade: held.GradeID, standards: ctx.standardsVocab });
       if (p.error) reasons.push(p.error);
       else {
         if (unitKey(p['Raw unit']) !== unitKey(held['Raw unit'])) reasons.push(`unit-differs:${p['Raw unit']}/${held['Raw unit']}`);
@@ -633,7 +742,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
     const gate = gateOf(r);
     if (gate.gate !== 'ready') { hold(r, [gate.reason], 'values'); continue; }
-    const base = { gate: 'ready', task: 'reader-round', table: 'measurements', id: held.MeasurementID, source: r.SourceID, quote: text(r.Quote), reader: r.Reader, rows: r.RowID,
+    const base = { gate: 'ready', task: 'reader-round', table: 'measurements', id: held.MeasurementID, source: r.SourceID, quote: text(r.Quote), quote_view: viewOf(r), reader: r.Reader, rows: r.RowID,
       note: `p. ${r.Page}, "${text(r.Label)}": the page prints "${text(r.Raw)}"; the record held ${held['Raw value']} (reader ${r.Reader}, ${r.Presence}).` };
     for (const [column, value] of [['Raw value', p['Raw value']], ['Raw numeric', p['Raw numeric']], ['Normalized value', p['Normalized value']],
       ['Raw uncertainty ±', p['Raw uncertainty ±']], ['Normalized uncertainty ±', p['Normalized uncertainty ±']]]) {
@@ -666,11 +775,12 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const gate = gateOf(r);
     if (reasons.length || gate.gate !== 'ready') { hold(r, reasonsFor(r, ...reasons), 'page-context'); continue; }
     const statement = text(r.Raw) || text(r.TableHeading) || text(r.Label);
+    contextExists.add(`${r.SourceID}\u0001${r.Page}\u0001${r.Field}`);
     out.pageContextAdd.push({
       gate: 'ready', SourceID: r.SourceID, Page: r.Page, 'Applies to': r.Field, Statement: statement, 'Specimen type': specimenValue, 'Moisture state': moisture.state,
       'Post-processing state': post.state, 'Anneal °C': post.state === 'annealed' ? post.tempC : NA, 'Anneal h': post.state === 'annealed' ? post.hours : NA,
       Standard: standard, 'Test temperature °C': testTemp, Locator: `p. ${r.Page}: ${text(r.TableHeading) || text(r.Label) || statement}`, quote: text(r.Quote),
-      moisture_words: text(r.Moisture), post_processing_words: text(r.PostProcessing), inherits: r.HeldValues, reader: r.Reader, rows: r.RowID,
+      moisture_words: text(r.Moisture), post_processing_words: text(r.PostProcessing), inherits: r.HeldValues, quote_view: viewOf(r), reader: r.Reader, rows: r.RowID,
     });
   }
 
@@ -684,15 +794,15 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
 
 // ---- files -------------------------------------------------------------------------------------------------------
 
-const PROFILE_ADD_HEADER = ['gate', 'SourceID', 'GradeID', 'MaterialID', 'like', 'Profile', ...CELL_COLUMNS, 'Locator', 'quote', ...TYPED_COLUMNS, 'parsed_vs_read', 'reader', 'rows', 'note'];
-const SET_HEADER = ['gate', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'parsed_vs_read', 'reader', 'rows', 'GradeID'];
+const PROFILE_ADD_HEADER = ['gate', 'SourceID', 'GradeID', 'MaterialID', 'like', 'Profile', ...CELL_COLUMNS, 'Locator', 'quote', ...TYPED_COLUMNS, 'parsed_vs_read', 'quote_view', 'grade_from', 'reader', 'rows', 'note'];
+const SET_HEADER = ['gate', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'parsed_vs_read', 'quote_view', 'grade_from', 'reader', 'rows', 'GradeID'];
 const VALUE_ADD_HEADER = ['gate', 'task', 'like', 'SourceID', 'GradeID', 'MaterialID', 'Property', 'Raw value', 'Raw unit', 'Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Conversion factor', 'Normalized value',
   'Normalized uncertainty ±', 'Normalized upper bound', 'Normalized unit', 'Operator', 'Specimen type', 'Direction', 'Notch', 'Moisture condition', 'Moisture state', 'Post-processing', 'Post-processing state',
-  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'presence', 'second_read', 'reader', 'rows'];
-const VALUE_SET_HEADER = ['gate', 'task', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'reader', 'rows'];
+  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'presence', 'second_read', 'quote_view', 'grade_from', 'reader', 'rows'];
+const VALUE_SET_HEADER = ['gate', 'task', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'quote_view', 'reader', 'rows'];
 const CONTEXT_HEADER = ['gate', 'SourceID', 'Page', 'Applies to', 'Statement', 'Specimen type', 'Moisture state', 'Post-processing state', 'Anneal °C', 'Anneal h', 'Standard', 'Test temperature °C', 'Locator', 'quote',
-  'moisture_words', 'post_processing_words', 'inherits', 'reader', 'rows'];
-const HELD_HEADER = ['gate', 'reason', 'stage', 'RowID', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Presence', 'SecondRead', 'Confidence', 'Reader', 'Detail'];
+  'moisture_words', 'post_processing_words', 'inherits', 'quote_view', 'reader', 'rows'];
+const HELD_HEADER = ['gate', 'reason', 'stage', 'RowID', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Presence', 'SecondRead', 'Confidence', 'Reader', 'grade_from', 'GradeResolved', 'Detail'];
 const DUP_HEADER = ['RowID', 'KeptRowID', 'SourceID', 'Page', 'Grade', 'Field', 'Raw', 'Reader'];
 
 const tally = (rows, key) => { const m = new Map(); for (const r of rows) m.set(key(r), (m.get(key(r)) ?? 0) + 1); return [...m].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]))); };
@@ -767,7 +877,8 @@ async function main() {
     return pageCache.get(sourceId);
   };
   const ctx = {
-    quoteOnSheet: (sourceId, quote) => quoteOnCachedSheet(shaOf.get(sourceId), quote),
+    standardsVocab: new Set(readCsv(join(projectRoot, 'schema/vocab/standards.csv')).records.map((r) => r.values.Value)),
+    quoteOnSheet: (sourceId, quote) => { const v = quoteViews(shaOf.get(sourceId), quote); return v == null ? null : v === '' ? false : v; },
     numberOnPage: (sourceId, page, number) => {
       const pages = pagesOf(sourceId);
       const pageText = pages?.get(Number(page));
@@ -776,7 +887,7 @@ async function main() {
     },
   };
   const rows = readRunRows(runDir);
-  const out = buildProposals({ rows, tables, ctx });
+  const out = buildProposals({ rows, tables, ctx: { ...ctx, makerWide: process.argv.includes('--maker-wide') } });
   const files = writeProposals(out, dir, { run, readRows: rows.length });
   console.log(`${rows.length} reading(s) considered -> ${dir}`);
   console.log(JSON.stringify(files));

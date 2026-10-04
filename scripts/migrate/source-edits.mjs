@@ -47,7 +47,8 @@ export function addValue(t, { like, set, note, migration, date = '2026-09-14', w
   const template = t.get('measurements', like);
   const rows = t.rows('measurements');
   if (!set.Locator) throw new Error(`${migration}: an added value needs its Locator`);
-  if (rows.some((r) => r.SourceID === template.SourceID && r.Locator === set.Locator && r['Data status'] !== 'Retired duplicate record')) return null;
+  // A row for another source than the template's (set.SourceID) is looked for under its own source.
+  if (rows.some((r) => r.SourceID === (set.SourceID ?? template.SourceID) && r.Locator === set.Locator && r['Data status'] !== 'Retired duplicate record')) return null;
   const row = {
     ...template,
     Direction: NA, Notch: NA, 'Moisture condition': 'Not published', 'Test temperature': 'Not published', 'Test load MPa': NA, 'Anneal °C': NA, 'Anneal h': NA,
