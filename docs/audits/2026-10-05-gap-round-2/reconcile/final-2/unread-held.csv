@@ -1,0 +1,177 @@
+SourceID,ID,Kind,Grade,What,Locator
+X-EVOLV3D-OBC-TDS,V011907,measurement,G086-02,Melt mass-flow rate 9.5 g/10 min,p. 1: Melt Flow Rate
+R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,P0513,profile,G143-01,Retired duplicate record,Retired duplicate of P0512 (D120): p. 2: Recommended printing settings: nozzle
+R-ERYONE-eryone-silk-pla-dual-color-tds,V011909,measurement,G008-07,Tensile strength (endpoint unspecified) 11,p. 2: Tensile strength X-Z
+R-ERYONE-eryone-silk-pla-dual-color-tds,V011910,measurement,G008-07,Tensile modulus 1653.5,p. 2: Tensile modulus X-Z
+R-ERYONE-eryone-silk-pla-dual-color-tds,V011911,measurement,G008-07,Elongation at break 1.1,p. 2: Elongation at breakX-Z
+R-ERYONE-eryone-silk-pla-dual-color-tds,V011912,measurement,G008-07,Charpy strength 7.5,p. 2: Charpy Impact strenght
+R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,V011914,measurement,G008-08,Tensile strength (endpoint unspecified) 19.1,p. 2: Tensile strength X-Z
+R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,V011915,measurement,G008-08,Tensile modulus 1873.5,p. 2: Elastic modulus X-Z
+R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,V011916,measurement,G008-08,Elongation at break 1.9,p. 2: Elongation at break X-Z
+R-ERYONE-eryone-silk-pla-tri-color-tds,V011924,measurement,G008-07,Tensile strength (endpoint unspecified) 12,p. 2: Tensile strength X-Z
+R-ERYONE-eryone-silk-pla-tri-color-tds,V011925,measurement,G008-07,Melt mass-flow rate 20.5±1.5,p. 1: Melt Index(g/10 min)
+S-PEBA-TPU-64D-TDS,P0700,profile,G039-44,Retired duplicate record,Retired duplicate of P0699 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+R-EXTRUDR-flex-hard-TDS-en,V004201,measurement,G039-16,Hardness 58,p. 1: Shore hardness ISO 868 Shore
+R-EXTRUDR-flex-hard-TDS-en-cbd667,V008573,measurement,G039-16,Hardness 58,p. 1: Shore hardness ISO 868 Shore
+D-FIBERLOGY-RNYLON-FILAMENT-PAGE,V012180,measurement,G052-06,Izod impact strength 12 kJ/m² (ISO 180),p. 1: Izod impact strength (uncharved) @ 23°C
+R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS,V012187,measurement,G113-01,Charpy strength 25 kJ/m²,p. 1: Charpy Impact Strength (Unnotched)
+R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS,V012188,measurement,G113-01,Charpy strength 7.5 kJ/m²,p. 1: Charpy Impact Strength (Notched)
+S-PET-TDS-Centaur-PP,V012239,measurement,G082-11,Tensile yield strength 12Mpa,p. 1: Tensile strength
+S-PET-TDS-EasyFil-PET,V012244,measurement,G066-07,Elongation at yield 4%,"p. 1: Elongation at tensile yield (23°C, 50mm/min) [G066-07]"
+S-PET-TDS-FlexiFil-TPC-40D,V012247,measurement,G046-05,Density 1.22 g/cm3,p. 1: Density
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011415,measurement,G147-01,Tensile modulus 3.1 ± 0.1 GPa,"p. 1: Modulus of elasticity, 100% infill - 45/135° - XY (Engineering settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011420,measurement,G147-01,Tensile strain at strength 3.7 ± 0.0 %,"p. 1: Elongation at maximum force, 100% infill - 90° - XY (Engineering settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011421,measurement,G147-01,Tensile modulus 3.1 ± 0.0 GPa,"p. 1: Modulus of elasticity, 100% infill - 90° - XY (Engineering settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011433,measurement,G147-01,Tensile modulus 2.8 ± 0.3 GPa,"p. 1: Modulus of elasticity, 100% infill - 90° - XY (Fast settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011436,measurement,G147-01,Tensile modulus 2.8 ± 0.1 GPa,"p. 1: Modulus of elasticity, 100% infill - ZX (Fast settings)"
+S-SPECTRUM-en-tds-spectrum-pla-silk-93646a,V012357,measurement,G008-03,Izod impact strength 6 J/m,p. 1: Notched Izod Impact Strength
+D-3D4MAKERS-PETG-FILAMENT-PAGE,V012482,measurement,G020-03,"Density 1,27 g/cc",p. 1: Density
+D-3D4MAKERS-PETG-FILAMENT-PAGE,V012483,measurement,G020-03,Tensile yield strength 50 MPa,p. 1: Tensile strength at yield
+D-3D4MAKERS-PETG-FILAMENT-PAGE,V012484,measurement,G020-03,Tensile modulus 2020 MPa,p. 1: Tensile modulus
+D-3D4MAKERS-PETG-FILAMENT-PAGE,V012485,measurement,G020-03,Flexural modulus 2050 MPa,p. 1: Flexural modulus
+D-3D4MAKERS-PETG-FILAMENT-PAGE,V012486,measurement,G020-03,"Charpy strength 8,1 kJ/m²",p. 1: Impact strength - Charpy method 23ºC
+D-3D4MAKERS-PETG-FILAMENT-PAGE,V012487,measurement,G020-03,HDT 70˚C,p. 1: Heat deflection temp.
+R-3D4MAKERS-TDS-ABS-ESD-3D4Makers,P0609,profile,G030-04,Retired duplicate record,Retired duplicate of P0608 (D120): p. 1: Recommended printing settings: Nozzletemp; p. 1: Dryingrecommendations
+R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers,P0611,profile,G024-10,Retired duplicate record,Retired duplicate of P0610 (D120): p. 1: Recommended printing settings: Nozzletemp; p. 1: Dryingrecommendations
+R-3DJAKE-3DJAKE-3DJake-ABS,V012523,measurement,G027-11,Tensile modulus 2350 MPa,p. 1: Tensile E-Modulus
+R-3DJAKE-3DJAKE-3DJake-ABS,V012524,measurement,G027-11,Flexural modulus 2550 MPa,p. 1: Flexural E-Modulus
+R-3DJAKE-3DJAKE-TDS-3DJAKE-PETG-CF,V008771,measurement,G024-17,Izod impact strength 4 kJ/m²,"p. 1: Notched impact strength (Izod, 0 °C)"
+X-3DXPRO-LG-PETG-TDS-v3,P0021,profile,G020-01,Manufacturer published guidance,Recommended printing settings
+X-3DXSTAT-ESD-ABS-TDS-v3,P0036,profile,G030-01,Manufacturer published guidance,Recommended printing settings
+X-AMIDEX-Nylon-GF30-TDS-v1,P0080,profile,G051-02,Manufacturer published guidance,Recommended printing settings
+X-CarbonX-CF-ABS-TDS-v3,P0034,profile,G029-01,Manufacturer published guidance,Recommended printing settings
+X-CarbonX-CF-PA12-TDS-v1,P0068,profile,G053-01,Manufacturer published guidance,Recommended printing settings
+X-CarbonX-CF-PA12-TDS-v1,P0077,profile,G062-01,Manufacturer published guidance,Recommended printing settings
+X-CarbonX-CF-PC-TDSv3,P0045,profile,G037-01,Manufacturer published guidance,Recommended printing settings
+X-ECOMAX-3DXMAX-ABS-TDS-v3,P0245,profile,G027-06,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-3DXMAX-ASA-TDS-v3,P0257,profile,G031-05,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-3DXMAX-PC-TDS-v3,P0254,profile,G035-05,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-3DXMAX-PETG-TDS,P0264,profile,G020-12,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-CarbonX-CF-ezPC-TDSv1,P0267,profile,G037-04,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-CarbonX-CF-HTN-TDS-v2,P0250,profile,G070-05,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-CarbonX-CF-PETG-TDS-v3,P0243,profile,G024-05,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-CarbonX-PA6-G3-TDS-v3-0,P0566,profile,G050-10,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-CF-HTN-v1,P0248,profile,G070-05,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-ECOMAX-Tough-PLA-TDS-v1,P0247,profile,G001-18,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-ezPC-TDS-v01,P0244,profile,G035-04,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-FIBREX-GF-ABS-TDS-v1,P0256,profile,G028-03,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+X-ECOMAX-PLA-TDS-v3,P0001,profile,G001-01,Manufacturer published guidance,Recommended printing settings
+X-ECOMAX-SimuBone-TDS-v1,P1011,profile,G001-178,Manufacturer published guidance,"p. 1: Printed Specimen Conditions, which are not printing guidance (m170)"
+R-3DJAKE-PLA-TDS,V012672,measurement,G001-153,"Flexural elongation at break 3,3",p. 1: Strain at break (Flexural) [%]
+R-BAMBU-SUPPORT-PLA-NEW-TDS,V001815,measurement,G077-01,HDT N/A,p. 2: Heat Deflection Temperature at 0.45 MPa
+R-COLORFABB-colorFabb-LW-PLA-TDS,V012706,measurement,G017-09,"Density 0.40 - 1,24 g/cm3",p. 1: Density
+R-COLORFABB-colorFabb-VarioShore-TPU-TDS,V005820,measurement,G039-25,Hardness 92 Shore A,p. 1: Hardness Shore A
+R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo,V012713,measurement,G001-70,Tensile modulus 3400 MPa,p. 2: Tensile modulus
+R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo,V012714,measurement,G001-70,Tensile strength (endpoint unspecified) 45 MPa,p. 2: Tensile strength
+R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo,V012715,measurement,G001-70,Elongation at break 6 %,p. 2: Tensile strain at break
+R-COLORFABB-TDS-E-ColorFabb-varioShore-TPU,V006501,measurement,G039-25,Hardness 92 Shore A,p. 1: Hardness Shore A
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012726,measurement,G039-25,Tensile modulus 50 MPa,p. 1: Youngs Modulus (50 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012727,measurement,G039-25,Tensile modulus 40 MPa,p. 1: Youngs Modulus (40 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012728,measurement,G039-25,Tensile strength (endpoint unspecified) 24 MPa,p. 1: Tensile Strength (XY; Mechanical Properties – 3D Printed; 24 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012729,measurement,G039-25,Tensile strength (endpoint unspecified) 12 MPa,p. 1: Tensile Strength (XY; Mechanical Properties – 3D Printed; 12 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012730,measurement,G039-25,Elongation at break 465 %,p. 1: Elongation at break (XY; Mechanical Properties – 3D Printed; 465 %)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012731,measurement,G039-25,Elongation at break 450 %,p. 1: Elongation at break (XY; Mechanical Properties – 3D Printed; 450 %)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012732,measurement,G039-25,Flexural modulus 50 MPa,p. 1: Flexural Modulus (50 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012733,measurement,G039-25,Flexural modulus 40 MPa,p. 1: Flexural Modulus (40 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012734,measurement,G039-25,Flexural strength 3 MPa,p. 1: Flexural Strength (3 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012735,measurement,G039-25,Flexural strength 2 MPa,p. 1: Flexural Strength (2 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012736,measurement,G039-25,Charpy strength 40 kJ/m²,p. 1: Impact Strength (40 kJ/m²)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012737,measurement,G039-25,Charpy strength 20 kJ/m²,p. 1: Impact Strength (20 kJ/m²)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012738,measurement,G039-25,Tensile strength (endpoint unspecified) 59 MPa,p. 1: Tensile Strength (Mechanical Properties – Injection Molded*; 59 MPa)
+R-COLORFABB-TDS-varioShore-Prosthetic-TPU,V012739,measurement,G039-25,Elongation at break 490 %,p. 1: Elongation at break (Mechanical Properties – Injection Molded*; 490 %)
+R-ERYONE-eryone-standard-tpu-tds,V012761,measurement,G039-21,HDT 70,p. 1: Heat distortion temperature(° C)
+R-ERYONE-eryone-standard-tpu-tds,V012762,measurement,G039-21,Tensile strength (endpoint unspecified) 22,p. 2: Tensile strength X-Z
+R-ERYONE-eryone-standard-tpu-tds,V012763,measurement,G039-21,Charpy strength 120,p. 2: Charpy Impact strenght
+R-ESSENTIUM-PPSCF-TDS,V001884,measurement,G073-02,HDT N/A,p. 1: HDT at 1.8 MPa
+S-PEBA-ABS-ESD-TDS-EN,V007209,measurement,G030-05,Surface resistivity 10^9 Ω,p. 1: Surface Resistance DIN IEC 60093
+S-PEBA-eSUN-ePA-Filament-TDS-V4-0,V012825,measurement,G057-04,Tensile strength (endpoint unspecified) 52.45 MPa,p. 1: Tensile Strength
+S-PEBA-eSUN-ePA-Filament-TDS-V4-0,V012826,measurement,G057-04,Elongation at break 175.32 %,p. 1: Elongation at Break
+S-PEBA-eSUN-ePA-Filament-TDS-V4-0,V012827,measurement,G057-04,Flexural strength 58 MPa,p. 1: Flexural Strength
+S-PEBA-eSUN-ePA-Filament-TDS-V4-0,V012828,measurement,G057-04,Flexural modulus 1370 MPa,p. 1: Flexural Modulus
+S-PEBA-eSUN-PLA-Clear-Filament-TDS-V4-0,V012842,measurement,G001-84,Tensile strength (endpoint unspecified) 72 MPa,p. 1: Tensile Strength
+S-PEBA-eSUN-PLA-Clear-Filament-TDS-V4-0,V012843,measurement,G001-84,Elongation at break 11.8 %,p. 1: Elongation at Break
+S-PEBA-eSUN-PLA-Clear-Filament-TDS-V4-0,V012844,measurement,G001-84,Flexural strength 90 MPa,p. 1: Flexural Strength
+S-PEBA-eSUN-PLA-Clear-Filament-TDS-V4-0,V012845,measurement,G001-84,Flexural modulus 1915 MPa,p. 1: Flexural Modulus
+S-PEBA-PETG-Basic-TDS,P0691,profile,G020-37,Retired duplicate record,Retired duplicate of P0690 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PETG-ESD-TDS-EN,P0681,profile,G026-07,Retired duplicate record,Retired duplicate of P0680 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PETG-Matte-TDS,P0702,profile,G020-38,Retired duplicate record,Retired duplicate of P0701 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PETG-TDS-en,P0688,profile,G020-35,Retired duplicate record,Retired duplicate of P0687 (D120): p. 3: Recommended printing settings: Nozzle Temperature
+S-PEBA-PLA-Basic-TDS-EN,P0694,profile,G001-94,Retired duplicate record,Retired duplicate of P0693 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PLA-Basic-TDS-EN-2026-6-5,P0617,profile,G001-83,Retired duplicate record,Retired duplicate of P0616 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PLA-Cast-TDS-EN-2025-8-27,P0630,profile,G001-86,Retired duplicate record,Retired duplicate of P0629 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PLA-HF-TDS-2026-2-2,P0602,profile,G001-80,Retired duplicate record,Retired duplicate of P0601 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PLA-HS-TDS,P0640,profile,G001-88,Retired duplicate record,Retired duplicate of P0639 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PLA-Matte-TDS-2025-06-19-1,P0578,profile,G001-71,Retired duplicate record,Retired duplicate of P0577 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+S-PEBA-PLA-TDS-en,P0596,profile,G001-78,Retired duplicate record,Retired duplicate of P0595 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+R-FABRU-PUREFIL-2186-Materialdatenblatt-PETG-purefil,P1691,profile,G020-57,Manufacturer published guidance,"p. 1: Drucktemperatur; p. 1: Heizbett Temperatur; p. 1: Allgemein; p. 1: Verarbeitungsdaten: Trocknungstemperatur, Drying time"
+D-FIBERLOGY-PETG-FR-V0-FILAMENT-PAGE,V013170,measurement,G020-05,Charpy strength 3 kJ/m²,p. 1: Charpy impact strength (notched) @ 23°C
+D-FIBERLOGY-PLA-IMPACT-FILAMENT-PAGE,V013176,measurement,G001-16,Tensile modulus 2870 MPa,p. 1: Tensile modulus
+D-FIBERLOGY-PLA-IMPACT-FILAMENT-PAGE,V013177,measurement,G001-16,Izod impact strength 160 J/m,p. 1: Izod impact strength (notched) @ 23°C
+D-FIBERLOGY-PLA-IMPACT-FILAMENT-PAGE,V013178,measurement,G001-16,"Flexural modulus 2,410 MPa",p. 1: Flexural modulus
+R-FILLAMENTUM-Technical-Data-Sheet-PC-ABS,V013215,measurement,G094-11,Melt volume-flow rate 15 cm³/10 min,p. 1: Melt flow index
+D-FLASH-PLA-HS-TDS-EN,P0468,profile,G001-49,Manufacturer published guidance,p. 2: Recommended printing settings
+S-PET-formfutura-tds-apollox2024,V013230,measurement,G031-15,Flexural strength 64 MPa,p. 1: Flexural strenght
+S-PET-formfutura-tds-highprecisionpla,V013231,measurement,G001-158,"Elongation at yield 3,3%","p. 1: Elongation at tensile yield (23°C, 50mm/min) [G001-158]"
+S-PET-formfutura-tds-kratospc,V013233,measurement,G035-03,Izod impact strength 70 kg·cm/cm,p. 1: Izod Notched Impact Strength (23°C)
+S-PET-formfutura-tds-reformrapollo,V013236,measurement,G031-15,Izod impact strength 435 J/m,p. 1: Impact strenght
+S-PET-TDS-ApolloX,V013243,measurement,G031-15,Melting temperature 230 ± 10° C,p. 1: Melting termperature
+S-PET-TDS-ApolloX,V013244,measurement,G031-15,Vicat softening temperature 98° C,p. 1: Viscat softening temp.
+S-PET-TDS-LimoSolve,V013268,measurement,G081-08,"Water absorption <0,1%",p. 1: Water absorption
+S-PET-TDS-LimoSolve,V013269,measurement,G081-08,Charpy strength 15 KJ/m²,p. 1: Impact strength
+S-PET-TDS-MagicFil-Thermo-PLA,V013270,measurement,G001-159,Impact strength 7.5 KJ/m²,p. 1: Impact strength
+R-YOUSU-YOUSUPCTDS-535a,V013300,measurement,G035-25,Tensile yield strength 60,p. 1: Tensile Strength (60)
+R-YOUSU-YOUSUPVBTDS-9c2c,V013328,measurement,G093-05,Tensile break strength 40,p. 1: Tensile Strength
+I-ESD-ABS-TDS,P0037,profile,G030-02,Manufacturer published guidance,Recommended printing settings
+I-PLA-PA12-CF-TDS,P1742,profile,G053-13,Manufacturer published guidance,"p. 1: the conditions the 3D-printed test bars were printed under (print temperature and heat bed, specimens), which are not printing guidance (m170, m345)"
+S-POLYCN-index-php-controller-attachment-id-attachment-167,P0304,profile,G035-06,Retired duplicate record,Retired duplicate of P0303 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-PolyFlex-TPU90-TDS-V4-2,P0281,profile,G039-11,Retired duplicate record,Retired duplicate of P0280 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-PolyFlex-TPU95-HF-TDS-V4-2,P0275,profile,G039-12,Retired duplicate record,Retired duplicate of P0274 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-PolyFlex-TPU95-TDS-V4,P0285,profile,G039-13,Retired duplicate record,Retired duplicate of P0284 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-PolyLite-PLA-TDS-V3,P0306,profile,G001-19,Retired duplicate record,Retired duplicate of P0305 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-Polymaker-PC-Max-TDS-v1-0,P0346,profile,G035-09,Manufacturer published guidance,"p. 1: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+S-POLYCN-PolyMax-PETG-TDS-V4,P0323,profile,G020-16,Retired duplicate record,Retired duplicate of P0322 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-PolyMax-PLA-TDS-v1,P0335,profile,G001-24,Manufacturer published guidance,"p. 1: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN,P0289,profile,G027-07,Retired duplicate record,Retired duplicate of P0288 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN,P0293,profile,G027-08,Retired duplicate record,Retired duplicate of P0292 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-HT-PLA-Pro-V1-4-2026-7-17-EN,P0348,profile,G001-29,Retired duplicate record,Retired duplicate of P0347 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17,P0326,profile,G020-15,Retired duplicate record,Retired duplicate of P0325 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,P0350,profile,G001-30,Retired duplicate record,Retired duplicate of P0349 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN,P0291,profile,G039-11,Retired duplicate record,Retired duplicate of P0290 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN,P0321,profile,G039-12,Retired duplicate record,Retired duplicate of P0320 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-V5-5-2025-12-29-EN,P0334,profile,G039-13,Retired duplicate record,Retired duplicate of P0333 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyLite-CosPLA-Version-A-V5-5-2025-12-30-EN,P0343,profile,G001-28,Retired duplicate record,Retired duplicate of P0342 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyLite-PLA-Pro-V5-6-2026-01-05-EN,P0337,profile,G001-27,Retired duplicate record,Retired duplicate of P0336 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN,P0277,profile,G035-06,Retired duplicate record,Retired duplicate of P0276 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN,P0359,profile,G020-16,Retired duplicate record,Retired duplicate of P0358 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyMax-PLA-V5-5-2026-01-06-EN,P0318,profile,G001-24,Retired duplicate record,Retired duplicate of P0317 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013588,measurement,G020-29,Density 1.27,p. 2: Density [g/cm3]
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013589,measurement,G020-29,Water absorption 0.07,p. 2: Moisture Absorption in 24 hours [%](1)
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013590,measurement,G020-29,Water absorption 0.10,p. 2: Moisture Absorption in 7 days [%](1)
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013591,measurement,G020-29,HDT 68,p. 2: Heat Deflection Temperature (0.45 MPa) [°C]
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013592,measurement,G020-29,Tensile yield strength 45 ± 1,p. 2: Tensile Yield Strength for Filament [MPa]
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013593,measurement,G020-29,Interlayer adhesion strength 15 ± 5,p. 2: Interlayer Adhesion [MPa]
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013594,measurement,G020-29,Tensile yield strength 43 ± 1.8,p. 2: Tensile Yield Strength [MPa] (Horizontal (source label))
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013595,measurement,G020-29,Tensile yield strength 48 ± 2.5,p. 2: Tensile Yield Strength [MPa] (Vertical XZ (source label))
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013596,measurement,G020-29,Tensile modulus 1.5 ± 0.1,p. 2: Tensile Modulus [GPa] (Horizontal (source label))
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013597,measurement,G020-29,Tensile modulus 1.6 ± 0.1,p. 2: Tensile Modulus [GPa] (Vertical XZ (source label))
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013598,measurement,G020-29,Charpy strength 25 ± 3,p. 2: Impact Strength Charpy [kJ/m2](3) (Horizontal (source label))
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013599,measurement,G020-29,Charpy strength 38 ± 11,p. 2: Impact Strength Charpy [kJ/m2](3) (Vertical XZ (source label))
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013600,measurement,G020-29,Charpy strength 12 ± 1,p. 2: Impact Strength Charpy Notched [kJ/m2](4) (Horizontal (source label))
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,V013601,measurement,G020-29,Charpy strength 15 ± 3,p. 2: Impact Strength Charpy Notched [kJ/m2](4) (Vertical XZ (source label))
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,P0913,profile,G071-05,Retired duplicate record,"Retired duplicate of P0912 (D120): p. 2: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V2-8c9901cf-e1d5-4e11-b9e2-cd245c298c4f,P0657,profile,G067-05,Retired duplicate record,Retired duplicate of P0656 (D120): p. 2: Recommended printing settings: nozzle
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,P0674,profile,G067-05,Retired duplicate record,"Retired duplicate of P0673 (D120): p. 2: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,P0675,profile,G067-05,Retired duplicate record,Retired duplicate of P0673 (D120): p. 2: Recommended printing settings: nozzle
+D-RAISE3D-Raise3d-Premium-PC-Black-White-TDS-V6,P0672,profile,G035-18,Retired duplicate record,Retired duplicate of P0671 (D120): p. 2: Recommended printing settings: Nozzle temperature
+D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V6,P0623,profile,G035-16,Retired duplicate record,Retired duplicate of P0622 (D120): p. 1: Recommended printing settings: Nozzle temperature
+D-RAISE3D-Raise3D-Premium-PLA-TDS-V6-0-EN,P0615,profile,G001-82,Retired duplicate record,Retired duplicate of P0614 (D120): p. 2: Recommended printing settings: Nozzle temperature
+D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2,P0649,profile,G039-36,Retired duplicate record,Retired duplicate of P0648 (D120): p. 1: Recommended printing settings: Nozzle temperature
+D-SIRAYA-siraya-tech-rebound-peba-air-70a-95a-tds,P1018,profile,G045-09,Retired duplicate record,Retired duplicate of P1017 (D120): p. 1: Recommended printing settings: Print Temp
+S-SPECTRUM-en-tds-spectrum-flameguard-asa-275,V006328,measurement,G031-15,Izod impact strength 60 J/m,"p. 1: Izod Impact Strength, Notched, 6.4mm, -30°C"
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,V002099,measurement,G094-03,Charpy strength NB,"p. 1: Charpy impact strength, unnotched, 23°C"
+S-SPECTRUM-en-tds-spectrum-safeguard-pla,V014148,measurement,G001-69,Izod impact strength 16 J/m,p. 1: Notched Izod Impact
+R-3DJAKE-EN-TDS-The-Filament-ASA-CF,V014383,measurement,G033-03,"Charpy strength 5,7 kJ/m2",p. 1: Impact strength - charpy method
+R-3DJAKE-EN-TDS-The-Filament-HT-PLA,V014384,measurement,G001-09,"Charpy strength 2,1 kJ/m2","p. 1: Charpy impact strength notched, 23°C"
+R-3DJAKE-EN-TDS-The-Filament-PLA-Matte,V014385,measurement,G001-08,"Izod impact strength 51,2 J/m",p. 1: Izod Notched
+S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD,V006317,measurement,G107-01,Density 1.16 g/cm3,p. 1: Density
+S-SPECTRUM-en-tds-spectrum-pla-esd,V002819,measurement,G107-01,Density 1.16 g/cm3,p. 1: Density

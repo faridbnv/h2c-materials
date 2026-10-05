@@ -1,0 +1,97 @@
+SourceID,Publisher,SHA256,SpecPages,SpecStatement,Waiting,PrintedOrUnstated
+R-3DJAKE-3DJAKE-ASA-TDS-1,3DJake / 3DJAKE,aadd82942b7e91e7f8eb14f39d4150d73ebd010f6ddfd95643119a539d979934,1,Test specimens print settings: Nozzle temperature: 250 °C,6,6
+R-3DJAKE-3DJAKE-PETG-TDS-10-1,3DJake / 3DJAKE,c190655b232cd9f7d6661d9ff4d77738781791494d2e6a300111afece08a5afb,1,Test specimens print settings: Nozzle temperature: 230 °C,8,8
+R-3DJAKE-ABS-P-TDS-1,AzureFilm,659c491576922d95850388656cc76052065efc6d3c8f925c443d33407aea9228,1,Test specimens print settings: Nozzle temperature: 260 °C,7,7
+R-3DJAKE-PLA-TDS,AzureFilm,fdaf81f05935668799e9bceaa41fbdefb0692fc832d04ef031f5f724787aa0aa,1,Test specimens print settings: Nozzle temperature: 200 °C,8,8
+D-FLASH-ABS-ESD-TDS-EN,Flashforge,14400652b1beccc1735bb7ece4e0ea014536f9f63c82787b4c999429b764ce54,2,Nozzle Temperature 230 °C,10,10
+D-FLASH-ABS-GF-TDS-EN,Flashforge,e92c43ab43ea549f3b70ed746a9243804c8391f18ef261c5abf62b33b6b9bec7,2,Nozzle Temperature 240 °C,13,13
+D-FLASH-ABS-Matte-TDS-EN,Flashforge,28ca2de70c00b01e4e4715aa5f3a2cc7bea90e5394dc112c147d2735f93b817a,2,Nozzle Temperature 250 °C,12,12
+D-FLASH-ASA-CF-TDS-EN,Flashforge,174ca50eef981c2a3242b0fd5d1649866b0056506b183bdac79b1529fa455ad1,2,Nozzle Temperature 270 °C,10,10
+D-FLASH-ASA-TDS-EN,Flashforge,e0f5bfbf1136257c627776f871845dd1d0323bdbec1a292e23678232c3b29128,2,Nozzle Temperature 250 °C,9,9
+D-FLASH-PA6-CF-TDS-EN,Flashforge,08f8f32c91466d90e3470168f65e1c05113bfb824f2191c179226bc0bc6ce3f0,2,Nozzle Temperature 285 °C,10,10
+D-FLASH-PA6-GF-TDS-EN,Flashforge,dbcea4ed7109924b8dfa64d552e019c0d32d77e5c96a729071307b7808350df1,2,Nozzle Temperature 270 °C,12,12
+D-FLASH-PBAT-TDS-EN,Flashforge,c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7,2,Nozzle Temperature 230 °C,9,9
+D-FLASH-PBT-GF-TDS-EN,Flashforge,6e235a57855189776b852101b8c76a7acd6fc7e4a7ba918abf9468e10623d1ce,2,Nozzle Temperature 270°C,9,9
+D-FLASH-PC-ABS-TDS-EN,Flashforge,2e2d8d5c5d1b4c4368256ad9d0fcbe8964813f10c618157cbc1eddab13ec0959,2,Nozzle Temperature 265 °C,10,10
+D-FLASH-PC-CF-TDS-EN,Flashforge,03d0a687859a8c50e3abd8a10a2e2b680ecf0ed8c36ff2fefcb6bf22b553efa3,2,Nozzle Temperature 250 °C,13,13
+D-FLASH-PC-TDS-EN,Flashforge,cd531fc7210a1dae6431fcbb2680799ce17ebdaaa493a26e54459b7402607f67,2,Nozzle Temperature 250 °C,10,10
+D-FLASH-PET-CF-TDS-EN,Flashforge,8f40ad360c2b1abe1659374f0226b4efb879a1371f6a5fa54731da88ed630da7,2,Nozzle Temperature 290 °C,8,8
+D-FLASH-PET-GF-TDS-EN,Flashforge,42ce708596453e8e4d792a91c549d3234a69be4da97a488384f167199c05d0df,2,Nozzle Temperature 275 °C,13,13
+D-FLASH-PETG-CF-TDS-EN,Flashforge,7854ff3c76a5fb1eaf6b2058d2ade8baa606edb007402e7df3bf6fe1ea1f32ab,2,Nozzle Temperature 240 °C,10,10
+D-FLASH-PETG-ESD-TDS-EN,Flashforge,ead06b1fb05b18204c8d3b6f0feb414f1695eedf0b5e901ac95fc17b9bf5f37d,2,Nozzle Temperature 230 °C,10,10
+D-FLASH-PETG-TDS-EN,Flashforge,deb59dd15280e68305921c94665f103eb23ad932312f95c4609c4d1763dcddd4,2,Nozzle Temperature 240 °C,10,10
+D-FLASH-PLA-CF-TDS-EN,Flashforge,f38a4c115ec6914ac7fecafe9ccff88b02f2bdecf13bdb18f610cf20c22811de,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Crystal-TDS-EN,Flashforge,e8560873ef75c73ff11ed551d91902fdbf6975de5c647a2beb7fdad0b0be364a,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Matte-TDS-EN,Flashforge,a245b0513a6266bddcce02c38fd9388281be781597fb1135c90b1f9aea26823a,2,Nozzle Temperature 220 °C,10,10
+D-FLASH-PLA-Multicolor-TDS-EN,Flashforge,119f07970adabdf203beb370d797ee705c1cba54370392d0f7b31f01a76a9719,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Pro-TDS-EN,Flashforge,c3b4c0cbea7ea19b99fc5754434816c2405787d1b4609458830f59ed3802a8eb,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Silk-TDS-EN,Flashforge,b23de0291490f24ac1a1bf1b8dd177c05e305954bca1c22bdc8d169478b969ac,2,Nozzle Temperature 220 °C,10,10
+D-FLASH-PLA-TDS-EN,Flashforge,4514e8abbf117b6283d66c0ce5995f019f96ef4e3f4472d27d7bb753d72ffa0b,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Wood-TDS-EN,Flashforge,e1d16cb7144997737e5f06624d4b08bfb6386ecd9ade218324cd55ec208f715a,2,Nozzle Temperature 200 °C,10,10
+D-FLASH-PPA-CF-TDS-EN,Flashforge,403113302f1a5401ba2e680e2131069c971610eb3d3170718a536029eb8a6813,2,Nozzle Temperature 270 °C,16,16
+D-FLASH-PPA-GF-TDS-EN,Flashforge,863e1063813a26a3588491008ec4c651271a8715abee9fbb00523bbc46929c42,2,Nozzle Temperature 270 °C,15,15
+D-FLASH-PPS-CF-TDS-EN,Flashforge,aa0e7369ec4b56dfaac160d0063d9b722a48dc30ffc1db9e2fe47074c38f41dd,2,Nozzle Temperature 320 °C,15,15
+D-FLASH-PVA-TDS-EN,Flashforge,7e50a7389e3359cec9f11c3d77c54bf04d7247f9f27675eb7189b4b4bc3ecf7a,2,Nozzle Temperature 220 °C,9,9
+D-FLASH-TPU-64D-TDS-EN,Flashforge,fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282,2,Nozzle Temperature 230°C,8,8
+D-FLASH-TPU-TDS-EN,Flashforge,c8f2e80e6f0a795dbfcbdcce288bf9c4dd775552bee47685b40b36bd78c92e0f,2,Nozzle Temperature 230 °C,9,9
+S-POLYCN-PolyCast-TDS-V5-1,Polymaker,92f08bb9b0eb9a3fffeb3796c899b6fdcb7092987f034dddd3e627ec2267812c,5,Printing temperature 220 °C,14,14
+S-POLYCN-PolyFlex-TPU90-TDS-V4-2,Polymaker,3549885db399b83b4c83da7e1ed2eb6bdbf678658efd9f7bcd68f31d1f9722ca,1,"nozzle temperature = 220 °C, printing speed = 60 mm/s, build plate temperature = 50 °C, infill = 100%",6,6
+S-POLYCN-PolyFlex-TPU95-HF-TDS-V4-2,Polymaker,2a7c8c5b74b5a89f521153f8b3076e6285c09ab6536952013e51467063bc38fa,1,"nozzle temperature = 210 °C, printing speed = 45 mm/s, build plate temperature = 50 °C, infill = 100%",6,6
+S-POLYCN-PolyFlex-TPU95-TDS-V4,Polymaker,3a9b0aae6b60bc8e092887e81035a37102e94e90699ae5af8782e03b5794976e,1,"nozzle temperature = 225 °C, printing speed = 30 mm/s, build plate temperature = 30 °C, infill = 100%",6,6
+S-POLYCN-PolyLite-LW-PLA-TDS-US-5-3-20240307,Polymaker,73c46d4f841952298ecec7a03cafe01273a7f8f2fbcf1960c42f2b31cb230117,5,Printing temperature 195 °C,18,18
+S-POLYCN-PolyLite-PC-TDS-V5-1,Polymaker,819ca676a2a6fd349ea05d0ab92da14e1a817d8c977ad93ea322890b08e9673e,5,Printing temperature 255 °C,17,17
+S-POLYCN-PolyLite-PETG-TDS-V3,Polymaker,63fbec629f68efeb76826feeec97e228c1d424ea5450e007a9f66437c0a325c3,1,"nozzle temperature = 240 °C, printing speed = 45 mm/s, build plate temperature = 80 °C, infill = 100%",10,10
+S-POLYCN-PolyLite-PETG-TDS-V5-2,Polymaker,f0566292697decaea2d9ebe85fc2c498375bc239c4b18f3778f2c1fb2445b563,5,Printing temperature 240 °C,16,16
+S-POLYCN-PolyLite-PLA-CF-TDS-US-5-1,Polymaker,e868af12aa841ba706e8a3e8fba7a91f7e9141e66c7d80509d07984d71e29850,5,Printing temperature 195 °C,17,17
+S-POLYCN-PolyLite-PLA-TDS-V3,Polymaker,518c92df7541feee0aa6ae8f6506c94231e8c5be581418fed688151713c2b386,1,"nozzle temperature = 205 °C, printing speed = 60 mm/s, build plate temperature = 40 °C, infill = 100%",10,10
+S-POLYCN-PolyLite-PLA-TDS-V5-1-7,Polymaker,0678205d8447934333627472db8a91b236d0eacfa63dd168af73ad1567889b31,5,Printing temperature 205 °C,16,16
+S-POLYCN-PolyMax-PETG-TDS-V4,Polymaker,a0037e7d956d5e2d9222e24403e48bc71eadf686a0467e697d9dd1fe7fd96a7b,1,"nozzle temperature = 240 °C, printing speed = 45 mm/s, build plate temperature = 80 °C, infill = 100%",14,14
+S-POLYCN-PolyMax-PLA-TDS-v1,Polymaker,ba06f10762164d8279f8ebdd15f7d9824b822013341ce2ffd246c42972513045,1,"Printing temperature = 200 °C, printing speed = 90 mm/s, number of shells = 2, and 100% infill.",6,6
+S-POLYCN-PolyWood-TDS-V5-1,Polymaker,6be71ddce3cf5286ba963cd35e8838a19c52dc0ea7f7aecd47967d1cefdbebd4,5,Printing temperature 195 °C,16,16
+S-POLYCN-Polylite-CosPLA-Version-B-EN-V5-3-20240123,Polymaker,fbb7588ce25d411eb8e6985868a3c8dbaa04a4f0515eddb1d8148de613e57b8f,6,Printing temperature 210 °C,17,17
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,Polymaker,4cb65426a3f314b09c7d1b787bcd305a6dc071fa6b113450fe16d724a5547ec2,7,Printing temperature 210 °C,16,16
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-0,Polymaker,4bf0dcd61bd4732caac2243535fc361f4c13ec0f123025ecae723737b8d27f4c,6,Printing temperature 230°C,18,18
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,Polymaker,442547e8f1a407bd82b3b2d14e3e8a674f18928e5ced0dbc4f65f30a46f07fbb,6,Printing temperature 230°C,18,18
+S-POLYCN-Polymaker-PC-Max-TDS-v1-0,Polymaker,cdc310fbb5fb150d315faa112f82b9794107a748b4c0babf0f5cfccc27e6d6fe,1,"Printing temperature = 255 ° C, printing speed = 60 mm/s, number of shells = 2, and 100% infill.",4,3
+S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN,Polymaker,4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e,1,Printing temperature 230°C Infill 100%,4,4
+S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-V5-5-2025-12-29-EN,Polymaker,b7c4419e76553beabee0455b577316269a03618d4fea8302d171aaa90efa7e72,1,Printing temperature 230°C Infill 100%,7,7
+S-POLYCN-index-php-controller-attachment-id-attachment-167,Polymaker,4dfc3fbf078a0b07885f2947154be0ec2778a4ab75b5485c344973933fc32012,1,"nozzle temperature = 255 °C, printing speed = 60 mm/s, build plate temperature = 100 °C, infill = 100%",10,10
+S-POLYCN-index-php-controller-attachment-id-attachment-236,Polymaker,3925acba6dc081db8570fe1729827489ed40d33a5812e9292d0aba01f7566be4,1,"nozzle temperature = 265 °C, printing speed = 45 mm/s, build plate temperature = 70 °C, infill = 100%",12,12
+D-RAISE3D-Raise3D-Hyper-Core-ABS-CF15-TDS-V1-0,Raise3D,d1248ddbd3308f4322876284d2c7c1dd7479dbea10d64069d8ac44aa2d8efa02,1,Nozzle temp.= 250 ºC,13,13
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,Raise3D,3bc8d6f1e11716132125d9e345db4ba104c028151f22cfb81d6e4288f0124840,1 2,Nozzle temp. = 340 ºC,20,20
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,Raise3D,8f388f9df1c8deba22d6e8f86965476f59e42a225cf63be2dff05552e7982412,1 2,Nozzle temp. = 300 ºC,29,29
+D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,Raise3D,b7661651da19ee0bdc9f446e3393e39394d231cc07e4b8fd77fe887ba2917f62,2,Nozzle temp. =270 ºC,17,17
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,Raise3D,209f7cee08389c219fa58a2b998ce3d3360e2030da731cd00e90070a628741e0,1 2,Nozzle temp.= 230 ºC,17,17
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,Raise3D,abb3855a4ad2bac2dbd7dbe1f137986d5d99a9d390ec7a2314c2f814da9a38e2,1 2,Nozzle temp.= 320 ºC,8,8
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,Raise3D,2578b479b63e0a78e29d2d84e175f232a7395ade20e88e013b430c64b3f000d3,2,Nozzle temp. = 340 ºC,24,24
+D-RAISE3D-Raise3D-Premium-ABS-TDS-V7-2,Raise3D,2b0c2628808cc6d6702673cb963695fc7b98262ba3776be6ce3629ccaaeb4485,1,"Nozzle temperature = 255°C, printing speed = 60 mm/s, build plate temperature = 100°C, infill =100% .",12,12
+D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,Raise3D,066d5257d42051b37e3f8768851be08b5bd3f32e003c5c4ebf64e559e42fb086,1,"nozzle temperature = 260 °C, printing speed = 50 mm/s, build plate temperature = 80 °C, infill = 100%",11,11
+D-RAISE3D-Raise3D-Premium-PLA-TDS-V6-0-EN,Raise3D,457081bb3cf7c87853dd1154ad84b71d93f31107c50211b63a7e97b283a69aef,2,"nozzle temperature = 210 °C, printing speed = 45 mm/s, build plate temperature = 25 °C, infill = 100%",15,15
+D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2,Raise3D,7ef52ccce1c695a3fc82c0d348f9537888c36a56fcd40996e71473d99bea13f5,1,"Printing temperature = 210 °C, printing speed = 30 mm/s, number of shells = 2, and 100% infill.",6,6
+D-RAISE3D-Raise3d-Premium-PC-Black-White-TDS-V6,Raise3D,a9eb457afb7b53ab75abd39f515d44f9ff6dc3854c2ced72e621612478e0fa73,1,"nozzle temperature = 255 °C, printing speed = 60 mm/s, build plate temperature = 100 °C, infill = 100% All specimens",14,14
+D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V6,Raise3D,4f04287709294336c921ae28a4fa68a642af18a09df11f208b1f437caada961f,1,"nozzle temperature = 255 °C, printing speed = 60 mm/s, build plate temperature = 100 °C, infill = 100%.",13,13
+S-PCGF-PA12-CF-TDS-EN-1,SIDDAMENT,6bafd26ee3d73ad5173240c52d1b6fbd6c6e31e0a76d7b80eb6c2e048b0378ce,2,Test Sample Printing Conditions: Nozzle Temperature 275 °C,6,6
+S-PEBA-59754c44,eSUN,85036f72dc578b35e32249dbb694377f19a034a556674ec63acb53528109afdf,2,Extruder Temperature 220℃,7,1
+S-PEBA-79f73c22-1,eSUN,9c76256a489aef0328477d91017e69324f6d89558d4a1c6037c34050493891fe,2,Extruder Temperature 220℃,7,1
+S-PEBA-ABS-CF-TDS-V1-2024-07-02,eSUN,14bb92fcd1fc372ea69a5520d984e38b753906be82208edcc593800cc09ce62d,2,Extruder Temperature 275℃,7,1
+S-PEBA-ABS-ESD-TDS-EN,eSUN,b7f1cf87900ba54ffeba246e6b5100d3e1754c22c2a35f4b446bffb3e34ded7b,3,Extruder Temperature 270℃,13,13
+S-PEBA-ABS-GF-TDS-V1-2024-07-02,eSUN,05181655850b8f4955d039f6e4b33984d21d1160909a455a321effa0b096522e,2,Extruder Temperature 275℃,7,1
+S-PEBA-ABS-HT-TDS-V1-2024-07-02,eSUN,7588465d37ed6c65b2053e344f8ad06057f2853d152107cd7527c634c5ff9bb6,2,Extruder Temperature 270℃,7,1
+S-PEBA-ABS-TDS-EN-docx,eSUN,99235852a8cc406c838b35051a49254e190945a8f70ccd92081bb82d5d3147fe,4,Build Platform Temperature 100℃,15,15
+S-PEBA-PETG-CF-TDS-V1-2024-07-02,eSUN,571e0467b3f95edb71099c286a3d6a4256cbf24ba15b21c3a9cfb1293863d755,2,Extruder Temperature 255℃,7,1
+S-PEBA-PETG-ESD-TDS-EN,eSUN,b82fad6b1d2d38bce104e5c37c160af3126a2c3d9037d82eaf18021bf61902f2,3,Extruder Temperature 240℃,13,13
+S-PEBA-PETG-Matte-TDS,eSUN,e0dbde5da118931fc5e282cde9d0caf57d9e469b1f6a26fc6e70ffe689ec5342,3,Extruder Temperature 250℃,12,12
+S-PEBA-PETG-TDS-en,eSUN,cce46fef526ded302c8e476b144994507a0e4148645c0ba8a8c612cf5d372b2d,4,Printing Test Conditions 245℃,12,12
+S-PEBA-PLA-Basic-TDS-EN,eSUN,d29f9755172ed39acc4e981a1a515d1051cfbb2f76fd397fe2421de10e21d148,3,Extruder Temperature 230℃,12,12
+S-PEBA-PLA-Basic-TDS-EN-2026-6-5,eSUN,46fa9785261947f8d6a4d45fe19cb0d558f55c9d9364270e35af90586422980b,3,Printing Test Conditions 220℃,12,12
+S-PEBA-PLA-Basic-TDS-V1-2024-08-07,eSUN,fcae4befcfa4c60c343363976209ef08b444da6987c40a0a7fdb58cc2455b66a,2,Extruder Temperature 220℃,7,1
+S-PEBA-PLA-Cast-TDS-EN-2025-8-27,eSUN,57a2e35404a3272cc4241c422103824670676628860edfea0c852ab2d8bffd2e,3,Extruder Temperature 220℃,12,12
+S-PEBA-PLA-HF-TDS-2026-2-2,eSUN,2697d39e063b36670e26e8e7943d77e34fb392ea88ab5d80200350b8befd90aa,3,Printing Test Conditions 220℃,12,12
+S-PEBA-PLA-HS-TDS,eSUN,70c47435ed73f5057e76741ba3ad8fe6a83f07f057c159150efc563cc6601987,3,Extruder Temperature 220℃,12,12
+S-PEBA-PLA-Matte-TDS-2025-06-19-1,eSUN,0230bd05cf2beeb201126eb410116985d1238ea4b28c7261d3e64b2f187867ab,3,Extruder Temperature 220℃,12,12
+S-PEBA-PLA-TDS-en,eSUN,1cde4d9fdb81891b8ab48fca0c9241fc0ead80ea62e7522970ea43c265d04fc5,3,Printing Test Conditions 220℃,12,12
+S-PEBA-PLA-UV-Color-Change-FilamentTDS,eSUN,c4eeb4894dd3325e99b6022e7d01def0e037e7baf7facf5dd68264a5343653fd,2,Extruder Temperature 210℃,7,1
+S-PEBA-TPU-LW-TDS-V1,eSUN,3b02e45783a6641dab467e98e184348b0492111994ffc8801c5781680ddd5006,2,Extruder Temperature 230℃,5,1
+S-PEBA-a2d5f9c0,eSUN,348432ff0fcad250dd16a5f81730870186319ea863cd9c6d3592b4bbb852a233,2,Extruder Temperature 220℃,7,1
+S-PEBA-eABS-HS-TDS,eSUN,0bebc97dd836b19537baa8c4388c9ab114dcb7e2ff0b85cc8d9f87358f4f98ab,2,Extruder Temperature 250℃,7,1
+S-PEBA-eSUN-PETG-Filament-TDS-1,eSUN,85f6df8a0aa94ee8e7f3b87281aad9d8859b50697bdebcbd577e85fb53415e2b,3,Extruder Temperature 260℃,12,12

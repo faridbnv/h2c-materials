@@ -1,0 +1,223 @@
+MeasurementID,decision,column,expect,value,quote,reason
+V007796,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V007574,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V007505,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V007756,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000566,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000586,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000670,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000632,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000942,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000963,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000916,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000718,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V001284,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000442,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000504,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000462,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000483,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000322,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000062,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000103,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000282,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000302,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000223,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000082,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000203,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000243,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000123,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V002110,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000143,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000263,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V001321,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V001373,fix,Notch,Not published,Notched,,Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch on the bar with its Z axis arrow; the Properties table gives this row no unnotched label
+V000441,fix,Notch,Not published,Notched,,Only one Impact Strength value per direction; the Impact Testing drawing (the only impact specimen shown) draws a 45 degree V-notch; no unnotched value is printed
+V000081,none,,,,,"X-Y cell prints two values; the first carries no notched/unnotched label (only the second says ""(notched)""), so this one is not stated"
+V001320,none,,,,,"X-Y cell prints two values; the first carries no notched/unnotched label (only the second says ""(notched)""), so this one is not stated"
+V005190,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005200,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005417,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005170,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005269,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005230,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005387,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005315,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005291,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005457,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005407,fix,Notch,Not published,Notched,"45.00° | Impact testing specimen; ASTM D256 (ISO 179, GB/T 1043)",Attachment 1 drawing of the impact testing specimen (the only impact specimen shown) draws a V-notch with a 45.00 degree angle; method code D256 is a notched-bar test
+V005244,fix,Notch,Not published,Notched,,"Attachment 1 (page 4, image only, no text layer) drawing of the impact testing specimen (ASTM D256 / ISO 179) draws a V-notch with a 45.00 degree angle; the only impact specimen shown"
+V005245,fix,Notch,Not published,Notched,,"Attachment 1 (page 4, image only, no text layer) drawing of the impact testing specimen (ASTM D256 / ISO 179) draws a V-notch with a 45.00 degree angle; the only impact specimen shown"
+V005304,fix,Notch,Not published,Notched,,"Attachment 1 (page 4, image only, no text layer) drawing of the impact testing specimen (ASTM D256 / ISO 179) draws a V-notch with a 45.00 degree angle; the only impact specimen shown"
+V005305,fix,Notch,Not published,Notched,,"Attachment 1 (page 4, image only, no text layer) drawing of the impact testing specimen (ASTM D256 / ISO 179) draws a V-notch with a 45.00 degree angle; the only impact specimen shown"
+V005337,fix,Notch,Not published,Notched,,"Attachment 1 (page 4, image only, no text layer) drawing of the impact testing specimen (ASTM D256 / ISO 179) draws a V-notch with a 45.00 degree angle; the only impact specimen shown"
+V005338,fix,Notch,Not published,Notched,,"Attachment 1 (page 4, image only, no text layer) drawing of the impact testing specimen (ASTM D256 / ISO 179) draws a V-notch with a 45.00 degree angle; the only impact specimen shown"
+V005312,fix,Direction,Unstated,XY,"Zaxis | Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)","Attachment 1 ""Testing Specimen Size and Printing Direction"" draws the tensile bar lying flat with its Z axis arrow normal to the plate and the layer lines stacked through its 4 mm thickness, so it is printed flat (XY)"
+V005313,fix,Direction,Unstated,XY,"Zaxis | Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)","Attachment 1 ""Testing Specimen Size and Printing Direction"" draws the tensile bar lying flat with its Z axis arrow normal to the plate and the layer lines stacked through its 4 mm thickness, so it is printed flat (XY)"
+V005314,fix,Direction,Unstated,XY,"Zaxis | Tensile testing specimen; ASTM D638 (ISO 527, GB/T 1040)","Attachment 1 ""Testing Specimen Size and Printing Direction"" draws the tensile bar lying flat with its Z axis arrow normal to the plate and the layer lines stacked through its 4 mm thickness, so it is printed flat (XY)"
+V001337,none,,,,,Page 1 prints Impact Strength XY and Z with ISO 179 / GB/T 1043 only; no notched/unnotched statement or method letter on either page
+V001338,none,,,,,Page 1 prints Impact Strength XY and Z with ISO 179 / GB/T 1043 only; no notched/unnotched statement or method letter on either page
+V002526,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002528,none,,,,,"Charpy row cites ISO 179 with no notched/unnotched label, footnote or method letter on any page"
+V002580,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002581,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002582,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002583,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002584,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002585,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002586,none,,,,,"Charpy row cites ISO 179 with no notched/unnotched label, footnote or method letter on any page"
+V002587,none,,,,,"Charpy row cites ISO 179 with no notched/unnotched label, footnote or method letter on any page"
+V002554,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002555,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002556,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002557,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002558,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002559,none,,,,,"No page says the test bars were 3D printed or injection moulded; the sheet states only measure, method and annealed/unannealed"
+V002560,none,,,,,"Charpy row cites ISO 179 with no notched/unnotched label, footnote or method letter on any page"
+V002561,none,,,,,"Charpy row cites ISO 179 with no notched/unnotched label, footnote or method letter on any page"
+V002615,none,,,,,"Charpy row cites ISO 179 with no notched/unnotched label, footnote or method letter on any page"
+V002616,none,,,,,"Charpy row cites ISO 179 with no notched/unnotched label, footnote or method letter on any page"
+V001739,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V001740,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009957,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009958,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009959,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009963,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009964,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009965,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V001669,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V001670,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002191,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006654,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006655,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006656,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006914,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V006916,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V006917,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V006681,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006683,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007421,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007422,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007423,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006888,fix,Specimen type,Not published (do not assume printed),Raw material value,*Databasedoninjectionmoldedsamples,Footnote directly under the Material Properties table says the data are based on injection molded samples
+V006873,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006874,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006875,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007238,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007239,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007240,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006946,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006947,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006948,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006949,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006888,none,Direction,Unstated,,,No page states or draws the build orientation of the test bars
+V005055,fix,Notch,Not published,Notched,,"Page 3 (image only, no text layer) ""IMPACT TESTING SPECIMEN ISO 179, GB/T 1043"" drawing shows a 45.00 degree V-notch in the bar"
+V005132,fix,Notch,Not published,Notched,,"Page 3 (image only, no text layer) ""IMPACT TESTING SPECIMEN ISO 179, GB/T 1043"" drawing shows a 45.00 degree V-notch in the bar"
+V005575,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V005577,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V005578,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V005504,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V005505,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V005506,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V005508,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010842,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010843,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010845,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010826,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010827,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010828,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010830,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009671,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V011352,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V006046,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006047,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006048,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006049,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V006095,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002197,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V002198,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V001911,none,,,,,"The recorded document (SHA-256 b8807094...) is not in .cache/text or .cache/sources, so it could not be read; nothing is stated that can be quoted"
+V001912,none,,,,,"The recorded document (SHA-256 b8807094...) is not in .cache/text or .cache/sources, so it could not be read; nothing is stated that can be quoted"
+V001891,none,,,,,The cached copy (different SHA than the recorded one) does not say the test pieces were printed or moulded; only the Technical Data table and a Processing table of print settings
+V001892,none,,,,,The cached copy (different SHA than the recorded one) does not say the test pieces were printed or moulded; only the Technical Data table and a Processing table of print settings
+V001894,none,,,,,The cached copy (different SHA than the recorded one) does not say the test pieces were printed or moulded; only the Technical Data table and a Processing table of print settings
+V001895,none,,,,,The cached copy (different SHA than the recorded one) does not say the test pieces were printed or moulded; only the Technical Data table and a Processing table of print settings
+V009176,none,,,,,Cached product page does not say how the test pieces were made
+V009178,none,,,,,Cached product page does not say how the test pieces were made
+V009257,none,,,,,Cached product page does not say how the test pieces were made
+V009396,fix,Specimen type,Not published (do not assume printed),Printed specimen,ULTEM™ 1010 resin samples were printed with a 0.25 mm (0.010 in.) layer height on the F900 and the F3300.,"Mechanical Properties section (p. 6) states the ULTEM 1010 samples behind Table 4 (F900, T14 tip) were printed"
+V009398,fix,Specimen type,Not published (do not assume printed),Printed specimen,ULTEM™ 1010 resin samples were printed with a 0.25 mm (0.010 in.) layer height on the F900 and the F3300.,"Mechanical Properties section (p. 6) states the ULTEM 1010 samples behind Table 5 (F3300, N500 hot end) were printed"
+V008488,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008489,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008490,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008527,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008409,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008216,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008177,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008178,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008179,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008662,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008663,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008664,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008241,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008242,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008243,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008458,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008347,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008348,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008349,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008266,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V008164,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V001652,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V001653,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009600,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V009602,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V009568,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009569,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009571,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007594,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007595,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007596,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007597,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V010245,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V002364,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V002380,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V003669,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V003709,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V002396,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V003995,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V000408,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V002412,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V001033,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V001043,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V000027,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V000037,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V003723,fix,Notch,Not published,Notched,IMPACT TESTING SPECIMEN,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V010179,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V010437,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V001573,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V001601,fix,Notch,Not published,Notched,,"""Impact testing specimen"" drawing in the specimen-preparation page (ISO 179, GB/T 1043) draws a V-notch with a 45.00 degree angle on the bar; the page is an image, so the drawing is the evidence"
+V001300,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V001301,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V001389,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V001390,none,,,,,"No notched/unnotched label, footnote or method letter for this row"
+V002839,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002840,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002841,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007535,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007536,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V007538,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002976,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V002977,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V002978,none,,,,,No page states or draws the build orientation of the test bars; only property tables and print recommendations
+V002724,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002725,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002726,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002713,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002714,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002715,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002831,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002832,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V002834,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009012,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009013,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only
+V009014,none,,,,,No page says the test bars were 3D printed or injection moulded; the sheet is a material datasheet with print recommendations only

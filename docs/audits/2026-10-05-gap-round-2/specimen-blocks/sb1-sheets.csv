@@ -1,0 +1,35 @@
+SourceID,Publisher,SHA256,SpecPages,SpecStatement,Waiting,PrintedOrUnstated
+R-3DJAKE-ABS-P-TDS-1,AzureFilm,659c491576922d95850388656cc76052065efc6d3c8f925c443d33407aea9228,1,Test specimens print settings: Nozzle temperature: 260 °C,7,7
+R-3DJAKE-PLA-TDS,AzureFilm,fdaf81f05935668799e9bceaa41fbdefb0692fc832d04ef031f5f724787aa0aa,1,Test specimens print settings: Nozzle temperature: 200 °C,8,8
+D-FLASH-ABS-ESD-TDS-EN,Flashforge,14400652b1beccc1735bb7ece4e0ea014536f9f63c82787b4c999429b764ce54,2,Nozzle Temperature 230 °C,10,10
+D-FLASH-ABS-GF-TDS-EN,Flashforge,e92c43ab43ea549f3b70ed746a9243804c8391f18ef261c5abf62b33b6b9bec7,2,Nozzle Temperature 240 °C,13,13
+D-FLASH-ABS-Matte-TDS-EN,Flashforge,28ca2de70c00b01e4e4715aa5f3a2cc7bea90e5394dc112c147d2735f93b817a,2,Nozzle Temperature 250 °C,12,12
+D-FLASH-ASA-CF-TDS-EN,Flashforge,174ca50eef981c2a3242b0fd5d1649866b0056506b183bdac79b1529fa455ad1,2,Nozzle Temperature 270 °C,10,10
+D-FLASH-ASA-TDS-EN,Flashforge,e0f5bfbf1136257c627776f871845dd1d0323bdbec1a292e23678232c3b29128,2,Nozzle Temperature 250 °C,9,9
+D-FLASH-PA6-CF-TDS-EN,Flashforge,08f8f32c91466d90e3470168f65e1c05113bfb824f2191c179226bc0bc6ce3f0,2,Nozzle Temperature 285 °C,10,10
+D-FLASH-PA6-GF-TDS-EN,Flashforge,dbcea4ed7109924b8dfa64d552e019c0d32d77e5c96a729071307b7808350df1,2,Nozzle Temperature 270 °C,12,12
+D-FLASH-PBAT-TDS-EN,Flashforge,c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7,2,Nozzle Temperature 230 °C,9,9
+D-FLASH-PBT-GF-TDS-EN,Flashforge,6e235a57855189776b852101b8c76a7acd6fc7e4a7ba918abf9468e10623d1ce,2,Nozzle Temperature 270°C,9,9
+D-FLASH-PC-ABS-TDS-EN,Flashforge,2e2d8d5c5d1b4c4368256ad9d0fcbe8964813f10c618157cbc1eddab13ec0959,2,Nozzle Temperature 265 °C,10,10
+D-FLASH-PC-CF-TDS-EN,Flashforge,03d0a687859a8c50e3abd8a10a2e2b680ecf0ed8c36ff2fefcb6bf22b553efa3,2,Nozzle Temperature 250 °C,13,13
+D-FLASH-PC-TDS-EN,Flashforge,cd531fc7210a1dae6431fcbb2680799ce17ebdaaa493a26e54459b7402607f67,2,Nozzle Temperature 250 °C,10,10
+D-FLASH-PET-CF-TDS-EN,Flashforge,8f40ad360c2b1abe1659374f0226b4efb879a1371f6a5fa54731da88ed630da7,2,Nozzle Temperature 290 °C,8,8
+D-FLASH-PET-GF-TDS-EN,Flashforge,42ce708596453e8e4d792a91c549d3234a69be4da97a488384f167199c05d0df,2,Nozzle Temperature 275 °C,13,13
+D-FLASH-PETG-CF-TDS-EN,Flashforge,7854ff3c76a5fb1eaf6b2058d2ade8baa606edb007402e7df3bf6fe1ea1f32ab,2,Nozzle Temperature 240 °C,10,10
+D-FLASH-PETG-ESD-TDS-EN,Flashforge,ead06b1fb05b18204c8d3b6f0feb414f1695eedf0b5e901ac95fc17b9bf5f37d,2,Nozzle Temperature 230 °C,10,10
+D-FLASH-PETG-TDS-EN,Flashforge,deb59dd15280e68305921c94665f103eb23ad932312f95c4609c4d1763dcddd4,2,Nozzle Temperature 240 °C,10,10
+D-FLASH-PLA-CF-TDS-EN,Flashforge,f38a4c115ec6914ac7fecafe9ccff88b02f2bdecf13bdb18f610cf20c22811de,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Crystal-TDS-EN,Flashforge,e8560873ef75c73ff11ed551d91902fdbf6975de5c647a2beb7fdad0b0be364a,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Matte-TDS-EN,Flashforge,a245b0513a6266bddcce02c38fd9388281be781597fb1135c90b1f9aea26823a,2,Nozzle Temperature 220 °C,10,10
+D-FLASH-PLA-Multicolor-TDS-EN,Flashforge,119f07970adabdf203beb370d797ee705c1cba54370392d0f7b31f01a76a9719,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Pro-TDS-EN,Flashforge,c3b4c0cbea7ea19b99fc5754434816c2405787d1b4609458830f59ed3802a8eb,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Silk-TDS-EN,Flashforge,b23de0291490f24ac1a1bf1b8dd177c05e305954bca1c22bdc8d169478b969ac,2,Nozzle Temperature 220 °C,10,10
+D-FLASH-PLA-TDS-EN,Flashforge,4514e8abbf117b6283d66c0ce5995f019f96ef4e3f4472d27d7bb753d72ffa0b,2,Nozzle Temperature 210 °C,10,10
+D-FLASH-PLA-Wood-TDS-EN,Flashforge,e1d16cb7144997737e5f06624d4b08bfb6386ecd9ade218324cd55ec208f715a,2,Nozzle Temperature 200 °C,10,10
+D-FLASH-PPA-CF-TDS-EN,Flashforge,403113302f1a5401ba2e680e2131069c971610eb3d3170718a536029eb8a6813,2,Nozzle Temperature 270 °C,16,16
+D-FLASH-PPA-GF-TDS-EN,Flashforge,863e1063813a26a3588491008ec4c651271a8715abee9fbb00523bbc46929c42,2,Nozzle Temperature 270 °C,15,15
+D-FLASH-PPS-CF-TDS-EN,Flashforge,aa0e7369ec4b56dfaac160d0063d9b722a48dc30ffc1db9e2fe47074c38f41dd,2,Nozzle Temperature 320 °C,15,15
+D-FLASH-PVA-TDS-EN,Flashforge,7e50a7389e3359cec9f11c3d77c54bf04d7247f9f27675eb7189b4b4bc3ecf7a,2,Nozzle Temperature 220 °C,9,9
+D-FLASH-TPU-64D-TDS-EN,Flashforge,fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282,2,Nozzle Temperature 230°C,8,8
+D-FLASH-TPU-TDS-EN,Flashforge,c8f2e80e6f0a795dbfcbdcce288bf9c4dd775552bee47685b40b36bd78c92e0f,2,Nozzle Temperature 230 °C,9,9
+S-PCGF-PA12-CF-TDS-EN-1,SIDDAMENT,6bafd26ee3d73ad5173240c52d1b6fbd6c6e31e0a76d7b80eb6c2e048b0378ce,2,Test Sample Printing Conditions: Nozzle Temperature 275 °C,6,6

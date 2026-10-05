@@ -1,0 +1,294 @@
+MeasurementID,decision,column,expect,value,quote,reason
+V010505,none,,,,,"Page image of p.3 shows Bending Modulus (Z) ISO 178 as 2599 ± 71 MPa, same as current raw value."
+V000717,none,,,,,"Page image of p.2 shows 8.4 ± 1.3 kJ/m² (second value in the Impact Strength (X-Y) cell, labelled Notched Impact Strength), same as current raw value."
+V011825,none,,,,,Page (product web page) prints only the word annealed beside the HDT value; no annealing temperature or time is stated anywhere in the cached text.
+V013114,none,,,,,Page (product web page) prints only the word annealed beside the HDT value; no annealing temperature or time is stated anywhere in the cached text.
+V013118,none,,,,,Page (product web page) prints only the word annealed beside the HDT value; no annealing temperature or time is stated anywhere in the cached text.
+V005275,none,,,,,"Table labels rows (X-Z) but Attachment 1 shows one orientation per specimen (flat, layers stacked on the end, Z axis normal to the broad face) and no upright or on-edge bar; the sheet does not say which X-Z means."
+V005279,none,,,,,"Table labels rows (X-Z) but Attachment 1 shows one orientation per specimen (flat, layers stacked on the end, Z axis normal to the broad face) and no upright or on-edge bar; the sheet does not say which X-Z means."
+V013814,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright' and Fig 4 Print Orientation: bar stands upright, pulled across layers."
+V013816,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright' and Fig 4 Print Orientation: bar stands upright, pulled across layers."
+V013833,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright' (Conditioned, before annealed table) and Fig 4 Print Orientation: bar stands upright."
+V013835,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright' (Conditioned, before annealed table) and Fig 4 Print Orientation: bar stands upright."
+V013850,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright' (Conditioned, before annealed table) and Fig 4 Print Orientation: bar stands upright."
+V013852,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright' (Conditioned, before annealed table) and Fig 4 Print Orientation: bar stands upright."
+V013866,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Fig 4 (drawing: upright bar standing on its end) labels ZX as Upright. The table header on this page reads 'ZX, Flat', which contradicts Fig 4; the ZX column values (about half the XY strength) and Fig 4 indicate the upright bar, so header 'Flat' read as a typo."
+V013868,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Fig 4 (drawing: upright bar standing on its end) labels ZX as Upright. The table header on this page reads 'ZX, Flat', which contradicts Fig 4; the ZX column values (about half the XY strength) and Fig 4 indicate the upright bar, so header 'Flat' read as a typo."
+V013893,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Fig 4 (drawing: upright bar standing on its end) labels ZX as Upright. The table header on this page reads 'ZX, Flat', which contradicts Fig 4; the ZX column values (about half the XY strength) and Fig 4 indicate the upright bar, so header 'Flat' read as a typo."
+V013895,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Fig 4 (drawing: upright bar standing on its end) labels ZX as Upright. The table header on this page reads 'ZX, Flat', which contradicts Fig 4; the ZX column values (about half the XY strength) and Fig 4 indicate the upright bar, so header 'Flat' read as a typo."
+V013878,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 Print Orientation draws the upright bar: pulled across layers."
+V013880,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 Print Orientation draws the upright bar: pulled across layers."
+V013909,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 Print Orientation draws the upright bar: pulled across layers."
+V013911,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 Print Orientation draws the upright bar: pulled across layers."
+V013924,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 Print Orientation draws the upright bar: pulled across layers."
+V013926,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 Print Orientation draws the upright bar: pulled across layers."
+V013950,fix,Post-processing,After annealing,annealed at 100 °C for 8 h,All specimens were annealed at 100˚C for 8h.,"Sheet intro says After annealing the tensile modulus is over 4.1 GPa; p.2 note states all testing specimens (the mechanical table, X-Y 4130 MPa) were annealed at 100 °C for 8 h."
+V013960,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Fig 4 labels ZX as Upright (drawing). The table header on p.1 reads 'ZX, Flat', which contradicts Fig 4; ZX values (about half XY) and Fig 4 indicate the upright bar, so 'Flat' read as a typo."
+V013962,fix,Direction,ZX,Z,"XY, Flat ZX, Upright | Fig 4. Print Orientation","Fig 4 labels ZX as Upright (drawing). The table header on p.1 reads 'ZX, Flat', which contradicts Fig 4; ZX values (about half XY) and Fig 4 indicate the upright bar, so 'Flat' read as a typo."
+V013970,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 draws the upright bar."
+V013972,fix,Direction,ZX,Z,"(XY, Flat) (ZX, Upright) | Fig 4. Print Orientation","Column headed 'ZX, Upright'; Fig 4 draws the upright bar."
+V002581,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002583,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002585,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002587,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002589,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002591,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002593,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002595,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002597,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002599,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002601,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002603,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002605,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002555,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002557,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002559,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002561,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002563,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002565,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002567,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002569,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002571,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002573,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002575,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002577,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002579,none,,,,,No annealing temperature or time is stated on any page; the Annealed column is unlabelled as to schedule.
+V002607,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002610,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002613,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002616,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002618,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002620,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002622,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002624,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002626,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002628,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V002630,none,,,,,"Not stated for the test specimens. p.5 gives only a recommended part-annealing procedure ('Heat the part in a convection oven at 90°C for 4 hours') without saying the Annealed column was produced that way; candidate only, not applied."
+V014080,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014082,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014084,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014086,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014088,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014090,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014092,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014094,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014096,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014098,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V014100,none,,,,,No annealing temperature or time is stated anywhere in the sheet; Annealed column only.
+V001718,none,,,,,Sheet labels XY/XZ/ZX Orientation (ASTM D638) with no text or drawing (page images carry only a header banner) saying how the bar stood or lay.
+V001719,none,,,,,Sheet labels XY/XZ/ZX Orientation (ASTM D638) with no text or drawing (page images carry only a header banner) saying how the bar stood or lay.
+V001721,none,,,,,Sheet labels XY/XZ/ZX Orientation (ASTM D638) with no text or drawing (page images carry only a header banner) saying how the bar stood or lay.
+V001722,none,,,,,Sheet labels XY/XZ/ZX Orientation (ASTM D638) with no text or drawing (page images carry only a header banner) saying how the bar stood or lay.
+V006711,none,,,,,Sheet prints only the word annealed beside the HDT value; no temperature or time stated.
+V012582,fix,Direction,ZX,Z,,Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars; so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'.
+V012587,fix,Direction,ZX,Z,,Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars; so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'.
+V012581,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012584,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012586,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012593,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012594,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012596,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012598,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012599,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012604,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012605,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012607,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012610,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012611,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012624,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012625,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012627,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012629,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012630,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012653,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012654,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012656,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012657,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V012659,none,,,,,"Drawing shows the XZ bar lying on its edge, which is what XZ already means; no change."
+V012660,fix,Direction,ZX,Z,,"Drawing at the foot of p.1 shows the ZX bar standing upright on its end (tall bar) beside the XY flat and XZ on-edge bars, so ZX is pulled across layers. Text layer holds only the column header 'ZX Value'."
+V011723,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011724,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011725,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011726,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011729,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011730,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011731,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011732,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011735,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011736,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011737,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011738,fix,Post-processing,annealed,"annealed at 90 °C for 120 min (heated from room temperature over ~60 min, cooled over ~180 min)",Annealing Recommendations for Performance Enhancement | Holding the 90°C for 120 min (thicker parts | The annealing process can lead to a minor deviation in the dimensional accuracy. It is observed for the cross | section of DIN EN ISO 527 Type 1A tensile bars minor deviation of up to +2% in thickness (nominal value 4,"p.4 gives the annealing process (heat to 90 °C in ~60 min, hold 120 min, cool in ~180 min); footnote 3 on that process names ISO 527 Type 1A tensile bars as the parts measured after it. Stated as a recommendation, tied to the tensile bars only by footnote 3."
+V011869,none,,,,,Product web page prints (ZX) beside the value but never says how the bar stood or lay; no drawing in the cached text.
+V011874,none,,,,,Product web page prints (ZX) beside the value but never says how the bar stood or lay; no drawing in the cached text.
+V012682,fix,Direction,ZX,Z,Print direction Standard XY XZ ZX | Flat On its edge Upright,"Mechanical Properties header row labels the ZX column 'Upright' (XY Flat, XZ On its edge)."
+V012684,fix,Direction,ZX,Z,Print direction Standard XY XZ ZX | Flat On its edge Upright,"Mechanical Properties header row labels the ZX column 'Upright' (XY Flat, XZ On its edge)."
+V011878,fix,Direction,ZX,Z,Print direction Standard XY XZ ZX | Flat On its edge Upright,"Mechanical Properties header row labels the ZX column 'Upright' (XY Flat, XZ On its edge)."
+V011422,none,,,,,Sheet labels the row '100% infill - ZX' with no text or drawing saying how the bar stood.
+V011423,none,,,,,Sheet labels the row '100% infill - ZX' with no text or drawing saying how the bar stood.
+V011424,none,,,,,Sheet labels the row '100% infill - ZX' with no text or drawing saying how the bar stood.
+V011434,none,,,,,Sheet labels the row '100% infill - ZX' with no text or drawing saying how the bar stood.
+V011435,none,,,,,Sheet labels the row '100% infill - ZX' with no text or drawing saying how the bar stood.
+V011436,none,,,,,Sheet labels the row '100% infill - ZX' with no text or drawing saying how the bar stood.
+V012783,none,,,,,Web page labels the row X-Z without saying whether the bar lay on its edge or stood upright.
+V012784,none,,,,,Web page labels the row X-Z without saying whether the bar lay on its edge or stood upright.
+V011914,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V011915,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V011909,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V011910,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V011924,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V012755,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V012756,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V012762,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V012773,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V012774,none,,,,,"X-Z label already means the bar lay on its edge: p.3 drawing of the tensile specimen shows the 'z axis' bar lying on its edge (layers stacked across the width), distinct from the flat 'x-y axis' bar. Not upright; no change."
+V012789,fix,Direction,ZX,Z,PARTS PRINTED IN THREE MAJOR AXES | ZX: Traces aligned orthogonal to major length,Drawing on p.2 shows the ZX bar standing upright with layer lines across its length (traces orthogonal to the major length): pulled across layers.
+V012796,fix,Direction,ZX,Z,PARTS PRINTED IN THREE MAJOR AXES | ZX: Traces aligned orthogonal to major length,Drawing on p.2 (same figure as the 80A-Z sheet) shows the ZX bar standing upright with layer lines across its length: pulled across layers.
+V005539,fix,Post-processing,annealed,annealed at 110 °C for 15 min,"* - data for 3D printed parts, XY axis, 100% infill, annealed at 110°C / 15min",Footnote to the 0.45 MPa HDT row states the annealing schedule.
+V009189,none,,,,,"Sheet labels the row Orientation XZ/ZX (properties tested on printed specimens, specimens printed on Kumovis R1) with no text or drawing saying how the bar stood or lay."
+V009190,none,,,,,"Sheet labels the row Orientation XZ/ZX (properties tested on printed specimens, specimens printed on Kumovis R1) with no text or drawing saying how the bar stood or lay."
+V009192,none,,,,,"Sheet labels the row Orientation XZ/ZX (properties tested on printed specimens, specimens printed on Kumovis R1) with no text or drawing saying how the bar stood or lay."
+V008876,none,,,,,"Sheet labels the row Orientation XZ/ZX (properties tested on printed specimens, specimens printed on Kumovis R1) with no text or drawing saying how the bar stood or lay."
+V008878,none,,,,,"Sheet labels the row Orientation XZ/ZX (properties tested on printed specimens, specimens printed on Kumovis R1) with no text or drawing saying how the bar stood or lay."
+V008959,none,,,,,"Sheet labels the row Orientation XZ/ZX (properties tested on printed specimens, specimens printed on Kumovis R1) with no text or drawing saying how the bar stood or lay."
+V008961,none,,,,,"Sheet labels the row Orientation XZ/ZX (properties tested on printed specimens, specimens printed on Kumovis R1) with no text or drawing saying how the bar stood or lay."
+V011886,fix,Direction,ZX,Z,Print direction explanation | The orientation of the 3D printed part in the printer is always aligned with the longest axis | first. The print direction is consistently along the Z-axis.,"p.5 Print direction explanation: three unlabelled bars drawn in table order (flat, on edge, upright); the third bar stands with its length along Z, which is the ZX column. Pulled across layers."
+V006220,none,,,,,p.1 gives only 'Annealing temp. and time 120°C/16H Recommended' among recommended printing conditions; it does not say the annealed TGA sample was annealed that way. Candidate only: annealed at 120 °C for 16 h.
+V009353,fix,Post-processing,annealed,annealed at 100 °C for 8 h,Specimens printed under the following conditions: Nozzle size 0.4mm | Post-processing : 100℃ Annealing 8hours,p.3 states the specimens were printed with these conditions and post-processed by annealing at 100 °C for 8 hours.
+V009355,fix,Post-processing,annealed,annealed at 100 °C for 8 h,Specimens printed under the following conditions: Nozzle size 0.4mm | Post-processing : 100℃ Annealing 8hours,p.3 states the specimens were printed with these conditions and post-processed by annealing at 100 °C for 8 hours.
+V009356,fix,Post-processing,annealed,annealed at 100 °C for 8 h,Specimens printed under the following conditions: Nozzle size 0.4mm | Post-processing : 100℃ Annealing 8hours,p.3 states the specimens were printed with these conditions and post-processed by annealing at 100 °C for 8 hours.
+V009357,fix,Post-processing,annealed,annealed at 100 °C for 8 h,Specimens printed under the following conditions: Nozzle size 0.4mm | Post-processing : 100℃ Annealing 8hours,p.3 states the specimens were printed with these conditions and post-processed by annealing at 100 °C for 8 hours.
+V013782,fix,Post-processing,Annealed,annealed at 100 °C for 8 h,Specimens printed under the following conditions: Nozzle size 0.4mm | Post-processing : 100℃ Annealing 8hours,p.3 states the specimens were printed with these conditions and post-processed by annealing at 100 °C for 8 hours.
+V013787,fix,Post-processing,Annealed,annealed at 100 °C for 8 h,Specimens printed under the following conditions: Nozzle size 0.4mm | Post-processing : 100℃ Annealing 8hours,p.3 states the specimens were printed with these conditions and post-processed by annealing at 100 °C for 8 hours.
+V012361,none,,,,,Portfolio only footnotes '** annealed' with no temperature or time anywhere in the cached text.
+V012362,none,,,,,Portfolio only footnotes '** annealed' with no temperature or time anywhere in the cached text.
+V012363,none,,,,,Portfolio only footnotes '** annealed' with no temperature or time anywhere in the cached text.
+V014175,none,,,,,"p.8 key defines XZ as On Edge, which is what XZ already means; no change."
+V014176,fix,Direction,ZX,Z,Print Orientation Tensile Curves | Flat (XY) On Edge (XZ) Upright (ZX),"p.8 Print Orientation key: Upright (ZX), On Edge (XZ), Flat (XY); the ZX column of the p.10 table is the upright bar."
+V014178,none,,,,,"p.8 key defines XZ as On Edge, which is what XZ already means; no change."
+V014179,fix,Direction,ZX,Z,Print Orientation Tensile Curves | Flat (XY) On Edge (XZ) Upright (ZX),"p.8 Print Orientation key: Upright (ZX), On Edge (XZ), Flat (XY); the ZX column of the p.10 table is the upright bar."
+V014181,none,,,,,"p.8 key defines XZ as On Edge, which is what XZ already means; no change."
+V014182,fix,Direction,ZX,Z,Print Orientation Tensile Curves | Flat (XY) On Edge (XZ) Upright (ZX),"p.8 Print Orientation key: Upright (ZX), On Edge (XZ), Flat (XY); the ZX column of the p.10 table is the upright bar."
+V014186,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014187,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014190,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014195,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014196,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014199,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014205,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014206,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014209,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014217,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014220,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014223,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014233,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014236,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014239,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014245,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014248,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014251,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014259,none,,,,,Key defines XZ as On Edge; no change.
+V014261,none,,,,,Key defines XZ as On Edge; no change.
+V014264,none,,,,,Key defines XZ as On Edge; no change.
+V014265,fix,Direction,ZX,Z,Flat (XY) On Edge (XZ) Upright (ZX),Key in the sheet defines ZX as Upright (Flat (XY) / On Edge (XZ) / Upright (ZX)); pulled across layers.
+V014270,none,,,,,Key defines XZ as On Edge; no change.
+V014272,none,,,,,Key defines XZ as On Edge; no change.
+V014275,none,,,,,Key defines XZ as On Edge; no change.
+V014276,fix,Direction,ZX,Z,Flat (XY) On Edge (XZ) Upright (ZX),Key in the sheet defines ZX as Upright (Flat (XY) / On Edge (XZ) / Upright (ZX)); pulled across layers.
+V014282,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014283,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014286,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014297,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014298,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V014301,none,,,,,Key in the sheet defines XZ as On Edge (Flat (XY) / On Edge (XZ) / Upright (ZX)); XZ already means on edge; no change.
+V009377,none,,,,,Sheet footnote 'Build orientation is on side long edge' confirms the on-edge (XZ) bar; no change.
+V009378,none,,,,,Sheet footnote 'Build orientation is on side long edge' confirms the on-edge (XZ) bar; no change.
+V009438,none,,,,,Sheet footnote 'Build orientation is on side long edge' confirms the on-edge (XZ) bar; no change.
+V009439,none,,,,,Sheet footnote 'Build orientation is on side long edge' confirms the on-edge (XZ) bar; no change.
+V012251,none,,,,,Sheet prints '264psi annealed' only; no temperature or time.
+V013293,none,,,,,Sheet prints 'After annealing' only; no temperature or time.
+V004390,none,,,,,Sheet labels the rows (Z-X); p.3 drawings show one flat tensile bar with a Z axis arrow only; nothing says how a Z-X bar stood.
+V004392,none,,,,,Sheet labels the rows (Z-X); p.3 drawings show one flat tensile bar with a Z axis arrow only; nothing says how a Z-X bar stood.
+V004370,none,,,,,Sheet labels the rows (Z-X); p.3 drawings show one flat tensile bar with a Z axis arrow only; nothing says how a Z-X bar stood.
+V004372,none,,,,,Sheet labels the rows (Z-X); p.3 drawings show one flat tensile bar with a Z axis arrow only; nothing says how a Z-X bar stood.
+V000351,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000352,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000353,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000365,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000366,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000367,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000368,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000369,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000370,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000371,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000372,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000373,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000374,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000375,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V000376,none,,,,,"Sheet gives only recommended annealing for prints (p.5: 'Annealing temperature 80-100 (°C) (Recommended 100°C)', 'Annealing time 20-30 Mins (Recommended 30 mins)') and never says the annealed test samples were so treated. Candidate only: annealed at 100 °C for 30 min."
+V003553,none,,,,,"Sheet gives only recommended annealing for prints (Annealing temp. 80-100°C, Recommended 100°C; time 20-30 Mins, Recommended 30 mins), not the schedule of the tested samples. Candidate only: annealed at 100 °C for 30 min."
+V003913,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V003914,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V003915,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V003916,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013472,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013473,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013475,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013476,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013477,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013478,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013479,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013480,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013481,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V013482,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V014416,none,,,,,Only a NOTE that you can anneal for 30 mins @ 100°C for higher temperature resistance; the tested samples' schedule is not stated. Candidate only: annealed at 100 °C for 30 min.
+V003827,none,,,,,Only a NOTE that you can anneal for 30 mins @ 80-90°C for higher temperature stability; the tested samples' schedule is not stated. Candidate only.
+V003828,none,,,,,Only a NOTE that you can anneal for 30 mins @ 80-90°C for higher temperature stability; the tested samples' schedule is not stated. Candidate only.
+V001288,none,,,,,Sheet prints '(annealed)' beside the value and 'after annealing' in the feature list; no temperature or time anywhere.
+V001289,none,,,,,Sheet prints '(annealed)' beside the value and 'after annealing' in the feature list; no temperature or time anywhere.
+V013544,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013546,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013556,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013557,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013569,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013571,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013585,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013587,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013595,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013597,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013621,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013674,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013676,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V001704,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V001706,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013736,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013738,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013632,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013634,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013649,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013651,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013662,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013664,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013689,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013691,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013702,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013704,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V013716,none,,,,,Column headed 'Vertical xz' (beside 'Horizontal'); no drawing or sentence says whether the bar lay on its edge or stood upright and was pulled across layers (page 2 image shows the table only).
+V002684,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002685,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002963,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002964,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002965,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002761,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002762,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V003067,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V003068,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002784,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002785,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002786,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002787,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002788,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002789,none,,,,,Sheet prints only the word annealed (or '* annealed'); no temperature or time stated anywhere.
+V002779,fix,Post-processing,annealed,annealed (4 h @ 90 °C),"0.45 MN/m2, annealed (4h @ 90°C) 116°C ISO 75 | ** 50 N (heating rate 50°C/h). annealed","Only annealing schedule the sheet states: 4 h @ 90 °C, printed on the 0.45 and 1.81 MN/m2 HDT rows of the same Thermal Properties block as the annealed Vicat row; the Vicat footnote says only annealed."
+V011150,none,,,,,"p.2 drawing shows three labelled bars: XY flat, XZ on its edge, ZX standing upright (footnote 5, machined from a tube); the XZ column is the on-edge bar, so XZ stands."
+V011151,none,,,,,"p.2 drawing shows three labelled bars: XY flat, XZ on its edge, ZX standing upright (footnote 5, machined from a tube); the XZ column is the on-edge bar, so XZ stands."
+V011152,none,,,,,"p.2 drawing shows three labelled bars: XY flat, XZ on its edge, ZX standing upright (footnote 5, machined from a tube); the XZ column is the on-edge bar, so XZ stands."
