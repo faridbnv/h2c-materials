@@ -162,8 +162,39 @@ export function boundOf(row) {
   return null;
 }
 
+const WORDS_UP = ['greater than', 'more than', 'at least', 'exceeding', 'over', 'above'];
+const WORDS_DOWN = ['less than', 'below'];
+const escapeRe = (t) => String(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const numberVariants = (n) => [...new Set([n, n.replace(',', '.'), n.replace('.', ',')])];
+
+/**
+ * The bound a value reading states, wherever it is stated: a sign or operator of the reading, a sign immediately before its number in
+ * the raw cell or in the quote, or one of the words over / more than / above / at least / exceeding / greater than (up) and less than /
+ * below (down) immediately before it. Null when it states none. `phrase` is what a page would print before the number.
+ */
+export function boundOfReading(row) {
+  const b = boundOf(row);
+  if (b?.inCell) return { ...b, via: 'raw' };
+  const raw = text(row.Raw);
+  const token = /[\d]+(?:[.,]\d+)?|[.,]\d+/.exec(raw)?.[0];
+  if (!token) return b ? { ...b, via: 'operator' } : null;
+  const number = `(?:${numberVariants(token).map(escapeRe).join('|')})(?![\\d])`;
+  const signRe = new RegExp(`([<>＜＞≤≥≦≧])\\s*(${number})`);
+  const wordRe = new RegExp(`(?<![\\p{L}])(${[...WORDS_UP, ...WORDS_DOWN].join('|')})\\s*(${number})`, 'iu');
+  const places = [['raw', raw], ...String(row.Quote ?? '').split(' | ').map((piece) => ['quote', piece])];
+  for (const [via, t] of places) {
+    const sign = signRe.exec(t);
+    if (sign) { const sg = SIGNS[sign[1]]; return { sign: sg, operator: sg === '<' || sg === '≤' ? '<' : '>', number: token, inCell: true, via }; }
+    const word = wordRe.exec(t);
+    if (word) { const w = word[1].toLowerCase(); return { words: w, operator: WORDS_DOWN.includes(w) ? '<' : '>', number: token, inCell: true, via }; }
+  }
+  // Only the reader's operator: the page is asked for either sign of its direction.
+  return b ? { ...b, via: 'operator' } : null;
+}
+
 /** The strings a page would print for a bound: its own sign (or, for an operator alone, the strict or the inclusive one) and the number with either decimal mark. */
 export function boundNeedles(b) {
+  if (b.words) return numberVariants(b.number).map((n) => `${b.words}${n}`);
   const signs = b.inCell ? [b.sign] : b.operator === '<' ? ['<', '≤'] : ['>', '≥'];
   const numbers = [...new Set([b.number, b.number.replace(',', '.'), b.number.replace('.', ',')])];
   return signs.flatMap((sg) => numbers.map((n) => `${sg}${n}`));
@@ -275,6 +306,24 @@ function hardnessUnit(row, conditions) {
 
 const cleanUnit = (u) => text(u).replace(/[˚º]/g, '°').replace(/\s+/g, ' ').replace(/^(?:deg ?)?C$/i, '°C');
 
+// ---- a maker's claim in a sentence ------------------------------------------------------------------------------
+
+const CLAIM = /\b(?:up\s*to|approx(?:imately|\.)?|withstands?|retains?\s+its\s+properties)|\ballows?\b[^.]*\buse\b/i;
+/**
+ * The sentence of a reading's quote that makes a claim ("up to approx. 145 °C", "withstands", "retains its properties at temperatures up
+ * to") instead of printing a result: a phrase, at least five words, and the value inside the sentence. A row label that carries the bound
+ * ("Max. service temperature up to") with its value in another piece is a table row, not a claim. Null when there is none.
+ */
+export function proseClaim(row) {
+  const token = /[\d]+(?:[.,]\d+)?|[.,]\d+/.exec(text(row.Raw))?.[0];
+  for (const piece of [...String(row.Quote ?? '').split(' | ').map(text), text(row.Raw)]) {
+    if (!CLAIM.test(piece) || piece.split(/\s+/).filter(Boolean).length < 5) continue;
+    if (token && !numberVariants(token).some((n) => piece.includes(n)) && squash(text(row.Label)).includes(squash(piece))) continue;
+    return piece;
+  }
+  return null;
+}
+
 // ---- values ------------------------------------------------------------------------------------------------------
 
 export const HEADLINE_PROPERTY = /^(Density|Tensile modulus|Tensile strength \(endpoint unspecified\)|Tensile yield strength|Tensile break strength|Elongation at break|HDT|Glass transition temperature)$/;
@@ -302,7 +351,9 @@ export function valueProposal(row, { registry, grade, standards = null }) {
   const prop = registry.get(property);
   if (!prop) return { error: `property-unknown:${property}` };
   if (!isMissing(prop['Replaced by'])) return { error: `property-replaced:${prop['Replaced by']}` };
-  if (!['', '=', '<', '>'].includes(row.Operator)) return { error: `operator-unmapped:${row.Operator}` };
+  if (!['', '=', '<', '>', '≤', '≥', '＜', '＞', '≦', '≧'].includes(row.Operator)) return { error: `operator-unmapped:${row.Operator}` };
+  const claim = proseClaim(row);
+  if (claim) return { error: 'prose-claim', detail: claim };
   const lo = num(row.Lo), hi = num(row.Hi);
   if (lo == null) return { error: 'no-number' };
   let raw = text(row.Raw);
@@ -330,7 +381,8 @@ export function valueProposal(row, { registry, grade, standards = null }) {
   if (conditions.temp.length > 1) return { error: `conditions-ambiguous:temp=${conditions.temp.join(',')}` };
   if (conditions.load.length > 1 && property !== 'Melt mass-flow rate') return { error: `conditions-ambiguous:load=${conditions.load.join(',')}` };
 
-  const operator = row.Operator || (/^\s*>/.test(raw) ? '>' : /^\s*</.test(raw) ? '<' : '=');
+  const bound = boundOfReading(row);
+  const operator = bound?.operator ?? '=';
   const normalized = NUM(lo * u.factor);
   const out = {
     Property: property, 'Raw value': raw, 'Raw unit': u.rawUnit, 'Raw numeric': NUM(lo), 'Conversion factor': NUM(u.factor), 'Normalized value': normalized,
@@ -361,6 +413,7 @@ export function valueProposal(row, { registry, grade, standards = null }) {
   }
   out['Specimen / print parameters'] = NP;
   out.decision = isHeadline(property, notch.value) ? 'headline' : '';
+  out.bound = bound;
   out.facts = { grade, direction: row.Direction, moisture: text(row.Moisture), post: text(row.PostProcessing), temp: conditions.temp[0] ?? '', notch: conditions.notch[0] ?? '', heading: text(row.TableHeading), standard: text(row.Standard) };
   return out;
 }
@@ -814,12 +867,19 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (grade.error) reasons.push(grade.error);
     const p = grade.error ? { error: null } : valueProposal(r, { registry, grade: grade.id, standards: ctx.standardsVocab });
     if (p.error) reasons.push(p.error);
+    // A bound the reading states must be printed on its page, sign (or words) against the number, in some view.
+    let signView = '';
+    if (!p.error && p.bound) {
+      signView = needleOnPageOf(r.SourceID, r.Page, boundNeedles(p.bound));
+      if (signView == null) reasons.push('no-cached-text');
+      else if (signView === '') reasons.push('bound-sign-not-on-page');
+    }
     let like = null;
     if (!grade.error) { like = likeFor(grade.id, r.SourceID); if (!like) reasons.push('no-like-row'); }
     if (!reasons.length && quoteReason(r)) reasons.push(quoteReason(r));
     const gate = gateOf(r);
     if (reasons.length || gate.gate !== 'ready') { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
-    valueCandidates.push({ row: r, grade: grade.id, p, like });
+    valueCandidates.push({ row: r, grade: grade.id, p, like, signView });
   }
   // Locators: "p. N: label", with what tells two rows of one label apart, so no two rows of a source share one.
   const byBase = new Map();
@@ -851,13 +911,13 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const key = `${c.row.SourceID}\u0001${c.locator}`;
     if (taken.has(key) || existingLocators.get(c.row.SourceID)?.has(c.locator)) { hold(c.row, 'locator-collision', 'values', c.locator); continue; }
     taken.set(key, c.row.RowID);
-    const { facts, ...p } = c.p;
+    const { facts, bound, ...p } = c.p;
     void facts;
     out.valuesAdd.push({
       gate: 'ready', task: 'reader-round', like: c.like.MeasurementID, SourceID: c.row.SourceID, GradeID: c.grade, MaterialID: grades.get(c.grade).MaterialID,
       ...p, Locator: c.locator, quote: text(c.row.Quote),
       note: `p. ${c.row.Page}, "${text(c.row.Label)}"${text(c.row.TableHeading) ? ` under "${text(c.row.TableHeading)}"` : ''}: the page prints "${text(c.row.Raw)}"${text(c.row.TestConditions) ? ` (${text(c.row.TestConditions)})` : ''}; read by ${c.row.Reader}, ${c.row.Presence}${AGREED.includes(c.row.SecondRead) ? ', second reading agrees' : ''}.`,
-      cause: 'gap-fill', presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
+      cause: 'gap-fill', sign_view: c.signView ?? '', presence: c.row.Presence, second_read: c.row.SecondRead, quote_view: viewOf(c.row), grade_from: gradeFromOf.get(c.row.RowID), reader: c.row.Reader, rows: c.row.RowID,
     });
   }
 
@@ -974,7 +1034,7 @@ const PROFILE_ADD_HEADER = ['gate', 'SourceID', 'GradeID', 'MaterialID', 'like',
 const SET_HEADER = ['gate', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'parsed_vs_read', 'cause', 'quote_view', 'grade_from', 'reader', 'rows', 'GradeID'];
 const VALUE_ADD_HEADER = ['gate', 'task', 'like', 'SourceID', 'GradeID', 'MaterialID', 'Property', 'Raw value', 'Raw unit', 'Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Conversion factor', 'Normalized value',
   'Normalized uncertainty ±', 'Normalized upper bound', 'Normalized unit', 'Operator', 'Specimen type', 'Direction', 'Notch', 'Moisture condition', 'Moisture state', 'Post-processing', 'Post-processing state',
-  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'cause', 'presence', 'second_read', 'quote_view', 'grade_from', 'reader', 'rows'];
+  'Anneal °C', 'Anneal h', 'Test temperature', 'Test temperature °C', 'Standard / load', 'Standards', 'Test load MPa', 'Specimen / print parameters', 'Locator', 'quote', 'note', 'decision', 'cause', 'sign_view', 'presence', 'second_read', 'quote_view', 'grade_from', 'reader', 'rows'];
 const VALUE_SET_HEADER = ['gate', 'task', 'table', 'id', 'column', 'expect', 'value', 'source', 'quote', 'note', 'cause', 'quote_view', 'sign_view', 'reader', 'rows'];
 const CONTEXT_HEADER = ['gate', 'SourceID', 'Page', 'Applies to', 'Statement', 'Specimen type', 'Moisture state', 'Post-processing state', 'Anneal °C', 'Anneal h', 'Standard', 'Test temperature °C', 'Locator', 'quote',
   'moisture_words', 'post_processing_words', 'inherits', 'cause', 'quote_view', 'reader', 'rows'];

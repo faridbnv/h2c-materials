@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { openTables } from '../scripts/data/table-io.mjs';
 import { applyProposals } from '../scripts/migrate/read-proposals-apply.mjs';
 import {
-  buildProposals, conditionsOf, directionOf, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
+  boundOfReading, buildProposals, conditionsOf, directionOf, proseClaim, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
 } from '../scripts/ingest/read-proposals.mjs';
 
 const COLUMNS = ['RowID', 'Class', 'Kind', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Lo', 'Hi', 'Unit', 'Operator', 'Direction', 'Specimen', 'Moisture', 'PostProcessing', 'Standard', 'TestConditions',
@@ -343,4 +343,41 @@ test('a quote no view prints is replaced by its label and value when each is on 
   assert.equal(build(rows({ Presence: 'block', SecondRead: 'agreed-text' }), ctx).valuesAdd.length, 1);
   assert.equal(build(rows({ Label: '' }), ctx).valuesAdd.length, 0, 'no label, no pieces');
   assert.ok(build(rows({}), { ...ctx, quoteOnSheet: () => false }).held[0].reason.includes('quote-not-on-cached-text'));
+});
+
+test('a bound a value reading states sets its Operator wherever it is stated, and the page must print it against the number', () => {
+  const b = (o) => boundOfReading(value({ Field: 'Elongation at break', Lo: '800', Raw: '800 %', Unit: '%', Operator: '=', ...o }));
+  assert.equal(b({ Raw: '≥800 %' }).operator, '>', 'a sign in the cell beats a reader\'s =');
+  assert.equal(b({ Raw: '＜800 %' }).operator, '<');
+  assert.equal(b({ Raw: '≤ 800 %' }).sign, '≤');
+  assert.equal(b({ Operator: '<' }).operator, '<');
+  assert.deepEqual([b({ Quote: 'Elongation | more than 800 %' }).operator, b({ Quote: 'Elongation | more than 800 %' }).words], ['>', 'more than']);
+  assert.equal(b({ Quote: 'Elongation at break below 800 %' }).operator, '<');
+  assert.equal(b({ Quote: 'Elongation at break > 800 %' }).operator, '>');
+  assert.equal(b({ Quote: 'Elongation at break 800 % over 1000 hours' }), null, 'a word that is not against the number is no bound');
+  assert.equal(b({}), null);
+  const registry = new Map(tables.properties.map((p) => [p.Property, p]));
+  const p = valueProposal(value({ Field: 'HDT', Raw: '≥395 ℃', Lo: '395', Unit: '℃', Operator: '=' }), { registry, grade: 'G001-01' });
+  assert.equal(p.Operator, '>'); assert.equal(p['Raw value'], '≥395 ℃'); assert.equal(p['Raw numeric'], '395');
+
+  const row = value({ Field: 'Tensile modulus', Raw: '≥3000 MPa', Lo: '3000', Label: 'Modulus', Direction: 'XY', Operator: '=' });
+  const seen = [];
+  const on = build([row], { needleOnPage: (s, page, needles) => { seen.push(needles); return needles.includes('≥3000') ? 'block' : ''; } });
+  assert.equal(on.valuesAdd[0].Operator, '>'); assert.equal(on.valuesAdd[0].sign_view, 'block');
+  assert.equal(build([row], { needleOnPage: () => '' }).valuesAdd.length, 0);
+  assert.ok(build([row], { needleOnPage: () => '' }).held[0].reason.includes('bound-sign-not-on-page'));
+});
+
+test('a maker\'s claim in a sentence is not a result, wherever it sits; a table row whose label carries the bound is', () => {
+  const claim = (quote, o = {}) => proseClaim(value({ Raw: '145 °C', Lo: '145', Label: 'High thermal properties', Quote: quote, ...o }));
+  assert.ok(claim('Heat deflection temperature up to approx. 145 °C'));
+  assert.ok(claim('high tensile strength (up to 50MPa)', { Raw: '50 MPa', Lo: '50' }));
+  assert.ok(claim('Retains its properties at temperatures up to 145 °C'));
+  assert.ok(claim('The filament withstands 145 °C in continuous use'));
+  assert.equal(claim('Max. service temperature up to | 145 °C', { Label: 'Max. service temperature up to' }), null, 'the label carries the bound; the value is its own piece');
+  assert.equal(claim('Heat deflection temperature | 145 °C'), null);
+  assert.equal(claim('Density up to 3 | 145 °C'), null, 'a phrase in a short row is not a sentence');
+  const out = build([value({ Field: 'HDT', Raw: '145 °C', Lo: '145', Unit: '°C', Label: 'Heat deflection', Quote: 'Heat deflection temperature up to approx. 145 °C' })]);
+  assert.equal(out.valuesAdd.length, 0);
+  assert.ok(out.held[0].reason.startsWith('prose-claim'));
 });
