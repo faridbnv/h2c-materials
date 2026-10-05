@@ -78,7 +78,9 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       }
     }
     if (key === 'hdt045' && S.info(m).morphology === 'semicrystalline' && S.tmOf(m) != null) {
-      bounds.push({ side: 'upper', value: S.tmOf(m), sd: model.bounds.meltingSd, why: `melting point ${S.tmOf(m)} °C: ${model.bounds.hdtAboveMelting}` });
+      // A semicrystalline bar loses its stiffness as it melts, so no HDT range is shown above the melting point
+      // (physical_relations PR11, D126): the melting point is a ceiling the range is held to, not a soft limit.
+      bounds.push({ side: 'upper', own: S.tmOf(m), value: S.tmOf(m), sd: model.bounds.meltingSd, why: `melting point ${S.tmOf(m)} °C: ${model.bounds.hdtAboveMelting}` });
     }
     if (key === 'hdt045' && !S.fibre(m) && S.vicatOf(m) != null) {
       const { lift, sd, why } = model.bounds.ownVicat;
