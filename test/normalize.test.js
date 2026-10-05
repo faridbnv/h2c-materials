@@ -156,11 +156,13 @@ test('a hardened-nozzle statement reads as what it says, a negation included', (
     false: ['Hardened nozzle not required', 'No hardened nozzle required', 'Nozzle: High quality metal nozzle, harden steel nozzle is not needed',
       'Ruby or hardened nozzle not necessary', 'Ruby or hardened nozzle recommended No', 'Hardened Nozzle no',
       'Even though its high silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer.',
-      'No. ABS Pro contains no abrasive fillers and prints well with standard nozzles.', 'nicht abrasiv; Messingdüse ausreichend'],
+      'No. ABS Pro contains no abrasive fillers and prints well with standard nozzles.', 'nicht abrasiv; Messingdüse ausreichend',
+      'Nozzle Size/Material 0.2-0.8 mm / All Material', 'Gehärtete Nozzle nein'],
     true: ['When using PolyMide™ CoPA, we recommend to switch to a wear resistant nozzle', 'Nozzle & Gear Material Hardened steel',
       'A reinforced nozzle, suitable for abrasive materials is recommended.', 'It is recommended to use hardening steel nozzle, tungsten steel or ruby nozzle to avoid nozzle abrasion.',
       'Hardened Nozzle Recommended', 'Ruby or hardened nozzle recommended Yes', 'We recommend to use ruby nozzles or hardened steel nozzles.',
-      'nozzle material: abbrasion resistant'],
+      'nozzle material: abbrasion resistant', 'Nozzle Size/Material 0.4–0.8 mm / Hardened steel nozzle or harder',
+      'Gehärtete Nozzle ja; wird die Verwendung einer gehärteten Düse empfohlen (z. B. aus gehärtetem Stahl oder Ruby Nozzle)'],
   };
   for (const [want, texts] of Object.entries(says)) for (const t of texts) assert.equal(parseAbrasion(t).requiresHardened, want === 'true', t);
 });
@@ -407,6 +409,9 @@ test('drying says whether it is needed, optional or not needed, and whether its 
     ['Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.', 'optional', 60, 4, false],
     ['80°C-90°C (not necessary but recommended)', 'optional', 90, null, null],
     ['may require drying before use, although usually it is not necessary', 'optional', null, null, null],
+    // a time that starts at nothing, and a condition stated before the step (gap round 2's blind-draw sweep)
+    ['Drying temperature 60 °C; Drying time 0–4 h', 'optional', 60, 4, false], ['Only dry if filament shows signs of moisture; Dry at 100°C for 4-6 hours', 'optional', 100, 6, false],
+    ['GreenTEC does not require drying before use to achieve optimal print quality; Drying temperature 60 °C Drying time 0–4 h', 'not-needed', 60, 4, false],
     ['Dry Out Before Use: Optional. Drying Condition: Blast Drying Oven: 55 °C, 8 h X1 Series Heatbed: 65 - 75 °C, 12 h', 'optional', 55, 8, false],
     ['Dry Out Before Use: Required. Drying Condition: Blast Drying Oven: 80 °C, 8 - 12 h X1 Series Heatbed: 90 - 100 °C, 12 h', 'required', 80, 12, false],
     // Fillamentum's need-to-dry scale: the legend is not a statement, the number is the answer

@@ -45,7 +45,7 @@
     "baseline": 11536,
     "current": 14734,
     "added": 3198,
-    "edited_existing": 1853,
+    "edited_existing": 2123,
     "removed": 0
   },
   "method": {
@@ -57,8 +57,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 714,
-    "added": 714,
+    "current": 954,
+    "added": 954,
     "edited_existing": 0,
     "removed": 0
   },
@@ -85,8 +85,8 @@
   },
   "profile_notes": {
     "baseline": 2061,
-    "current": 2379,
-    "added": 318,
+    "current": 2479,
+    "added": 418,
     "edited_existing": 0,
     "removed": 0
   },
@@ -94,7 +94,7 @@
     "baseline": 1316,
     "current": 1911,
     "added": 595,
-    "edited_existing": 961,
+    "edited_existing": 983,
     "removed": 0
   },
   "properties": {

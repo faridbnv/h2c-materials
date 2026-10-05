@@ -115,6 +115,12 @@ test('the annealing schedule is a typed pair the wording checks: three spellings
   assert.deepEqual(parseAnnealSchedule('0.45 MN/m2, annealed (4h @ 90\u00b0C)', 'annealed'), { tempC: 90, hours: 4 });
   assert.deepEqual(parseAnnealSchedule('annealed (30min @ 120 C)', 'annealed'), { tempC: 120, hours: 0.5 });
   assert.equal(parseAnnealSchedule('As printed', 'as-printed'), null);
+  // A sentence that denies annealing is the as-printed state, however it is worded (Flashforge's note, gap round 2).
+  const { readPostProcessingState } = await import('../build/src/normalize/specimen.js');
+  for (const text of ['the printed model has not been annealed', 'not annealed', 'as printed without annealing', 'Conditioned, before annealed', 'no annealing']) {
+    assert.equal(readPostProcessingState(text), 'as-printed', text);
+  }
+  assert.equal(readPostProcessingState('All specimens were annealed at 100 ºC for 8h'), 'annealed');
   const annealed = base.Properties.rows.find((r) => r['Anneal °C'] === '55').MeasurementID;
   const { mismatches } = run((wb) => { wb.Properties.rows.find((r) => r.MeasurementID === annealed)['Anneal °C'] = '65'; });
   assert.ok(mismatches.some((m) => m.startsWith(`measurements ${annealed}: Anneal °C is 65`)), mismatches.join('\n'));

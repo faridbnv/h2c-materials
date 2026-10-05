@@ -126,7 +126,7 @@ its plausible range wholly fails.
 |---|---:|---:|---:|---:|---:|---:|
 | density | 911 | 122 | 80% | 95% | ×1.11 | 0.0255 (16689 pairs) |
 | tensileModulusXY | 1323 | 83 | 81% | 95% | ×1.48 | 0.301 (1968 pairs) |
-| tensileStrengthXY | 1363 | 65 | 80% | 95% | ×1.41 | 0.227 (3449 pairs) |
+| tensileStrengthXY | 1363 | 65 | 80% | 95% | ×1.42 | 0.227 (3449 pairs) |
 | elongationXY | 1056 | 85 | 80% | 95% | ×3.55 | 0.688 (3038 pairs) |
 | hdt045 | 1193 | 82 | 81% | 95% | 20.3 °C | 4.19 (5643 pairs) |
 
@@ -148,8 +148,8 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileModulusXY | this-grade | 76 | 3 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-material | 67 | 1 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | family | 83 | 0 | 97.5% point | 2 | 2.5% point |
-| tensileStrengthXY | this-grade | 55 | 2 | 97.5% point | 1 | 2.5% point |
-| tensileStrengthXY | this-material | 55 | 0 | 97.5% point | 0 | 2.5% point |
+| tensileStrengthXY | this-grade | 55 | 1 | 97.5% point | 1 | 2.5% point |
+| tensileStrengthXY | this-material | 55 | 0 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | family | 65 | 0 | 97.5% point | 2 | 2.5% point |
 | elongationXY | this-grade | 43 | 0 | 97.5% point | 2 | 2.24% point |
 | elongationXY | this-material | 67 | 2 | 97.5% point | 2 | 2.5% point |
@@ -162,14 +162,14 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 
 | Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |
 |---|---|---:|---:|---:|---:|---:|---:|
-| tensileStrengthXY | none | 65 | 0 | 80% | 95.4% | ×1.41 | 1 |
-| tensileStrengthXY | printed | 65 | 49 | 56.9% | 72.3% | ×1.39 | 17 |
-| tensileStrengthXY | printedXY | 65 | 11 | 73.8% | 90.8% | ×1.4 | 4 |
+| tensileStrengthXY | none | 65 | 0 | 80% | 95.4% | ×1.42 | 2 |
+| tensileStrengthXY | printed | 65 | 49 | 56.9% | 70.8% | ×1.4 | 18 |
+| tensileStrengthXY | printedXY | 65 | 11 | 73.8% | 90.8% | ×1.41 | 5 |
 | tensileStrengthXY | unstated | 65 | 61 | 26.2% | 29.2% | ×1.17 | 46 |
-| tensileStrengthXY | containment | 65 | 13 | 86.2% | 95.4% | ×1.67 | 3 |
-| tensileStrengthXY | sameSource | 65 | 49 | 55.4% | 70.8% | ×1.38 | 18 |
-| tensileStrengthXY | lowestOfProducts | 65 | 61 | 72.3% | 84.6% | ×1.39 | 9 |
-| tensileStrengthXY | formulation | 65 | 40 | 78.5% | 92.3% | ×1.39 | 5 |
+| tensileStrengthXY | containment | 65 | 13 | 86.2% | 93.8% | ×1.67 | 4 |
+| tensileStrengthXY | sameSource | 65 | 49 | 55.4% | 69.2% | ×1.4 | 19 |
+| tensileStrengthXY | lowestOfProducts | 65 | 61 | 73.8% | 84.6% | ×1.41 | 9 |
+| tensileStrengthXY | formulation | 65 | 40 | 78.5% | 90.8% | ×1.41 | 6 |
 | elongationXY | none | 85 | 0 | 80% | 95.3% | ×3.55 | 3 |
 | elongationXY | printed | 85 | 57 | 56.5% | 67.1% | ×2.76 | 27 |
 | elongationXY | printedXY | 85 | 17 | 75.3% | 89.4% | ×3.55 | 8 |
@@ -193,7 +193,7 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 |---|---:|---:|---:|---:|---:|---|
 | density | 828 | 1.45 | 2 | 0.797 | 0.949 | yes |
 | tensileModulusXY | 302 | 1.11 | 1.27 | 0.798 | 0.94 | yes |
-| tensileStrengthXY | 326 | 1.26 | 1.27 | 0.798 | 0.942 | yes |
+| tensileStrengthXY | 326 | 1.19 | 1.25 | 0.788 | 0.942 | yes |
 | elongationXY | 354 | 1.09 | 1.12 | 0.802 | 0.949 | yes |
 | hdt045 | 432 | 2.06 | 3 | 0.792 | 0.91 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 

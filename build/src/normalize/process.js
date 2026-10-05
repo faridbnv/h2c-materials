@@ -345,6 +345,8 @@ export function parseAbrasion(raw) {
   // brass included. A list that allows stainless steel beside hardened steel (its TPU) names the nozzles it prints on,
   // not an abrasion requirement, and says nothing either way about brass: stated, and no reading.
   if (/^all\s+size\s*\/\s*material$/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  // QIDI's guide answers the same question per size: "0.2-0.8 mm / All Material" is any nozzle material, brass included.
+  if (/\/\s*all\s+materials?$/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   if (/hardened\s+steel\s*\/\s*stainless\s+steel|stainless\s+steel\s*\/\s*hardened\s+steel/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
   // A sheet that asks the question and answers it is answering it: Spectrum prints "Ruby or hardened nozzle
   // recommended | No" for its unfilled filaments and "| Yes" for its carbon-filled ones, one row of a table
@@ -364,9 +366,10 @@ export function parseAbrasion(raw) {
   // A sheet that says brass will do, with hardened steel as an alternative, needs none: MatterHackers' "Minimum 0.4 mm
   // diameter; brass or hardened steel compatible" (reader round, m353).
   if (/\bbrass\s+(?:or|and|\/)\s+(?:hardened\s+)?steel\s+(?:nozzles?\s+)?(?:are\s+|is\s+)?(?:compatible|fine|ok|suitable)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
-  // A German sheet answers "Hardened Nozzle nein" (or "ja").
-  const answer = /\b(yes|ja|no|nein|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
-  if (answer && /abrasi|hardened|carbide|diamond|ruby/i.test(text)) {
+  // A German sheet answers "Hardened Nozzle nein" (or "ja"), or "Gehärtete Nozzle ja" in its own words; Extrudr follows the
+  // answer with its reason, "Gehärtete Nozzle ja; wird die Verwendung einer gehärteten Düse empfohlen".
+  const answer = /\b(yes|ja|no|nein|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text) ?? /^gehärtete\s+(?:nozzle|düse)\s+(ja|nein)\b/i.exec(text);
+  if (answer && /abrasi|hardened|gehärtet|carbide|diamond|ruby/i.test(text)) {
     const says = answer[1].toLowerCase();
     if (says === 'no' || says === 'nein' || says === 'not necessary' || says === 'none') return { text, requiresHardened: false, state: 'stated' };
     return { text, requiresHardened: true, state: 'stated' };
@@ -397,7 +400,7 @@ const NEED_SCALE_RE = /\bthe\s+need\s+to\s+dry\s*(\d)\s*\(\s*1\b[^)]*\)/i;
 const OPTIONAL_NEED_RE = new RegExp([
   String.raw`\boptional(?:ly)?\b`,
   String.raw`\bif\s+(?:the\s+(?:filament|material)\s+(?:is|gets|becomes|has\s+become)\s+)?(?:wet|damp|moist\w*|needed|necessary|moisture)\b`,
-  String.raw`\bonly\s+if\b`,
+  String.raw`\bonly\s+(?:\w+\s+){0,2}(?:if|when)\b`,
   String.raw`\bwhen\s+(?:the\s+(?:filament|material)\s+(?:is|gets)\s+)?(?:too\s+)?(?:wet|damp|moist)`,
   String.raw`\b(?:if|when)\s+the\s+(?:filament|material)\s+has\s+absorbed\s+(?:moisture|water)`,
   String.raw`\bin\s+case\b`,
@@ -420,10 +423,13 @@ const NOT_NEEDED_RE = new RegExp([
 ].join('|'), 'i');
 
 /** Does the sheet ask for drying? 'required', 'optional' or 'not-needed' (a cell with no statement is 'unknown' before this runs). */
+// A drying time that starts at nothing, Extrudr's "Drying time 0–4 h", is a step the maker lets the reader skip.
+const ZERO_HOURS_RE = /(?<![\d.,])0\s*[-–~]\s*\d+(?:[.,]\d+)?\s*(?:h|hours?|hrs)\b/i;
 function dryingNeed(s) {
   const scale = NEED_SCALE_RE.exec(s);
   const body = scale ? s.replace(scale[0], ' ') : s;
   if (OPTIONAL_FIRST_RE.test(body)) return 'optional';
+  if (!NOT_NEEDED_RE.test(body) && ZERO_HOURS_RE.test(body)) return 'optional';
   if (NOT_NEEDED_RE.test(body)) return 'not-needed';
   if (OPTIONAL_NEED_RE.test(body)) return 'optional';
   if (scale) return Number(scale[1]) <= 2 ? 'optional' : 'required';

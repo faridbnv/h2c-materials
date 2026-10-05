@@ -2378,3 +2378,103 @@ P1910,Speed,25-300 mm/s
 P1910,Cooling,Cooling fan On
 P1911,Layer height,0.25mm or higher
 P1911,Adhesion / release,Magigoo Bed Prep
+P1321,Storage humidity,Drybox recommended No
+P1323,Storage humidity,Drybox recommended No
+P1501,Storage humidity,Drybox recommended No
+P1502,Storage humidity,Dry box recommended No
+P1503,Storage humidity,Dry box recommended No
+P1504,Storage humidity,Dry box recommended No
+P1505,Storage humidity,Dry box recommended No
+P1506,Storage humidity,Dry box recommended No
+P1507,Storage humidity,Dry box recommended No
+P1508,Storage humidity,Dry box recommended No
+P1514,Storage humidity,Dry box recommended No
+P1515,Storage humidity,Dry box recommended No
+P1520,Storage humidity,Dry box recommended No
+P1521,Storage humidity,Dry box recommended No
+P1522,Storage humidity,Dry box recommended No
+P1524,Storage humidity,Dry box recommended No
+P1525,Storage humidity,Dry box recommended No
+P1526,Storage humidity,Dry box recommended No
+P1527,Storage humidity,Dry box recommended No
+P1528,Storage humidity,Dry box recommended No
+P1532,Storage humidity,Dry box recommended Yes
+P1533,Storage humidity,Dry box recommended Yes
+P1534,Storage humidity,Dry box recommended Yes
+P1535,Storage humidity,Dry box recommended Yes
+P1536,Storage humidity,Dry box recommended Yes
+P1537,Storage humidity,Dry box recommended No
+P1538,Storage humidity,Dry box recommended Yes
+P1539,Storage humidity,Dry box recommended No
+P1540,Storage humidity,Dry box recommended No
+P1541,Storage humidity,Dry box recommended No
+P1542,Storage humidity,Dry box recommended No
+P1543,Storage humidity,Dry box recommended No
+P1547,Storage humidity,Dry box recommended No
+P1548,Storage humidity,Dry box recommended Yes
+P1549,Storage humidity,Suszarka do filamentu niewymagane
+P1550,Storage humidity,Suszarka do filamentu niewymagane
+P1551,Storage humidity,Drybox recommended No
+P1552,Storage humidity,Drybox recommended Yes
+P1556,Storage humidity,Drybox recommended Yes
+P1558,Storage humidity,Dry box recommended No
+P1559,Storage humidity,Dry box recommended No
+P1560,Storage humidity,Dry box recommended No
+P1561,Storage humidity,Dry box recommended No
+P1562,Storage humidity,Dry box recommended No
+P1563,Storage humidity,Dry box recommended No
+P1564,Storage humidity,Dry box recommended No
+P1565,Storage humidity,Dry box recommended No
+P1566,Storage humidity,Dry box recommended No
+P1567,Storage humidity,Dry box recommended No
+P1568,Storage humidity,Dry box recommended No
+P1569,Storage humidity,Dry box recommended No
+P1570,Storage humidity,Dry box recommended No
+P1571,Storage humidity,Dry box recommended No
+P1572,Storage humidity,Dry box recommended No
+P1573,Storage humidity,Dry box recommended No
+P1574,Storage humidity,Dry box recommended No
+P1575,Storage humidity,Dry box recommended No
+P1576,Storage humidity,Dry box recommended No
+P1577,Storage humidity,Dry box recommended No
+P1578,Storage humidity,Dry box recommended No
+P1579,Storage humidity,Dry box recommended No
+P1580,Storage humidity,Dry box recommended No
+P1581,Storage humidity,Dry box recommended No
+P1582,Storage humidity,Dry box recommended No
+P1583,Storage humidity,Dry box recommended No
+P1584,Storage humidity,Dry box recommended No
+P1585,Storage humidity,Dry box recommended No
+P1586,Storage humidity,Dry box recommended No
+P1587,Storage humidity,Dry box recommended No
+P1588,Storage humidity,Dry box recommended Yes
+P1589,Storage humidity,Dry box recommended Yes
+P1590,Storage humidity,Dry box recommended Yes
+P1591,Storage humidity,Dry box recommended Yes
+P1592,Storage humidity,Dry box recommended Yes
+P1593,Storage humidity,Dry box recommended Yes
+P1594,Storage humidity,Dry box recommended Yes
+P1595,Storage humidity,Dry box recommended Yes
+P1596,Storage humidity,Dry box recommended Yes
+P1597,Storage humidity,Dry box recommended Yes
+P1598,Storage humidity,Dry box recommended Yes
+P1599,Storage humidity,Dry box recommended Yes
+P1600,Storage humidity,Dry box recommended Yes
+P1601,Storage humidity,Dry box recommended No
+P1602,Storage humidity,Dry box recommended Yes
+P1603,Storage humidity,Dry box recommended No
+P1604,Storage humidity,Dry box recommended No
+P1605,Storage humidity,Dry box recommended No
+P1606,Storage humidity,Dry box recommended No
+P1607,Storage humidity,Dry box recommended No
+P1608,Storage humidity,Dry box recommended No
+P1609,Storage humidity,Dry box recommended No
+P1610,Storage humidity,Dry box recommended No
+P1611,Storage humidity,Dry box recommended Yes
+P1785,Storage humidity,Drybox recommended No
+P1786,Storage humidity,Drybox recommended No
+P1788,Storage humidity,Suszarka do filamentu niewymagane
+P1789,Storage humidity,Suszarka do filamentu niewymagane
+P1790,Storage humidity,Suszarka do filamentu niewymagane
+P1791,Storage humidity,Suszarka do filamentu niewymagane
+P1792,Storage humidity,Suszarka do filamentu niewymagane

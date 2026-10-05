@@ -46,8 +46,9 @@ export function readPostProcessingState(text) {
   const s = String(text ?? '').trim();
   if (s === 'Not published') return 'not-stated';
   // Raise3D heads its first table "Conditioned, before annealed" and BASF its columns "as printed without annealing" or
-  // "non-annealed" (m298): each denies the annealing the next table states.
-  if (/not annealed|unannealed|non-?annealed|before anneal\w*|without anneal\w*/i.test(s)) return 'as-printed';
+  // "non-annealed" (m298): each denies the annealing the next table states. Flashforge's note says "the printed model has
+  // not been annealed", which read as annealing (gap round 2's blind draw).
+  if (/not (?:been |be )?annealed|unannealed|non-?annealed|before anneal\w*|without anneal\w*|no anneal\w*/i.test(s)) return 'as-printed';
   if (s === 'As printed') return 'as-printed';
   if (/anneal/i.test(s)) return 'annealed';
   return null;

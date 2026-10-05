@@ -138,6 +138,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D126 | No number shown contradicts what its own product's measurements prove | An estimate could sit below a strength the same product had measured: 46 materials and 343 products showed an ultimate-strength estimate under their own published break or yield stress, and LCP's HDT at 0.45 MPa was estimated under its own published HDT at 1.8 MPa. The orders physics sets between properties are now a table (`physical_relations.csv`), the lint reads it, every estimate is floored by what its own product's measurements prove, a material's range contains every product's floor, a product's strength taken from yield or break is the larger of the same test's two, and the build refuses a number shown that breaks an order. | In force; it replaces D78's material floor ("held at the highest own printed limit") with containment, and extends D55 (a value physics rules out is kept and flagged) and D84 (what a printed or unstated bar may decide) |
 | D127 | Drying is recorded as a sheet states it, and the printer maker's guide fills a silent product's drying | A sheet's drying line was read as a published schedule whatever it said, so "not necessary", "Optional" and "only if the material has absorbed moisture" counted as a product that must be dried, and "6+ hours" lost its open end. Each print profile now says whether drying is required, optional or not needed, and whether its duration has an upper end. Bambu Lab's guide, which already answers a silent product's nozzle, bed and chamber, now answers its drying too, labelled as the guide's. A product that holds a profile of its own no longer reads its twin's statement about wearing a brass nozzle. | In force; it amends D88 (the guide now answers drying) and D89 (a twin's hardened-nozzle statement reaches only a product with no profile of its own) |
 | D128 | A page statement can head one table | A heading or footnote recorded once for a page reached every value of its class on that page, so a footnote under the mechanical table also spoke for the physical table beside it. A page statement can now name the table it heads, matched against the values' locators, and a statement that heads one table outranks one that heads the page. | In force; it extends D116 (context the page states) |
+| D129 | What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer | A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 130 profiles read "drying not needed" (and 34 "required") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed. | In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads) |
 
 <!-- end index -->
 
@@ -4128,8 +4129,10 @@ round's recommendation for twins (OPEN-PROBLEMS §28); built by Claude (Opus spe
 - **Two typed columns** on profiles and guide rows: `Drying need` (required, optional, not-needed, unknown;
   `schema/vocab/drying-needs.csv`) and `Drying hours open` (TRUE where the duration has no upper end: "6+ hours", "> 5 h",
   "at least 8 h"). `parseDrying` (`build/src/normalize/process.js`) reads them; PARSE-MISMATCH checks them like the other
-  typed cells; m355 typed every profile and guide row: 813 profiles require drying, 73 advise it for a condition, 155
-  say it is not needed.
+  typed cells; m355 typed every profile and guide row: 813 profiles required drying, 73 advised it for a condition, 155
+  said it was not needed. The blind draw that closed the round found 130 of those 155 were a dry box's answer held as
+  the drying cell, and many "required" schedules printed beside a condition the cell left out; after m365 (D129), 748
+  require drying, 118 advise it for a condition, 25 say it is not needed.
 - **Decisions read the need.** A product's drying axis takes the strongest statement of its profiles (required, then
   optional, then not needed); the material gate and the engine's "drying known" criterion read it, and the page says
   "drying not needed", "optional" or "≥ 6 h".
@@ -4159,3 +4162,39 @@ page statements reaching tables they do not head; built by Claude (Opus specifyi
 - **Applied** (m356): a detector listed the 17 statements that reach two or more tables; Claude Sonnet read each page,
   and 3 now head one table (a filament density footnote, a Vicat footnote, a specimen box split between the mechanical
   and the heat-deflection tables). The test-specimen blocks m358 recorded name their table where a page holds two.
+
+## D129. What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer
+
+> **In plain words:** A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 130 profiles read "drying not needed" (and 34 "required") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed.
+> **Status:** In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads).
+
+*Decided by Claude Opus on 2026-10-05 from the round's blind draw and its probe of moved answers
+(`docs/audits/2026-10-05-gap-round-2/blind-draw/`), within the owner's instruction to check the tools by the fixes'
+effect (GOALS, "Decided on 2026-10-05, gap round 2", item 5); the readings by Claude Sonnet.*
+
+- **A guide row speaks for its type only.** `print_guide_materials.csv` maps a guide row to the material whose type it
+  is, and its Reason names what it is not ("not the particle-filled PLAs"); a product with a Variant (a dense or
+  lightweight filler its material does not have) is not that type and reads nothing from the guide
+  (`build/src/products.js`). 18 PLA variants stopped reading Bambu Lab's PLA row; 12 lose a chamber answer and the
+  indoor-prototype template counts them untested.
+- **A dry box is a note, everywhere.** m293 moved Spectrum's dry-box answer out of the nozzle cell; m365 moves it out of
+  the Drying cell of 169 profiles (none of those sheets prints a drying row) into a Storage humidity note.
+- **The words that condition a drying step are the cell's.** Spectrum's "Drying (if wet) recommended", Flashforge's "In
+  case the filament has become wet", Siraya Tech's "Only dry if…", Fillamentum's "In case of moist material": 47 cells
+  hold the condition with the schedule and read optional; Extrudr's GreenTEC page's "does not require drying" reads not
+  needed. The parser reads a time that starts at 0 h ("Drying time 0–4 h") and "Only dry if" as optional. Polymaker's
+  product pages that print a schedule in their specifications and a condition in a tip keep the specification's
+  reading (OPEN-PROBLEMS §31).
+- **A nozzle line can answer the hardened-nozzle question.** Where a profile's abrasion line is silent, its
+  nozzle-material or nozzle-size line answers ("Nozzle Specs: No special concerns", "≥ 0,6 mm, hardened", QIDI's "/ All
+  Material"); `readAbrasion` (`build/src/recipe.js`) is the one reader the build, the migrations and the import use.
+  Readers found 58 more statements no cell held.
+- **A denial of annealing is as printed.** "The printed model has not been annealed" (Flashforge's test-bar note) read as
+  annealed; the reader reads the denial first, and the 21 page statements m358 wrote from those notes say as printed.
+- **The test bars' one-sentence statements.** SUNLU's footnote "[1] Test specimens were printed at…", Stratasys's
+  "Samples were printed with 0.010 in. layer height on the F900", Raise3D's, 3DJake's and Kingroon's notes: 101
+  statements on 82 sheets give 548 values their print parameters (240 page statements, as m358), and the conditioning
+  sentence older Polymaker and Raise3D sheets print beside their block reaches 165 values' Moisture condition, its state
+  still not stated (it names no humidity).
+- **Measured.** The draw found 6 of 40 records wrong (4 deciding), and the probe 7 of 30 moved cells; a second draw
+  measures what is left (`blind-draw/`).

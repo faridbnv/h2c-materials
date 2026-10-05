@@ -18,13 +18,24 @@ export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 250
  * profiles may, by their material's guide and their product's other profiles, is checked across rows
  * (`checkMakerEnclosed`).
  */
+// A profile whose abrasion line is silent may answer the hardened-nozzle question on its nozzle-material or nozzle-size
+// line: 3DXTECH prints "Nozzle Specs: No special concerns", BASF "Nozzle Diameter ≥ 0,6 mm, hardened", QIDI "0.4–0.8 mm /
+// Hardened steel nozzle or harder" (gap round 2's probe). The abrasion line decides wherever it says anything.
+const NOZZLE_LINES = ['Nozzle material', 'Nozzle diameter'];
+export function readAbrasion(r, column = 'Abrasion / clogging') {
+  const own = parseAbrasion(r[column]);
+  if (column !== 'Abrasion / clogging' || own.state !== PROCESS_STATE.UNKNOWN) return own;
+  for (const c of NOZZLE_LINES) { const p = parseAbrasion(r[c]); if (p.requiresHardened != null) return { ...p, column: c }; }
+  return own;
+}
+
 export function readRecipe(r, issues, { where, unreadWhere, abrasionColumn = 'Abrasion / clogging', guide = false }) {
   const rawChamber = parseTemperature(r['Chamber °C'], { plausible: TEMP_WINDOW.chamber });
   const typed = applyProfileTyped(r, {
     nozzle: parseTemperature(r['Nozzle °C'], { plausible: TEMP_WINDOW.nozzle }),
     bed: parseTemperature(r['Bed °C'], { plausible: TEMP_WINDOW.bed }),
     chamber: rawChamber,
-    enclosure: parseEnclosure(r.Enclosure), drying: parseDrying(r.Drying), abrasion: parseAbrasion(r[abrasionColumn]),
+    enclosure: parseEnclosure(r.Enclosure), drying: parseDrying(r.Drying), abrasion: readAbrasion(r, abrasionColumn),
   }, issues, where);
   const { nozzle, bed, enclosure } = typed;
   let { chamber } = typed;

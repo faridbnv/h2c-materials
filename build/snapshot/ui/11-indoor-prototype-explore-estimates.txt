@@ -296,7 +296,7 @@ Nylon / Polyamide
 1 of 1 product
  1,010
 1,000–1,020 · 6
- ~0.7–2.0† ~32–66† ~200–360† 135
+ ~0.7–2.0† ~32–67† ~200–360† 135
 100–135 · 4
  183
 123–242 · 2
@@ -346,7 +346,7 @@ PA6-CE
 Nylon / Polyamide
  PASS
 1 of 1 product
- 1,490 ~4.3–7.2† ~57–86† ~2.0–7.7† ~91–106† 161¤ ☆
+ 1,490 ~4.3–7.2† ~57–87† ~2.0–7.7† ~91–106† 161¤ ☆
 PA6-CF
 Nylon / Polyamide
  PASS
@@ -390,7 +390,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,010 ~3.1–5.3† ~88–119† ~3.5–12.2† ~91–106† 180↗ ☆
+ 1,010 ~3.1–5.3† ~88–120† ~3.5–12.2† ~91–106† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -451,7 +451,7 @@ annealed median
  157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,040–1,260† ~1.9–9.3† ~52–130† ~1.3–11.2† ~131–211† — ☆
+ UNKNOWN ~1,040–1,260† ~1.9–9.3† ~52–131† ~1.3–11.2† ~131–211† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN
@@ -460,7 +460,7 @@ nothing published to judge
  ~1,010–1,060† ~1.4–4.3† ~42–96† ~6–50† ~59–99† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,170† ~2–13† ~56–139† ~1.2–10.8† ~130–250† — ☆
+ UNKNOWN ~1,050–1,170† ~2–13† ~55–139† ~1.2–10.8† ~130–250† — ☆
 PAHT
 Nylon / Polyamide
  PASS
@@ -613,7 +613,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,250 ~3.7–5.1† ~90–103† ~3.1–5.7† ~113–127† 115¤ ☆
+ 1,250 ~3.7–5.1† ~90–104† ~3.1–5.7† ~113–127† 115¤ ☆
 PC-PTFE
 Polycarbonate
  UNKNOWN
@@ -621,7 +621,7 @@ Polycarbonate
 likely fails: 1 with data misses, 1 publish none
  1,290
 1,260–1,320 · 2
- ~1.0–3.2† ~34–80† ~5–21† 140
+ ~1.0–3.2† ~34–81† ~5–21† 140
 annealed median
  — ☆
 PCL
@@ -808,7 +808,7 @@ PETG-PTFE PASS
 2 of 2 products
  1,320 ~0.8–2.7† ~25–55† ~103–184† ~49–73† 86↗ ☆
 PLA PASS
-197 of 197 products
+185 of 185 products
  1,240
 1,170–1,329 · 157
  2.58
@@ -1015,7 +1015,7 @@ PLA-PHB
 Polymer Blends
  PASS
 1 of 1 product
- 1,200 ~1.49–2.46† ~39–56† ~8.2–16.4† 119 — ☆
+ 1,200 ~1.49–2.46† ~40–56† ~8.2–16.4† 119 — ☆
 POM
 also called Acetal · Acetals
  UNKNOWN
@@ -1183,7 +1183,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–7.7† ~26–52† ~20–370† ~51–76† — ☆
+ ~0.1–7.7† ~26–53† ~20–370† ~51–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN

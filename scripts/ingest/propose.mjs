@@ -25,7 +25,8 @@ import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { INGEST_ROOT as AUDIT, PROPOSALS } from './context.mjs';
 import { cachedText, columnPositions, cellsAt as rawCellsAt, joinDigits, lineCells as rawLineCells, repairLigatures, spanText as rawSpanText } from '../lib/pdf-text.mjs';
-import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
+import { parseTemperature, parseEnclosure, parseDrying } from '../../build/src/normalize/process.js';
+import { readAbrasion } from '../../build/src/recipe.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { readPostProcessingState, parseAnnealSchedule, specimenForm } from '../../build/src/normalize/specimen.js';
 import { readMoistureState } from '../../build/src/normalize/moisture.js';
@@ -2188,7 +2189,7 @@ export function profileFor(settings, { sourceId, materialId, locator = 'Recommen
   };
   const parsed = {
     nozzle: parseTemperature(raw['Nozzle °C']), bed: parseTemperature(raw['Bed °C']), chamber: parseTemperature(raw['Chamber °C']),
-    enclosure: parseEnclosure(raw.Enclosure), drying: parseDrying(raw.Drying), abrasion: parseAbrasion(raw['Abrasion / clogging']),
+    enclosure: parseEnclosure(raw.Enclosure), drying: parseDrying(raw.Drying), abrasion: readAbrasion(raw),
   };
   const typed = profileCellsFromParsed(parsed);
   const row = {

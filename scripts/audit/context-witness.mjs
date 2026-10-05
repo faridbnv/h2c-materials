@@ -19,7 +19,13 @@ import { indexPageContext, contextFor, scopeOf, pageOf, tableScoped } from '../.
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const BASELINE = join(root, 'data/review/context-witness-accepted.csv');
 const args = process.argv.slice(2);
-if (!existsSync(cacheDir('text'))) { console.log('audit:context skipped: no text cache (.cache/text) in this checkout'); process.exit(0); }
+// A skip passes, so it must be seen: a line verify's reader cannot miss, and a warning on the GitHub Actions run.
+const skipped = (why) => {
+  console.log(`\n*** audit:context SKIPPED: ${why}. No value's context was checked against its sheet; run it in a checkout that holds the text cache (OPEN-PROBLEMS §31). ***\n`);
+  if (process.env.GITHUB_ACTIONS) console.log(`::warning title=audit:context skipped::${why}`);
+  process.exit(0);
+};
+if (!existsSync(cacheDir('text'))) skipped('no text cache (.cache/text) in this checkout');
 
 const t = loadTables(join(root, 'data'));
 const rows = (sheet) => t[sheet].rows;
@@ -37,7 +43,7 @@ const pagesOf = (sourceId, { view = 'lines' } = {}) => {
   return textCache.get(k);
 };
 // CI has a .cache/text the import tests write, and none of the makers' sheets: the guard judges only where a sheet is.
-if (![...sha.keys()].some((id) => pagesOf(id))) { console.log('audit:context skipped: the text cache (.cache/text) holds none of the cited sheets in this checkout'); process.exit(0); }
+if (![...sha.keys()].some((id) => pagesOf(id))) skipped('the text cache (.cache/text) holds none of the cited sheets in this checkout');
 const NA =(v) => v == null || v === '' || v === 'Not applicable' || /^Not published/.test(v);
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const findings = [];

@@ -16,7 +16,7 @@ not published
 Hardened nozzle
 required
 Drying
-65 °C for 4 h
+not needed
 VALUES
 Density
 1,120 kg/m³

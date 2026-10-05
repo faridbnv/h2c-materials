@@ -629,7 +629,9 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
       if (g.headline.priceCADkg) headline.priceCADkg = g.headline.priceCADkg;
       g.headline = headline;
     }
-    const guide = guideByMaterial.get(g.materialId) ?? null;
+    // A guide row is mapped to the material its type is (D88); a variant of that material (a dense or lightweight
+    // filler its type does not have) is not that type, and reads nothing from it (D129).
+    const guide = g.variant ? null : guideByMaterial.get(g.materialId) ?? null;
     g.print = productPrint(g, recipeOf(g), siblings.map(recipeOf), guide, guide && sourceById.get(guide.sourceId)?.publisher);
     // Who prints the same sheet (D89): the engine reads their records of that sheet for this product too (D98).
     if (siblings.length) g.twins = siblings.map((x) => x.id);

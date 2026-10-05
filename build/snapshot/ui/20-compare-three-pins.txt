@@ -55,8 +55,8 @@ ABS-AF
 ABS-CF
 43.3
 27.3–48 · 5
-6.75
-306
+6.77
+305
 all 153 candidates
 Tensile strength (Z) MPa
 ABS
@@ -149,7 +149,7 @@ For a material with passing products, each check uses those products' own settin
 Material Nozzle Bed Chamber Hardened nozzle Drying
 ABS within within within not needed published
 ABS-AF within within within 1 of 3 products need one optional
-ABS-CF within within partly within 8 of 11 products need one published
+ABS-CF within within partly within 9 of 11 products need one published
 DATA ON FILE
 Material Key properties published Estimated Products Measurements
 ABS 10 of 10 — 56 767
