@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "e2e246f1aa3e445dcff43ccd79b9446616d5524bf9f57d6416756b19d717f8a3",
+    "url": "https://www.isanmate.com/product/isanmate-pla-wood-3d-printer-filament-box-wood/",
+    "pages": 1,
+    "provider": "iSANMATE",
+    "manufacturer": "iSANMATE",
+    "docKey": "https://www.isanmate.com/product/isanmate-pla-wood-3d-printer-filament-box-wood/#witness-for=source:I-PLA-PLA-Wood-TDS"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G014-15 (iSANMATE PLA Wood) of M014; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ISANMATE-READER-20261004-e2e246f1aa3e",
+      "Publisher": "iSANMATE",
+      "Title": "iSANMATE High Performance PLA Wood 3D Printer Filament Box wood",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "iSANMATE's product page as served on 2026-10-04 for iSANMATE High Performance PLA Wood 3D Printer Filament Box wood (iSANMATE PLA Wood, G014-15): its Parameter Information; Product Description block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.isanmate.com/product/isanmate-pla-wood-3d-printer-filament-box-wood/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G014-15",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "e2e246f1aa3e445dcff43ccd79b9446616d5524bf9f57d6416756b19d717f8a3"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "iSANMATE High Performance PLA Wood 3D Printer Filament Box wood"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G014-15",
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "PLA Wood",
+        "Shared formulation key": "I-PLA-PLA-Wood-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-PLA-PLA-Wood-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "G014-15",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "200-220 ℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "220",
+        "Nozzle requirement": "required",
+        "Bed °C": "35-60 ℃",
+        "Bed state": "range",
+        "Bed min °C": "35",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥0.5mm diameter minimum",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-ISANMATE-READER-20261004-e2e246f1aa3e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Parameter Information; Product Description (nozzle size)",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "50-20mm/s"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print Temp  200-220 ℃  Hot Bed Temp.  35-60 ℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page prints two windows for the same wood filament: the Parameter Information table (nozzle 200-220, bed 35-60, entered) and the description block (\"Extruder Temp 190-220°C\", \"Bed Temp 45-60℃\"); two blocks of one page are one setup read twice (PROFILE-DUPLICATE, D120), so the product-specification table is the profile and the description block's windows are recorded here, not entered. Only the description's \"≥0.5mm diameter minimum\" nozzle size is added to the profile. The description also prints \"Heated Chamber  unnecessary\", a word the parser does not read, so no chamber cell is entered. The page is the Box wood colour of the line; the other colours share the specification. \"Print Speed 50-20mm/s\" is entered as printed."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G014-15: print settings only (1 profile row(s)); no measurement is entered. The page prints two windows for the same wood filament: the Parameter Information table (nozzle 200-220, bed 35-60, entered) and the description block (\"Extruder Temp 190-220°C\", \"Bed Temp 45-60℃\"); two blocks of one page are one setup read twice (PROFILE-DUPLICATE, D120), so the product-specification table is the profile and the description block's windows are recorded here, not entered. Only the description's \"≥0.5mm diameter minimum\" nozzle size is added to the profile. The description also prints \"Heated Chamber  unnecessary\", a word the parser does not read, so no chamber cell is entered. The page is the Box wood colour of the line; the other colours share the specification. \"Print Speed 50-20mm/s\" is entered as printed."
+  }
+}

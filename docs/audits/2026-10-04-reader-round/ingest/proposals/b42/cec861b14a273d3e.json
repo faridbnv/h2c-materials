@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "cec861b14a273d3ecdf6672126208424209b51eec6fb2442050ae8d41d94c77e",
+    "url": "https://www.formfutura.com/aquasolve-pva",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/aquasolve-pva#witness-for=source:S-PET-tds-aquasolve-pva"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G075-04 (FormFutura AquaSolve - PVA) of M075; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-cec861b14a27",
+      "Publisher": "FormFutura",
+      "Title": "AquaSolve - PVA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for AquaSolve - PVA (FormFutura AquaSolve - PVA, G075-04): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/aquasolve-pva",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G075-04",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "cec861b14a273d3ecdf6672126208424209b51eec6fb2442050ae8d41d94c77e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "AquaSolve - PVA"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G075-04",
+        "MaterialID": "M075",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "AquaSolve - PVA",
+        "Shared formulation key": "S-PET-tds-aquasolve-pva",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v2 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-tds-aquasolve-pva",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M075",
+        "GradeID": "G075-04",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 190 – 210° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "210",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 0 – 60° C",
+        "Bed state": "range",
+        "Bed min °C": "0",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.15mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-cec861b14a27",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.1mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0 – 30%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 190 – 210° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The footnote \"Do not exceed a printing temperature of 225˚C, because AquaSolve PVA will then crystallize to quickly\" is a limit above the window, not a setting a column holds: not entered. No drying statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G075-04: print settings only (1 profile row(s)); no measurement is entered. The footnote \"Do not exceed a printing temperature of 225˚C, because AquaSolve PVA will then crystallize to quickly\" is a limit above the window, not a setting a column holds: not entered. No drying statement."
+  }
+}

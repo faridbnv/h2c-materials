@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "3dad37a3417f7128bde4a709144a5500663a86eb8267298c8cbe2b4d78032ab5",
+    "url": "https://bigrep.com/filaments/pro-ht/",
+    "pages": 1,
+    "provider": "BigRep",
+    "manufacturer": "BigRep",
+    "docKey": "https://bigrep.com/filaments/pro-ht/#witness-for=source:R-BIGREP-Ec5wx9MmYX1KseTcD5XV1IABzL0ure69YNjObGyOPwDL-w"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G168-01 (BigRep PRO HT) of M168; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BIGREP-READER-20261004-3dad37a3417f",
+      "Publisher": "BigRep",
+      "Title": "PRO HT Filament - Versatile 3D Printing Material | BigRep",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "BigRep's product page as served on 2026-10-04 for PRO HT Filament - Versatile 3D Printing Material | BigRep (BigRep PRO HT, G168-01): its Recommended Printing Conditions block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://bigrep.com/filaments/pro-ht/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G168-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "3dad37a3417f7128bde4a709144a5500663a86eb8267298c8cbe2b4d78032ab5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PRO HT Filament - Versatile 3D Printing Material | BigRep"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G168-01",
+        "MaterialID": "M168",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BigRep",
+        "Product name": "PRO HT",
+        "Shared formulation key": "R-BIGREP-Ec5wx9MmYX1KseTcD5XV1IABzL0ure69YNjObGyOPwDL-w",
+        "Composition / filler": "\"Chemical name Polylactic acid (PLA) compound\" (D-BIGREP-PRO-HT-MSDS, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Reach 3ompliant ðes (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Identified on 2026-09-28 (m223-what-the-makers-say-it-is), under PLA family, polymer not stated: PLA compound, \"Chemical name Polylactic acid (PLA) compound\" (D-BIGREP-PRO-HT-MSDS, p. 1). BigRep's safety data sheet names a PLA compound (read optically: its text layer is unmapped glyphs); its sheet's glass transition (60 °C) is PLA's. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-BIGREP-Ec5wx9MmYX1KseTcD5XV1IABzL0ure69YNjObGyOPwDL-w",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "G168-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "190 - 230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "50 - 70 °C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "70",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "50 °C for 4 - 6 hours",
+        "Drying state": "stated",
+        "Drying °C": "50",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BIGREP-READER-20261004-3dad37a3417f",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended Printing Conditions; Other Information",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "50 - 100 %"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature 190 - 230 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The maker's shop page (https://shop.bigrep.com/products/pro-ht/) prints the same Recommended Printing Conditions block; a second copy of one statement is not a second source, so only the maker's site page is admitted. No chamber value (the page says the filament is compatible with open material system printers with a heated print bed)."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G168-01: print settings only (1 profile row(s)); no measurement is entered. The maker's shop page (https://shop.bigrep.com/products/pro-ht/) prints the same Recommended Printing Conditions block; a second copy of one statement is not a second source, so only the maker's site page is admitted. No chamber value (the page says the filament is compatible with open material system printers with a heated print bed)."
+  }
+}

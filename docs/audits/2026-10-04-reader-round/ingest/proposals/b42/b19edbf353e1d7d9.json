@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "b19edbf353e1d7d9d9ecdce42d4beee7039a943696f5b190dc255963a3e655fa",
+    "url": "https://www.formfutura.com/stonefil",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/stonefil#witness-for=source:S-PET-TDS-StoneFil"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G012-06 (FormFutura StoneFil) of M012; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-b19edbf353e1",
+      "Publisher": "FormFutura",
+      "Title": "StoneFil",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for StoneFil (FormFutura StoneFil, G012-06): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/stonefil",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G012-06",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "b19edbf353e1d7d9d9ecdce42d4beee7039a943696f5b190dc255963a3e655fa"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "StoneFil"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G012-06",
+        "MaterialID": "M012",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "StoneFil",
+        "Shared formulation key": "S-PET-TDS-StoneFil",
+        "Composition / filler": "The sheet declares the load: \"filled with 50% of powdered stone\". Its density of 1700 kg/m³ is above what neat PLA reaches (1330); recorded as a Variant under D57 (R095).",
+        "Variant": "declared dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95% (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-StoneFil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M012",
+        "GradeID": "G012-06",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 185 – 225° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "185",
+        "Nozzle max °C": "225",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 50 – 60° C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.4mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-b19edbf353e1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.2mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "80-100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "Slow"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Yes ± 5mm"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 185 – 225° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page prints no enclosure or drying statement; \"Flow rate: ± 110%\" has no column. \"slightly more abrasive effect on brass nozzles\" is a comparison, not a hardened-nozzle requirement: not entered."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G012-06: print settings only (1 profile row(s)); no measurement is entered. The page prints no enclosure or drying statement; \"Flow rate: ± 110%\" has no column. \"slightly more abrasive effect on brass nozzles\" is a comparison, not a hardened-nozzle requirement: not entered."
+  }
+}

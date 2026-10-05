@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "a49416ed88343b49f0b3f00b3fdfb03145abecd55505273411fb6cf259634224",
+    "url": "https://www.formfutura.com/python-flex-tpu-90a",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/python-flex-tpu-90a#witness-for=source:S-PET-formfutura-tds-pythonflex90a"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G039-63 (FormFutura Python Flex TPU 90A) of M160; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-a49416ed8834",
+      "Publisher": "FormFutura",
+      "Title": "Python Flex TPU 90A",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for Python Flex TPU 90A (FormFutura Python Flex TPU 90A, G039-63): its General printing guidelines block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/python-flex-tpu-90a",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G039-63",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "a49416ed88343b49f0b3f00b3fdfb03145abecd55505273411fb6cf259634224"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Python Flex TPU 90A"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G039-63",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "Python Flex TPU 90A",
+        "Shared formulation key": "S-SPECTRUM-EN-TDS-Spectrum-SFLEX-90A-4",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-formfutura-tds-pythonflex90a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M160",
+        "GradeID": "G039-63",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 220 – 250° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 0 – 60° C",
+        "Bed state": "range",
+        "Bed min °C": "0",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "When the filament is too wet it is recommended to dry Python Flex in an oven or filament drying machine at 65C for approximately 6 hours.",
+        "Drying state": "stated",
+        "Drying °C": "65",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.25mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-a49416ed8834",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines; Hygroscopy",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.1mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "50-100%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 220 – 250° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "No enclosure statement; the Hygroscopy paragraph also describes storage in a vacuum bag, which is not a print setting."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G039-63: print settings only (1 profile row(s)); no measurement is entered. No enclosure statement; the Hygroscopy paragraph also describes storage in a vacuum bag, which is not a print setting."
+  }
+}

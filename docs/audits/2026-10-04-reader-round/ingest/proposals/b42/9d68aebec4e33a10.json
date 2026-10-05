@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "9d68aebec4e33a102c4c9a3a6f0a02017a5f13d52816d69edfdcfdb9b4f9bd29",
+    "url": "https://www.formfutura.com/luvocom-3f-pp-cf-9928",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/luvocom-3f-pp-cf-9928#witness-for=source:S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G083-05 (LEHVOSS LUVOCOM 3F PP CF 9928 BK) of M083; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-9d68aebec4e3",
+      "Publisher": "FormFutura",
+      "Title": "LUVOCOM 3F PP CF 9928",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for LUVOCOM 3F PP CF 9928 (LEHVOSS LUVOCOM 3F PP CF 9928 BK, G083-05): its General printing guidelines block. The registered sheet leaves nozzle, bed, chamber and drying unpublished. FormFutura distributes this LEHVOSS compound; the page is FormFutura's.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/luvocom-3f-pp-cf-9928",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G083-05",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "9d68aebec4e33a102c4c9a3a6f0a02017a5f13d52816d69edfdcfdb9b4f9bd29"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "LUVOCOM 3F PP CF 9928"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G083-05",
+        "MaterialID": "M083",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PP CF 9928 BK",
+        "Shared formulation key": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Composition / filler": "with carbon fibers, black (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "G083-05",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 220 – 230° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 65 – 75° C",
+        "Bed state": "range",
+        "Bed min °C": "65",
+        "Bed max °C": "75",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "4-6h @80°C (max)",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.4mm",
+        "Abrasion / clogging": "We recommend to use nozzles from stainless steel or other hardened alloys.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-9d68aebec4e3",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines; Abrasiveness",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.10mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "10 – 50%"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "EasyFix Nr. III"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 220 – 230° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "FormFutura distributes this LEHVOSS compound under the LUVOCOM name (the page lists \"Lehvoss Luvocom 3F PP CF 9928 BK\"); its windows (220-230 C nozzle) differ from LEHVOSS's own datasheet (220-250 C), which enters as a second profile from its own source."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G083-05: print settings only (1 profile row(s)); no measurement is entered. FormFutura distributes this LEHVOSS compound under the LUVOCOM name (the page lists \"Lehvoss Luvocom 3F PP CF 9928 BK\"); its windows (220-230 C nozzle) differ from LEHVOSS's own datasheet (220-250 C), which enters as a second profile from its own source."
+  }
+}

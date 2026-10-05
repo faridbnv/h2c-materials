@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "af031102bc16dc8a0b238131e6526b34223d03ec0ce7914661baf0e349a31f54",
+    "url": "https://www.formfutura.com/easyfil-pet",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/easyfil-pet#witness-for=source:S-PET-TDS-EasyFil-PET"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G066-07 (FormFutura EasyFil PET) of M066; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-af031102bc16",
+      "Publisher": "FormFutura",
+      "Title": "EasyFil PET",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for EasyFil PET (FormFutura EasyFil PET, G066-07): its General printing guidelines block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/easyfil-pet",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G066-07",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "af031102bc16dc8a0b238131e6526b34223d03ec0ce7914661baf0e349a31f54"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "EasyFil PET"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G066-07",
+        "MaterialID": "M066",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "EasyFil PET",
+        "Shared formulation key": "S-PET-TDS-EasyFil-PET",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-EasyFil-PET",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M066",
+        "GradeID": "G066-07",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 230 – 245° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "245",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 80 – 90° C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.15mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-af031102bc16",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.05mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "10-25%"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "EasyFil Nr. I"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 230 – 245° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The adhesive line is \"Adhesive: EasyFil Nr. I\", kept as an Adhesion / release note. No drying statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G066-07: print settings only (1 profile row(s)); no measurement is entered. The adhesive line is \"Adhesive: EasyFil Nr. I\", kept as an Adhesion / release note. No drying statement."
+  }
+}

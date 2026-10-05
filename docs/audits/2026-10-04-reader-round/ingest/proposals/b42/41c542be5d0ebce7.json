@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "41c542be5d0ebce74a1b9dbc644ff06c6164b66eaf39ce00a7d7a950f5c473a2",
+    "url": "https://www.formfutura.com/abspro-flame-retardant",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/abspro-flame-retardant#witness-for=source:S-PET-TDS-ABSpro-Flame-Retardant"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G094-10 (FormFutura ABSpro - Flame Retardant) of M094; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-41c542be5d0e",
+      "Publisher": "FormFutura",
+      "Title": "ABSpro Flame Retardant",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for ABSpro Flame Retardant (FormFutura ABSpro - Flame Retardant, G094-10): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/abspro-flame-retardant",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G094-10",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "41c542be5d0ebce74a1b9dbc644ff06c6164b66eaf39ce00a7d7a950f5c473a2"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ABSpro Flame Retardant"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G094-10",
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "ABSpro - Flame Retardant",
+        "Shared formulation key": "S-PET-TDS-ABSpro-Flame-Retardant",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "engineered to meet the UL 94 V-0 flammability standards. The mixture used for our ABSpro™ - Flame Retardant compound (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-ABSpro-Flame-Retardant",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "G094-10",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 240 – 265° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "265",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 100 – 110° C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "it is recommended to use a temperature-controlled build chamber and to prepare your heat bed with DimaFix fixative spray when 3D printing large(r) scaled objects",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.15mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-41c542be5d0e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.1mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "Medium"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Yes ± 5mm"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "prepare your heat bed with DimaFix fixative spray"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "ABSpro – Flame Retardant has a tendency to warp"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 240 – 265° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The recommendation is for large(r) scaled objects and is kept in the Enclosure cell in the page's words. \"When using high speed printing, the above displayed settings will likely need to be adjusted accordingly\" and \"Flow rate: ± 100%\" have no column. No drying statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G094-10: print settings only (1 profile row(s)); no measurement is entered. The recommendation is for large(r) scaled objects and is kept in the Enclosure cell in the page's words. \"When using high speed printing, the above displayed settings will likely need to be adjusted accordingly\" and \"Flow rate: ± 100%\" have no column. No drying statement."
+  }
+}

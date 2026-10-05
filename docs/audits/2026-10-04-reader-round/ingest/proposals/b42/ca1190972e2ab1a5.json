@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "ca1190972e2ab1a51a500fdb33d1a1eb21cb5164156025baa7740b56d2d0e877",
+    "url": "https://www.lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf",
+    "pages": 2,
+    "provider": "LEHVOSS",
+    "manufacturer": "LEHVOSS",
+    "docKey": "https://www.lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf#witness-for=source:S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G083-05 (LEHVOSS LUVOCOM 3F PP CF 9928 BK) of M083; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-LEHVOSS-READER-20261004-ca1190972e2a",
+      "Publisher": "LEHVOSS",
+      "Title": "PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK",
+      "Revision": "Preliminary datasheet (file 25119928-en-ISO)",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer TDS",
+      "Source note": "LEHVOSS's own datasheet (PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK) for LEHVOSS LUVOCOM 3F PP CF 9928 BK (G083-05): its Recommended processing parameters block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G083-05",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from https://lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf, which the maker's server redirects to https://www.lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf; staged by digest (ingest:witness --from).",
+      "SHA256": "ca1190972e2ab1a51a500fdb33d1a1eb21cb5164156025baa7740b56d2d0e877"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G083-05",
+        "MaterialID": "M083",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PP CF 9928 BK",
+        "Shared formulation key": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Composition / filler": "with carbon fibers, black (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "G083-05",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220 - 250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "> 50 °C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "Not published",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "abbrasion resistant",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "abbrasion resistant",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-LEHVOSS-READER-20261004-ca1190972e2a",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended processing parameters (3D Printing parameters)",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "> 0,2mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "40 - 60 mm/s"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "nozzle temperature: 220 - 250 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": true,
+        "note": "Read from the cached text and the page image; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The sheet is LEHVOSS's own current edition (the registered copy, hosted by FormFutura, has no 3D printing parameters). Page 2 (pellet predrying and injection-moulding zones) is processing for granules, not filament: not entered. \"abbrasion\" is the sheet's own spelling. The registered edition is a different file (digest 497c7f3c...)."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G083-05: print settings only (1 profile row(s)); no measurement is entered. The sheet is LEHVOSS's own current edition (the registered copy, hosted by FormFutura, has no 3D printing parameters). Page 2 (pellet predrying and injection-moulding zones) is processing for granules, not filament: not entered. \"abbrasion\" is the sheet's own spelling. The registered edition is a different file (digest 497c7f3c...)."
+  }
+}

@@ -1,7 +1,7 @@
 // b41: every raw cell and note of every proposed profile must be words the cached page prints (whitespace-insensitive,
 // full-width tilde and nbsp read as their ASCII spelling). Prints what is not found.
 import { readdirSync, readFileSync } from 'node:fs';
-const dir = 'docs/audits/2026-10-04-reader-round/ingest/proposals/b41';
+const dir = `docs/audits/2026-10-04-reader-round/ingest/proposals/${process.argv[2] ?? 'b41'}`;
 const cache = process.env.H2C_DOCUMENT_CACHE;
 const norm = (s) => String(s).replace(/[ \s]+/g, ' ').replace(/～/g, '~').replace(/[–—]/g, '-').trim().toLowerCase();
 let bad = 0, n = 0;

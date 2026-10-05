@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "39322ef0e05678a4c705aef9b37a89e3ce038cc98ee11697332c8d63cf8a8bd4",
+    "url": "https://www.isanmate.com/product/isanmate-asa-glass-fiber-filament/",
+    "pages": 1,
+    "provider": "iSANMATE",
+    "manufacturer": "iSANMATE",
+    "docKey": "https://www.isanmate.com/product/isanmate-asa-glass-fiber-filament/#witness-for=source:I-ASA-Glass-Fiber-Technical-Data-Sheet"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G034-02 (iSANMATE ASA Glass Fiber) of M034; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ISANMATE-READER-20261004-39322ef0e056",
+      "Publisher": "iSANMATE",
+      "Title": "iSANMATE UV Resistant ASA Glass Fiber 3D Filament for Outdoor Equipment",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "iSANMATE's product page as served on 2026-10-04 for iSANMATE UV Resistant ASA Glass Fiber 3D Filament for Outdoor Equipment (iSANMATE ASA Glass Fiber, G034-02): its Product parameters block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.isanmate.com/product/isanmate-asa-glass-fiber-filament/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G034-02",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "39322ef0e05678a4c705aef9b37a89e3ce038cc98ee11697332c8d63cf8a8bd4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "iSANMATE UV Resistant ASA Glass Fiber 3D Filament for Outdoor Equipment"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G034-02",
+        "MaterialID": "M034",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "ASA Glass Fiber",
+        "Shared formulation key": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M034",
+        "GradeID": "G034-02",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "240-270 degrees",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "80-100°C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-ISANMATE-READER-20261004-39322ef0e056",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Product parameters",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30-100mm/s"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print Temp  240-270 degrees"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The parameters table is headed \"Product Name ASA Filament, Color Black\" on the glass-fibre page (the page lists black, grey and white); taken as the ASA Glass Fiber product the page heads. No chamber, enclosure or drying statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G034-02: print settings only (1 profile row(s)); no measurement is entered. The parameters table is headed \"Product Name ASA Filament, Color Black\" on the glass-fibre page (the page lists black, grey and white); taken as the ASA Glass Fiber product the page heads. No chamber, enclosure or drying statement."
+  }
+}

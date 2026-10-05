@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "036785dac2f230a80416fa660d807c08143b49bdef1e6a981826411483c222d4",
+    "url": "https://www.formfutura.com/galaxy-pla",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/galaxy-pla#witness-for=source:S-PET-TDS-Galaxy-PLA"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G015-04 (FormFutura Galaxy PLA) of M015; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-036785dac2f2",
+      "Publisher": "FormFutura",
+      "Title": "Galaxy PLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for Galaxy PLA (FormFutura Galaxy PLA, G015-04): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/galaxy-pla",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G015-04",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "036785dac2f230a80416fa660d807c08143b49bdef1e6a981826411483c222d4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Galaxy PLA"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G015-04",
+        "MaterialID": "M015",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "Galaxy PLA",
+        "Shared formulation key": "S-PET-TDS-Galaxy-PLA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95% (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-Galaxy-PLA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M015",
+        "GradeID": "G015-04",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 185 – 215° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "185",
+        "Nozzle max °C": "215",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 50 – 60° C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosed printer needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Blue Tape / Glass",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.15mm",
+        "Abrasion / clogging": "Galaxy PLA is not abrasive to the nozzle of your 3D printer.",
+        "Hardened nozzle": "FALSE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-036785dac2f2",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "> 0.1mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "80-100%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "Medium"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Yes ± 5mm"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 185 – 215° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page also prints \"Heated Build Chamber: No\" beside \"Enclosed printer needed: No\"; the enclosure cell keeps the first (its state, not needed, already says no heated chamber is needed) because the parser reads the two joined as a recommendation. No drying statement; \"Flow rate: ± 100%\" has no column."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G015-04: print settings only (1 profile row(s)); no measurement is entered. The page also prints \"Heated Build Chamber: No\" beside \"Enclosed printer needed: No\"; the enclosure cell keeps the first (its state, not needed, already says no heated chamber is needed) because the parser reads the two joined as a recommendation. No drying statement; \"Flow rate: ± 100%\" has no column."
+  }
+}

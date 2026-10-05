@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "29a0cbb781e1585e0f47c8906e5ce0c05eedc1d976e1f8026059ae3ebd49abeb",
+    "url": "http://web.archive.org/web/20250521183225id_/https://formfutura.com/product/helios-support/",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "http://web.archive.org/web/20250521183225id_/https://formfutura.com/product/helios-support/#witness-for=source:S-PET-TDS-Helios-Support"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G075-06 (FormFutura Helios Support) of M075; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-29a0cbb781e1",
+      "Publisher": "FormFutura",
+      "Title": "Helios Support",
+      "Revision": "Internet Archive capture of 2025-05-21 18:32:25 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as the Internet Archive captured it for Helios Support (FormFutura Helios Support, G075-06): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address now answers 404.",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20250521183225id_/https://formfutura.com/product/helios-support/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G075-06",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of https://formfutura.com/product/helios-support/; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "29a0cbb781e1585e0f47c8906e5ce0c05eedc1d976e1f8026059ae3ebd49abeb"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Helios Support"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G075-06",
+        "MaterialID": "M075",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "Helios Support",
+        "Shared formulation key": "S-PET-TDS-Helios-Support",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95% (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-Helios-Support",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M075",
+        "GradeID": "G075-06",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 235 – 255° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "235",
+        "Nozzle max °C": "255",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 65 – 75° C",
+        "Bed state": "range",
+        "Bed min °C": "65",
+        "Bed max °C": "75",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Once Helios Support has been used or opened from its original vacuum-sealed packaging for a while it is advised to dry the material before using again.",
+        "Drying state": "stated",
+        "Drying °C": "Not published",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.15mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-29a0cbb781e1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.1mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0 – 30%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 235 – 255° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page also prints \"Can be printed in heated build chambers up to 60° C\" (a ceiling for a chamber the print does not need; the parser would read it as a required chamber, so it is not entered) and a maximum thermal stability. The drying statement gives no temperature or time."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G075-06: print settings only (1 profile row(s)); no measurement is entered. The page also prints \"Can be printed in heated build chambers up to 60° C\" (a ceiling for a chamber the print does not need; the parser would read it as a required chamber, so it is not entered) and a maximum thermal stability. The drying statement gives no temperature or time."
+  }
+}

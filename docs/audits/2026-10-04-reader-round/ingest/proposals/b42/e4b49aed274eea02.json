@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "e4b49aed274eea02f65666071f57b58be99878bb383cf20f184eeb2295f6897e",
+    "url": "https://www.formfutura.com/metalfil-ancient-bronze",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/metalfil-ancient-bronze#witness-for=source:S-PET-TDS-MetalFil-Ancient-Bronze"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G011-09 (FormFutura MetalFil - Ancient Bronze) of M011; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-e4b49aed274e",
+      "Publisher": "FormFutura",
+      "Title": "MetalFil - Ancient Bronze",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for MetalFil - Ancient Bronze (FormFutura MetalFil - Ancient Bronze, G011-09): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/metalfil-ancient-bronze",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G011-09",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "e4b49aed274eea02f65666071f57b58be99878bb383cf20f184eeb2295f6897e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MetalFil - Ancient Bronze"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G011-09",
+        "MaterialID": "M011",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "MetalFil - Ancient Bronze",
+        "Shared formulation key": "S-PET-TDS-MetalFil-Ancient-Bronze",
+        "Composition / filler": "The sheet declares the load: \"metal-filled PLA-based filament with approximately 8\". Its density of 3500 kg/m³ is above what neat PLA reaches (1330); recorded as a Variant under D57 (R095).",
+        "Variant": "declared dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95% (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-MetalFil-Ancient-Bronze",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M011",
+        "GradeID": "G011-09",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 195 – 225° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "195",
+        "Nozzle max °C": "225",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 0 – 60° C",
+        "Bed state": "range",
+        "Bed min °C": "0",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.6mm",
+        "Abrasion / clogging": "We recommend using nozzles from stainless steel or other hardened alloys.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-e4b49aed274e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.2mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "50-100%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 195 – 225° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The footnote about blobs forming at too high a print temperature is advice, not a setting: not entered. The page prints no drying statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G011-09: print settings only (1 profile row(s)); no measurement is entered. The footnote about blobs forming at too high a print temperature is advice, not a setting: not entered. The page prints no drying statement."
+  }
+}

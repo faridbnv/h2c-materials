@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "dfaeafde30bd6e464dd8b3ce640bdd2d6c474f76d92e820e0768dff135b070ea",
+    "url": "https://siddament.com.au/products/white-pc-abs",
+    "pages": 1,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "https://siddament.com.au/products/white-pc-abs#witness-for=source:S-PCGF-PC-ABS-TDS"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G094-13 (SIDDAMENT PC ABS) of M094; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SIDDAMENT-READER-20261004-dfaeafde30bd",
+      "Publisher": "SIDDAMENT",
+      "Title": "White PC-ABS",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "SIDDAMENT's product page as served on 2026-10-04 for White PC-ABS (SIDDAMENT PC ABS, G094-13): its Print Settings block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+      "Citation role": "cited",
+      "URL": "https://siddament.com.au/products/white-pc-abs",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G094-13",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "dfaeafde30bd6e464dd8b3ce640bdd2d6c474f76d92e820e0768dff135b070ea"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "White PC-ABS"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G094-13",
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "PC ABS",
+        "Shared formulation key": "S-PCGF-PC-ABS-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PCGF-PC-ABS-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "G094-13",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "240-260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "90-110°C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure Required",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "55-65°C / 4-8 hours",
+        "Drying state": "stated",
+        "Drying °C": "65",
+        "Drying hours": "8",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Hardened Nozzle Not Required",
+        "Hardened nozzle": "FALSE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-SIDDAMENT-READER-20261004-dfaeafde30bd",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "Hotend 240-260°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page then gives the maker's own practice for drying (\"dry every roll for at least 12 hours, at a minimum of 50 °C and around 70 °C on average\"), which it calls a rule of its own beside the textbook value entered here: not entered as a schedule. The black variant page prints the same block (a colour of one product). Another source quoted 270-290 C for this product; this page prints 240-260 C. The page also prints HDT (~95 C) and density (1.08 g/cm3) claims with no method: not entered."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G094-13: print settings only (1 profile row(s)); no measurement is entered. The page then gives the maker's own practice for drying (\"dry every roll for at least 12 hours, at a minimum of 50 °C and around 70 °C on average\"), which it calls a rule of its own beside the textbook value entered here: not entered as a schedule. The black variant page prints the same block (a colour of one product). Another source quoted 270-290 C for this product; this page prints 240-260 C. The page also prints HDT (~95 C) and density (1.08 g/cm3) claims with no method: not entered."
+  }
+}

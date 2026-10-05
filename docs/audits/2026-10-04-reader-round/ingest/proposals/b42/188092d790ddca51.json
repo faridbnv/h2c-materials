@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "188092d790ddca51028432b5787245979bf3b41c14310dd1ce66a6af8daec873",
+    "url": "https://ninjatek.com/shop/chinchilla/",
+    "pages": 1,
+    "provider": "NinjaTek",
+    "manufacturer": "NinjaTek",
+    "docKey": "https://ninjatek.com/shop/chinchilla/#witness-for=source:R-NINJATEK-Chinchilla-TDS"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G167-05 (NinjaTek Chinchilla) of M046; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NINJATEK-READER-20261004-188092d790dd",
+      "Publisher": "NinjaTek",
+      "Title": "Chinchilla 3D Printer Filament (75A)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "NinjaTek's product page as served on 2026-10-04 for Chinchilla 3D Printer Filament (75A) (NinjaTek Chinchilla, G167-05): its Print Guidelines block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://ninjatek.com/shop/chinchilla/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G167-05",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "188092d790ddca51028432b5787245979bf3b41c14310dd1ce66a6af8daec873"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Chinchilla 3D Printer Filament (75A)"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G167-05",
+        "MaterialID": "M046",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "NinjaTek",
+        "Product name": "Chinchilla",
+        "Shared formulation key": "R-NINJATEK-Chinchilla-TDS",
+        "Composition / filler": "\"Thermoplastic polyester (CAS-No.) Trade Secret 48.5 – 50\" (D-NINJATEK-CHINCHILLA-SDS-US, p. 1)",
+        "Variant": "declared softer grade",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under TPC / TPEE on 2026-09-28 (m223-what-the-makers-say-it-is), moved from TPE, polymer not stated: copolyester elastomer blend, \"Thermoplastic polyester (CAS-No.) Trade Secret 48.5 – 50\" (D-NINJATEK-CHINCHILLA-SDS-US, p. 1). Its safety data sheet gives a thermoplastic polyester elastomer and another thermoplastic elastomer at 48.5 to 50 % each (\"a combination of premium TPE resins\", its sheet says), naming the second only as a TPE. The one elastomer named is a copolyester, so it is filed under TPC / TPEE as a declared softer grade (75 Shore A): its values stay its own and do not pull the estimate. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-NINJATEK-Chinchilla-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M046",
+        "GradeID": "G167-05",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "225°C – 235°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "225",
+        "Nozzle max °C": "235",
+        "Nozzle requirement": "required",
+        "Bed °C": "Room temperature – 40°C",
+        "Bed state": "range",
+        "Bed min °C": "25",
+        "Bed max °C": "40",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NINJATEK-READER-20261004-188092d790dd",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "Top and bottom layers: 10-20 mm/sec (600-1200 mm/min); Infill speeds: 15-35 mm/sec (909-2100 mm/min)"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Layer 2+ use cooling fan if available."
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Glue and/ or blue painters tape is suggested if not using a heated bed."
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temperature 225°C – 235°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page prints no chamber, enclosure or drying statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G167-05: print settings only (1 profile row(s)); no measurement is entered. The page prints no chamber, enclosure or drying statement."
+  }
+}

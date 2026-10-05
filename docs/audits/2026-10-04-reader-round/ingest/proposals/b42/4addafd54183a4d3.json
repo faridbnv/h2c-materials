@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "4addafd54183a4d3628a7370d1d39796c0d61feec8fd7cab2282d776ef7b180b",
+    "url": "https://www.formfutura.com/athenax-cf10",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/athenax-cf10#witness-for=source:S-PET-formfutura-tds-athenaxcf10"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G144-01 (FormFutura AthenaX CF10) of M144; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-4addafd54183",
+      "Publisher": "FormFutura",
+      "Title": "AthenaX CF10",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-04 for AthenaX CF10 (FormFutura AthenaX CF10, G144-01): its General printing guidelines block. The registered sheet leaves nozzle and bed unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/athenax-cf10",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G144-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "4addafd54183a4d3628a7370d1d39796c0d61feec8fd7cab2282d776ef7b180b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "AthenaX CF10"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G144-01",
+        "MaterialID": "M144",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "AthenaX CF10",
+        "Shared formulation key": "S-PET-formfutura-tds-athenaxcf10",
+        "Composition / filler": "AthenaX CF10 combines all benefits of our AthenaX filament plus 10% carbon fibers. This carbon fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-formfutura-tds-athenaxcf10",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M144",
+        "GradeID": "G144-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 250 – 290°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 85 – 100° C",
+        "Bed state": "range",
+        "Bed min °C": "85",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure: Recommended",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "pre-dry the filament at 75°C for approximately 24 hours before usage",
+        "Drying state": "stated",
+        "Drying °C": "75",
+        "Drying hours": "24",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.4mm",
+        "Abrasion / clogging": "We recommend to use ruby nozzles or hardened steel nozzles.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-4addafd54183",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines; Pre-drying AthenaX CF10; Abrasiveness",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.1mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-100%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 250 – 290°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The marketing paragraph above the table says \"No enclosure, or heated chamber needed\" while the guidelines table says \"Enclosure: Recommended\"; the table is the guidance block and is what is entered, the conflict is recorded here for the reviewer."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G144-01: print settings only (1 profile row(s)); no measurement is entered. The marketing paragraph above the table says \"No enclosure, or heated chamber needed\" while the guidelines table says \"Enclosure: Recommended\"; the table is the guidance block and is what is entered, the conflict is recorded here for the reviewer."
+  }
+}

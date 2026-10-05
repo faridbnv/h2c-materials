@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "5d7a319d963165c654691612d04a290829c08ec244ccceb2c9cc2dbc358cc1ea",
+    "url": "https://spectrumfilaments.com/en/filament/prografen-pla-graphene-light/",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "https://spectrumfilaments.com/en/filament/prografen-pla-graphene-light/#witness-for=source:R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G155-01 (3DJake PLA PROGRAFEN GRAPHENE LIGHT) of M155; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SPECTRUM-READER-20261004-5d7a319d9631",
+      "Publisher": "Spectrum",
+      "Title": "Prografen PLA Graphene Light",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Spectrum Filaments's product page as served on 2026-10-04 for Prografen PLA Graphene Light (3DJake PLA PROGRAFEN GRAPHENE LIGHT, G155-01): its How to use block. The registered sheet leaves nozzle, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/en/filament/prografen-pla-graphene-light/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G155-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "5d7a319d963165c654691612d04a290829c08ec244ccceb2c9cc2dbc358cc1ea"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Prografen PLA Graphene Light"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G155-01",
+        "MaterialID": "M155",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PLA PROGRAFEN GRAPHENE LIGHT",
+        "Shared formulation key": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-EN-TDS-PLA-Graphene-LIGHT",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M155",
+        "GradeID": "G155-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "190-240°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "0-50°C",
+        "Bed state": "range",
+        "Bed min °C": "0",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure not necessary",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle recommended No",
+        "Hardened nozzle": "FALSE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-SPECTRUM-READER-20261004-5d7a319d9631",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: How to use",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40-1000 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Up to 100%"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)"
+        },
+        {
+          "Topic": "Storage humidity",
+          "Text": "Drybox recommended No"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature [°C]  190-240°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "Spectrum Filaments is the maker of this 3DJake-labelled Prografen filament. \"Drybox recommended No\" is not a drying schedule (the parser would read it as drying required), so it is kept as a storage note and the Drying cell is not published. The registered 3DJake sheet prints nozzle 190-210 C and bed 35-45 C (an optimal window); this page prints 190-240 C and 0-50 C, entered as a second profile from its own source."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G155-01: print settings only (1 profile row(s)); no measurement is entered. Spectrum Filaments is the maker of this 3DJake-labelled Prografen filament. \"Drybox recommended No\" is not a drying schedule (the parser would read it as drying required), so it is kept as a storage note and the Drying cell is not published. The registered 3DJake sheet prints nozzle 190-210 C and bed 35-45 C (an optimal window); this page prints 190-240 C and 0-50 C, entered as a second profile from its own source."
+  }
+}

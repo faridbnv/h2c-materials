@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "26aa6a32f972cff79d7a4078e870e9cff900a02b0b15131b599e7228090711c5",
+    "url": "http://web.archive.org/web/20231216232542id_/https://www.3dxtech.com/product/3dxstat-esd-flex/",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "http://web.archive.org/web/20231216232542id_/https://www.3dxtech.com/product/3dxstat-esd-flex/#witness-for=source:X-ECOMAX-3DXSTAT-ESD-TPU-90A-TDS-v1-1"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G126-01 (3DXTECH 3DXSTAT ESD-TPU (90A)) of M126; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DXTECH-READER-20261004-26aa6a32f972",
+      "Publisher": "3DXTECH",
+      "Title": "3DXSTAT ESD-Flex [TPU] 3D Filament",
+      "Revision": "Internet Archive capture of 2023-12-16 23:25:42 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "3DXTECH's product page as the Internet Archive captured it for 3DXSTAT ESD-Flex [TPU] 3D Filament (3DXTECH 3DXSTAT ESD-TPU (90A), G126-01): its Print Recommendations; Recommended ESD Flex Print Settings block. The registered sheet leaves nozzle, bed, chamber and drying unpublished. The capture is used because the live address now redirects to the maker's ESD-safe collection (its live ESD-Flex page is the 60D grade).",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20231216232542id_/https://www.3dxtech.com/product/3dxstat-esd-flex/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G126-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of https://www.3dxtech.com/product/3dxstat-esd-flex/; the Internet Archive replays the page's own content encoding (gzip, decoded before hashing), and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "26aa6a32f972cff79d7a4078e870e9cff900a02b0b15131b599e7228090711c5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "3DXSTAT ESD-Flex [TPU] 3D Filament"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G126-01",
+        "MaterialID": "M126",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD-TPU (90A)",
+        "Shared formulation key": "X-ECOMAX-3DXSTAT-ESD-TPU-90A-TDS-v1-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-3DXSTAT-ESD-TPU-90A-TDS-v1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "G126-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "220-240°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "40-60°C",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not required",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "65°C for 4 hours",
+        "Drying state": "stated",
+        "Drying °C": "65",
+        "Drying hours": "4",
+        "Nozzle material": "No special concerns",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DXTECH-READER-20261004-26aa6a32f972",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Recommendations; Recommended ESD Flex Print Settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "No special concerns"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Hair Spray on Magigoo Bed Prep"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temp 220-240°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page prints the settings twice (the Print Recommendations list and the \"Recommended ESD Flex Print Settings\" text), identical; one profile. The page also prints a water-soluble support recommendation: not entered. The registered sheet's test-bar extrusion and bed temperatures (260 and 60 C) are a specimen setting, never guidance (m170)."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G126-01: print settings only (1 profile row(s)); no measurement is entered. The page prints the settings twice (the Print Recommendations list and the \"Recommended ESD Flex Print Settings\" text), identical; one profile. The page also prints a water-soluble support recommendation: not entered. The registered sheet's test-bar extrusion and bed temperatures (260 and 60 C) are a specimen setting, never guidance (m170)."
+  }
+}

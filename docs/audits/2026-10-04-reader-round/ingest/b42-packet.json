@@ -1,0 +1,4135 @@
+{
+  "PacketID": "b42-maker-pages",
+  "Batch": "b42",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G008-28",
+      "MaterialID": "M008",
+      "Manufacturer": "FormFutura",
+      "Product name": "Silk Gloss PLA"
+    },
+    {
+      "GradeID": "G011-07",
+      "MaterialID": "M011",
+      "Manufacturer": "FormFutura",
+      "Product name": "MetalFil Brass"
+    },
+    {
+      "GradeID": "G011-08",
+      "MaterialID": "M011",
+      "Manufacturer": "FormFutura",
+      "Product name": "MetalFil - Classic Copper"
+    },
+    {
+      "GradeID": "G011-09",
+      "MaterialID": "M011",
+      "Manufacturer": "FormFutura",
+      "Product name": "MetalFil - Ancient Bronze"
+    },
+    {
+      "GradeID": "G012-06",
+      "MaterialID": "M012",
+      "Manufacturer": "FormFutura",
+      "Product name": "StoneFil"
+    },
+    {
+      "GradeID": "G014-13",
+      "MaterialID": "M014",
+      "Manufacturer": "FormFutura",
+      "Product name": "EasyCork"
+    },
+    {
+      "GradeID": "G014-14",
+      "MaterialID": "M014",
+      "Manufacturer": "FormFutura",
+      "Product name": "EasyWood"
+    },
+    {
+      "GradeID": "G015-04",
+      "MaterialID": "M015",
+      "Manufacturer": "FormFutura",
+      "Product name": "Galaxy PLA"
+    },
+    {
+      "GradeID": "G039-47",
+      "MaterialID": "M162",
+      "Manufacturer": "FormFutura",
+      "Product name": "Python Flex"
+    },
+    {
+      "GradeID": "G039-63",
+      "MaterialID": "M160",
+      "Manufacturer": "FormFutura",
+      "Product name": "Python Flex TPU 90A"
+    },
+    {
+      "GradeID": "G046-05",
+      "MaterialID": "M046",
+      "Manufacturer": "FormFutura",
+      "Product name": "FlexiFil TPC 30D"
+    },
+    {
+      "GradeID": "G046-06",
+      "MaterialID": "M046",
+      "Manufacturer": "FormFutura",
+      "Product name": "FlexiFil TPC 40D"
+    },
+    {
+      "GradeID": "G046-07",
+      "MaterialID": "M046",
+      "Manufacturer": "FormFutura",
+      "Product name": "FlexiFil"
+    },
+    {
+      "GradeID": "G052-05",
+      "MaterialID": "M052",
+      "Manufacturer": "FormFutura",
+      "Product name": "STYX-12"
+    },
+    {
+      "GradeID": "G066-07",
+      "MaterialID": "M066",
+      "Manufacturer": "FormFutura",
+      "Product name": "EasyFil PET"
+    },
+    {
+      "GradeID": "G075-04",
+      "MaterialID": "M075",
+      "Manufacturer": "FormFutura",
+      "Product name": "AquaSolve - PVA"
+    },
+    {
+      "GradeID": "G075-06",
+      "MaterialID": "M075",
+      "Manufacturer": "FormFutura",
+      "Product name": "Helios Support"
+    },
+    {
+      "GradeID": "G075-10",
+      "MaterialID": "M075",
+      "Manufacturer": "FormFutura",
+      "Product name": "Atlas Support"
+    },
+    {
+      "GradeID": "G076-03",
+      "MaterialID": "M076",
+      "Manufacturer": "FormFutura",
+      "Product name": "BVOH"
+    },
+    {
+      "GradeID": "G081-08",
+      "MaterialID": "M081",
+      "Manufacturer": "FormFutura",
+      "Product name": "EasyFil HIPS"
+    },
+    {
+      "GradeID": "G081-12",
+      "MaterialID": "M081",
+      "Manufacturer": "FormFutura",
+      "Product name": "LimoSolve"
+    },
+    {
+      "GradeID": "G082-11",
+      "MaterialID": "M082",
+      "Manufacturer": "FormFutura",
+      "Product name": "Centaur PP"
+    },
+    {
+      "GradeID": "G082-12",
+      "MaterialID": "M082",
+      "Manufacturer": "FormFutura",
+      "Product name": "Pegasus PP"
+    },
+    {
+      "GradeID": "G094-10",
+      "MaterialID": "M094",
+      "Manufacturer": "FormFutura",
+      "Product name": "ABSpro - Flame Retardant"
+    },
+    {
+      "GradeID": "G144-01",
+      "MaterialID": "M144",
+      "Manufacturer": "FormFutura",
+      "Product name": "AthenaX CF10"
+    },
+    {
+      "GradeID": "G174-01",
+      "MaterialID": "M174",
+      "Manufacturer": "FormFutura",
+      "Product name": "Crystal Flex"
+    },
+    {
+      "GradeID": "G083-05",
+      "MaterialID": "M083",
+      "Manufacturer": "LEHVOSS",
+      "Product name": "LUVOCOM 3F PP CF 9928 BK"
+    },
+    {
+      "GradeID": "G014-15",
+      "MaterialID": "M014",
+      "Manufacturer": "iSANMATE",
+      "Product name": "PLA Wood"
+    },
+    {
+      "GradeID": "G025-01",
+      "MaterialID": "M025",
+      "Manufacturer": "iSANMATE",
+      "Product name": "PETG Glass Fiber"
+    },
+    {
+      "GradeID": "G034-02",
+      "MaterialID": "M034",
+      "Manufacturer": "iSANMATE",
+      "Product name": "ASA Glass Fiber"
+    },
+    {
+      "GradeID": "G037-03",
+      "MaterialID": "M037",
+      "Manufacturer": "iSANMATE",
+      "Product name": "PC CF"
+    },
+    {
+      "GradeID": "G029-11",
+      "MaterialID": "M029",
+      "Manufacturer": "3DXTECH",
+      "Product name": "TriMax Carbon Fiber ABS Model Material"
+    },
+    {
+      "GradeID": "G030-11",
+      "MaterialID": "M030",
+      "Manufacturer": "3DXTECH",
+      "Product name": "TriStat ESD-ABS Model Material"
+    },
+    {
+      "GradeID": "G094-12",
+      "MaterialID": "M094",
+      "Manufacturer": "3DXTECH",
+      "Product name": "Triton PC/ABS Model Material"
+    },
+    {
+      "GradeID": "G126-01",
+      "MaterialID": "M126",
+      "Manufacturer": "3DXTECH",
+      "Product name": "3DXSTAT ESD-TPU (90A)"
+    },
+    {
+      "GradeID": "G039-32",
+      "MaterialID": "M159",
+      "Manufacturer": "NinjaTek",
+      "Product name": "NinjaFlex"
+    },
+    {
+      "GradeID": "G039-39",
+      "MaterialID": "M162",
+      "Manufacturer": "NinjaTek",
+      "Product name": "Armadillo"
+    },
+    {
+      "GradeID": "G157-02",
+      "MaterialID": "M157",
+      "Manufacturer": "NinjaTek",
+      "Product name": "Eel"
+    },
+    {
+      "GradeID": "G167-05",
+      "MaterialID": "M046",
+      "Manufacturer": "NinjaTek",
+      "Product name": "Chinchilla"
+    },
+    {
+      "GradeID": "G039-34",
+      "MaterialID": "M162",
+      "Manufacturer": "BigRep",
+      "Product name": "TPU 98A"
+    },
+    {
+      "GradeID": "G168-01",
+      "MaterialID": "M168",
+      "Manufacturer": "BigRep",
+      "Product name": "PRO HT"
+    },
+    {
+      "GradeID": "G049-05",
+      "MaterialID": "M049",
+      "Manufacturer": "Fillamentum",
+      "Product name": "Fishy Filaments’ Porthcurno"
+    },
+    {
+      "GradeID": "G094-13",
+      "MaterialID": "M094",
+      "Manufacturer": "SIDDAMENT",
+      "Product name": "PC ABS"
+    },
+    {
+      "GradeID": "G155-01",
+      "MaterialID": "M155",
+      "Manufacturer": "3DJake",
+      "Product name": "PLA PROGRAFEN GRAPHENE LIGHT"
+    },
+    {
+      "GradeID": "G155-02",
+      "MaterialID": "M155",
+      "Manufacturer": "3DJake",
+      "Product name": "PLA PROGRAFEN GRAPHENE STRONG"
+    }
+  ],
+  "Documents": [
+    {
+      "File": "2e91907c96667853.json",
+      "Extension": "html",
+      "ProposalSHA256": "faa2e971adfa6fd76ac7bad6b2b91564f06cecaa46bf0d1fa51436c3b880abab",
+      "OriginalSHA256": "2e91907c9666785310b3c57b4893f3965bca679c58fddef20bf7554400cc4c06",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-2e91907c9666",
+        "Publisher": "FormFutura",
+        "Title": "Silk Gloss PLA",
+        "Revision": "Internet Archive capture of 2021-04-14 22:42:53 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as the Internet Archive captured it for Silk Gloss PLA (FormFutura Silk Gloss PLA, G008-28): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address now answers 404.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20210414224253id_/https://www.formfutura.com/shop/product/silk-gloss-pla-2840",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G008-28",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of https://www.formfutura.com/shop/product/silk-gloss-pla-2840; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "2e91907c9666785310b3c57b4893f3965bca679c58fddef20bf7554400cc4c06"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M008",
+            "GradeID": "G008-28",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 215 - 230° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "215",
+            "Nozzle max °C": "230",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 - 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-2e91907c9666",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no drying statement. \"Experience level: Beginner\" is not a print setting."
+    },
+    {
+      "File": "fcf79ef4a352f015.json",
+      "Extension": "html",
+      "ProposalSHA256": "d9c4b8792a470c0761a6d10ee74b7aff075560e64bac782c91999eaff0d82bcc",
+      "OriginalSHA256": "fcf79ef4a352f015f4f1793937ce8c6dce251013aeb84fe0c4b2d7e286d9c4dd",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-fcf79ef4a352",
+        "Publisher": "FormFutura",
+        "Title": "MetalFil - Brass",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for MetalFil - Brass (FormFutura MetalFil Brass, G011-07): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/metalfil-brass",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G011-07",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "fcf79ef4a352f015f4f1793937ce8c6dce251013aeb84fe0c4b2d7e286d9c4dd"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M011",
+            "GradeID": "G011-07",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 190° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "190",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.6mm",
+            "Abrasion / clogging": "We recommend using nozzles from stainless steel or other hardened alloys.",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-fcf79ef4a352",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The footnote \"If blobs/lumps form around the nozzle then your print temperature is too high.\" is advice on the nozzle setting, not a setting a column holds: not entered. The page prints no drying statement."
+    },
+    {
+      "File": "0c1e32d7b057dfe2.json",
+      "Extension": "html",
+      "ProposalSHA256": "250e09724a8e9a4f4a9a9582c8be5eeb38c98e4b610a87bdf549c70ab8180649",
+      "OriginalSHA256": "0c1e32d7b057dfe29e3964f2c7546de050aa05bfbd132b3cc5f2b34e3486a55e",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-0c1e32d7b057",
+        "Publisher": "FormFutura",
+        "Title": "MetalFil - Classic Copper",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for MetalFil - Classic Copper (FormFutura MetalFil - Classic Copper, G011-08): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/metalfil-classic-copper",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G011-08",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "0c1e32d7b057dfe29e3964f2c7546de050aa05bfbd132b3cc5f2b34e3486a55e"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M011",
+            "GradeID": "G011-08",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 190 – 220° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "220",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.6mm",
+            "Abrasion / clogging": "We recommend using nozzles from stainless steel or other hardened alloys.",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-0c1e32d7b057",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The footnote about blobs forming at too high a print temperature is advice, not a setting: not entered. The page prints no drying statement."
+    },
+    {
+      "File": "e4b49aed274eea02.json",
+      "Extension": "html",
+      "ProposalSHA256": "c44fb1bd94676bc13771bba35737e2e36e89a183046e703aa2c00ef00478807d",
+      "OriginalSHA256": "e4b49aed274eea02f65666071f57b58be99878bb383cf20f184eeb2295f6897e",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-e4b49aed274e",
+        "Publisher": "FormFutura",
+        "Title": "MetalFil - Ancient Bronze",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for MetalFil - Ancient Bronze (FormFutura MetalFil - Ancient Bronze, G011-09): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/metalfil-ancient-bronze",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G011-09",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "e4b49aed274eea02f65666071f57b58be99878bb383cf20f184eeb2295f6897e"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M011",
+            "GradeID": "G011-09",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 195 – 225° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "195",
+            "Nozzle max °C": "225",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.6mm",
+            "Abrasion / clogging": "We recommend using nozzles from stainless steel or other hardened alloys.",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-e4b49aed274e",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The footnote about blobs forming at too high a print temperature is advice, not a setting: not entered. The page prints no drying statement."
+    },
+    {
+      "File": "b19edbf353e1d7d9.json",
+      "Extension": "html",
+      "ProposalSHA256": "ea19d3eb1c01ddaa5fb70d3962b56ab2e5298ea1901c0a6d4a43fb9f3dd5c434",
+      "OriginalSHA256": "b19edbf353e1d7d9d9ecdce42d4beee7039a943696f5b190dc255963a3e655fa",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-b19edbf353e1",
+        "Publisher": "FormFutura",
+        "Title": "StoneFil",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for StoneFil (FormFutura StoneFil, G012-06): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/stonefil",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G012-06",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "b19edbf353e1d7d9d9ecdce42d4beee7039a943696f5b190dc255963a3e655fa"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M012",
+            "GradeID": "G012-06",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 185 – 225° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "185",
+            "Nozzle max °C": "225",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 50 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "50",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.4mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-b19edbf353e1",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "80-100%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Slow"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 110%\" has no column. \"slightly more abrasive effect on brass nozzles\" is a comparison, not a hardened-nozzle requirement: not entered."
+    },
+    {
+      "File": "7548dfc869d2c97f.json",
+      "Extension": "html",
+      "ProposalSHA256": "e51f8a555fda1d5f5c4905c49b1acff1b55ed0ca526f8d23b1516f7c8bc1eb84",
+      "OriginalSHA256": "7548dfc869d2c97fdaffaca53873bed311bce19800432f36707c109ca5ce8851",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-7548dfc869d2",
+        "Publisher": "FormFutura",
+        "Title": "EasyCork",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for EasyCork (FormFutura EasyCork, G014-13): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/easycork",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G014-13",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "7548dfc869d2c97fdaffaca53873bed311bce19800432f36707c109ca5ce8851"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M014",
+            "GradeID": "G014-13",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 210 – 250° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "210",
+            "Nozzle max °C": "250",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60°C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "it is recommended to dry the material prior to usage and to 3D print it directly from a dry box",
+            "Drying state": "stated",
+            "Drying °C": "Not published",
+            "Drying hours": "Not published",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-7548dfc869d2",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines; Storage and handling",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            },
+            {
+              "Topic": "Storage humidity",
+              "Text": "Filament should be stored at room temperature in a dry and dark place with humidity below 15%."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The drying statement gives no temperature or time. Storage temperature and shelf life are not print settings."
+    },
+    {
+      "File": "ca7311e8417c849a.json",
+      "Extension": "html",
+      "ProposalSHA256": "caf124331cb657a17060ddfc10502f589a81b8c5038d977a47d48c6f015101dd",
+      "OriginalSHA256": "ca7311e8417c849ade3f9f82d7195a66379ba72600c8dc13b9cabb32cf536e25",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-ca7311e8417c",
+        "Publisher": "FormFutura",
+        "Title": "EasyWood",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for EasyWood (FormFutura EasyWood, G014-14): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/easywood",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G014-14",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "ca7311e8417c849ade3f9f82d7195a66379ba72600c8dc13b9cabb32cf536e25"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M014",
+            "GradeID": "G014-14",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 190 – 240° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 50 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "50",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.4mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-ca7311e8417c",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "80-100%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "20-45mm/s"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 100%\" has no column."
+    },
+    {
+      "File": "036785dac2f230a8.json",
+      "Extension": "html",
+      "ProposalSHA256": "875d469e2ef7967c9a20a45e6c075bdad5713e9c346d2998c001383022881278",
+      "OriginalSHA256": "036785dac2f230a80416fa660d807c08143b49bdef1e6a981826411483c222d4",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-036785dac2f2",
+        "Publisher": "FormFutura",
+        "Title": "Galaxy PLA",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for Galaxy PLA (FormFutura Galaxy PLA, G015-04): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/galaxy-pla",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G015-04",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "036785dac2f230a80416fa660d807c08143b49bdef1e6a981826411483c222d4"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M015",
+            "GradeID": "G015-04",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 185 – 215° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "185",
+            "Nozzle max °C": "215",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 50 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "50",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosed printer needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Blue Tape / Glass",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Galaxy PLA is not abrasive to the nozzle of your 3D printer.",
+            "Hardened nozzle": "FALSE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-036785dac2f2",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "> 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "80-100%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Medium"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page also prints \"Heated Build Chamber: No\" beside \"Enclosed printer needed: No\"; the enclosure cell keeps the first (its state, not needed, already says no heated chamber is needed) because the parser reads the two joined as a recommendation. No drying statement; \"Flow rate: ± 100%\" has no column."
+    },
+    {
+      "File": "5d2116b087a38041.json",
+      "Extension": "html",
+      "ProposalSHA256": "dd29ebfd8d814c1f549a9a0c37d406b264fa55d4f1f4e0e96b41bb4305df63b4",
+      "OriginalSHA256": "5d2116b087a380414dbc1d36a32ef5c30d6f0a5d2c27e0b4c6db2cfd6601a4fb",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-5d2116b087a3",
+        "Publisher": "FormFutura",
+        "Title": "Python Flex TPU 98A",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for Python Flex TPU 98A (FormFutura Python Flex, G039-47): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/python-flex-tpu-98a",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-47",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from https://www.formfutura.com/product/python-flex/, which the maker's server redirects to https://www.formfutura.com/python-flex-tpu-98a; staged by digest (ingest:witness --from).",
+        "SHA256": "5d2116b087a380414dbc1d36a32ef5c30d6f0a5d2c27e0b4c6db2cfd6601a4fb"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-47",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 220 – 250° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "250",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "When the filament is too wet it is recommended to dry Python Flex in an oven or filament drying machine at 65C for approximately 6 hours.",
+            "Drying state": "stated",
+            "Drying °C": "65",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.25mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-5d2116b087a3",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines; Hygroscopy",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Medium-Fast"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The footnote \"Print temperature depends on printing speed and wall thickness (e.g. ± 220 – 230° C for single wall objects with no infill at 50mm/s and ± 245 – 255° C for high infilled objects at 100mm/s)\" qualifies the window by speed and wall: not entered as a second window. \"Flow rate: ± 110 – 130%\" has no column. No enclosure statement. The page titles the product \"Python Flex TPU 98A\"; the registered sheet is \"Python Flex\" with a Shore hardness of 98A, taken as the same product."
+    },
+    {
+      "File": "a49416ed88343b49.json",
+      "Extension": "html",
+      "ProposalSHA256": "e0d8a9610db833ba8670060c59c01e74e545fdb75ad736807988745b8aee3c99",
+      "OriginalSHA256": "a49416ed88343b49f0b3f00b3fdfb03145abecd55505273411fb6cf259634224",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-a49416ed8834",
+        "Publisher": "FormFutura",
+        "Title": "Python Flex TPU 90A",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for Python Flex TPU 90A (FormFutura Python Flex TPU 90A, G039-63): its General printing guidelines block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/python-flex-tpu-90a",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-63",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "a49416ed88343b49f0b3f00b3fdfb03145abecd55505273411fb6cf259634224"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M160",
+            "GradeID": "G039-63",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 220 – 250° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "250",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "When the filament is too wet it is recommended to dry Python Flex in an oven or filament drying machine at 65C for approximately 6 hours.",
+            "Drying state": "stated",
+            "Drying °C": "65",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.25mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-a49416ed8834",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines; Hygroscopy",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "No enclosure statement; the Hygroscopy paragraph also describes storage in a vacuum bag, which is not a print setting."
+    },
+    {
+      "File": "e7770681fa1a6f3d.json",
+      "Extension": "html",
+      "ProposalSHA256": "c4e3d6da62728748fa1367898b089773e52270da9d507bce29ae7408285f9a2f",
+      "OriginalSHA256": "e7770681fa1a6f3df1b8a8239d0761df36d8a2359db01b33ed89bfe1f4a797cd",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-e7770681fa1a",
+        "Publisher": "FormFutura",
+        "Title": "FlexiFil TPC 30D",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for FlexiFil TPC 30D (FormFutura FlexiFil TPC 30D, G046-05): its General printing guidelines block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/flexifil-tpc-30d",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G046-05",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "e7770681fa1a6f3df1b8a8239d0761df36d8a2359db01b33ed89bfe1f4a797cd"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M046",
+            "GradeID": "G046-05",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 230 – 260°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "230",
+            "Nozzle max °C": "260",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 60 – 90° C",
+            "Bed state": "range",
+            "Bed min °C": "60",
+            "Bed max °C": "90",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "it is recommended to dry the material prior to usage and to 3D print it directly from a dry box",
+            "Drying state": "stated",
+            "Drying °C": "Not published",
+            "Drying hours": "Not published",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.4mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-e7770681fa1a",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines; Storage and handling",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-70%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "slow"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            },
+            {
+              "Topic": "Storage humidity",
+              "Text": "Filament should be stored at room temperature in a dry and dark place with humidity below 15%."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The drying statement gives no temperature or time. No enclosure statement; \"Flow rate: ± 100%\" has no column."
+    },
+    {
+      "File": "05f2bc4a3da7e8ba.json",
+      "Extension": "html",
+      "ProposalSHA256": "548dd1ff5e8c05094c5c09db98f676f767624ce1aad2a50c68066e34221214e9",
+      "OriginalSHA256": "05f2bc4a3da7e8ba61ae3970764a8907300b1eeae677343e319c743e43f83921",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-05f2bc4a3da7",
+        "Publisher": "FormFutura",
+        "Title": "FlexiFil TPC 40D",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for FlexiFil TPC 40D (FormFutura FlexiFil TPC 40D, G046-06): its General printing guidelines block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/flexifil-tpc-40d",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G046-06",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "05f2bc4a3da7e8ba61ae3970764a8907300b1eeae677343e319c743e43f83921"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M046",
+            "GradeID": "G046-06",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 230 – 260°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "230",
+            "Nozzle max °C": "260",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 60 – 90° C",
+            "Bed state": "range",
+            "Bed min °C": "60",
+            "Bed max °C": "90",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "it is recommended to dry the material prior to usage and to 3D print it directly from a dry box",
+            "Drying state": "stated",
+            "Drying °C": "Not published",
+            "Drying hours": "Not published",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.4mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-05f2bc4a3da7",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines; Storage and handling",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.2mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-70%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "slow"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            },
+            {
+              "Topic": "Storage humidity",
+              "Text": "Filament should be stored at room temperature in a dry and dark place with humidity below 15%."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The drying statement gives no temperature or time. No enclosure statement; \"Flow rate: ± 100%\" has no column."
+    },
+    {
+      "File": "835cca10109fa409.json",
+      "Extension": "html",
+      "ProposalSHA256": "d9eded40d60bd63ab7c98e079482937b996a29ed934552797622d500b8177546",
+      "OriginalSHA256": "835cca10109fa409b2dd23c01fd0de511613399e4424bcafbc3be0ffa591d754",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-835cca10109f",
+        "Publisher": "FormFutura",
+        "Title": "FlexiFil",
+        "Revision": "Internet Archive capture of 2026-04-20 06:34:44 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as the Internet Archive captured it for FlexiFil (FormFutura FlexiFil, G046-07): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address now answers HTTP 500.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20260420063444id_/http://www.formfutura.com/flexifil",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G046-07",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of http://www.formfutura.com/flexifil; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "835cca10109fa409b2dd23c01fd0de511613399e4424bcafbc3be0ffa591d754"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M046",
+            "GradeID": "G046-07",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 220 – 260° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "260",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 90 – 110° C",
+            "Bed state": "range",
+            "Bed min °C": "90",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-835cca10109f",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Low"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 100%\" has no column. The base FlexiFil window (bed 90-110 C) differs from the TPC 30D and 40D pages (60-90 C); each product keeps its own page."
+    },
+    {
+      "File": "e6942c45951e570d.json",
+      "Extension": "html",
+      "ProposalSHA256": "46cc16aac448e1bcecb76acf1a3b2a80456766161a3b8a484603eba13061f690",
+      "OriginalSHA256": "e6942c45951e570d8313089a1d723a39c2467910b3e044b73af0069b8a2eeaa1",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-e6942c45951e",
+        "Publisher": "FormFutura",
+        "Title": "STYX-12",
+        "Revision": "Internet Archive capture of 2025-11-10 10:09:59 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as the Internet Archive captured it for STYX-12 (FormFutura STYX-12, G052-05): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address now answers HTTP 500.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20251110100959id_/http://www.formfutura.com/styx-12",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G052-05",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of http://www.formfutura.com/styx-12; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "e6942c45951e570d8313089a1d723a39c2467910b3e044b73af0069b8a2eeaa1"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M052",
+            "GradeID": "G052-05",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 240 – 270° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "240",
+            "Nozzle max °C": "270",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 80 – 120° C",
+            "Bed state": "range",
+            "Bed min °C": "80",
+            "Bed max °C": "120",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-e6942c45951e",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-30%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Medium / High"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 100 – 110%\" has no column."
+    },
+    {
+      "File": "af031102bc16dc8a.json",
+      "Extension": "html",
+      "ProposalSHA256": "d433aa88b63a3aace6ac3dd6aaf88d1eddbf2aebbdc2a3c25cec237809727f12",
+      "OriginalSHA256": "af031102bc16dc8a0b238131e6526b34223d03ec0ce7914661baf0e349a31f54",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-af031102bc16",
+        "Publisher": "FormFutura",
+        "Title": "EasyFil PET",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for EasyFil PET (FormFutura EasyFil PET, G066-07): its General printing guidelines block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/easyfil-pet",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G066-07",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "af031102bc16dc8a0b238131e6526b34223d03ec0ce7914661baf0e349a31f54"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M066",
+            "GradeID": "G066-07",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 230 – 245° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "230",
+            "Nozzle max °C": "245",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 80 – 90° C",
+            "Bed state": "range",
+            "Bed min °C": "80",
+            "Bed max °C": "90",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-af031102bc16",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.05mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "10-25%"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "EasyFil Nr. I"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The adhesive line is \"Adhesive: EasyFil Nr. I\", kept as an Adhesion / release note. No drying statement."
+    },
+    {
+      "File": "cec861b14a273d3e.json",
+      "Extension": "html",
+      "ProposalSHA256": "a810dfa23fb474b9029db7be3ca6adbb637215a8376ccfa28efd2bfe9902e102",
+      "OriginalSHA256": "cec861b14a273d3ecdf6672126208424209b51eec6fb2442050ae8d41d94c77e",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-cec861b14a27",
+        "Publisher": "FormFutura",
+        "Title": "AquaSolve - PVA",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for AquaSolve - PVA (FormFutura AquaSolve - PVA, G075-04): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/aquasolve-pva",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G075-04",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "cec861b14a273d3ecdf6672126208424209b51eec6fb2442050ae8d41d94c77e"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M075",
+            "GradeID": "G075-04",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 190 – 210° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "210",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-cec861b14a27",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0 – 30%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The footnote \"Do not exceed a printing temperature of 225˚C, because AquaSolve PVA will then crystallize to quickly\" is a limit above the window, not a setting a column holds: not entered. No drying statement."
+    },
+    {
+      "File": "29a0cbb781e1585e.json",
+      "Extension": "html",
+      "ProposalSHA256": "2d75bebb861a23adf9afbab98746efbc6fc54a665fbd845ef69e473d33c51776",
+      "OriginalSHA256": "29a0cbb781e1585e0f47c8906e5ce0c05eedc1d976e1f8026059ae3ebd49abeb",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-29a0cbb781e1",
+        "Publisher": "FormFutura",
+        "Title": "Helios Support",
+        "Revision": "Internet Archive capture of 2025-05-21 18:32:25 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as the Internet Archive captured it for Helios Support (FormFutura Helios Support, G075-06): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address now answers 404.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20250521183225id_/https://formfutura.com/product/helios-support/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G075-06",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of https://formfutura.com/product/helios-support/; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "29a0cbb781e1585e0f47c8906e5ce0c05eedc1d976e1f8026059ae3ebd49abeb"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M075",
+            "GradeID": "G075-06",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 235 – 255° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "235",
+            "Nozzle max °C": "255",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 65 – 75° C",
+            "Bed state": "range",
+            "Bed min °C": "65",
+            "Bed max °C": "75",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Once Helios Support has been used or opened from its original vacuum-sealed packaging for a while it is advised to dry the material before using again.",
+            "Drying state": "stated",
+            "Drying °C": "Not published",
+            "Drying hours": "Not published",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-29a0cbb781e1",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0 – 30%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page also prints \"Can be printed in heated build chambers up to 60° C\" (a ceiling for a chamber the print does not need; the parser would read it as a required chamber, so it is not entered) and a maximum thermal stability. The drying statement gives no temperature or time."
+    },
+    {
+      "File": "55d9a26b737cd51f.json",
+      "Extension": "html",
+      "ProposalSHA256": "962afbcb8499c7a3eb1c3a92177834fcdca944d61ea700fda3a638eabc3f9c65",
+      "OriginalSHA256": "55d9a26b737cd51f10f80a324dca7f3a85d83383086e5a03ccf357f0be936d8f",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-55d9a26b737c",
+        "Publisher": "FormFutura",
+        "Title": "Atlas Support",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for Atlas Support (FormFutura Atlas Support, G075-10): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/atlas-support",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G075-10",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "55d9a26b737cd51f10f80a324dca7f3a85d83383086e5a03ccf357f0be936d8f"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M075",
+            "GradeID": "G075-10",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 180 – 210° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "180",
+            "Nozzle max °C": "210",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 60° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-55d9a26b737c",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0 – 30%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The footnote names AquaSolve PVA and a 225˚C limit (copied from that product's page): not entered. \"Less sensitive to deterioration by humidity compared to regular PVA\" is not a drying statement."
+    },
+    {
+      "File": "1b67dd413b2ba110.json",
+      "Extension": "html",
+      "ProposalSHA256": "4361c4e3771964b369548c80a758a77b224bfc868e9f9c1e5977064c8d6c9e99",
+      "OriginalSHA256": "1b67dd413b2ba1101209d3dff068eb3badd77e897e58072e5c712af10de7cd36",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-1b67dd413b2b",
+        "Publisher": "FormFutura",
+        "Title": "BVOH",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for BVOH (FormFutura BVOH, G076-03): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/bvoh",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G076-03",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "1b67dd413b2ba1101209d3dff068eb3badd77e897e58072e5c712af10de7cd36"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M076",
+            "GradeID": "G076-03",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 200 – 230° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "200",
+            "Nozzle max °C": "230",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 65 – 75° C",
+            "Bed state": "range",
+            "Bed min °C": "65",
+            "Bed max °C": "75",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Once BVOH has been used or opened from its original vacuum-sealed packaging for a while it is advised to dry the material before using again.",
+            "Drying state": "stated",
+            "Drying °C": "Not published",
+            "Drying hours": "Not published",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-1b67dd413b2b",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0 – 30%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints \"Nozzle side: ≥ 0.15mm\" (its own typo for nozzle size). The limit \"Do not exceed a printing temperature of 230˚C for a prolonged period of time\" is not a setting a column holds. The drying statement gives no temperature or time."
+    },
+    {
+      "File": "87e980383ad8ede8.json",
+      "Extension": "html",
+      "ProposalSHA256": "ddd6435737c158682ee6926b6c2983266f591d16bb3fa597c2497c2c8383a81a",
+      "OriginalSHA256": "87e980383ad8ede82ea4a48e8af3e1c33f97d7dd601aef6f6b8b3416df8f18ab",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-87e980383ad8",
+        "Publisher": "FormFutura",
+        "Title": "EasyFil HIPS",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for EasyFil HIPS (FormFutura EasyFil HIPS, G081-08): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/easyfil-hips",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G081-08",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "87e980383ad8ede82ea4a48e8af3e1c33f97d7dd601aef6f6b8b3416df8f18ab"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-08",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 230 – 245° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "230",
+            "Nozzle max °C": "245",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 80 – 100° C",
+            "Bed state": "range",
+            "Bed min °C": "80",
+            "Bed max °C": "100",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-87e980383ad8",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-35%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Medium"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 104%\" has no column."
+    },
+    {
+      "File": "2b6fbd1b4eeeb477.json",
+      "Extension": "html",
+      "ProposalSHA256": "6d1bf9efb1c7cfb7b9a8efd1974ae5b5463f336f19aada8ed916377db8a41934",
+      "OriginalSHA256": "2b6fbd1b4eeeb477125bfa8601c26ca8ff312b1feaf37d064406687239e8b3ac",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-2b6fbd1b4eee",
+        "Publisher": "FormFutura",
+        "Title": "LimoSolve",
+        "Revision": "Internet Archive capture of 2019-09-20 18:54:48 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as the Internet Archive captured it for LimoSolve (FormFutura LimoSolve, G081-12): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the maker no longer serves a LimoSolve page.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20190920185448id_/https://www.formfutura.com/shop/product/limosolve-natural-250?category=170",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G081-12",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of https://www.formfutura.com/shop/product/limosolve-natural-250?category=170; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "2b6fbd1b4eeeb477125bfa8601c26ca8ff312b1feaf37d064406687239e8b3ac"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-12",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 220 - 260° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "260",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 90 - 110° C",
+            "Bed state": "range",
+            "Bed min °C": "90",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-2b6fbd1b4eee",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "20-50%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Medium"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 104%\" has no column."
+    },
+    {
+      "File": "554e6bbd821755b8.json",
+      "Extension": "html",
+      "ProposalSHA256": "4e20b5cf635a219e9cbc36939aa644667cd9735a08e85f10994496f59a7d332a",
+      "OriginalSHA256": "554e6bbd821755b80dcc33f9de2d72bf591181a3495d48847de2c28fdcab2a5e",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-554e6bbd8217",
+        "Publisher": "FormFutura",
+        "Title": "Centaur PP",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for Centaur PP (FormFutura Centaur PP, G082-11): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/centaur-pp",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G082-11",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "554e6bbd821755b80dcc33f9de2d72bf591181a3495d48847de2c28fdcab2a5e"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M082",
+            "GradeID": "G082-11",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 245 – 270° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "245",
+            "Nozzle max °C": "270",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 80 – 85° C",
+            "Bed state": "range",
+            "Bed min °C": "80",
+            "Bed max °C": "85",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-554e6bbd8217",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-50%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Low / Medium"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Large Centaur PP prints can be printed on an unheated 2mm or 3mm PP plate, which can be attached to the print bed. Smaller prints can be printed on standard PP packaging tape."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 104\" has no column."
+    },
+    {
+      "File": "2ab97916be01ae81.json",
+      "Extension": "html",
+      "ProposalSHA256": "3f40f6b417f62801b970d28aa28d532d528c6780052774d7dcd9be87241a48a8",
+      "OriginalSHA256": "2ab97916be01ae819ba12adf421abcfe120ac4c2fd338bc0e47fb4c8c3f16bdc",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-2ab97916be01",
+        "Publisher": "FormFutura",
+        "Title": "Pegasus PP-HGS25 Ultralight",
+        "Revision": "Internet Archive capture of 2025-05-18 01:17:25 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as the Internet Archive captured it for Pegasus PP-HGS25 Ultralight (FormFutura Pegasus PP, G082-12): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address returns a page with no guidelines block.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20250518011725id_/https://formfutura.com/product/pegasus-pp-hgs25-ultralight/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G082-12",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of https://formfutura.com/product/pegasus-pp-hgs25-ultralight/; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "2ab97916be01ae819ba12adf421abcfe120ac4c2fd338bc0e47fb4c8c3f16bdc"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M082",
+            "GradeID": "G082-12",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 215 – 245° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "215",
+            "Nozzle max °C": "245",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 0 – 100° C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "100",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.4mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-2ab97916be01",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "50-100%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Low"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Large Pegasus PP Ultralight prints can be printed on an unheated 2mm or 3mm PP plate, which can be attached to the print bed. Smaller prints can be printed on standard PP packaging tape."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no enclosure or drying statement; \"Flow rate: ± 104%\" has no column. The page names the product \"Pegasus PP-HGS25 Ultralight\"; the registered sheet is \"Pegasus PP\" (maker folder \"Pegasus PP Ultra Light\", density 750 kg/m3), taken as the same product."
+    },
+    {
+      "File": "41c542be5d0ebce7.json",
+      "Extension": "html",
+      "ProposalSHA256": "d293fc7e7f43fd9674fd6b4dca7987b9df8091b3c79ef74636c28a1e539ac1d6",
+      "OriginalSHA256": "41c542be5d0ebce74a1b9dbc644ff06c6164b66eaf39ce00a7d7a950f5c473a2",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-41c542be5d0e",
+        "Publisher": "FormFutura",
+        "Title": "ABSpro Flame Retardant",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for ABSpro Flame Retardant (FormFutura ABSpro - Flame Retardant, G094-10): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/abspro-flame-retardant",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G094-10",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "41c542be5d0ebce74a1b9dbc644ff06c6164b66eaf39ce00a7d7a950f5c473a2"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M094",
+            "GradeID": "G094-10",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 240 – 265° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "240",
+            "Nozzle max °C": "265",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 100 – 110° C",
+            "Bed state": "range",
+            "Bed min °C": "100",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "it is recommended to use a temperature-controlled build chamber and to prepare your heat bed with DimaFix fixative spray when 3D printing large(r) scaled objects",
+            "Enclosure state": "recommended",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-41c542be5d0e",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-50%"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "Medium"
+            },
+            {
+              "Topic": "Retraction",
+              "Text": "Yes ± 5mm"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "prepare your heat bed with DimaFix fixative spray"
+            },
+            {
+              "Topic": "Warping / shrinkage",
+              "Text": "ABSpro – Flame Retardant has a tendency to warp"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The recommendation is for large(r) scaled objects and is kept in the Enclosure cell in the page's words. \"When using high speed printing, the above displayed settings will likely need to be adjusted accordingly\" and \"Flow rate: ± 100%\" have no column. No drying statement."
+    },
+    {
+      "File": "4addafd54183a4d3.json",
+      "Extension": "html",
+      "ProposalSHA256": "0d473f5cc468d158ea3feb86aea33502453e8f4a2e9672dc50d2ec83161aedc5",
+      "OriginalSHA256": "4addafd54183a4d3628a7370d1d39796c0d61feec8fd7cab2282d776ef7b180b",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-4addafd54183",
+        "Publisher": "FormFutura",
+        "Title": "AthenaX CF10",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for AthenaX CF10 (FormFutura AthenaX CF10, G144-01): its General printing guidelines block. The registered sheet leaves nozzle and bed unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/athenax-cf10",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G144-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "4addafd54183a4d3628a7370d1d39796c0d61feec8fd7cab2282d776ef7b180b"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M144",
+            "GradeID": "G144-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 250 – 290°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "250",
+            "Nozzle max °C": "290",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 85 – 100° C",
+            "Bed state": "range",
+            "Bed min °C": "85",
+            "Bed max °C": "100",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure: Recommended",
+            "Enclosure state": "recommended",
+            "Plate": "Not published",
+            "Drying": "pre-dry the filament at 75°C for approximately 24 hours before usage",
+            "Drying state": "stated",
+            "Drying °C": "75",
+            "Drying hours": "24",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.4mm",
+            "Abrasion / clogging": "We recommend to use ruby nozzles or hardened steel nozzles.",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-4addafd54183",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines; Pre-drying AthenaX CF10; Abrasiveness",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-100%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The marketing paragraph above the table says \"No enclosure, or heated chamber needed\" while the guidelines table says \"Enclosure: Recommended\"; the table is the guidance block and is what is entered, the conflict is recorded here for the reviewer."
+    },
+    {
+      "File": "47a4e58d606fb578.json",
+      "Extension": "html",
+      "ProposalSHA256": "7da2a1d95176c91e4e72af4200b723617f77f938b33f94423b96166de6dcc6be",
+      "OriginalSHA256": "47a4e58d606fb5783762070ced17287cf8679a44a1608623c988a5d1777c9446",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-47a4e58d606f",
+        "Publisher": "FormFutura",
+        "Title": "Crystal Flex",
+        "Revision": "Internet Archive capture of 2025-11-10 10:18:40 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as the Internet Archive captured it for Crystal Flex (FormFutura Crystal Flex, G174-01): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address now answers HTTP 500.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20251110101840id_/http://www.formfutura.com/crystal-flex",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G174-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of http://www.formfutura.com/crystal-flex; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "47a4e58d606fb5783762070ced17287cf8679a44a1608623c988a5d1777c9446"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M174",
+            "GradeID": "G174-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 230 – 260° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "230",
+            "Nozzle max °C": "260",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 80 – 100° C",
+            "Bed state": "range",
+            "Bed min °C": "80",
+            "Bed max °C": "100",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.15mm",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-47a4e58d606f",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.1mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "0-30%"
+            }
+          ]
+        }
+      ],
+      "Skipped": "No drying statement."
+    },
+    {
+      "File": "9d68aebec4e33a10.json",
+      "Extension": "html",
+      "ProposalSHA256": "36ec43a59cc5a1c346c7c2204b851a19901cad7147dd36273f18401881be90eb",
+      "OriginalSHA256": "9d68aebec4e33a102c4c9a3a6f0a02017a5f13d52816d69edfdcfdb9b4f9bd29",
+      "Source": {
+        "SourceID": "R-FORMFUTURA-READER-20261004-9d68aebec4e3",
+        "Publisher": "FormFutura",
+        "Title": "LUVOCOM 3F PP CF 9928",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "FormFutura's product page as served on 2026-10-04 for LUVOCOM 3F PP CF 9928 (LEHVOSS LUVOCOM 3F PP CF 9928 BK, G083-05): its General printing guidelines block. The registered sheet leaves nozzle, bed, chamber and drying unpublished. FormFutura distributes this LEHVOSS compound; the page is FormFutura's.",
+        "Citation role": "cited",
+        "URL": "https://www.formfutura.com/luvocom-3f-pp-cf-9928",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G083-05",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "9d68aebec4e33a102c4c9a3a6f0a02017a5f13d52816d69edfdcfdb9b4f9bd29"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M083",
+            "GradeID": "G083-05",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "± 220 – 230° C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "230",
+            "Nozzle requirement": "required",
+            "Bed °C": "± 65 – 75° C",
+            "Bed state": "range",
+            "Bed min °C": "65",
+            "Bed max °C": "75",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure needed: No",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "4-6h @80°C (max)",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥ 0.4mm",
+            "Abrasion / clogging": "We recommend to use nozzles from stainless steel or other hardened alloys.",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FORMFUTURA-READER-20261004-9d68aebec4e3",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: General printing guidelines; Abrasiveness",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "≥ 0.10mm"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "10 – 50%"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "EasyFix Nr. III"
+            }
+          ]
+        }
+      ],
+      "Skipped": "FormFutura distributes this LEHVOSS compound under the LUVOCOM name (the page lists \"Lehvoss Luvocom 3F PP CF 9928 BK\"); its windows (220-230 C nozzle) differ from LEHVOSS's own datasheet (220-250 C), which enters as a second profile from its own source."
+    },
+    {
+      "File": "e2e246f1aa3e445d.json",
+      "Extension": "html",
+      "ProposalSHA256": "cd7645b8318d34dc023a0ab3d852fb46184053d5610768e0e3f0622128a9b8ad",
+      "OriginalSHA256": "e2e246f1aa3e445dcff43ccd79b9446616d5524bf9f57d6416756b19d717f8a3",
+      "Source": {
+        "SourceID": "R-ISANMATE-READER-20261004-e2e246f1aa3e",
+        "Publisher": "iSANMATE",
+        "Title": "iSANMATE High Performance PLA Wood 3D Printer Filament Box wood",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "iSANMATE's product page as served on 2026-10-04 for iSANMATE High Performance PLA Wood 3D Printer Filament Box wood (iSANMATE PLA Wood, G014-15): its Parameter Information; Product Description block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.isanmate.com/product/isanmate-pla-wood-3d-printer-filament-box-wood/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G014-15",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "e2e246f1aa3e445dcff43ccd79b9446616d5524bf9f57d6416756b19d717f8a3"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M014",
+            "GradeID": "G014-15",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "200-220 ℃",
+            "Nozzle state": "range",
+            "Nozzle min °C": "200",
+            "Nozzle max °C": "220",
+            "Nozzle requirement": "required",
+            "Bed °C": "35-60 ℃",
+            "Bed state": "range",
+            "Bed min °C": "35",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "≥0.5mm diameter minimum",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-ISANMATE-READER-20261004-e2e246f1aa3e",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Parameter Information; Product Description (nozzle size)",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "50-20mm/s"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints two windows for the same wood filament: the Parameter Information table (nozzle 200-220, bed 35-60, entered) and the description block (\"Extruder Temp 190-220°C\", \"Bed Temp 45-60℃\"); two blocks of one page are one setup read twice (PROFILE-DUPLICATE, D120), so the product-specification table is the profile and the description block's windows are recorded here, not entered. Only the description's \"≥0.5mm diameter minimum\" nozzle size is added to the profile. The description also prints \"Heated Chamber  unnecessary\", a word the parser does not read, so no chamber cell is entered. The page is the Box wood colour of the line; the other colours share the specification. \"Print Speed 50-20mm/s\" is entered as printed."
+    },
+    {
+      "File": "c117288bd0d4f22a.json",
+      "Extension": "html",
+      "ProposalSHA256": "de7984ab4120e0b13a14771e5e79fcf4856df88433e37c7930c8c44ca80c3bbf",
+      "OriginalSHA256": "c117288bd0d4f22a380d1364b157bfcc07abca5063d153d382382b967415573c",
+      "Source": {
+        "SourceID": "R-ISANMATE-READER-20261004-c117288bd0d4",
+        "Publisher": "iSANMATE",
+        "Title": "iSANMATE Durable PETG Glass Fiber Filament for industrial parts",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "iSANMATE's product page as served on 2026-10-04 for iSANMATE Durable PETG Glass Fiber Filament for industrial parts (iSANMATE PETG Glass Fiber, G025-01): its Product parameters block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.isanmate.com/product/isanmate-petg-glass-fiber-filament/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G025-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "c117288bd0d4f22a380d1364b157bfcc07abca5063d153d382382b967415573c"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M025",
+            "GradeID": "G025-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "250-270℃",
+            "Nozzle state": "range",
+            "Nozzle min °C": "250",
+            "Nozzle max °C": "270",
+            "Nozzle requirement": "required",
+            "Bed °C": "90-100℃",
+            "Bed state": "range",
+            "Bed min °C": "90",
+            "Bed max °C": "100",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-ISANMATE-READER-20261004-c117288bd0d4",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Product parameters",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "50-100mm/s"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no chamber, enclosure or drying statement and links the registered TDS."
+    },
+    {
+      "File": "39322ef0e05678a4.json",
+      "Extension": "html",
+      "ProposalSHA256": "e96fdc6ffe522bbce360d89f4a57b389c7c294e2d267a67640b2c5008886ac92",
+      "OriginalSHA256": "39322ef0e05678a4c705aef9b37a89e3ce038cc98ee11697332c8d63cf8a8bd4",
+      "Source": {
+        "SourceID": "R-ISANMATE-READER-20261004-39322ef0e056",
+        "Publisher": "iSANMATE",
+        "Title": "iSANMATE UV Resistant ASA Glass Fiber 3D Filament for Outdoor Equipment",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "iSANMATE's product page as served on 2026-10-04 for iSANMATE UV Resistant ASA Glass Fiber 3D Filament for Outdoor Equipment (iSANMATE ASA Glass Fiber, G034-02): its Product parameters block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.isanmate.com/product/isanmate-asa-glass-fiber-filament/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G034-02",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "39322ef0e05678a4c705aef9b37a89e3ce038cc98ee11697332c8d63cf8a8bd4"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M034",
+            "GradeID": "G034-02",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "240-270 degrees",
+            "Nozzle state": "range",
+            "Nozzle min °C": "240",
+            "Nozzle max °C": "270",
+            "Nozzle requirement": "required",
+            "Bed °C": "80-100°C",
+            "Bed state": "range",
+            "Bed min °C": "80",
+            "Bed max °C": "100",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-ISANMATE-READER-20261004-39322ef0e056",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Product parameters",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "30-100mm/s"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The parameters table is headed \"Product Name ASA Filament, Color Black\" on the glass-fibre page (the page lists black, grey and white); taken as the ASA Glass Fiber product the page heads. No chamber, enclosure or drying statement."
+    },
+    {
+      "File": "a6bd36c72eca6cf6.json",
+      "Extension": "html",
+      "ProposalSHA256": "9b8170611bafd5465050d89e1aa2f0dca7fc73d68ccf33db0cf441d690bab0d9",
+      "OriginalSHA256": "a6bd36c72eca6cf60d2527a1fda9e88dfbaa6be3c9906728ea228c9363e4a923",
+      "Source": {
+        "SourceID": "R-ISANMATE-READER-20261004-a6bd36c72eca",
+        "Publisher": "iSANMATE",
+        "Title": "iSANMATE High Quality PC Carbon Fiber Filament For 3D Printer",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "iSANMATE's product page as served on 2026-10-04 for iSANMATE High Quality PC Carbon Fiber Filament For 3D Printer (iSANMATE PC CF, G037-03): its Product parameters block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.isanmate.com/product/isanmate-pc-carbon-fiber-filament/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G037-03",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "a6bd36c72eca6cf60d2527a1fda9e88dfbaa6be3c9906728ea228c9363e4a923"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M037",
+            "GradeID": "G037-03",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "240-260 degrees",
+            "Nozzle state": "range",
+            "Nozzle min °C": "240",
+            "Nozzle max °C": "260",
+            "Nozzle requirement": "required",
+            "Bed °C": "60-80°C",
+            "Bed state": "range",
+            "Bed min °C": "60",
+            "Bed max °C": "80",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-ISANMATE-READER-20261004-a6bd36c72eca",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Product parameters",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "50-600mm/s"
+            }
+          ]
+        }
+      ],
+      "Skipped": "No chamber, enclosure or drying statement (\"Sealed printing, good adhesion\" is a feature claim)."
+    },
+    {
+      "File": "ca66923e9ba10a2d.json",
+      "Extension": "html",
+      "ProposalSHA256": "da49e1e6bd0e63ce896258269bc478d343d8d3e9ab8903ba6303d9f6741df64e",
+      "OriginalSHA256": "ca66923e9ba10a2d338d7506acbd33817f7c137a7aa7e2863bc34b20e531ead9",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-ca66923e9ba1",
+        "Publisher": "3DXTECH",
+        "Title": "TRITON3D™ ABS+CF - Stratasys® Compatible",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "3DXTECH's product page as served on 2026-10-04 for TRITON3D™ ABS+CF - Stratasys® Compatible (3DXTECH TriMax Carbon Fiber ABS Model Material, G029-11): its Print Recommendations block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.3dxtech.com/products/triton-abs-cf-1",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G029-11",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from https://3dxtech.com/products/triton-abs-cf-1, which the maker's server redirects to https://www.3dxtech.com/products/triton-abs-cf-1; staged by digest (ingest:witness --from).",
+        "SHA256": "ca66923e9ba10a2d338d7506acbd33817f7c137a7aa7e2863bc34b20e531ead9"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M029",
+            "GradeID": "G029-11",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "220-240C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "100-110C",
+            "Bed state": "range",
+            "Bed min °C": "100",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Recommended",
+            "Chamber state": "recommended",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "recommended",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "80C for 4 hours",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "4",
+            "Nozzle material": "Hardened Steel with .4mm diameter minimum",
+            "Nozzle diameter": ".4mm diameter minimum",
+            "Abrasion / clogging": "Hardened Steel with .4mm diameter minimum",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-ca66923e9ba1",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "0.25mm or higher"
+            }
+          ]
+        }
+      ],
+      "Skipped": "IDENTITY: the registered sheet is \"TriMax Carbon Fiber ABS Model Material\" (a TRITON 3D sheet: ABS with carbon fibre, Fortus 400mc specimens, Stratasys model material); the page is the maker's \"TRITON3D ABS+CF - Stratasys Compatible\", its only listed carbon-fibre ABS for Stratasys printers, made with Sabic MG-94 ABS and carbon fibre. The page does not print the name TriMax; it is taken as the same product on those grounds and the lead should drop it if that is not accepted. The page also prints a 50 % tip-life reduction warning and a price: not entered."
+    },
+    {
+      "File": "9a31aea86163a0a6.json",
+      "Extension": "html",
+      "ProposalSHA256": "3f096b4c7dbcb3ba1b6aa86c942dfa8faf602c49cec2aa7af513abd0cafab484",
+      "OriginalSHA256": "9a31aea86163a0a6efa5cdf3aec08a7d12d524889c5f34d74153200afd011aca",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-9a31aea86163",
+        "Publisher": "3DXTECH",
+        "Title": "TRITON3D™ ESD-ABS - Stratasys® Compatible",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "3DXTECH's product page as served on 2026-10-04 for TRITON3D™ ESD-ABS - Stratasys® Compatible (3DXTECH TriStat ESD-ABS Model Material, G030-11): its Print Recommendations block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.3dxtech.com/products/triton-esd-abs-1",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G030-11",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "9a31aea86163a0a6efa5cdf3aec08a7d12d524889c5f34d74153200afd011aca"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M030",
+            "GradeID": "G030-11",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "220-240C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "100-110C",
+            "Bed state": "range",
+            "Bed min °C": "100",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Recommended",
+            "Chamber state": "recommended",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "recommended",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "80C for 4 hours",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "4",
+            "Nozzle material": "No special concerns",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-9a31aea86163",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "No special concerns"
+            }
+          ]
+        }
+      ],
+      "Skipped": "IDENTITY: the registered sheet is \"TriStat ESD-ABS Model Material\" (a TRITON 3D sheet, Fortus specimens); the page is the maker's \"TRITON3D ESD-ABS - Stratasys Compatible\", its Stratasys-compatible ESD ABS; taken as the same product (the page does not print the name TriStat). The separate 3DXSTAT ESD-ABS spool page prints the same settings but is the maker's own spool filament, not this model material: not admitted."
+    },
+    {
+      "File": "4b61d2baf58c16e8.json",
+      "Extension": "html",
+      "ProposalSHA256": "e37d9b6467662ee1f027d20a6872b6e8c3cf109cd2b71da41c3cceab34c0750e",
+      "OriginalSHA256": "4b61d2baf58c16e8860cd7cc4c843744ffafdc1dac622af0dbfc4ccc8d8b5708",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-4b61d2baf58c",
+        "Publisher": "3DXTECH",
+        "Title": "TRITON3D™ PC/ABS - Stratasys® Compatible",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "3DXTECH's product page as served on 2026-10-04 for TRITON3D™ PC/ABS - Stratasys® Compatible (3DXTECH Triton PC/ABS Model Material, G094-12): its Print Recommendations block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.3dxtech.com/products/triton3d-pc-abs-stratasys-compatible",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G094-12",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "4b61d2baf58c16e8860cd7cc4c843744ffafdc1dac622af0dbfc4ccc8d8b5708"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M094",
+            "GradeID": "G094-12",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "Not published",
+            "Nozzle state": "unknown",
+            "Nozzle min °C": "Not applicable",
+            "Nozzle max °C": "Not applicable",
+            "Nozzle requirement": "unknown",
+            "Bed °C": "Not published",
+            "Bed state": "unknown",
+            "Bed min °C": "Not applicable",
+            "Bed max °C": "Not applicable",
+            "Bed requirement": "unknown",
+            "Chamber °C": "Recommended",
+            "Chamber state": "recommended",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "recommended",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "80°C for 6 Hours",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "6",
+            "Nozzle material": "No Special Concerns",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-4b61d2baf58c",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "No Special Concerns"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no extruder or bed temperature (a Stratasys-compatible canister is set by the printer), so the profile holds the chamber, nozzle specification and drying only."
+    },
+    {
+      "File": "26aa6a32f972cff7.json",
+      "Extension": "html",
+      "ProposalSHA256": "68680c6e610702fa51f39c650b2236526476bfe36ff2e6ff13b42530d49df551",
+      "OriginalSHA256": "26aa6a32f972cff79d7a4078e870e9cff900a02b0b15131b599e7228090711c5",
+      "Source": {
+        "SourceID": "R-3DXTECH-READER-20261004-26aa6a32f972",
+        "Publisher": "3DXTECH",
+        "Title": "3DXSTAT ESD-Flex [TPU] 3D Filament",
+        "Revision": "Internet Archive capture of 2023-12-16 23:25:42 UTC",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "3DXTECH's product page as the Internet Archive captured it for 3DXSTAT ESD-Flex [TPU] 3D Filament (3DXTECH 3DXSTAT ESD-TPU (90A), G126-01): its Print Recommendations; Recommended ESD Flex Print Settings block. The registered sheet leaves nozzle, bed, chamber and drying unpublished. The capture is used because the live address now redirects to the maker's ESD-safe collection (its live ESD-Flex page is the 60D grade).",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20231216232542id_/https://www.3dxtech.com/product/3dxstat-esd-flex/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G126-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of https://www.3dxtech.com/product/3dxstat-esd-flex/; the Internet Archive replays the page's own content encoding (gzip, decoded before hashing), and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+        "SHA256": "26aa6a32f972cff79d7a4078e870e9cff900a02b0b15131b599e7228090711c5"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M126",
+            "GradeID": "G126-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "220-240°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "40-60°C",
+            "Bed state": "range",
+            "Bed min °C": "40",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not required",
+            "Chamber state": "not-required",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "none",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "65°C for 4 hours",
+            "Drying state": "stated",
+            "Drying °C": "65",
+            "Drying hours": "4",
+            "Nozzle material": "No special concerns",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-3DXTECH-READER-20261004-26aa6a32f972",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Recommendations; Recommended ESD Flex Print Settings",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "No special concerns"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Hair Spray on Magigoo Bed Prep"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints the settings twice (the Print Recommendations list and the \"Recommended ESD Flex Print Settings\" text), identical; one profile. The page also prints a water-soluble support recommendation: not entered. The registered sheet's test-bar extrusion and bed temperatures (260 and 60 C) are a specimen setting, never guidance (m170)."
+    },
+    {
+      "File": "d32c82da10b5f50b.json",
+      "Extension": "html",
+      "ProposalSHA256": "68f9974d3e5c549b7dc49d4e9fc44cc5a7ab740901a24d83afa3c31aa8fecdf1",
+      "OriginalSHA256": "d32c82da10b5f50b973514a6ccae568c77c59514bf4341d2e9783ab59673c2ab",
+      "Source": {
+        "SourceID": "R-NINJATEK-READER-20261004-d32c82da10b5",
+        "Publisher": "NinjaTek",
+        "Title": "NinjaFlex 3D Printer Filament (85A)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "NinjaTek's product page as served on 2026-10-04 for NinjaFlex 3D Printer Filament (85A) (NinjaTek NinjaFlex, G039-32): its Print Guidelines block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://ninjatek.com/shop/ninjaflex/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-32",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "d32c82da10b5f50b973514a6ccae568c77c59514bf4341d2e9783ab59673c2ab"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M159",
+            "GradeID": "G039-32",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "225°C – 250°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "225",
+            "Nozzle max °C": "250",
+            "Nozzle requirement": "required",
+            "Bed °C": "Room temperature to 50°C",
+            "Bed state": "range",
+            "Bed min °C": "25",
+            "Bed max °C": "50",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-NINJATEK-READER-20261004-d32c82da10b5",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "Top and bottom layers: 10-20 mm/sec (600-1200 mm/min); Infill speeds: 15-35 mm/sec (900-2100 mm/min)"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "Layer 2+ use cooling fan if available."
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Glue is suggested on bed."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no chamber, enclosure or drying statement."
+    },
+    {
+      "File": "0f027e931f3480cd.json",
+      "Extension": "html",
+      "ProposalSHA256": "5a5baa0aed2e4dcb2af367a4becbaa8a0699ae62c891fecea01131bab6802473",
+      "OriginalSHA256": "0f027e931f3480cd1ba2719bbb30ef5623b2ac9f6ee42085e9dce861812e71ab",
+      "Source": {
+        "SourceID": "R-NINJATEK-READER-20261004-0f027e931f34",
+        "Publisher": "NinjaTek",
+        "Title": "Armadillo 3D Printer Filament (75D)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "NinjaTek's product page as served on 2026-10-04 for Armadillo 3D Printer Filament (75D) (NinjaTek Armadillo, G039-39): its Print Guidelines block. The registered sheet leaves bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://ninjatek.com/shop/armadillo/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-39",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "0f027e931f3480cd1ba2719bbb30ef5623b2ac9f6ee42085e9dce861812e71ab"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-39",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "210°C – 230°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "210",
+            "Nozzle max °C": "230",
+            "Nozzle requirement": "required",
+            "Bed °C": "Room temperature to 50°C",
+            "Bed state": "range",
+            "Bed min °C": "25",
+            "Bed max °C": "50",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-NINJATEK-READER-20261004-0f027e931f34",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "Top and bottom layers: 20-30 mm/sec (900-1800 mm/min); Infill speeds: 35-60 mm/sec (2700-3600 mm/min)"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "Layer 2+ use cooling fan if available."
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Glue is suggested on bed.; Build platform requires same prep as PLA."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no chamber, enclosure or drying statement. The page announces that Armadillo will soon be discontinued; \"No heated bed required\" in its feature list is the same statement as the platform temperature (room temperature to 50 C). The same address was registered on 2026-09-26 as D-NINJATEK-ARMADILLO-PAGE (other bytes, digest 4abf6ec2...), whose profile P1496 holds the nozzle window and the glue statement but not the platform temperature; that source stays, this retrieval is a revision of it (retrievalRevision)."
+    },
+    {
+      "File": "4b83c7186765e6dd.json",
+      "Extension": "html",
+      "ProposalSHA256": "ffa04134f3d74bd983776f16d0925de3c15eaafcd233a31003dde03fbdebd0d0",
+      "OriginalSHA256": "4b83c7186765e6dd1ab57a11bef1ace57f377e27ae021fa3ee23c16a549908ed",
+      "Source": {
+        "SourceID": "R-NINJATEK-READER-20261004-4b83c7186765",
+        "Publisher": "NinjaTek",
+        "Title": "Eel 3D Printer Filament (60D)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "NinjaTek's product page as served on 2026-10-04 for Eel 3D Printer Filament (60D) (NinjaTek Eel, G157-02): its Print Guidelines block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://ninjatek.com/shop/eel/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G157-02",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "4b83c7186765e6dd1ab57a11bef1ace57f377e27ae021fa3ee23c16a549908ed"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M157",
+            "GradeID": "G157-02",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "220°C – 230°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "230",
+            "Nozzle requirement": "required",
+            "Bed °C": "Room temperature to 45°C",
+            "Bed state": "range",
+            "Bed min °C": "25",
+            "Bed max °C": "45",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-NINJATEK-READER-20261004-4b83c7186765",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "Top and bottom layers: 15-20 mm/sec (900-1800 mm/min); Infill speeds: 45-60 mm/sec (2700-3600 mm/min)"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "Layer 2+ use cooling fan if available."
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Glue is suggested on bed."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no chamber, enclosure or drying statement."
+    },
+    {
+      "File": "188092d790ddca51.json",
+      "Extension": "html",
+      "ProposalSHA256": "5e7be57e49d7f40a364491f51edbfd110f94e94208c41ad7514f26da4ed5267a",
+      "OriginalSHA256": "188092d790ddca51028432b5787245979bf3b41c14310dd1ce66a6af8daec873",
+      "Source": {
+        "SourceID": "R-NINJATEK-READER-20261004-188092d790dd",
+        "Publisher": "NinjaTek",
+        "Title": "Chinchilla 3D Printer Filament (75A)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "NinjaTek's product page as served on 2026-10-04 for Chinchilla 3D Printer Filament (75A) (NinjaTek Chinchilla, G167-05): its Print Guidelines block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://ninjatek.com/shop/chinchilla/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G167-05",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "188092d790ddca51028432b5787245979bf3b41c14310dd1ce66a6af8daec873"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M046",
+            "GradeID": "G167-05",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "225°C – 235°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "225",
+            "Nozzle max °C": "235",
+            "Nozzle requirement": "required",
+            "Bed °C": "Room temperature – 40°C",
+            "Bed state": "range",
+            "Bed min °C": "25",
+            "Bed max °C": "40",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-NINJATEK-READER-20261004-188092d790dd",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Guidelines",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "Top and bottom layers: 10-20 mm/sec (600-1200 mm/min); Infill speeds: 15-35 mm/sec (909-2100 mm/min)"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "Layer 2+ use cooling fan if available."
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "Glue and/ or blue painters tape is suggested if not using a heated bed."
+            }
+          ]
+        }
+      ],
+      "Skipped": "The page prints no chamber, enclosure or drying statement."
+    },
+    {
+      "File": "edceb1701d2d3153.json",
+      "Extension": "html",
+      "ProposalSHA256": "8fd75e81d1a30a07bd44fa76126aac3399d91d8698aac2a26abab42e580f52a3",
+      "OriginalSHA256": "edceb1701d2d3153e2a5358246b8f36f01c2bd5c8e7f5aa525d09afd12d28236",
+      "Source": {
+        "SourceID": "R-BIGREP-READER-20261004-edceb1701d2d",
+        "Publisher": "BigRep",
+        "Title": "TPU Filament - Flexible 3D Printer Material | Bigrep",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "BigRep's product page as served on 2026-10-04 for TPU Filament - Flexible 3D Printer Material | Bigrep (BigRep TPU 98A, G039-34): its Recommended Printing Conditions block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://bigrep.com/filaments/tpu/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G039-34",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "edceb1701d2d3153e2a5358246b8f36f01c2bd5c8e7f5aa525d09afd12d28236"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M162",
+            "GradeID": "G039-34",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "210 - 240 °C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "210",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "50 - 60 °C",
+            "Bed state": "range",
+            "Bed min °C": "50",
+            "Bed max °C": "60",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "80 °C for 4 - 6 hours",
+            "Drying state": "stated",
+            "Drying °C": "80",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-BIGREP-READER-20261004-edceb1701d2d",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Recommended Printing Conditions; Other Information",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Cooling",
+              "Text": "50 - 75 %"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The maker's shop page (https://shop.bigrep.com/products/tpu) prints the same Recommended Printing Conditions block; a second copy of one statement is not a second source, so only the maker's site page is admitted. No chamber value (the page says the filament is compatible with open material system printers with a heated print bed)."
+    },
+    {
+      "File": "3dad37a3417f7128.json",
+      "Extension": "html",
+      "ProposalSHA256": "db1f8033f858e83bea95974d7accb35b2b5191f694cf9035de526fd3fad6deb9",
+      "OriginalSHA256": "3dad37a3417f7128bde4a709144a5500663a86eb8267298c8cbe2b4d78032ab5",
+      "Source": {
+        "SourceID": "R-BIGREP-READER-20261004-3dad37a3417f",
+        "Publisher": "BigRep",
+        "Title": "PRO HT Filament - Versatile 3D Printing Material | BigRep",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "BigRep's product page as served on 2026-10-04 for PRO HT Filament - Versatile 3D Printing Material | BigRep (BigRep PRO HT, G168-01): its Recommended Printing Conditions block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://bigrep.com/filaments/pro-ht/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G168-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "3dad37a3417f7128bde4a709144a5500663a86eb8267298c8cbe2b4d78032ab5"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M168",
+            "GradeID": "G168-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "190 - 230 °C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "230",
+            "Nozzle requirement": "required",
+            "Bed °C": "50 - 70 °C",
+            "Bed state": "range",
+            "Bed min °C": "50",
+            "Bed max °C": "70",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "50 °C for 4 - 6 hours",
+            "Drying state": "stated",
+            "Drying °C": "50",
+            "Drying hours": "6",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-BIGREP-READER-20261004-3dad37a3417f",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Recommended Printing Conditions; Other Information",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Cooling",
+              "Text": "50 - 100 %"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The maker's shop page (https://shop.bigrep.com/products/pro-ht/) prints the same Recommended Printing Conditions block; a second copy of one statement is not a second source, so only the maker's site page is admitted. No chamber value (the page says the filament is compatible with open material system printers with a heated print bed)."
+    },
+    {
+      "File": "9dd673e2310bed6e.json",
+      "Extension": "html",
+      "ProposalSHA256": "0970b9a2e814d41cb5e2d1e5e3c1171c2daf99d9d46fae88b58a4b382a2f5f34",
+      "OriginalSHA256": "9dd673e2310bed6e240b2d3e0691a2720a40e44c3777936948fe869941064e8b",
+      "Source": {
+        "SourceID": "R-FILLAMENTUM-READER-20261004-9dd673e2310b",
+        "Publisher": "Fillamentum",
+        "Title": "Porthcurno",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Fillamentum's product page as served on 2026-10-04 for Porthcurno (Fillamentum Fishy Filaments’ Porthcurno, G049-05): its product page header block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+        "Citation role": "cited",
+        "URL": "https://fillamentum.com/collections/fishy-filaments-by-fillamentum/porthcurno/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G049-05",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "9dd673e2310bed6e240b2d3e0691a2720a40e44c3777936948fe869941064e8b"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M049",
+            "GradeID": "G049-05",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "250–280 °C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "250",
+            "Nozzle max °C": "280",
+            "Nozzle requirement": "required",
+            "Bed °C": "80–110 °C",
+            "Bed state": "range",
+            "Bed min °C": "80",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Not published",
+            "Hardened nozzle": "Not published",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-FILLAMENTUM-READER-20261004-9dd673e2310b",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Product page header",
+            "Parse review": "Not applicable"
+          },
+          "notes": []
+        }
+      ],
+      "Skipped": "The page labels the nozzle window \"Working temperature\". It links a 3D printing guide, a drying page and the data sheet (not opened); no chamber figure is printed."
+    },
+    {
+      "File": "dfaeafde30bd6e46.json",
+      "Extension": "html",
+      "ProposalSHA256": "8be79599b24e1b64811b4abac6ceca125a554737210d6a0a45f01a82ea2c0749",
+      "OriginalSHA256": "dfaeafde30bd6e464dd8b3ce640bdd2d6c474f76d92e820e0768dff135b070ea",
+      "Source": {
+        "SourceID": "R-SIDDAMENT-READER-20261004-dfaeafde30bd",
+        "Publisher": "SIDDAMENT",
+        "Title": "White PC-ABS",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "SIDDAMENT's product page as served on 2026-10-04 for White PC-ABS (SIDDAMENT PC ABS, G094-13): its Print Settings block. The registered sheet leaves nozzle, bed and chamber unpublished.",
+        "Citation role": "cited",
+        "URL": "https://siddament.com.au/products/white-pc-abs",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G094-13",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "dfaeafde30bd6e464dd8b3ce640bdd2d6c474f76d92e820e0768dff135b070ea"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M094",
+            "GradeID": "G094-13",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "240-260°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "240",
+            "Nozzle max °C": "260",
+            "Nozzle requirement": "required",
+            "Bed °C": "90-110°C",
+            "Bed state": "range",
+            "Bed min °C": "90",
+            "Bed max °C": "110",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure Required",
+            "Enclosure state": "recommended",
+            "Plate": "Not published",
+            "Drying": "55-65°C / 4-8 hours",
+            "Drying state": "stated",
+            "Drying °C": "65",
+            "Drying hours": "8",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Hardened Nozzle Not Required",
+            "Hardened nozzle": "FALSE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-SIDDAMENT-READER-20261004-dfaeafde30bd",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Print Settings",
+            "Parse review": "Not applicable"
+          },
+          "notes": []
+        }
+      ],
+      "Skipped": "The page then gives the maker's own practice for drying (\"dry every roll for at least 12 hours, at a minimum of 50 °C and around 70 °C on average\"), which it calls a rule of its own beside the textbook value entered here: not entered as a schedule. The black variant page prints the same block (a colour of one product). Another source quoted 270-290 C for this product; this page prints 240-260 C. The page also prints HDT (~95 C) and density (1.08 g/cm3) claims with no method: not entered."
+    },
+    {
+      "File": "5d7a319d963165c6.json",
+      "Extension": "html",
+      "ProposalSHA256": "fd3c077397ef37eca046d24f09c2a962c65357e07c59e12e8967d8bb6d7976c1",
+      "OriginalSHA256": "5d7a319d963165c654691612d04a290829c08ec244ccceb2c9cc2dbc358cc1ea",
+      "Source": {
+        "SourceID": "R-SPECTRUM-READER-20261004-5d7a319d9631",
+        "Publisher": "Spectrum",
+        "Title": "Prografen PLA Graphene Light",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Spectrum Filaments's product page as served on 2026-10-04 for Prografen PLA Graphene Light (3DJake PLA PROGRAFEN GRAPHENE LIGHT, G155-01): its How to use block. The registered sheet leaves nozzle, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://spectrumfilaments.com/en/filament/prografen-pla-graphene-light/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G155-01",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "5d7a319d963165c654691612d04a290829c08ec244ccceb2c9cc2dbc358cc1ea"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M155",
+            "GradeID": "G155-01",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "190-240°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "0-50°C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "50",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure not necessary",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Ruby or hardened nozzle recommended No",
+            "Hardened nozzle": "FALSE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-SPECTRUM-READER-20261004-5d7a319d9631",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: How to use",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "40-1000 mm/s"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "Up to 100%"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)"
+            },
+            {
+              "Topic": "Storage humidity",
+              "Text": "Drybox recommended No"
+            }
+          ]
+        }
+      ],
+      "Skipped": "Spectrum Filaments is the maker of this 3DJake-labelled Prografen filament. \"Drybox recommended No\" is not a drying schedule (the parser would read it as drying required), so it is kept as a storage note and the Drying cell is not published. The registered 3DJake sheet prints nozzle 190-210 C and bed 35-45 C (an optimal window); this page prints 190-240 C and 0-50 C, entered as a second profile from its own source."
+    },
+    {
+      "File": "55362670a09ce38d.json",
+      "Extension": "html",
+      "ProposalSHA256": "39f29ea1b71f351ad79342614e1928662b6329e27c3bc09de0bbc02f12708617",
+      "OriginalSHA256": "55362670a09ce38dc9bcf5555ae4047a8105650b3367e5ff454e656b8cfc6aaf",
+      "Source": {
+        "SourceID": "R-SPECTRUM-READER-20261004-55362670a09c",
+        "Publisher": "Spectrum",
+        "Title": "Prografen PLA Graphene Strong",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Spectrum Filaments's product page as served on 2026-10-04 for Prografen PLA Graphene Strong (3DJake PLA PROGRAFEN GRAPHENE STRONG, G155-02): its How to use block. The registered sheet leaves nozzle, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://spectrumfilaments.com/en/filament/prografen-pla-graphene-strong/",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G155-02",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+        "SHA256": "55362670a09ce38dc9bcf5555ae4047a8105650b3367e5ff454e656b8cfc6aaf"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M155",
+            "GradeID": "G155-02",
+            "Profile": "Current manufacturer product guidance",
+            "Nozzle °C": "190-240°C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "190",
+            "Nozzle max °C": "240",
+            "Nozzle requirement": "required",
+            "Bed °C": "0-50°C",
+            "Bed state": "range",
+            "Bed min °C": "0",
+            "Bed max °C": "50",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Enclosure not necessary",
+            "Enclosure state": "not-needed",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "Not published",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "Ruby or hardened nozzle recommended No",
+            "Hardened nozzle": "FALSE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-SPECTRUM-READER-20261004-55362670a09c",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: How to use",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Speed",
+              "Text": "40-1000 mm/s"
+            },
+            {
+              "Topic": "Cooling",
+              "Text": "Up to 100%"
+            },
+            {
+              "Topic": "Adhesion / release",
+              "Text": "not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)"
+            },
+            {
+              "Topic": "Storage humidity",
+              "Text": "Drybox recommended No"
+            }
+          ]
+        }
+      ],
+      "Skipped": "Spectrum Filaments is the maker of this 3DJake-labelled Prografen filament. \"Drybox recommended No\" is not a drying schedule (the parser would read it as drying required), so it is kept as a storage note and the Drying cell is not published. The registered 3DJake sheet prints nozzle 190-210 C and bed 35-45 C (an optimal window); this page prints 190-240 C and 0-50 C, entered as a second profile from its own source."
+    },
+    {
+      "File": "ca1190972e2ab1a5.json",
+      "Extension": "pdf",
+      "ProposalSHA256": "7ec9dda23d785dde11ec29d2cf00043535a2e76803a858286efa746ddeb3b5d1",
+      "OriginalSHA256": "ca1190972e2ab1a51a500fdb33d1a1eb21cb5164156025baa7740b56d2d0e877",
+      "Source": {
+        "SourceID": "R-LEHVOSS-READER-20261004-ca1190972e2a",
+        "Publisher": "LEHVOSS",
+        "Title": "PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK",
+        "Revision": "Preliminary datasheet (file 25119928-en-ISO)",
+        "Publication date": "Not published",
+        "Access date": "2026-10-04",
+        "Source class": "Manufacturer TDS",
+        "Source note": "LEHVOSS's own datasheet (PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK) for LEHVOSS LUVOCOM 3F PP CF 9928 BK (G083-05): its Recommended processing parameters block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+        "Citation role": "cited",
+        "URL": "https://www.lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf",
+        "Locator": "Document / exact product page",
+        "Applicable grades": "G083-05",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from https://lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf, which the maker's server redirects to https://www.lehvoss.de/fileadmin/Compounds/PDFs/LUVOCOM_3F/LUVOCOM_3F_PP_CF_9928_BK/25119928-en-ISO.pdf; staged by digest (ingest:witness --from).",
+        "SHA256": "ca1190972e2ab1a51a500fdb33d1a1eb21cb5164156025baa7740b56d2d0e877"
+      },
+      "ProposedProfiles": [
+        {
+          "row": {
+            "MaterialID": "M083",
+            "GradeID": "G083-05",
+            "Profile": "Manufacturer published guidance",
+            "Nozzle °C": "220 - 250 °C",
+            "Nozzle state": "range",
+            "Nozzle min °C": "220",
+            "Nozzle max °C": "250",
+            "Nozzle requirement": "required",
+            "Bed °C": "> 50 °C",
+            "Bed state": "range",
+            "Bed min °C": "50",
+            "Bed max °C": "Not published",
+            "Bed requirement": "required",
+            "Chamber °C": "Not published",
+            "Chamber state": "unknown",
+            "Chamber min °C": "Not applicable",
+            "Chamber max °C": "Not applicable",
+            "Chamber requirement": "unknown",
+            "Enclosure": "Not published",
+            "Enclosure state": "unknown",
+            "Plate": "Not published",
+            "Drying": "Not published",
+            "Drying state": "unknown",
+            "Drying °C": "Not applicable",
+            "Drying hours": "Not applicable",
+            "Nozzle material": "abbrasion resistant",
+            "Nozzle diameter": "Not published",
+            "Abrasion / clogging": "abbrasion resistant",
+            "Hardened nozzle": "TRUE",
+            "H2C left": "Verify exact grade/nozzle; no blanket approval",
+            "H2C right": "Verify exact grade/nozzle; no blanket approval",
+            "AMS 2 Pro": "Not verified for every grade",
+            "AMS HT": "Not verified for every grade",
+            "AMS published": "Not published",
+            "Support pairing": "Not published",
+            "Failure modes": "Not published",
+            "SourceID": "R-LEHVOSS-READER-20261004-ca1190972e2a",
+            "H2C SourceID": "H2C-WIKI",
+            "Locator": "p. 1: Recommended processing parameters (3D Printing parameters)",
+            "Parse review": "Not applicable"
+          },
+          "notes": [
+            {
+              "Topic": "Layer height",
+              "Text": "> 0,2mm"
+            },
+            {
+              "Topic": "Speed",
+              "Text": "40 - 60 mm/s"
+            }
+          ]
+        }
+      ],
+      "Skipped": "The sheet is LEHVOSS's own current edition (the registered copy, hosted by FormFutura, has no 3D printing parameters). Page 2 (pellet predrying and injection-moulding zones) is processing for granules, not filament: not entered. \"abbrasion\" is the sheet's own spelling. The registered edition is a different file (digest 497c7f3c...)."
+    }
+  ],
+  "Review": {
+    "prepared_by": "Claude Sonnet (reader round b42)",
+    "for": "Claude Opus",
+    "scope": "print settings only; no measurement"
+  },
+  "NotAdmitted": [
+    {
+      "Product": "retailer pages (KOLTRON, B2B Arnitel ID 2045)",
+      "Why": "a retailer is not the maker; KOLTRON is Add North 3D's product and its maker pages are script-drawn"
+    },
+    {
+      "Product": "G137-01, G137-03, G167-13, G170-01 (purefil / Fabru)",
+      "Why": "the registered sheets already print the values; the text layer drops a ligature in \"Printing temperature\""
+    },
+    {
+      "Product": "G030-02, G084-01, G114-01, G126-01 TDS and 3DXTECH specimen blocks",
+      "Why": "a test-bar \"Extrusion Temp\" / \"Bottom Plate Heating\" is a specimen setting, never guidance (m170)"
+    },
+    {
+      "Product": "G116-02 TriStat ESD-PC Model Material",
+      "Why": "the page found is the 3DXSTAT ESD-PC spool filament, not the Triton3D model material; the Triton ESD-PC page prints no settings block"
+    },
+    {
+      "Product": "G030-11 3DXSTAT ESD-ABS spool page",
+      "Why": "the same settings as the admitted Triton3D ESD-ABS page, but the maker's spool product, not the model material"
+    },
+    {
+      "Product": "G084-01 FibreX GF PP archive",
+      "Why": "the archived page prints no settings; the quoted figures were seen only in a search summary"
+    },
+    {
+      "Product": "Raise3D ideaMaker profiles (G053-09, G059-03, G071-04)",
+      "Why": "a slicer preset, not the maker's guidance document"
+    },
+    {
+      "Product": "G075-09, G080-03 Raise3D; G081-07, G094-09 Stratasys; G164-05 UltiMaker; G166-01 Markforged",
+      "Why": "the pages print no settings (script-drawn, 403, or printer-controlled)"
+    },
+    {
+      "Product": "G019-02, G138-03 iSANMATE; G149-01 iSANMATE PCL",
+      "Why": "no product page (G019-02, G138-03); the PCL page is a 3D-pen filament whose Capa 6500 identity is unconfirmed"
+    },
+    {
+      "Product": "G149-03 SUNLU PCL",
+      "Why": "the registered sheet prints the same figures"
+    },
+    {
+      "Product": "G149-04 BioFil PCL (FormFutura page)",
+      "Why": "the grade is Filament2Print's listing; its FormFutura datasheet returned HTML and the identity of the 1.75 mm listing is unconfirmed"
+    },
+    {
+      "Product": "G046-03 Arnitel ID 2045",
+      "Why": "only a retailer page and a search summary"
+    },
+    {
+      "Product": "BigRep shop pages",
+      "Why": "the same block as the admitted maker-site pages: a copy of one statement is not a second source"
+    }
+  ]
+}

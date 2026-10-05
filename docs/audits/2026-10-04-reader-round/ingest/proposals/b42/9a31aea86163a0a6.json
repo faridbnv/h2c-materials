@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "9a31aea86163a0a6efa5cdf3aec08a7d12d524889c5f34d74153200afd011aca",
+    "url": "https://www.3dxtech.com/products/triton-esd-abs-1",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "https://www.3dxtech.com/products/triton-esd-abs-1#witness-for=source:X-ECOMAX-TriStat-ESD-ABS-TDS-v1"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G030-11 (3DXTECH TriStat ESD-ABS Model Material) of M030; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DXTECH-READER-20261004-9a31aea86163",
+      "Publisher": "3DXTECH",
+      "Title": "TRITON3D™ ESD-ABS - Stratasys® Compatible",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "3DXTECH's product page as served on 2026-10-04 for TRITON3D™ ESD-ABS - Stratasys® Compatible (3DXTECH TriStat ESD-ABS Model Material, G030-11): its Print Recommendations block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.3dxtech.com/products/triton-esd-abs-1",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G030-11",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "9a31aea86163a0a6efa5cdf3aec08a7d12d524889c5f34d74153200afd011aca"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TRITON3D™ ESD-ABS - Stratasys® Compatible"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G030-11",
+        "MaterialID": "M030",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "TriStat ESD-ABS Model Material",
+        "Shared formulation key": "X-ECOMAX-TriStat-ESD-ABS-TDS-v1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-ECOMAX-TriStat-ESD-ABS-TDS-v1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M030",
+        "GradeID": "G030-11",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "220-240C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "240",
+        "Nozzle requirement": "required",
+        "Bed °C": "100-110C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Recommended",
+        "Chamber state": "recommended",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "recommended",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80C for 4 hours",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "4",
+        "Nozzle material": "No special concerns",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DXTECH-READER-20261004-9a31aea86163",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Recommendations",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "No special concerns"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temp  220-240C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "IDENTITY: the registered sheet is \"TriStat ESD-ABS Model Material\" (a TRITON 3D sheet, Fortus specimens); the page is the maker's \"TRITON3D ESD-ABS - Stratasys Compatible\", its Stratasys-compatible ESD ABS; taken as the same product (the page does not print the name TriStat). The separate 3DXSTAT ESD-ABS spool page prints the same settings but is the maker's own spool filament, not this model material: not admitted."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G030-11: print settings only (1 profile row(s)); no measurement is entered. IDENTITY: the registered sheet is \"TriStat ESD-ABS Model Material\" (a TRITON 3D sheet, Fortus specimens); the page is the maker's \"TRITON3D ESD-ABS - Stratasys Compatible\", its Stratasys-compatible ESD ABS; taken as the same product (the page does not print the name TriStat). The separate 3DXSTAT ESD-ABS spool page prints the same settings but is the maker's own spool filament, not this model material: not admitted."
+  }
+}

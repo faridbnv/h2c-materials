@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b42.mjs (reader round)",
+    "date": "2026-10-04"
+  },
+  "document": {
+    "sha256": "47a4e58d606fb5783762070ced17287cf8679a44a1608623c988a5d1777c9446",
+    "url": "http://web.archive.org/web/20251110101840id_/http://www.formfutura.com/crystal-flex",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "http://web.archive.org/web/20251110101840id_/http://www.formfutura.com/crystal-flex#witness-for=source:S-PET-TDS-Crystal-Flex"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G174-01 (FormFutura Crystal Flex) of M174; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-READER-20261004-47a4e58d606f",
+      "Publisher": "FormFutura",
+      "Title": "Crystal Flex",
+      "Revision": "Internet Archive capture of 2025-11-10 10:18:40 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-04",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as the Internet Archive captured it for Crystal Flex (FormFutura Crystal Flex, G174-01): its General printing guidelines block. The registered sheet leaves bed, chamber and drying unpublished. The capture is used because the live address now answers HTTP 500.",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20251110101840id_/http://www.formfutura.com/crystal-flex",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G174-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) as the raw capture (id_) of http://www.formfutura.com/crystal-flex; the Internet Archive replays the page's own content encoding, and the document hashed is the decoded HTML. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "47a4e58d606fb5783762070ced17287cf8679a44a1608623c988a5d1777c9446"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Crystal Flex"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (reader round b42), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G174-01",
+        "MaterialID": "M174",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "Crystal Flex",
+        "Shared formulation key": "S-PET-TDS-Crystal-Flex",
+        "Composition / filler": "An easy to use high-end SBC (Styrene Butadiene Block Copolymer) type of 3D printer filament (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant: Yes; RoHS certified: Yes; FDA compliant: Yes (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-Crystal-Flex",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M174",
+        "GradeID": "G174-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 230 – 260° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 80 – 100° C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "100",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.15mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-READER-20261004-47a4e58d606f",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.1mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-30%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 230 – 260° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "No drying statement."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (reader round b42), checked by Claude Opus",
+    "note": "Maker document for the existing product G174-01: print settings only (1 profile row(s)); no measurement is entered. No drying statement."
+  }
+}
