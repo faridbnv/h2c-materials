@@ -1244,9 +1244,13 @@ derivatives, with124 historically absent inventory entries and no new original m
 
 ## 30. What the reader round (m338 to m353) leaves open
 
-The round (D125, D126) closed 847 of its 3,351 frozen targets; `docs/audits/2026-10-04-reader-round/after/PROGRESS.md`
+The round (D125, D126) closed 853 of its 3,351 frozen targets; `docs/audits/2026-10-04-reader-round/after/PROGRESS.md`
 counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targets.mjs --after` re-derives it.
 
+- **The round's error rate is measured, not yet under target.** Two blind draws of 40 of its records each found 2 wrong
+  and 2 partly wrong (5 %), above the 3 % C9 sets; each family a draw named was read in full and fixed (m354,
+  `blind-draw/`). A third draw (`python3 docs/audits/2026-10-04-reader-round/blind-draw/draw.py <seed> sample-*.csv`) is
+  the measure of what is left.
 - **28 products still have no nozzle or bed** (`docs/audits/2026-10-04-reader-round/STILL-MISSING.csv`). Raise3D's nine
   sheets print only the conditions the test bars were printed at (m170, m345), and its ideaMaker presets are a slicer's,
   not guidance. Stratasys (2), Markforged (1) and UltiMaker (1) sell printer-controlled materials whose pages print no

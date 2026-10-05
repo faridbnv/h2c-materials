@@ -4077,9 +4077,9 @@ and writing code to specification).*
   pipeline: b41 (10 documents, thin materials, m340) and b42 (44 documents, products missing a nozzle or bed, m352). A
   page that names another product line, a slicer preset, a retailer page or a search summary was not admitted (the
   b42 packet's NotAdmitted list says why for each).
-- **What moved.** Of 3,351 frozen targets, 847 closed: products missing a nozzle 83 → 28, a bed 103 → 24, drying 520 →
+- **What moved.** Of 3,351 frozen targets, 853 closed: products missing a nozzle 83 → 28, a bed 103 → 25, drying 520 →
   335; materials with no nozzle 18 → 5, no bed 19 → 5 (`docs/audits/2026-10-04-reader-round/after/PROGRESS.md`). In the
-  templates, 11 materials became candidates under Strict and 4 left it: PPA-CF and ASA-CF, whose makers' pages say
+  templates, 11 answers became Strict candidates (8 materials) and 4 left: PPA-CF and ASA-CF, whose makers' pages say
   "Heated Chamber: Recommended" with no temperature (D33, D93). `verify:fast` stays within its budget.
 
 ## D126. No number shown contradicts what its own product's measurements prove

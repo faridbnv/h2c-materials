@@ -16,7 +16,7 @@ frozen list did not have (a new product, or a value the round moved to another s
 | material | nozzle | 18 | 13 | 5 | 0 | 5 |
 | material | tensileModulusXY | 45 | 0 | 45 | 0 | 45 |
 | material | tensileStrengthXY | 41 | 2 | 39 | 0 | 39 |
-| product | bed | 103 | 79 | 24 | 0 | 24 |
+| product | bed | 103 | 78 | 25 | 0 | 25 |
 | product | chamber | 299 | 40 | 259 | 8 | 267 |
 | product | density | 174 | 78 | 96 | 1 | 97 |
 | product | drying | 520 | 185 | 335 | 0 | 335 |
@@ -28,4 +28,4 @@ frozen list did not have (a new product, or a value the round moved to another s
 | sparse | — | 136 | 0 | 136 | 0 | 136 |
 | thin | — | 21 | 3 | 18 | 0 | 18 |
 
-3351 frozen targets; 854 closed; 2517 now.
+3351 frozen targets; 853 closed; 2518 now.

@@ -509,7 +509,7 @@ G029-09,M029,Hyper Core ABS CF15,unknown,unknown,unknown,unknown,requires-harden
 G029-10,M029,ABS CF,within,within,unknown,recommended,requires-hardened,unknown,
 G029-11,M029,TriMax Carbon Fiber ABS Model Material,unknown,unknown,unknown,unknown,unknown,unknown,
 G030-01,M030,3DXSTAT ESD ABS,within,within,unknown,unknown,no-special-concern,required,
-G030-02,M030,ESD ABS,unknown,within,unknown,unknown,unknown,unknown,
+G030-02,M030,ESD ABS,unknown,unknown,unknown,unknown,unknown,unknown,
 G030-03,M030,ESD ABS,within,within,within,unknown,unknown,required,
 G030-04,M030,ABSESD,within,within,unknown,unknown,unknown,required,
 G030-05,M030,ABS-ESD,within,within,unknown,unknown,unknown,required,

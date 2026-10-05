@@ -15,6 +15,11 @@
 //     Stratasys's "Upright (ZX)" tensile bars that the rule records as Z (D92, m191), notches the page prints, and tables
 //     the rows did not tell apart; six of Markforged Onyx GF's rows repeat another (retired as duplicates), and four
 //     numbers are another product's column or cannot be told apart (quarantined, sweep/status-decisions.csv).
+// A second draw (seed 20261006) of records the first had not taken found the same rate and three more families, swept the
+// same way: a test sample's nozzle size held as guidance (FiberWORKS, colorFabb LW-PET, 3DJake, and iSANMATE ESD ABS, whose
+// sample bed temperature was held too), Nanovia's "Nozzle (minimal)" held as a plain size, and eight Anycubic sheets whose
+// "*All data are based on printed test samples" footnote was recorded as its heading, scope all; plus colorFabb PLA
+// Regrind's reference table of another product (quarantined).
 // Beside them (sweep/cell-fixes.csv): annealing schedules the readings paraphrased, so the parser read no schedule
 // (Kingroon PETG's "All the specimens were annealed and dried at 65 °C for 8 h before testing", Raise3D PPA-CF25's
 // "annealed at 100 ºC for 8h", 3D-Fuel's "annealed at 110 C / 20 min"), now in the sheets' own words and typed; and three

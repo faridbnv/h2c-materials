@@ -16,7 +16,7 @@ rather than repeat a number.
 | … reading part of the print gate from a printer maker's guide | 441 | where their own sheet is silent (D88); 33 guide rows |
 | … with a maker's know-how statement | 1,022 | lane 3 |
 | Measurements | 14,098 | active rows |
-| … with a usable number | 13,911 |  |
+| … with a usable number | 13,910 |  |
 | Product values | 5,097 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 686 | headline cells of in-scope materials |
 | Material values estimated | 140 | where no product publishes (D43) |

@@ -15,8 +15,8 @@ Database snapshot 2026-09-21 · build 2026-10-05
 | excluded | 17 |
 | grades | 1163 |
 | measurements | 14098 |
-| numericMeasurements | 13911 |
-| quarantined | 30 |
+| numericMeasurements | 13910 |
+| quarantined | 31 |
 | profiles | 1803 |
 | evidence | 868 |
 | prices | 357 |

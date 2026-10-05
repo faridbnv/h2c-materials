@@ -39,8 +39,8 @@ Claude Opus decided. The owner's answers are in GOALS, "Decided on 2026-10-04, t
 - **Targets** (`TARGETS.csv`, frozen by `targets.mjs`): 3,351 — every material and product missing a nozzle, bed,
   chamber or drying setting, or a mechanical or thermal headline; the 8 coverage conflicts; 136 sparse-property gaps;
   21 thin materials. `DOCS.csv`: the 1,474 documents tied to them.
-- **Pages read**: 1,377 documents (1,079 PDF, 298 web pages), 2,621 pages, by 73 first-read batches and 20 second-read
-  batches of Claude Sonnet readers (`readings/`). 37,679 readings were reconciled (`reconcile/final/summary.md`): 15,217
+- **Pages read**: 1,377 documents (1,079 PDF, 298 web pages), 2,621 pages, in 73 first-read files and 20 second-read files
+  of Claude Sonnet readers (`readings/`). 37,679 readings were reconciled (`reconcile/final/summary.md`): 15,217
   new, 10,410 confirming a held row, 1,579 contradicting one, 2,044 page statements; 32,777 borne out by the text layer,
   217 by the reading-order view alone, 55 by the optical sidecar, 4,630 by the image alone.
 - **Makers' sites**: b41, 10 documents for thin materials (m340); b42, 44 documents for products still missing a
@@ -62,17 +62,18 @@ Claude Opus decided. The owner's answers are in GOALS, "Decided on 2026-10-04, t
 | m353 | the guard's 222 findings: 98 cells, 36 profiles from own sheets no profile held, the rest accepted |
 | m354 | the blind draw and its families: page statements, columns read into the wrong direction, schedules |
 
-Against main before the round: 2,602 measurements added (1,643 mechanical, 539 thermal, 420 physical) and 100 changed,
-490 profiles added and 795 profile cells filled or corrected, 112 page statements, 54 sources.
+Against main before the round (138ebc9): 2,585 live measurements added (1,630 mechanical, 535 thermal, 420 physical;
+17 more since retired or quarantined) and 100 changed, 490 profiles added and 778 profile cells filled or corrected,
+160 page statements (112 as read, 48 more where m354 split one by scope), 54 sources.
 
 ## What moved
 
-`after/PROGRESS.md` (`node targets.mjs --after`): 847 of the 3,351 targets closed. Products missing a nozzle 83 → 28,
-a bed 103 → 24, drying 520 → 335, a density 174 → 101, a tensile strength 302 → 217; materials with no nozzle 18 → 5,
+`after/PROGRESS.md` (`node targets.mjs --after`): 853 of the 3,351 targets closed. Products missing a nozzle 83 → 28,
+a bed 103 → 25, drying 520 → 335, a density 174 → 97, a tensile strength 302 → 215; materials with no nozzle 18 → 5,
 no bed 19 → 5, no drying 29 → 10. The chamber moved least (products 299 → 267): makers rarely print one.
 
-The decision diff against the frozen baseline (`baseline/templates.csv`): 11 materials became candidates under Strict
-(ASA Aero, PP Lightweight, PVDF-ESD, PLA-PHB, PP-GF, TPC/TPEE, PLA-GR among them) and 4 answers left it (PPA-CF in
+The decision diff against the frozen baseline (`baseline/templates.csv`): 11 template answers became Strict candidates,
+for 8 materials (ASA Aero, PP Lightweight, PVDF-ESD, PLA-PHB, PP-GF, TPC / TPEE, PLA-GR, SBC), and 4 answers left (PPA-CF in
 three templates and ASA-CF in one), because their makers' pages say "Heated Chamber: Recommended" with no temperature,
 which reads unknown (D33, D93). LCP now fails the H2C's bed: its sheet's 120-150 °C window is read by its upper end
 (D32). Strict candidates per template: indoor prototype 81 → 87, warm environment 33 → 38, outdoor structural part 6 → 5,
@@ -98,11 +99,17 @@ Claude Opus.
 | Draw | Correct | Partly | Wrong | What the errors were |
 |---|---:|---:|---:|---|
 | 1 (seed 20261005) | 36 | 2 | 2 | a "ZX, Flat" column recorded XY; page statements reaching tables they do not head |
+| 2 (seed 20261006, after the sweep) | 36 | 2 | 2 | another product's reference table on a sheet; a test sample's nozzle as guidance; a minimum nozzle size held as a size; a footnote's scope |
 
 The first draw named two families, and each was then read in full (`blind-draw/sweep/`): all 112 page statements the
 round added, and all 110 groups of one product's rows that carry the same conditions and different values (281 rows:
 68 fixed, 18 flagged; Raise3D PPS-CF's ZX column, QIDI PETG-CF's three directions, Stratasys's upright tensile bars,
-Markforged's repeated rows). DRAW2
+Markforged's repeated rows). The second draw, of records the first had not taken, found the same rate and two more
+families, each swept the same way: a test sample's nozzle size held as guidance (nine profiles, one with the sample's
+bed temperature too), Nanovia's "Nozzle (minimal)" held as a size (ten profiles), and eight Anycubic sheets whose
+"printed test samples" footnote had been recorded as the heading above it, reaching their physical table. Each draw
+found 2 of 40 records wrong (5 %), above the 3 % C9 sets for print profiles; every family a draw named was read in full
+and fixed, so the next draw is the measure of what is left.
 
 ## What is left
 
