@@ -39,7 +39,12 @@ const mergedInto = new Map(gradeRows.filter(g => g.Status === 'retired').map(g =
 const frozenProducts = [...targets.keys()].filter(k => k.startsWith('PROD-'));
 const merged = new Map(frozenProducts.filter(k => mergedInto.has(k.slice(5))).map(k => [k, 'PROD-' + mergedInto.get(k.slice(5))]));
 for (const [k, keep] of merged) assert.ok(targets.has(keep) && gradeById.has(keep.slice(5)), `${k} is merged into ${keep}, which is not a frozen live product`);
-assert.deepEqual(frozenProducts.filter(k => !merged.has(k)).sort(), products.map(g => 'PROD-' + g.id).sort(), 'Frozen product scope changed');
+// A product an owner-authorized batch admitted after the freeze (b43 on, AGENTS.md "Importing") is outside the frozen
+// campaign: it is reported, never given a target. A grade that existed at the baseline must still be a frozen target.
+const baselineGrades = new Set(parseCsvText(execFileSync('git', ['show', frozen.BaselineCommit + ':data/tables/grades.csv'], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })).records.map(r => r.values.GradeID));
+const addedSinceFreeze = products.filter(g => !targets.has('PROD-' + g.id) && !baselineGrades.has(g.id));
+const frozenScope = products.filter(g => !addedSinceFreeze.includes(g));
+assert.deepEqual(frozenProducts.filter(k => !merged.has(k)).sort(), frozenScope.map(g => 'PROD-' + g.id).sort(), 'Frozen product scope changed');
 
 const reviewed = new Set();
 for (const o of outcomes.values()) {
@@ -91,7 +96,7 @@ for (const name of [...new Set(changes.map(c => c.table))].sort()) {
 const commits = execFileSync('git', ['log', '--reverse', '--format=%H\t%s', frozen.BaselineCommit + '..' + completed.LatestCompletedDataCommit], { cwd: root, encoding: 'utf8' }).trim().split('\n').map(line => { const [hash, ...subject] = line.split('\t'); return { hash, subject: subject.join('\t') }; });
 const status = {
   dataRelease: db.meta.release.id, latestCompletedDataCommit: completed.LatestCompletedDataCommit,
-  frozenBaselineCommit: frozen.BaselineCommit, materialAssessments: count('APP-'), productPasses: count('PROD-'),
+  frozenBaselineCommit: frozen.BaselineCommit, materialAssessments: count('APP-'), productPasses: count('PROD-'), productsAdmittedAfterFreeze: addedSinceFreeze.map(g => g.id),
   applicationCells: application,
   environmentalRecordPresence: { scope: 'Seven exposure categories; exact grade records only, not polymer context or approvals', materials: new Set(env.map(e => e.materialId)).size, byCategory: Object.fromEntries(categories.map(c => [c, new Set(env.filter(e => e.category === c).map(e => e.materialId)).size])) },
   allCataloguePrintGates: { products: grades.length, nozzleKnown: gateRows.filter(g => g.nozzle.verdict !== 'unknown').length, chamberKnown: gateRows.filter(g => g.chamber.verdict !== 'unknown').length, chamberUnknown: gateRows.filter(g => g.chamber.verdict === 'unknown').length, dryingRequired: gateRows.filter(g => g.drying === 'required').length },
@@ -127,7 +132,7 @@ Application has **${application['Evidence recorded']} Evidence recorded, ${appli
 
 The seven exposure categories have exact-product records on **${status.environmentalRecordPresence.materials}/${mats.length} materials** (49 at baseline); UV/outdoor records on **${status.environmentalRecordPresence.byCategory['uv-outdoor']}** (6 before), hydrolysis on **${status.environmentalRecordPresence.byCategory.hydrolysis}** (0 before). These are record-presence counts, including qualified narrative, not product approvals or complete exposure conditions. Polymer context remains separate.
 
-Across all ${grades.length} active catalogue products (including out-of-scope products), nozzle is known for ${status.allCataloguePrintGates.nozzleKnown}, chamber for ${status.allCataloguePrintGates.chamberKnown}, and chamber unknown for ${status.allCataloguePrintGates.chamberUnknown}; ${status.allCataloguePrintGates.dryingRequired} require drying. The frozen campaign has ${products.length} in-scope products. [build/snapshot/counts.md](../../../build/snapshot/counts.md) owns the other database counts.
+Across all ${grades.length} active catalogue products (including out-of-scope products), nozzle is known for ${status.allCataloguePrintGates.nozzleKnown}, chamber for ${status.allCataloguePrintGates.chamberKnown}, and chamber unknown for ${status.allCataloguePrintGates.chamberUnknown}; ${status.allCataloguePrintGates.dryingRequired} require drying. The frozen campaign has ${frozenScope.length} in-scope products${addedSinceFreeze.length ? `; ${addedSinceFreeze.length} more were admitted after the freeze by owner-authorized batches (${addedSinceFreeze.map(g => g.id).join(', ')}) and are outside it` : ''}. [build/snapshot/counts.md](../../../build/snapshot/counts.md) owns the other database counts.
 
 ## What was done
 

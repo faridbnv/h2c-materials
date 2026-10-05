@@ -8,9 +8,9 @@
   },
   "coverage": {
     "baseline": 805,
-    "current": 948,
-    "added": 143,
-    "edited_existing": 80,
+    "current": 949,
+    "added": 144,
+    "edited_existing": 81,
     "removed": 0
   },
   "evidence": {
@@ -22,8 +22,8 @@
   },
   "grades": {
     "baseline": 1163,
-    "current": 1163,
-    "added": 0,
+    "current": 1175,
+    "added": 12,
     "edited_existing": 80,
     "removed": 0
   },
@@ -43,8 +43,8 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 14435,
-    "added": 2899,
+    "current": 14734,
+    "added": 3198,
     "edited_existing": 1853,
     "removed": 0
   },
@@ -85,15 +85,15 @@
   },
   "profile_notes": {
     "baseline": 2061,
-    "current": 2319,
-    "added": 258,
+    "current": 2379,
+    "added": 318,
     "edited_existing": 0,
     "removed": 0
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1882,
-    "added": 566,
+    "current": 1911,
+    "added": 595,
     "edited_existing": 961,
     "removed": 0
   },
@@ -106,8 +106,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 1972,
-    "added": 144,
+    "current": 2002,
+    "added": 174,
     "edited_existing": 95,
     "removed": 0
   }
