@@ -62,8 +62,7 @@ export function spanText(spans) {
     }
     out += s.str ?? '';
   }
-  // The ligatures a font damaged are put back here (repairLigatures), so every line and cell the reader composes reads as the page does.
-  return repairLigatures(out.replace(/\s+/g, ' ').trim());
+  return out.replace(/\s+/g, ' ').trim();
 }
 
 /** Spans grouped into lines, top down, each left to right. The y rounding is what the audit has always used. */

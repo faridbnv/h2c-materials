@@ -96,12 +96,14 @@ function sheetViews(sha) {
     const flat = (pages) => squash(pages.map((p) => p.lines.map((l) => l.text).join(' ')).join(' '));
     let block = null;
     if (c) { try { block = flat(withReadingOrder(c).pages); } catch { block = null; } }
-    const repaired = c ? squash(c.pages.map((p) => p.lines.map((l) => repairLigatures(l.text)).join(' ')).join(' ')) : null;
+    const repaired = c ? flat(c.pages.map((p) => ({ ...p, lines: p.lines.map((l) => ({ ...l, text: repairLigatures(l.text) })) }))) : null;
+    const repairedBlock = block == null ? null : flat(withReadingOrder(c).pages.map((p) => ({ ...p, lines: p.lines.map((l) => ({ ...l, text: repairLigatures(l.text) })) })));
     sheetTexts.set(sha, [
       ['line', c ? flat(c.pages) : null],
       ['block', block],
       ['ocr', ocr ? squash([...ocr.values()].map((lines) => lines.join(' ')).join(' ')) : null],
       ['repaired', repaired],
+      ['repaired', repairedBlock],
     ]);
   }
   return sheetTexts.get(sha);
@@ -140,6 +142,7 @@ function sheetPages(sha) {
       ['block', block],
       ['ocr', ocr ? new Map([...ocr].map(([n, lines]) => [Number(n), flatBound(lines.join(' '))])) : null],
       ['repaired', c ? new Map(c.pages.map((p) => [Number(p.page), flatBound(p.lines.map((l) => repairLigatures(l.text)).join(' '))])) : null],
+      ['repaired', block ? new Map(withReadingOrder(c).pages.map((p) => [Number(p.page), flatBound(p.lines.map((l) => repairLigatures(l.text)).join(' '))])) : null],
     ]);
   }
   return pageViews.get(sha);

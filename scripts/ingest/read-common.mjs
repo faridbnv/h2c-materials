@@ -4,7 +4,7 @@
 //   views    line   the cached text, lines as the extractor grouped them (scripts/lib/pdf-text.mjs)
 //            block  the same text in column-aware reading order, when scripts/lib/pdf-layout.mjs exists
 //            ocr    the optical sidecar .cache/ocr-text/<sha>.json, when it exists
-//            repaired  the line view with the ligatures a font mapped to a digit or W put back (repairLigatures), where any were
+//            repaired  the line view, and the block view, with the ligatures a font mapped to a digit or W put back (repairLigatures), where any were
 //
 // Nothing here writes to the document cache or to data/. A text cache written by an older extractor is read as it
 // is and marked stale; a document with no cached text is read from its bytes in memory.
@@ -119,17 +119,17 @@ export async function loadDocument({ sha, sourceId = '' }) {
   const line = text ? linesOf(text.pages) : new Map();
   const pages = new Map();
   for (const n of new Set([...line.keys(), ...(blockPages?.keys() ?? []), ...(ocr?.keys() ?? [])])) {
-    pages.set(n, { line: line.get(n) ?? [], block: blockPages?.get(n) ?? [], ocr: ocr?.get(n) ?? [], repaired: repairedOf(line.get(n) ?? []), squeezed: text?.pages.find((p) => Number(p.page) === n)?.squeezed ?? '' });
+    pages.set(n, { line: line.get(n) ?? [], block: blockPages?.get(n) ?? [], ocr: ocr?.get(n) ?? [], repaired: repairedOf(line.get(n) ?? []), repairedBlock: repairedOf(blockPages?.get(n) ?? []), squeezed: text?.pages.find((p) => Number(p.page) === n)?.squeezed ?? '' });
   }
   return { sha, kind: text?.html || text?.raw ? 'html' : text ? 'pdf' : located.bytes === 'present' ? 'unread' : 'none', source, pages, blockAvailable: Boolean(blockPages), ocrAvailable: Boolean(ocr), title: text?.title ?? null, raw: Boolean(text?.raw), bytes: located.bytes };
 }
 
 /** A document built from lines you hand it (the tests, and any caller with its own text). */
 export function documentFrom(pages) {
-  return { sha: null, kind: 'pdf', source: 'given', blockAvailable: false, ocrAvailable: false, bytes: 'absent', pages: new Map(Object.entries(pages).map(([n, v]) => [Number(n), { line: v.line ?? [], block: v.block ?? [], ocr: v.ocr ?? [], repaired: v.repaired ?? repairedOf(v.line ?? []), squeezed: (v.line ?? []).join('').replace(/\s+/g, '') }])) };
+  return { sha: null, kind: 'pdf', source: 'given', blockAvailable: false, ocrAvailable: false, bytes: 'absent', pages: new Map(Object.entries(pages).map(([n, v]) => [Number(n), { line: v.line ?? [], block: v.block ?? [], ocr: v.ocr ?? [], repaired: v.repaired ?? repairedOf(v.line ?? []), repairedBlock: v.repairedBlock ?? repairedOf(v.block ?? []), squeezed: (v.line ?? []).join('').replace(/\s+/g, '') }])) };
 }
 
-export const VIEWS = [['line', 'text'], ['block', 'block'], ['ocr', 'ocr'], ['repaired', 'repaired']];
+export const VIEWS = [['line', 'text'], ['block', 'block'], ['ocr', 'ocr'], ['repaired', 'repaired'], ['repairedBlock', 'repaired']];
 const RANK = { text: 0, block: 1, ocr: 2, repaired: 3 };
 
 /** Is this number printed on this page, in this view's lines? Weak squeezed matching only for numbers of four characters or more. */

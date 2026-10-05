@@ -24,7 +24,7 @@ import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { INGEST_ROOT as AUDIT, PROPOSALS } from './context.mjs';
-import { cachedText, columnPositions, cellsAt, joinDigits, lineCells, repairLigatures, spanText } from '../lib/pdf-text.mjs';
+import { cachedText, columnPositions, cellsAt as rawCellsAt, joinDigits, lineCells as rawLineCells, repairLigatures, spanText as rawSpanText } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { readPostProcessingState, parseAnnealSchedule, specimenForm } from '../../build/src/normalize/specimen.js';
@@ -34,6 +34,12 @@ import { profileCellsFromParsed, loadCellFromParsed, testTemperatureCell } from 
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
 import { lineHeight, withReadingOrder, LAYOUT_DEFAULT } from '../lib/pdf-layout.mjs';
 import { classifyProduct, collidesWith, plainMaterialFor } from './classify.mjs';
+
+// The extractor's text is not changed (two readings of one extractor version must agree); the reader repairs the ligatures a font
+// damaged (repairLigatures) in the line and cell text it composes, never in a number or in what the extractor wrote.
+const spanText = (spans) => repairLigatures(rawSpanText(spans));
+const lineCells = (line, ...rest) => rawLineCells(line, ...rest).map((c) => ({ ...c, text: repairLigatures(c.text) }));
+const cellsAt = (line, positions) => rawCellsAt(line, positions).map((c) => ({ ...c, text: repairLigatures(c.text) }));
 
 const lexicon = (name) => readCsv(join(projectRoot, 'scripts/ingest/lexicon', `${name}.csv`)).records.map((r) => r.values);
 const table = (name) => readCsv(join(projectRoot, 'data/tables', `${name}.csv`)).records.map((r) => r.values);
