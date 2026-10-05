@@ -87,7 +87,8 @@ export function guard(proposals, world) {
   const seenDigest = new Map(world.sources.filter((s) => /^[0-9a-f]{64}$/.test(s.SHA256)).map((s) => [s.SHA256, s.SourceID]));
   const seenUrl = new Map(world.sources.map((s) => [s.URL, s.SourceID]));
   // A product is its maker and its name, compared as names: case, spaces and punctuation are spelling.
-  const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  // "PA12 CF+" is not "PA12 CF": the plus is a word of the name (gap round 2, m364).
+  const plain = (s) => String(s ?? '').toLowerCase().replace(/\+/g, 'plus').replace(/[^a-z0-9]/g, '');
   const productKey = (maker, product) => `${plain(maker)}${SEP}${plain(product)}`;
   const seenProduct = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [productKey(g.Manufacturer, g['Product name']), { gradeId: g.GradeID, source: g.SourceID, material: g.MaterialID }]));
   const keyOwner = new Map(world.grades.filter((g) => g.Status === 'active').map((g) => [g['Shared formulation key'], g.MaterialID]));

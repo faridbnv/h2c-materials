@@ -325,7 +325,8 @@ test('a bare answer cell is written with the sheet\'s label when the parsers can
   assert.equal(out.profilesAdd.length, 1);
   assert.equal(out.profilesAdd[0]['Abrasion / clogging'], 'Hardened nozzle: Yes');
   assert.equal(out.profilesAdd[0]['Hardened nozzle'], 'TRUE');
-  const held = build([answer({ Label: 'Gehärtete Nozzle', Raw: 'ja' }), setting({ Field: 'bed', Label: 'Bed', Raw: '60 °C', Lo: '60' })]);
+  // The parsers read "Gehärtete Nozzle ja" since gap round 2; "Verschleißfeste Düse erforderlich" they still do not.
+  const held = build([answer({ Label: 'Verschleißfeste Düse', Raw: 'erforderlich' }), setting({ Field: 'bed', Label: 'Bed', Raw: '60 °C', Lo: '60' })]);
   assert.ok(held.held.some((h) => h.reason === 'parsed-vs-read'), 'a word the parsers do not know stays held');
   // in profiles-set
   const set = build([answer({ SourceID: 'S-2', Grade: 'G001-03', Raw: 'No' })]);

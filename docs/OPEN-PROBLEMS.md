@@ -206,7 +206,6 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `EST-FAMILY-ORDER` | 5 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C; Nylon-GF's one product's modulus. The per-record reasons preserve the sheets' values and conditions. |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
 | `TEXT-FULLWIDTH` | 4 | Full-width punctuation a sheet prints inside Chinese text, kept as printed. |
-| `GRADE-PRODUCT-DUPLICATE` | 3 | Three pairs whose distinct names the rule reads as one: Anycubic PLA+ beside Anycubic PLA, eSUN PETG+ beside PETG, and Raise3D Industrial PA12 CF+ beside Industrial PA12 CF (m171, m174, m205). The rule's key drops the "+" that tells them apart. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
 | `COVERAGE-SUPERSEDED` | 2 | "Evidence recorded" rows each a separate re-filing (C01184, C01185). Several Resolved rows in one domain are a log of closed events and no longer a finding (phase 5, part 4). |
 | `HEADLINE-FAMILY-UNLISTED` | 1 | Heat deflection does not name Flexible Elastomers, on purpose (D56). |
@@ -1249,9 +1248,10 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
 
 - **The round's error rate is measured, not yet under target.** Two blind draws of 40 of its records each found 2 wrong
   and 2 partly wrong (5 %), above the 3 % C9 sets; each family a draw named was read in full and fixed (m354,
-  `blind-draw/`). A third draw (`python3 docs/audits/2026-10-04-reader-round/blind-draw/draw.py <seed> sample-*.csv`) is
-  the measure of what is left.
-- **28 products still have no nozzle or bed** (`docs/audits/2026-10-04-reader-round/STILL-MISSING.csv`). Raise3D's nine
+  `blind-draw/`). Gap round 2's draws measure the records since (§31).
+- **28 products had no nozzle or bed** at the round's end (`docs/audits/2026-10-04-reader-round/STILL-MISSING.csv`);
+  gap round 2's sheets and makers' pages (b43, b44) closed 12 of the 28 nozzle gaps and 10 of the 25 bed gaps, and §31
+  counts what is left. Raise3D's nine
   sheets print only the conditions the test bars were printed at (m170, m345), and its ideaMaker presets are a slicer's,
   not guidance. Stratasys (2), Markforged (1) and UltiMaker (1) sell printer-controlled materials whose pages print no
   settings. 3DXTECH's Triton3D model materials (G029-11, G030-11, G094-12, G116-02) have pages that name another product
@@ -1266,7 +1266,8 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
 - **Readings held, not applied.** 13,909 readings stay in `proposals/final/held.csv`, each with its reason: 5,313 name a
   property or setting no table column holds (the record tier's candidates for `properties.csv`), 1,752 would change a
   row the readers did not tie to a held one, 1,459 are already held on another product of the same formulation, 1,213
-  state no number. 1,843 second reads were not run; their readings stay held. The 59 corrections the proposals offered
+  state no number. Of the 1,843 second reads not run, gap round 2 ran the 57 whose reading would decide something;
+  each was a mis-pairing, and nothing was applied (§31). The rest stay held. The 59 corrections the proposals offered
   were all mis-pairings when read again (`proposals/corrections/moved-out/`), and none was applied.
 - **Pages that contradict themselves.** iSANMATE's PLA Wood page prints the bed as 35-60 ℃ in its parameter table and
   45-60℃ in a second block; Polymaker's PolyMide CoPA page says "Enclosure Recommended" in its specifications and "does
@@ -1282,9 +1283,11 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
   sits far from what the model expects of a solid print (EST-OUTLIER, accepted with that reason).
 - **Garbled text layers.** Bambu PLA Pure's text layer prints digits as other digits ("55 - 69°C" for 35 - 65 °C) and
   BigRep PRO HT's prints "3onditions"; their settings were read from the page image (m353). The quality flags list 187
-  such pages in 138 documents (`text-quality/pages.csv`); only pages tied to a gap were read.
+  such pages in 138 documents (`text-quality/pages.csv`); only pages tied to a gap were read. Gap round 2 compared every
+  held number of 76 such documents with an optical reading of its page (§31).
 - **What the reading-order view finds alone.** 23 print settings and 36 values only the block view reads are listed in
-  `reader-recall/candidates.csv` and were not read by a person or a reader.
+  `reader-recall/candidates.csv`; gap round 2's verifiers read each on its page (m359), and the ones a page prints for a
+  product the database holds were added.
 - **Thin materials.** 18 materials still have two sources or fewer; b41 searched ten makers' sites for them.
 - **Twin sheets.** Pairs of documents that print the same numbers (language editions of an Extrudr sheet; Raise3D's
   Premium PETG and PC beside Polymaker's PolyLite sheets) are accepted as MEAS-CROSS-SOURCE-TWIN with a reason, not

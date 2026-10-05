@@ -264,7 +264,8 @@ export function lintData(tables, schemas) {
 
   // Grades: one product, one grade, one formulation key.
   const activeGrades = (tables.grades?.rows ?? []).filter((g) => g.Status === 'active');
-  const productKey = (s) => String(s ?? '').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]/g, '');
+  // A plus is a word of the name: Raise3D's "Industrial PA12 CF+" is another product than its "Industrial PA12 CF" (m364).
+  const productKey = (s) => String(s ?? '').normalize('NFKC').toLowerCase().replace(/\+/g, 'plus').replace(/[^a-z0-9]/g, '');
   const byProduct = new Map();
   for (const g of activeGrades) {
     const k = `${productKey(g.Manufacturer)}\u0000${productKey(g['Product name'])}`;
