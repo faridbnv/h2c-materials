@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { openTables } from '../scripts/data/table-io.mjs';
 import { applyProposals } from '../scripts/migrate/read-proposals-apply.mjs';
 import {
-  buildProposals, conditionsOf, directionOf, gateOf, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
+  buildProposals, conditionsOf, directionOf, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
 } from '../scripts/ingest/read-proposals.mjs';
 
 const COLUMNS = ['RowID', 'Class', 'Kind', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Lo', 'Hi', 'Unit', 'Operator', 'Direction', 'Specimen', 'Moisture', 'PostProcessing', 'Standard', 'TestConditions',
@@ -312,4 +312,35 @@ test('a mismatch whose held number is also on the page is held, unless a blind s
 test('every proposal carries its cause', () => {
   const out = build([value({ Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus 2', Direction: 'Z' }), setting({ Field: 'nozzle', Label: 'Nozzle', Raw: '230 °C', Lo: '230' })]);
   assert.equal(out.valuesAdd[0].cause, 'gap-fill'); assert.equal(out.profilesAdd[0].cause, 'gap-fill');
+});
+
+test('a bare answer cell is written with the sheet\'s label when the parsers cannot read it alone, and held when they still cannot', () => {
+  assert.deepEqual(labelledAnswers({ Field: 'hardened_nozzle', Label: 'Hardened nozzle:' }, 'Yes'), ['Hardened nozzle: Yes', 'Hardened nozzle Yes']);
+  assert.equal(labelledAnswers({ Field: 'hardened_nozzle', Label: 'Hardened nozzle' }, '0.4 mm'), null, 'a number is not a bare answer');
+  assert.equal(labelledAnswers({ Field: 'hardened_nozzle', Label: 'Hardened nozzle' }, 'one two three four'), null);
+  assert.equal(labelledAnswers({ Field: 'nozzle', Label: 'Nozzle' }, 'Yes'), null, 'only the answer settings');
+  assert.equal(labelledAnswers({ Field: 'hardened_nozzle', Label: 'Hardened nozzle' }, 'Hardened nozzle: Yes'), null, 'a cell that already carries its label');
+  const answer = (o) => setting({ Field: 'hardened_nozzle', Label: 'Hardened nozzle', Unit: '', Raw: 'Yes', Quote: 'Hardened nozzle | Yes', ...o });
+  const out = build([answer({}), setting({ Field: 'bed', Label: 'Bed', Raw: '60 °C', Lo: '60' })]);
+  assert.equal(out.profilesAdd.length, 1);
+  assert.equal(out.profilesAdd[0]['Abrasion / clogging'], 'Hardened nozzle: Yes');
+  assert.equal(out.profilesAdd[0]['Hardened nozzle'], 'TRUE');
+  const held = build([answer({ Label: 'Gehärtete Nozzle', Raw: 'ja' }), setting({ Field: 'bed', Label: 'Bed', Raw: '60 °C', Lo: '60' })]);
+  assert.ok(held.held.some((h) => h.reason === 'parsed-vs-read'), 'a word the parsers do not know stays held');
+  // in profiles-set
+  const set = build([answer({ SourceID: 'S-2', Grade: 'G001-03', Raw: 'No' })]);
+  assert.deepEqual(set.profilesSet.filter((r) => r.column === 'Abrasion / clogging').map((r) => [r.id, r.value]), [['P1', 'Hardened nozzle: No']]);
+});
+
+test('a quote no view prints is replaced by its label and value when each is on the page, only for a reading the page or a second reading bears out', () => {
+  const rows = (o) => [value({ Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus', Direction: 'XY', Quote: 'Modulus (garbled) 3000', ...o })];
+  const ctx = { quoteOnSheet: (s, q) => q === 'Modulus | 3000 MPa', piecesOnPage: () => true };
+  const ok = build(rows({}), ctx);
+  assert.equal(ok.valuesAdd.length, 1);
+  assert.equal(ok.valuesAdd[0].quote, 'Modulus | 3000 MPa'); assert.equal(ok.valuesAdd[0].quote_view, 'pieces');
+  assert.equal(build(rows({}), { ...ctx, piecesOnPage: () => false }).valuesAdd.length, 0, 'a piece not on the page keeps the hold');
+  assert.equal(build(rows({ Presence: 'block' }), ctx).valuesAdd.length, 0, 'a block-only reading is not enough without a second reading');
+  assert.equal(build(rows({ Presence: 'block', SecondRead: 'agreed-text' }), ctx).valuesAdd.length, 1);
+  assert.equal(build(rows({ Label: '' }), ctx).valuesAdd.length, 0, 'no label, no pieces');
+  assert.ok(build(rows({}), { ...ctx, quoteOnSheet: () => false }).held[0].reason.includes('quote-not-on-cached-text'));
 });

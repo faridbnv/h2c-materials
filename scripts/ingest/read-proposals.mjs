@@ -41,7 +41,7 @@ import { readStandards } from '../../build/src/normalize/standards.js';
 import { parseHdtStandard, readTestTemperature } from '../../build/src/normalize/thermal.js';
 import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { parseAnnealSchedule, readPostProcessingState } from '../../build/src/normalize/specimen.js';
-import { loadCellFromParsed, testTemperatureCell } from '../../build/src/typed-values.js';
+import { loadCellFromParsed, reviewFields, testTemperatureCell } from '../../build/src/typed-values.js';
 import { TYPED, typedOf } from '../migrate/m290-profile-settings.mjs';
 
 const NA = 'Not applicable';
@@ -388,6 +388,20 @@ export function cellOf(row) {
   return raw;
 }
 
+/** Settings a sheet answers with a bare word under a label that carries the question ("Hardened nozzle" | "Yes"). */
+const ANSWER_FIELDS = ['hardened_nozzle', 'enclosure', 'chamber'];
+/**
+ * The forms of a bare answer cell (no number, at most three words) that put the sheet's own label before it, tried in this order:
+ * "Hardened nozzle: Yes", then the way many sheets are already held, "Hardened nozzle Yes". Null for any other cell.
+ */
+export function labelledAnswers(row, cell) {
+  const raw = text(cell);
+  const label = text(row.Label).replace(/[\s:：]+$/, '');
+  if (!ANSWER_FIELDS.includes(row.Field) || !raw || !label || /\d/.test(raw) || raw.split(/\s+/).length > 3) return null;
+  if (squash(raw).includes(squash(label))) return null;
+  return [`${label}: ${raw}`, `${label} ${raw}`];
+}
+
 const hoursNumbers = (conditions) => { const m = /hours?\s*=\s*([\d.,\- –]+)/i.exec(text(conditions)); return m ? numbersIn(m[1]) : []; };
 
 /** Do the parsers' numbers for a raw cell agree with the ones the reader gave? 'agrees', or why not. */
@@ -483,6 +497,8 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   };
 
   const out = { profilesAdd: [], profilesSet: [], valuesAdd: [], valuesSet: [], pageContextAdd: [], held: [], duplicates: [] };
+  const cellClaimed = new Map();
+  const addedFormulation = new Map();
   const locatorAdds = new Map();
   const noteWhere = (profile, proposal) => {
     if (!locatorAdds.has(profile.ProfileID)) locatorAdds.set(profile.ProfileID, { profile, wheres: new Set(), base: proposal.base });
@@ -555,10 +571,29 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   /** Why a ready reading's quote cannot be applied: not on the cached sheet, or no sheet cached. Only a ready reading is asked. */
   const quoteViewOf = new Map();
   const viewOf = (...rows) => [...new Set(rows.flatMap((r) => (quoteViewOf.get(r.RowID) ?? '').split('+')).filter(Boolean))].join('+');
+  /** `label | raw` (or `label | numbers`) as the quote of a reading whose own quote fails, when each piece is contiguous on its page and the pair passes the guard; else null. */
+  const piecesQuote = (r) => {
+    if (!ctx.piecesOnPage || !text(r.Label) || !text(r.Raw)) return null;
+    if (!(r.Presence === 'text' || AGREED.includes(r.SecondRead))) return null;
+    const label = text(r.Label), raw = text(r.Raw);
+    const tokens = raw.match(/\d+(?:[.,]\d+)?|[.,]\d+/g) ?? [];
+    const forms = [`${label} | ${raw}`];
+    if (tokens.length && tokens.every((n) => n.replace(/\D/g, '').length >= 2 && n.length >= 3)) forms.push(`${label} | ${tokens.join(' | ')}`);
+    for (const quote of forms) {
+      const [, ...rest] = quote.split(' | ');
+      if (ctx.piecesOnPage(r.SourceID, r.Page, [label, ...rest]) && ctx.quoteOnSheet(r.SourceID, quote)) return quote;
+    }
+    return null;
+  };
   const quoteReason = (r) => {
     if (!ctx.quoteOnSheet || gateOf(r).gate !== 'ready') return null;
     const on = ctx.quoteOnSheet(r.SourceID, r.Quote);
     if (on === true || typeof on === 'string') { quoteViewOf.set(r.RowID, typeof on === 'string' ? on : ''); return null; }
+    if (on === false) {
+      // The reader's quote is on no view of the sheet, but its label and its value each are, on that page: the pieces are the quote.
+      const pieces = piecesQuote(r);
+      if (pieces) { r.QuoteReader = r.Quote; r.Quote = pieces; quoteViewOf.set(r.RowID, 'pieces'); return null; }
+    }
     return on === false ? 'quote-not-on-cached-text' : 'no-cached-text';
   };
 
@@ -620,8 +655,19 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       }
       continue;
     }
-    const cells = Object.fromEntries(entries.map(([field, { cell }]) => [SETTING_COLUMN[field], cell]));
-    const typed = typedFor(cells);
+    const formulationKey = `${g.sourceId}|${[...inFormulation].sort().join(',')}`;
+    if (addedFormulation.has(formulationKey)) { for (const [, { row }] of entries) hold(row, 'twin-profile-proposed', 'profiles', addedFormulation.get(formulationKey)); continue; }
+    let cells = Object.fromEntries(entries.map(([field, { cell }]) => [SETTING_COLUMN[field], cell]));
+    let typed = typedFor(cells);
+    // A bare answer the parsers cannot read is written with the label that asks the question; both are the sheet's words.
+    for (const [field, entry] of entries) {
+      if (parsedVsRead(field, entry.row, typed, entry.cell) === 'agrees') continue;
+      for (const form of labelledAnswers(entry.row, entry.cell) ?? []) {
+        const trial = { ...cells, [SETTING_COLUMN[field]]: form };
+        const typedTrial = typedFor(trial);
+        if (parsedVsRead(field, entry.row, typedTrial, form) === 'agrees') { entry.cell = form; entry.labelled = true; cells = trial; typed = typedTrial; break; }
+      }
+    }
     const verdicts = entries.map(([field, { cell, row }]) => [field, parsedVsRead(field, row, typed, cell), row]);
     const disagree = verdicts.filter(([, v]) => v !== 'agrees');
     for (const [field, v, row] of disagree) hold(row, 'parsed-vs-read', 'profiles', `${field}: ${v}`);
@@ -641,6 +687,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const typedKept = typedFor(cells);
     const grade = grades.get(g.gradeId);
     const rowsUsed = keptEntries.map(([, { row }]) => row);
+    addedFormulation.set(formulationKey, g.gradeId);
     out.profilesAdd.push({
       gate: 'ready', SourceID: g.sourceId, GradeID: g.gradeId, MaterialID: grade.MaterialID, like: like.ProfileID,
       Profile: /^XP-/.test(g.sourceId) ? 'Current manufacturer product guidance' : 'Manufacturer published guidance',
@@ -657,11 +704,19 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   function setCell(profile, field, cell, row, { mismatch, cause = null, force = false }) {
     const column = SETTING_COLUMN[field];
     const current = profile[column];
+    // A Parse review explains a typed cell of this profile: correcting the cell would leave the review stale (PARSE-REVIEW-STALE), which is the owner's to settle.
+    if (TYPED[column]?.some((c) => reviewFields(profile)?.has(c))) return { error: 'profile-has-parse-review', detail: `${profile.ProfileID} ${column}` };
+    if (cellClaimed.has(`${profile.ProfileID}|${column}`)) return { error: 'cell-set-by-another-reading', detail: `${profile.ProfileID} ${column}: ${cellClaimed.get(`${profile.ProfileID}|${column}`)}` };
     if (!mismatch && !isMissing(current)) return { error: 'cell-already-published', detail: `${profile.ProfileID} ${column}: ${current}` };
+    let typedAfter = typedOf({ ...profile, [column]: cell }), verdict = parsedVsRead(field, row, typedAfter, cell);
+    let labelled = false;
+    if (verdict !== 'agrees') {
+      for (const form of labelledAnswers(row, cell) ?? []) {
+        const typedTrial = typedOf({ ...profile, [column]: form });
+        if (parsedVsRead(field, row, typedTrial, form) === 'agrees') { cell = form; typedAfter = typedTrial; verdict = 'agrees'; labelled = true; break; }
+      }
+    }
     if (mismatch && squash(current) === squash(cell)) return { error: 'same-text', detail: `${profile.ProfileID} ${column}` };
-    const after = { ...profile, [column]: cell };
-    const typedAfter = typedOf(after), typedBefore = typedOf(profile);
-    const verdict = parsedVsRead(field, row, typedAfter, cell);
     if (verdict !== 'agrees') return { error: 'parsed-vs-read', detail: `${profile.ProfileID} ${column}: ${verdict}` };
     if (mismatch && !force && ['nozzle', 'bed', 'drying'].includes(field) && num(row.Lo) == null && numbersIn(current).length) {
       return { error: 'drops-held-numbers', detail: `${profile.ProfileID} ${column}: "${current}" would become "${cell}", which states no number` };
@@ -677,10 +732,10 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       // a nozzle diameter or plate has no typed twin: a differing text alone is not a contradiction
       if (field === 'nozzle_diameter' && numbersIn(current).some((n) => sameNumber(n, num(row.Lo)))) return { error: 'same-reading', detail: `${profile.ProfileID} ${column}: "${current}" reads as "${cell}"` };
     }
-    void typedBefore;
     const base = { gate: 'ready', table: 'profiles', id: profile.ProfileID, source: row.SourceID, quote: text(row.Quote), parsed_vs_read: verdict, quote_view: viewOf(row), grade_from: gradeFromOf.get(row.RowID) ?? 'held', cause: cause ?? (!mismatch ? 'gap-fill' : field === 'plate' ? 'plate-label' : 'page-contradicts'), reader: row.Reader, rows: row.RowID, GradeID: profile.GradeID };
-    const note = `p. ${row.Page}, "${text(row.Label) || field}": the page prints "${text(row.Raw)}" (reader ${row.Reader}, ${row.Presence}).${mismatch ? ` The record held "${current}".` : ''}`;
+    const note = `p. ${row.Page}, "${text(row.Label) || field}": the page prints "${text(row.Raw)}" (reader ${row.Reader}, ${row.Presence}).${labelled ? ' The sheet\'s label is written before its bare answer.' : ''}${mismatch ? ` The record held "${current}".` : ''}`;
     const rows = [{ ...base, column, expect: current ?? '', value: cell, note }];
+    cellClaimed.set(`${profile.ProfileID}|${column}`, row.RowID);
     return { rows, where: `p. ${row.Page}: ${text(row.Label) || field}`, base };
   }
 
@@ -809,6 +864,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   // -- 3b. a bound the page prints where the record holds a point value: the number is the record's, the sign is the page's
   const measurementsById = new Map(tables.measurements.map((m) => [m.MeasurementID, m]));
   const boundHandled = new Set();
+  const valueClaimed = new Map();
   for (const r of considered.filter((x) => x.Kind === 'value' && ['mismatch', 'confirms'].includes(x.Class))) {
     const bound = boundOf(r);
     const ids = String(r.HeldIDs).split(/\s+/).filter(Boolean);
@@ -825,6 +881,8 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
     const gate = gateOf(r);
     if (gate.gate !== 'ready') { hold(r, [gate.reason], 'values'); continue; }
+    if (valueClaimed.has(held.MeasurementID)) { hold(r, 'held-row-corrected-by-another-reading', 'values', `${held.MeasurementID}: ${valueClaimed.get(held.MeasurementID)}`); continue; }
+    valueClaimed.set(held.MeasurementID, r.RowID);
     const base = { gate: 'ready', task: 'reader-round', table: 'measurements', id: held.MeasurementID, source: r.SourceID, quote: text(r.Quote), quote_view: viewOf(r), sign_view: view, cause: 'bound-sign', reader: r.Reader, rows: r.RowID,
       note: `p. ${r.Page}, "${text(r.Label)}": the page prints the bound "${bound.sign}${bound.number}" (${view} view); the record held ${held['Raw value']} as a point value (reader ${r.Reader}, ${r.Presence}).` };
     out.valuesSet.push({ ...base, column: 'Operator', expect: held.Operator ?? '', value: bound.operator });
@@ -858,6 +916,8 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (reasons.length) { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
     const gate = gateOf(r);
     if (gate.gate !== 'ready') { hold(r, [gate.reason], 'values'); continue; }
+    if (valueClaimed.has(held.MeasurementID)) { hold(r, 'held-row-corrected-by-another-reading', 'values', `${held.MeasurementID}: ${valueClaimed.get(held.MeasurementID)}`); continue; }
+    valueClaimed.set(held.MeasurementID, r.RowID);
     const base = { gate: 'ready', task: 'reader-round', table: 'measurements', id: held.MeasurementID, source: r.SourceID, quote: text(r.Quote), quote_view: viewOf(r), cause: agreedMismatch ? 'agreed-mismatch' : 'page-contradicts', reader: r.Reader, rows: r.RowID,
       note: `p. ${r.Page}, "${text(r.Label)}": the page prints "${text(r.Raw)}"; the record held ${held['Raw value']} (reader ${r.Reader}, ${r.Presence}${agreedMismatch ? '; a blind second reading agrees, though the held number is also printed on the page' : ''}).` };
     for (const [column, value] of [['Raw value', p['Raw value']], ['Raw numeric', p['Raw numeric']], ['Normalized value', p['Normalized value']],
@@ -994,6 +1054,8 @@ async function main() {
   };
   const ctx = {
     needleOnPage: (sourceId, page, needles) => needleOnPage(shaOf.get(sourceId), page, needles),
+    // every piece contiguous on the page in one view (any view per piece)
+    piecesOnPage: (sourceId, page, pieces) => pieces.every((piece) => needleOnPage(shaOf.get(sourceId), page, [piece])),
     standardsVocab: new Set(readCsv(join(projectRoot, 'schema/vocab/standards.csv')).records.map((r) => r.values.Value)),
     quoteOnSheet: (sourceId, quote) => { const v = quoteViews(shaOf.get(sourceId), quote); return v == null ? null : v === '' ? false : v; },
     numberOnPage: (sourceId, page, number) => {
