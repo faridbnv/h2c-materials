@@ -38,7 +38,7 @@ import { projectRoot } from './context.mjs';
 import { NP, numbersIn, ocrSidecar, readTable, sameNumber, squash } from './read-common.mjs';
 import { notchOf, targetUnit } from './propose.mjs';
 import { pageOf, scopeOf, specimenApplies } from '../../build/src/page-context.js';
-import { pageStates, rowStates } from '../../build/src/page-context.js';
+import { pageStates, rowStates, tableCovers } from '../../build/src/page-context.js';
 import { cachedText, repairLigatures } from '../lib/pdf-text.mjs';
 import { withReadingOrder } from '../lib/pdf-layout.mjs';
 import { rawNumber, unitKey } from '../../build/src/measurement-rules.js';
@@ -50,6 +50,8 @@ import { loadCellFromParsed, reviewFields, testTemperatureCell } from '../../bui
 import { TYPED, typedOf } from '../migrate/m290-profile-settings.mjs';
 
 const NA = 'Not applicable';
+/** The table a page_context row heads: Not applicable where it speaks for its whole page (D128). */
+const tableKey = (c) => (c.Table == null || c.Table === '' ? NA : c.Table);
 /** Reasons are joined with this in held.csv: a reason may hold spaces and colons. */
 export const REASON_SEP = ' || ';
 const text = (v) => String(v ?? '').trim();
@@ -959,6 +961,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       Notch: p.Notch, 'Test temperature °C': p['Test temperature °C'], 'Test load MPa': p['Test load MPa'], Operator: p.Operator });
     const own = rowStates(p);
     const contradicted = tables.page_context.find((c) => c.SourceID === r.SourceID && Number(c.Page) === Number(r.Page) && (c['Applies to'] === 'all' || c['Applies to'] === scopeOf(p.Property))
+      && tableCovers(c, { Locator: [r.TableHeading, r.Label, r.Field].filter(Boolean).join(' ') })
       && [['specimen', specimenApplies(p.Property)], ['moisture', true], ['treatment', true]].some(([f, applies]) => applies && own[f] && pageStates(c)[f] && own[f] !== pageStates(c)[f]));
     if (contradicted) { hold(r, 'contradicts-page-context', 'values', `${contradicted.PageContextID}: ${contradicted.Statement}`); continue; }
     // A reading for another grade of the key goes to the carrier unless the carrier already holds it.
@@ -1082,7 +1085,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
   }
 
   // -- 5. what a page states once for the values beneath it
-  const contextExists = new Set(tables.page_context.map((c) => `${c.SourceID}\u0001${c.Page}\u0001${c['Applies to']}`));
+  const contextExists = new Set(tables.page_context.map((c) => `${c.SourceID}\u0001${c.Page}\u0001${c['Applies to']}\u0001${tableKey(c)}`));
   for (const r of considered.filter((x) => x.Kind === 'context')) {
     if (r.Class === 'context-held') { hold(r, 'context-held-already', 'page-context'); continue; }
     const reasons = [];
@@ -1105,7 +1108,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       });
       if (clash) reasons.push('contradicts-a-row-of-the-page');
     }
-    if (contextExists.has(`${r.SourceID}\u0001${r.Page}\u0001${r.Field}`)) reasons.push('page-context-exists');
+    if (contextExists.has(`${r.SourceID}\u0001${r.Page}\u0001${r.Field}\u0001${NA}`)) reasons.push('page-context-exists');
     const specimen = text(r.Specimen) ? specimenOf(r, 'context') : { value: NP };
     if (specimen.error) reasons.push(specimen.error);
     const moisture = moistureOf(r.Moisture);
@@ -1122,7 +1125,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const gate = gateOf(r);
     if (reasons.length || gate.gate !== 'ready') { hold(r, reasonsFor(r, ...reasons), 'page-context'); continue; }
     const statement = text(r.Raw) || text(r.TableHeading) || text(r.Label);
-    contextExists.add(`${r.SourceID}\u0001${r.Page}\u0001${r.Field}`);
+    contextExists.add(`${r.SourceID}\u0001${r.Page}\u0001${r.Field}\u0001${NA}`);
     out.pageContextAdd.push({
       gate: 'ready', SourceID: r.SourceID, Page: r.Page, 'Applies to': r.Field, Statement: tidy(statement), 'Specimen type': specimenValue, 'Moisture state': moisture.state,
       'Post-processing state': post.state, 'Anneal °C': post.state === 'annealed' ? post.tempC : NA, 'Anneal h': post.state === 'annealed' ? post.hours : NA,
@@ -1215,7 +1218,7 @@ export const proposalKeys = {
   profilesSet: (r) => [r.id, r.column, r.value].join('\u0001'),
   valuesAdd: valueAddKey,
   valuesSet: (r) => [r.id, r.column, r.value].join('\u0001'),
-  pageContextAdd: (r) => [r.SourceID, r.Page, r['Applies to']].join('\u0001'),
+  pageContextAdd: (r) => [r.SourceID, r.Page, r['Applies to'], r.Table ?? NA].join('\u0001'),
 };
 const FILES = { profilesAdd: 'profiles-add.csv', profilesSet: 'profiles-set.csv', valuesAdd: 'values-add.csv', valuesSet: 'values-set.csv', pageContextAdd: 'page-context-add.csv' };
 

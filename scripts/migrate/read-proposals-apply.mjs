@@ -172,10 +172,10 @@ export function applyProposals(t, dir, { migration, read, date = '2026-10-04', s
 
   // ---------------------------------------------------------------- what a page states once
   for (const e of load('page-context-add.csv')) {
-    if (t.rows('page_context').some((c) => c.SourceID === e.SourceID && String(c.Page) === String(e.Page) && c['Applies to'] === e['Applies to'])) continue;
+    if (t.rows('page_context').some((c) => c.SourceID === e.SourceID && String(c.Page) === String(e.Page) && c['Applies to'] === e['Applies to'] && (c.Table || NA) === (e.Table || NA))) continue;
     const view = guard(t, e.SourceID, e.quote, migration) || 'line';
     t.append('page_context', {
-      PageContextID: nextId('page_context', t.rows('page_context').map((c) => c.PageContextID)), SourceID: e.SourceID, Page: e.Page, 'Applies to': e['Applies to'], Statement: tidy(e.Statement),
+      PageContextID: nextId('page_context', t.rows('page_context').map((c) => c.PageContextID)), SourceID: e.SourceID, Page: e.Page, 'Applies to': e['Applies to'], ...(t.header('page_context').includes('Table') ? { Table: e.Table || NA } : {}), Statement: tidy(e.Statement),
       'Specimen type': e['Specimen type'], 'Moisture state': e['Moisture state'], 'Post-processing state': e['Post-processing state'], 'Anneal °C': e['Anneal °C'], 'Anneal h': e['Anneal h'],
       Standard: e.Standard, 'Test temperature °C': e['Test temperature °C'], Locator: tidy(e.Locator), 'Reviewed by': tidy(`${read} (${migration}${e.reader ? `, ${e.reader}` : ''})${viewNote(view)}`),
     });

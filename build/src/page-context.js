@@ -31,6 +31,18 @@ export function scopeOf(property) {
 /** Whether a page's specimen statement speaks for a property: a melt flow rate is measured on the melt, not a specimen. */
 export const specimenApplies = (property) => !/^Melt (mass|volume)-flow rate/i.test(String(property ?? ''));
 
+/** A heading or locator as comparable text: case, spacing, punctuation, the degree sign's three glyphs and the dashes ignored. */
+export const normTable = (text) => String(text ?? '').replace(/[º˚]/g, '°').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}°%]+/gu, ' ').replace(/ ?° ?/g, '°').trim();
+
+/** Whether a row states a table it heads (Table, D128): Not applicable (or no column) means the whole page within its scope. */
+export const tableScoped = (c) => known(c.Table);
+
+/** Whether a row's Table is part of the measurement's Locator (always, for a row that heads its whole page). */
+export const tableCovers = (c, r) => !tableScoped(c) || normTable(r.Locator).includes(normTable(c.Table));
+
+/** How specific a page_context row is: a table's own statement before a scope's before the page's (D128). */
+const specificity = (c) => (tableScoped(c) ? 0 : c['Applies to'] === 'all' ? 2 : 1);
+
 /** An index of page_context rows by source and page. */
 export function indexPageContext(rows) {
   const byPage = new Map();
@@ -42,12 +54,13 @@ export function indexPageContext(rows) {
   return byPage;
 }
 
-/** The page_context rows that speak for one measurement row. */
+/** The page_context rows that speak for one measurement row, the most specific first (a table, then a scope, then the page). */
 export function contextFor(byPage, r) {
   const page = pageOf(r.Locator);
   if (page == null) return [];
   const scope = scopeOf(r.Property);
-  return (byPage.get(`${r.SourceID}\u0000${page}`) ?? []).filter((c) => c['Applies to'] === 'all' || c['Applies to'] === scope);
+  return (byPage.get(`${r.SourceID}\u0000${page}`) ?? []).filter((c) => (c['Applies to'] === 'all' || c['Applies to'] === scope) && tableCovers(c, r))
+    .map((c, i) => [c, i]).sort((a, b) => specificity(a[0]) - specificity(b[0]) || a[1] - b[1]).map(([c]) => c);
 }
 
 /** What a row states for each inheritable field: null where it states nothing. */

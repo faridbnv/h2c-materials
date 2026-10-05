@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { loadTables } from '../../build/src/load.js';
 import { cacheDir, cachedText } from '../lib/pdf-text.mjs';
 import { LAYOUT_DEFAULT as LAYOUT, withReadingOrder } from '../lib/pdf-layout.mjs';
-import { indexPageContext, contextFor, scopeOf, pageOf } from '../../build/src/page-context.js';
+import { indexPageContext, contextFor, scopeOf, pageOf, tableScoped } from '../../build/src/page-context.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const BASELINE = join(root, 'data/review/context-witness-accepted.csv');
@@ -102,8 +102,9 @@ for (const [k, list] of byPage) {
     const m = text.match(said); if (!m || (field === 'Post-processing state' && /without (having to )?anneal/.test(text))) continue;
     if (ADVICE.test(text.slice(Math.max(0, m.index - 80), m.index))) continue;
     // A page_context row for this field anywhere on the page means a reader read the statement and scoped it (D116):
-    // the rows outside its scope are outside the table it heads.
-    const scoped = (pageIndex.get(`${sourceId}\u0000${Number(pg)}`) ?? []).some((c) => c[field] && !/^Not published|not-stated/.test(c[field]));
+    // the rows outside its scope are outside the table it heads. A row that heads one table (Table, D128) scopes the page
+    // only through the rows it covers: a footnote under the mechanical table does not speak for the physical one.
+    const scoped = (pageIndex.get(`${sourceId}\u0000${Number(pg)}`) ?? []).some((c) => c[field] && !/^Not published|not-stated/.test(c[field]) && (!tableScoped(c) || list.some((r) => contextFor(pageIndex, r).includes(c))));
     if (scoped) continue;
     // A moisture statement qualifies the mechanical tests; a heat deflection bar is tested as moulded or printed.
     const open = list.filter((r) => (field === 'Moisture state' ? /Tensile|Flexural|Elongation|Impact|Charpy|Izod|modulus/i : /Tensile|Flexural|Elongation|Impact|Charpy|Izod|HDT|modulus/i).test(r.Property) && silent(r) && !contextFor(pageIndex, r).some((c) => c[field] && !/^Not published|not-stated/.test(c[field])));

@@ -156,8 +156,9 @@ properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "pri
 `page_context.csv`: the source, page and scope (all, tensile, flexural, impact, thermal, physical), the page's words in
 Statement and what they state in the typed columns. Every measurement on that page and scope that states nothing of
 its own inherits it in compile, and one that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE, D116). A
-statement that heads only one of two tables on a page (a "Dry" and a "Wet" table) belongs in each row of its table
-instead: a page row would reach the other table too.
+statement that heads only one of two tables on a page (a "Dry" and a "Wet" table) names its table in `Table` (heading or
+locator text, matched against each measurement's Locator, D128), one row per table; `Not applicable` speaks for the whole
+page. A table's own row is read before a scope's and the page's.
 
 **A product's own values need no row.** The build chooses every product's value per headline by rule from its own
 measurements (`build/src/products.js`, `docs/DATA-MODEL.md`), and a material's headline is its products' spread: the

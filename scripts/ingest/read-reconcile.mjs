@@ -19,7 +19,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { csvText, parseCsvText, readCsv } from '../../build/src/csv.js';
-import { scopeOf } from '../../build/src/page-context.js';
+import { scopeOf, tableScoped } from '../../build/src/page-context.js';
 import { projectRoot } from './context.mjs';
 import { machineAgrees } from './read-machine.mjs';
 import {
@@ -246,7 +246,7 @@ function classifyContext(row, held) {
   const page = Number(row.page);
   const scope = row.field;
   const applies = held.measurements.filter((m) => m.page === page && (scope === 'all' || scopeOf(m.Property) === scope));
-  const existing = held.page_context.filter((c) => Number(c.Page) === page && (c['Applies to'] === 'all' || c['Applies to'] === scope));
+  const existing = held.page_context.filter((c) => Number(c.Page) === page && (c['Applies to'] === 'all' || c['Applies to'] === scope) && !tableScoped(c));
   const stated = { moisture: moistureOf(row.moisture), treatment: treatmentOf(row.post_processing), specimen: text(row.specimen) };
   const inherits = [];
   for (const m of applies) {
