@@ -1,0 +1,465 @@
+{
+  "PacketID": "b43-held-sheets",
+  "Batch": "b43",
+  "Documents": [
+    {
+      "File": "893aa52753128a6f.json",
+      "ProposalSHA256": "7aa0a62ca61ac1bec572aad15cef2101aa78b0e7f9eecefbada6adc21cab1409",
+      "OriginalSHA256": "893aa52753128a6faed685c450fcbbcb03089483e3e9c98f1bfd01fd6a022577",
+      "DocKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/antero-800na/mds_fdm_antero-800na_0825a.pdf?v=4a4973",
+      "Source": {
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Publisher": "Stratasys",
+        "Title": "MATERIAL DATA SHEET Antero 800NA",
+        "Revision": "0825a (MDS_FDM_Antero 800NA_0825a)",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Stratasys material data sheet (14 pages) for the FDM filament Antero 800NA: physical and mechanical tables for the as-printed and the annealed state, by print orientation.",
+        "Citation role": "cited",
+        "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/antero-800na/mds_fdm_antero-800na_0825a.pdf?v=4a4973",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "893aa52753128a6faed685c450fcbbcb03089483e3e9c98f1bfd01fd6a022577"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M098",
+          "Manufacturer": "Stratasys",
+          "Product name": "Antero 800NA"
+        }
+      ],
+      "Values": 94,
+      "Profiles": 1,
+      "Skipped": [
+        "p. 3 (printer and support compatibility, ordering information) names a printer, tips and a build sheet; its \"Hardened machine upgrade; Hardened Fortus 450mc head\" and the high-temperature build sheet enter as the print profile. Part numbers and prices are not data.",
+        "p. 4 and 11: Volume Resistivity \"> 1.4*10^14 Ω*cm\": the text layer sets the power of ten apart from its mantissa, so the number cannot be bound to its page; it stays in the record tier. Dissipation Factor, Thermal Diffusivity and Chemical Compatibility have no property in properties.csv. The sheet's second unit (°F, psi, ksi, ft*lb/in, BTU) repeats each figure and is not a second measurement.",
+        "p. 6, 7, 12: \"No break\", \"No Yield\" and \"-\" cells state no number and are not values; Compression Modulus has no property in properties.csv.",
+        "p. 8: the UV-exposed row of Table 6 (1,000 h of QUV cycling) is an aged state, not recorded as a value; its control row (no UV exposure) is entered. Table 7 (performance at temperature) states percent changes against room-temperature results, not property values; p. 9 and 10 (chemical resistance, flame, smoke and toxicity), p. 11 and 12 (outgassing, annealed flammability) are test outcomes with no property in properties.csv; p. 13 and 14 hold curves."
+      ]
+    },
+    {
+      "File": "d311f4ae2286bd10.json",
+      "ProposalSHA256": "89ff21e41730d4b128557741b797705a7e73e4c6bb2ded233ceb9f804d450721",
+      "OriginalSHA256": "d311f4ae2286bd106c3be034245dd03f4428abf23a1b7ee79dd9d630177ce84c",
+      "DocKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-cf10/redesign/fdm-nylon-cf10-material-datasheet.pdf?v=4ac731",
+      "Source": {
+        "SourceID": "R-STRATASYS-fdm-nylon-cf10-material-datasheet",
+        "Publisher": "Stratasys",
+        "Title": "MATERIAL DATA SHEET FDM Nylon-CF10",
+        "Revision": "0723a (MDS_FDM_FDM Nylon-CF10_0723a)",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Stratasys material data sheet (8 pages) for FDM Nylon-CF10: physical properties by orientation, mechanical properties for two print set-ups.",
+        "Citation role": "cited",
+        "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-cf10/redesign/fdm-nylon-cf10-material-datasheet.pdf?v=4ac731",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "d311f4ae2286bd106c3be034245dd03f4428abf23a1b7ee79dd9d630177ce84c"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M165",
+          "Manufacturer": "Stratasys",
+          "Product name": "FDM Nylon-CF10"
+        }
+      ],
+      "Values": 56,
+      "Profiles": 1,
+      "Skipped": [
+        "p. 3 (printer and support compatibility, ordering information) names heads, trays and supports; the hardened extrusion head and the build trays enter as the print profile. Part numbers are not data.",
+        "p. 4: Volume Resistivity (1.88E+15 and 4.25E+13 Ohms-cm) is entered; the sheet's imperial repeats of every figure are not second measurements.",
+        "p. 6 and 7: \"No Yield\" cells state no number; Compression Modulus has no property in properties.csv; the Compression Yield Strength rows are \"No Yield\" in both columns, and the Peak Strength rows are entered as the compression strength with the peak named in Notes.",
+        "p. 8 (chemical resistance, Table 6) states percent changes of tensile properties after a 72 hour exposure, not property values."
+      ]
+    },
+    {
+      "File": "8395359922703506.json",
+      "ProposalSHA256": "7957b770307a6fd645130d739ab1760210ef720caa7e2c84b787af4db903d4f4",
+      "OriginalSHA256": "83953599227035063ae445aa52a5e983d41f0a01494b3d582cce7752d91d5bb8",
+      "DocKey": "8395359922703506",
+      "Source": {
+        "SourceID": "R-ESSENTIUM-Essentium-PA-TDS",
+        "Publisher": "Essentium / Nexa3D",
+        "Title": "Essentium PA Technical Data Sheet",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "One-page technical data sheet hosted by the current brand owner (Nexa3D): molded and printed (XY, YX, ZX) tensile and flexural values, pellet-maker values, FDM print settings.",
+        "Citation role": "cited",
+        "URL": "https://nexa3d.com/wp-content/uploads/2024/07/Essentium-PA-TDS.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "83953599227035063ae445aa52a5e983d41f0a01494b3d582cce7752d91d5bb8"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M164",
+          "Manufacturer": "Essentium",
+          "Product name": "Essentium PA"
+        }
+      ],
+      "Values": 21,
+      "Profiles": 1,
+      "Skipped": [
+        "Extrusion multiplier (flow) \"20 - 50\" has no column of a profile; the footnote \"1 Print settings: nozzle temp: 255ºC, bed temp: 85ºC, infill: 100%, speed: 30mm/s, layer height: 0.3mm, extrustion multiplie: 1.0, nozzle diameter: 1.0mm\" is the specimens' print setting (no cell carries its mark), kept in the Notes of every printed row and never as guidance (m170).",
+        "The Molded Properties column is the pellet maker's injection-molded bar; it enters as a raw-material value."
+      ]
+    },
+    {
+      "File": "e48afc79b561cc0f.json",
+      "ProposalSHA256": "f6053543918f7742fcc8cc332142951633d4476992c17833da39d807267db73d",
+      "OriginalSHA256": "e48afc79b561cc0f26e7b3d43d628d706d1ee243e70092b9f5708bd6cad0d333",
+      "DocKey": "e48afc79b561cc0f",
+      "Source": {
+        "SourceID": "R-ESSENTIUM-TDS-Essentium-PA-CF",
+        "Publisher": "Essentium / Nexa3D",
+        "Title": "Essentium PA-CF Technical Data Sheet",
+        "Revision": "Version 1.0",
+        "Publication date": "2020-05-28",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Two-page technical data sheet hosted by the current brand owner (Nexa3D): mechanical properties by print orientation, melting point and heat deflection, handling and drying, FDM and HSE print settings.",
+        "Citation role": "cited",
+        "URL": "https://nexa3d.com/wp-content/uploads/2024/07/TDS-Essentium-PA-CF.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "e48afc79b561cc0f26e7b3d43d628d706d1ee243e70092b9f5708bd6cad0d333"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M165",
+          "Manufacturer": "Essentium",
+          "Product name": "Essentium PA-CF"
+        }
+      ],
+      "Values": 26,
+      "Profiles": 1,
+      "Skipped": [
+        "p. 2 \"RECOMMENDED HSE PRINT SETTINGS\" (0.4 mm and 0.8 mm \"Hozzle\": extrusion width, layer height, print speed, infill, hozzle temperature 240 - 400 and 230 - 400 °C, bed temperature, IR temperature, fan speed) are settings of Essentium's high-speed extrusion platform, not of an FDM desktop printer; only the FDM settings block enters as the profile. Extrusion width, layer height, infill and IR temperature have no profile column.",
+        "The FDM block's \"Infill Density < 75 %\" has no column; its \"Bed Material G-10/FR4 or Glass\" is kept in Plate."
+      ]
+    },
+    {
+      "File": "556fd3e0d2ebf186.json",
+      "ProposalSHA256": "7aa702dc6a97afc694d32c19263a5d029ee74a98c408f70386e8405a8592b9c8",
+      "OriginalSHA256": "556fd3e0d2ebf186c45a4a32e7a7bf504ba91a86a0859e97fd9c4f4b5b9a9e73",
+      "DocKey": "556fd3e0d2ebf186",
+      "Source": {
+        "SourceID": "R-3D4MAKERS-TDS-PI-Filament-Z2-Zymergen-3D4Makers-ver-02",
+        "Publisher": "3D4Makers",
+        "Title": "Technical Data Sheet (TDS) PI Filament Z2 (Zymergen)",
+        "Revision": "Version 01",
+        "Publication date": "2022-02-01",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Zymergen's technical data sheet for its thermoplastic polyimide filament Z2, published by 3D4Makers on its product-data page (the file name names both); the sheet carries the mark CONFIDENTIAL in its footer.",
+        "Citation role": "cited",
+        "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_PI_Filament_Z2_Zymergen_3D4Makers_ver.02.pdf?v=1654256926",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "556fd3e0d2ebf186c45a4a32e7a7bf504ba91a86a0859e97fd9c4f4b5b9a9e73"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M121",
+          "Manufacturer": "3D4Makers",
+          "Product name": "PI Filament Z2"
+        }
+      ],
+      "Values": 45,
+      "Profiles": 1,
+      "Skipped": [
+        "p. 1: Flexural Modulus, Flexural strength @ break, Flexural elongation @ break and the two UL 94 flammability rows print \"TBD\" in every column and \"N/A\" cells state no number: no values.",
+        "p. 2: the ppm/°F rows repeat each ppm/°C figure; the footnote bullets \"Tnozzle 405 ℃, Tbuildplate 160 ℃, Tchamber 160 ℃\" and \"Layer thickness 0,2mm (30 mm/s), Beadwidth 0,5mm\" are the test bars' print settings and never guidance (m170).",
+        "p. 3: Filament diameter (1.75 mm) and Dielectric loss (1 and 10 GHz) have no property in properties.csv; the nozzle-diameter cell is unreadable in the text layer and is read on the page image."
+      ]
+    },
+    {
+      "File": "36bdc5d8f5c3688c.json",
+      "ProposalSHA256": "b577eea2060c7fee369595b346c728e5b498e07d9fbd15fa032ad5438858b04b",
+      "OriginalSHA256": "36bdc5d8f5c3688c6f49629cf2ac5ac6e2ee6f587d8b91d2392e36e088fdd501",
+      "DocKey": "36bdc5d8f5c3688c",
+      "Source": {
+        "SourceID": "D-FLASH-FABRIAL-R-TPE-TDS-JP",
+        "Publisher": "Flashforge",
+        "Title": "テクニカルデータシート FABRIAL-R (TPE) [Technical Data Sheet FABRIAL-R, Japanese]",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "One-page Japanese technical data sheet of NCI SALES, INC. for the thermoplastic elastomer (TPE) filament FABRIAL-R for fused-deposition 3D printers, served by Flashforge Japan's data-sheet list. Read on the page image: the text layer is a scan's and holds the numbers without their Japanese labels.",
+        "Citation role": "cited",
+        "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/TPE_TDS_JP.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "36bdc5d8f5c3688c6f49629cf2ac5ac6e2ee6f587d8b91d2392e36e088fdd501"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M167",
+          "Manufacturer": "Flashforge",
+          "Product name": "FABRIAL-R"
+        }
+      ],
+      "Values": 9,
+      "Profiles": 1,
+      "Skipped": [
+        "The sheet's product table (カラー ナチュラル/アイボリー, フィラメント線径 1.75 +/- 0.05mm, 重量 500 g, 長さ 230 m) is packaging, not a property; the diameter is the grade's default.",
+        "※ \"3Dプリンターによる造形試験片で測定した測定値です。上記は測定値であり、保証値ではありません。\" (measured on test pieces formed with a 3D printer; measured values, not guaranteed values): read as the specimen statement of the mechanical table (printed specimens).",
+        "※ \"3Dプリンターの種類や使用環境、造形物の形状等の条件に合わせて微調整をしてください\" (adjust to the printer, environment and part shape) is advice, not a setting."
+      ]
+    },
+    {
+      "File": "691787121528d8e1.json",
+      "ProposalSHA256": "8c44f1a4c3e836cd79c0a7b63f04492551fa7fb7770bf5ec6bbbd94a10edf71c",
+      "OriginalSHA256": "691787121528d8e1554f478078d3e869dff0e705852afc6ab710e1929138a32e",
+      "DocKey": "691787121528d8e1",
+      "Source": {
+        "SourceID": "R-FILAMENT2PRINT-Smartfil-FLEX-77A",
+        "Publisher": "Smart Materials 3D",
+        "Title": "FICHA TÉCNICA FLEX 77A (Smartfil)",
+        "Revision": "VERSIÓN 1.2, REVISIÓN: 04/11/2024",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "One-page Spanish technical data sheet of Smart Materials 3D (brand Smartfil) for SMARTFIL FLEX 77A, a thermoplastic polyurethane of Shore A 77, hosted by the retailer Filament2Print (product page 4113-smartfill-flex-77a).",
+        "Citation role": "cited",
+        "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3678",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet). The retailer Filament2Print serves the maker's own sheet.",
+        "SHA256": "691787121528d8e1554f478078d3e869dff0e705852afc6ab710e1929138a32e"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M159",
+          "Manufacturer": "Smart Materials 3D",
+          "Product name": "Smartfil FLEX 77A"
+        }
+      ],
+      "Values": 5,
+      "Profiles": 1,
+      "Skipped": [
+        "\"-\" cells (tensile modulus, flexural strength and modulus, elongation at break, flexural elongation, Charpy impact, glass transition, HDT B) state no number; the ZX plane column prints \"-\" everywhere.",
+        "The packaging row (tamaño M, peso neto 750 g, peso bruto 975 g, diámetros 1,75 mm/2,85 mm, colores blanco y negro, embalaje SmartBag con bolsa desecante) is not a property; \"Flujo de material 100 – 120 %\" and the first-layer-free \"Altura de capa ≥ 0,2 mm\" have no profile column beyond the notes below."
+      ]
+    },
+    {
+      "File": "9c6f8b6fe1d8e213.json",
+      "ProposalSHA256": "09aa85ebbdfafdb04113b336c9c2269f8502e12c7aa4e31e51198daead66b4ff",
+      "OriginalSHA256": "9c6f8b6fe1d8e21360ca83ecb8de97f127b241bfb2223f661057c95844d61861",
+      "DocKey": "https://bigrepgmbh.sharepoint.com/:b:/g/Edf9dbsNa39BiC-Vl1Fh9MwB917sFqJdBc2ekgXXAjmr3g?e=tQs3vW",
+      "Source": {
+        "SourceID": "R-BIGREP-Edf9dbsNa39BiC-Vl1Fh9MwB917sFqJdBc2ekgXXAjmr3g",
+        "Publisher": "BigRep",
+        "Title": "HI-TEMP filament datasheet",
+        "Revision": "Last updated 30.07.2025",
+        "Publication date": "2025-07-30",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "One-page BigRep filament datasheet for HI-TEMP (bigrep.com/filaments/hi-temp), linked from the maker's product page as a document viewer.",
+        "Citation role": "cited",
+        "URL": "https://bigrepgmbh.sharepoint.com/:b:/g/Edf9dbsNa39BiC-Vl1Fh9MwB917sFqJdBc2ekgXXAjmr3g?e=tQs3vW",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet). The PDF's text layer maps every glyph to another character, so its text was read optically (ocrmypdf, cached under the document's digest as an optical reading) and every row was read against the page image.",
+        "SHA256": "9c6f8b6fe1d8e21360ca83ecb8de97f127b241bfb2223f661057c95844d61861"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M168",
+          "Manufacturer": "BigRep",
+          "Product name": "HI-TEMP"
+        }
+      ],
+      "Values": 10,
+      "Profiles": 1,
+      "Skipped": [
+        "Diameter 2.85 mm is the grade's Diameter compatibility; Reach, RoHS and FDA statements are the grade's Certification claims.",
+        "The footer date reads \"30.07.2095\" in the optical text and 30.07.2025 on the page image."
+      ]
+    },
+    {
+      "File": "58a9c5673b437051.json",
+      "ProposalSHA256": "46e12cd6344fb604f2996ff32196f7446d748c8de62995c32beb18d54829e0a0",
+      "OriginalSHA256": "58a9c5673b437051db279513a2720ef02cda9f76cd50d9e6976db79efd32ac71",
+      "DocKey": "58a9c5673b437051",
+      "Source": {
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Publisher": "Markforged",
+        "Title": "Composites Material Datasheet",
+        "Revision": "REV 5.3 - 10/10/2023",
+        "Publication date": "2023-10-10",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Two-page Markforged material datasheet: one table of four Composite Base products (Onyx, Onyx FR, Onyx ESD, Nylon), one of five continuous fibres, test-specimen dimensions and flexural curves. Only the Composite Base products are filaments of the database.",
+        "Citation role": "cited",
+        "URL": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/CompositesMaterialDatasheet.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:onyx}; ${grade:onyxfr}; ${grade:nylon}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "58a9c5673b437051db279513a2720ef02cda9f76cd50d9e6976db79efd32ac71"
+      },
+      "NewGrades": [
+        {
+          "Key": "onyx",
+          "MaterialID": "M165",
+          "Manufacturer": "Markforged",
+          "Product name": "Onyx"
+        },
+        {
+          "Key": "onyxfr",
+          "MaterialID": "M165",
+          "Manufacturer": "Markforged",
+          "Product name": "Onyx FR"
+        },
+        {
+          "Key": "nylon",
+          "MaterialID": "M164",
+          "Manufacturer": "Markforged",
+          "Product name": "Nylon White"
+        }
+      ],
+      "Values": 26,
+      "Profiles": 0,
+      "Skipped": [
+        "p. 1 \"Continuous Fiber\" table (Carbon, Carbon FR, Kevlar, Fiberglass, HSHT FG) and p. 2 continuous-fibre text: fibres laid by a second nozzle that \"cannot be printed by themselves\"; not filament products of the database.",
+        "p. 1 Flame Resistance (UL94 V-0 for Onyx FR, footnote 2): no property for a UL 94 rating; it stays in the record tier.",
+        "The Onyx ESD column (tensile modulus 4.2 GPa, yield 52 MPa, break 50 MPa, strain 25 %, flexural 83 MPa and 3.7 GPa, HDT 138 °C, notched Izod 44 J/m, 1.2 g/cm3, surface resistance 10^5 - 10^7 Ω) is not entered: the product is named for a static-dissipative additive and no home holds an ESD polyamide (FILING-FILLER-WORD refuses it under Nylon-CF); it waits for the owner's word on a home.",
+        "p. 2 repeats each flexural strength as a heading (\"Onyx Flexural Strength: 71 MPa\") and draws the flexural curves: the same figures, not second measurements."
+      ]
+    },
+    {
+      "File": "715a70a33079fa3f.json",
+      "ProposalSHA256": "304e13dbcc85a4094701ce0e0e22ae71893410a2abac77f3b0205e866c8c5390",
+      "OriginalSHA256": "715a70a33079fa3f19ef7eb2cbe4cb77c6a15511a7f826cc19d7a4d0704fa2ea",
+      "DocKey": "https://drive.google.com/file/d/1SmKn9yDfEWdgjZGdPaeDpQ8je57Egjdh/view?usp=drive_link",
+      "Source": {
+        "SourceID": "R-QIDI-S-White",
+        "Publisher": "QIDI",
+        "Title": "QIDI S-White Technical Data Sheet",
+        "Revision": "Version No: 3.0 (Data / Revised: 03.2023)",
+        "Publication date": "2023-03",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Four-page bilingual (Chinese and English) QIDI technical data sheet for QIDI S-White Quick-Remove Support Material, linked from QIDI's filament library as a Google Drive viewer.",
+        "Citation role": "cited",
+        "URL": "https://drive.google.com/file/d/1SmKn9yDfEWdgjZGdPaeDpQ8je57Egjdh/view?usp=drive_link",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (ledger.csv, doc_key below), hash-checked; read page by page on its page images and admitted in batch b43 (2026-10-05, Claude Sonnet).",
+        "SHA256": "715a70a33079fa3f19ef7eb2cbe4cb77c6a15511a7f826cc19d7a4d0704fa2ea"
+      },
+      "NewGrades": [
+        {
+          "Key": "main",
+          "MaterialID": "M079",
+          "Manufacturer": "QIDI",
+          "Product name": "S-White"
+        }
+      ],
+      "Values": 4,
+      "Profiles": 1,
+      "Skipped": [
+        "p. 3 support settings with no profile column: Raft separation distance 0 mm, Recommended Support Infill Ratio 15%-20%, Recommended Dense Support Layers 3-5, Vertical Offset Top/Down Layers 0, Horizontal offset 0.3-0.6 mm, Support infill outlines 0-1; they stay in the record tier.",
+        "p. 4 item 3 recommends a hardened-steel nozzle \"and above grade nozzles made by Phaetus\" with a heating block thicker than 12 mm (entered as the abrasion statement), item 4 a wipe wall or wipe tower in dual-extruder printing and item 5 annealing the part before removing S-White with the body material's conditions: advice, entered as it applies to a profile column or not at all."
+      ]
+    }
+  ],
+  "Totals": {
+    "Documents": 10,
+    "NewGrades": 12,
+    "Values": 296,
+    "Profiles": 9
+  },
+  "NewVocabulary": [
+    {
+      "Vocabulary": "standards",
+      "Value": "ASTM D150",
+      "Meaning": "AC loss characteristics and permittivity (dielectric constant) of solid electrical insulation."
+    },
+    {
+      "Vocabulary": "standards",
+      "Value": "ASTM D4812",
+      "Meaning": "Unnotched cantilever beam impact resistance of plastics."
+    },
+    {
+      "Vocabulary": "standards",
+      "Value": "ASTM B923",
+      "Meaning": "Metal powder skeletal density by helium or nitrogen pycnometry (printed by Zymergen as the method of its filament density)."
+    },
+    {
+      "Vocabulary": "standards",
+      "Value": "ISO 3164",
+      "Meaning": "Printed on Essentium's PA sheet as the method of a melting point; probably ISO 3146 (melting behaviour of semi-crystalline polymers), kept as the sheet prints it."
+    },
+    {
+      "Vocabulary": "standards",
+      "Value": "ASTM E1952",
+      "Meaning": "Thermal conductivity and thermal diffusivity by modulated temperature differential scanning calorimetry."
+    },
+    {
+      "Vocabulary": "manufacturers",
+      "Value": "Smart Materials 3D",
+      "Meaning": "Spanish maker of the Smartfil filament line (Smart Materials 3D, Jaén); its sheets are titled FICHA TÉCNICA and name the Smartfil product.",
+      "Aliases": "Smartfil;Smart Materials;smartmaterials3d"
+    }
+  ],
+  "Review": {
+    "prepared_by": "Claude Sonnet (gap round 2, b43), checked by Claude Opus",
+    "scope": "thirteen held sheets, read page by page; three are not admitted"
+  },
+  "NotAdmitted": [
+    {
+      "Document": "Markforged Onyx ESD (one column of the Composites table, 58a9c5673b43)",
+      "Why": "a static-dissipative variant of Onyx whose additive the sheet does not name: filed under Nylon-CF it is refused by the filing check (FILING-FILLER-WORD: \"ESD\" names a filler its material does not have), and no ESD polyamide home exists. Waits for the owner's word on a home; its column stays on the page in the record tier."
+    },
+    {
+      "Document": "Stratasys ST-130 \"Composite Molding Material\" (mss_fdm_st130_1016a.pdf, 04b78b6d572e)",
+      "Why": "its sheet names no base polymer and no family (\"a model material for sacrificial tooling\", dissolved after curing): no home reaches it and the ledger holds it for a ruling (R205 searches beyond the sheet first). Nothing is entered until the owner rules or a maker document names the polymer."
+    },
+    {
+      "Document": "Stratasys Diran 410MF07 (34f028a12c8c)",
+      "Why": "OPEN-PROBLEMS §14: its sheet says \"a nylon-based thermoplastic FDM material, mineral-filled 7% by weight\" and waits on the owner for its home (the Nylon home with a declared filler, or a filled home). Not entered."
+    },
+    {
+      "Document": "colorFabb Woodfill Fine, FKuR Fibrolon V 135002 (trial grade) sheet (af2a1612aba9)",
+      "Why": "a resin maker's sheet that names no filament and no colorFabb product; the database records no colorFabb Woodfill Fine for R194 to register it to. Not entered."
+    },
+    {
+      "Document": "Markforged Composites, continuous-fibre table (Carbon, Carbon FR, Kevlar, Fiberglass, HSHT FG)",
+      "Why": "reinforcing fibres laid by a second nozzle that \"cannot be printed by themselves\"; not filament products the database holds. Only the Composite Base table (Onyx, Onyx FR, Onyx ESD, Nylon) enters."
+    },
+    {
+      "Document": "Essentium PA-CF \"Recommended HSE print settings\" (0.4 mm and 0.8 mm \"Hozzle\")",
+      "Why": "settings for Essentium's own high-speed extrusion platform (nozzle to 400 °C); only the FDM settings block enters as the profile."
+    }
+  ]
+}
