@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "002e9b98caaa480e47cb7ad03f70e51337c70b1014917e5eaf87db89ad521203",
+    "url": "https://forward-am.com/wp-content/uploads/2021/01/User-Guidelines.pdf",
+    "pages": 9,
+    "provider": "BASF Forward AM",
+    "manufacturer": "BASF Forward AM",
+    "docKey": "https://forward-am.com/wp-content/uploads/2021/01/User-Guidelines.pdf#witness-for=source:R-BASF-Ultrafuse-316L-TDS-EN-v1-1"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G171-02 (BASF Forward AM Ultrafuse 316L) of M171; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-BASF-GAP2-20261005-002e9b98caaa",
+      "Publisher": "BASF Forward AM",
+      "Title": "Ultrafuse 316L User Guidelines for 3D Printing Metal Parts",
+      "Revision": "Not published",
+      "Publication date": "2021",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "BASF Forward AM's own user guideline (Ultrafuse 316L User Guidelines for 3D Printing Metal Parts) for BASF Forward AM Ultrafuse 316L (G171-02): its Printing parameters; Printer requirements sections. The registered sheet leaves the enclosure unpublished.",
+      "Citation role": "cited",
+      "URL": "https://forward-am.com/wp-content/uploads/2021/01/User-Guidelines.pdf",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G171-02",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "002e9b98caaa480e47cb7ad03f70e51337c70b1014917e5eaf87db89ad521203"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Ultrafuse 316L User Guidelines for 3D Printing Metal Parts"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G171-02",
+        "MaterialID": "M171",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "BASF Forward AM",
+        "Product name": "Ultrafuse 316L",
+        "Shared formulation key": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "Composition / filler": "316L stainless steel composite filament for Fused Filament Fabrication. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-BASF-Ultrafuse-316L-TDS-EN-v1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M171",
+        "GradeID": "G171-02",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "230 °C –250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "230",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "90 °C – 120 °C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "it is recommended to have an enclosed printing chamber with a low chamber air flow",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying need": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Drying hours open": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.40 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-BASF-GAP2-20261005-002e9b98caaa",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Printing parameters; p. 5: Printer requirements",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.15 mm; Range of 0.10 – 0.25 mm (Resolution)"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "Default print speed 35 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "No cooling; Part cooling increases warpage"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "Retraction distance (direct/Bowden) 1.5 mm/5.0 mm; Retraction speed 45 mm/s"
+        }
+      ],
+      "evidence": {
+        "page": 3,
+        "text": "Nozzle temperature 230 °C –250 °C Actual temperature"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": true,
+        "note": "Read from the cached text and the page image; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The user guideline is the maker's own document for Ultrafuse 316L (its product page, now marked discontinued, points to it). The Printer Requirements paragraph (p. 5) says \"Due to high warpage of the material, it is recommended to have an enclosed printing chamber with a low chamber air flow\", which the registered sheet lacks; the panel beside it lists \"Enclosed chamber\" and \"Low chamber air flow\" as minimum and \"Enclosed and heated chamber\" as recommended requirements. The page 3 and 5 text layers interleave their columns, so both were read on the page images. The guideline's nozzle and bed windows repeat the registered sheet's. Debinding and sintering sections are not print settings."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G171-02: print settings only (1 profile row(s)); no measurement is entered. The user guideline is the maker's own document for Ultrafuse 316L (its product page, now marked discontinued, points to it). The Printer Requirements paragraph (p. 5) says \"Due to high warpage of the material, it is recommended to have an enclosed printing chamber with a low chamber air flow\", which the registered sheet lacks; the panel beside it lists \"Enclosed chamber\" and \"Low chamber air flow\" as minimum and \"Enclosed and heated chamber\" as recommended requirements. The page 3 and 5 text layers interleave their columns, so both were read on the page images. The guideline's nozzle and bed windows repeat the registered sheet's. Debinding and sintering sections are not print settings."
+  }
+}

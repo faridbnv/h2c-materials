@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "8c7a48d701278a83c9e8d86ba341bfb728f9d673d320f7f24a601511a5584284",
+    "url": "https://www.formfutura.com/biofil-pcl",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://www.formfutura.com/biofil-pcl#witness-for=source:R-FILAMENT2PRINT-BioFil-PCL"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G149-04 (Filament2Print BioFil - PCL) of M149; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FORMFUTURA-GAP2-20261005-8c7a48d70127",
+      "Publisher": "FormFutura",
+      "Title": "BioFil - PCL",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "FormFutura's product page as served on 2026-10-05 for BioFil - PCL (Filament2Print BioFil - PCL, G149-04): its General printing guidelines block. The registered sheets leave nozzle, bed and enclosure unpublished. BioFil is FormFutura's product line: the registered sheet R-FILAMENT2PRINT-BioFil-PCL is FormFutura's own \"TECHNICAL DATA SHEET BioFil - PCL\" (issued 10-10-2024, hosted by Filament2Print), and this page lists the same sheet as formfutura-tds-biofilpcl.pdf and its 1.75 mm variant as SKU BPCL-175NTRL-00500.",
+      "Citation role": "cited",
+      "URL": "https://www.formfutura.com/biofil-pcl",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G149-04",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "8c7a48d701278a83c9e8d86ba341bfb728f9d673d320f7f24a601511a5584284"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "BioFil - PCL"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G149-04",
+        "MaterialID": "M149",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "BioFil - PCL",
+        "Shared formulation key": "R-FILAMENT2PRINT-BioFil-PCL",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-BioFil-PCL",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "G149-04",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "± 95 – 130° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "95",
+        "Nozzle max °C": "130",
+        "Nozzle requirement": "required",
+        "Bed °C": "± 40 – 50° C",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosure needed: No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying need": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Drying hours open": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.4mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FORMFUTURA-GAP2-20261005-8c7a48d70127",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: General printing guidelines",
+        "Parse review": "Fields: Nozzle min °C. The page prints a nozzle window of \"± 95 – 130° C\" for BioFil - PCL, a polycaprolactone that melts near 60 °C; the build's plausible nozzle window starts at 100 °C, so its parser drops the 95 and reads 130. The typed minimum is the page's own 95 (m363)."
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.10mm"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Fan speed: 10 – 50%"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temp: ± 95 – 130° C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The grade's manufacturer is recorded as Filament2Print (the listing the sheet was found through); the maker of the product and of this page is FormFutura. The page covers the 1.75 mm and 2.85 mm variants with one set of guidelines. The drying and storage statement is already held (P1482)."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G149-04: print settings only (1 profile row(s)); no measurement is entered. The grade's manufacturer is recorded as Filament2Print (the listing the sheet was found through); the maker of the product and of this page is FormFutura. The page covers the 1.75 mm and 2.85 mm variants with one set of guidelines. The drying and storage statement is already held (P1482)."
+  }
+}

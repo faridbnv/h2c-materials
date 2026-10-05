@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "f73a6394292981d55926c862dcf10e5fa0266c6fd5412278e3f06b2b62e5844b",
+    "url": "http://web.archive.org/web/20240618193856id_/https://www.3dxtech.com/product/fibrex-pp-gf30-polypropylene/",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "http://web.archive.org/web/20240618193856id_/https://www.3dxtech.com/product/fibrex-pp-gf30-polypropylene/#witness-for=source:X-FIBREX-GF-PP-TDS-v1"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G084-01 (3DXTECH FIBREX GF PP) of M084; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DXTECH-GAP2-20261005-f73a63942929",
+      "Publisher": "3DXTECH",
+      "Title": "FibreX™ PP+GF30 Polypropylene",
+      "Revision": "Internet Archive capture of 2024-06-18 19:38:56 UTC",
+      "Publication date": "Not published",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "3DXTECH's product page as the Internet Archive captured it for FibreX™ PP+GF30 Polypropylene (3DXTECH FIBREX GF PP, G084-01): its Print Recommendations block. The registered sheets leave nozzle, bed, chamber and drying unpublished. The capture is used because the live address now answers 404 and the maker's 2025 page draws its settings by script. Identity: the registered sheet X-FIBREX-GF-PP-TDS-v1 is titled \"FibreX PP+GF30 3D Printing Filament\" and this page links the maker's GF_PP_v1.pdf for the same product.",
+      "Citation role": "cited",
+      "URL": "http://web.archive.org/web/20240618193856id_/https://www.3dxtech.com/product/fibrex-pp-gf30-polypropylene/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G084-01",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) as the raw capture (id_) of https://www.3dxtech.com/product/fibrex-pp-gf30-polypropylene/; the document hashed is the page's HTML exactly as the Internet Archive replayed it. Staged by digest (ingest:witness --from); the page's maker does not serve it now.",
+      "SHA256": "f73a6394292981d55926c862dcf10e5fa0266c6fd5412278e3f06b2b62e5844b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FibreX™ PP+GF30 Polypropylene"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G084-01",
+        "MaterialID": "M084",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "FIBREX GF PP",
+        "Shared formulation key": "X-FIBREX-GF-PP-TDS-v1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-FIBREX-GF-PP-TDS-v1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M084",
+        "GradeID": "G084-01",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "240-270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "80-110°C",
+        "Bed state": "range",
+        "Bed min °C": "80",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not required",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "4 Hours at 65°C",
+        "Drying state": "stated",
+        "Drying need": "required",
+        "Drying °C": "65",
+        "Drying hours": "4",
+        "Drying hours open": "FALSE",
+        "Nozzle material": "0.4mm diameter minimum Hardened Steel Nozzle",
+        "Nozzle diameter": "0.4mm diameter minimum",
+        "Abrasion / clogging": "We highly recommend a hardened steel nozzle with a minimum diameter of 0.4mm for abrasive materials such as this",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3DXTECH-GAP2-20261005-f73a63942929",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Recommendations",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.25mm or higher"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Magigoo Bed Prep"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temp 240-270°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The same page also prints \"Typically does not absorb moisture, no drying required!\" beside its \"Drying Specs 4 Hours at 65°C\": the drying cell keeps the Print Recommendations line and this sentence is the other side of the same statement. The \"Ideal layer height is 60% of nozzle diameter\" advice duplicates the layer note."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G084-01: print settings only (1 profile row(s)); no measurement is entered. The same page also prints \"Typically does not absorb moisture, no drying required!\" beside its \"Drying Specs 4 Hours at 65°C\": the drying cell keeps the Print Recommendations line and this sentence is the other side of the same statement. The \"Ideal layer height is 60% of nozzle diameter\" advice duplicates the layer note."
+  }
+}

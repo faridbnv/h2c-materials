@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "020a6507944eb7ff0bd2bca14d4838bba5141a55a17bcc25fcfaf023fb5b324c",
+    "url": "https://extrudr.com/en/it/products/greentec/",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": "Extrudr",
+    "docKey": "https://extrudr.com/en/it/products/greentec/#witness-for=source:R-EXTRUDR-greentec-TDS-en"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G168-04 (Extrudr GREENTEC) of M168; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-GAP2-20261005-020a6507944e",
+      "Publisher": "Extrudr",
+      "Title": "GreenTEC",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Extrudr's product page as served on 2026-10-05 for GreenTEC (Extrudr GREENTEC, G168-04): its Print Settings; Drying block. The registered sheets leave drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://extrudr.com/en/it/products/greentec/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G168-04",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "020a6507944eb7ff0bd2bca14d4838bba5141a55a17bcc25fcfaf023fb5b324c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "GreenTEC"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G168-04",
+        "MaterialID": "M168",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "GREENTEC",
+        "Shared formulation key": "R-EXTRUDR-greentec-TDS-en",
+        "Composition / filler": "\"Biobased batch based on PLA, contains copolyester and additives.\" (D-EXTRUDR-GREENTEC-MSDS-EN, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Identified on 2026-09-28 (m223-what-the-makers-say-it-is), under PLA family, polymer not stated: PLA-based, with a copolyester, \"Biobased batch based on PLA, contains copolyester and additives.\" (D-EXTRUDR-GREENTEC-MSDS-EN, p. 1). Extrudr's current English safety data sheet, as both 2019 editions: PLA-based with a copolyester. The German edition of 14.11.2024 omits PLA. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-EXTRUDR-greentec-TDS-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "G168-04",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "200–230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "20–90 °C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosed chamber required No",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Drying temperature 60 °C Drying time 0–4 h",
+        "Drying state": "stated",
+        "Drying need": "required",
+        "Drying °C": "60",
+        "Drying hours": "4",
+        "Drying hours open": "FALSE",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Hardened nozzle required No",
+        "Hardened nozzle": "FALSE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-GAP2-20261005-020a6507944e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Settings; Drying",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20–200 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "30–80 %"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature  200–230 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The registered sheet prints the nozzle, bed and enclosure; this page adds the drying statement (60 C, 0-4 h) and speed and fan ranges. \"Surface preparation Not required\" and \"Max. volumetric flow rate 16 mm³/s\" are not settings a column holds. The FAQ says the filament \"does not require drying before use\". The page is GreenTEC, not the Pro or CF variants."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G168-04: print settings only (1 profile row(s)); no measurement is entered. The registered sheet prints the nozzle, bed and enclosure; this page adds the drying statement (60 C, 0-4 h) and speed and fan ranges. \"Surface preparation Not required\" and \"Max. volumetric flow rate 16 mm³/s\" are not settings a column holds. The FAQ says the filament \"does not require drying before use\". The page is GreenTEC, not the Pro or CF variants."
+  }
+}

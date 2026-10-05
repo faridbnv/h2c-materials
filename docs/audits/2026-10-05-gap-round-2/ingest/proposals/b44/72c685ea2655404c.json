@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "72c685ea2655404c7e073ae94017247b2fe67f920b45c62474f92cd223399561",
+    "url": "https://www.raise3d.com/materials/pa12-cf-plus/",
+    "pages": 1,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "https://www.raise3d.com/materials/pa12-cf-plus/#witness-for=source:D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G059-03 (Raise3D Industrial PA12 CF+) of M059; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RAISE3D-GAP2-20261005-72c685ea2655",
+      "Publisher": "Raise3D",
+      "Title": "PA12 CF+",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Raise3D's product page as served on 2026-10-05 for PA12 CF+ (Raise3D Industrial PA12 CF+, G059-03): its Printing Guide: Recommended Print Settings block. The registered sheets leave nozzle, bed and chamber unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.raise3d.com/materials/pa12-cf-plus/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G059-03",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "72c685ea2655404c7e073ae94017247b2fe67f920b45c62474f92cd223399561"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PA12 CF+"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G059-03",
+        "MaterialID": "M059",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Industrial PA12 CF+",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Composition / filler": "Raise3D Industrial PA12 CF+ is a carbon fiber-reinforced composite filament based on Polyamide 612 (PA612, Nylon 612) (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence. Filed 2026-09-27 (m205-raise3d-pa12-cf-plus-is-pa612): the sheet registered to G053-09 under this name is another product, based on PA612.",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-76400e",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M059",
+        "GradeID": "G059-03",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "260-290℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "60℃",
+        "Bed state": "range",
+        "Bed min °C": "60",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "at 80°C for 12 hours before printing",
+        "Drying state": "stated",
+        "Drying need": "required",
+        "Drying °C": "80",
+        "Drying hours": "12",
+        "Drying hours open": "FALSE",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Using an abrasion-resistant nozzle, at minimum a Steel nozzle should be used or preferably, a SiC nozzle.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RAISE3D-GAP2-20261005-72c685ea2655",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Printing Guide: Recommended Print Settings; Printing Notifications",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.15-0.25 mm (with 0.4mm nozzle)"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "35-100 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Cooling fan On"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature (°C) 260-290℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page prints no chamber or enclosure statement. The settings table prints \"Drying temperature (°C) 70-80℃ (with 1.0-2.0kW heating or drying oven)\"; the cell keeps the sentence's schedule (its \"Dry PA12 CF+\" opening is left out because the parser would read the 12 of \"PA12\" as a temperature). The annealing advice (80-100 C for 8-12 h) and the dry-box storage sentence are not print settings a column holds."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G059-03: print settings only (1 profile row(s)); no measurement is entered. The page prints no chamber or enclosure statement. The settings table prints \"Drying temperature (°C) 70-80℃ (with 1.0-2.0kW heating or drying oven)\"; the cell keeps the sentence's schedule (its \"Dry PA12 CF+\" opening is left out because the parser would read the 12 of \"PA12\" as a temperature). The annealing advice (80-100 C for 8-12 h) and the dry-box storage sentence are not print settings a column holds."
+  }
+}

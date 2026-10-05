@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "c6a8fbd9ed4e56a27c399c0374c4a760c2e8f3c015cc6f189d9b5285478e2904",
+    "url": "https://www.raise3d.com/materials/ppa-gf/",
+    "pages": 1,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "https://www.raise3d.com/materials/ppa-gf/#witness-for=source:D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G071-04 (Raise3D Industrial PPA GF) of M071; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RAISE3D-GAP2-20261005-c6a8fbd9ed4e",
+      "Publisher": "Raise3D",
+      "Title": "PPA GF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Raise3D's product page as served on 2026-10-05 for PPA GF (Raise3D Industrial PPA GF, G071-04): its Printing Guide: Recommended Print Settings block. The registered sheets leave nozzle, bed and chamber unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.raise3d.com/materials/ppa-gf/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G071-04",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "c6a8fbd9ed4e56a27c399c0374c4a760c2e8f3c015cc6f189d9b5285478e2904"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PPA GF"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G071-04",
+        "MaterialID": "M071",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Industrial PPA GF",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+        "Composition / filler": "incorporation of short glass fibers (15wt.%) further improves upon the properties of PPA matrix, which makes PPA (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M071",
+        "GradeID": "G071-04",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "280-320℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "280",
+        "Nozzle max °C": "320",
+        "Nozzle requirement": "required",
+        "Bed °C": "65-80℃",
+        "Bed state": "range",
+        "Bed min °C": "65",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "80-100°C for 4 to 6 hours",
+        "Drying state": "stated",
+        "Drying need": "required",
+        "Drying °C": "100",
+        "Drying hours": "6",
+        "Drying hours open": "FALSE",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Using an abrasion-resistant nozzle, at minimum a Steel nozzle should be used or preferably, a SiC nozzle.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RAISE3D-GAP2-20261005-c6a8fbd9ed4e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Printing Guide: Recommended Print Settings; Printing Notifications",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.1-0.25 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-120 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Cooling fan OFF"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature (°C) 280-320℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page prints no chamber or enclosure statement. The annealing advice (80-100 C for 4 to 8 h) is not a print setting a column holds. The page is Industrial PPA GF, not Hyper Core PPA GF25 (G071-05), which has its own page."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G071-04: print settings only (1 profile row(s)); no measurement is entered. The page prints no chamber or enclosure statement. The annealing advice (80-100 C for 4 to 8 h) is not a print setting a column holds. The page is Industrial PPA GF, not Hyper Core PPA GF25 (G071-05), which has its own page."
+  }
+}

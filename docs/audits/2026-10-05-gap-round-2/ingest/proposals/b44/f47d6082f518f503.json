@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "f47d6082f518f50311bb6e934abf427cc51a48b0663bb2c3c81429b890ee6a13",
+    "url": "https://www.raise3d.com/materials/hyper-core-ppa-gf25/",
+    "pages": 1,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "https://www.raise3d.com/materials/hyper-core-ppa-gf25/#witness-for=source:D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G071-05 (Raise3D Hyper Core PPA GF25) of M071; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RAISE3D-GAP2-20261005-f47d6082f518",
+      "Publisher": "Raise3D",
+      "Title": "Hyper Core PPA GF25",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Raise3D's product page as served on 2026-10-05 for Hyper Core PPA GF25 (Raise3D Hyper Core PPA GF25, G071-05): its Printing Guide: Recommended Print Settings block. The registered sheets leave nozzle, bed and chamber unpublished.",
+      "Citation role": "cited",
+      "URL": "https://www.raise3d.com/materials/hyper-core-ppa-gf25/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G071-05",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "f47d6082f518f50311bb6e934abf427cc51a48b0663bb2c3c81429b890ee6a13"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Hyper Core PPA GF25"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G071-05",
+        "MaterialID": "M071",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Hyper Core PPA GF25",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1",
+        "Composition / filler": "core where most of the glass fiber (25 wt.%) are well-aligned and distributed. As a result, Hyper Core (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M071",
+        "GradeID": "G071-05",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "300-330℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "300",
+        "Nozzle max °C": "330",
+        "Nozzle requirement": "required",
+        "Bed °C": "70-80℃",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "80",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "at least 8 hours at 80-100°C or more",
+        "Drying state": "stated",
+        "Drying need": "required",
+        "Drying °C": "100",
+        "Drying hours": "8",
+        "Drying hours open": "TRUE",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Using an abrasion-resistant nozzle, at minimum a Steel nozzle should be used or preferably, a SiC nozzle.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RAISE3D-GAP2-20261005-f47d6082f518",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Printing Guide: Recommended Print Settings; Printing Notifications",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "0.1-0.25 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "25-300 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Cooling fan On"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature (°C) 300-330℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page prints no chamber or enclosure statement. The settings table prints \"Drying temperature (°C) 80-100℃\"; the cell keeps the sentence that adds the time. The annealing advice and the dry-box sentence are not print settings a column holds."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G071-05: print settings only (1 profile row(s)); no measurement is entered. The page prints no chamber or enclosure statement. The settings table prints \"Drying temperature (°C) 80-100℃\"; the cell keeps the sentence that adds the time. The annealing advice and the dry-box sentence are not print settings a column holds."
+  }
+}

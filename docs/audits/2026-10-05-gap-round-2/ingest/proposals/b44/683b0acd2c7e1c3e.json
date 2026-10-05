@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b44.mjs (gap round 2)",
+    "date": "2026-10-05"
+  },
+  "document": {
+    "sha256": "683b0acd2c7e1c3e45ac031aea8ce38aa9129d0540ddf087a04d3ea0f44949ea",
+    "url": "https://fiberlogy.com/en/filaments/flex-en/fiberflex-30d-en/",
+    "pages": 1,
+    "provider": "Fiberlogy",
+    "manufacturer": "Fiberlogy",
+    "docKey": "https://fiberlogy.com/en/filaments/flex-en/fiberflex-30d-en/#witness-for=source:R-FIBERLOGY-FIBERLOGY-FIBERFLEX30D-TDS"
+  },
+  "identity": {
+    "polymer": null,
+    "note": "exact product G167-03 (Fiberlogy FiberFlex 30D) of M046; identity unchanged"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FIBERLOGY-GAP2-20261005-683b0acd2c7e",
+      "Publisher": "Fiberlogy",
+      "Title": "FiberFlex 30D",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-10-05",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Fiberlogy's product page as served on 2026-10-05 for FiberFlex 30D (Fiberlogy FiberFlex 30D, G167-03): its Printing Parameters block. The registered sheets leave chamber, plate and drying unpublished.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/filaments/flex-en/fiberflex-30d-en/",
+      "Locator": "Document / exact product page",
+      "Applicable grades": "G167-03",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-05 by Claude Sonnet (gap round 2, b44) from the maker's address; staged by digest (ingest:witness --from).",
+      "SHA256": "683b0acd2c7e1c3e45ac031aea8ce38aa9129d0540ddf087a04d3ea0f44949ea"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FiberFlex 30D"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "GradeID": "G167-03",
+        "MaterialID": "M046",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "FiberFlex 30D",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX30D-TDS",
+        "Composition / filler": "\"1,4-Benzenedicarboxylic acid, dimethyl ester, polymer with 1,4-butanediol and .alpha.- 9078-71-1 - >96\" (D-FIBERLOGY-FIBERFLEX-30D-SDS-EN, p. 2)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under TPC / TPEE on 2026-09-28 (m223-what-the-makers-say-it-is), moved from TPE, polymer not stated: copolyester elastomer, \"1,4-Benzenedicarboxylic acid, dimethyl ester, polymer with 1,4-butanediol and .alpha.- 9078-71-1 - >96\" (D-FIBERLOGY-FIBERFLEX-30D-SDS-EN, p. 2). Fiberlogy's safety data sheets, in every revision found (2018, 2022, 2025), name a copolyester of terephthalate, butanediol and poly(tetramethylene ether) glycol (CAS 9078-71-1, over 96 %): a TPC. Its product page calls it TPU, and names nothing else; its sheet's density (1.07), melting point (170 to 174 °C) and Shore D 30 are a copolyester elastomer's (DuPont Hytrel 3078 prints 1.07 and 177 °C). The safety data sheet decides. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX30D-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "note": "Existing exact product binding; the grade, its material and its primary source are unchanged."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M046",
+        "GradeID": "G167-03",
+        "Profile": "Current manufacturer product guidance",
+        "Nozzle °C": "200–220°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "220",
+        "Nozzle requirement": "required",
+        "Bed °C": "70°C",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "70",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Smooth PEI + masking tape or adhesive; Textured PEI + adhesive; Glass + masking tape or adhesive",
+        "Drying": "60°C / 4 hours",
+        "Drying state": "stated",
+        "Drying need": "required",
+        "Drying °C": "60",
+        "Drying hours": "4",
+        "Drying hours open": "FALSE",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FIBERLOGY-GAP2-20261005-683b0acd2c7e",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Technical Data: Printing Parameters",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "Maximum recommended print speed: <35 mm/s"
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Print temperature: 200–220°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+        "visual": false,
+        "note": "Read from the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "note": "The page also prints \"Humidity: 50–75%\" among the parameters; it names no condition (print room or filament) and is not entered. The registered sheet prints the nozzle and bed windows (200-220 C, 50-70 C); this page's bed is 70 C and it adds the enclosure, build surface and drying statements."
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (gap round 2, b44), checked by Claude Opus",
+    "note": "Maker document for the existing product G167-03: print settings only (1 profile row(s)); no measurement is entered. The page also prints \"Humidity: 50–75%\" among the parameters; it names no condition (print room or filament) and is not entered. The registered sheet prints the nozzle and bed windows (200-220 C, 50-70 C); this page's bed is 70 C and it adds the enclosure, build surface and drying statements."
+  }
+}
