@@ -66,7 +66,6 @@ ABS-AF PASS
 1,040–1,050 · 3
  1.89 22 6* passing: 88
 all products: 88
-88 · 2
  127↗ ☆
 ABS-ESD PASS
 1 of 2 products
@@ -132,7 +131,7 @@ all products: 77.5
 70–85 · 2
  64↗ ☆
 ASA-CF PASS
-6 of 6 products
+7 of 7 products
  1,095
 1,020–1,170 · 16
  3.91
@@ -538,9 +537,7 @@ PP-GF
 Polyolefins
  PASS
 1 of 1 product
- 1,120
-1,120 · 2
- 6.75 65 1.7 passing: 138
+ 1,120 6.75 65 1.7 passing: 138
 all products: 139
 138–139 · 2
  118¤↗

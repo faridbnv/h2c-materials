@@ -227,6 +227,11 @@ export function boundNeedles(b) {
 
 // ---- mapping the reader's words to the vocabularies --------------------------------------------------------------
 
+// A setting printed for the test bars is not guidance (m170): "Printed conditions:" over "conditions of the test specimens"
+// (Fillamentum OBC 905), "Specimen conditions", "All testing specimens were printed under …". A held profile whose Locator
+// says its temperatures are the specimens' takes none either (m345).
+const SPECIMEN_CONDITIONS = /specimens?['’]?\s+conditions?|conditions\s+of\s+the\s+(?:test\s+)?specimens?|printed\s+conditions|test(?:ing)?\s+specimens?|specimens?\s+(?:were\s+)?printed|not\s+a\s+(?:print\s+)?recommendation/i;
+const TEST_BAR_COLUMNS = new Set(['Nozzle °C', 'Bed °C', 'Chamber °C']);
 const SPECIMEN_FILM = 'Film specimen (ASTM D882); not a printed or moulded bar';
 
 /** Specimen type from the reader's word, else from the table heading it sat under, else the unstated value the import writes. */
@@ -690,7 +695,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const reasons = [];
     const column = SETTING_COLUMN[r.Field];
     if (!column) reasons.push('no-table-column');
-    if (/specimen conditions?|not a (print )?recommendation/i.test(`${r.TableHeading} ${r.Note}`)) reasons.push('specimen-condition-not-guidance');
+    if (SPECIMEN_CONDITIONS.test(`${r.TableHeading} ${r.Note}`)) reasons.push('specimen-condition-not-guidance');
     const grade = gradeOf(r);
     if (grade.error) reasons.push(grade.error);
     const cell = column ? cellOf(r) : '';
@@ -856,7 +861,8 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (ids.length !== 1) reasons.push('multiple-profiles');
     const profile = tables.profiles.find((p) => p.ProfileID === ids[0]);
     if (ids.length === 1 && (!profile || !live(profile))) reasons.push('held-profile-not-live');
-    if (/specimen conditions?|not a (print )?recommendation/i.test(`${r.TableHeading} ${r.Note}`)) reasons.push('specimen-condition-not-guidance');
+    if (profile && TEST_BAR_COLUMNS.has(column) && /not printing guidance/.test(profile.Locator)) reasons.push('specimen-condition-not-guidance');
+    if (SPECIMEN_CONDITIONS.test(`${r.TableHeading} ${r.Note}`)) reasons.push('specimen-condition-not-guidance');
     const cell = column ? cellOf(r) : '';
     if (column && NO_VALUE.test(cell)) reasons.push('no-value-printed');
     if (profile && column && !reasons.length && squash(profile[column]) === squash(cell)) reasons.push('same-text');

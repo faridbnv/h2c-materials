@@ -24,7 +24,7 @@ M022,PETG HF,family,unknown,unknown,unknown,unknown,unknown
 M023,PETG Translucent,family,unknown,unknown,unknown,unknown,unknown
 M024,PETG-CF,within,within,within,within,requires-hardened,required
 M025,PETG-GF,within,within,within,within,requires-hardened,required
-M026,PETG-ESD,within,within,within,within,no-special-concern,required
+M026,PETG-ESD,within,within,within,within,requires-hardened,required
 M027,ABS,within,within,within,within,no-special-concern,required
 M028,ABS-GF,within,within,within,within,requires-hardened,required
 M029,ABS-CF,within,within,within,partial,requires-hardened,required
@@ -116,12 +116,12 @@ M114,TPC-ESD,within,unknown,unknown,unknown,unknown,unknown
 M115,PEKK-ESD,excluded,unknown,unknown,unknown,unknown,unknown
 M116,PC-ESD,within,within,within,unknown,unknown,required
 M117,PEI-GF,excluded,unknown,unknown,unknown,unknown,unknown
-M118,PEI-CF,excluded,exceeds,exceeds,exceeds,unknown,required
+M118,PEI-CF,excluded,exceeds,exceeds,exceeds,requires-hardened,required
 M119,PC-ASA,within,within,within,unknown,unknown,unknown
 M120,PVDF-ESD,within,within,within,within,unknown,required
 M121,TPI,excluded,unknown,unknown,unknown,unknown,unknown
-M122,PEKK-CF,excluded,exceeds,exceeds,exceeds,unknown,required
-M123,PEI-ESD,excluded,unknown,unknown,unknown,unknown,unknown
+M122,PEKK-CF,excluded,exceeds,exceeds,exceeds-recommended,requires-hardened,required
+M123,PEI-ESD,excluded,exceeds,exceeds,unknown,unknown,required
 M124,PPS-ESD,within,within,exceeds,partial,unknown,required
 M125,PEEK-CF,excluded,exceeds,within,exceeds,unknown,required
 M126,TPU-ESD,within,within,within,within,no-special-concern,required
@@ -135,7 +135,7 @@ M133,PBAT,within,within,within,within,unknown,required
 M134,CPE-LW,within,within,within,within,unknown,required
 M135,PVC,within,within,within,unknown,no-special-concern,required
 M136,SAN,within,within,within,unknown,unknown,required
-M137,COC,within,unknown,within,partial,unknown,required
+M137,COC,within,within,within,partial,unknown,required
 M138,PE-GF,within,within,within,unknown,unknown,required
 M139,LCP,within,within,exceeds,unknown,unknown,required
 M140,PBT,within,within,exceeds,unknown,unknown,required
@@ -153,7 +153,7 @@ M151,TPU-GF,within,within,within,within,requires-hardened,required
 M152,PLA-NF,within,within,within,within,no-special-concern,required
 M153,PETG-GR,within,within,within,within,no-special-concern,required
 M154,PA12-AF,within,within,within,unknown,requires-hardened,required
-M155,PLA-GR,within,unknown,within,unknown,unknown,unknown
+M155,PLA-GR,within,within,within,within,no-special-concern,unknown
 M156,PA6/66-CF,within,within,within,unknown,requires-hardened,required
 M157,TPU-EC,within,within,within,unknown,no-special-concern,required
 M158,PLA-CE,within,within,within,within,unknown,required
@@ -171,6 +171,6 @@ M169,PLA blend-CF,within,within,within,within,requires-hardened,required
 M170,TPS,within,within,within,partial,unknown,required
 M171,316L stainless steel sintering filament,excluded,within,within,within,requires-hardened,required
 M172,Silicon carbide sintering filament,excluded,within,within,within,requires-hardened,required
-M173,Alumina sintering filament,excluded,unknown,unknown,unknown,unknown,unknown
-M174,SBC,within,within,unknown,unknown,unknown,unknown
-M175,TPV,within,unknown,within,partial,unknown,unknown
+M173,Alumina sintering filament,excluded,within,within,unknown,unknown,unknown
+M174,SBC,within,within,within,within,unknown,unknown
+M175,TPV,within,within,within,partial,unknown,required

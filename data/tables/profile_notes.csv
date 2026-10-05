@@ -2198,3 +2198,123 @@ P1402,Cooling,50~100%
 P1402,Retraction,Length: 0.3~1mm; Retraction Speed: 30~50mm/s
 P1402,Storage humidity,"Room temperature to 40°C, ≤20% RH (Sealed with desiccant)"
 P1403,Adhesion / release,"Bed Prep: 3DXTech Polyimide Tape, ABS / Acetone Slurry, or Hairspray on clean glass; cool the bed down by about 10-20°C after the first couple of layers"
+P1803,Layer height,> 0.1mm
+P1803,Cooling,80-100%
+P1803,Speed,Medium
+P1803,Retraction,Yes ± 5mm
+P1804,Layer height,≥ 0.2mm
+P1804,Cooling,0-70%
+P1804,Speed,slow
+P1804,Retraction,Yes ± 5mm
+P1804,Storage humidity,Filament should be stored at room temperature in a dry and dark place with humidity below 15%.
+P1805,Layer height,≥ 0.2mm
+P1805,Cooling,50-100%
+P1806,Speed,Top and bottom layers: 20-30 mm/sec (900-1800 mm/min); Infill speeds: 35-60 mm/sec (2700-3600 mm/min)
+P1806,Cooling,Layer 2+ use cooling fan if available.
+P1806,Adhesion / release,Glue is suggested on bed.; Build platform requires same prep as PLA.
+P1807,Speed,Top and bottom layers: 10-20 mm/sec (600-1200 mm/min); Infill speeds: 15-35 mm/sec (909-2100 mm/min)
+P1807,Cooling,Layer 2+ use cooling fan if available.
+P1807,Adhesion / release,Glue and/ or blue painters tape is suggested if not using a heated bed.
+P1808,Layer height,≥ 0.1mm
+P1808,Cooling,0 – 30%
+P1809,Layer height,No special concerns
+P1809,Adhesion / release,Hair Spray on Magigoo Bed Prep
+P1810,Layer height,≥ 0.1mm
+P1810,Cooling,0 – 30%
+P1811,Layer height,≥ 0.1mm
+P1811,Cooling,50-100%
+P1811,Speed,Low
+P1811,Retraction,Yes ± 5mm
+P1811,Adhesion / release,"Large Pegasus PP Ultralight prints can be printed on an unheated 2mm or 3mm PP plate, which can be attached to the print bed. Smaller prints can be printed on standard PP packaging tape."
+P1812,Layer height,≥ 0.1mm
+P1812,Cooling,20-50%
+P1812,Speed,Medium
+P1812,Retraction,Yes ± 5mm
+P1813,Layer height,≥ 0.1mm
+P1813,Cooling,50-100%
+P1814,Speed,30-100mm/s
+P1815,Cooling,50 - 100 %
+P1816,Layer height,≥ 0.1mm
+P1816,Cooling,0-50%
+P1816,Speed,Medium
+P1816,Retraction,Yes ± 5mm
+P1816,Adhesion / release,prepare your heat bed with DimaFix fixative spray
+P1816,Warping / shrinkage,ABSpro – Flame Retardant has a tendency to warp
+P1817,Layer height,≥ 0.1mm
+P1817,Cooling,0-30%
+P1818,Layer height,≥ 0.1mm
+P1818,Cooling,0-100%
+P1819,Layer height,No Special Concerns
+P1820,Speed,Top and bottom layers: 15-20 mm/sec (900-1800 mm/min); Infill speeds: 45-60 mm/sec (2700-3600 mm/min)
+P1820,Cooling,Layer 2+ use cooling fan if available.
+P1820,Adhesion / release,Glue is suggested on bed.
+P1821,Speed,40-1000 mm/s
+P1821,Cooling,Up to 100%
+P1821,Adhesion / release,"not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)"
+P1821,Storage humidity,Drybox recommended No
+P1822,Layer height,≥ 0.1mm
+P1822,Cooling,0-50%
+P1822,Speed,Low / Medium
+P1822,Retraction,Yes ± 5mm
+P1822,Adhesion / release,"Large Centaur PP prints can be printed on an unheated 2mm or 3mm PP plate, which can be attached to the print bed. Smaller prints can be printed on standard PP packaging tape."
+P1823,Layer height,≥ 0.1mm
+P1823,Cooling,0 – 30%
+P1824,Layer height,≥ 0.1mm
+P1824,Cooling,50-100%
+P1824,Speed,Medium-Fast
+P1824,Retraction,Yes ± 5mm
+P1825,Speed,40-1000 mm/s
+P1825,Cooling,Up to 100%
+P1825,Adhesion / release,"not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)"
+P1825,Storage humidity,Drybox recommended No
+P1826,Layer height,≥ 0.2mm
+P1826,Cooling,50-100%
+P1826,Storage humidity,Filament should be stored at room temperature in a dry and dark place with humidity below 15%.
+P1827,Layer height,≥ 0.1mm
+P1827,Cooling,50-100%
+P1827,Speed,Low
+P1827,Retraction,Yes ± 5mm
+P1828,Layer height,≥ 0.1mm
+P1828,Cooling,0-35%
+P1828,Speed,Medium
+P1828,Retraction,Yes ± 5mm
+P1829,Layer height,≥ 0.10mm
+P1829,Cooling,10 – 50%
+P1829,Adhesion / release,EasyFix Nr. III
+P1831,Layer height,≥ 0.1mm
+P1831,Cooling,50-100%
+P1832,Speed,50-600mm/s
+P1833,Layer height,≥ 0.05mm
+P1833,Cooling,10-25%
+P1833,Adhesion / release,EasyFil Nr. I
+P1834,Layer height,≥ 0.2mm
+P1834,Cooling,80-100%
+P1834,Speed,Slow
+P1834,Retraction,Yes ± 5mm
+P1835,Speed,50-100mm/s
+P1836,Layer height,"> 0,2mm"
+P1836,Speed,40 - 60 mm/s
+P1837,Layer height,≥ 0.2mm
+P1837,Cooling,80-100%
+P1837,Speed,20-45mm/s
+P1837,Retraction,Yes ± 5mm
+P1838,Layer height,≥ 0.1mm
+P1838,Cooling,0 – 30%
+P1839,Speed,Top and bottom layers: 10-20 mm/sec (600-1200 mm/min); Infill speeds: 15-35 mm/sec (900-2100 mm/min)
+P1839,Cooling,Layer 2+ use cooling fan if available.
+P1839,Adhesion / release,Glue is suggested on bed.
+P1841,Speed,50-20mm/s
+P1842,Layer height,≥ 0.2mm
+P1842,Cooling,50-100%
+P1843,Layer height,≥ 0.1mm
+P1843,Cooling,0-30%
+P1843,Speed,Medium / High
+P1843,Retraction,Yes ± 5mm
+P1844,Layer height,≥ 0.2mm
+P1844,Cooling,0-70%
+P1844,Speed,slow
+P1844,Retraction,Yes ± 5mm
+P1844,Storage humidity,Filament should be stored at room temperature in a dry and dark place with humidity below 15%.
+P1845,Cooling,50 - 75 %
+P1846,Layer height,≥ 0.2mm
+P1846,Cooling,50-100%

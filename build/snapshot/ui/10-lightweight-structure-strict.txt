@@ -160,17 +160,17 @@ all products: 1,200
 all products: 3.1
  82.1 — 80* — ☆
 PETG PASS
-1 of 58 products
+1 of 57 products
  passing: 1,250
 all products: 1,270
 1,180–1,350 · 64
  passing: 2.78
-all products: 1.67
-0.5–3.5 · 20
- 47.3
-31.9–68.4 · 26
- 8.6
-4.1–90 · 25
+all products: 1.68
+0.5–3.5 · 19
+ 47.5
+33–68.4 · 25
+ 8.96
+4.1–90 · 24
 annealed median
  70
 63–80 · 40

@@ -47,10 +47,12 @@ export const REQUIREMENT = {
 };
 
 // Yousu and 3D-Fuel print the bed as "None needed (or 50-70°C if applicable)": not required, with the window if one is used.
-const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary)\b/i;
+// SUNLU's Chinese sheets say "该材料无需热床即可成功打印" (the material prints without a heated bed; reader round, 2026-10-04).
+const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary)\b|无需(?:热床|加热)/i;
 // "It is recommended to print using a heated chamber." recommends one without a temperature (the profile root-cause
 // sweep of 2026-10-02).
-const RECOMMENDED_RE = /^recommended\b|(?<!\bnot\s)\brecommended\s+to\s+print\s+(?:using|with|in)\s+an?\s+heated\s+chamber\b/i;
+// Fiberlogy's "enclosed and heated chamber recommended" does the same (reader round, 2026-10-04).
+const RECOMMENDED_RE = /^recommended\b|(?<!\bnot\s)\brecommended\s+to\s+print\s+(?:using|with|in)\s+an?\s+heated\s+chamber\b|\bheated\s+chambers?\s+(?:is\s+)?recommended\b/i;
 // Polymaker marks the whole window after its numbers: "70 – 80 (recommended) (˚C)", "70-80 (˚C)(Recommended)". A bracket
 // holding a number as well ("230~260 ℃ (recommended: 240℃)") recommends a point inside a window, which stays required.
 const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
@@ -59,15 +61,18 @@ const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
 // Room temperature (no heating); Large parts 50–55 °C": a window for large parts only (the control draw of 2026-10-02).
 const RECOMMENDED_IF_RE = /\bif you have a heated bed\b|\brecommended temperature is\b|\bsmall\s+parts\s+room\s+temp\w*\s*\(no\s+heating\)/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
-// BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT.
-const DASH_RE = /^-$/;
+// BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT. SUNLU
+// prints a lone slash in its bed row (reader round, 2026-10-04).
+const DASH_RE = /^[-/]$/;
 // CreatBot prints "Chamber temperature OFF": the heater is to be off, so no heated chamber is wanted.
 const OFF_RE = /^off$/i;
 // Flashforge, SIDDAMENT and LEHVOSS say a filament prints "on non-heated chamber FFF 3D printers" or "in non-heated
 // chambers" in their prose. It is read before any number, because "3D" would otherwise be taken for a 3 °C chamber.
 // Siraya Tech's "no need of temperature chamber" and IPCON's "no heating chamber are required during the printing
 // process" say the same in other words (the profile root-cause sweep of 2026-10-02).
-const NON_HEATED_RE = /\bnon-?heated\s+chambers?\b|\b(?:does\s+not|doesn['’]t)\s+require\s+an?\s+heated\s+(?:building\s+|build\s+|print\s+)?chambers?\b|\bno\s+need\s+(?:of|for)\s+(?:an?\s+)?(?:temperature|heated|heating)\s+chambers?\b|\bno\s+(?:heated|heating)\s+chambers?\s+(?:is|are)\s+(?:required|needed|necessary)\b/i;
+// Raise3D's PPS-CF sheet prints "non-heated printing camber"; BASF's Ultrafuse ASA asks for "At least closed chamber,
+// passively heated", which is a closed printer with no heater set (reader round, 2026-10-04).
+const NON_HEATED_RE = /\bnon-?heated\s+(?:printing\s+)?ch?ambers?\b|\bpassively\s+heated\b|\b(?:does\s+not|doesn['’]t)\s+require\s+an?\s+heated\s+(?:building\s+|build\s+|print\s+)?chambers?\b|\bno\s+need\s+(?:of|for)\s+(?:an?\s+)?(?:temperature|heated|heating)\s+chambers?\b|\bno\s+(?:heated|heating)\s+chambers?\s+(?:is|are)\s+(?:required|needed|necessary)\b/i;
 // "65˚C+" (Polymaker ABS Max's chamber), "140 ºC +" and LEHVOSS's "> 120 °C" are at-least values: a lower end, with no
 // upper end published.
 // Fillamentum prints the plus before the unit: "Hot pad 100+ °C".
@@ -77,7 +82,8 @@ const AT_LEAST_LEAD_RE = /^(?:>|≥|>=)\s*(\d+(?:\.\d+)?)()\s*[^\d\s]{0,3}\s+[^\
 // published. Read as a number, "< 80°C" was the single point 80 (the control re-read of 2026-10-01).
 const AT_MOST_RE = /^(?:<|≤|<=|＜)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3}(?:\s+[^\d]*)?$/;
 // SUNLU answers its "Room Temp." row "Normal temperature", "Normal" or 常温 (normal temperature) on other sheets.
-const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?|normal\s+temp\w*)\b|常温|^normal$/i;
+// 室温 (room temperature) on SUNLU's TPU sheet (reader round, 2026-10-04).
+const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?|normal\s+temp\w*)\b|常温|室温|^normal$/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
 
 /**
@@ -355,6 +361,9 @@ export function parseAbrasion(raw) {
   // needed; read by the word "abrasive" alone these said the opposite (Polymaker's "No. ABS Pro contains no abrasive
   // fillers and prints well with standard nozzles", Fabru's "nicht abrasiv; Messingdüse ausreichend"; reader round, m345).
   if (/\b(?:contains?|has|have|with)\s+no\s+abrasive\b|\bnicht\s+abrasiv\b|\bprints?\s+(?:well\s+)?(?:with|on)\s+(?:a\s+)?(?:standard|regular|normal)\s+nozzles?\b|\bMessingd[üu]se\s+ausreichend\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  // A sheet that says brass will do, with hardened steel as an alternative, needs none: MatterHackers' "Minimum 0.4 mm
+  // diameter; brass or hardened steel compatible" (reader round, m353).
+  if (/\bbrass\s+(?:or|and|\/)\s+(?:hardened\s+)?steel\s+(?:nozzles?\s+)?(?:are\s+|is\s+)?(?:compatible|fine|ok|suitable)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   // A German sheet answers "Hardened Nozzle nein" (or "ja").
   const answer = /\b(yes|ja|no|nein|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
   if (answer && /abrasi|hardened|carbide|diamond|ruby/i.test(text)) {

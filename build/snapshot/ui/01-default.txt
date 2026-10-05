@@ -26,7 +26,7 @@ A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limit
 Flexible component
 A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
 153 materials, 136 within H2C capability
-14090 measurements, each traceable to its source
+14104 measurements, each traceable to its source
 148 have a density, 100 a modulus, 101 a price
 Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer
@@ -78,9 +78,7 @@ annealed median
 ↗ ☆
 ABS-AF not tested 1,050
 1,040–1,050 · 3
- 1.89 22 6* 88
-88 · 2
- 127↗ ☆
+ 1.89 22 6* 88 127↗ ☆
 ABS-CF not tested 1,080
 1,050–1,110 · 11
  4.35
@@ -148,9 +146,7 @@ ASA Aero not tested 745
  77.5
 70–85 · 2
  64↗ ☆
-ASA-AF not tested 1,070
-1,070 · 3
- 2.2* 40* 6* 89* 115
+ASA-AF not tested 1,070 2.2* 40* 6* 89* 115
 109–120 · 2
 ↗ ☆
 ASA-CF not tested 1,095
@@ -256,9 +252,7 @@ Nylon / Polyamide
  107¤ ☆
 OBC
 Polyolefins
- not tested 905
-905 · 2
- — 14 700 n/a — ☆
+ not tested 905 — 14 700 n/a — ☆
 PA-ESD
 Nylon / Polyamide
  not tested 1,140 6.9* 68* 3.8* 142 — ☆
@@ -528,28 +522,20 @@ PCL
 PVB / Specialty Polymers
  not tested 1,100
 1,100–1,130 · 3
- 0.35* 45* 800 57
-57 · 2
- — ☆
+ 0.35* 45* 800 57 — ☆
 PCTG
 Copolyesters
- not tested 1,230
-1,230 · 8
- 1.75 45 24 76
+ not tested 1,230 1.75 45 24 76
 74–76 · 6
  48↗ ☆
 PCTG-CF
 Copolyesters
- not tested 1,280
-1,280 · 3
- — 39* 9* 77
+ not tested 1,280 — 39* 9* 77
 76–78 · 2
  138¤ ☆
 PCTG-GF
 Copolyesters
- not tested 1,310
-1,310 · 3
- 3.4* 55* 8* 78
+ not tested 1,310 3.4* 55* 8* 78
 76–78 · 3
  165¤↗
 out of stock
@@ -703,9 +689,7 @@ annealed median
 ↗ ☆
 PET-LW
 PET Engineering
- not tested 520
-520 · 2
- 1.4
+ not tested 520 1.4
 1.29–1.5 · 2
  13.2
 10.3–16.1 · 2
@@ -714,12 +698,12 @@ PET Engineering
  — — ☆
 PETG not tested 1,270
 1,180–1,350 · 64
- 1.67
-0.5–3.5 · 20
- 47.3
-31.9–68.4 · 26
- 8.6
-4.1–90 · 25
+ 1.68
+0.5–3.5 · 19
+ 47.5
+33–68.4 · 25
+ 8.96
+4.1–90 · 24
 annealed median
  70
 63–80 · 40
@@ -761,12 +745,8 @@ PETG-GF not tested 1,330
  1.9 78
 76–80 · 2
  37↗ ☆
-PETG-GR not tested 1,290
-1,290 · 2
- 1.4* 55.2* 5.62* 69* 85.8¤ ☆
-PETG-PTFE not tested 1,320
-1,320 · 2
- 1.85* 40* > 100* — 86↗ ☆
+PETG-GR not tested 1,290 1.4* 55.2* 5.62* 69* 85.8¤ ☆
+PETG-PTFE not tested 1,320 1.85* 40* > 100* — 86↗ ☆
 PLA not tested 1,240
 1,170–1,329 · 157
  2.58
@@ -851,7 +831,6 @@ PLA Metal not tested 1,225
 1.9–2.01 · 2
 annealed median
  34
-34 · 2
 annealed median
  12.8
 11–14.7 · 2
@@ -922,9 +901,7 @@ PLA-ESD not tested 1,210
 PLA-GF not tested 1,280
 1,200–1,337 · 4
  3.79 50.1 2.77 75.5 41↗ ☆
-PLA-GR not tested 1,240
-1,240 · 2
- 3.6* 65* 4.19* — 42.9
+PLA-GR not tested 1,240 3.6* 65* 4.19* — 42.9
 32.1–53.6 · 2
 ¤ ☆
 PLA-NF not tested 1,350
@@ -970,9 +947,7 @@ Polyolefins
  147↗ ☆
 PP-GF
 Polyolefins
- not tested 1,120
-1,120 · 2
- 6.75 65 1.7 139
+ not tested 1,120 6.75 65 1.7 139
 138–139 · 2
  118¤↗
 out of stock
@@ -1045,9 +1020,7 @@ High-Performance Engineering
  not tested 1,340 2.6 55 8 93 — ☆
 PPS-GF
 High-Performance Engineering
- not tested 1,360
-1,360 · 2
- 5.16
+ not tested 1,360 5.16
 4.55–5.76 · 2
  68
 64.1–72 · 2
@@ -1074,9 +1047,7 @@ Support / Soluble
 23–65 · 2
  111
 7–215 · 2
- 55
-55 · 2
- 121
+ 55 121
 102–212 · 3
 ↗ ☆
 PVB
@@ -1244,4 +1215,4 @@ Flexible Elastomers
  — 10.3 629 n/a 70↗ ☆
 TPV
 Flexible Elastomers
- not tested 1,240 0.0139* 7.2* — n/a — ☆
+ not tested 1,240 0.0139* 7.2* 630* n/a — ☆

@@ -1,5 +1,5 @@
 {
-  "dataRelease": "d4871eaa4e62",
+  "dataRelease": "f0e0a7e4e54f",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -34,10 +34,10 @@
   },
   "allCataloguePrintGates": {
     "products": 1099,
-    "nozzleKnown": 1031,
-    "chamberKnown": 787,
-    "chamberUnknown": 312,
-    "dryingRequired": 725
+    "nozzleKnown": 1059,
+    "chamberKnown": 806,
+    "chamberUnknown": 293,
+    "dryingRequired": 742
   },
   "databaseCounts": {
     "materials": 175,
@@ -50,13 +50,13 @@
     },
     "excluded": 17,
     "grades": 1163,
-    "measurements": 14090,
-    "numericMeasurements": 13907,
+    "measurements": 14104,
+    "numericMeasurements": 13921,
     "quarantined": 26,
-    "profiles": 1723,
+    "profiles": 1803,
     "evidence": 868,
     "prices": 357,
-    "sources": 1928,
+    "sources": 1972,
     "coverage": 948,
     "knowHow": 4867,
     "polymerEnvironment": 353,
@@ -108,8 +108,8 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 14407,
-      "added": 2871,
+      "current": 14421,
+      "added": 2885,
       "edited_existing": 1415,
       "removed": 0
     },
@@ -122,8 +122,8 @@
     },
     "page_context": {
       "baseline": 0,
-      "current": 387,
-      "added": 387,
+      "current": 397,
+      "added": 397,
       "edited_existing": 0,
       "removed": 0
     },
@@ -150,16 +150,16 @@
     },
     "profile_notes": {
       "baseline": 2061,
-      "current": 2199,
-      "added": 138,
+      "current": 2319,
+      "added": 258,
       "edited_existing": 0,
       "removed": 0
     },
     "profiles": {
       "baseline": 1316,
-      "current": 1802,
-      "added": 486,
-      "edited_existing": 965,
+      "current": 1882,
+      "added": 566,
+      "edited_existing": 963,
       "removed": 0
     },
     "properties": {
@@ -171,8 +171,8 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 1928,
-      "added": 100,
+      "current": 1972,
+      "added": 144,
       "edited_existing": 95,
       "removed": 0
     }

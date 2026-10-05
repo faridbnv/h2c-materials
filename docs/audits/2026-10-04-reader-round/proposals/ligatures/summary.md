@@ -120,3 +120,5 @@
 ## Headline values among the new ones
 
 7 of 14 values-add rows are properties a headline reads.
+
+Claude Opus moved the three profiles-set rows of P1269 (Fillamentum OBC 905, "Printed conditions": the test bars' settings, m170) to moved-out/test-bar-settings.csv; profiles-set.csv holds 10 rows.

@@ -1008,12 +1008,15 @@ export function readRow(text, registry, held = null) {
 // lost the window, and a nozzle row that no longer stated a temperature was thrown away altogether.
 // The degree may be printed as the ordinal "º" or the ring "˚" ("140 ºC +"), and an at-least value ends in "+": read
 // without them the value was "140", a point where the sheet states a lower end (the control re-read of 2026-10-01).
-const VALUE_HEAD = /^\s*(?:[<>≥≤~]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:[°º˚]\s?C|℃|%|mm)?\s*(?:[-–—~～]|to)\s*)?\d+(?:[.,]\d+)?\s*\+?\s*(?:[°º˚]\s?C|℃|C\b|%|mm[³3]\/s|mm\/s|mm\/min|mm|m\/s)?(?:\s*\+)?/i;
+const VALUE_HEAD = /^\s*(?:[<>≥≤~±]\s*)?(?:\d+(?:[.,]\d+)?\s*(?:[°º˚]\s?C|℃|%|mm)?\s*(?:[-–—~～]|to)\s*)?\d+(?:[.,]\d+)?\s*\+?\s*(?:[°º˚]\s?C|℃|C\b|%|mm[³3]\/s|mm\/s|mm\/min|mm|m\/s)?(?:\s*\+)?/i;
 // A drying temperature is followed by its hours after a comma ("80~85℃, 12h", "50℃-60℃，6h"); cut there, the hours were
 // lost on every Eryone sheet.
 const CONTINUES = /^(\(|up to\b|max\b|min\b|or\b|and\b|±|[,，]\s*[\d.]+(?:\s*[-–~]\s*[\d.]+)?\s*(?:h|hrs?|hours?)\b)/i;
 // Where a neighbouring column's sentence begins: a run of capitals, or a sentence's subject and verb.
-const FOREIGN = /\s(?=[A-Z]{2,}(?:\s+[A-Z&]{2,})+)|\s(?=[A-Z][a-z]+\s+(?:should|is|are|has|have|may|shall|can|will|must)\b)/;
+// A spec grid that a web page runs onto one line ends a value where the next label begins: FormFutura prints "Heat bed: ±
+// 50 – 60° C  Fan speed: 80-100%", and the fan speed was read as part of the bed's window. An approximate window ("± 50 – 60°
+// C") is a value as a bound is.
+const FOREIGN = /\s(?=[A-Z]{2,}(?:\s+[A-Z&]{2,})+)|\s(?=[A-Z][a-z]+\s+(?:should|is|are|has|have|may|shall|can|will|must)\b)|\s{2,}(?=[A-Z][a-z]+(?:\s[a-z]+){0,3}:\s)/;
 
 export function settingValue(text) {
   // The punctuation between a label and its value is not part of the value. A full stop is, where it is the

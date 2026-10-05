@@ -46,9 +46,7 @@ OBC
 Polyolefins
  PASS
 1 of 1 product
- 905
-905 · 2
- — 14 passing: 700
+ 905 — 14 passing: 700
 all products: 700
  n/a — ☆
 PA6/66

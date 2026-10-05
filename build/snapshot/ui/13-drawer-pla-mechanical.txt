@@ -21,7 +21,7 @@ Flexural elongation at break
 Flexural stress at conventional deflection
 2 values
 Charpy strength
-116 values
+117 values
 Izod impact strength
 112 values
 Impact strength

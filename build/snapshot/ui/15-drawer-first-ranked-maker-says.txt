@@ -17,4 +17,4 @@ What the maker says
  Not stated by the maker: warping, dimensional accuracy, surface finish, layer adhesion, moisture, odour, supports and annealing schedule.
 What the maker says
  Benefits“Electrically conductive, suitable for continuous discharging of statically-generated electricity.” — data sheet, p. 1 where ID“Strong, stiff parts.” — data sheet, p. 1 where ID“Usually the material can be processed over a broad temperature range and can thus be adapted to a wide variety of processing conditions.” — data sheet, p. 2 where IDWarping and shrinkage“Low warpage.” — data sheet, p. 1 where IDMoisture sensitivity“Moisture may lead to smearing and in extreme cases to foaming.” — data sheet, p. 2 where ID
- Not stated by the maker: applications, pitfalls, dimensional accuracy, surface finish, layer adhesion, nozzle wear, odour, supports, printing advice, chamber or enclosure need, drying schedule and annealing schedule.
+ Not stated by the maker: applications, pitfalls, dimensional accuracy, surface finish, layer adhesion, nozzle wear, odour, supports, printing advice and annealing schedule.

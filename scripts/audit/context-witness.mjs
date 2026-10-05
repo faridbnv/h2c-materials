@@ -221,7 +221,9 @@ for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplica
   // A profile that says its sheet prints no guidance (m170: only how the test bars were printed) is checked too: the
   // reader may find guidance in the notes beside them (Raise3D's "2. Please dry the filament … at least 8 hours").
   if (/not printing guidance/.test(r.Locator)) {
-    for (const x of sheetSettings.get(r.SourceID)) if (READ_COLUMN[x.field] && /\d|\b(yes|no|not|required|recommended|needed|necessary|hardened|brass|steel|ruby)\b/i.test(x.raw)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, READ_COLUMN[x.field], `the profile says its sheet prints no guidance; the import's sheet reader finds "${x.line.slice(0, 80)}"`);
+    // Only a column the profile leaves silent: Raise3D's notes give a drying schedule a profile holds beside the specimens'
+    // temperatures it does not (m295, m345).
+    for (const x of sheetSettings.get(r.SourceID)) if (READ_COLUMN[x.field] && r[READ_COLUMN[x.field]] === 'Not published' && /\d|\b(yes|no|not|required|recommended|needed|necessary|hardened|brass|steel|ruby)\b/i.test(x.raw)) add('CONTEXT-PROFILE-SETTING', r.ProfileID, READ_COLUMN[x.field], `the profile says its sheet prints no guidance; the import's sheet reader finds "${x.line.slice(0, 80)}"`);
     continue;
   }
   for (const x of sheetSettings.get(r.SourceID)) {

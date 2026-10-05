@@ -400,8 +400,10 @@ function compareReading(s, key, r, o) {
         if (c.kind !== 'numeric' || !cells[c.property]) continue;
         const sp = x.material.headline[c.property]?.spread;
         // An end that is a published bound carries its sign: "520+" for a lower bound, "<0.8" for an upper one (§21).
-        const rm = sp && sp.n > 1 ? /<?(-?[\d,]*\.?\d+)\+?\u2013<?(-?[\d,]*\.?\d+)\+?\s*·/.exec(cells[c.property].t) : null;
-        if (sp && sp.n > 1) {
+        // Products that all publish one value show it once, with no range line (format.js renderSpread); the value is probed above.
+        const ranged = sp && sp.n > 1 && !(sp.min === sp.max && !sp.bounds);
+        const rm = ranged ? /<?(-?[\d,]*\.?\d+)\+?\u2013<?(-?[\d,]*\.?\d+)\+?\s*·/.exec(cells[c.property].t) : null;
+        if (ranged) {
           check('I5-spread');
           if (!rm) violate('I5-spread', 'a material with a spread shows no range', s, key, { id, displayed: cells[c.property].t });
           else {

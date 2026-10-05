@@ -43,8 +43,8 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 14407,
-    "added": 2871,
+    "current": 14421,
+    "added": 2885,
     "edited_existing": 1415,
     "removed": 0
   },
@@ -57,8 +57,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 387,
-    "added": 387,
+    "current": 397,
+    "added": 397,
     "edited_existing": 0,
     "removed": 0
   },
@@ -85,16 +85,16 @@
   },
   "profile_notes": {
     "baseline": 2061,
-    "current": 2199,
-    "added": 138,
+    "current": 2319,
+    "added": 258,
     "edited_existing": 0,
     "removed": 0
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1802,
-    "added": 486,
-    "edited_existing": 965,
+    "current": 1882,
+    "added": 566,
+    "edited_existing": 963,
     "removed": 0
   },
   "properties": {
@@ -106,8 +106,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 1928,
-    "added": 100,
+    "current": 1972,
+    "added": 144,
     "edited_existing": 95,
     "removed": 0
   }

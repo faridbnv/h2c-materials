@@ -387,3 +387,16 @@ test('a drying window is read at its upper end however its unit is printed, and 
   }
 });
 
+
+test('the reader round taught the parsers five wordings a profile prints (m346)', () => {
+  const read = (s) => { const p = parseTemperature(s, { plausible: [0, 200] }); return [p.state, p.requirement, Boolean(p.unparsed)]; };
+  assert.deepEqual(read('At least closed chamber, passively heated'), [PROCESS_STATE.NOT_REQUIRED, REQUIREMENT.NONE, false]);
+  assert.deepEqual(read('non-heated printing camber'), [PROCESS_STATE.NOT_REQUIRED, REQUIREMENT.NONE, false]);
+  assert.deepEqual(read('enclosed and heated chamber recommended'), [PROCESS_STATE.RECOMMENDED, REQUIREMENT.RECOMMENDED, false]);
+  assert.deepEqual(read('/'), [PROCESS_STATE.NO_SETPOINT, REQUIREMENT.UNKNOWN, false]);
+  assert.deepEqual(read('该材料无需热床即可成功打印'), [PROCESS_STATE.NOT_REQUIRED, REQUIREMENT.NONE, false]);
+  assert.equal(read('室温')[0], PROCESS_STATE.AMBIENT);
+  // A brass nozzle that will do, with hardened steel as the alternative, needs no hardened nozzle (m353).
+  assert.equal(parseAbrasion('brass or hardened steel compatible').requiresHardened, false);
+  assert.equal(parseAbrasion('Hardened steel nozzle required').requiresHardened, true);
+});

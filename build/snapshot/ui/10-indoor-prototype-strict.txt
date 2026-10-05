@@ -1,7 +1,7 @@
-COUNT 85 shown PASS
-STATUS ☑ PASS 85 | ☐ UNKNOWN 42 | ☐ FAIL 26
-85 of the 153 materials meet these requirements
-Indoor prototype template · 42 more could not be checked, left out under Confirmed only
+COUNT 87 shown PASS
+STATUS ☑ PASS 87 | ☐ UNKNOWN 40 | ☐ FAIL 26
+87 of the 153 materials meet these requirements
+Indoor prototype template · 40 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -64,9 +64,7 @@ ABS-AF PASS
 1 of 2 products
  1,050
 1,040–1,050 · 3
- 1.89 22 6* 88
-88 · 2
- 127↗ ☆
+ 1.89 22 6* 88 127↗ ☆
 ABS-ESD PASS
 1 of 2 products
  1,070
@@ -99,7 +97,7 @@ annealed median
 82–100 · 9
  39↗ ☆
 ASA PASS
-34 of 36 products
+35 of 37 products
  1,070
 1,040–1,150 · 36
  2.17
@@ -128,9 +126,7 @@ ASA Aero PASS
  64↗ ☆
 ASA-AF PASS
 2 of 2 products
- 1,070
-1,070 · 3
- 2.2* 40* 6* 89* 115
+ 1,070 2.2* 40* 6* 89* 115
 109–120 · 2
 ↗ ☆
 ASA-CF PASS
@@ -230,9 +226,7 @@ OBC
 Polyolefins
  PASS
 2 of 2 products
- 905
-905 · 2
- — 14 700 n/a — ☆
+ 905 — 14 700 n/a — ☆
 PA12
 Nylon / Polyamide
  PASS
@@ -466,27 +460,21 @@ PCTG
 Copolyesters
  PASS
 6 of 6 products
- 1,230
-1,230 · 8
- 1.75 45 24 76
+ 1,230 1.75 45 24 76
 74–76 · 6
  48↗ ☆
 PCTG-CF
 Copolyesters
  PASS
-2 of 2 products
- 1,280
-1,280 · 3
- — 39* 9* 77
+3 of 3 products
+ 1,280 — 39* 9* 77
 76–78 · 2
  138¤ ☆
 PCTG-GF
 Copolyesters
  PASS
 3 of 3 products
- 1,310
-1,310 · 3
- 3.4* 55* 8* 78
+ 1,310 3.4* 55* 8* 78
 76–78 · 3
  165¤↗
 out of stock
@@ -505,7 +493,7 @@ Flexible Elastomers
 PET
 PET Engineering
  PASS
-2 of 2 products
+3 of 3 products
  1,335
 1,300–1,360 · 4
  2.25
@@ -559,12 +547,12 @@ PETG PASS
 65 of 65 products
  1,270
 1,180–1,350 · 64
- 1.67
-0.5–3.5 · 20
- 47.3
-31.9–68.4 · 26
- 8.6
-4.1–90 · 25
+ 1.68
+0.5–3.5 · 19
+ 47.5
+33–68.4 · 25
+ 8.96
+4.1–90 · 24
 annealed median
  70
 63–80 · 40
@@ -614,14 +602,10 @@ PETG-GF PASS
  37↗ ☆
 PETG-GR PASS
 2 of 2 products
- 1,290
-1,290 · 2
- 1.4* 55.2* 5.62* 69* 85.8¤ ☆
+ 1,290 1.4* 55.2* 5.62* 69* 85.8¤ ☆
 PETG-PTFE PASS
 2 of 2 products
- 1,320
-1,320 · 2
- 1.85* 40* > 100* — 86↗ ☆
+ 1,320 1.85* 40* > 100* — 86↗ ☆
 PLA PASS
 197 of 197 products
  1,240
@@ -667,7 +651,7 @@ PLA blend-CF PASS
 1,200–1,360 · 2
  7.12* 65* 2.5* 74 — ☆
 PLA Galaxy PASS
-3 of 3 products
+4 of 4 products
  1,225
 1,190–1,240 · 4
  1.79
@@ -715,14 +699,13 @@ annealed median
 31–32 · 2
 ↗ ☆
 PLA Metal PASS
-4 of 4 products
+7 of 7 products
  1,225
 1,200–1,250 · 3
  1.96
 1.9–2.01 · 2
 annealed median
  34
-34 · 2
 annealed median
  12.8
 11–14.7 · 2
@@ -730,7 +713,7 @@ annealed median
 58–62 · 2
  32↗ ☆
 PLA Silk PASS
-23 of 23 products
+24 of 24 products
  1,240
 1,210–1,320 · 30
  1.78
@@ -760,7 +743,7 @@ annealed median
 50.8–55 · 2
  32↗ ☆
 PLA Wood PASS
-10 of 10 products
+11 of 11 products
  1,200
 970–1,300 · 20
  2.2
@@ -809,6 +792,11 @@ PLA-GF PASS
  1,280
 1,200–1,337 · 4
  3.79 50.1 2.77 75.5 41↗ ☆
+PLA-GR PASS
+2 of 2 products
+ 1,240 3.6* 65* 4.19* — 42.9
+32.1–53.6 · 2
+¤ ☆
 PLA-NF PASS
 2 of 2 products
  1,350
@@ -841,7 +829,7 @@ via a declared variant (lightweight additive)
 PP-CF
 Polyolefins
  PASS
-2 of 2 products
+3 of 3 products
  1,000
 910–1,100 · 5
  6.26
@@ -857,9 +845,7 @@ PP-GF
 Polyolefins
  PASS
 1 of 1 product
- 1,120
-1,120 · 2
- 6.75 65 1.7 139
+ 1,120 6.75 65 1.7 139
 138–139 · 2
  118¤↗
 out of stock
@@ -908,7 +894,7 @@ annealed median
 PPS-CF
 High-Performance Engineering
  PASS
-2 of 3 products
+3 of 4 products
  1,295
 1,260–1,510 · 6
  8
@@ -927,9 +913,7 @@ PPS-GF
 High-Performance Engineering
  PASS
 1 of 2 products
- 1,360
-1,360 · 2
- 5.16
+ 1,360 5.16
 4.55–5.76 · 2
  68
 64.1–72 · 2
@@ -962,10 +946,15 @@ Fluoropolymers
  PASS
 1 of 1 product
  1,840 2.63 55 10 177 — ☆
+SBC
+Styrenics
+ PASS
+1 of 1 product
+ 1,010 — 26* 230* — — ☆
 TPC
 also called TPEE · Flexible Elastomers
  PASS
-1 of 1 product
+1 of 2 products
  1,150
 1,070–1,220 · 10
  0.048
@@ -1056,7 +1045,7 @@ out of stock
 TPU-ESD
 Flexible Elastomers
  PASS
-1 of 1 product
+2 of 2 products
  1,190
 1,180–1,200 · 2
  — 12 > 300* n/a 174¤ ☆

@@ -1462,3 +1462,10 @@ test('settings run together on one line with slashes are read one by one (LUVOCO
   assert.deepEqual(read.filter((x) => ['bed', 'nozzle-material'].includes(x.field)).map((x) => `${x.field}: ${x.raw}`).sort(), ['bed: > 50 °C', 'nozzle-material: abbrasion resistant']);
 });
 
+
+test('a web spec grid run onto one line ends a setting where the next label begins (reader round)', () => {
+  // FormFutura prints "Heat bed: ± 50 – 60° C  Fan speed: 80-100%"; the fan speed was read into the bed's window.
+  assert.equal(readSetting({ text: 'Heat bed: ± 50 – 60° C  Fan speed: 80-100%' }).raw, '± 50 – 60° C');
+  assert.equal(readSetting({ text: 'Print temp: ± 210 – 250° CFan speed: 50-100%' }).raw, '± 210 – 250° C');
+  assert.equal(settingValue('Recommended  Note: keep the filament dry'), 'Recommended');
+});

@@ -374,9 +374,12 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     + `${s.products > s.n ? ` ${s.products - s.n} of its ${s.products} products ${s.products - s.n === 1 ? 'does' : 'do'} not report it on that basis.` : ''}`
     + `${apart.length ? ` Left out: ${apart.join('; ')}.` : ''}`;
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
-  // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2").
-  const span = s.min === s.max && !s.bounds ? hi : `${lo}–${hi}`;
-  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${span}<span class="spread-n"> · ${s.n}</span></span>`;
+  // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2"); in the table the
+  // value says it, and a line under it would only repeat it (the 1024 x 768 layout guard, reader round). The count is in
+  // the value's explanation.
+  const same = s.min === s.max && !s.bounds;
+  if (compact && same) return `${main}${convertedMark(entry.converted)}`;
+  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${same ? hi : `${lo}–${hi}`}<span class="spread-n"> · ${s.n}</span></span>`;
   return compact ? `${main}${range}${convertedMark(entry.converted)}` : `${main} ${range}${convertedMark(entry.converted)}`;
 }
 

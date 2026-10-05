@@ -233,7 +233,7 @@ Copolyesters
  UNKNOWN
 none judged
 nothing published to judge
- 1,130 0.15 19.3 320 ~74–144† 76.3¤ ☆
+ 1,130 0.15 19.3 320 ~73–144† 76.3¤ ☆
 Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
@@ -260,9 +260,7 @@ OBC
 Polyolefins
  PASS
 1 of 1 product
- 905
-905 · 2
- ~0.01–0.55† 14 passing: 700
+ 905 ~0.01–0.55† 14 passing: 700
 all products: 700
  n/a — ☆
 PA12
@@ -312,7 +310,7 @@ none judged
 nothing published to judge
  1,150
 1,130–1,200 · 7
- ~1.4–4.2† ~40–82† ~52–99† 140
+ ~1.4–4.2† ~40–82† ~51–99† 140
 60–143 · 3
  163↗ ☆
 PA6-CF
@@ -376,7 +374,7 @@ annealed median
 ↗ ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~0.9–3.9† ~35–82† ~8–63† ~81–168† — ☆
+ UNKNOWN ~990–1,070† ~0.9–3.9† ~35–82† ~8–63† ~80–169† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN
@@ -522,17 +520,13 @@ none judged
 nothing published to judge
  1,100
 1,100–1,130 · 3
- ~0.20–0.71† ~9–45† 800 57
-57 · 2
- — ☆
+ ~0.20–0.71† ~9–45† 800 57 — ☆
 PCTG
 Copolyesters
  UNKNOWN
 0 of 1 product
 likely fails: 1 with data misses, 7 publish none
- 1,230
-1,230 · 8
- 1.75 45 24 76
+ 1,230 1.75 45 24 76
 74–76 · 6
  48↗ ☆
 PE
@@ -610,16 +604,16 @@ annealed median
 41–98 · 2
 ↗ ☆
 PETG UNKNOWN
-0 of 23 products
-likely fails: 23 with data miss, 51 publish none
+0 of 22 products
+likely fails: 22 with data miss, 52 publish none
  1,270
 1,180–1,350 · 64
- 1.67
-0.5–3.5 · 20
- 47.3
-31.9–68.4 · 26
- 8.6
-4.1–90 · 25
+ 1.68
+0.5–3.5 · 19
+ 47.5
+33–68.4 · 25
+ 8.96
+4.1–90 · 24
 annealed median
  70
 63–80 · 40
@@ -673,9 +667,7 @@ likely fails: 1 with data misses, 4 publish none
 PETG-PTFE UNKNOWN
 none judged
 nothing published to judge
- 1,320
-1,320 · 2
- ~0.8–2.9† ~25–55† ~104–187† ~49–73† 86↗ ☆
+ 1,320 ~0.8–2.9† ~25–55† ~104–189† ~49–73† 86↗ ☆
 PLA UNKNOWN
 0 of 63 products
 likely fails: 63 with data miss, 134 publish none
@@ -784,7 +776,6 @@ likely fails: 1 with data misses, 8 publish none
 1.9–2.01 · 2
 annealed median
  34
-34 · 2
 annealed median
  12.8
 11–14.7 · 2
@@ -911,9 +902,7 @@ Polyolefins
  UNKNOWN
 0 of 1 product
 likely fails: 1 with data misses, 1 publish none
- 1,120
-1,120 · 2
- 6.75 65 1.7 139
+ 1,120 6.75 65 1.7 139
 138–139 · 2
  118¤↗
 out of stock
@@ -996,9 +985,7 @@ High-Performance Engineering
  UNKNOWN
 0 of 1 product
 likely fails: 1 with data misses, 1 publish none
- 1,360
-1,360 · 2
- 5.16
+ 1,360 5.16
 4.55–5.76 · 2
  68
 64.1–72 · 2
@@ -1060,8 +1047,8 @@ nothing published to judge
 TPC
 also called TPEE · Flexible Elastomers
  UNKNOWN
-none judged
-nothing published to judge
+0 of 1 product
+likely fails: 1 with data misses, 10 publish none
  1,150
 1,070–1,220 · 10
  0.048
@@ -1198,4 +1185,4 @@ Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,240 0.0139* 7.2* — n/a — ☆
+ 1,240 0.0139* 7.2* 630* n/a — ☆
