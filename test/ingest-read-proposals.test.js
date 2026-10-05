@@ -420,3 +420,17 @@ test('a product the document does not name, whose formulation twin it does, need
   assert.equal(out.valuesAdd.length, 0);
   assert.match(out.held[0].reason, /^no-grade:twin-needs-no-row:G001-03 reads G001-02|^twin-needs-no-row:G001-03 reads G001-02/);
 });
+
+test('a formulation key\'s values are recorded once, on the carrier: the grade of the key that holds the most measurements', () => {
+  const held = (id, grade) => ({ MeasurementID: id, SourceID: 'S-9', GradeID: grade, MaterialID: 'M001', Property: 'Density', 'Data status': 'Published value', 'Normalized value': '1240', 'Normalized unit': 'kg/m³',
+    Direction: 'Not applicable', 'Moisture state': 'not-stated', 'Post-processing state': 'not-stated', Notch: 'Not applicable', 'Test temperature °C': 'Not published', 'Test load MPa': 'Not applicable', Operator: '=' });
+  const withHeld = { ...tables, measurements: [...tables.measurements, held('V8', 'G001-02'), held('V9', 'G001-02')] };
+  const row = (o) => value({ SourceID: 'S-1', Grade: 'G001-03', Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus', Direction: 'X-Y', ...o });
+  const out = buildProposals({ rows: [row({})], tables: withHeld });
+  assert.deepEqual(out.valuesAdd.map((v) => [v.GradeID, v.grade_from]), [['G001-02', 'reader+carrier']], 'G001-02 holds two of the key\'s measurements');
+  const same = buildProposals({ rows: [row({}), row({ Label: 'Modulus again', Page: '2' })], tables: withHeld });
+  assert.equal(same.valuesAdd.length, 1, 'the carrier holds it once');
+  assert.ok(same.held.some((h) => h.reason === 'already-held-elsewhere'));
+  assert.equal(buildProposals({ rows: [row({ Grade: 'G001-02' })], tables: withHeld }).valuesAdd[0].grade_from, 'reader', 'the carrier\'s own reading is not moved');
+  assert.equal(buildProposals({ rows: [row({ Grade: 'G001-01' })], tables: withHeld }).valuesAdd[0].GradeID, 'G001-01', 'a product outside a key is not either');
+});

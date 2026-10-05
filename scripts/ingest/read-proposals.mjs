@@ -908,6 +908,18 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     }
     return null;
   };
+  // A formulation key's values are recorded once (R053): they go to the group's carrier, the grade that already holds the most of the
+  // group's measurements (the lowest GradeID on a tie). Profiles stay per grade; twins read each other's recipes (D89).
+  const heldCount = new Map();
+  for (const m of tables.measurements) if (m['Data status'] !== 'Retired duplicate record') heldCount.set(m.GradeID, (heldCount.get(m.GradeID) ?? 0) + 1);
+  const carrierCache = new Map();
+  const carrierOf = (gradeId) => {
+    const group = formulation(gradeId);
+    if (group.length < 2) return gradeId;
+    const k = [...group].sort().join(',');
+    if (!carrierCache.has(k)) carrierCache.set(k, [...group].sort((a, b) => a.localeCompare(b, 'en', { numeric: true })).sort((a, b) => (heldCount.get(b) ?? 0) - (heldCount.get(a) ?? 0))[0]);
+    return carrierCache.get(k);
+  };
   const valueCandidates = [];
   for (const r of considered.filter((x) => x.Kind === 'value' && x.Class === 'new')) {
     const reasons = [];
@@ -922,8 +934,9 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       if (signView == null) reasons.push('no-cached-text');
       else if (signView === '') reasons.push('bound-sign-not-on-page');
     }
+    const target = grade.error ? null : carrierOf(grade.id);
     let like = null;
-    if (!grade.error) { like = likeFor(grade.id, r.SourceID); if (!like) reasons.push('no-like-row'); }
+    if (!grade.error) { like = likeFor(target, r.SourceID); if (!like) reasons.push('no-like-row'); }
     if (!reasons.length && quoteReason(r)) reasons.push(quoteReason(r));
     const gate = gateOf(r);
     if (reasons.length || gate.gate !== 'ready') { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
@@ -933,10 +946,17 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const contradicted = tables.page_context.find((c) => c.SourceID === r.SourceID && Number(c.Page) === Number(r.Page) && (c['Applies to'] === 'all' || c['Applies to'] === scopeOf(p.Property))
       && [['specimen', specimenApplies(p.Property)], ['moisture', true], ['treatment', true]].some(([f, applies]) => applies && own[f] && pageStates(c)[f] && own[f] !== pageStates(c)[f]));
     if (contradicted) { hold(r, 'contradicts-page-context', 'values', `${contradicted.PageContextID}: ${contradicted.Statement}`); continue; }
-    const twin = twinOf(grade.id, r.SourceID, key);
+    // A reading for another grade of the key goes to the carrier unless the carrier already holds it.
+    if (target !== grade.id) {
+      const have = [heldValues, batchValues].flatMap((index) => index.get(`${target}\u0002${key}`) ?? [])[0];
+      if (have) { hold(r, 'already-held-elsewhere', 'values', `the carrier ${target} of ${grade.id}'s formulation key holds it (${have.id}, ${have.sourceId})`); continue; }
+      gradeFromOf.set(r.RowID, `${gradeFromOf.get(r.RowID) ?? ''}+carrier`);
+      gradeResolvedOf.set(r.RowID, target);
+    }
+    const twin = twinOf(target, r.SourceID, key);
     if (twin) { hold(r, 'already-held-elsewhere', 'values', twin); continue; }
-    remember(batchValues, grade.id, key, r.SourceID, r.RowID);
-    valueCandidates.push({ row: r, grade: grade.id, p, like, signView });
+    remember(batchValues, target, key, r.SourceID, r.RowID);
+    valueCandidates.push({ row: r, grade: target, p, like, signView });
   }
   // Locators: "p. N: label", with what tells two rows of one label apart, so no two rows of a source share one.
   const byBase = new Map();
