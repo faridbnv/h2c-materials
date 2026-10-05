@@ -1,5 +1,7 @@
 # Repository documentation reconciliation — 2026-10-01
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The owner requested current, coherent documentation of completed and remaining work, followed by a push to main. This change improves GOALS steps 2 and 5 and scorecard C13/C15 by making the research backlog reproducible. It refreshes the evidence links for C3/C6/C9/C10/C11 without assigning new scores or claiming human review.
 
 The [current status](STATUS.md) is the entry point: **75 of 136 material assessments and 21 of 1077 joined product passes are complete**. The remaining **61 material and 1056 product targets** are individually listed, with the original questions, prior searches and stopping rules retained. Completed outcomes name their approved AI review packets and implementation commits. Coverage marks, work completed and product suitability are separate concepts.

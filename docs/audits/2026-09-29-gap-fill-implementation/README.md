@@ -1,5 +1,7 @@
 # The gap-fill tranche, implemented (2026-09-29)
 
+> **Historical record** (2026-09-29): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The owner asked for the reviewed gap-fill research of 2026-09-28 to be finished, putting only its defensible, useful
 improvements into the tool: on a branch of the latest main, in a separate checkout, committed locally and pushed to
 main on 2026-09-30, when the owner asked (GOALS, "Decided on 2026-09-29, the gap-fill tranche"). The inputs were two packages outside the repository,

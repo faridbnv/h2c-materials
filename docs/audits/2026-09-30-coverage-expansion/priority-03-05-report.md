@@ -1,5 +1,7 @@
 # Priority batches 03–05: 30 Polymaker and Bambu products
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2 and 5; C3/C6/C9/C10/C13. Thirty product passes have source-grounded outcomes for all 510 assigned questions. This tranche admits 31 originals, one published moisture measurement and 82 evidence records; four new narrative duplicates are retired, leaving 78 active additions. Twenty existing ASA Aero measurement rows are corrected or classified as printed off the product's recipe. No catalogue, price, screening semantics or estimate model change is introduced.
 
 The practical gains are exact chemical-category limits for two PC products, better product limitations and faithful ASA Aero evidence. Its sheet's specimens were printed at 225°C while its recommended nozzle window starts at 240°C. Those off-recipe results no longer supply published headlines. Two central elongation values are corrected to 5.1±1.6% XY and 2.3±0.9% Z. Foaming state and the user-annealing sentence's applicability remain unresolved. The PC-FR laboratory report applies to its submitted sample and stated research/internal purposes; it does not certify every printed part.

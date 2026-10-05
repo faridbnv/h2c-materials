@@ -1,5 +1,7 @@
 # Questions for filament makers
 
+> **Historical record** (2026-10-05): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 A deduplicated list of the questions only a filament maker can answer, built on 2026-10-05 for the owner. **Nothing has been sent to anyone.** Sending is outward-facing and the owner's call (OPEN-PROBLEMS s29). The same list, with the evidence behind each question, is `MAKER-QUESTIONS.csv` beside this file.
 
 Sources: the 255 vendor handoffs of `archive/research-2026-09-26/owner-handoffs.csv` (kept only where the record they name is still unsettled in `data/tables/`), the contradictions and maker questions of OPEN-PROBLEMS s4, s15, s21, s23 to s26, s28, s29 and s30, and the 28 products of `docs/audits/2026-10-04-reader-round/STILL-MISSING.csv` that held no nozzle or bed in `profiles.csv`. The print-setting questions of the 12 of them, and of 3DXPRO LG PETG, that batch b44's makers' pages gave a nozzle and a bed (`build/snapshot/print.csv`, 2026-10-05) were dropped. Where one question applies to several of a maker's products it is one numbered item with the products listed under it.

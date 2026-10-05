@@ -1,5 +1,7 @@
 # Nine products whose data sheet never names the base polymer
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Research record, 2026-09-18. The owner's ruling: for each product, find a document **published by the
 same maker** that names the polymer, fetch it so it is hashed, and quote the line. Where nothing names
 it, the product stays out.

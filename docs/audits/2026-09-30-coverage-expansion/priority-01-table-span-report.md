@@ -1,5 +1,7 @@
 # Preserve context printed between HTML table rows
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The HTML reader now keeps standalone captions and leaf paragraphs/spans inside a table, in source order beside its rows. Inline cell text is recorded once. This restores the Nanovia preparation sentences omitted by the former reader; the original bytes and the canonical ±45°/D91 direction records were already correct and remain unchanged.
 
 Five focused fixtures cover ordinary tables, numeric bounds, outside-table context, malformed tbody spans and captions without duplicate inline text. All 460 registered HTML derivatives were refreshed from hash-verified originals. Independent AI review re-read the three affected Nanovia originals and confirmed each preparation sentence appears exactly once.

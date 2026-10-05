@@ -71,7 +71,6 @@ G001-72,M001,PLA,within,within,within,not-needed,no-special-concern,optional,cha
 G001-73,M001,PLLA,within,within,within,not-needed,no-special-concern,required,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-74,M001,PLA+CMYK,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-75,M001,PLA Matte Dual,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016; drying: guide PG016
-G001-76,M001,eSilk-PLA,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-77,M001,Prusament rPLA Natural Pigments by Prusa Polymers,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016; drying: guide PG016
 G001-78,M001,PLA+,within,within,within,not-needed,no-special-concern,required,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-79,M001,PLA-Rock,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
@@ -890,7 +889,6 @@ G085-01,M085,hdpe,within,within,unknown,recommended,no-special-concern,unknown,
 G085-02,M085,FL300PE,within,within,unknown,unknown,unknown,unknown,
 G086-01,M086,EVOLV3D OBC,within,within,within,not-needed,unknown,unknown,chamber: twin G086-02; enclosure: twin G086-02
 G086-02,M086,OBC 905,within,within,within,not-needed,unknown,unknown,
-G087-01,M087,purefil POM,within,exceeds,unknown,unknown,unknown,unknown,
 G087-02,M087,Tarfuse POM 3D Filament,within,exceeds,exceeds,unknown,unknown,required,
 G087-03,M087,POM,within,within,unknown,unknown,unknown,unknown,
 G087-04,M087,Polyoxymethylen (POM),within,exceeds,unknown,unknown,unknown,required,
@@ -1021,7 +1019,7 @@ G130-01,M130,THERMAX PPE/PS,within,within,partial,unknown,unknown,required,
 G131-01,M131,DURAPRO PC-PBT CF,within,within,unknown,recommended,requires-hardened,required,
 G132-01,M132,PBT-GF,within,within,partial,unknown,unknown,required,
 G133-01,M133,Flexible,within,within,within,unknown,unknown,required,
-G134-01,M134,FiberFlex Aero,within,within,within,not-needed,unknown,required,
+G134-01,M046,FiberFlex Aero,within,within,within,not-needed,unknown,required,
 G135-01,M135,Polyvinylchlorid weich 94A (PVC-P),within,within,unknown,unknown,unknown,not-needed,
 G135-02,M135,Vinyl 303,within,within,unknown,unknown,no-special-concern,unknown,
 G136-02,M136,Styrol-Acrylnitril (SAN),within,within,unknown,unknown,unknown,required,

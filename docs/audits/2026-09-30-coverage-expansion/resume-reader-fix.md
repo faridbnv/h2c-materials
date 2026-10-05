@@ -1,5 +1,7 @@
 # HTML source-reading repair during priority batch 01
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2 and 5; C3/C4/C13. Two source-reading defects hid useful published content during the first twelve Nanovia product passes:
 
 - A literal numeric comparison was treated as a tag. The verified original R-NANOVIA-PP-CF (`b9bb98021c7100391fcb6a310d2469943681988ef9d7c3825c54ea1522983aae`) prints water absorption **< 1 % after 24h of submersion**. The old reader dropped the bound value; the repaired reader retains it verbatim.

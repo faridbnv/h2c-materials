@@ -1,5 +1,7 @@
 # Batch b34: the held sheets get a home
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-25 by `m143-batch-b34`: 44 documents, 38 products, 381 records (257 measurements, 37 profiles, 44
 sources, 38 grades, 4 accepted findings, 1 coverage recount). The owner lifted the import pause for the 74 sheets
 deferred for their identity, the 50 that name only a family and the 24 that waited on an owner ruling (docs/GOALS.md,

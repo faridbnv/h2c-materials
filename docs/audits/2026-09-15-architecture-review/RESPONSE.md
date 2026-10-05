@@ -1,5 +1,7 @@
 # Response: architecture review (2026-09-15)
 
+> **Historical record** (2026-09-15): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Every change is one commit on `data/csv-source` after `05dcb6f`, each with `npm run verify` green. Structural changes
 show zero differences in `npm run build:diff`; behavioural ones name exactly what moved. Decisions D58 to D60 record
 the reasons. The owner ruled that estimate-based screening stays and its weaknesses are resolved, rather than estimates

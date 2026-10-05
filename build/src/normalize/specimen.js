@@ -10,8 +10,9 @@ import { fileURLToPath } from 'node:url';
 import { readCsv } from '../csv.js';
 
 // off-recipe: a bar printed at a setting its sheet prints beside the one the product is meant for (D95: colorFabb's
-// lightweight PETs, which foam at 260 °C, printed unfoamed at 210 °C). A printed bar, but not of the product as it is
-// printed, so it is no part specimen of it, bounds nothing and is no estimate observation.
+// lightweight PETs, which foam at 260 °C, printed unfoamed at 210 °C), or below 100 % infill (D130: 3DJake's bars at
+// 20 %). A printed bar, but not of the product as it is printed, so it is no part specimen of it, bounds nothing and is
+// no estimate observation.
 export const SPECIMEN_FORMS = ['printed', 'not-stated', 'moulded', 'film', 'filament', 'off-recipe'];
 export const POST_PROCESSING_STATES = ['as-printed', 'annealed', 'not-stated'];
 
@@ -30,6 +31,12 @@ const declared = (file, column, allowed) => {
 
 /** The declared form of a Specimen type value: printed, not-stated, moulded (a raw-material value), film, filament or off-recipe. */
 export const specimenForm = declared('specimen-types.csv', 'Form', SPECIMEN_FORMS);
+
+/** Why an off-recipe bar is not the product's value, in words a reader can check against the row (D95, D130). */
+export const offRecipeWhy = (specimenType, { brief = false } = {}) => (specimenType === 'Printed specimen at partial infill'
+  ? 'printed below 100 % infill, a part filled that far rather than the material as a solid part (D130)'
+  : brief ? 'printed at a setting the product is not meant for (D95)'
+    : 'printed at a setting its sheet prints beside the one the product is meant for, not the product as it is printed (D95)');
 
 /** The declared post-processing state of a measurement row's typed column. */
 export function postProcessingState(state) {

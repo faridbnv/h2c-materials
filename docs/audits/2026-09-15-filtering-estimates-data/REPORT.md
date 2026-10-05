@@ -1,5 +1,7 @@
 # Filtering, estimates and data: an independent audit of the verification round (2026-09-15)
 
+> **Historical record** (2026-09-15): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 **Branch:** `data/csv-source`, baseline `ef26807` (the end of the 2026-09-14 transfer verification).
 **Raised by:** the tool's owner.
 **Questions:** the last version resolved issues of data cleanliness and accuracy, of estimates and engineering

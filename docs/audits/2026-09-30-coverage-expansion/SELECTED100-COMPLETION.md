@@ -1,5 +1,7 @@
 # Selected coverage run complete — 2026-10-04
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 All 136 material Application assessments and all 100 selected additional product passes are complete. Every selected product has 17 independently reviewed question outcomes, with source-specific gaps, conflicts and admission holds retained. Completion means a reviewed research outcome, not product suitability or complete published evidence. The 930 unselected historical catalogue targets remain outside this owner-narrowed run.
 
 Current Application cells: 43 evidence recorded, 80 reviewed with limitations, 13 documented gaps, zero unassessed. Across the selected 100 products, overall outcomes are 11 found, 77 context only and 12 conflicting. Useful data can be admitted in a context-only pass. Independent review was AI review; human source spot-checks, team trial and physical validation remain outstanding.

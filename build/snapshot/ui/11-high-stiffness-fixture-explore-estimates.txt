@@ -1,7 +1,7 @@
-COUNT 94 shown PASS + UNKNOWN
-STATUS ☑ PASS 5 | ☑ UNKNOWN 106 | ☐ FAIL 42 | ☐ SCREENED 17
-5 of the 153 materials meet these requirements
-High-stiffness fixture template · 106 more could not be checked, listed flagged, except 17 screened out
+COUNT 93 shown PASS + UNKNOWN
+STATUS ☑ PASS 5 | ☑ UNKNOWN 105 | ☐ FAIL 42 | ☐ SCREENED 17
+5 of the 152 materials meet these requirements
+High-stiffness fixture template · 105 more could not be checked, listed flagged, except 17 screened out
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -149,12 +149,6 @@ likely fails: 2 with data miss, 2 publish none
  77.5
 70–85 · 2
  64↗ ☆
-ASA-AF UNKNOWN
-none judged
-nothing published to judge
- 1,070 ~1.0–3.5† ~41–64† ~6–23† ~95–104† 115
-109–120 · 2
-↗ ☆
 ASA-CF UNKNOWN
 0 of 4 products
 likely fails: 4 with data miss, 13 publish none
@@ -256,7 +250,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,140 ~5.0–8.3† ~68–80† ~4.0–8.3† 142 — ☆
+ 1,140 ~5.0–8.0† ~68–80† ~4.0–8.3† 142 — ☆
 PA12-CF
 Nylon / Polyamide
  UNKNOWN
@@ -292,7 +286,7 @@ Nylon / Polyamide
 likely fails: 1 with data misses, 8 publish none
  1,150
 1,130–1,200 · 7
- ~1.5–4.0† ~40–82† ~52–98† 140
+ ~1.5–3.9† ~40–83† ~51–98† 140
 60–143 · 3
  163↗ ☆
 PA6-CE
@@ -300,7 +294,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,490 ~4.3–7.2† ~57–87† ~2.0–7.7† ~91–106† 161¤ ☆
+ 1,490 ~4.3–6.9† ~57–87† ~1.9–7.5† ~91–106† 161¤ ☆
 PA6-CF
 Nylon / Polyamide
  UNKNOWN
@@ -346,7 +340,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,010 ~3.1–5.3† ~88–120† ~3.5–12.2† ~91–106† 180↗ ☆
+ 1,010 ~3.2–5.1† ~88–120† ~3.4–11.9† ~91–106† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  UNKNOWN
@@ -371,12 +365,12 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,240 ~4.5–6.4† 84 7.42 ~144–168† 72.4¤↗
+ 1,240 ~4.6–6.3† 84 7.42 ~144–168† 72.4¤↗
 out of stock
  ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.0–3.7† ~36–84† ~7–58† ~79–170† — ☆
+ UNKNOWN ~990–1,070† ~1.1–3.5† ~36–84† ~7–60† ~79–170† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN
@@ -410,16 +404,16 @@ annealed median
  157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,040–1,260† ~1.9–9.3† ~52–131† ~1.3–11.2† ~131–211† — ☆
+ UNKNOWN ~1,040–1,260† ~2.3–7.9† ~52–132† ~1.3–11.1† ~131–211† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- ~1,010–1,060† ~1.4–4.3† ~42–96† ~6–50† ~59–99† 246¤ ☆
+ ~1,010–1,060† ~1.4–4.1† ~42–96† ~6–48† ~59–99† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,170† ~2–13† ~55–139† ~1.2–10.8† ~130–250† — ☆
+ UNKNOWN ~1,050–1,170† ~3.1–11.1† ~55–140† ~1.2–10.7† ~130–250† — ☆
 PAHT-CE
 Nylon / Polyamide
  UNKNOWN
@@ -427,7 +421,7 @@ none judged
 nothing published to judge
  1,370
 1,250–1,490 · 2
- ~1.7–5.5† ~40–98† ~2–21† ~60–170† — ☆
+ ~1.8–5.2† ~39–98† ~2–20† ~60–170† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS
@@ -556,7 +550,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,250 ~3.7–5.1† ~90–104† ~3.1–5.7† ~113–127† 115¤ ☆
+ 1,250 ~3.7–5.1† ~90–104† ~3.1–5.8† ~113–127† 115¤ ☆
 PCTG
 Copolyesters
  UNKNOWN
@@ -570,7 +564,7 @@ Copolyesters
  UNKNOWN
 none judged
 nothing published to judge
- 1,280 ~1.6–5.6† ~44–87† ~5–22† 77
+ 1,280 ~1.8–5.5† ~44–87† ~5–22† 77
 76–78 · 2
  138¤ ☆
 PCTG-GF
@@ -578,7 +572,7 @@ Copolyesters
  UNKNOWN
 none judged
 nothing published to judge
- 1,310 ~1.4–4.9† ~56–89† ~8–30† 78
+ 1,310 ~1.5–4.6† ~56–89† ~8–30† 78
 76–78 · 3
  165¤↗
 out of stock
@@ -596,7 +590,7 @@ none judged
 nothing published to judge
  1,050
 1,020–1,080 · 2
- ~1.3–4.5† ~19–41† ~10–39† 85 — ☆
+ ~1.4–4.3† ~19–41† ~10–39† 85 — ☆
 PEBA
 Flexible Elastomers
  UNKNOWN
@@ -730,12 +724,12 @@ likely fails: 2 with data miss, 3 publish none
 PETG-GR UNKNOWN
 none judged
 nothing published to judge
- 1,290 ~1.2–3.8† ~54–81† ~5–27† ~54–81† 85.8¤ ☆
+ 1,290 ~1.2–3.5† ~54–81† ~5–26† ~54–81† 85.8¤ ☆
 PLA UNKNOWN
 0 of 47 products
-likely fails: 47 with data miss, 150 publish none
+likely fails: 47 with data miss, 149 publish none
  1,240
-1,170–1,329 · 157
+1,170–1,329 · 156
  2.58
 0.433–4.24 · 50
  45
@@ -744,8 +738,8 @@ likely fails: 47 with data miss, 150 publish none
 1.2–65 · 62
  55
 50–135 · 86
- 33.3
-18–80 · 27
+ 33.7
+18–80 · 26
 ↗ ☆
 PLA Aero UNKNOWN
 0 of 6 products
@@ -858,8 +852,8 @@ likely fails: 10 with data miss, 24 publish none
 1.7–28 · 17
  53
 50–62 · 19
- 32.2
-29–48 · 6
+ 31.5
+28.8–48 · 6
 ↗ ☆
 PLA Sparkle UNKNOWN
 none judged
@@ -897,7 +891,7 @@ annealed median
 PLA-CE UNKNOWN
 none judged
 nothing published to judge
- 1,380 ~2.6–4.4† ~46–63† ~23–38† 55 114¤ ☆
+ 1,380 ~2.7–4.3† ~46–63† ~23–38† 55 114¤ ☆
 PLA-CF UNKNOWN
 0 of 6 products
 likely fails: 6 with data miss, 12 publish none
@@ -930,7 +924,7 @@ likely fails: 1 with data misses, 3 publish none
 PLA-GR UNKNOWN
 none judged
 nothing published to judge
- 1,240 ~1.7–5.3† ~59–86† ~4–17† ~50–115† 42.9
+ 1,240 ~1.7–4.7† ~59–87† ~4–17† ~50–115† 42.9
 32.1–53.6 · 2
 ¤ ☆
 PLA-NF UNKNOWN
@@ -944,8 +938,8 @@ likely fails: 1 with data misses, 1 publish none
 POM
 also called Acetal · Acetals
  UNKNOWN
-0 of 3 products
-likely fails: 3 with data miss, 1 publish none
+0 of 2 products
+likely fails: 2 with data miss, 1 publish none
  1,340
 1,140–1,420 · 3
  1.87 50 11 100 — ☆
@@ -1095,7 +1089,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–7.7† ~26–53† ~20–370† ~51–76† — ☆
+ ~0.1–6.9† ~26–53† ~20–370† ~51–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN
@@ -1111,7 +1105,7 @@ Styrenics
  UNKNOWN
 none judged
 nothing published to judge
- 1,080 ~2.7–4.6† ~72–92† ~5–51† ~102–113† — ☆
+ 1,080 ~2.7–4.5† ~72–92† ~5–49† ~102–113† — ☆
 SBC
 Styrenics
  UNKNOWN
@@ -1122,7 +1116,7 @@ TPC
 also called TPEE · Flexible Elastomers
  UNKNOWN
 0 of 2 products
-likely fails: 2 with data miss, 9 publish none
+likely fails: 2 with data miss, 10 publish none
  1,150
 1,070–1,220 · 10
  0.048

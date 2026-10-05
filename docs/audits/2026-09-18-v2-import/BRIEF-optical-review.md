@@ -1,5 +1,7 @@
 # Brief: the optical pool, read against the page images (batch b27)
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 For a reader who did not decide these rows. **Nothing here may be corrected — only accepted or rejected.**
 
 ## Why a person reads these at all

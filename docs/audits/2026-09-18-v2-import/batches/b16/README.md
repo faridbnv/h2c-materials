@@ -1,5 +1,7 @@
 # Batch b16: QIDI, read by the labels around its rows
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-20 by `m86-batch-b16`: 176 records from 13 documents. b14 held QIDI's whole library for this.
 
 QIDI prints the property in Chinese on one baseline, the standard and the value on the next, and English on the

@@ -1,5 +1,7 @@
 # Batch b24: a table's columns by position, and the caption that names the table
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m96-batch-b24`: 135 records from 13 documents, out of 70 proposed from the two reader
 pools (`reader:several-values`, `reader:condition-table`). This is phase B of the completion plan — the one
 reader rule left worth building — and it is three rules, each measured.

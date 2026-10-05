@@ -1,5 +1,7 @@
 # Acting on the 2026-09-17 gap reading
 
+> **Historical record** (2026-09-17): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 [REPORT.md](REPORT.md) finds three different problems: a targeting problem (the screening classes are a dozen named
 documents from certification), a re-reading problem (comparability is 26 rows on 12 documents already on file), and a
 source-class problem (the properties no data sheet prints). This is what was done about the first two, and what is

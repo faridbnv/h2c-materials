@@ -1,5 +1,7 @@
 # The Ashby makeover, built (2026-09-29)
 
+> **Historical record** (2026-09-29): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 *Revised five times the same day as the owner used it (D108 to D112): see the revisions at the end. The sections
 before them record D107 as first built; the objective stage, the axis limits form, the Show menu and the catalogue view
 they describe are gone (the catalogue is Material typicals since D110, one dot per material since D112), and each

@@ -1,5 +1,7 @@
 # Filament and family audit matrix
 
+> **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Workbook SHA256: `e8532eda180f008afa2960c78cf0b5b2eb911afe2d95a1f8ed388ebcf4cd1175`. Rebuild with `npm run audit:data`.
 
 Every row received the same automated ownership, citation, raw-value and compilation checks. This is not a claim that every source was independently re-read. `audit.json` carries all record IDs and limitations; `record-index.csv` resolves each ID to its workbook row and source.

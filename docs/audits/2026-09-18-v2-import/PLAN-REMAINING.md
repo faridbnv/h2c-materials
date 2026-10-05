@@ -1,5 +1,7 @@
 # What is left of V2
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 > **Superseded as the working plan on 2026-09-25.** A step back from V2 ([the re-center review and
 > plan](../2026-09-25-re-center/REPORT.md)) set the tool's goals ([docs/GOALS.md](../../GOALS.md)) and paused the import.
 > What happens to each open item below is in that plan's section 6. This page stays as the record of how V2 closed.

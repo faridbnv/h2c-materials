@@ -1,5 +1,7 @@
 # The data model
 
+> **In short.** What each number on the page is and how far to trust it. A *material* is a kind of filament (PETG, carbon-filled nylon); a *product* is one maker's filament of that kind; a *measurement* is one value read from one page of one source, with its test conditions; a *print profile* is a maker's print settings. The build chooses each product's value per property by rule, and a material's value is the spread of its products'. A number is published, estimated (marked, and only where no product publishes one) or absent, and this document says how each is made. Where things stand is in the [README](../README.md).
+
 ## The source tables
 
 The database is relational, not a flat table, and the tool preserves that. It is kept as CSV tables in

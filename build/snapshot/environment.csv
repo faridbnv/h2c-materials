@@ -655,8 +655,8 @@ M087,alkali,M087-alkali,,polymer,not-resistant,,yes
 M087,flammability,M087-flammability,,polymer,not-resistant,,yes
 M087,hydrolysis,M087-hydrolysis,,polymer,not-resistant,,yes
 M087,oil-grease,M087-oil-grease,,polymer,resistant,,no
-M087,organic-solvent,Q00323,G087-01,own,narrative,,
-M087,uv-outdoor,Q00322,G087-01,own,narrative,,
+M087,organic-solvent,Q00323,G087-04,own,narrative,,
+M087,uv-outdoor,Q00322,G087-04,own,narrative,,
 M087,water-solubility,M087-water-solubility,,polymer,resistant,,no
 M089,moisture,Q00303,Not applicable,own,narrative,,
 M090,food-contact,Q00256,G090-01,own,narrative,,

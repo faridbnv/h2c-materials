@@ -1,5 +1,7 @@
 # Workstream B: physics and engineering plausibility
 
+> **Historical record** (2026-09-15): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Baseline `ef26807` (branch `data/csv-source`), `dist/db.json` as built. Read-only: nothing in `data/`, `build/`,
 `app/`, `scripts/`, `test/` or `dist/` was changed.
 

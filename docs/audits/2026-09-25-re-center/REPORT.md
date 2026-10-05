@@ -1,5 +1,7 @@
 # H2C material selector: where V2 stands, and the plan to re-center it
 
+> **Historical record** (2026-09-25): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Written 2026-09-25 for the owner. Sources:
 - the code and the data, queried from `dist/h2c.sqlite`, `dist/db.json` and `data/tables/`;
 - the 276 commits from 2026-09-11 to 2026-09-21;

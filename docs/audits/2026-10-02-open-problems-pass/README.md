@@ -1,5 +1,7 @@
 # The open-problems pass of 2026-10-02
 
+> **Historical record** (2026-10-02): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2, 4 and 5; C3, C5, C6, C9, C13, C15. Decisions D121, D122 and D123. On 2026-10-02 the owner asked for a
 priority list of everything [OPEN-PROBLEMS.md](../../OPEN-PROBLEMS.md) holds, then for every fix an agent can make on
 its own, with the decisions that list recommended, and Claude Sonnet agents wherever they could do the work.

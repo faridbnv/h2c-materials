@@ -1,7 +1,7 @@
 COUNT 15 shown PASS
-STATUS ☑ PASS 15 | ☐ UNKNOWN 86 | ☐ FAIL 52
-15 of the 153 materials meet these requirements
-Lightweight structure template · 86 more could not be checked, left out under Confirmed only
+STATUS ☑ PASS 15 | ☐ UNKNOWN 85 | ☐ FAIL 52
+15 of the 152 materials meet these requirements
+Lightweight structure template · 85 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -181,7 +181,7 @@ PLA PASS
 15 of 69 products
  passing: 800–1,240
 all products: 1,240
-1,170–1,329 · 157
+1,170–1,329 · 156
  passing: 2.53–4.16
 all products: 2.58
 0.433–4.24 · 50
@@ -191,8 +191,8 @@ all products: 2.58
 1.2–65 · 62
  55
 50–135 · 86
- 33.3
-18–80 · 27
+ 33.7
+18–80 · 26
 ↗ ☆
 PLA Aero PASS
 1 of 6 products

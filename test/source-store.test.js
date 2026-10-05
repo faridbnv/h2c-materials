@@ -54,7 +54,11 @@ test('a bundle holds the verified bytes under their digests, with a manifest tha
   const first = exportBundle(bundle, root);
   assert.deepEqual({ sources: first.sources, files: first.files, copied: first.copied, kept: first.kept }, { sources: 2, files: 2, copied: 2, kept: 0 });
   assert.deepEqual(first.missing.map((m) => `${m.SourceID} ${m.Bytes}`), ['S-B absent', 'S-E mismatch']);
-  assert.deepEqual(readdirSync(bundle).sort(), [`${sha(A)}.pdf`, `${sha(C)}.pdf`, 'manifest.csv'].sort());
+  assert.deepEqual(readdirSync(bundle).sort(), [`${sha(A)}.pdf`, `${sha(C)}.pdf`, 'manifest.csv', 'index.csv', 'README.md'].sort());
+  // A person finds a document by its SourceID in index.csv, which names its file; README.md says what each folder holds.
+  const index = readCsv(join(bundle, 'index.csv')).records.map((r) => r.values);
+  assert.deepEqual(index.map((r) => [r.SourceID, r.Document]).sort(), [['S-A', `${sha(A)}.pdf`], ['S-C', `${sha(C)}.pdf`]]);
+  assert.match(readFileSync(join(bundle, 'README.md'), 'utf8'), /index\.csv/);
   assert.ok(readFileSync(join(bundle, `${sha(C)}.pdf`)).equals(C));
   const text = readFileSync(join(bundle, 'manifest.csv'), 'utf8');
   assert.ok(!text.includes(dir) && !text.includes(repo), 'no path of this machine');
@@ -106,22 +110,26 @@ test('ledger-only documents and derived evidence round-trip; tampered and orphan
   put(join(cache, 'text', `${sha(B)}.json`), JSON.stringify({ sha: sha(B), extractor: EXTRACTOR, pages: [] }));
   put(join(cache, 'ocr', `${sha(B)}.pdf`), A);
   put(join(cache, 'pages', sha(B), 'page-1.png'), Buffer.from('image evidence'));
+  // The optical reading's text, and the page images a reader worked from, filed by SourceID (B is S-A's twin here: the
+  // ledger names B, the register only S-A, so B's reading folder is not exported).
+  put(join(cache, 'ocr-text', `${sha(B)}.json`), JSON.stringify({ pages: [] }));
+  put(join(cache, 'readings/r1/S-A', 'p-1.png'), Buffer.from('a reader page'));
   const bundle = join(dir, 'derived-bundle');
   const r = exportBundle(bundle, other, { derived: true });
   assert.equal(r.files, 1);
-  assert.equal(r.derived, 3);
+  assert.equal(r.derived, 4);
   assert.equal(manifest(other).find((m) => m.SHA256 === sha(B)).Registered, 'FALSE');
   rmSync(cache, { recursive: true, force: true });
   let restored = restoreBundle(bundle, other);
   assert.equal(restored.restored.length, 1);
-  assert.equal(restored.derivedRestored.length, 3);
+  assert.equal(restored.derivedRestored.length, 4);
   assert.equal(restored.refused.length, 0);
   assert.ok(readFileSync(join(cache, 'pages', sha(B), 'page-1.png')).equals(Buffer.from('image evidence')));
   // Every derivative has its own digest; a corrupted one never enters an empty cache.
   rmSync(cache, { recursive: true, force: true });
   writeFileSync(join(bundle, 'ocr', `${sha(B)}.pdf`), Buffer.from('tampered'));
   restored = restoreBundle(bundle, other);
-  assert.equal(restored.derivedRestored.length, 2);
+  assert.equal(restored.derivedRestored.length, 3);
   assert.match(restored.refused[0].why, /digest mismatch/);
   assert.ok(!existsSync(join(cache, 'ocr', `${sha(B)}.pdf`)));
   // Even an intact derivative is refused when its source bytes cannot be verified.
@@ -129,6 +137,6 @@ test('ledger-only documents and derived evidence round-trip; tampered and orphan
   writeFileSync(join(bundle, `${sha(B)}.html`), Buffer.from('wrong source'));
   restored = restoreBundle(bundle, other);
   assert.equal(restored.derivedRestored.length, 0);
-  assert.equal(restored.refused.length, 4);
+  assert.equal(restored.refused.length, 5);
   assert.ok(!existsSync(join(cache, 'text', `${sha(B)}.json`)));
 });

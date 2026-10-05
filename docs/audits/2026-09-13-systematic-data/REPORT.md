@@ -1,5 +1,7 @@
 # Systematic database and HTML data audit
 
+> **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 **Date:** 2026-09-13  
 **Baseline:** `b616ec1` (clean working tree at start)  
 **Disposition:** 11 confirmed defect/control-gap groups corrected locally; evidence limitations remain explicit. No deployment performed.  

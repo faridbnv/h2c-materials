@@ -1244,3 +1244,4 @@ chamber_bands,M003,m303,"nowhere: PLA Matte is a family entry (an alias since m1
 chamber_bands,M004,m303,"nowhere: PLA Lite is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
 chamber_bands,M021,m303,"nowhere: PETG Basic is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
 chamber_bands,M022,m303,"nowhere: PETG HF is a family entry (an alias since m141), which owns no product and is never a candidate, so its band decided nothing (D34, D44); its members carry their own chamber evidence"
+material_links,M134 | printing | P0494,m368,re-pointed: the same row is now M046 | printing | P0494

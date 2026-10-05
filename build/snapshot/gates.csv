@@ -132,7 +132,7 @@ M130,PPE-PS,within,within,within,partial,unknown,required
 M131,PC-PBT-CF,within,within,within,unknown,requires-hardened,required
 M132,PBT-GF,within,within,within,partial,unknown,required
 M133,PBAT,within,within,within,within,unknown,required
-M134,CPE-LW,within,within,within,within,unknown,required
+M134,CPE-LW,family,unknown,unknown,unknown,unknown,unknown
 M135,PVC,within,within,within,unknown,no-special-concern,not-needed
 M136,SAN,within,within,within,unknown,unknown,required
 M137,COC,within,within,within,partial,unknown,not-needed

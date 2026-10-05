@@ -1,5 +1,7 @@
 # Gap round 2: what the round did to the tool's answers
 
+> **Historical record** (2026-10-05): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Against the build before the round (`baseline/templates.csv`, a0f5a87) and its `build/snapshot/print.csv`. Re-derive with
 `git show a0f5a87:build/snapshot/print.csv` beside the current one; every move below has its cause.
 

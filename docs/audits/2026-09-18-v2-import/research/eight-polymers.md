@@ -1,5 +1,7 @@
 # Eight polymers with no row in `polymers.csv`
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Research record, 2026-09-19. Eight polymers appear in filament data sheets already in the corpus and have no
 row in `data/tables/polymers.csv`, so no material can name them as its Estimate identity and their products
 are stuck: **PHA**, **SAN**, **TPS**, **COC**, **PBT**, **PVC**, **LCP**, **PBAT**.

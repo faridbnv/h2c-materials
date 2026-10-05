@@ -1,26 +1,55 @@
 # H2C FDM Material Selection Tool
 
-A self-contained browser application for choosing FDM filaments for a fully configured Bambu Lab
-H2C. It compiles a frozen research database into a single HTML file that runs offline, from a local
-file, a shared drive or static hosting, with no backend.
+**Live: [pdynamics.ca/h2c-materials](https://pdynamics.ca/h2c-materials/)** · one HTML page that also runs offline from a
+file, with no server.
 
-**Live: [pdynamics.ca/h2c-materials](https://pdynamics.ca/h2c-materials/)**
+## What it is
 
-The tool is **decision support**: screening, comparison and evidence navigation. It is not a source
-of certified design allowables, not a substitute for reading the exact grade's technical and safety
-data sheets, and not a guarantee that any third-party filament runs on an H2C.
+A tool for a small engineering team choosing a 3D-printing filament for the team's Bambu Lab H2C printer. You say what a
+part must do (survive 100 °C, be at least this stiff, be as light as possible), and it answers in two steps:
 
-What the database holds (materials, products, measurements, sources) is counted by every build in
-[build/snapshot/counts.md](build/snapshot/counts.md); what the tool is for, and the rules a change is judged by, are in
+- **Which kinds of filament** (PLA, PETG, carbon-filled nylon and so on) can do it, and whether the H2C can print them.
+- **Which products**, from which makers, pass: how to print each one, how it should be treated, and what its maker says
+  about it.
+
+Every number comes from a maker's data sheet or web page and can be traced back to its page. Where nothing is
+published, the tool says so instead of guessing; a marked estimate is shown only where no product publishes a value. It
+helps the team build a shortlist; the team confirms its final pick with its own test print. It is not a source of design
+allowables, and it does not replace the product's own data sheet.
+
+## Where things stand (2026-10-05)
+
+Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md), written by every build.
+
+- **What it holds.** About 1,100 products, 14,400 measured values and 2,000 source documents. The page lists 153
+  materials: the 136 the H2C can print, which the tool judges, and 17 it shows only to say why they are out (high-
+  temperature plastics such as PEEK and PEI that need a hotter printer, and metal or ceramic sintering filaments).
+- **How accurate it is.** Records are checked by random samples of 40, read against their source pages. The latest found
+  none wrong; earlier rounds found 2 to 6, and each cause was fixed everywhere it occurred. Every check so far was done by
+  an AI; a person's spot-check is still to come.
+- **What is still missing.** Makers rarely publish a heated-chamber temperature (unknown for about 300 products), drying
+  (about 200), or, for some products, the nozzle or bed temperature (20 each). Several hundred products publish no
+  strength, stiffness or heat-resistance value. Reading the documents already held again will not close these: they need
+  documents that print the values, or the makers.
+- **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test
+  prints.
+- **What is limited on purpose.** New documents enter only within exceptions the owner approves; prices were sampled
+  once (30 September 2026); team features (shared searches, an approved list, the team's own test results) come later.
+
+What is known to be wrong or missing, item by item and with the query that re-counts each, is
+[docs/OPEN-PROBLEMS.md](docs/OPEN-PROBLEMS.md). What the tool is for and every decision the owner has made are in
 [docs/GOALS.md](docs/GOALS.md).
 
-**Coverage campaign status:** [completed work and exact remaining targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md).
-The selected run is complete: all 136 H2C-relevant materials and 100 additional priority products have reviewed outcomes.
-The 930 unselected historical catalogue targets remain outside this run. Filled coverage cells and completed research
-do not establish product suitability. [Completion and remaining limits](docs/audits/2026-09-30-coverage-expansion/SELECTED100-COMPLETION.md).
-[Estimated benefit and effort](docs/audits/2026-09-30-coverage-expansion/EFFORT-AND-VALUE.md) distinguishes completing
-material judgments from researching every product. After a build, `npm run audit:coverage-status` refreshes its
-status and task inventories; `verify:fast` refuses stale campaign documentation.
+## How the work is organised
+
+- **The data** lives in CSV tables (`data/tables/`). It changes only through small scripts that name the value they
+  replace and check it against the source page, and a set of automatic checks must pass before anything is published
+  ([AGENTS.md](AGENTS.md)).
+- **The reasons** for every non-obvious choice are numbered decisions ([docs/DECISIONS.md](docs/DECISIONS.md)), each
+  opening with one line in plain words.
+- **The history** of each review and round of work is a dated folder under [docs/audits/](docs/audits/). Each of those
+  documents says at its top that it is a historical record, so its numbers and rules are not mistaken for today's.
+- **A map of every document**, and which one answers which question, is [docs/README.md](docs/README.md).
 
 ---
 
@@ -37,7 +66,7 @@ npm run build                  # -> dist/H2C_Material_Selector_<snapshot>_<relea
 npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about a minute after a change, half that when nothing the build reads changed)
 npm run verify                 # before a commit: verify:fast, the import tests, the scale and reproducible-build checks, audit, review snapshot, interface views, 300 rendered scenarios (fails without Chrome: a check that cannot run has not passed)
 npm run build:diff             # what a change did to the compiled database, against HEAD
-npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
+npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (weekly in CI)
 npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
 npm run trace -- --scenario saved.json --product G001-06   # one decision as the page made it, and the records it rests on
@@ -61,10 +90,11 @@ Open the file in `dist/` in any current browser. Nothing else is required.
 
 ## Publishing
 
-`.github/workflows/pages.yml` runs `npm run verify` and rebuilds the selector from `data/tables` on every
-push to `main`, then publishes it to GitHub Pages. `verify.yml` runs the same gate on every branch. The distributable HTML is **not committed**, so the published page
-cannot drift from the source of truth, and a database that fails validation stops in CI and never
-reaches the site.
+`.github/workflows/verify.yml` runs `npm run verify` on every push to `main` and on pull requests; when it passes,
+`.github/workflows/pages.yml` rebuilds the selector from `data/tables` at that commit and publishes it to GitHub Pages.
+A branch is checked locally (`npm run verify`) before it is merged, and 2,000 random scenarios run weekly. The
+distributable HTML is **not committed**, so the published page cannot drift from the source of truth, and a database
+that fails validation stops in CI and never reaches the site.
 
 The page is served at the site root, so the address opens straight into the tool. The
 release-stamped filename and the validation report are published alongside it:

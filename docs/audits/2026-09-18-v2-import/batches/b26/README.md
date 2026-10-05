@@ -1,5 +1,7 @@
 # Batch b26: what a browser had to draw first
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m103-batch-b26`: 4 records from 1 document, out of 24 proposed. The batch is small and
 the phase behind it is not: it is the first document that entered because a browser drew it.
 

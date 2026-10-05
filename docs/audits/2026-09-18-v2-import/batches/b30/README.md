@@ -1,5 +1,7 @@
 # Batch b30: verdicts by witness, and four small reader rules
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m117-batch-b30`: 67 documents, 685 records: 8 materials (TPU-LW, TPU-GF, PLA-NF, PETG-GR,
 PA12-AF, PLA-GR, PA6/66-CF, TPU-EC), 61 grades, 67 sources, 441 measurements, 61 print profiles with 112 notes, 9
 headline selections, 6 material links, 8 coverage rows added and 24 recounted. Six byte-identical copies were marked

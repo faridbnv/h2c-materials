@@ -1,5 +1,7 @@
 # Polymaker priority-product batch: twelve products
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2/5, C3/C6/C9/C10/C13. The material phase remains 136/136 complete. This batch is not counted as completed until its reviewed outcomes and verified data commit are recorded in STATUS.
 
 Re-read 25 registered originals, checked twelve current maker TDS routes, and inspected exact official product pages and shared guides once. C07 admits 12 defensible new originals (ten HTML pages, two PDFs); the captured Polymaker PETG page added no useful fact and was not admitted.

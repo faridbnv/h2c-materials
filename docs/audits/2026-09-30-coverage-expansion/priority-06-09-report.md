@@ -1,5 +1,7 @@
 # Priority batches 06–09: final 46 selected products
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2 and 5; C3/C6/C9/C10/C13. Fiberlogy 12, Fillamentum 12, Extrudr 12 and eSUN 10 have independently reviewed bounded outcomes for all 782 assigned questions. The final selected 100-product run is fully assessed; closure advances only after the verified data commit is named in the outcome ledger. All 136 material assessments were already complete. The full catalogue remains outside this narrowed run.
 
 The tranche admits 17 new originals, 26 exact-product profiles and 68 evidence/know-how records. Twenty-two products gain previously missing drying schedules; two further CPE schedules retain source-specific revisions beside older guidance. Porthcurno's >5 h minimum stays raw without an exact typed duration. Hardened/nozzle-diameter advice retains generic 0.4 mm-table versus specific 0.5/0.6 mm context. No measurements, product ownership, price, estimate model or selection semantics change. All published/estimated headline objects are identical to the prior committed release.

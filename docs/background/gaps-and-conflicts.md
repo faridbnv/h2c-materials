@@ -1,5 +1,7 @@
 # H2C FDM Material Database — Gaps & Conflicts, Prioritised
 
+> **Historical record**: research the tool was built from. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../README.md) and [OPEN-PROBLEMS](../../docs/OPEN-PROBLEMS.md).
+
 **Workbook:** `H2C_FDM_Material_Database.xlsx` · **DB snapshot:** 2026-09-10 · **Audit passes:** 2026-09-11 (two rounds)
 **Backup of the pre-audit file:** `H2C_FDM_Material_Database_BACKUP_2026-09-11.xlsx`
 

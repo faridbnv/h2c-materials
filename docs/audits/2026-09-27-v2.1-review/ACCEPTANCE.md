@@ -1,5 +1,7 @@
 # Version 2.1 acceptance portfolio
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Twelve questions a small engineering team with an H2C would actually ask, each with the answer the source records
 support. They are the independent half of the version 2.1 tests ([the plan](V2.1-PLAN.md), phase 0 and section 5):
 the rest of the suite compares the page with the engine that drew it, or the database with the compiler that built it,

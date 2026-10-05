@@ -30,7 +30,7 @@
 // A material's range is the spread of its products, never uncertainty about one of them: PEBA's three products are
 // three products (D8's example, which D83 answers by counting them, not by pooling them).
 
-import { isPartSpecimen, annealedBesideAsPrinted } from './normalize/specimen.js';
+import { isPartSpecimen, annealedBesideAsPrinted, offRecipeWhy } from './normalize/specimen.js';
 import { median, cents } from './normalize/values.js';
 import { priceSample, convertedFrom } from './prices.js';
 import { measurementHeadlines, applies } from './registry.js';
@@ -68,8 +68,9 @@ export function assess(m, def, gradeMeasurements, state = null) {
   if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}` };
   if (m.implausible) return { excluded: 'flagged physically implausible' };
   if (!isPartSpecimen(m.specimenType)) {
-    // A bar printed at a setting the product is not meant for (D95) is printed, but not the product as it is printed.
-    return { excluded: m.specimenForm === 'off-recipe' ? 'printed at a setting the product is not meant for (D95)' : `a ${m.specimenForm} specimen, not a printed part` };
+    // A bar printed at a setting the product is not meant for (D95), or below 100 % infill (D130), is printed, but not
+    // the product as it is printed.
+    return { excluded: m.specimenForm === 'off-recipe' ? offRecipeWhy(m.specimenType, { brief: true }) : `a ${m.specimenForm} specimen, not a printed part` };
   }
   if (state && def.changesWithMoisture) {
     if (state.moisture === 'conditioned' && m.moistureState !== 'conditioned') return { excluded: 'not measured after moisture conditioning' };

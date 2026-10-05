@@ -1,5 +1,7 @@
 # Practical engineering and UX review for H2C v2.1
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Reviewer: Codex review agent. Date: 2026-09-27 Vancouver. This is an agent/code/browser review, not a human team usability study or a print validation. The original repository was not changed. All probes, copied artifacts, screenshots, downloads and this document are outside it.
 
 ## Executive assessment

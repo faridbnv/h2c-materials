@@ -1,5 +1,7 @@
 # Version 2.1 team trial
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The plan's phase 2 gate asks five representative engineers or operators to complete the intended task path, or to
 name clearly the evidence that is unresolved, with completion times and misunderstandings recorded
 ([V2.1-PLAN.md](V2.1-PLAN.md), phase 2). Five is a formative sample, not a statistical proof of usability. **It has not

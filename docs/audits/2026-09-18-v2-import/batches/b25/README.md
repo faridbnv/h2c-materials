@@ -1,5 +1,7 @@
 # Batch b25: what four polymer rows and four rulings let in
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m100-batch-b25`: 40 records from 4 documents, out of 187 proposed from every document the
 ledger held for a ruling. This is phase D of the completion plan, and nothing in it is a reader rule. What let
 these documents in is data: four rows of `polymers.csv`, each read from a producer's own document, and the

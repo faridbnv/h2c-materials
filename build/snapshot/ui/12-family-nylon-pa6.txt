@@ -1,6 +1,6 @@
 COUNT 5 shown PASS
-STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 148
-5 of the 153 materials meet these requirements
+STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 147
+5 of the 152 materials meet these requirements
 Why the rest were excluded
 Clear requirements
 Family: Nylon / Polyamide
@@ -119,10 +119,10 @@ Flexible Elastomers
 15
 Industrial High-Temperature
 14
-Copolyesters
-10
 Polymer Blends
 10
+Copolyesters
+9
 High-Performance Engineering
 8
 Polyolefins

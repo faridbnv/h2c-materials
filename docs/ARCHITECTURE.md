@@ -1,5 +1,7 @@
 # Architecture
 
+> **In short.** For someone changing code. The tool is three layers: the data tables (the source of truth, changed only through checked scripts), a build that validates them and compiles one database file, and the page, which reads that file and never changes it. This document gives the shape of each layer, the build stage by stage, the module map, and where a change goes; why each choice was made is in [DECISIONS.md](DECISIONS.md), and where things stand in the [README](../README.md).
+
 ## The shape of the thing
 
 Three layers, separated on purpose, each with a rule about what it may not do.
@@ -186,7 +188,7 @@ run in `verify` (`npm run test:ingest`), not here, while imports are paused.
 reproducible`), the audits (`audit:data`, and `audit:context` where the text cache is), review snapshot, interface
 views and 300 rendered scenarios, before a commit. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
-`schema/`, CI runs `verify` on every push and 2,000 rendered scenarios on a new seed every night, and
+`schema/`, CI runs `verify` on every push to main and on pull requests, and 2,000 rendered scenarios on a new seed every week, and
 `npm run build:diff` shows what a change did to the compiled database. `AGENTS.md` is the editing guide.
 
 ### Engine, `app/js/engine/`
@@ -309,7 +311,7 @@ category without importing anything from `ui/`.
 npm run verify:fast    while you work: format, schema, lint, generated docs, build and tests
 npm run verify         before a commit: verify:fast, the import tests, the scale and reproducible-build checks,
                        audit, context audit, review snapshot, interface views, 300 rendered scenarios
-npm run ui:fuzz:full   2,000 random scenarios through the built page, compared with the engine (nightly in CI)
+npm run ui:fuzz:full   2,000 random scenarios through the built page, compared with the engine (weekly in CI)
 npm run build:diff     every difference a change made to dist/db.json, against HEAD or --ref
 npm run data:check     the schema gate alone, in about a second
 npm run build          full build, ending in a distributable HTML file and its manifest
@@ -675,7 +677,7 @@ with estimates, and every build warning by record. `npm run ui:check` drives the
 through the default view, every template in both modes, each shared link reopened, and Compare, and compares what
 a reader sees with `build/snapshot/ui/`. Both are checked by `verify`; a change commits its diff.
 
-`npm run ui:fuzz`, the last step of `verify` (300 scenarios; 2,000 on a new seed nightly in CI), runs seeded random scenarios through the built page (every
+`npm run ui:fuzz`, the last step of `verify` (300 scenarios; 2,000 on a new seed weekly in CI), runs seeded random scenarios through the built page (every
 requirement kind and operator, thresholds at the evidence itself, assumptions, searches, templates) in Strict and
 Explore with estimates on and off, reads the table and the Ashby chart, and compares rows, verdicts, count, chips,
 points, envelopes, front, legend, rounding, reasons and link round trips with the engine run in Node. 300 scenarios

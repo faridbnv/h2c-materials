@@ -1,5 +1,7 @@
 # Background
 
+> **Historical record**: research the tool was built from. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../README.md) and [OPEN-PROBLEMS](../../docs/OPEN-PROBLEMS.md).
+
 Research inputs, not documentation of the tool. They are kept because the tool's behaviour is
 argued from them, and several decisions only make sense against what these say.
 

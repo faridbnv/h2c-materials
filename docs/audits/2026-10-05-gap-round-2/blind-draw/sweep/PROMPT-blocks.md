@@ -1,5 +1,7 @@
 # Test-bar statement reader (gap round 2, phase 7: the blind draw's measurement families)
 
+> **Historical record** (2026-10-05): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 You read, on data sheets of 3D-printing filaments, the statement of how the TEST SPECIMENS were printed and conditioned,
 and say which values it speaks for. Work in /Users/farid/Documents/h2c-materials-branch. Write ONLY `{OUT}` and scratch
 files under `/private/tmp/claude-501/-Users-farid-Documents-h2c-materials-branch/8ceac304-b627-4cec-9ff1-5537e29bbfb5/scratchpad/{ID}/`.

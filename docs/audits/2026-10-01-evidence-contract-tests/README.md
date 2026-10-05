@@ -1,5 +1,7 @@
 # Evidence-contract test corrections
 
+> **Historical record** (2026-10-01): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps2/5; C3/C13/C15. Two tests assumed every off-recipe result had an in-recipe counterpart in the same document and every raw temperature was understood by the parser. A source can print an off-recipe specimen without a companion value; an explicit source-reviewed parser exception may carry a literal Unicode temperature.
 
 The universal off-recipe headline/bound exclusion remains. The original14 two-column fixtures retain their paired-source checks, and a new independent fixture excludes an off-recipe value without companion records. Temperature tests compare every compiled typed value to its canonical value, require an explicit review for raw-parser exceptions, and reject the same Unicode exception without that review. Production code and data are unchanged in this commit.

@@ -1,5 +1,7 @@
 # Removing the data audit's error classes
 
+> **Historical record** (2026-10-01): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2 and 5; C1, C3, C4, C5, C6, C9, C15. The owner's PM trial and data audit of 2026-10-01 (an external package,
 `PM-TRIAL-2026-10-01`, kept beside the gap-fill packages) re-read 502 records against their cached sheets. They found
 the numbers faithful (97.7% printed on the cited page) and the errors in the context around them, from nine

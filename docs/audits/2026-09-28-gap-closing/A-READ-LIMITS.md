@@ -1,5 +1,7 @@
 # Boundaries of the cached pass
 
+> **Historical record** (2026-09-28): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Codex AI agent, 2026-09-28. `CACHED-DOCUMENTS.csv` records original-byte verification and page availability for
 all frozen products. The full cached text was scanned for requirement-specific leads, with exact GradeID tokens;
 `CACHED-CANDIDATES.csv` is the resulting lead register. These machine-assisted scans are not human source reviews,

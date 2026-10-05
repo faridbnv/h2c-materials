@@ -1,5 +1,7 @@
 # Batch b29: iSANMATE's current sheets
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m112-batch-b29`: 19 documents, 178 records — 1 material (PCL), 18 grades, 19 sources, 130
 measurements, 6 print profiles. Of iSANMATE's 38 documents, 33 are applied, 3 are revisions its download page no
 longer lists (dated `unreachable`), 1 is the same bytes as another, and 1 waits as a twin.

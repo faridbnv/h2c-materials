@@ -1,5 +1,7 @@
 # b40: the gap-fill tranche's product pages
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-29 by `m226-batch-b40`: 9 documents, 18 records (9 sources, 9 profiles). Imports are paused (GOALS);
 the owner asked on 2026-09-29 for the gap-fill research of 2026-09-28 to be finished (GOALS, "the gap-fill tranche"),
 and this batch is the part of it that needed documents the database did not hold. The rest of the tranche was recorded

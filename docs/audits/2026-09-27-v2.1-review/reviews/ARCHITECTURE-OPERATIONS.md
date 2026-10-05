@@ -1,5 +1,7 @@
 # H2C version 2.1 review: architecture, evidence operations, build and documentation
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Review date: 2026-09-27. This is an independent review contribution, not an implementation. Inspection used `/private/tmp/h2c-v2.1-review-2026-09-27/repo-copy`. The original repository was not edited. Paths and line numbers below refer to the reviewed repository. The root review coordinates full verification and runtime timing; this contribution did not run broad builds or tests or fetch sources. Its executed probes were read-only imports and in-memory data mutations; one isolated cache probe used a miniature directory outside the repository copy.
 
 ## Executive assessment

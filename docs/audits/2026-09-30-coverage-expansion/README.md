@@ -1,3 +1,5 @@
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 > **Selected run complete (2026-10-04):** all 136 materials and 100 selected additional products have
 > reviewed, committed outcomes. [Completion report](SELECTED100-COMPLETION.md) explains the benefit and
 > remaining limits; [STATUS](STATUS.md) owns current counts. Historical tranche sections below retain their dated results.

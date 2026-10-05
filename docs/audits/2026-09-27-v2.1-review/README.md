@@ -1,5 +1,7 @@
 # Version 2.1 review (2026-09-27)
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 A review of commit `eb695b8` by an AI team (software and data operations, materials engineering, practical use),
 delivered as a package outside the repository on 2026-09-27 and brought here on 2026-09-28, when the owner asked for
 its plan to be built on the `v2` branch.

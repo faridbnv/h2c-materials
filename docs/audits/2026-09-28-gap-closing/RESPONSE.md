@@ -1,5 +1,7 @@
 # Source backup and decision-gap closure
 
+> **Historical record** (2026-09-28): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Work on branch `v2`, baseline `d80d3df`; requested by the owner on 2026-09-28 from
 `lively-gliding-allen.md`. GOALS steps 2 and 5, C6/C9 (exact-product decisions and recipes),
 and C13 (source custody). All reviews in this campaign are by a Codex AI agent, not a person.

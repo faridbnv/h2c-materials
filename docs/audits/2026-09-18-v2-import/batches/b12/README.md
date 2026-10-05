@@ -1,5 +1,7 @@
 # Batch b12: the new PDF libraries of Wave B
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-20 by `m81-batch-b12`: 1,311 records from 154 documents, across thirteen makers whose libraries
 had never been read — SIDDAMENT, Raise3D, 3D4Makers, Prusament, eSUN, Recreus, Essentium / Nexa3D, BigRep,
 NinjaTek, Yousu, 3D-Fuel, UltiMaker and Markforged. The database goes from 528 grades, 6,556 measurement rows

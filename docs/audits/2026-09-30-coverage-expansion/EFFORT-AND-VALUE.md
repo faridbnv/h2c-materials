@@ -1,5 +1,7 @@
 # Estimated value and effort of finishing the campaign
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 *Planning estimates originated on 2026-10-01; scope and catalogue counts reconciled on 2026-10-02. [STATUS.md](STATUS.md) owns current completion counts. m302 merged duplicated product revisions/languages; 1049 live in-scope products remain. Historical completed outcomes retain two retired duplicate-grade targets.*
 
 On 2026-10-02 the owner accepted the two near-term recommendations: finish material assessment, then the first 100–150 priority products. [GOALS.md](../../GOALS.md) and [RESUME-2026-10-02.md](RESUME-2026-10-02.md) authorize 100 additional live products first, with extension to 150 only if observed benefit supports it. The rest is a retained backlog outside this run. The ranges below are planning judgments, not measured productivity, token usage or research-result guarantees.

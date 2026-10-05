@@ -59,6 +59,7 @@
     "data:sources": "node scripts/data/source-store.mjs",
     "docs:dictionary": "node scripts/docs-dictionary.mjs",
     "docs:decisions": "node scripts/docs-decisions.mjs",
+    "docs:history": "node scripts/docs-history.mjs",
     "snapshot": "node scripts/snapshot.mjs",
     "ui:check": "node scripts/ui-probe.mjs",
     "ui:fuzz": "node scripts/ui-fuzz.mjs",

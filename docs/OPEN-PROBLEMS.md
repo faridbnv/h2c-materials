@@ -1,5 +1,7 @@
 # Open problems
 
+> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 and 31 are what the two most recent rounds (the reader round and gap round 2, both 2026-10-05) left. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
+
 What is known to be wrong or missing in this database, reconciled on 2026-10-05. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
@@ -1062,24 +1064,19 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   PLA-CF and LW-PLA, CosPLA Version B and PolyMide CoPA in two revisions; colorFabb LW-PLA and LW-ASA; SUNLU's Marble PLA
   and SUNLU TPU beside TPU 95A. Not merged: FILAFLEX Foamy's two
   sheets (two non-foamed materials, 95A and 85A), SIDDAMENT's "ASA Carbon Fiber" and "ASA CF" (two tables), and
-  Polymaker PLA Pro V6.0 beside PolyLite PLA Pro V5.6 (a rewritten description and new values: unsure). Fabru's POM
-  (G087-01, G087-04) is unconfirmed: one of its sheets has no cached text.
-- **Filing questions the twins raised.** FiberFlex Aero (G134-01) is filed as CPE-LW from its sheet's boilerplate
-  ("CPE ANTIBAC filament") while its table is FiberFlex 40D's, value for value and "for the unfoamed material" (91A /
-  40D, tensile 28 MPa, elongation 700 %), its maker's page calls it "from the elastomer family", and FiberFlex 40D's
-  safety data sheet names a copolyester elastomer. No cached document names Aero's own polymer, so filing it as TPC /
-  TPEE (where FiberFlex 40D sits) is an inferred filing, which D106 leaves to the owner; the uninferred home is "TPE,
-  maker-undisclosed". Either way CPE-LW is left with no product, so it becomes a family entry or an alias (m141's
-  shape): the owner's call. Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for
+  Polymaker PLA Pro V6.0 beside PolyLite PLA Pro V5.6, which are two products (D130: PLA Pro is the new formula that
+  replaces PolyLite PLA Pro). purefil's POM (G087-01, G087-04) was one product and is one grade since m368.
+- **Filing questions the twins raised.** FiberFlex Aero (G134-01) is filed under TPC / TPEE since m368 as an inferred
+  filing (D130): its table is FiberFlex 40D's "for the unfoamed material", 40D's safety data sheet names a copolyester
+  elastomer, and its own safety data sheet names no polymer; CPE-LW is an alias of TPC / TPEE. Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for
   value and sit under PA6-CE and PA6, as Spectrum's own documents name them, while the LUVOCOM grades sit under PAHT-CE.
   33 twin acceptances (GRADE-VALUES-TWIN, §6) stand, R166's among them.
 - **The import's fibre sentence is gone since m296** (D121): 174 profiles say what their sheets say, the rule is in
   `method.csv`, and the page says it as the rule. Braskem's PP-CF prints "Nozzle Size (Material) ≥0.6 (Hardened Nozzle)",
   which its profile now holds (m299).
-- **The values never transcribed that this list named are recorded since m298** (D123). Left, seen while reading:
-  Stratasys PA6/66-GF30-FR's Tables 4 and 5 (tensile, flexural, compression and impact, XZ and ZX) are almost all
-  untranscribed, and its XY heat deflection at 264 psi prints 35 °C beside 161 °C at 66 psi and 153 °C XZ, recorded as
-  printed; Polymaker PolyFlex TPU95 still has an untranscribed ISO 37 table; TPU90 already held V5.1 strength/elongation, and m314–m315 now add fixed-strain stress and the coherent V5.5 table; Eryone's light-weight PLA prints
+- **The values never transcribed that this list named are recorded since m298** (D123). Stratasys PA6/66-GF30-FR's
+  Tables 4 and 5 are recorded since the reader round (m342, 30 values on pp. 6 and 7); its XY heat deflection at 264 psi
+  prints 35 °C beside 161 °C at 66 psi and 153 °C XZ, recorded as printed. Left, seen while reading: Polymaker PolyFlex TPU95 still has an untranscribed ISO 37 table; TPU90 already held V5.1 strength/elongation, and m314–m315 now add fixed-strain stress and the coherent V5.5 table; Eryone's light-weight PLA prints
   MPa as the unit of its X-Y elongation; Raise3D's Hyper Core PPA CF25 (G070-08) carries Industrial PET CF V4.0's source as
   its formulation key, which no other grade shares and reads nothing, but which may say its sheet reprints that table
   (R166). `npm run audit:sources` finds such values.
@@ -1135,18 +1132,17 @@ The pass of 2026-10-02 ([record](audits/2026-10-02-open-problems-pass/README.md)
 on its own. What it could not, by who settles it:
 
 - **The owner.**
-  - FiberFlex Aero's filing (§28): TPC / TPEE inferred, or "TPE, maker-undisclosed"; either leaves CPE-LW without a
-    product.
   - A way to retire a profile note (§28).
-  - The 255 maker questions in `archive/research-2026-09-26/owner-handoffs.csv` (§15): sending them is outward-facing.
+  - The maker questions (§15 and `docs/audits/2026-10-05-gap-round-2/MAKER-QUESTIONS.md`): the owner decided on
+    2026-10-05 not to send them; they stay as a record of what only a maker could settle.
   - The coverage campaign (§27): the owner authorized completing material assessment and 100–150 priority products on
     2026-10-02. All 136 material assessments are complete; 100 additional product targets are frozen in STATUS.md.
     The remaining full-catalogue targets are outside this narrowed run.
-  - Polymaker PLA Pro V6.0 beside PolyLite PLA Pro V5.6, and Fabru's POM (§28): one product each, or two.
+  - FiberFlex Aero's filing, PLA Pro beside PolyLite PLA Pro and purefil's POM were left to Claude to judge on
+    2026-10-05 and are settled (D130, m368).
 - **The makers.** purefil PA6 GF10's two bed rows (§28); the source contradictions of §§23 to 26; the conditions of §15.
 - **People.** The decisive-value spot-check (C3) and the team trial (C7). Every review in this pass was an AI's.
-- **Leads the readers saw**, recorded in §28: Stratasys PA6/66-GF30-FR's untranscribed Tables 4 and 5 and its 35 °C
-  heat deflection at 264 psi; PolyFlex TPU95's remaining ISO 37 table (TPU90 recovered in m314–m315); Raise3D Hyper Core PPA CF25's key; Eryone
+- **Leads the readers saw**, recorded in §28: Stratasys PA6/66-GF30-FR's 35 °C heat deflection at 264 psi; PolyFlex TPU95's remaining ISO 37 table (TPU90 recovered in m314–m315); Raise3D Hyper Core PPA CF25's key; Eryone
   light-weight PLA's elongation printed in MPa; Braskem PP-CF's two beds; BVOH's Extended TDS conditions.
 
 ```sh
@@ -1302,7 +1298,7 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
 - **Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table,
   V012362) is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.
 
-## 31. What gap round 2 (m355 to m365) leaves open
+## 31. What gap round 2 (m355 to m368) leaves open
 
 The round (D127, D128, D129; `docs/audits/2026-10-05-gap-round-2/`) worked the reader round's causes by priority. Its
 progress against the 2,518 targets it froze is `after/PROGRESS.md`; `node docs/audits/2026-10-04-reader-round/targets.mjs
@@ -1335,12 +1331,12 @@ re-derives it.
   the guide's window contains the maker's in 150 of 357 profiles, overlaps it in 43 and misses it in 164 (ABS and ASA
   most: the guide's 80 °C above makers' 50 to 60 °C), and the guide calls drying optional where the maker requires it in
   201 (`guide-drying-backcheck.md`). It is always shown as the guide's.
-- **Pages that contradict themselves about drying.** Polymaker's product pages for Fiberon PA612-CF15, PA612-ESD, PA12-CF10,
-  PA6-CF20, PolyMide CoPA, PolyLite PC and PETG ESD print a schedule in their specifications and, in a tip, "only if the
-  material has absorbed moisture" or another cycle; the profiles keep the specification's schedule, required.
-- **Bars printed at 20 % infill.** Three 3DJake sheets (ABS-P, PLA, ASA) print their test bars at "Infill: 20 %" (m358);
-  the values are held as printed specimens like any other, though a 20 % bar is not comparable with the 100 % bars
-  others print. The comparison does not yet read infill.
+- **Pages that say two things about drying.** Polymaker's product pages print a schedule in their print settings, their
+  specifications and their tips, not always alike. Since m367 (D130) each product reads its page whole and shows the
+  other statements in a "Drying" note; what is left is the maker's own inconsistency, which only Polymaker can settle.
+- **Bars printed at 20 % infill.** Three 3DJake sheets (ABS-P, PLA, ASA) print their test bars at "Infill: 20 %"; since
+  m366 (D130) those 16 values say so ("Printed specimen at partial infill") and never stand for the product. A sheet that
+  states another partial infill would need the same label; the import does not yet read infill on its own.
 - **Statements the readers left.** The Bambu TPU for AMS and Kingroon PETG sheets say their specimens "were annealed and
   dried at 70 °C for 12 h" (65 °C, 8 h) and Kingroon's TPU sheet "dried at 70 °C for 12 hours"; Stratasys's PA6/66-GF30-FR
   sheet conditions its bars "per the respective ASTM standard". These are moisture and treatment states a reviewer must
@@ -1352,9 +1348,11 @@ re-derives it.
   on all 102; QIDI's filament guide rows hold "Required" or "Optional" and not the schedule beside it. The second draw's
   eight such records were each answered by another profile of the product, so none decided; whether every one is, the
   products' print gates in `build/snapshot/print.csv` say.
-- **A silk PLA under unfilled PLA.** eSUN's eSilk-PLA (G001-76) is filed under PLA with no variant, so Bambu Lab's PLA
-  guide row, whose mapping excludes PLA Silk, answers its chamber, enclosure, nozzle and drying. Whether it belongs under
-  PLA Silk is a filing question for the owner.
+- **PolySonic PLA Pro and Polymaker PLA Pro.** Polymaker's own store calls Polymaker PLA Pro (G001-30) "Formerly
+  PolySonic PLA Pro ... Same great formula, new name", but the database holds both (G001-20 and G001-30) and their two
+  current sheets print different values (melt flow 15.5 and 13.4, elongation 23.4 and 16.6 %). They stay two grades
+  until a Polymaker document of record says which sheet is the product's; the store page is not a registered source.
+  (eSUN's eSilk-PLA, which this list named, is eSUN PLA-Silk since m368.)
 - **Held sheets not admitted (b43).** Stratasys ST-130 names no base polymer; Diran 410MF07 waits on the owner for its
   home (§14); FKuR's Fibrolon sheet names no filament; Markforged's Onyx ESD names no additive its filing accepts. b44's
   `NotAdmitted` list gives each product page's reason.
@@ -1362,8 +1360,9 @@ re-derives it.
   notched X-Y ones, which a notched Z bar cannot do; the drawing does not settle the notch and the values keep theirs
   (m359).
 - **Questions only a maker can answer.** 125 questions to 36 makers, 52 of them changing a selection or print answer,
-  are in `MAKER-QUESTIONS.md`. Nothing has been sent: that is the owner's to do.
-- **CI does not run the context audit.** `audit:context` reads the private text cache, which CI does not hold; there it
-  prints "audit:context SKIPPED" and a GitHub Actions warning, and passes. It runs in a checkout that holds the cache,
-  and must pass there before a push. Committing the makers' extracted text so CI could run it is a redistribution
-  question for the owner.
+  are in `MAKER-QUESTIONS.md`. The owner decided on 2026-10-05 not to send them; they are the record of what only a
+  maker could settle.
+- **The context audit is a local check.** `audit:context` reads the makers' extracted text, which stays on this machine
+  (the owner's decision of 2026-10-05) and is backed up with the documents (`npm run data:sources -- --export
+  "$H2C_SOURCE_BACKUP" --derived`). In CI it prints "audit:context SKIPPED" and a GitHub Actions warning, and passes, so
+  it must pass in a checkout that holds the cache before every push.

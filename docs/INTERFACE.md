@@ -1,5 +1,7 @@
 # The interface
 
+> **In short.** Why the page looks and behaves as it does. One screen serves someone who wants a shortlist and an engineer who wants the evidence behind it, for data that is sparse and says so. This document covers the workflow (requirements, the ranked table and chart, a material's drawer with its products and their print recipes), the words the page uses and why, and its visual vocabulary.
+
 ## The problem it is shaped around
 
 Two readers share one screen: someone who wants a shortlist, and an engineer who wants the evidence

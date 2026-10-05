@@ -1,7 +1,7 @@
 COUNT 7 shown PASS
-STATUS ☑ PASS 7 | ☐ UNKNOWN 105 | ☐ FAIL 41
-7 of the 153 materials meet these requirements
-Flexible component template · 105 more could not be checked, left out under Confirmed only
+STATUS ☑ PASS 7 | ☐ UNKNOWN 104 | ☐ FAIL 41
+7 of the 152 materials meet these requirements
+Flexible component template · 104 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits

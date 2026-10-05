@@ -261,7 +261,7 @@ them.
 The result is one JSON file, checked against its own contract, then compressed into a single HTML file together
 with the interface. The page never reads a data sheet, never computes a headline, and never reaches the network.
 What it does compute is the selection: which materials meet your requirements. That logic lives in one place, is
-tested on its own, and every night two thousand random sets of requirements are run through the rendered page and
+tested on its own, and every week two thousand random sets of requirements are run through the rendered page and
 compared with the same logic run outside the browser, so the screen cannot drift from the rules.
 
 ## A material is the spread of its products

@@ -1,5 +1,7 @@
 # The V2 import's proposals, 2026-09-18 to 2026-09-25
 
+> **Historical record** (2026-09-18): kept from an earlier stage of the project. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../README.md) and [OPEN-PROBLEMS](../../docs/OPEN-PROBLEMS.md).
+
 One JSON file per document and batch (`proposals/<batch>/<doc_key>.json`): what the sheet reader proposed from each
 data sheet, the page and line of every row, the lines it skipped, and the review that accepted or rejected each row.
 They lived in `docs/audits/2026-09-18-v2-import/proposals/` until 2026-09-25, when re-center phase 5 moved them here:

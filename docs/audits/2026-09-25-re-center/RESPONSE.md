@@ -1,5 +1,7 @@
 # Re-center: what was done
 
+> **Historical record** (2026-09-25): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The [report](REPORT.md) is the review and plan as the owner approved it on 2026-09-25. This page records what each phase did,
 with the figures its gate asked for.
 

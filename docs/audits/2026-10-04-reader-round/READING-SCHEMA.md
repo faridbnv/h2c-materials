@@ -1,5 +1,7 @@
 # Readings CSV schema (reader round, 2026-10-04)
 
+> **Current** reference, kept up to date: the readings CSV the page-reading tools read and check (`npm run ingest:read-reconcile`). The rest of this folder is the reader round's historical record.
+
 One CSV per reader per batch, UTF-8, comma separated, RFC 4180 quoting, a header row with exactly these 26 columns in
 this order. An empty cell is empty: never write "N/A", "-" or 0 for a value you did not see. Every row is one thing
 printed on one page (or one held row checked against that page).

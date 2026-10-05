@@ -1,5 +1,7 @@
 # Gap round 2: what we hold, read in full; drying as stated; page statements by table; new documents; checked
 
+> **Historical record** (2026-10-05): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2 and 5; C3, C4, C9, C11, C12. Decisions D127 (drying as a sheet states it, guide drying), D128 (a page
 statement can head one table) and D129 (what the round's blind draw named). The reader round (D125, D126) closed 853 of
 3,351 gaps and named the causes that still kept values out or wrong; the owner asked for a round that works them by

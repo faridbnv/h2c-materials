@@ -1,5 +1,7 @@
 # Batch b18: Wave D's first half, and a condition the sheet prints on the line below
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-20 by `m87-batch-b18`: 733 records from 54 documents. The database goes from 720 grades, 8,162
 measurement rows and 936 sources to 740, 8,735 and 990.
 

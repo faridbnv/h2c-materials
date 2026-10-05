@@ -1,14 +1,14 @@
 MaterialID,Material,Headline,Products,Comparable,Min,Q1,Median,Q3,Max,Typical,AsPublished,Variants,Twins
-M001,PLA,density,179,157,1170,1227,1240,1240,1329,G001-01,,17: 800-4000,12
-M001,PLA,tensileModulusXY,179,50,0.4328,1.86648675,2.58,2.86875,4.24,G001-192,42: 0.379426-4.78,11: 0.7153-4.73,2
-M001,PLA,tensileStrengthXY,179,66,25.976,39.9475,45,52.9975,70.91,G001-132,56: 30-71,12: 13.7-65,2
-M001,PLA,tensileStrengthZ,179,38,8.7,22.525,30.775,34.125,43.5,G001-86,,3: 14.5-21.7,1
-M001,PLA,elongationXY,179,62,1.2,4.1475,7.615,12.3185,65,G001-71,47: 2.5-84,11: 2.4-36,2
-M001,PLA,charpyNotched,179,16,4.94,6.55,13.52,21.245,72.3,G001-29,22: 1.8-29.8,6: 1.8-6.3,
-M001,PLA,izodNotched,179,6,4.5,4.625,5,5.75,6.5,G001-37,8: 3.5-5,5: 5.5-18.0952,
-M001,PLA,hdt045,179,86,50,53.6825,55,59,135,G001-108,31: 53-108,8: 55-89,1
-M001,PLA,glassTransition,179,73,54,55,58.9,61,67.5,G001-109,,7: 55-62.4,6
-M001,PLA,priceCADkg,179,27,17.99,27.99,33.32,39.99,79.99,G001-165,,2: 22.99-64.98,
+M001,PLA,density,178,156,1170,1229.25,1240,1240,1329,G001-01,,17: 800-4000,12
+M001,PLA,tensileModulusXY,178,50,0.4328,1.86648675,2.58,2.86875,4.24,G001-192,41: 0.379426-4.78,11: 0.7153-4.73,2
+M001,PLA,tensileStrengthXY,178,66,25.976,39.9475,45,52.9975,70.91,G001-132,55: 30-71,12: 13.7-65,2
+M001,PLA,tensileStrengthZ,178,38,8.7,22.525,30.775,34.125,43.5,G001-86,,3: 14.5-21.7,1
+M001,PLA,elongationXY,178,62,1.2,4.1475,7.615,12.3185,65,G001-71,46: 2.5-84,11: 2.4-36,2
+M001,PLA,charpyNotched,178,16,4.94,6.55,13.52,21.245,72.3,G001-29,22: 1.8-29.8,6: 1.8-6.3,
+M001,PLA,izodNotched,178,6,4.5,4.625,5,5.75,6.5,G001-37,8: 3.5-5,5: 5.5-18.0952,
+M001,PLA,hdt045,178,86,50,53.6825,55,59,135,G001-108,31: 53-108,8: 55-89,1
+M001,PLA,glassTransition,178,73,54,55,58.9,61,67.5,G001-109,,7: 55-62.4,6
+M001,PLA,priceCADkg,178,26,17.99,27.99,33.655,39.99,79.99,G001-165,,2: 22.99-64.98,
 M008,PLA Silk,density,34,30,1210,1230,1240,1265,1320,G008-01,,,10
 M008,PLA Silk,tensileModulusXY,34,12,0.597,1.597525,1.77745,1.949075,2.403,G008-07,7: 0.400339-2.76,,3
 M008,PLA Silk,tensileStrengthXY,34,18,27,42.075,49.9,50,62.7,G008-07,10: 39.928-64,,7
@@ -18,7 +18,7 @@ M008,PLA Silk,charpyNotched,34,3,8.2,,10.3,,13.8,G009-01,,,
 M008,PLA Silk,izodNotched,34,6,3.5,3.5,3.5,3.5,4.29,G008-04,1: 4.2-4.2,,4
 M008,PLA Silk,hdt045,34,19,50,53,53,57,62,G008-06,4: 50-53,,7
 M008,PLA Silk,glassTransition,34,19,55.6,57,60.9,60.9,63,G008-04,,,9
-M008,PLA Silk,priceCADkg,34,6,28.99,31.24,32.245,38.1175,47.99,G010-01,,,
+M008,PLA Silk,priceCADkg,34,6,28.75,29.49,31.49,37.99,47.99,G009-01,,,
 M011,PLA Metal,density,3,3,1200,,1225,,1250,G011-05,,6: 2280-3500,
 M011,PLA Metal,tensileModulusXY,3,2,1.9,,1.955,,2.01,G011-01,,2: 3.99-4.21,
 M011,PLA Metal,tensileStrengthXY,3,2,34,,34,,34,G011-01,,5: 18.3-35,
@@ -151,9 +151,9 @@ M026,PETG-ESD,glassTransition,10,7,77,77,80,80,85,G026-01,,,
 M026,PETG-ESD,priceCADkg,10,2,93.98,,138.64,,183.3,G026-05,,,
 M027,ABS,density,56,48,1020,1040,1050,1060,1150,G027-01,,,3
 M027,ABS,tensileModulusXY,56,13,1.6,1.95,2.2,2.2466,2.38422,G027-01,18: 1.4-2.7,,1
-M027,ABS,tensileStrengthXY,56,19,15.68,32.2,34,35.58,45,G027-36,26: 24.2-54,,1
+M027,ABS,tensileStrengthXY,56,19,15.68,32.2,34,35.58,45,G027-36,25: 36-54,,1
 M027,ABS,tensileStrengthZ,56,13,11.5,22,27,28,33,G027-44,,,1
-M027,ABS,elongationXY,56,17,2.7,6.72,10,10.5,40,G027-06,26: 2.6-50,,1
+M027,ABS,elongationXY,56,17,2.7,6.72,10,10.5,40,G027-06,25: 2.6-50,,1
 M027,ABS,charpyNotched,56,5,14.48,18,20.03,21.5,21.5,G027-32,10: 18-58,,1
 M027,ABS,izodNotched,56,3,10,,13.7,,15,G027-14,15: 4-39,,
 M027,ABS,hdt045,56,24,78.9,87.75,94,95.25,118.1,G027-52,6: 65-97,,2
@@ -190,10 +190,10 @@ M030,ABS-ESD,hdt045,11,4,96,96.75,97,97.25,98,G030-01,,,
 M030,ABS-ESD,glassTransition,11,5,100,104,105,105,106,G030-01,,,
 M030,ABS-ESD,priceCADkg,11,2,198.63,,222.75,,246.87,G030-01,,,
 M031,ASA,density,41,36,1040,1070,1070,1072.5,1150,G031-03,,,1
-M031,ASA,tensileModulusXY,41,11,0.9425,1.955,2.1746,2.3335,2.45,G031-06,17: 1.726-2.3,,
-M031,ASA,tensileStrengthXY,41,12,30.2,37.45,38.55,41.25,45,G031-25,21: 34.435-52,,
+M031,ASA,tensileModulusXY,41,11,0.9425,1.955,2.1746,2.3335,2.45,G031-06,16: 1.726-2.3,,
+M031,ASA,tensileStrengthXY,41,12,30.2,37.45,38.55,41.25,45,G031-25,20: 34.435-52,,
 M031,ASA,tensileStrengthZ,41,8,9.4,18,24.9,28.4025,31,G031-30,,,
-M031,ASA,elongationXY,41,12,1.9,5.2,6.6,9.4,15,G031-13,19: 4.71-35,,
+M031,ASA,elongationXY,41,12,1.9,5.2,6.6,9.4,15,G031-13,18: 4.71-35,,
 M031,ASA,charpyNotched,41,3,10.5,,12.9,,19.6,G031-25,7: 10.5-30,,
 M031,ASA,izodNotched,41,2,7,,13,,19,G031-08,5: 8-18,,
 M031,ASA,hdt045,41,19,82,92,95,96,103,G031-05,8: 86-97,,
@@ -278,15 +278,15 @@ M045,PEBA,charpyNotched,9,0,,,,,,,,,
 M045,PEBA,izodNotched,9,0,,,,,,,,,
 M045,PEBA,glassTransition,9,0,,,,,,,,,
 M045,PEBA,priceCADkg,9,1,106.24,,106.24,,106.24,G045-08,,,
-M046,TPC / TPEE,density,10,10,1070,1142.5,1150,1160,1220,G046-01,,1: 1130-1130,1
+M046,TPC / TPEE,density,10,10,1070,1142.5,1150,1160,1220,G046-01,,2: 1130-1160,1
 M046,TPC / TPEE,tensileModulusXY,10,2,0.029,,0.048,,0.067,G046-03,2: 0.095-0.2,1: 0.0344393262-0.0344393262,
-M046,TPC / TPEE,tensileStrengthXY,10,2,7.6,,12.65,,17.7,G046-02,5: 22-43,1: 21.98738964-21.98738964,
+M046,TPC / TPEE,tensileStrengthXY,10,2,7.6,,12.65,,17.7,G046-02,5: 22-43,2: 21.98738964-28,
 M046,TPC / TPEE,tensileStrengthZ,10,0,,,,,,,,,
-M046,TPC / TPEE,elongationXY,10,2,390,,445,,500,G046-03,6: 400-870,1: 600-600,
+M046,TPC / TPEE,elongationXY,10,2,390,,445,,500,G046-03,6: 400-870,2: 600-700,
 M046,TPC / TPEE,charpyNotched,10,0,,,,,,,,,
 M046,TPC / TPEE,izodNotched,10,0,,,,,,,,,
 M046,TPC / TPEE,glassTransition,10,2,-35,,-35,,-35,G046-01,,1: -80--80,
-M046,TPC / TPEE,priceCADkg,10,2,74.1,,87.97,,101.84,G167-03,,,
+M046,TPC / TPEE,priceCADkg,10,2,74.1,,87.97,,101.84,G167-03,,1: 166.13-166.13,
 M048,PAHT-CF,density,5,3,1060,,1240,,1250,G048-04,,,
 M048,PAHT-CF,tensileModulusXY,5,3,3.86,,8.386,,8.62,G048-02,1: 15-15,,
 M048,PAHT-CF,tensileStrengthXY,5,3,92,,103.2,,123.17,G048-02,1: 170-170,,
@@ -646,16 +646,16 @@ M086,OBC,charpyNotched,2,0,,,,,,,,,
 M086,OBC,izodNotched,2,0,,,,,,,,,
 M086,OBC,glassTransition,2,2,-13,,-13,,-13,G086-02,,,1
 M086,OBC,priceCADkg,2,0,,,,,,,,,
-M087,POM / Acetal,density,4,3,1140,,1340,,1420,G087-04,,,
-M087,POM / Acetal,tensileModulusXY,4,1,1.87,,1.87,,1.87,G087-02,1: 1.05-1.05,,
-M087,POM / Acetal,tensileStrengthXY,4,1,50,,50,,50,G087-02,2: 43-65,,
-M087,POM / Acetal,tensileStrengthZ,4,0,,,,,,,,,
-M087,POM / Acetal,elongationXY,4,1,11,,11,,11,G087-02,2: 35-50,,
-M087,POM / Acetal,charpyNotched,4,0,,,,,,,,,
-M087,POM / Acetal,izodNotched,4,0,,,,,,,,,
-M087,POM / Acetal,hdt045,4,1,100,,100,,100,G087-04,,,
-M087,POM / Acetal,glassTransition,4,1,-50,,-50,,-50,G087-02,,,
-M087,POM / Acetal,priceCADkg,4,0,,,,,,,,,
+M087,POM / Acetal,density,3,3,1140,,1340,,1420,G087-04,,,
+M087,POM / Acetal,tensileModulusXY,3,1,1.87,,1.87,,1.87,G087-02,1: 1.05-1.05,,
+M087,POM / Acetal,tensileStrengthXY,3,1,50,,50,,50,G087-02,2: 43-65,,
+M087,POM / Acetal,tensileStrengthZ,3,0,,,,,,,,,
+M087,POM / Acetal,elongationXY,3,1,11,,11,,11,G087-02,2: 35-50,,
+M087,POM / Acetal,charpyNotched,3,0,,,,,,,,,
+M087,POM / Acetal,izodNotched,3,0,,,,,,,,,
+M087,POM / Acetal,hdt045,3,1,100,,100,,100,G087-04,,,
+M087,POM / Acetal,glassTransition,3,1,-50,,-50,,-50,G087-02,,,
+M087,POM / Acetal,priceCADkg,3,0,,,,,,,,,
 M088,PCTG,density,8,8,1230,1230,1230,1230,1230,G088-01,,,2
 M088,PCTG,tensileModulusXY,8,1,1.755,,1.755,,1.755,G088-01,2: 1.7-2,,
 M088,PCTG,tensileStrengthXY,8,1,45,,45,,45,G088-01,7: 45-52.95591,,
@@ -1113,16 +1113,6 @@ M133,PBAT,izodNotched,1,0,,,,,,,,,
 M133,PBAT,hdt045,1,1,90,,90,,90,G133-01,,,
 M133,PBAT,glassTransition,1,0,,,,,,,,,
 M133,PBAT,priceCADkg,1,0,,,,,,,,,
-M134,CPE-LW,density,1,1,1160,,1160,,1160,G134-01,,,
-M134,CPE-LW,tensileModulusXY,1,0,,,,,,,,,
-M134,CPE-LW,tensileStrengthXY,1,0,,,,,,,1: 28-28,,
-M134,CPE-LW,tensileStrengthZ,1,0,,,,,,,,,
-M134,CPE-LW,elongationXY,1,0,,,,,,,1: 700-700,,
-M134,CPE-LW,charpyNotched,1,0,,,,,,,,,
-M134,CPE-LW,izodNotched,1,0,,,,,,,,,
-M134,CPE-LW,hdt045,1,1,70,,70,,70,G134-01,,,
-M134,CPE-LW,glassTransition,1,0,,,,,,,,,
-M134,CPE-LW,priceCADkg,1,1,166.13,,166.13,,166.13,G134-01,,,
 M135,PVC,density,2,2,1269,,1309.5,,1350,G135-01,,,
 M135,PVC,tensileModulusXY,2,0,,,,,,,,,
 M135,PVC,tensileStrengthXY,2,0,,,,,,,2: 24.8-46.1,,

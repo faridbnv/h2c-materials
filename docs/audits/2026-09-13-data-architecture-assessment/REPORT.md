@@ -1,5 +1,7 @@
 # Data architecture assessment and migration options
 
+> **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 - **Date:** 2026-09-13
 - **Baseline:** `54f606a941fabf07d313b56265ab918a553449d8`
 - **Scope:** Read-only assessment of the current database authoring model, source-to-HTML pipeline, validation controls, debugging path and growth limits. No workbook, code, generated data or application behavior was changed. This report is the only deliverable added by this assessment.

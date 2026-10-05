@@ -1,5 +1,7 @@
 # Batch b07-extrudr
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Extrudr's library: 140 links, 33 documents, 24 of them read. Applied 2026-09-19 by `m63-batch-b07-extrudr`.
 
 ## What 140 links are

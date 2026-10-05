@@ -1,5 +1,7 @@
 # What the makers say each product is (2026-09-28, m223, D106)
 
+> **Historical record** (2026-09-28): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The owner, looking at the page: several materials are named "polymer not stated", and "TPU, hardness not stated", while
 their products have good data. Naming them so is not acceptable. Search the sources beyond the data sheets, and change
 their names to what they are.

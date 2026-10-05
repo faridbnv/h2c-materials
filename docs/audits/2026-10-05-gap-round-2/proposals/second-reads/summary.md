@@ -1,5 +1,7 @@
 # Proposals final-3
 
+> **Historical record** (2026-10-05): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 15820 reading(s) considered; 150 repeat another reading; 13990 held.
 
 ## Files

@@ -1,5 +1,7 @@
 # Working on the data
 
+> **In short.** The rules for changing the data, for people and AI agents alike: data changes only in `data/tables/*.csv`, through checked scripts that name the value they replace; nothing is deleted; every source is fingerprinted; and the automatic checks (`npm run verify`) must pass before a commit. Below are the commands, the rules the tooling enforces, and a recipe for each common change. What the tool is for, and where it stands, are in [docs/GOALS.md](docs/GOALS.md) and the [README](README.md).
+
 **Read `docs/GOALS.md` first.** It says what the tool is for, the method it follows, what is decided next, and the
 working rules every change is judged by: name the step it improves, record everything but verify what decides, show
 how many scenario answers it moved, and keep `verify:fast` within its budget.
@@ -38,8 +40,9 @@ views and the rendered scenarios drive a headless browser). `verify` also runs t
 The build result is cached by content in `.cache/build/` (`build/src/build-cache.js`): the same tables, code, runtime
 and options give the stored result back instead of running the estimate stage again, which is what keeps
 `verify:fast` inside its budget. The key covers everything the build reads, so a stale hit is not possible;
-`H2C_NO_BUILD_CACHE=1` turns it off, CI starts with it empty, and the audit and the reproducibility test rebuild without it. CI runs `verify` on every push and 2,000
-scenarios on a new seed every night (`npm run ui:fuzz:full` locally). After a data or rule change, run `npm run snapshot`
+`H2C_NO_BUILD_CACHE=1` turns it off, CI starts with it empty, and the audit and the reproducibility test rebuild without it. CI runs `verify` on every push to
+main and on pull requests (a branch is checked locally before it is merged), publishes the page once that has passed, and
+runs 2,000 scenarios on a new seed every week (`npm run ui:fuzz:full` locally). After a data or rule change, run `npm run snapshot`
 (and `npm run ui:check -- --write` when a view changed), read the diff, and commit it with the change: it is the change's
 downstream effect. A change meant to move nothing (code moved, a table split, a column retyped) shows `0 difference(s)`
 in `npm run build:diff`; a change of behaviour shows exactly the paths it meant to move.

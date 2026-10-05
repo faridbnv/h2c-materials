@@ -1,5 +1,7 @@
 # What eight Extrudr filaments are made of
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Research note, 2026-09-19. Eight Extrudr products whose technical data sheet names no base polymer, so the
 database cannot file them. The question for seven of them is the base polymer; for XPETG MATT it is the filler
 its name does not declare.

@@ -1,5 +1,7 @@
 # UX and data audit
 
+> **Historical record** (2026-09-11): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 **Persona.** A 3D printer owner. Competent with their machine, buys filament online, has printed
 PLA, PETG and maybe ABS. Has never heard of HDT, tensile modulus, ISO 527, an Ashby chart or a
 Pareto front. Does not know this database exists and has no idea what "the architecture brief" is.

@@ -1,5 +1,7 @@
 # Audits
 
+> **Current** index, kept up to date. Every folder it lists is a historical record: its documents say so at their top, and describe the tool as it was on their date. For where things stand now, read the [README](../../README.md).
+
 Every review of the tool or its database lives here, one folder each, named
 `<date>-<subject>`. A folder holds the report exactly as it was delivered (`REPORT.md`) and what was
 done about it (`RESPONSE.md`), plus any evidence files the reviewer supplied, in lower-case

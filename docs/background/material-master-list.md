@@ -1,5 +1,7 @@
 # Bambu Lab H2C - Consolidated FDM Filament Material Master List
 
+> **Historical record**: research the tool was built from. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../README.md) and [OPEN-PROBLEMS](../../docs/OPEN-PROBLEMS.md).
+
 ## Purpose
 
 This document consolidates the filament/material research from this chat into a starting taxonomy for an FDM material database centered on a fully configured Bambu Lab H2C. It combines Bambu-named filament products and material families with additional material families discussed as theoretically compatible with the H2C hardware envelope.

@@ -1,5 +1,7 @@
 # Batch b31: the twins
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m122-batch-b31`: 22 documents, 46 records and 8 coverage rows. Fifty-seven documents waited
 as twins — sheets that print another sheet's numbers under another product's name — and were proposed again
 (`--propose --held twin`), queued from their ledger notes, and shaped by `--twins`.

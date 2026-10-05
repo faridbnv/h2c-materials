@@ -1,5 +1,7 @@
 # Print profiles fixed by cause, not by re-reading every one
 
+> **Historical record** (2026-10-02): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2 and 5; C9, C15. Decision D120. On 2026-10-02 the owner asked for a middle ground between another random
 draw and a re-read of all 1,323 print profiles: find the causes, then fix every profile each cause touched, with Claude
 Sonnet reading wherever reading was needed.

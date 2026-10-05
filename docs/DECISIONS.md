@@ -1,5 +1,7 @@
 # Decisions
 
+> **In short.** 130 numbered decisions (D1 to D130), each opening with one line in plain words and a status saying whether a later decision changed it, followed by a table of bugs worth remembering. Read the index below for the list; a decision says what would break if it were reversed.
+
 The choices that are not obvious, and the bugs that forced several of them. Each says what would
 break if it were reversed, because that is the part that gets lost.
 
@@ -139,6 +141,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D127 | Drying is recorded as a sheet states it, and the printer maker's guide fills a silent product's drying | A sheet's drying line was read as a published schedule whatever it said, so "not necessary", "Optional" and "only if the material has absorbed moisture" counted as a product that must be dried, and "6+ hours" lost its open end. Each print profile now says whether drying is required, optional or not needed, and whether its duration has an upper end. Bambu Lab's guide, which already answers a silent product's nozzle, bed and chamber, now answers its drying too, labelled as the guide's. A product that holds a profile of its own no longer reads its twin's statement about wearing a brass nozzle. | In force; it amends D88 (the guide now answers drying) and D89 (a twin's hardened-nozzle statement reaches only a product with no profile of its own) |
 | D128 | A page statement can head one table | A heading or footnote recorded once for a page reached every value of its class on that page, so a footnote under the mechanical table also spoke for the physical table beside it. A page statement can now name the table it heads, matched against the values' locators, and a statement that heads one table outranks one that heads the page. | In force; it extends D116 (context the page states) |
 | D129 | What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer | A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 133 profiles read "drying not needed" (34 "required", 2 "optional") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed. | In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads) |
+| D130 | The owner's answers after gap round 2: drying read with the whole page, bars below full infill labelled, three identities judged, CI once per push | Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly. | In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero |
 
 <!-- end index -->
 
@@ -4200,3 +4203,44 @@ effect (GOALS, "Decided on 2026-10-05, gap round 2", item 5); the readings by Cl
   still not stated (it names no humidity).
 - **Measured.** The draw found 6 of 40 records wrong (4 deciding), and the probe 7 of 30 moved cells; a second draw
   measures what is left (`blind-draw/`).
+
+## D130. The owner's answers after gap round 2: drying read with the whole page, bars below full infill labelled, three identities judged, CI once per push
+
+> **In plain words:** Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly.
+> **Status:** In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero.
+
+*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, the owner's answers after gap round 2") and, for the
+filings, by Claude Opus on the evidence Claude Sonnet researchers gathered from the cached sheets and the makers' sites.*
+
+- **A page read whole for drying** (m367). Polymaker's pages print a print-settings block ("Drying Settings: 100˚C for 10h
+  (Only if the material has absorbed moisture)"), a specifications table ("Drying 100°C for 10h", sometimes another
+  schedule), and tips ("dry at 100°C for 10 hours before use"). Where the page tells the reader to dry before use or
+  before printing with no condition, drying is required; where every statement is conditional, it is optional and the
+  cell holds the print-settings block. The page's other drying statements go in one profile note (Topic "Drying", new in
+  `schema/vocab/profile-topics.csv`), shown with the profile. 14 profiles; four cells changed (ABS Pro and ABS Max to
+  required, PolyLite PC Transparent and PETG ESD to optional).
+- **Bars below full infill** (m366). A new Specimen type, "Printed specimen at partial infill", with Form `off-recipe`:
+  the value is recorded and shown with that label, and is never a product value, a bound or an estimate observation, as
+  D95's off-recipe bars. `offRecipeWhy` (`build/src/normalize/specimen.js`) gives the reason the page shows, and the
+  physical-relation lint reads the declared Form instead of one spelling. 16 values and 8 page statements on 3DJake's
+  ABS-P, PLA and ASA sheets.
+- **Three identities** (m368). eSUN eSilk-PLA (G001-76, filed under plain PLA) is eSUN PLA-Silk (G008-02): the 2021 and
+  2024 sheets describe one silk-finish PLA and print the same density, melt flow, heat deflection and print window; it
+  merges into PLA-Silk's grade as m302 merged revisions. purefil's product page (G087-01) and its English sheet (G087-04)
+  are one POM: they merge into G087-04, and POM's maker count is recounted. FiberFlex Aero (G134-01) prints FiberFlex 40D's
+  table "for the unfoamed material", 40D's safety data sheet names a copolyester elastomer and Fiberlogy calls Aero "a
+  foamable filament from the elastomer family"; its own safety data sheet names no polymer, so it is filed under TPC /
+  TPEE as an inferred filing with a Variant (lightweight additive), and CPE-LW, left with no product, is an alias of
+  TPC / TPEE. Polymaker's PLA Pro (G001-30) and PolyLite PLA Pro (G001-27) stay two products: Polymaker sells PLA Pro as
+  the new formula that replaces PolyLite PLA Pro, and their sheets differ (49.8 against 39.9 MPa). Polymaker also calls
+  PLA Pro the renamed PolySonic PLA Pro (G001-20); their two current sheets print different values, so that pair is left
+  as two grades and listed in OPEN-PROBLEMS §31 until a maker's document of record settles it.
+- **The campaign status** (`scripts/audit/coverage-campaign-status.mjs`) closes a frozen product merged by any migration
+  ("in favour of"), and a frozen material that became an alias or family entry, instead of stopping.
+- **CI** (`.github/workflows/`). Verify runs on pushes to main and on pull requests; Publish to Pages runs when Verify has
+  passed on main and only builds and deploys the commit Verify checked; the 2,000-scenario run is weekly. A push of
+  another branch is checked locally (`npm run verify`). Each push to main costs about 15 minutes of CI instead of 30.
+- **The source store** (`scripts/data/source-store.mjs`). `--export … --derived` also keeps the optical reading's text,
+  the reading-order view, the text-quality flags and the page readers' images and packets, and writes `index.csv` (one
+  row per source: maker, title, products, files) and `README.md` in the backup folder.
+

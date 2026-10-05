@@ -1,14 +1,17 @@
-# Verify every push on every branch: data format, schema, build, tests, the source-to-HTML audit, the review
-# snapshot, the interface views and 300 random rendered scenarios. Publishing stays in pages.yml, which runs the
-# same gate on main before deploying. Every night, and on demand, 2,000 rendered scenarios run on a new seed.
+# Verify every push to main and every pull request: data format, schema, build, tests, the source-to-HTML audit, the
+# review snapshot, the interface views and 300 random rendered scenarios. Publishing (pages.yml) runs after this
+# succeeds on main and only builds and deploys: the gate runs once per push, not twice. Once a week, and on demand,
+# 2,000 rendered scenarios run on a new seed. A push to another branch is checked locally (npm run verify) and here
+# when it is merged or opened as a pull request; the owner reduced the load on 2026-10-05 (GOALS).
 
 name: Verify
 
 on:
   push:
+    branches: [main]
   pull_request:
   schedule:
-    - cron: '17 6 * * *'
+    - cron: '17 6 * * 0'
   workflow_dispatch:
 
 jobs:
@@ -41,11 +44,9 @@ jobs:
       - name: Start from an empty build cache
         run: rm -rf .cache/build
 
+      # npm run verify includes the interface views (ui-probe --require) and the 300 rendered scenarios.
       - name: Verify
         run: CHROME=$(command -v google-chrome || command -v chromium) npm run verify
-
-      - name: Interface views match the committed snapshot (Chrome is on ubuntu-latest)
-        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/ui-probe.mjs --require
 
       - name: No deleted records since the previous commit
         run: |

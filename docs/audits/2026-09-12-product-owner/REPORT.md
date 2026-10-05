@@ -1,5 +1,7 @@
 # H2C Material Selector — independent product-owner audit
 
+> **Historical record** (2026-09-12): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Date: 12 September 2026. Repository commit reviewed: `cd2eabb365118ea87e5cea86966bb2aa9766e818`. Database snapshot: 10 September 2026; compiled build: 12 September 2026.
 
 **Assessment: useful research and comparison foundation, but not ready to be treated as a dependable first-time-user material recommendation flow.** The largest problems are promises that exceed the filters, misleading recovery and status messages, loss of decision context between views, and evidence that becomes less qualified as it moves toward a buying or printing decision.

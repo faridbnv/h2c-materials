@@ -1,5 +1,7 @@
 # Importing a batch of data sheets
 
+> **In short.** How a new maker's document enters the database: it is fetched and fingerprinted (SHA-256), its text read page by page, each value proposed with the line it came from, checked, and applied by a numbered batch script. Imports are paused; only batches the owner approves run (GOALS lists each, the latest b43 and b44 of 2026-10-05). Correcting a value of a document already held is not an import: [AGENTS.md](../AGENTS.md) says how.
+
 *Moved out of AGENTS.md on 2026-09-25 (re-center phase 5): imports are paused, and the procedure is read only when
 one runs. AGENTS.md keeps the rules every change follows.*
 

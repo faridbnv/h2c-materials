@@ -1,5 +1,7 @@
 # Completed selected-run publication check — 2026-10-04
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The owner authorized publishing the completed selected coverage run to main after checking documentation, file names and coherence. The selected run is complete: 136 material assessments and 100 additional priority-product passes. The 930 unselected historical catalogue targets remain outside it. Research completion does not establish suitability or eliminate the documented source/vendor/test holds.
 
 Remote main was rechecked at `20b4a6a`; the verified research and closure tip is `23b2cde`, descended from that main. The final data commit remains `5397478`, release `2a8ffade57b4`. Publication preserves the existing commit and record IDs through a normal fast-forward, without rewriting the research history. The existing Verify and Pages workflows run their own gates on main.

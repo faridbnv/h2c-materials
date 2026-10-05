@@ -1,6 +1,6 @@
-COUNT 88 shown PASS
-STATUS ☑ PASS 88 | ☐ UNKNOWN 39 | ☐ FAIL 26
-88 of the 153 materials meet these requirements
+COUNT 87 shown PASS
+STATUS ☑ PASS 87 | ☐ UNKNOWN 39 | ☐ FAIL 26
+87 of the 152 materials meet these requirements
 Indoor prototype template · 39 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
@@ -187,11 +187,6 @@ Copolyesters
  1,220
 1,160–1,280 · 2
  5.15 56 2 78 81.3↗ ☆
-CPE-LW
-Copolyesters
- PASS
-1 of 1 product
- 1,160 — 28* 700* 70 166¤ ☆
 HIPS
 Styrenics
  PASS
@@ -614,9 +609,9 @@ PETG-PTFE PASS
 2 of 2 products
  1,320 1.85* 40* > 100* — 86↗ ☆
 PLA PASS
-185 of 185 products
+184 of 184 products
  1,240
-1,170–1,329 · 157
+1,170–1,329 · 156
  2.58
 0.433–4.24 · 50
  45
@@ -625,8 +620,8 @@ PLA PASS
 1.2–65 · 62
  55
 50–135 · 86
- 33.3
-18–80 · 27
+ 33.7
+18–80 · 26
 ↗ ☆
 PLA Aero PASS
 6 of 6 products
@@ -731,8 +726,8 @@ PLA Silk PASS
 1.7–28 · 17
  53
 50–62 · 19
- 32.2
-29–48 · 6
+ 31.5
+28.8–48 · 6
 ↗ ☆
 PLA Sparkle PASS
 3 of 3 products
@@ -961,7 +956,7 @@ Styrenics
 TPC
 also called TPEE · Flexible Elastomers
  PASS
-3 of 4 products
+4 of 5 products
  1,150
 1,070–1,220 · 10
  0.048

@@ -1,4 +1,4 @@
-COUNT 153 materials no requirements set
+COUNT 152 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,9 +25,9 @@ High-stiffness fixture
 A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limits. HDT at least 90 °C is reported, not required.
 Flexible component
 A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
-153 materials, 136 within H2C capability
+152 materials, 135 within H2C capability
 14403 measurements, each traceable to its source
-149 have a density, 101 a modulus, 101 a price
+148 have a density, 101 a modulus, 100 a price
 Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -203,9 +203,6 @@ Copolyesters
  not tested 1,220
 1,160–1,280 · 2
  5.15 56 2 78 81.3↗ ☆
-CPE-LW
-Copolyesters
- not tested 1,160 — 28* 700* 70 166¤ ☆
 HIPS
 Styrenics
  not tested 1,040
@@ -754,7 +751,7 @@ PETG-GF not tested 1,330
 PETG-GR not tested 1,290 1.4* 55.2* 5.62* 69* 85.8¤ ☆
 PETG-PTFE not tested 1,320 1.85* 40* > 100* — 86↗ ☆
 PLA not tested 1,240
-1,170–1,329 · 157
+1,170–1,329 · 156
  2.58
 0.433–4.24 · 50
  45
@@ -763,8 +760,8 @@ PLA not tested 1,240
 1.2–65 · 62
  55
 50–135 · 86
- 33.3
-18–80 · 27
+ 33.7
+18–80 · 26
 ↗ ☆
 PLA Aero not tested 1,100
 350–1,240 · 9
@@ -853,8 +850,8 @@ PLA Silk not tested 1,240
 1.7–28 · 17
  53
 50–62 · 19
- 32.2
-29–48 · 6
+ 31.5
+28.8–48 · 6
 ↗ ☆
 PLA Sparkle not tested 1,255
 1,240–1,410 · 4

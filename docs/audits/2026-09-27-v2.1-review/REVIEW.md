@@ -1,5 +1,7 @@
 # H2C Material Selector: critical review for version 2.1
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Reviewed 2026-09-27, America/Vancouver. Baseline commit: `eb695b8328b369986341491d948d793abdfcb995`. Review by an AI team covering software/data operations, materials/mechanical engineering, and rendered product use; synthesis and verification by the lead reviewer. This is a review and proposed plan, not implemented work or human engineering approval.
 
 ## 1. Overall judgment

@@ -1,5 +1,7 @@
 # Response to the systematic data audit
 
+> **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 All 11 confirmed finding groups in [REPORT.md](REPORT.md) were addressed locally.
 
 - Applied 27 logged edits to 25 workbook cells through the existing XML editor; preserved cell styles, formulas and unrelated ZIP parts.

@@ -1,5 +1,7 @@
 # Reader prompt (reader round, 2026-10-04)
 
+> **Current** reference, kept up to date: the prompt a page reader is given; the reading tools and their tests use it. The rest of this folder is the reader round's historical record.
+
 Give a Sonnet vision reader this text, with `{MANIFEST}` replaced by the path of one batch manifest
 (`.cache/readings/<round>/batches/batch-NN.json`) and `{OUTPUT}` by the CSV path the manifest names under `output`
 (use `{OUTPUT}` as given; for a second read, `second-read/<batch>.csv` beside it).

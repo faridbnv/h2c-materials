@@ -8,5 +8,6 @@ Printed off the product's recipe,"A bar printed at a print setting its sheet pri
 Printed part,,printed
 Printed part / TDS material-property section,,printed
 Printed specimen,,printed
+Printed specimen at partial infill,"A bar its sheet says was printed below 100 % infill (3DJake's sheets print 'Infill: 20 %'; the row's print parameters say how much): the strength and stiffness of a part filled that far, not of the material as a solid part. Recorded and shown with that label; never a product value, a bound or an estimate observation (D130).",off-recipe
 Printed specimen; TDS reports N/A,,printed
 Raw material value,,moulded

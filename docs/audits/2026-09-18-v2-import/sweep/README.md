@@ -1,5 +1,7 @@
 # The sweep: 200 values read once against their sheets (PLAN-REMAINING 2.3)
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 `sweep-200.csv` is the worklist: the 200 recorded values furthest from their material's other values measured the
 same way (`v_measurement_z`, a robust z-score within material, property, unit, direction, moisture, annealing and
 specimen form). A reader who recorded none of them read each one against its cached, hash-checked sheet

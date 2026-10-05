@@ -1,5 +1,7 @@
 # Batch b32: every held document, once more
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m124-batch-b32`: 8 documents, 25 records. Every held document was proposed again
 (`--propose --held any`, 235 proposals) after batches b27 to b31 and the reader rules they brought; the split set
 aside what a person or the owner still has to answer, and what was left was nine twins:

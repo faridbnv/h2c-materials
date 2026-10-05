@@ -1,5 +1,7 @@
 # What has been done
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Updated as the work lands. The plan is the one the owner approved on 2026-09-18; the rulings behind it are in
 [rulings/rulings.csv](rulings/rulings.csv).
 

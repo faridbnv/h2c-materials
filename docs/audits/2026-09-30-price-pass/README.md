@@ -1,5 +1,7 @@
 # The price pass (2026-09-30)
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS step 6, as the owner decided on 2026-09-30 ([GOALS, "Decided on 2026-09-30, the price pass"](../../GOALS.md)):
 a price for each material, and for each product where that is possible; CAD from a Canadian shop first, then an
 Amazon.ca listing sold by the maker's own store, then USD, then EUR with the VAT the page states taken off.

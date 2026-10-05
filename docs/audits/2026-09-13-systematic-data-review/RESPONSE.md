@@ -1,5 +1,7 @@
 # Response to the review
 
+> **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Every problem in [REPORT.md](REPORT.md) is fixed, and the estimate model is replaced.
 
 Verification: `npm run build` reports zero errors and the same four standing warnings. 118 tests pass.

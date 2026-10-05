@@ -1,5 +1,7 @@
 # Response: filtering, estimates and data audit (2026-09-15)
 
+> **Historical record** (2026-09-15): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Every fix below is one commit on `data/csv-source` after `ef26807`, each with `npm run verify` green. Data changed
 only through guarded, re-runnable migrations against re-read, hash-matched sources (m19 to m22, m24 to m26); each
 finding's outcome is in [findings.csv](findings.csv). Decisions D54 to D57 record the reasons.

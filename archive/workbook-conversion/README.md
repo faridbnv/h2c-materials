@@ -1,5 +1,7 @@
 # The workbook conversion, 2026-09-14
 
+> **Historical record**: kept from an earlier stage of the project. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../README.md) and [OPEN-PROBLEMS](../../docs/OPEN-PROBLEMS.md).
+
 Until 2026-09-14 the database was an Excel workbook. These files converted it to `data/tables/*.csv` and proved the
 conversion: the workbook reader, the dump, migrations m01 to m09, the transfer ledger that classed all 99,538 workbook
 cells, and the replay that rebuilt the tables from the workbook and compared them (DECISIONS D45, D52).

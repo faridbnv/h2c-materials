@@ -1,5 +1,7 @@
 # Batch b09: five libraries read together
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Eryone, Flashforge, Fiberlogy, Fabru / purefil and colorFabb. Applied 2026-09-19 by `m72-batch-b09`.
 
 They are one batch because they were read as one: a single pass of the reader learned all five layouts, and the

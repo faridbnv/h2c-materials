@@ -1,13 +1,16 @@
 # Build the selector from the data tables and publish it to GitHub Pages.
 #
-# The distributable HTML is not committed: it is rebuilt here from data/tables on every push, so
-# the published page can never drift from the source of truth. The build fails on any validation
-# error, which means a database that has drifted stops here and never reaches the site.
+# The distributable HTML is not committed: it is rebuilt here from data/tables, so the published page can never drift
+# from the source of truth. It runs once Verify (verify.yml) has passed on a push to main, on the commit Verify checked,
+# so the full gate runs once per push rather than twice; the build itself still fails on any validation error, which
+# means a database that has drifted stops here and never reaches the site.
 
 name: Publish to Pages
 
 on:
-  push:
+  workflow_run:
+    workflows: [Verify]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -24,11 +27,15 @@ concurrency:
 
 jobs:
   build:
+    # Only a push to main that Verify passed (or a run started by hand, which builds main as it stands).
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
+    env:
+      COMMIT: ${{ github.event.workflow_run.head_sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Campaign documentation checks compare the frozen baseline and committed receipts.
+          ref: ${{ env.COMMIT }}
 
       - uses: actions/setup-node@v4
         with:
@@ -51,10 +58,9 @@ jobs:
       - name: Start from an empty build cache
         run: rm -rf .cache/build
 
-      # One gate: canonical data format, schema and references, build (which validates), tests and
-      # the source-to-HTML audit. Any failure stops the job and blocks the deploy.
-      - name: Verify
-        run: npm run verify
+      # Verify passed on this commit; the build validates again on its own and stops the deploy on any error.
+      - name: Build
+        run: npm run build
 
       # A release's page is kept for good where a saved scenario can find it (D96): a GitHub release named by its ID,
       # created once, with the page and its manifest attached. The site below always serves the current release, so
@@ -68,9 +74,9 @@ jobs:
           if gh release view "h2c-$id" >/dev/null 2>&1; then
             echo "Release h2c-$id is kept already"
           else
-            gh release create "h2c-$id" dist/H2C_Material_Selector_*.html dist/manifest.json --target "$GITHUB_SHA" \
+            gh release create "h2c-$id" dist/H2C_Material_Selector_*.html dist/manifest.json --target "$COMMIT" \
               --title "H2C Material Selector, release $id" \
-              --notes "The page of release $id (data $snapshot), built and verified from $GITHUB_SHA. Download it and open it from disk; it needs no network."
+              --notes "The page of release $id (data $snapshot), built and verified from $COMMIT. Download it and open it from disk; it needs no network."
           fi
 
       - name: Assemble the site

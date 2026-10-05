@@ -9,12 +9,17 @@
 // A relation is: Lower <= Higher, within a margin, for two values that share what its Same test names. The margin is
 // `lower > higher x (1 + relative) + absolute`; a pair outside it is a finding.
 
+import { specimenForm as declaredForm } from './normalize/specimen.js';
+
 const NA = 'Not applicable';
 
 /** A film or a filament strand is not the bar a sheet's other rows were measured on, and neither is a bar printed at a
- *  setting its product is not meant for (D95): a pair across two forms is two claims about two things. */
-export const specimenForm = (r) => (/^(Film|Filament)/.test(r['Specimen type'] ?? '') ? 'strand'
-  : r['Specimen type'] === "Printed off the product's recipe" ? 'off-recipe' : 'bar');
+ *  setting its product is not meant for (D95) or below full infill (D130): a pair across two forms is two claims about
+ *  two things. The form is the one the Specimen type declares (schema/vocab/specimen-types.csv). */
+export const specimenForm = (r) => {
+  const form = declaredForm(r['Specimen type'] ?? 'Not published');
+  return form === 'film' || form === 'filament' ? 'strand' : form === 'off-recipe' ? 'off-recipe' : 'bar';
+};
 
 // What each name in Same test reads off a measurement row (schema/vocab/relation-keys.csv).
 const KEYS = {

@@ -1,5 +1,5 @@
 COUNT 86 shown PASS + UNKNOWN
-STATUS ☑ PASS 7 | ☑ UNKNOWN 102 | ☐ FAIL 44 | ☐ SCREENED 23
+STATUS ☑ PASS 7 | ☑ UNKNOWN 102 | ☐ FAIL 43 | ☐ SCREENED 23
 Requirements: Within H2C capability; Build material (not a support); Nozzle ≤ 350 °C; Bed ≤ 120 °C; Chamber ≤ 65 °C; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials with missing data: Include uncertain; estimates and resin data may exclude a material, never pass one. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
@@ -17,7 +17,7 @@ ABS
 ASA
 PC
 Print summary
-Each track runs from the lowest to the highest of all 153 candidate materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (xy) and elongation at break (xy)) use a log scale. An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end. A * is a published value that is not comparable, drawn as a tick; select it for why.
+Each track runs from the lowest to the highest of all 152 candidate materials, estimates included, so a bar's length shows where a material sits among them. Tracks spanning more than a hundredfold (tensile modulus (xy) and elongation at break (xy)) use a log scale. An upright line is a requirement, dashed if it is reported only; a track widens to show one past the candidates, or marks it at its end. A * is a published value that is not comparable, drawn as a tick; select it for why.
 Density kg/m³
 Density at most 1500 kg/m³
 ABS
@@ -31,7 +31,7 @@ ABS-CF
 1,050–1,110 · 11
 520
 7,190
-all 153 candidates
+all 152 candidates
 Tensile modulus (XY) GPa
 Tensile modulus (XY) at least 3 GPa
 ABS
@@ -42,10 +42,10 @@ ABS-AF
 ABS-CF
 4.35
 2.7–5.21 · 4
-0.00126
+0.00168
 log scale
-22.2
-all 153 candidates
+20.7
+all 152 candidates
 Tensile strength (XY) MPa
 ABS
 34
@@ -55,9 +55,9 @@ ABS-AF
 ABS-CF
 43.3
 27.3–48 · 5
-6.77
+6.79
 305
-all 153 candidates
+all 152 candidates
 Tensile strength (Z) MPa
 ABS
 27
@@ -69,7 +69,7 @@ ABS-CF
 16–29.9 · 3
 7.5
 59.4
-all 153 candidates
+all 152 candidates
 Elongation at break (XY) %
 ABS
 10
@@ -79,10 +79,10 @@ ABS-AF
 ABS-CF
 1.9
 1.48–3.08 · 4
-0.549
+0.559
 log scale
-1,400
-all 153 candidates
+1,050
+all 152 candidates
 Notched Charpy impact kJ/m²
 ABS
 20
@@ -93,7 +93,7 @@ ABS-CF
 16.1*
 0.55
 40
-all 153 candidates
+all 152 candidates
 Notched Izod impact kJ/m²
 ABS
 13.7
@@ -104,7 +104,7 @@ ABS-CF
 45*
 2
 48
-all 153 candidates
+all 152 candidates
 HDT at 0.45 MPa °C
 HDT at 0.45 MPa at least 100 °C
 ABS
@@ -118,7 +118,7 @@ ABS-CF
 76–95 · 6
 42.3
 300
-all 153 candidates
+all 152 candidates
 Glass transition (Tg) °C
 ABS
 105
@@ -130,7 +130,7 @@ ABS-CF
 101–110 · 6
 -60
 225
-all 153 candidates
+all 152 candidates
 Price CAD/kg
 Price at most 100 CAD/kg (reported only)
 ABS
@@ -143,7 +143,7 @@ ABS-CF
 40–50 · 2
 21.6
 356
-all 153 candidates
+all 152 candidates
 H2C PRINTABILITY
 For a material with passing products, each check uses those products' own settings. The line under it covers all of the material's products.
 Material Nozzle Bed Chamber Hardened nozzle Drying

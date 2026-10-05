@@ -1,5 +1,7 @@
 # H2C FDM material database — manufacturer evidence audit
 
+> **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 **Audit date:** 2026-09-13  
 **Status:** RESEARCHED; workbook updated. The material-selection application was not changed.  
 **Database:** `H2C_FDM_Material_Database.xlsx`

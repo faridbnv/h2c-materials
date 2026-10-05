@@ -1326,6 +1326,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Layer height | The layer height the source recommends. |
 | Shell / walls | The wall or shell thickness the source recommends. |
 | Retraction | The retraction the source recommends. |
+| Drying | What else the source says about drying beside the Drying cell: another schedule it prints, or the condition or instruction the cell does not carry (D130). |
 
 <a id="vocab-property-domains"></a>
 ### property-domains
@@ -1422,6 +1423,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Printed part |  | printed |
 | Printed part / TDS material-property section |  | printed |
 | Printed specimen |  | printed |
+| Printed specimen at partial infill | A bar its sheet says was printed below 100 % infill (3DJake's sheets print 'Infill: 20 %'; the row's print parameters say how much): the strength and stiffness of a part filled that far, not of the material as a solid part. Recorded and shown with that label; never a product value, a bound or an estimate observation (D130). | off-recipe |
 | Printed specimen; TDS reports N/A |  | printed |
 | Raw material value |  | moulded |
 

@@ -1,5 +1,7 @@
 # Batch b20: the rulings that settle their products without asking again
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-20 by `m91-batch-b20`: 245 records from 27 documents. R078, R079 and R080 are mechanical — the
 owner's answer decides every document that says the same thing — and reading them found more wrong than missing.
 

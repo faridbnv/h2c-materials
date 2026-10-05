@@ -1,5 +1,7 @@
 # Estimate order: the floors, back-tested (D126 draft, 2026-10-04)
 
+> **Historical record** (2026-10-04): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 The change: an estimate is floored by what a product's own measurements prove (an ultimate strength is at least its yield and
 break stress, a strain at break at least the strain at yield, HDT at 0.45 MPa at least HDT at 1.8 MPa). A bar whose source
 states no specimen now bounds as a printed bar does, in any direction. A moulded bar, a film, a filament strand and a bar

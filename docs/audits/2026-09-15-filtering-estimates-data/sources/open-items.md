@@ -1,5 +1,7 @@
 # Workstream D: the five open items of the transfer verification
 
+> **Historical record** (2026-09-15): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Baseline `ef26807` (branch data/csv-source), built `dist/db.json` of 2026-09-15. Every source value quoted below was
 re-read from the cached PDF in `.cache/sources/`, hash-checked against `sources.csv` (all 131 cached PDFs match) with
 `extract-text.mjs` in this folder (the pdfjs approach of `scripts/audit/source-completeness.mjs`). Row-level re-reads

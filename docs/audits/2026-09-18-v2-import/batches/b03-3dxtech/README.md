@@ -1,5 +1,7 @@
 # Batch b03-3dxtech
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Thirty-two 3DXTECH data sheets, the first batch of a maker whose tables are laid out the other way round.
 Applied 2026-09-18 by `m56-batch-b03-3dxtech`.
 

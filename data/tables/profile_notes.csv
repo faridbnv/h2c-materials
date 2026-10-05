@@ -2478,3 +2478,17 @@ P1789,Storage humidity,Suszarka do filamentu niewymagane
 P1790,Storage humidity,Suszarka do filamentu niewymagane
 P1791,Storage humidity,Suszarka do filamentu niewymagane
 P1792,Storage humidity,Suszarka do filamentu niewymagane
+P1366,Drying,"Print settings: ""Drying Settings: 70˚C for 6h (Only if the material has absorbed moisture)"""
+P1751,Drying,"Print settings: ""Drying Settings: 70˚C for 6h (Only if the material has absorbed moisture)"""
+P1747,Drying,"Specifications: ""Drying 65°C for 4h"" Tips: ""Keep the filament sealed and dry; use the listed 65°C / 6h drying cycle if moisture-related defects appear."""
+P1749,Drying,"Specifications: ""Drying 50°C for 6h"""
+P1750,Drying,"Specifications: ""Drying 50°C for 6h"""
+P1862,Drying,"Specifications: ""Drying 70°C for 7h"" FAQ: ""If the filament has only been exposed briefly under normal conditions, drying at 70°C for 4 hours is typically sufficient."""
+P1854,Drying,"Print settings: ""Drying Settings: Regular Oven: 100˚C for 10h PolyDryer: Level 3 for 18h ( PolyDryer™ ) (Only if the material has absorbed moisture)"" Tips: ""Store and print under dry conditions (relative humidity below 20%); dry at 100°C for 10 hours before use."""
+P1868,Drying,"Print settings: ""Drying Settings: Regular Oven: 100˚C for 10h PolyDryer: Level 3 for 18h ( PolyDryer™ ) (Only if the material has absorbed moisture)"" Tips: ""Store and print under dry conditions (relative humidity below 20%); dry at 100°C for 10 hours before use."""
+P1869,Drying,"Print settings: ""Drying Settings: Regular Oven: 100˚C for 10h PolyDryer: Level 3 for 18h ( PolyDryer™ ) (Only if the material has absorbed moisture)"" Tips: ""Store and print under dry conditions (relative humidity below 20%); dry at 100°C for 10 hours before use."""
+P1870,Drying,"Print settings: ""Drying Settings: Regular Oven: 100˚C for 10h PolyDryer: Level 3 for 18h ( PolyDryer™ ) (Only if the material has absorbed moisture)"" Tips: ""Store and print under dry conditions (relative humidity below 20%); dry at 100°C for 10 hours before use."""
+P1855,Drying,"Print settings: ""Drying Settings: 100˚C for 10h (Only if the material has absorbed moisture)"" Tips: ""Store and print under dry conditions (relative humidity below 20%); dry at 100°C for 10 hours before use and feed from a dry box or heated filament dryer during printing."""
+P1863,Drying,"Print settings: ""Drying Settings: 80˚C for 10h (Only if the material has absorbed moisture)"" Tips: ""Keep the filament sealed and dry; use the listed 100°C / 8h drying cycle if moisture-related defects appear."" Printing requirements: ""Filament dryer required - the material is very hygroscopic."""
+P1865,Drying,"Specifications: ""Drying 100°C for 8h"" Tips: ""Keep the filament sealed and dry; use the listed 75°C / 6h drying cycle if moisture-related defects appear."""
+P1867,Drying,"Specifications: ""Drying 65°C for 3h"""

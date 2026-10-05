@@ -1,5 +1,7 @@
 # What this tool is for
 
+> **In short.** This page is the owner's. It says what the tool is for (a workbench that turns a part's requirements into a defensible shortlist of filaments the H2C can print, then of products), the seven-step method it follows, a scorecard rating each part of the tool, the working rules every change is held to, and every decision the owner has made, dated, newest last. A change of direction is written here first. Where things stand today is in the [README](../README.md); what is wrong or missing, in [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md).
+
 The owner set this on 2026-09-25, after a step back from V2 ([the review and plan](audits/2026-09-25-re-center/REPORT.md)),
 and extended it on 2026-09-28 for version 2.1 (below).
 Every piece of work names the step and the scorecard line below that it improves. Work that names neither waits.
@@ -536,3 +538,24 @@ and coding, and chose:
 5. Built on a branch, checked for documentation consistency and for the fixes' effect, cleaned, and pushed to main.
 6. **A twin reads its sibling's hardened-nozzle statement only where it holds no profile of its own** (the reader
    round's recommendation, OPEN-PROBLEMS §28), approved with the round's plan; D127 records it.
+
+## Decided on 2026-10-05, the owner's answers after gap round 2
+
+After the round, the owner answered the questions it left (OPEN-PROBLEMS §29 and §31), and asked for the documents to
+be written for a reader who does not hold the project's names and numbers in mind:
+
+1. **The questions for makers are not sent.** `MAKER-QUESTIONS.md` stays as a record of what only a maker could settle.
+2. **Filing questions are Claude's to judge** from the documents and the makers' sites, with the reasons recorded: eSUN
+   eSilk-PLA, Fiberlogy FiberFlex Aero, Polymaker's PLA Pro beside PolyLite PLA Pro, and purefil's POM (D130, m368).
+3. **A page that says two things about drying shows both.** Where Polymaker's pages print a schedule in one place and a
+   condition in another, the product reads the page as a whole and keeps the other statement beside it (D130, m367).
+4. **Test bars printed at 20 % infill are labelled, not hidden.** Their values stay visible with that label and never
+   stand for the product or the material (D130, m366).
+5. **The makers' extracted text stays on this machine**, with the whole document cache backed up to OneDrive in an
+   organised, searchable form (`npm run data:sources -- --export "$H2C_SOURCE_BACKUP" --derived` writes an index and a
+   README there). The context audit stays a local check.
+6. **GitHub runs less**: the full check once per push to main (and on pull requests), the site published after it
+   without repeating it, and the 2,000-scenario run weekly instead of nightly.
+7. **The documents say where things stand in plain words first** (README, `docs/README.md`, and an opening section on
+   each main document), with the details, numbers and citations below; every dated audit says plainly that it is a
+   historical record.

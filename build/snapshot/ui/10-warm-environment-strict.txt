@@ -1,6 +1,6 @@
 COUNT 38 shown PASS
-STATUS ☑ PASS 38 | ☐ UNKNOWN 84 | ☐ FAIL 31
-38 of the 153 materials meet these requirements
+STATUS ☑ PASS 38 | ☐ UNKNOWN 84 | ☐ FAIL 30
+38 of the 152 materials meet these requirements
 Warm environment template · 84 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
@@ -442,7 +442,7 @@ annealed median
 PLA PASS
 7 of 84 products
  1,240
-1,170–1,329 · 157
+1,170–1,329 · 156
  2.58
 0.433–4.24 · 50
  45
@@ -452,8 +452,8 @@ PLA PASS
  passing: 80–135
 all products: 55
 50–135 · 86
- 33.3
-18–80 · 27
+ 33.7
+18–80 · 26
 ↗ ☆
 PLA blend PASS
 2 of 4 products

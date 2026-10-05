@@ -1,5 +1,7 @@
 # Batch b10: Fillamentum
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Sixteen of the maker's twenty-four documents. Applied 2026-09-19 by `m76-batch-b10`: 179 records, of which 131
 measurements, 16 grades, 16 sources and 12 print profiles. The database goes from 494 grades, 6,009 measurement
 rows and 665 sources to 509, 6,140 and 681; no material was created.

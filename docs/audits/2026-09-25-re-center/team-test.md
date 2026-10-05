@@ -1,5 +1,7 @@
 # Team test at real volume
 
+> **Historical record** (2026-09-25): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Phase 3's gate asks two of the team's engineers to use the tool, unaided, on five tasks. No user test has been run
 since the data grew tenfold (the last two audits, 2026-09-11 and 2026-09-12, saw 102 materials and 136 products).
 The tasks come from the brief's use cases (`docs/background/architecture-brief.md` §2.2) and the goals

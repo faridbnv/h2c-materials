@@ -1,5 +1,7 @@
 # Batch b35: the owner's answers to what b34 left
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-25 by `m145-batch-b35`: 2 documents, 2 products, 15 records (10 measurements, 1 profile, 2 sources,
 2 grades). The owner answered the three identity questions batch b34 left in OPEN-PROBLEMS §14, and confirmed a
 fourth; each answer is a ruling signed "owner" (R199 to R202, and R193 amended). m144 made the one new material, SBC.

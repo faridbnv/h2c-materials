@@ -1,5 +1,7 @@
 # Batch b23: five twins whose primaries b22 applied
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m95-batch-b23`: 10 records from 5 documents — a grade and a source each, under R053, with
 the values recorded once. Three SUNLU colour packs of one PLA, one Spectrum Silk Rainbow, one FormFutura ReForm
 rTPU. One more document was another language edition of a sheet the batch already shaped, and is `duplicate-of`.

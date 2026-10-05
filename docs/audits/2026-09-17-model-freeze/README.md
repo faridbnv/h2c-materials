@@ -1,5 +1,7 @@
 # Model freeze, 2026-09-17
 
+> **Historical record** (2026-09-17): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The structural pass that cleaned the periphery of the model before more materials were added: constants and
 summaries out of `materials.csv`, the wide tables split, datasheet sentences out of the vocabularies, source
 metadata typed, two lint suppressions turned into states, and the coverage rows the build can prove derived.

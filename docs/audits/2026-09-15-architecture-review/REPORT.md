@@ -1,5 +1,7 @@
 # Architecture review: is the pipeline reliable, scalable and robust? (2026-09-15)
 
+> **Historical record** (2026-09-15): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 **Branch:** `data/csv-source` at `05dcb6f`, the end of the filtering, estimates and data audit.
 **Raised by:** the tool's owner.
 **Question:** the whole plan was to revise the pipeline and the database to be more accurate, more robust, easier to

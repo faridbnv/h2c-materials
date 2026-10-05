@@ -1,5 +1,7 @@
 # The reader round: every gap document read from its pages, makers' sites searched, physical order enforced
 
+> **Historical record** (2026-10-04): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2 and 5; C3, C4, C9, C11, C12, C13. Decisions D125 (the reader) and D126 (physical order). On 2026-10-04
 the owner opened makers' sheets the tool called silent and found the values printed there: purefil's LCP sheet prints
 "Printing temperature 280-300 °C", "Heated bed temperature 120-150 °C" and "Drying 150 °C / 4-6 h", and the material

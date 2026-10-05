@@ -1,5 +1,7 @@
 # Response to the 12 September audit
 
+> **Historical record** (2026-09-12): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 What was done with each of the 56 findings in [REPORT.md](REPORT.md), and why.
 
 At the owner's direction, findings about AMS compatibility, price links and brand search were set

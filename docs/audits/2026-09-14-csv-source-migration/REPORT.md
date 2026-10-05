@@ -1,5 +1,7 @@
 # CSV source migration
 
+> **Historical record** (2026-09-14): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 - **Date:** 2026-09-14
 - **Asked by:** the tool's owner, after the [data architecture assessment](../2026-09-13-data-architecture-assessment/REPORT.md)
 - **Goal:** a data source that is robust to implement, maintain, debug and scale. Scaling here means

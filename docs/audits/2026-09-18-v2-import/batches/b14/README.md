@@ -1,5 +1,7 @@
 # Batch b14: the documents nothing was holding
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-20 by `m83-batch-b14`: 550 records from 51 documents. The database goes from 143 materials,
 643 grades, 7,461 measurement rows, 848 sources and 709 profiles to 144, 684, 7,850, 899 and 751.
 

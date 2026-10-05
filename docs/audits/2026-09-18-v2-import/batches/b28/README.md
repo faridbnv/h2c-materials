@@ -1,5 +1,7 @@
 # Batch b28: FormFutura's own library, and what reading it showed up
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-21 by `m110-batch-b28`: 47 documents, 542 records — 3 materials, 47 grades, 47 sources, 383
 measurements, 40 print profiles. FormFutura's 64 gated documents are no longer gated: 40 of its 68 are applied,
 7 are products already recorded, 6 are the same bytes as a 3DJake copy, and 15 wait with a reason on the row.

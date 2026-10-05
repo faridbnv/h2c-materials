@@ -1,4 +1,6 @@
 # H2C FDM Material Selection Tool
+
+> **Historical record**: research the tool was built from. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../README.md) and [OPEN-PROBLEMS](../../docs/OPEN-PROBLEMS.md).
 ## Product and Solution Architecture Brief
 
 **Audience:** Product Manager, Solution Architect, engineering stakeholders, and future developers  

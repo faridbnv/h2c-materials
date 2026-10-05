@@ -1,5 +1,7 @@
 # Batch b19: the sheets a shop hosts that name no maker of their own
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-20 by `m90-batch-b19`: 626 records from 75 documents, and the largest single question in the
 programme answered. R074 covered 114 documents; all 114 found a maker, 75 entered, and the rest are held for
 reasons of their own.

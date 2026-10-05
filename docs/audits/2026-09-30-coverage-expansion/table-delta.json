@@ -8,23 +8,37 @@
   },
   "coverage": {
     "baseline": 805,
-    "current": 949,
-    "added": 144,
-    "edited_existing": 81,
+    "current": 951,
+    "added": 146,
+    "edited_existing": 82,
     "removed": 0
   },
   "evidence": {
     "baseline": 5306,
     "current": 5756,
     "added": 450,
-    "edited_existing": 211,
+    "edited_existing": 220,
+    "removed": 0
+  },
+  "family_entries": {
+    "baseline": 22,
+    "current": 23,
+    "added": 1,
+    "edited_existing": 0,
+    "removed": 0
+  },
+  "family_members": {
+    "baseline": 51,
+    "current": 52,
+    "added": 1,
+    "edited_existing": 0,
     "removed": 0
   },
   "grades": {
     "baseline": 1163,
     "current": 1175,
     "added": 12,
-    "edited_existing": 80,
+    "edited_existing": 83,
     "removed": 0
   },
   "headline_definitions": {
@@ -41,11 +55,25 @@
     "edited_existing": 0,
     "removed": 0
   },
+  "material_links": {
+    "baseline": 830,
+    "current": 830,
+    "added": 1,
+    "edited_existing": 0,
+    "removed": 1
+  },
+  "materials": {
+    "baseline": 175,
+    "current": 175,
+    "added": 0,
+    "edited_existing": 1,
+    "removed": 0
+  },
   "measurements": {
     "baseline": 11536,
     "current": 14734,
     "added": 3198,
-    "edited_existing": 2123,
+    "edited_existing": 2139,
     "removed": 0
   },
   "method": {
@@ -73,7 +101,7 @@
     "baseline": 357,
     "current": 357,
     "added": 0,
-    "edited_existing": 5,
+    "edited_existing": 7,
     "removed": 0
   },
   "print_guide": {
@@ -85,8 +113,8 @@
   },
   "profile_notes": {
     "baseline": 2061,
-    "current": 2479,
-    "added": 418,
+    "current": 2493,
+    "added": 432,
     "edited_existing": 0,
     "removed": 0
   },
@@ -94,7 +122,7 @@
     "baseline": 1316,
     "current": 1911,
     "added": 595,
-    "edited_existing": 983,
+    "edited_existing": 985,
     "removed": 0
   },
   "properties": {
@@ -108,7 +136,7 @@
     "baseline": 1828,
     "current": 2002,
     "added": 174,
-    "edited_existing": 95,
+    "edited_existing": 98,
     "removed": 0
   }
 }

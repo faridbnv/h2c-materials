@@ -1,5 +1,7 @@
 # Bounded maker searches
 
+> **Historical record** (2026-09-28): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Codex AI agent, 2026-09-28. Search results are discovery leads. Accepted statements are read from staged, hashed
 manufacturer documents; snippets and adjacent products never enter the decision tier.
 

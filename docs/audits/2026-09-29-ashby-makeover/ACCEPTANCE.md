@@ -1,5 +1,7 @@
 # Acceptance of the Ashby makeover
 
+> **Historical record** (2026-09-29): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 The package's acceptance (05-ACCEPTANCE.md, ACCEPTANCE.json) case by case, as built on the branch `Ashby-makeover` and
 revised by D108 to D112.
 "Passes" names the check that holds it in `npm test`, `npm run ui:check` or the UI fuzz; "not run" says so. Every

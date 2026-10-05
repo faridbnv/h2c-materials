@@ -92,6 +92,18 @@ test('an off-recipe value with no in-recipe counterpart is excluded independentl
   }
 });
 
+test('a bar printed below full infill is shown but never the product\'s value, with the reason a reader can check (D130)', () => {
+  const m = { id: 'V999998', numeric: true, dataStatus: 'Published value', property: 'Tensile modulus',
+    unit: 'GPa', value: 1.1, implausible: false, specimenType: 'Printed specimen at partial infill',
+    specimenForm: 'off-recipe', direction: 'XY', moistureState: 'not-stated', postProcessingState: 'not-stated' };
+  assert.deepEqual(assess(m, defs.get('tensileModulusXY'), [m]),
+    { excluded: 'printed below 100 % infill, a part filled that far rather than the material as a solid part (D130)' });
+  // 3DJake's three sheets that print "Infill: 20 %" (m366) hold no value that decides.
+  const partial = db.measurements.filter((x) => x.specimenType === 'Printed specimen at partial infill');
+  assert.ok(partial.length >= 16, `${partial.length} values at partial infill`);
+  for (const x of partial) assert.ok(!Object.values(db.grades.find((g) => g.id === x.gradeId).headline ?? {}).some((h) => h?.measurementId === x.id), `${x.id} decides a headline`);
+});
+
 test('a value is as published exactly when the source leaves the direction or the load unstated', () => {
   const hdt = defs.get('hdt045');
   const modulus = defs.get('tensileModulusXY');

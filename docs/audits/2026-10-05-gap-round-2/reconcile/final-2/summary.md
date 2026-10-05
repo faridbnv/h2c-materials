@@ -1,5 +1,7 @@
 # Reconcile final-2
 
+> **Historical record** (2026-10-05): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 37679 reading(s) classified, 56 invalid, 1186 duplicate(s) dropped, 585 marked none. 1850 second-read task(s) outstanding; second readers could not find 25 item(s).
 
 ## By class

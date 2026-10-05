@@ -1,5 +1,7 @@
 # Implementing the 13 September missing-data research
 
+> **Historical record** (2026-09-13): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 How each finding in [REPORT.md](REPORT.md) reached the workbook and the selector, and what re-reading
 its sources turned up.
 

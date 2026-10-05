@@ -1,5 +1,7 @@
 # Where the database is thin, and what would change that
 
+> **Historical record** (2026-09-17): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 **Date:** 2026-09-17 · **Scope:** the tables as read before the first batch of work · **Data status:** a reading, not a change
 
 > The first batch has since landed. `hdt045` this-material now holds 23 back-test cases and certifies, and

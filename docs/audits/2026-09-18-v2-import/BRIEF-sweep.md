@@ -1,5 +1,7 @@
 # Brief: the sweep, 200 values read once against their sheets (PLAN-REMAINING 2.3)
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 For a reader who did not record these values. **Read-only: write verdicts into the worklist and nothing else.**
 
 ## Why

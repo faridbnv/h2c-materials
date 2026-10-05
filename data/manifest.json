@@ -3,27 +3,27 @@
   "tables": {
     "materials": {
       "rows": 175,
-      "sha256": "0ce6c0723f19dae0f6d3c4f0433dad75a9c18f975bed923ec77e7a0f2f29b9c4"
+      "sha256": "412ed7beb8eace90a529dda29c99a548b6c4c9c4f7bdb9e8585a88acf0bad5f8"
     },
     "grades": {
       "rows": 1175,
-      "sha256": "af03c494f722bd166beda2471f26b29316d81fc0b02ebcdb75c8b2538e128e14"
+      "sha256": "cd47dc29eafe1a764db7db30b8dc77f3260cc27706246f8ccb3cdff515b7a3f2"
     },
     "profiles": {
       "rows": 1911,
-      "sha256": "db54999a4f24d973f89824f9cdae77d6a9e8df00612457e597fe8d543d712f1c"
+      "sha256": "ae31baea93093c0a9d427fa1c0e7f405762928847a420c4948180b054b1e8686"
     },
     "profile_notes": {
-      "rows": 2479,
-      "sha256": "087a3169ffc761ef7076c09279c8d80a50700b369027e790b2e669f2b17fbeaf"
+      "rows": 2493,
+      "sha256": "b6d9309b26fe3e796941568911791c77ad712bf92a60ab7e7bafd661996caf49"
     },
     "measurements": {
       "rows": 14734,
-      "sha256": "f212f7260cedcc8ac7597823f3dd301c958ba7a178028ebe4def4cd2e8bb143f"
+      "sha256": "4744d4e2518d2143e08dc76ee0764fb0ce1b1e061e7fa1882ba2716b4708fd95"
     },
     "page_context": {
       "rows": 954,
-      "sha256": "f0ae1bc1def3d306d4dae1d00cbcf85003d87fa93f82578f3db56507bcadc684"
+      "sha256": "228bc2b1ba8840f7a8e1f9c684de835a12ed2c9e8da09af60bf7ba5cd4482d8c"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -31,7 +31,7 @@
     },
     "evidence": {
       "rows": 5756,
-      "sha256": "19a9cadbbd87322caff544aa28ac0e85bc6285aa188f4b3bd4e696e37dad89af"
+      "sha256": "282311f5c216f17b62c91e3d2743daeca6255da755fe4db1dbe8c96f4bb4aede"
     },
     "know_how_reads": {
       "rows": 1545,
@@ -47,7 +47,7 @@
     },
     "prices": {
       "rows": 357,
-      "sha256": "529ee6edd158236188efc86905ef808aecc720a36190a594708f80fc45ce7429"
+      "sha256": "7ee924a4e6150e8211de68eed5e28db91a262f826b220d0f51a534e402ba74b7"
     },
     "fx_rates": {
       "rows": 2,
@@ -55,11 +55,11 @@
     },
     "sources": {
       "rows": 2002,
-      "sha256": "8521f4ab6e96bf00ff92396c02f5c7dd7008344f033ecdb6c3ead01ea1fa0ee9"
+      "sha256": "9b83badf5089527ccb1da9673d4bcb039a403d61b4a9e50c428fa8440fe08196"
     },
     "coverage": {
-      "rows": 949,
-      "sha256": "821ff56e9bb9cee2a24db742867df9a779273efc5232faba53a5d5285dc60a37"
+      "rows": 951,
+      "sha256": "f94bc95359b26a56e3d7f11dd0f015d6f60d7e6278ccd993a928b0aa6a1122bb"
     },
     "method": {
       "rows": 52,
@@ -79,7 +79,7 @@
     },
     "material_links": {
       "rows": 830,
-      "sha256": "e4312bb79e9fbb3437bf7dce3614415bce510fa1fc36991ec69d5a7e3f29d004"
+      "sha256": "b721d51674cc3517282e88e430fc6f6f3545191ba3f8034c310337c53cb86587"
     },
     "print_guide_materials": {
       "rows": 17,
@@ -110,12 +110,12 @@
       "sha256": "85e84f111e5c123ee8f38216db042911ca42a160bedefde734fadd40fbdc41f6"
     },
     "family_entries": {
-      "rows": 22,
-      "sha256": "185073c0636473b4db9741e03e369a7e0c71cf18a1963dea068166f69f339230"
+      "rows": 23,
+      "sha256": "e400b234a1e0d1525a74a0fe2927f766b3083a94ccb1902bfabd8b0b2cc671c5"
     },
     "family_members": {
-      "rows": 51,
-      "sha256": "6002b4a37026159f4a427204fbf245a760cd93e4dbb20ae299275b1fca3df831"
+      "rows": 52,
+      "sha256": "2b95d30bf4d7af73ec88433e964010770b79fcff4dad6f538a96e020de49e7f9"
     }
   }
 }

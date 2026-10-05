@@ -8,7 +8,7 @@
 import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
-import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';
+import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule, offRecipeWhy } from './normalize/specimen.js';
 import { moistureState } from './normalize/moisture.js';
 import { parseNozzleDiameters, H2C_BASELINE, PROCESS_STATE } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
@@ -323,7 +323,6 @@ const FORM_NOTE = {
   moulded: 'a moulded bar (the resin supplier\'s value), not a printed specimen',
   film: 'film specimen, not a printed part',
   filament: 'filament strand, not a printed part',
-  'off-recipe': 'printed at a setting its sheet prints beside the one the product is meant for, not the product as it is printed (D95)',
 };
 
 /**
@@ -357,7 +356,7 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
       loadMPa: m.thermal?.loadMPa ?? null,
       printed: !!m.specimenType && m.specimenType.startsWith('Printed specimen'),
       why: (m.implausible ? 'flagged physically implausible; see its notes' : null)
-        || FORM_NOTE[m.specimenForm]
+        || (m.specimenForm === 'off-recipe' ? offRecipeWhy(m.specimenType) : FORM_NOTE[m.specimenForm])
         || (annealedBesideAsPrinted(m, measurementsByMaterial.get(materialId)) ? 'annealed; the grade also publishes the as-printed value' : null)
         || directionNote(m, def)
         || (def.loadMPa != null && m.thermal && m.thermal.loadMPa !== def.loadMPa

@@ -1,5 +1,7 @@
 # Batch b37: two held sheets the makers' own pages identify
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Applied 2026-09-27 by `m207-batch-b37`: 2 documents, 2 products, 20 records (15 measurements, 1 profile, 2 sources,
 2 grades). Imports are paused (GOALS). On 2026-09-27 the owner lifted the pause for these two sheets alone. The
 research package of 2026-09-26 had found the makers' pages that name each sheet's polymer; the pages were staged into

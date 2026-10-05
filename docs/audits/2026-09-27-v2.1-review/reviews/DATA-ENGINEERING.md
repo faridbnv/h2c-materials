@@ -1,5 +1,7 @@
 # Data and engineering review for H2C v2.1
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../README.md) and [OPEN-PROBLEMS](../../../../docs/OPEN-PROBLEMS.md).
+
 Review date: 2026-09-27 local time. Reviewer: an independent AI review lane, not a human materials certification. Original repository was not modified. Code, tables, and generated database were inspected in the external review copy. This document is implementation input, not authorization to import data or change an owner decision.
 
 ## Overall judgment

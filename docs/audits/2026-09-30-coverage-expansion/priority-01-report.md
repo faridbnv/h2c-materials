@@ -1,5 +1,7 @@
 # First resumed priority batch: twelve Nanovia products
 
+> **Historical record** (2026-09-30): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 GOALS steps 2/5, C3/C6/C9/C10/C13. This is the first twelve of the 100 additional priority products frozen after current-main reconciliation and completed material assessment. Its source-based outcomes are independently approved; formal closure points to the verified data commit only after it exists. STATUS.md owns completion counts.
 
 The batch re-read thirteen registered originals, inspected twelve current official product routes and the exact linked downloads, then reused prior searches. All twelve current mechanical/thermal tables agree with the saved originals. C06 admits eleven own SDS revisions and one maker raw-material test summary through the isolated witness/import pipeline. The PA Food Industry SDS returned 404; the supplementary PETG GF UV TDS corroborates existing values and is not duplicated. No neighbouring product, generic polymer claim, new catalogue entry or price refresh substitutes for a missing exact fact.

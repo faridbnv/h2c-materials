@@ -1,5 +1,7 @@
 # Continuing this work on a machine with network access
 
+> **Historical record** (2026-09-17): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Written 2026-09-17 to hand the remaining batches over. Everything here is on branch
 `claude/kind-bardeen-a25rt7`; nothing is on `main`, so [the live site](https://pdynamics.ca/h2c-materials/)
 still shows the database as it was before this work.

@@ -1,5 +1,7 @@
 # H2C version 2.1 review and planning handoff
 
+> **Historical record** (2026-09-27): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../README.md) and [OPEN-PROBLEMS](../../../docs/OPEN-PROBLEMS.md).
+
 Prepared 2026-09-27 in Vancouver for Farid. Reviewed source commit: `eb695b8328b369986341491d948d793abdfcb995` in `/Users/farid/Documents/h2c-materials-branch`.
 
 **Start with [REVIEW.md](REVIEW.md), then [V2.1-PLAN.md](V2.1-PLAN.md).** The first is the coherent critical assessment; the second is the proposed architecture, decisions, phased implementation, scenario portfolio and release gates. [BACKLOG.json](BACKLOG.json) has 17 work packages with priority, dependencies, implementation anchors, evidence, acceptance criteria and estimated effort bands.

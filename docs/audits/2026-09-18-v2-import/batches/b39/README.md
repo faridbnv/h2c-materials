@@ -1,5 +1,7 @@
 # b39: exact-product chamber search
 
+> **Historical record** (2026-09-18): written for one review or round. It describes the tool and its data as they were then; numbers, rules and file names may have changed since. For where things stand now, read the [README](../../../../../README.md) and [OPEN-PROBLEMS](../../../../../docs/OPEN-PROBLEMS.md).
+
 Authorized by the owner on 2026-09-28, recorded in GOALS. The product list is the 65 chamber facts in the frozen
 TARGETS.csv, with the two settled/converted-to-print-test in A excluded from the site tranche. All 63 remaining
 products received a bounded product/download/print-guide search. URL attempts and original capture digests are in
