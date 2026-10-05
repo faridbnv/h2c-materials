@@ -27,7 +27,7 @@ export const TEMPERATURE_AXES = [
 export const PROFILE_TYPED_COLUMNS = [
   ...TEMPERATURE_AXES.map(({ label, raw }) => ({ after: raw, columns: [`${label} state`, `${label} min °C`, `${label} max °C`, `${label} requirement`] })),
   { after: 'Enclosure', columns: ['Enclosure state'] },
-  { after: 'Drying', columns: ['Drying state', 'Drying °C', 'Drying hours'] },
+  { after: 'Drying', columns: ['Drying state', 'Drying need', 'Drying °C', 'Drying hours', 'Drying hours open'] },
   { after: 'Abrasion / clogging', columns: ['Hardened nozzle'] },
   { after: 'Locator', columns: ['Parse review'] },
 ];
@@ -64,6 +64,8 @@ export function profileCellsFromParsed({ nozzle, bed, chamber, enclosure, drying
   out['Drying state'] = drying.state;
   out['Drying °C'] = cell(drying.tempC, drying.state === 'stated' ? NP : NA);
   out['Drying hours'] = cell(drying.hours, drying.state === 'stated' ? NP : NA);
+  out['Drying need'] = drying.need;
+  out['Drying hours open'] = drying.hoursOpen == null ? NA : drying.hoursOpen ? 'TRUE' : 'FALSE';
   out['Hardened nozzle'] = abrasion.requiresHardened == null ? NP : abrasion.requiresHardened ? 'TRUE' : 'FALSE';
   return out;
 }
@@ -159,9 +161,9 @@ export function applyProfileTyped(r, parsed, issues, where = `profiles ${r.Profi
   out.enclosure = { ...e, state: r['Enclosure state'] };
 
   const d = parsed.drying;
-  const drying = { state: r['Drying state'], tempC: value(r['Drying °C']), hours: value(r['Drying hours']) };
-  for (const [k, column] of [['state', 'Drying state'], ['tempC', 'Drying °C'], ['hours', 'Drying hours']]) if (drying[k] !== d[k]) mismatch(column, drying[k], d[k]);
-  out.drying = { ...d, ...drying, required: drying.state === 'stated' ? true : null };
+  const drying = { state: r['Drying state'], need: r['Drying need'], tempC: value(r['Drying °C']), hours: value(r['Drying hours']), hoursOpen: bool(r['Drying hours open']) };
+  for (const [k, column] of [['state', 'Drying state'], ['need', 'Drying need'], ['tempC', 'Drying °C'], ['hours', 'Drying hours'], ['hoursOpen', 'Drying hours open']]) if (drying[k] !== d[k]) mismatch(column, drying[k], d[k]);
+  out.drying = { ...d, ...drying, required: drying.need === 'required' };
 
   const a = parsed.abrasion;
   const hardened = bool(r['Hardened nozzle']);

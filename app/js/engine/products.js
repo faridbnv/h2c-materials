@@ -176,7 +176,8 @@ const NO_PROFILE = { verdict: 'unknown', reason: 'No print profile recorded for 
 /**
  * A product's print gates, from its own recipe; a product with none is unknown on each, never a pass. Where its own
  * profiles are silent on a part, the build read its twin's (D89) or its material's printer maker's guide (D88); that
- * part decides like the product's own, and its reason and `…From` label say where it came from.
+ * part decides like the product's own, and its reason and `…From` label say where it came from. Drying is what the
+ * sheet asks for (required, optional, not-needed; D127), unknown where nothing is stated.
  */
 export function productGates(material, grade) {
   const p = grade.print;
@@ -185,7 +186,7 @@ export function productGates(material, grade) {
     ...material.gates,
     nozzle: axis('nozzle'), bed: axis('bed'), chamber: axis('chamber'),
     abrasive: p?.hardenedNozzle === true ? 'requires-hardened' : p?.hardenedNozzle === false ? 'no-special-concern' : 'unknown',
-    drying: p?.drying ? 'required' : 'unknown',
+    drying: p?.drying?.need ?? 'unknown',
   };
   if (p?.from?.hardenedNozzle && p.hardenedNozzle != null) gates.abrasiveFrom = p.from.hardenedNozzle.label;
   if (p?.from?.drying && p.drying) gates.dryingFrom = p.from.drying.label;

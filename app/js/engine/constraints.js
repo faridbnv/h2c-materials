@@ -361,10 +361,14 @@ function evaluateGate(material, c) {
   }
 
   if (c.gate === 'dryingKnown') {
-    const ok = material.gates.drying === 'required';
-    return ok
-      ? { status: STATUS.PASS, criterion: 'Drying schedule published', reason: `A drying schedule is published for this material${material.gates.dryingFrom ? ` (${material.gates.dryingFrom})` : ''}` }
-      : { status: STATUS.UNKNOWN, criterion: 'Drying schedule published', reason: 'No drying schedule in the sampled sources' };
+    // A requirement is met by any statement: a schedule the sheet asks for, a drying it advises for a condition, or its
+    // word that none is needed (D127). Only silence leaves it unknown.
+    const criterion = 'Drying instructions published';
+    const from = material.gates.dryingFrom ? ` (${material.gates.dryingFrom})` : '';
+    const said = { required: 'Drying schedule published', optional: 'Drying optional', 'not-needed': 'Drying not needed' }[material.gates.drying];
+    return said
+      ? { status: STATUS.PASS, criterion, reason: `${said}${from}` }
+      : { status: STATUS.UNKNOWN, criterion, reason: 'No drying statement in the sampled sources' };
   }
 
   const g = material.gates[c.gate];

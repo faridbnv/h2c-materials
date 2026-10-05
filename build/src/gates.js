@@ -41,3 +41,13 @@ export function aggregateGate(profiles, axis) {
   }
   return { verdict: 'unknown', reason: 'No print profile recorded' };
 }
+
+/**
+ * Whether drying is asked for, across a set of print profiles (D127): the strongest of what they say. A profile that asks
+ * for it decides over one that advises it for a condition, and that over one that says it is not needed; silence is
+ * 'unknown'.
+ */
+export function aggregateDrying(profiles) {
+  for (const need of ['required', 'optional', 'not-needed']) if (profiles.some((p) => p.drying.need === need)) return need;
+  return 'unknown';
+}

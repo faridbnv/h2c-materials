@@ -385,10 +385,67 @@ export function parseAbrasion(raw) {
   return { text, requiresHardened: null, state: PROCESS_STATE.UNKNOWN, unparsed: true };
 }
 
-/** Drying: "Blast Drying Oven: 55 C, 8 h", "120C for 4 hours". */
+
+// What a sheet says about whether to dry (D127). The words decide the need; a schedule printed beside them is a separate
+// fact, and a cell that states a schedule and nothing else asks for it. Vocabulary: schema/vocab/drying-needs.csv.
+//
+// Fillamentum prints a scale beside its schedule, "the need to dry 5 (1 – not necessary to dry, 5 – always needed)": the
+// legend is not a statement that drying is unnecessary, and the number is the sheet's own answer (1 and 2: optional).
+const NEED_SCALE_RE = /\bthe\s+need\s+to\s+dry\s*(\d)\s*\(\s*1\b[^)]*\)/i;
+// Drying advised for a condition, whatever the schedule: Bambu Lab's guide "Optional", "if wet", "only if the material has
+// absorbed moisture", "In case the filament has become wet", Polymaker's "after prolonged exposure to humidity".
+const OPTIONAL_NEED_RE = new RegExp([
+  String.raw`\boptional(?:ly)?\b`,
+  String.raw`\bif\s+(?:the\s+(?:filament|material)\s+(?:is|gets|becomes|has\s+become)\s+)?(?:wet|damp|moist\w*|needed|necessary|moisture)\b`,
+  String.raw`\bonly\s+if\b`,
+  String.raw`\bwhen\s+(?:the\s+(?:filament|material)\s+(?:is|gets)\s+)?(?:too\s+)?(?:wet|damp|moist)`,
+  String.raw`\b(?:if|when)\s+the\s+(?:filament|material)\s+has\s+absorbed\s+(?:moisture|water)`,
+  String.raw`\bin\s+case\b`,
+  String.raw`\brecommended\s+if\b`,
+  String.raw`\bafter\s+(?:prolonged\s+)?exposure\s+to\s+(?:humidity|moisture)`,
+].join('|'), 'i');
+// A sentence that says "not necessary" and then asks for drying in some cases: "(not necessary but recommended)",
+// "may require drying before use, although usually it is not necessary".
+const OPTIONAL_FIRST_RE = /\bnot\s+(?:necessary|needed|required)\s+but\s+recommended\b|\bmay\s+require\b|\balthough\s+usually\b/i;
+// Drying the sheet says is not needed: "Not necessary", "No drying needed!", "Nicht notwendig", "niewymagane", the bare "No"
+// of a yes/no row, "We do not recommend drying our PLA-based materials", "printing without pre-drying".
+const NOT_NEEDED_RE = new RegExp([
+  String.raw`\bnot\s+(?:be\s+)?(?:necessary|needed|required)\b`,
+  String.raw`\bno\s+(?:pre-?\s*)?drying\b`,
+  String.raw`\bno\s+need\s+to\s+(?:pre-?\s*)?dry\b`,
+  String.raw`\b(?:do|does)\s+not\s+(?:recommend|require|need)\s+(?:any\s+)?(?:pre-?\s*)?dry`,
+  String.raw`\bwithout\s+pre-?\s*drying\b`,
+  String.raw`\bnicht\s+(?:erforderlich|notwendig)\b|\bniewymagane\b`,
+  String.raw`^no[.!]?$`,
+].join('|'), 'i');
+
+/** Does the sheet ask for drying? 'required', 'optional' or 'not-needed' (a cell with no statement is 'unknown' before this runs). */
+function dryingNeed(s) {
+  const scale = NEED_SCALE_RE.exec(s);
+  const body = scale ? s.replace(scale[0], ' ') : s;
+  if (OPTIONAL_FIRST_RE.test(body)) return 'optional';
+  if (NOT_NEEDED_RE.test(body)) return 'not-needed';
+  if (OPTIONAL_NEED_RE.test(body)) return 'optional';
+  if (scale) return Number(scale[1]) <= 2 ? 'optional' : 'required';
+  return 'required';
+}
+
+// Hours with no upper end: "6+ hours", "> 5 h", "at least 8 hours", "minimum drying time 3 h", "more than 4 hours", "4 hours or
+// longer". The number is the lower bound. A window ("at least 4 to 16 hours", "4-6 h") is hours stated, not an open end.
+const DRYING_HOURS_RE = /(\d+(?:\.\d+)?)\s*\+?\s*(?:h|hour|hours|hrs)\b/i;
+const OPEN_BEFORE_RE = /\b(?:at\s+least|minimum|minimal|more\s+than|longer\s+than|over)\b[^;,.]*$|[>＞≥]\s*$/i;
+const OPEN_AFTER_RE = /^\s*(?:h|hours?|hrs)\b\s*(?:\+|or\s+(?:longer|more))/i;
+function hoursAreOpen(source, m) {
+  const before = source.slice(0, m.index);
+  if (/\d\s*(?:to|-|~)\s*$/i.test(before)) return false;
+  return /\+/.test(m[0]) || OPEN_BEFORE_RE.test(before.slice(-30)) || OPEN_AFTER_RE.test(source.slice(m.index + m[1].length));
+}
+
+/** Drying: "Blast Drying Oven: 55 C, 8 h", "120C for 4 hours", "6+ hours", "Not necessary", "Optional". */
 export function parseDrying(raw) {
   const text = raw == null ? '' : String(raw).trim();
-  if (!text || /^not published$/i.test(text)) return { text, required: null, tempC: null, hours: null, state: PROCESS_STATE.UNKNOWN };
+  // A lone "/" is a cell with nothing in it, as a lone dash is in a chamber row.
+  if (!text || /^not published$/i.test(text) || /^[/\-–—\s]*$/.test(text)) return { text, state: PROCESS_STATE.UNKNOWN, need: 'unknown', tempC: null, hours: null, hoursOpen: null, required: false };
   const s = clean(text);
   // A window is read at its upper end, however its unit is printed: "70-80℃" gave 80 but "90℃-100℃" gave 90 and
   // "8h-12h" gave 8 (the fourth control draw of the profile root-cause sweep, 2026-10-02).
@@ -399,14 +456,20 @@ export function parseDrying(raw) {
   const hourRange = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hours?|hrs)?\s*[-–~]\s*(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
   // The first schedule the cell states decides: Bambu Lab's guide prints "Blast Drying Oven: 55 °C, 8 h X1 Series
   // Heatbed: 65 - 75 °C, 12 h", and a window further on is the other method's.
-  const single = first.match(/(\d{2,3})\s*C/i), singleHours = first.match(/(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
+  const single = first.match(/(\d{2,3})\s*C/i), singleHours = first.match(DRYING_HOURS_RE);
   const tempMatch = tempRange && (!single || tempRange.index <= single.index + single[0].length) ? [null, tempRange[2]] : single || first.match(/:\s*(\d{2,3})/) || s.match(/(\d{2,3})\s*C/i);
-  const hourMatch = hourRange && (!singleHours || hourRange.index <= singleHours.index + singleHours[0].length) ? [null, hourRange[2]] : singleHours || s.match(/(\d+(?:\.\d+)?)\s*(?:h|hour|hours|hrs)\b/i);
+  const windowFirst = hourRange && (!singleHours || hourRange.index <= singleHours.index + singleHours[0].length);
+  const hourMatch = windowFirst ? [null, hourRange[2]] : singleHours || s.match(DRYING_HOURS_RE);
+  // The open end is read from the text around the number that decides; a window never has one.
+  const hoursOpen = !hourMatch ? null : windowFirst ? false : hoursAreOpen(singleHours ? first : s, hourMatch);
+  const need = dryingNeed(s);
   return {
     text,
-    required: true,
+    state: 'stated',
+    need,
     tempC: tempMatch ? Number(tempMatch[1]) : null,
     hours: hourMatch ? Number(hourMatch[1]) : null,
-    state: 'stated',
+    hoursOpen,
+    required: need === 'required',
   };
 }

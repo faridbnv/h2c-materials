@@ -109,14 +109,14 @@ documents were read and give none of one is listed under "Recipe silent".
 | PC-ABS-CF (M128) | — | sheet-silent | 1 of 1 | 1 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ASA (M119) | — | sheet-silent | 1 of 1 | 0 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ESD (M116) | — | collected | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PCL (M149) | — | collected | 1 of 4 | 2 / 1 / 3 | iSANMATE (isanmate.com) |
+| PCL (M149) | — | collected | 1 of 4 | 2 / 2 / 3 | iSANMATE (isanmate.com) |
 | PEEK-GF (M127) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEI-CF (M118) | — | collected | 1 of 3 | 1 / 1 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEI-GF (M117) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEKK (M098) | — | collected | 1 of 5 | 1 / 1 / 3 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PEKK-ESD (M115) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PPS-ESD (M124) | — | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PVA (M075) | — | collected | 1 of 11 | 4 / 5 / 11 | Yousu (ysfilament.com) |
+| PVA (M075) | — | collected | 1 of 11 | 4 / 6 / 11 | Yousu (ysfilament.com) |
 | PVDF (M096) | — | collected | 1 of 3 | 2 / 2 / 2 | Filament2Print (filament2print.com) |
 | TPC-ESD (M114) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPI (M121) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |

@@ -235,10 +235,10 @@ function body(group, materials, cs, db, ctx = {}) {
     </div>`);
 
     const dry = find(cs, (c) => c.gate === 'dryingKnown');
-    const dryingProfiles = db.profiles.filter((p) => p.drying?.state === 'stated').length;
+    const dryingBy = (need) => db.profiles.filter((p) => p.drying?.need === need).length;
     out.push(`<div class="control" data-active="${!!dry}">
       <label><input type="checkbox" data-gate="dryingKnown" ${dry ? 'checked' : ''}> Drying instructions published</label>
-      <div class="avail">${dryingProfiles} of ${db.profiles.length} print profiles give a drying schedule.</div>
+      <div class="avail">${dryingBy('required')} of ${db.profiles.length} print profiles require drying, ${dryingBy('optional')} advise it for a condition and ${dryingBy('not-needed')} say it is not needed.</div>
     </div>`);
 
     // The scope: materials the database holds for completeness that the H2C cannot finish, named by their families.

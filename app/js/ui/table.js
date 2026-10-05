@@ -347,6 +347,9 @@ export function renderTable(host, state, actions) {
         if (m.gates.drying === 'required') {
           bits.push(explainButton('drying', 'A source gives a drying schedule. The Printing tab has its wording, and whether it is required or recommended.',
             { cls: 'need', head: 'Drying', action: 'printing', id: m.id }));
+        } else if (m.gates.drying === 'optional') {
+          bits.push(explainButton('drying optional', 'A source advises drying only for a condition, such as wet filament. The Printing tab has its wording.',
+            { cls: 'need', head: 'Drying', action: 'printing', id: m.id }));
         }
         if (!bits.length) {
           return `<td class="needs">${explainButton('none stated', 'No source states a hardened-nozzle or drying need. That is not the same as needing nothing.',
@@ -633,7 +636,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
       qualifiers(m), ids(m),
       range(m.print?.nozzleC), range(m.print?.bedC), range(m.print?.chamberC) || (m.print?.chamberGuidance ? CHAMBER_GUIDANCE[m.print.chamberGuidance.state]?.word ?? '' : ''),
       m.gates.abrasive === 'requires-hardened' ? 'required' : m.gates.abrasive === 'no-special-concern' ? 'not needed' : 'not recorded',
-      m.gates.drying === 'required' ? 'published' : 'not recorded',
+      { required: 'published', optional: 'optional', 'not-needed': 'not needed' }[m.gates.drying] ?? 'not recorded',
       m.buy?.url ?? '',
       // A screen by an estimate and one by the base polymer's published behaviour travel in their own columns (D64).
       ...(useEstimates ? [estimated(m), e.screened ? screenedByKind(e).estimate.join('; ') : '', e.screened ? screenedByKind(e).polymer.join('; ') : ''] : []),
@@ -696,7 +699,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null
         readFrom(KEYS.map((k) => [k, g.headline?.[k]?.from])),
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
         p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',
-        p?.drying ? `${p.drying.tempC ?? ''} C ${p.drying.hours ?? ''} h` : '',
+        p?.drying ? `${p.drying.need}; ${p.drying.tempC ?? ''} C ${p.drying.hoursOpen ? '>= ' : ''}${p.drying.hours ?? ''} h` : '',
         (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId,
       ].map(q).join(','));
     }

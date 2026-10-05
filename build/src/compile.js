@@ -19,7 +19,7 @@ import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped,
 import { readRecipe, checkMakerEnclosed } from './recipe.js';
 import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
-import { aggregateGate } from './gates.js';
+import { aggregateGate, aggregateDrying } from './gates.js';
 import { lowerBoundsOf } from './lower-bounds.js';
 import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
@@ -661,7 +661,7 @@ export function compile(wb, { snapshot, build }) {
         chamber: aggregateGate(mProfiles, 'chamber'),
         abrasive: mProfiles.some((p) => p.abrasion.requiresHardened) ? 'requires-hardened'
           : mProfiles.some((p) => p.abrasion.requiresHardened === false) ? 'no-special-concern' : 'unknown',
-        drying: mProfiles.some((p) => p.drying.required) ? 'required' : 'unknown',
+        drying: aggregateDrying(mProfiles),
       },
       profileIds: mProfiles.map((p) => p.id),
       printingEvidence,

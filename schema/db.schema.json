@@ -2696,7 +2696,7 @@
       }
     },
     "productPrint": {
-      "description": "A product's own print recipe (build/src/products.js): the gate across its own profiles for each axis and the window of the profile that decided it, whether it wants an enclosure, a hardened nozzle and drying, and the annealing its sheets state for values measured on annealed parts. Never a union across a material's products. Where its own profiles are silent on a part, its twin's (D89) and, for the print gate's parts, its material's printer maker's guide (D88) are read, and `from` says which part came from where.",
+      "description": "A product's own print recipe (build/src/products.js): the gate across its own profiles for each axis and the window of the profile that decided it, whether it wants an enclosure, a hardened nozzle and drying, and the annealing its sheets state for values measured on annealed parts. Never a union across a material's products. Where its own profiles are silent on a part, its twin's (D89) and, for the print gate's parts and drying, its material's printer maker's guide (D88, D127) are read, and `from` says which part came from where.",
       "type": [
         "object",
         "null"
@@ -2874,6 +2874,7 @@
           ]
         },
         "drying": {
+          "description": "What the product's sheets ask for on drying (D127): the strongest need across them (required, then optional, then not-needed) with the schedule of the profile that said it. Null where nothing is stated. profileId is null where the part was read from a guide row.",
           "anyOf": [
             {
               "type": "null"
@@ -2881,27 +2882,13 @@
             {
               "type": "object",
               "additionalProperties": false,
-              "required": [
-                "tempC",
-                "hours",
-                "profileId"
-              ],
+              "required": ["need", "tempC", "hours", "hoursOpen", "profileId"],
               "properties": {
-                "tempC": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
-                },
-                "hours": {
-                  "type": [
-                    "number",
-                    "null"
-                  ]
-                },
-                "profileId": {
-                  "type": "string"
-                }
+                "need": { "enum": ["required", "optional", "not-needed"] },
+                "tempC": { "type": ["number", "null"] },
+                "hours": { "type": ["number", "null"], "description": "The lower bound where hoursOpen is true." },
+                "hoursOpen": { "type": ["boolean", "null"] },
+                "profileId": { "type": ["string", "null"] }
               }
             }
           ]
@@ -2945,7 +2932,7 @@
             "chamber": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
             "enclosure": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
             "hardenedNozzle": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
-            "drying": { "$ref": "#/$defs/twinOrigin" },
+            "drying": { "oneOf": [{ "$ref": "#/$defs/twinOrigin" }, { "$ref": "#/$defs/guideOrigin" }] },
             "anneal": { "$ref": "#/$defs/twinOrigin" }
           }
         }

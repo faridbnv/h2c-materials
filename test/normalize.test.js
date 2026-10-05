@@ -387,6 +387,51 @@ test('a drying window is read at its upper end however its unit is printed, and 
   }
 });
 
+// D127: a sheet's words say whether to dry, and whether the time it prints has an upper end. [text, need, tempC, hours, hoursOpen]
+test('drying says whether it is needed, optional or not needed, and whether its hours are open-ended (D127)', () => {
+  const cases = [
+    ['Not published', 'unknown', null, null, null], ['/', 'unknown', null, null, null],
+    ['120C for 4 hours', 'required', 120, 4, false], ['Yes', 'required', null, null, null], ['Required', 'required', null, null, null],
+    ['Dry Out Before Use', 'required', null, null, null], ['Recommended 45-60°C 12 h', 'required', 60, 12, false],
+    // not needed
+    ['Not necessary', 'not-needed', null, null, null], ['not needed', 'not-needed', null, null, null], ['Not required', 'not-needed', null, null, null],
+    ['No', 'not-needed', null, null, null], ['No drying needed!', 'not-needed', null, null, null], ['Pre-drying not necessary', 'not-needed', null, null, null],
+    ['316L is in a printable condition, drying is not necessary', 'not-needed', null, null, null], ['Nicht notwendig', 'not-needed', null, null, null],
+    ['niewymagane', 'not-needed', null, null, null], ['We do not recommend drying our PLA-based materials', 'not-needed', null, null, null],
+    ['does not require drying before using', 'not-needed', null, null, null], ['printing without pre- drying', 'not-needed', null, null, null],
+    // advised for a condition
+    ['Optional', 'optional', null, null, null], ['if wet', 'optional', null, null, null], ['If damp, dry at 50°C for 2-4 hours.', 'optional', 50, 4, false],
+    ['55˚C for 6h (Only if the material has absorbed moisture)', 'optional', 55, 6, false], ['55 °C for 6 h (only if moisture absorbed)', 'optional', 55, 6, false],
+    ['In case the filament has become wet, it should be dried. Using a hot dry air oven at 80°C for at least 12h is recommended.', 'optional', 80, 12, true],
+    ['Drying (if wet) recommended: at least 6h at 75°C using a hot dry air oven', 'optional', 75, 6, true],
+    ['Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.', 'optional', 60, 4, false],
+    ['80°C-90°C (not necessary but recommended)', 'optional', 90, null, null],
+    ['may require drying before use, although usually it is not necessary', 'optional', null, null, null],
+    ['Dry Out Before Use: Optional. Drying Condition: Blast Drying Oven: 55 °C, 8 h X1 Series Heatbed: 65 - 75 °C, 12 h', 'optional', 55, 8, false],
+    ['Dry Out Before Use: Required. Drying Condition: Blast Drying Oven: 80 °C, 8 - 12 h X1 Series Heatbed: 90 - 100 °C, 12 h', 'required', 80, 12, false],
+    // Fillamentum's need-to-dry scale: the legend is not a statement, the number is the answer
+    ['100 °C; minimum drying time 3 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)', 'required', 100, 3, true],
+    ['2 h, 80 °C; the need to dry 1 (1 – not necessary to dry, 5 – always needed)', 'optional', 80, 2, false],
+    ['2 h, 80 °C; the need to dry 2 (1 – not necessary to dry, 5 – always needed)', 'optional', 80, 2, false],
+    ['2 h, 80 °C; the need to dry 3 (1 – not necessary to dry, 5 – always needed)', 'required', 80, 2, false],
+    // open durations: the number is the lower bound
+    ['120C for 4+ hours', 'required', 120, 4, true], ['50-60°C for 6+ hours', 'required', 60, 6, true], ['50℃ > 8H', 'required', 50, 8, true],
+    ['55℃/>4H', 'required', 55, 4, true], ['120°C for at least 8 hours', 'required', 120, 8, true], ['55 °C; Minimum Time 1 hour', 'required', 55, 1, true],
+    ['80 °C; minimum drying time >5 h; the need to dry 5 (1 – not necessary to dry, 5 – always needed)', 'required', 80, 5, true],
+    ['120°C, minimal 4 hours', 'required', 120, 4, true], ['The recommended drying conditions are 55°C for more than 4 hours', 'required', 55, 4, true],
+    ['dehydrate Nanovia Insublend at 60°c for 4 hours or longer', 'required', 60, 4, true], ['Dry the filament at 70°C for over 10h before printing', 'required', 70, 10, true],
+    // a window is hours stated, however it is introduced
+    ['80 °C in a hot air dryer or vacuum oven for at least 4 to 16 hours', 'required', 80, 16, false], ['50-60°C for at least 4-6 hours', 'required', 60, 6, false],
+    ['70-80℃, 8-12h', 'required', 80, 12, false], ['50℃', 'required', 50, null, null],
+  ];
+  for (const [v, need, tempC, hours, hoursOpen] of cases) {
+    const d = parseDrying(v);
+    assert.deepEqual([d.need, d.tempC, d.hours, d.hoursOpen], [need, tempC, hours, hoursOpen], v);
+    assert.equal(d.required, need === 'required', v);
+    assert.equal(d.state, need === 'unknown' ? 'unknown' : 'stated', v);
+  }
+});
+
 
 test('the reader round taught the parsers five wordings a profile prints (m346)', () => {
   const read = (s) => { const p = parseTemperature(s, { plausible: [0, 200] }); return [p.state, p.requirement, Boolean(p.unparsed)]; };

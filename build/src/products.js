@@ -239,10 +239,13 @@ function recipeAxis(profiles, axis) {
 }
 
 const TEMPERATURE_AXES = ['nozzle', 'bed', 'chamber'];
-// The parts of a recipe, in the order they are read. The guide answers the print gate's five (D88); drying and annealing
-// are a product's treatment, which only its own sheet or its twin's may give.
+// The parts of a recipe, in the order they are read. The guide answers the print gate's five (D88) and drying (D127); the
+// annealing of a product's parts is its treatment, which only its own sheet or its twin's may give.
 const RECIPE_AXES = ['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle', 'drying'];
-export const GUIDE_AXES = ['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle'];
+export const GUIDE_AXES = ['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle', 'drying'];
+// The strongest drying statement of a set of profiles decides the axis: a schedule it requires, then one it advises for a
+// condition, then a statement that none is needed (D127).
+const DRYING_ORDER = ['required', 'optional', 'not-needed'];
 
 /** Each part of a recipe read from a set of profiles (a product's own, a twin's own, or a guide row alone). */
 function axisOf(profiles, axis) {
@@ -256,8 +259,12 @@ function axisOf(profiles, axis) {
     const hardened = profiles.map((p) => p.abrasion.requiresHardened);
     return hardened.includes(true) ? true : hardened.includes(false) ? false : null;
   }
-  const dried = profiles.find((p) => p.drying.required);
-  return dried ? { tempC: dried.drying.tempC, hours: dried.drying.hours, profileId: dried.id } : null;
+  for (const need of DRYING_ORDER) {
+    const said = profiles.filter((p) => p.drying.need === need);
+    const dried = said.find((p) => p.drying.tempC != null) ?? said[0];
+    if (dried) return { need, tempC: dried.drying.tempC, hours: dried.drying.hours, hoursOpen: dried.drying.hoursOpen, profileId: dried.id };
+  }
+  return null;
 }
 
 /**
@@ -271,7 +278,7 @@ function speaksTo(profiles, axis) {
     case 'chamber': return profiles.some((p) => p.chamber.state !== 'unknown' || p.chamber.unparsed || p.enclosureState !== 'unknown');
     case 'enclosure': return profiles.some((p) => p.enclosureState !== 'unknown');
     case 'hardenedNozzle': return profiles.some((p) => p.abrasion.requiresHardened != null || p.abrasion.state === 'stated' || p.abrasion.unparsed);
-    default: return profiles.some((p) => p.drying.required);
+    default: return profiles.some((p) => p.drying.need !== 'unknown');
   }
 }
 
@@ -322,8 +329,8 @@ const labelled = (axis, from) => ({ ...axis, reason: `${axis.reason} (${from.lab
  * A product's print recipe: its own profiles' nozzle, bed and chamber against the H2C, whether it wants an enclosure,
  * a hardened nozzle and drying, and the annealing its sheets state for the values measured on annealed parts. Where its
  * own profiles say nothing on a part, its twin's do (the same sheet, D89), and for the print gate's parts after that
- * its material's printer maker's guide (D88); each part read that way says where it came from, in `from` and in its
- * reason. Null when nothing at all is known.
+ * its material's printer maker's guide (D88; its drying statement too, D127); each part read that way says where it
+ * came from, in `from` and in its reason. Null when nothing at all is known.
  */
 function productPrint(grade, own, twins, guide, publisher) {
   const out = { profileIds: own.profiles.map((p) => p.id) };
@@ -331,11 +338,14 @@ function productPrint(grade, own, twins, guide, publisher) {
   for (const axis of RECIPE_AXES) {
     let value = axisOf(own.profiles, axis);
     if (!speaksTo(own.profiles, axis)) {
-      const twin = twins.find((t) => speaksTo(t.profiles, axis));
+      // A product that holds a profile of its own does not read its twin's hardened-nozzle statement: whether a filament
+      // wears a brass nozzle is the product's to say, and a sibling's sheet is not evidence for it (D127, amending D89).
+      const twin = axis === 'hardenedNozzle' && own.profiles.length ? undefined : twins.find((t) => speaksTo(t.profiles, axis));
       const read = twin ? twin.profiles : guide && guideAnswers(guide, axis) ? [guide] : null;
       if (read) {
         from[axis] = twin ? twinOrigin(twin.grade) : guideOrigin(guide, grade, publisher);
         value = axisOf(read, axis);
+        if (axis === 'drying' && !twin) value = { ...value, profileId: null };
         if (TEMPERATURE_AXES.includes(axis)) {
           if (!twin) value = { ...value, profileId: null };
           if (axis === 'chamber' && value.state === 'unknown' && value.verdict === 'unknown' && axisOf(read, 'enclosure') === 'recommended') value = { ...value, reason: ENCLOSURE_ONLY };

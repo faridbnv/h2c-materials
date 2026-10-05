@@ -11,7 +11,7 @@
     },
     "profiles": {
       "rows": 1882,
-      "sha256": "55467eed26a0dea76b775a96641c3761378bb2f0129e75f21e17c1dbbb79262c"
+      "sha256": "e9400f43005b289ca2e2f72cd1081aa9a758551fa36dc857e7aafec7247568c5"
     },
     "profile_notes": {
       "rows": 2319,
@@ -43,7 +43,7 @@
     },
     "print_guide": {
       "rows": 33,
-      "sha256": "2de3350ceabe0481c690bde48ea1fcf538779f743f2eee0f88a742c325f73d74"
+      "sha256": "5b6868e6f63a1a3eac8f0531fdde055730a7874ac225a580bef808328dc98b00"
     },
     "prices": {
       "rows": 357,

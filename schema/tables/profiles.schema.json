@@ -264,6 +264,16 @@
       }
     },
     {
+      "name": "Drying need",
+      "type": "string",
+      "role": "canonical",
+      "description": "Whether the sheet asks for drying: required (a schedule or a plain statement), optional (advised for a condition: \"if wet\", \"Optional\"), not-needed (\"not necessary\") or unknown. Drying state says only that the sheet speaks of drying (D127).",
+      "vocabulary": "drying-needs",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Drying °C",
       "type": "number",
       "role": "canonical",
@@ -280,10 +290,28 @@
       "name": "Drying hours",
       "type": "number",
       "role": "canonical",
-      "description": "Drying time.",
+      "description": "Drying time; the lower bound where Drying hours open is TRUE.",
       "missing": [
         "Not applicable",
         "Not published"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Drying hours open",
+      "type": "boolean",
+      "role": "canonical",
+      "description": "TRUE where the stated drying time has no upper end (\"6+ hours\", \"> 5 h\", \"at least 8 hours\", \"minimum 1 hour\"): Drying hours is then the lower bound. FALSE where hours are stated as a point or a window; Not applicable where none are stated (D127).",
+      "missing": [
+        "Not applicable"
+      ],
+      "trueValues": [
+        "TRUE"
+      ],
+      "falseValues": [
+        "FALSE"
       ],
       "constraints": {
         "required": true

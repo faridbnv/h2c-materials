@@ -336,7 +336,7 @@ test("a part of a recipe read from a twin is the twin's own, and only where the 
   const silent = (profiles, axis) => (axis === 'chamber' ? profiles.every((p) => p.chamber.state === 'unknown' && !p.chamber.unparsed && p.enclosureState === 'unknown')
     : axis === 'enclosure' ? profiles.every((p) => p.enclosureState === 'unknown')
       : axis === 'hardenedNozzle' ? profiles.every((p) => p.abrasion.requiresHardened == null && p.abrasion.state !== 'stated')
-        : axis === 'drying' ? profiles.every((p) => !p.drying.required)
+        : axis === 'drying' ? profiles.every((p) => p.drying.need === 'unknown')
           : profiles.every((p) => p[axis].state === 'unknown' && !p[axis].unparsed));
   let read = 0;
   for (const g of db.grades.filter((x) => isProduct(x) && x.print?.from)) {
@@ -348,6 +348,9 @@ test("a part of a recipe read from a twin is the twin's own, and only where the 
       assert.ok(t && sameKey(t, g), `${g.id} ${axis} reads ${from.gradeId}`);
       if (axis === 'anneal') { assert.equal(ownMeasurements(g.id).some((m) => m.postProcessingState === 'annealed'), false); continue; }
       assert.ok(silent(own, axis), `${g.id} ${axis}: its own profiles speak, and its own statement wins`);
+      // D127: whether a filament wears a brass nozzle is the product's to say; a product that holds a profile of its own
+      // does not borrow its sibling's hardened-nozzle statement (a twin's sheet may print for a filled variant).
+      if (axis === 'hardenedNozzle') assert.equal(own.length, 0, `${g.id} hardenedNozzle: it holds a profile of its own, so it reads no twin's`);
       assert.equal(t.print.from?.[axis], undefined, `${g.id} ${axis}: the twin's own, never what the twin read`);
       const a = g.print[axis], b = t.print[axis];
       if (['nozzle', 'bed', 'chamber'].includes(axis)) {
@@ -365,7 +368,8 @@ test("a part read from a printer maker's guide is its material's guide row, only
   const speaks = (profiles, axis) => (axis === 'chamber' ? profiles.some((p) => p.chamber.state !== 'unknown' || p.chamber.unparsed || p.enclosureState !== 'unknown')
     : axis === 'enclosure' ? profiles.some((p) => p.enclosureState !== 'unknown')
       : axis === 'hardenedNozzle' ? profiles.some((p) => p.abrasion.requiresHardened != null || p.abrasion.state === 'stated')
-        : profiles.some((p) => p[axis].state !== 'unknown' || p[axis].unparsed));
+        : axis === 'drying' ? profiles.some((p) => p.drying.need !== 'unknown')
+          : profiles.some((p) => p[axis].state !== 'unknown' || p[axis].unparsed));
   const profilesOf = (id) => db.profiles.filter((p) => p.gradeId === id && !p.retired);
   let read = 0;
   for (const g of db.grades.filter(isProduct)) {
@@ -373,16 +377,24 @@ test("a part read from a printer maker's guide is its material's guide row, only
     for (const [axis, from] of Object.entries(g.print?.from ?? {})) {
       if (from.origin !== 'guide') continue;
       read++;
-      assert.ok(['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle'].includes(axis), `${g.id} ${axis}: the guide fills the print gate only, never drying or annealing`);
+      assert.ok(['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle', 'drying'].includes(axis), `${g.id} ${axis}: the guide fills the print gate and drying, never annealing`);
       assert.equal(from.guideId, guide?.id, `${g.id} ${axis}: not its material's guide row`);
       assert.ok(!speaks(profilesOf(g.id), axis), `${g.id} ${axis}: its own sheet speaks, and wins`);
       const twins = db.grades.filter((t) => isProduct(t) && t !== g && sameKey(t, g));
-      assert.ok(twins.every((t) => !speaks(profilesOf(t.id), axis)), `${g.id} ${axis}: a twin speaks, and its sheet comes first`);
+      // A twin's sheet comes first, except for the hardened nozzle of a product that holds a profile of its own (D127).
+      if (!(axis === 'hardenedNozzle' && profilesOf(g.id).length)) assert.ok(twins.every((t) => !speaks(profilesOf(t.id), axis)), `${g.id} ${axis}: a twin speaks, and its sheet comes first`);
       assert.match(from.label, /^from .+'s .+ for .+$/, `${g.id} ${axis}`);
       if (['nozzle', 'bed', 'chamber'].includes(axis)) {
         const a = g.print[axis];
         assert.deepEqual([a.state, a.min, a.max, a.profileId], [guide[axis].state, guide[axis].min, guide[axis].max, null], `${g.id} ${axis}`);
         assert.ok(a.reason.endsWith(`(${from.label})`), `${g.id} ${axis}: the reason names the guide`);
+      }
+      // D127: the guide's drying fills a silent product's, labelled as the guide's, and says what the guide says: "Optional"
+      // is optional, never required.
+      if (axis === 'drying') {
+        assert.deepEqual(g.print.drying, { need: guide.drying.need, tempC: guide.drying.tempC, hours: guide.drying.hours, hoursOpen: guide.drying.hoursOpen, profileId: null }, g.id);
+        assert.notEqual(guide.drying.need, 'unknown', `${g.id}: the guide row states no drying`);
+        if (/Optional/.test(guide.drying.text)) assert.equal(g.print.drying.need, 'optional', `${g.id}: the guide says drying is optional`);
       }
       if (axis === 'enclosure') assert.equal(g.print.enclosure, guide.enclosureState, g.id);
       if (axis === 'hardenedNozzle') assert.equal(g.print.hardenedNozzle, guide.abrasion.requiresHardened, g.id);
@@ -472,4 +484,40 @@ test("a material's spread counts each twin as the product it is, and says how ma
     }
   }
   assert.ok(twins > 50, `only ${twins} twin values in the spreads`);
+});
+
+// D127: drying is what a sheet asks for. A product's need is the strongest its own profiles say; a material's is the strongest of
+// its profiles'; "not necessary" is a statement, not a schedule; and a guide row's "Optional" is never read as required.
+test("a product's drying need is the strongest its own profiles state, and a material's the strongest of its profiles'", () => {
+  const rank = ['required', 'optional', 'not-needed', 'unknown'];
+  const strongest = (profiles) => rank.find((n) => profiles.some((p) => p.drying.need === n)) ?? 'unknown';
+  let products = 0;
+  for (const g of db.grades.filter(isProduct)) {
+    const own = db.profiles.filter((p) => p.gradeId === g.id && !p.retired);
+    if (!own.some((p) => p.drying.need !== 'unknown')) continue;
+    products++;
+    assert.equal(g.print.drying.need, strongest(own), g.id);
+  }
+  assert.ok(products > 300, `only ${products} products state their drying`);
+  for (const m of db.materials) assert.equal(m.gates.drying, strongest(db.profiles.filter((p) => p.materialId === m.id && !p.retired)), m.id);
+  for (const p of db.profiles) {
+    assert.equal(p.drying.required, p.drying.need === 'required', p.id);
+    assert.equal(p.drying.need === 'unknown', p.drying.state === 'unknown', `${p.id}: Drying state says whether the sheet speaks of drying`);
+    if (p.drying.hoursOpen) assert.notEqual(p.drying.hours, null, `${p.id}: an open duration has its lower bound`);
+  }
+});
+
+test('a guide row fills a silent product\'s drying and never reads "Optional" as required', () => {
+  const optional = db.printGuide.filter((guide) => guide.drying.need === 'optional');
+  assert.ok(optional.length, 'the Bambu Lab guide has rows that print "Dry Out Before Use: Optional"');
+  for (const guide of optional) assert.match(guide.drying.text, /Optional/);
+  let filled = 0;
+  for (const g of db.grades.filter(isProduct)) {
+    const from = g.print?.from?.drying;
+    if (from?.origin !== 'guide') continue;
+    filled++;
+    assert.equal(g.print.drying.profileId, null, `${g.id}: a guide row has no profile`);
+    assert.match(from.label, /^from /, g.id);
+  }
+  assert.ok(filled > 0, "a silent product reads its material's guide row for drying");
 });

@@ -1,5 +1,5 @@
 {
-  "dataRelease": "22ea85a9e8c6",
+  "dataRelease": "1c454c4cbab9",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -37,7 +37,7 @@
     "nozzleKnown": 1059,
     "chamberKnown": 806,
     "chamberUnknown": 293,
-    "dryingRequired": 742
+    "dryingRequired": 648
   },
   "databaseCounts": {
     "materials": 175,
@@ -159,7 +159,7 @@
       "baseline": 1316,
       "current": 1882,
       "added": 566,
-      "edited_existing": 960,
+      "edited_existing": 961,
       "removed": 0
     },
     "properties": {

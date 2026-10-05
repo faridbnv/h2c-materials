@@ -1,0 +1,5 @@
+Value,Meaning
+required,The sheet asks for drying: a schedule or a plain statement that the filament is to be dried.
+optional,"Drying is advised for a condition (""if wet"", ""only if the material has absorbed moisture"", ""Optional""), not asked of every print."
+not-needed,"The sheet says drying is not necessary, needed or required."
+unknown,No drying statement.

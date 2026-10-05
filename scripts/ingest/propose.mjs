@@ -2197,7 +2197,7 @@ export function profileFor(settings, { sourceId, materialId, locator = 'Recommen
     'Bed °C': raw['Bed °C'], 'Bed state': typed['Bed state'], 'Bed min °C': typed['Bed min °C'], 'Bed max °C': typed['Bed max °C'], 'Bed requirement': typed['Bed requirement'],
     'Chamber °C': raw['Chamber °C'], 'Chamber state': typed['Chamber state'], 'Chamber min °C': typed['Chamber min °C'], 'Chamber max °C': typed['Chamber max °C'], 'Chamber requirement': typed['Chamber requirement'],
     Enclosure: raw.Enclosure, 'Enclosure state': typed['Enclosure state'], Plate: raw.Plate,
-    Drying: raw.Drying, 'Drying state': typed['Drying state'], 'Drying °C': typed['Drying °C'], 'Drying hours': typed['Drying hours'],
+    Drying: raw.Drying, 'Drying state': typed['Drying state'], 'Drying need': typed['Drying need'], 'Drying °C': typed['Drying °C'], 'Drying hours': typed['Drying hours'], 'Drying hours open': typed['Drying hours open'],
     'Nozzle material': raw['Nozzle material'], 'Nozzle diameter': raw['Nozzle diameter'],
     'Abrasion / clogging': raw['Abrasion / clogging'], 'Hardened nozzle': typed['Hardened nozzle'],
     ...H2C_CELLS,

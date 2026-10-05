@@ -32,7 +32,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
 | [prices](#prices) | PriceID | One row per market observation of one SKU on one access date: a Canadian listing in CAD, or a foreign one in its own currency, which prices a product that has no Canadian listing and is compared at the Bank of Canada rate in force (D113). |
-| [print_guide](#print_guide) | PrintGuideID | What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). The drying statement is recorded and fills no product's recipe. |
+| [print_guide](#print_guide) | PrintGuideID | What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). Where they say nothing on drying, the row's drying statement fills it, labelled as the guide's (D127). |
 | [print_guide_materials](#print_guide_materials) | MaterialID | Which of our materials a print_guide row speaks for, and why: a guide type applies to a material only where it is the same material type (the guide's PC to PC, never to a PC blend or a filled PC the guide does not name). One row per material; a material no row names has no guide, and its silent products stay unknown (D88). |
 | [profile_notes](#profile_notes) | ProfileID + Topic | One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile. |
 | [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. Its qualitative notes are rows of profile_notes.csv, one per topic (D69). |
@@ -434,7 +434,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 ### print_guide
 
-`data/tables/print_guide.csv` (Print guide). What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). The drying statement is recorded and fills no product's recipe.
+`data/tables/print_guide.csv` (Print guide). What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). Where they say nothing on drying, the row's drying statement fills it, labelled as the guide's (D127).
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
@@ -458,10 +458,12 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Chamber requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
 | Enclosure | raw | string | yes |  |  | The guide's answer to printing with an enclosure, as printed; a mark drawn in place of a word is written as its glyph (✓ or ✗). Parsed by the build. |
 | Enclosure state | canonical | string | yes |  | [enclosure-states](#vocab-enclosure-states) | Reviewed reading of Enclosure. |
-| Drying | raw | string | yes |  |  | The guide's drying statement as printed, each row it comes from named. Recorded; it fills no product's recipe (D88). |
+| Drying | raw | string | yes |  |  | The guide's drying statement as printed, each row it comes from named. Fills the drying of a product whose own sheets and twin are silent on it, labelled as the guide's (D127). |
 | Drying state | canonical | string | yes |  | [drying-states](#vocab-drying-states) | stated or unknown. |
+| Drying need | canonical | string | yes |  | [drying-needs](#vocab-drying-needs) | required, optional, not-needed or unknown: the guide's "Dry Out Before Use" answer (D127). |
 | Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature as the parser reads it. |
 | Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time as the parser reads it. |
+| Drying hours open | canonical | boolean | yes | Not applicable |  | TRUE where the stated time has no upper end, FALSE for a point or window, Not applicable where none is stated (D127). |
 | Nozzle size / material | raw | string | yes |  |  | The nozzle sizes and materials the guide lists, as printed; parsed by the build for whether a hardened nozzle is needed. |
 | Hardened nozzle | canonical | boolean | yes | Not published |  | Whether the guide says a hardened nozzle is needed: TRUE where it lists hardened steel alone, FALSE for any nozzle, Not published where it settles neither. |
 | Locator | raw | string | yes |  |  | The page, the column heading and the row labels each cell was read under. |
@@ -518,8 +520,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Plate | raw | string | yes |  |  | Plate as published; parsed by the build. |
 | Drying | raw | string | yes |  |  | Drying as published; parsed by the build. |
 | Drying state | canonical | string | yes |  | [drying-states](#vocab-drying-states) | stated or unknown. |
+| Drying need | canonical | string | yes |  | [drying-needs](#vocab-drying-needs) | Whether the sheet asks for drying: required (a schedule or a plain statement), optional (advised for a condition: "if wet", "Optional"), not-needed ("not necessary") or unknown. Drying state says only that the sheet speaks of drying (D127). |
 | Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature. |
-| Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time. |
+| Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time; the lower bound where Drying hours open is TRUE. |
+| Drying hours open | canonical | boolean | yes | Not applicable |  | TRUE where the stated drying time has no upper end ("6+ hours", "> 5 h", "at least 8 hours", "minimum 1 hour"): Drying hours is then the lower bound. FALSE where hours are stated as a point or a window; Not applicable where none are stated (D127). |
 | Nozzle material | raw | string | yes |  |  | Nozzle material as published; parsed by the build. |
 | Nozzle diameter | raw | string | yes |  |  | Nozzle diameter as published; parsed by the build. |
 | Abrasion / clogging | raw | string | yes |  |  | Abrasion / clogging as published; parsed by the build. |
@@ -725,6 +729,18 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Z | Along the build axis: a bar printed upright and pulled across its layers, as its sheet says or shows (a Z column, a ZX column headed Upright, a drawing of the standing bar, a sentence naming its Z-axis strength). |
 | ZX | Upright by ISO/ASTM 52921: the bar's length along Z. Kept as the label where the sheet does not show or say how the bar stood, and on an upright flexural or impact bar; a tensile bar the sheet shows upright is Z, the layer strength (D92, m191). |
 
+<a id="vocab-drying-needs"></a>
+### drying-needs
+
+`schema/vocab/drying-needs.csv`, used by print_guide.Drying need, profiles.Drying need.
+
+| Value | Meaning |
+|---|---|
+| required | The sheet asks for drying: a schedule or a plain statement that the filament is to be dried. |
+| optional | Drying is advised for a condition ("if wet", "only if the material has absorbed moisture", "Optional"), not asked of every print. |
+| not-needed | The sheet says drying is not necessary, needed or required. |
+| unknown | No drying statement. |
+
 <a id="vocab-drying-states"></a>
 ### drying-states
 
@@ -732,7 +748,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| stated | Drying guidance is published. |
+| stated | The sheet says something about drying: a schedule, a need, or that none is needed. |
 | unknown | No drying guidance published. |
 
 <a id="vocab-enclosure-states"></a>

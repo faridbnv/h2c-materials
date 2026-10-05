@@ -23,6 +23,21 @@ export function fmtNumber(v, unit) {
 }
 
 /**
+ * What a sheet says about drying (D127), as a reader says it: "70 °C for 6 h", "55 °C for ≥ 1 h" (a time with no upper
+ * end is a lower bound), "optional: 60 °C for 4 h" (advised for a condition), "not needed". A statement without a
+ * schedule says so rather than inventing one.
+ */
+export function dryingWords(d) {
+  if (!d || d.need === 'unknown') return 'not published';
+  if (d.need === 'not-needed') return 'not needed';
+  const temp = d.tempC != null ? `${fmtNumber(d.tempC)} °C` : null;
+  const hours = d.hours != null ? `${d.hoursOpen ? '≥ ' : ''}${fmtNumber(d.hours)} h` : null;
+  const schedule = temp && hours ? `${temp} for ${hours}` : temp ?? hours ?? '';
+  if (d.need === 'optional') return schedule ? `optional: ${schedule}` : 'optional';
+  return schedule || 'required, schedule not stated';
+}
+
+/**
  * A number a source published as a bound ("> 300 %"), read as one wherever a value is shown: the sign in front, as the
  * sheet and the measurement list print it. An interval with no open end (a point, a range, a mean with a band) is
  * the number alone. A bound limits a value and is never the value, so a bare "300" in a column would be a claim the

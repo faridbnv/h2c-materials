@@ -10,7 +10,7 @@
 
 import { describeConstraint } from './labels.js';
 import { headlineDef } from './registry.js';
-import { fmtNumber } from './format.js';
+import { fmtNumber, dryingWords } from './format.js';
 import { templateByName } from './templates.js';
 
 const NP = 'not published';
@@ -132,7 +132,7 @@ export function decisionBrief({ db, scenario, material, grade, evaluation, entry
   const origin = (k) => (from[k] ? ` (${from[k].label})` : '');
   for (const [label, key] of [['Nozzle', 'nozzle'], ['Bed', 'bed'], ['Chamber', 'chamber']]) L.push(`- ${label}: ${windowWords(p?.[key])}${p?.[key] ? `, ${against(p[key])}` : ''}${origin(key)}`);
   L.push(`- Hardened nozzle: ${p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : NP}${origin('hardenedNozzle')}`);
-  L.push(`- Drying: ${p?.drying ? scheduleWords(p.drying) : NP}${origin('drying')}`);
+  L.push(`- Drying: ${p?.drying ? dryingWords(p.drying) : NP}${origin('drying')}`);
   L.push(`- Annealing: ${entry?.state?.treatment ? `needed for this answer, at ${scheduleWords(entry.state.treatment)}` : (p?.anneal ?? []).length ? `not needed for this answer; its sheet measures some values after ${(p.anneal).map((a) => scheduleWords(a)).join('; ')}` : 'not needed for this answer'}`);
   L.push('');
 

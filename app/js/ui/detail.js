@@ -5,7 +5,7 @@
 // toughness at zero records and compression and CTE at one each, a fixed skeleton would produce
 // mostly empty pages. Showing the gap turns that into information.
 
-import { renderValue, chip, esc, fmtNumber, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleWords } from './format.js';
+import { renderValue, chip, esc, fmtNumber, dryingWords, fmtBounded, boundNote, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleWords } from './format.js';
 import { renderWhy } from './explain.js';
 import { materialName, describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS, H2C_STATUS, h2cStatusLabel, h2cLimit } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
@@ -830,7 +830,7 @@ function printCard(g) {
     ${axis('Nozzle', 'nozzle')}${axis('Bed', 'bed')}${axis('Chamber', 'chamber')}
     ${some ? `<dt>Enclosure</dt><dd>${esc(p.enclosure === 'unknown' ? 'not published' : p.enclosure.replace(/-/g, ' '))}${fromNote(from.enclosure)}</dd>
     <dt>Hardened nozzle</dt><dd>${p.hardenedNozzle === true ? 'required' : p.hardenedNozzle === false ? 'not needed' : 'not published'}${fromNote(from.hardenedNozzle)}</dd>
-    <dt>Drying</dt><dd>${p.drying ? `${p.drying.tempC != null ? `${fmtNumber(p.drying.tempC)} °C` : 'published'}${p.drying.hours != null ? ` for ${fmtNumber(p.drying.hours)} h` : ''}` : 'not published'}${fromNote(from.drying)}</dd>` : ''}
+    <dt>Drying</dt><dd>${esc(dryingWords(p.drying))}${fromNote(from.drying)}</dd>` : ''}
     ${anneal.length ? `<dt>Annealing</dt><dd>${esc(anneal.join('; '))} (some of its values were measured after it)${fromNote(from.anneal)}</dd>` : ''}
   </dl></div>`;
 }
@@ -939,7 +939,7 @@ function makersSayCounts(m, c) {
 /**
  * The Bambu Lab Filament Guide's row for this material's type (db.printGuide, D88): what it states, and what it is for.
  * It is read for a product only where the product's own sheet, and a data sheet it shares, say nothing on a part of the
- * print check; it is never a profile of this material, and its drying line fills nothing.
+ * print check, or on its drying (D127); it is never a profile of this material.
  */
 function guideBlock(m, c) {
   const guide = c.guide;
@@ -958,7 +958,7 @@ function guideBlock(m, c) {
         : guide.chamber.state === 'enclosed' ? "enclosure required, no temperature (the H2C's heated chamber counts)" : esc(guide.chamber.text)} ${gateChip(guide.gates.chamber, 'Chamber')}</dd>
       <dt>Enclosure</dt><dd>${esc(guide.enclosure)}${new RegExp(`\\b${enclosure.split(' ')[0]}`, 'i').test(guide.enclosure) ? '' : ` (${esc(enclosure)})`}</dd>
       <dt>Nozzle type</dt><dd>${esc(guide.nozzleSizeMaterial)}: ${esc(hardened)}</dd>
-      <dt>Drying</dt><dd>${longText(guide.drying.text)} <span class="fine">(shown for reference; not used in any product's settings)</span></dd>
+      <dt>Drying</dt><dd>${longText(guide.drying.text)} <span class="fine">(read as ${esc(dryingWords(guide.drying))})</span></dd>
       <dt>Source</dt><dd>${esc(sourceName(c.sourceById.get(guide.sourceId), guide.sourceId))}, ${esc(guide.locator)}</dd>
     </dl></div>`;
 }
@@ -1099,13 +1099,18 @@ function tabBody(tab, c) {
             ? 'Required: the filler wears out a brass nozzle.' : m.gates.abrasive === 'no-special-concern'
             ? 'Its sources state no special nozzle need.' : 'No source mentions nozzle wear.'}</span></div></div>
         <div class="fact">
-          ${m.gates.drying === 'required'
-            ? '<span class="chip chip-neutral">Published</span>'
-            : '<span class="chip chip-UNKNOWN">No data</span>'}
-          <div><b>Drying</b><br><span class="fact-why">${m.gates.drying === 'required'
-            ? (() => { const all = grades.filter(isProduct); const n = all.filter((g) => g.print?.drying).length;
-              return n ? `${n} of ${plural(all.length, 'product')} publish a drying schedule; Products gives each one.` : 'A drying schedule is published; Printing gives its wording.'; })()
-            : 'No source gives a drying schedule. That does not mean it needs none.'}</span></div></div>
+          ${m.gates.drying === 'unknown'
+            ? '<span class="chip chip-UNKNOWN">No data</span>'
+            : `<span class="chip chip-neutral">${{ required: 'Published', optional: 'Optional', 'not-needed': 'Not needed' }[m.gates.drying]}</span>`}
+          <div><b>Drying</b><br><span class="fact-why">${(() => {
+            const all = grades.filter(isProduct);
+            const count = (need) => all.filter((g) => g.print?.drying?.need === need).length;
+            const share = (need) => (count(need) ? ` (${count(need)} of ${plural(all.length, 'product')}); Products gives each one` : '; Printing gives its wording');
+            if (m.gates.drying === 'required') return `A drying schedule is published${share('required')}.`;
+            if (m.gates.drying === 'optional') return `Its sources advise drying only for a condition, such as wet filament${share('optional')}.`;
+            if (m.gates.drying === 'not-needed') return `Its sources say drying is not needed${share('not-needed')}.`;
+            return 'No source states whether to dry it. That does not mean it needs none.';
+          })()}</span></div></div>
         <div class="fact plain">
           <div><b>AMS</b><br><span class="fact-why">${esc(amsSummary(profiles))}</span></div></div>
       </div>

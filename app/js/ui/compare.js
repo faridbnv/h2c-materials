@@ -262,7 +262,7 @@ export function renderCompare(host, state, actions) {
         const words = (fn) => (passing.length ? [...new Set(gatesOf.map(fn))].join(' / ') : fn(m.gates));
         return `<tr><td class="name">${esc(m.name)}${passing.length ? `<span class="row-sub">${passing.length} passing product${passing.length === 1 ? '' : 's'}</span>` : ''}</td>
         ${['nozzle', 'bed', 'chamber'].map((g) => `<td>${axis(g)}</td>`).join('')}
-        <td>${esc(passing.length ? words((x) => ABRASION_WORD[x.abrasive] ?? 'not recorded') : (m.gates.abrasive === 'requires-hardened' && hardenedWords(hardenedShare(db.grades.filter((g) => g.materialId === m.id)))) || (ABRASION_WORD[m.gates.abrasive] ?? 'not recorded'))}</td><td>${esc(words((x) => (x.drying === 'required' ? 'published' : 'no data')))}</td></tr>`;
+        <td>${esc(passing.length ? words((x) => ABRASION_WORD[x.abrasive] ?? 'not recorded') : (m.gates.abrasive === 'requires-hardened' && hardenedWords(hardenedShare(db.grades.filter((g) => g.materialId === m.id)))) || (ABRASION_WORD[m.gates.abrasive] ?? 'not recorded'))}</td><td>${esc(words((x) => ({ required: 'published', optional: 'optional', 'not-needed': 'not needed' }[x.drying] ?? 'no data')))}</td></tr>`;
       }).join('')}</tbody></table>`)}
 
     <h3 class="sec">Data on file</h3>
