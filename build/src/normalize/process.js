@@ -351,6 +351,10 @@ export function parseAbrasion(raw) {
   // silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer."
   if (/\b(is|are)\s+not\s+abrasive\b|\bnon-?abrasive\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   if (/(harden\w*|ruby|abrasi\w*)[^.;]*\bnot\s+(needed|required|necessary)\b|\bno\s+(harden\w*|ruby|abrasi\w*)\b[^.;]*\b(required|needed|necessary)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  // A maker who says the filament has no abrasive filler, or that a standard (brass) nozzle suffices, is saying none is
+  // needed; read by the word "abrasive" alone these said the opposite (Polymaker's "No. ABS Pro contains no abrasive
+  // fillers and prints well with standard nozzles", Fabru's "nicht abrasiv; Messingdüse ausreichend"; reader round, m345).
+  if (/\b(?:contains?|has|have|with)\s+no\s+abrasive\b|\bnicht\s+abrasiv\b|\bprints?\s+(?:well\s+)?(?:with|on)\s+(?:a\s+)?(?:standard|regular|normal)\s+nozzles?\b|\bMessingd[üu]se\s+ausreichend\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   // A German sheet answers "Hardened Nozzle nein" (or "ja").
   const answer = /\b(yes|ja|no|nein|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
   if (answer && /abrasi|hardened|carbide|diamond|ruby/i.test(text)) {

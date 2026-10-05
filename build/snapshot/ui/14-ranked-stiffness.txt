@@ -1,6 +1,6 @@
-COUNT 6 shown PASS
-STATUS ☑ PASS 6 | ☐ UNKNOWN 107 | ☐ FAIL 40
-6 of the 153 materials meet these requirements
+COUNT 4 shown PASS
+STATUS ☑ PASS 4 | ☐ UNKNOWN 107 | ☐ FAIL 42
+4 of the 153 materials meet these requirements
 High-stiffness fixture template · 107 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
@@ -45,43 +45,27 @@ PC
 ¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
-PPA-CF
-High-Performance Engineering
-#1 · best: 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
- PASS
-1 of 1 product
- 1,210
-1,150–1,250 · 8
- passing: 8.2
-all products: 7.65
-7.1–11.8 · 4
- 108
-87–168 · 4
- 3.35
-1.9–3.5 · 4
- passing: 240
-all products: 220
-84.5–240 · 6
- 255↗ ☆
 PP-CF
 Polyolefins
-#2 · best: 3DXTECH CarbonX CF PP
+#1 · best: 3DXTECH CarbonX CF PP
  PASS
 1 of 1 product
  1,000
-910–1,100 · 4
+910–1,100 · 5
  passing: 6.15
 all products: 6.26
 6.15–6.38 · 2
- 78 1.4
+ 59.5
+41–78 · 2
+ 1.4
 1.3–1.5 · 2
  passing: 124
-all products: 124
-88–158 · 3
+all products: 141
+88–158 · 4
  147↗ ☆
 PPA-GF
 High-Performance Engineering
-#3 · best: IPCON PPA-GF
+#2 · best: IPCON PPA-GF
  PASS
 1 of 1 product
  1,285
@@ -94,45 +78,26 @@ all products: 6.56
  2.7
 2.1–3.5 · 3
  passing: 227
-all products: 220
-84–227 · 3
- 106↗ ☆
-ASA-CF
-#4 · best: 3DXTECH CarbonX CF ASA
- PASS
-1 of 5 products
- 1,095
-1,020–1,170 · 14
- passing: 5.36
-all products: 3.91
-0.85–5.36 · 6
- 41.3
-34–50.1 · 6
- 3
-1.64–15.5 · 5
- passing: 97
-all products: 101
-86–110 · 8
- 65
-40–122 · 5
-↗ ☆
-PETG-CF
-#5 · best: 3DXTECH CarbonX Carbon Fiber PETG
- PASS
-1 of 5 products
- 1,290
-1,190–1,350 · 22
- passing: 5.23
-all products: 3.09
-1.77–5.23 · 6
+all products: 196
+84–227 · 5
 annealed median
+ 106↗ ☆
+PETG-CF
+#3 · best: 3DXTECH CarbonX Carbon Fiber PETG
+ PASS
+1 of 7 products
+ 1,290
+1,190–1,350 · 23
+ passing: 5.23
+all products: 3.55
+1.77–5.23 · 8
  48.7
-32–59.8 · 7
- 6.6
-1.9–14 · 6
+32–60 · 9
+ 6.75
+1.9–14 · 8
  passing: 77
 all products: 72
-68–77 · 10
+68–77 · 13
  41
 35–56 · 3
 ↗ ☆

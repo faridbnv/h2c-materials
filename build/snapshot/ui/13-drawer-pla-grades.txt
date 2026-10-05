@@ -1,18 +1,18 @@
 Across its products: median and range, and what their makers say
 Property Median Range Products Left out of the range
-Density kg/m³ 1,240 1,170–1,329 147 of 179 17 special formulations (800–4,000)
-Tensile modulus (XY) GPa 2.56 0.433–4.24 42 of 179 40 with no stated orientation (0.379–4.78); 9 special formulations (0.715–4.73)
-Tensile strength (XY) MPa 45 26–70.9 59 of 179 50 with no stated orientation (30–71); 12 special formulations (12.6–65)
-Tensile strength (Z) MPa 30.6 8.7–43.5 33 of 179 2 special formulations (14.5–18)
-Elongation at break (XY) % 6.3 1.2–65 55 of 179 43 with no stated orientation (2.9–84); 12 special formulations (2.4–40)
-Notched Charpy impact kJ/m² 17.1 4.94–72.3 9 of 179 21 with no stated orientation (1.8–29.8); 4 special formulations (1.8–2.97)
-Notched Izod impact kJ/m² 5 4.5–6.5 6 of 179 8 with no stated orientation (3.5–5); 4 special formulations (5.5–18.1)
-HDT at 0.45 MPa °C 55 50–135 68 of 179 30 with no stated test load (53–108); 6 special formulations (55–89)
-Glass transition (Tg) °C 58.9 54–67.5 66 of 179 7 special formulations (55–62.4)
+Density kg/m³ 1,240 1,170–1,329 157 of 179 17 special formulations (800–4,000)
+Tensile modulus (XY) GPa 2.58 0.433–4.24 50 of 179 42 with no stated orientation (0.379–4.78); 11 special formulations (0.715–4.73)
+Tensile strength (XY) MPa 45 26–70.9 66 of 179 56 with no stated orientation (30–71); 14 special formulations (12.6–65)
+Tensile strength (Z) MPa 30.6 8.7–43.5 37 of 179 2 special formulations (14.5–18)
+Elongation at break (XY) % 7.62 1.2–65 62 of 179 47 with no stated orientation (2.5–84); 12 special formulations (2.4–40)
+Notched Charpy impact kJ/m² 17.1 4.94–72.3 13 of 179 22 with no stated orientation (1.8–29.8); 5 special formulations (1.8–6.3)
+Notched Izod impact kJ/m² 5 4.5–6.5 6 of 179 8 with no stated orientation (3.5–5); 5 special formulations (5.5–18.1)
+HDT at 0.45 MPa °C 55 50–135 86 of 179 31 with no stated test load (53–108); 8 special formulations (55–89)
+Glass transition (Tg) °C 58.9 54–67.5 73 of 179 7 special formulations (55–62.4)
 Price CAD/kg 33.3 18–80 27 of 179 2 special formulations (23–65)
 Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.
 WHAT MAKERS SAY
-194 of 197 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 25 of them so far.
+194 of 197 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 26 of them so far.
 Good for: 20 of 39 makers (63 products)
 Benefits: 31 of 39 makers (126 products)
 Pitfalls and limitations: 9 of 39 makers (13 products)
@@ -25,7 +25,7 @@ Nozzle wear: 9 of 39 makers (33 products)
 Odour and emissions: 13 of 39 makers (25 products)
 Supports and removal: 8 of 39 makers (38 products)
 Printing advice: 15 of 39 makers (25 products)
-Not stated by their documents: chamber or enclosure need (110 products), drying schedule (133 products) and annealing schedule (183 products).
+Not stated by their documents: chamber or enclosure need (95 products), drying schedule (98 products) and annealing schedule (182 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 3DXTECH
 3 products

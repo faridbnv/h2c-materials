@@ -25,7 +25,7 @@ M023,PETG Translucent,family,unknown,unknown,unknown,unknown,unknown
 M024,PETG-CF,within,within,within,within,requires-hardened,required
 M025,PETG-GF,within,within,within,within,requires-hardened,required
 M026,PETG-ESD,within,within,within,within,no-special-concern,required
-M027,ABS,within,within,within,within,requires-hardened,required
+M027,ABS,within,within,within,within,no-special-concern,required
 M028,ABS-GF,within,within,within,within,requires-hardened,required
 M029,ABS-CF,within,within,within,partial,requires-hardened,required
 M030,ABS-ESD,within,within,within,within,no-special-concern,required
@@ -90,7 +90,7 @@ M088,PCTG,within,within,within,within,no-special-concern,required
 M089,CPE,within,within,within,within,unknown,required
 M090,CPE-CF,within,within,within,within,requires-hardened,required
 M091,CoPE,within,within,within,within,unknown,required
-M092,nGen / Amphora,within,within,within,unknown,requires-hardened,unknown
+M092,nGen / Amphora,within,within,within,unknown,no-special-concern,unknown
 M093,PVB,within,within,within,within,unknown,required
 M094,PC-ABS,within,within,within,within,no-special-concern,required
 M095,PC-PBT,within,within,within,exceeds,no-special-concern,required

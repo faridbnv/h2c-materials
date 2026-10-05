@@ -10,7 +10,9 @@ test('Fiberlogy PP conditional plate and PA12CF optional enclosure retain own wo
 test('Fillamentum guide keeps strict open time and thermal precautions without making PP drying mandatory',()=>{
  const p=profile('P1376');assert.equal(p.GradeID,'G049-05');assert.match(p.Drying,/>5 h/);assert.equal(p['Drying hours'],'Not published');assert.match(p['Failure modes'],/desiccator/);
  for(const[id,temp]of[['P1378','100'],['P1379','80']]){const r=profile(id);assert.equal(r['Drying °C'],temp);assert.equal(r['Drying hours'],'3');assert.match(r['Failure modes'],/maximum of 3 drying cycles of 3 hours/);assert.match(r['Failure modes'],/yellowing/);}
- const sid=p.SourceID;assert.equal(table('profiles').filter(r=>r.GradeID==='G082-07'&&r.SourceID===sid).length,0);
+ const sid=p.SourceID;
+ // Reader round (m342), 2026-10-04: Table 1 prints a row for PP 2320 (2 h, 80 °C, "the need to dry" 1: not necessary). It is recorded with that score beside the schedule, so the schedule is not read as a requirement.
+ const pp=table('profiles').filter(r=>r.GradeID==='G082-07'&&r.SourceID===sid);assert.equal(pp.length,1);assert.match(pp[0].Drying,/the need to dry 1 \(1 – not necessary to dry/);assert.equal(pp[0]['Drying °C'],'80');assert.equal(pp[0]['Drying hours'],'2');
 });
 test('Flexfill literal agent ratings retain mixed solvent limits and scoped oil positives',()=>{
  const db=JSON.parse(readFileSync(new URL('../dist/db.json',import.meta.url))),own=table('evidence');

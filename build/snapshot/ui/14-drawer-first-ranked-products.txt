@@ -1,52 +1,50 @@
 Meet all your requirements
 1 product
-3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
+3DXTECH CarbonX CF PP
 PASS
-Modulus XY 8.2 GPa · HDT 0.45 240 °C
+Modulus XY 6.15 GPa · HDT 0.45 124 °C
 Choose this product
 PRINT SETTINGS
 Nozzle
-280–310 °C within from Bambu Lab's Filament Guide for PPA-CF
+240–270 °C within
 Bed
-100–120 °C within from Bambu Lab's Filament Guide for PPA-CF
+45–65 °C within
 Chamber
-enclosure needed, no temperature within from Bambu Lab's Filament Guide for PPA-CF
+not required within
 Enclosure
-recommended from Bambu Lab's Filament Guide for PPA-CF
-Hardened nozzle
-required from Bambu Lab's Filament Guide for PPA-CF
-Drying
 not published
+Hardened nozzle
+not published
+Drying
+65 °C for 4 h
 VALUES
 Density
-1,240 kg/m³
+1,100 kg/m³
 Tensile modulus (XY)
-8.2 GPa
+6.15 GPa
 Tensile strength (XY)
-87 MPa
+78 MPa
 Elongation at break (XY)
-1.9 %
+1.5 %
 HDT at 0.45 MPa
-240 °C
-Glass transition (Tg)
-125 °C
+124 °C
+Price
+147 CAD/kg (1 listing)
 WHAT THE MAKER SAYS
-Good for
-“Excels in high-performance parts, tools, and fixtures” — product page, p. 1 where ID
-Not stated by the maker: benefits, pitfalls, warping, dimensional accuracy, surface finish, layer adhesion, moisture, nozzle wear, odour, supports, printing advice, chamber or enclosure need, drying schedule and annealing schedule (website checked 2026-09-26).
-SOURCES 3DXTECH, Tech Data Sheet CarbonX™ Carbon Fiber High Temp Nylon (HTN) 3D Filament; 3DXTECH, Tech Data Sheet CarbonX™ Carbon Fiber High Temp Nylon (HTN) 3D Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, CARBONX™ HTN+CF
+Moisture sensitivity
+“Low moisture absorption, typically does not require drying prior to use” — product page, p. 1 where ID
+Not stated by the maker: applications, benefits, pitfalls, warping, dimensional accuracy, surface finish, layer adhesion, nozzle wear, odour, supports, printing advice and annealing schedule (website checked 2026-09-26).
+SOURCES 3DXTECH, Technical Data Sheet: CarbonX™ PP+CF 3D Printing Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, CARBONX™ PP+CF; 3DXTECH, CARBONX™ PP+CF
 Product details
 Across its products: median and range, and what their makers say
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
-Bambu Lab
-1 product
-Siraya Tech
-3 products
-Raise3D
-2 products
 3DXTECH
 1 product
-Flashforge
+Braskem
 1 product
-SIDDAMENT
+Prusa Research
+1 product
+Nanovia
+1 product
+LEHVOSS
 1 product

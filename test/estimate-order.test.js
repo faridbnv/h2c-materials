@@ -33,9 +33,14 @@ test('a one-product material\'s estimate is floored by its break, yield or unspe
 
 test('a moulded bar bounds nothing: M131 publishes a moulded yield of 70.2 MPa and its estimate is not floored by it', () => {
   const m = material('M131');
-  assert.equal(m.headline.tensileStrengthXY.impliedBounds.length, 0);
+  // Reader round (m342), 2026-10-04: Extrudr's product page for the same filament prints a yield stress of 70.2 MPa and a break stress of
+  // 90 MPa without naming a specimen (V012106, V012107); those unstated values are a printed part's floor. What must hold is that no bound
+  // of M131 comes from a moulded bar: the data sheet's own values (V004157, and its Italian print V011974) are recorded as moulded.
+  const moulded = new Set(db.measurements.filter((x) => x.materialId === 'M131' && x.specimenForm === 'moulded').map((x) => x.id));
+  assert.ok(moulded.has('V004157') && moulded.has('V011974'));
+  for (const b of m.headline.tensileStrengthXY.impliedBounds) assert.ok(!moulded.has(b.measurementId), `${b.measurementId} is a moulded bar's value`);
   assert.ok(db.measurements.some((x) => x.id === 'V004157' && x.specimenForm === 'moulded' && x.value === 70.2));
-  assert.deepEqual(lowerBoundsOf(def('tensileStrengthXY'), db.measurements.filter((x) => x.materialId === 'M131')), []);
+  assert.deepEqual(lowerBoundsOf(def('tensileStrengthXY'), db.measurements.filter((x) => x.materialId === 'M131' && moulded.has(x.id))), []);
 });
 
 test('a grade\'s estimate is floored by its own formulation\'s measurements, not its siblings\' (G001-10)', () => {

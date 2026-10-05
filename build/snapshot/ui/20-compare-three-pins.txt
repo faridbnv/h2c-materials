@@ -1,5 +1,5 @@
-COUNT 90 shown PASS + UNKNOWN
-STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 23
+COUNT 86 shown PASS + UNKNOWN
+STATUS ☑ PASS 5 | ☑ UNKNOWN 104 | ☐ FAIL 44 | ☐ SCREENED 23
 Requirements: Within H2C capability; Build material (not a support); Nozzle ≤ 350 °C; Bed ≤ 120 °C; Chamber ≤ 65 °C; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials with missing data: Include uncertain; estimates and resin data may exclude a material, never pass one. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
@@ -22,13 +22,13 @@ Density kg/m³
 Density at most 1500 kg/m³
 ABS
 1,050
-1,020–1,150 · 41
+1,020–1,150 · 48
 ABS-AF
 1,050
 1,040–1,050 · 3
 ABS-CF
-1,085
-1,050–1,110 · 10
+1,080
+1,050–1,110 · 11
 520
 7,190
 all 153 candidates
@@ -36,51 +36,52 @@ Tensile modulus (XY) GPa
 Tensile modulus (XY) at least 3 GPa
 ABS
 2.2
-1.77–2.38 · 10
+1.6–2.38 · 13
 ABS-AF
 1.89
 ABS-CF
-4.1
-2.7–5.21 · 3
-0.00136
+4.35
+2.7–5.21 · 4
+0.00138
 log scale
-21.7
+21.3
 all 153 candidates
 Tensile strength (XY) MPa
 ABS
-35
-15.7–45 · 16
+34
+15.7–45 · 19
 ABS-AF
 22
 ABS-CF
-29
-27.3–46 · 3
-5.95
-307
+43.3
+27.3–48 · 5
+7
+292
 all 153 candidates
 Tensile strength (Z) MPa
 ABS
-28
-13.2–33 · 9
+27.1
+13.2–33 · 10
 ABS-AF
 Not published
 ABS-CF
-16
+22.9
+16–29.9 · 2
 7.5
 60.7
 all 153 candidates
 Elongation at break (XY) %
 ABS
 10
-3.9–40 · 15
+2.7–40 · 17
 ABS-AF
-~1–15†
+~2–16†
 ABS-CF
 1.9
-1.8–2 · 2
-0.518
+1.48–3.08 · 4
+0.641
 log scale
-1,650
+1,370
 all 153 candidates
 Notched Charpy impact kJ/m²
 ABS
@@ -91,7 +92,7 @@ ABS-AF
 ABS-CF
 16.1*
 0.55
-33
+40
 all 153 candidates
 Notched Izod impact kJ/m²
 ABS
@@ -107,25 +108,26 @@ all 153 candidates
 HDT at 0.45 MPa °C
 HDT at 0.45 MPa at least 100 °C
 ABS
-93.5
-78.9–104 · 22
+94
+78.9–118 · 24
 ABS-AF
 88
+88 · 2
 ABS-CF
-78
-76–95 · 3
-42
+90.5
+76–95 · 6
+42.3
 300
 all 153 candidates
 Glass transition (Tg) °C
 ABS
 105
-81–126 · 16
+60–126 · 20
 ABS-AF
-Not published
+110
 ABS-CF
 105
-104–105 · 3
+101–110 · 6
 -60
 247
 all 153 candidates
@@ -147,10 +149,10 @@ For a material with passing products, each check uses those products' own settin
 Material Nozzle Bed Chamber Hardened nozzle Drying
 ABS within within within not needed published
 ABS-AF within within within 1 of 3 products need one published
-ABS-CF within within partly within 4 of 11 products need one published
+ABS-CF within within partly within 7 of 11 products need one published
 DATA ON FILE
 Material Key properties published Estimated Products Measurements
-ABS 10 of 10 — 56 607
-ABS-AF 5 of 10 1† 3 24
-ABS-CF 8 of 10 — 11 76
+ABS 10 of 10 — 56 764
+ABS-AF 6 of 10 1† 3 34
+ABS-CF 8 of 10 — 11 130
 A † span is an estimate, not a measurement: the likely range (80%), the plausible range behind it and a tick at its centre. It never passes a requirement; select it for what it rests on.

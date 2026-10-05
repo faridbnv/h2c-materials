@@ -1101,8 +1101,11 @@ test('a one-sided bound informs its family, is marked, and limits its own materi
           const b = bounds.get(i.measurementId);
           if (!b) continue;
           assert.ok(i.bound, `${m.name} ${key}: ${i.measurementId} is a bound but not marked`);
-          // A lower bound on this material's own XY or unstated-direction strength or strain limits the estimate.
-          if (b.interval.hi == null && key !== 'density' && key !== 'hdt045' && ['XY', 'unknown'].includes(i.direction) && b.materialId === m.id) {
+          // A lower bound on this material's own XY or unstated-direction strength or strain limits the estimate. A bound read on
+          // a conditioned bar does not: it is another state than the dry value the estimate is of (estimate/observations.js, kindOf:
+          // "break unk wet"), and a wet nylon stretches further than a dry one. Reader round (m342), 2026-10-04: the Zytel guide's
+          // PA612 "> 100 %" (V011918) is read at 50 % RH.
+          if (b.interval.hi == null && key !== 'density' && key !== 'hdt045' && ['XY', 'unknown'].includes(i.direction) && b.materialId === m.id && b.moistureState !== 'conditioned') {
             assert.ok(e.plausible.lo >= b.value * 0.97, `${m.name} ${key} plausible from ${e.plausible.lo}, below its published "> ${b.value}"`);
             limited++;
           }

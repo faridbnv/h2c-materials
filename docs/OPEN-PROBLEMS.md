@@ -1235,3 +1235,18 @@ Review is AI-only. Vendor clarification or exact-product testing remains necessa
 cannot resolve these questions. Automatic approval review initially rejected cloud export; the owner then explicitly approved the exact
 existing private OneDrive destination and payload. The reproduced export contains2469 originals and2875
 derivatives, with124 historically absent inventory entries and no new original missing.
+
+## 30. What the reader round (m342 to m345) leaves open
+
+- **Twin sheets.** Pairs of documents that print the same numbers (language editions of an Extrudr sheet; Raise3D's Premium
+  PETG and PC beside Polymaker's PolyLite sheets) are accepted as MEAS-CROSS-SOURCE-TWIN with a reason, not retired: whether a
+  maker's sheet is a rebranded copy of another's is not shown by either document. Re-derive with `npm run data:lint -- --all`.
+- **A conditioned density takes no headline.** `products.js` (assess) excludes every value measured after moisture
+  conditioning from a headline that does not change with moisture, density included. Markforged's Onyx GF sheet conditions all
+  its specimens at 52 % RH "unless otherwise noted", so G166-01 now has no comparable density and no longer ranks in the
+  conditioned beam question (test/acceptance A01). Whether a conditioned density should stand in is a rule for the owner.
+- **Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table, V012362)
+  is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.
+- **Layout probe.** `npm run ui:check` reports "1024x768-warm: 2 candidate row(s) in view before scrolling; at least 3 should
+  be" since m342 (the ABS-AF row's HDT cell now shows a one-value spread on an extra line). It is a presentation matter, not a
+  data one, and fails `npm run verify`.

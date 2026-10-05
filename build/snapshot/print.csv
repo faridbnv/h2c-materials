@@ -145,10 +145,10 @@ G001-148,M001,PolyLite CosPLA Version B,within,within,within,not-needed,no-speci
 G001-149,M001,PLA Vertigo,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-150,M001,SafeGuard PLA,within,within,within,not-needed,no-special-concern,required,
 G001-151,M001,Burnt Titanium PLA,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG016
-G001-152,M001,Hyper Speed PLA Pro,within,within,within,not-needed,requires-hardened,required,chamber: guide PG016; enclosure: guide PG016
+G001-152,M001,Hyper Speed PLA Pro,within,within,within,not-needed,requires-hardened,required,nozzle: guide PG016; bed: guide PG016; chamber: guide PG016; enclosure: guide PG016
 G001-153,M001,PLA,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-154,M001,Precise PLA,within,within,within,not-needed,no-special-concern,unknown,nozzle: guide PG016; bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
-G001-155,M001,Hyper Speed PLA,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
+G001-155,M001,Hyper Speed PLA,within,within,within,not-needed,no-special-concern,unknown,nozzle: guide PG016; bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-156,M001,Copper filled PLA,within,within,within,not-needed,no-special-concern,required,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-157,M001,High Gloss PLA,within,within,within,not-needed,no-special-concern,unknown,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
 G001-158,M001,High Precision PLA,within,within,within,not-needed,no-special-concern,required,nozzle: guide PG016; bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
@@ -410,7 +410,7 @@ G024-16,M024,PETG CF,within,within,within,not-needed,requires-hardened,required,
 G024-17,M024,easyPETG CF,within,within,within,not-needed,requires-hardened,unknown,chamber: guide PG027; enclosure: guide PG027; hardenedNozzle: guide PG027
 G024-18,M024,PETG CF,within,within,within,not-needed,requires-hardened,required,chamber: guide PG027; enclosure: guide PG027
 G024-19,M024,Fibreheart PETG CF Pro,within,within,unknown,recommended,requires-hardened,required,hardenedNozzle: guide PG027
-G024-20,M024,Hyper Speed PETG CF,within,within,within,not-needed,requires-hardened,unknown,chamber: guide PG027; enclosure: guide PG027
+G024-20,M024,Hyper Speed PETG CF,within,within,within,not-needed,requires-hardened,unknown,nozzle: guide PG027; bed: guide PG027; chamber: guide PG027; enclosure: guide PG027
 G024-21,M024,CarbonFil,within,within,within,not-needed,requires-hardened,unknown,bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; hardenedNozzle: guide PG027
 G024-22,M024,PETG CF,within,within,within,not-needed,requires-hardened,unknown,nozzle: guide PG027; bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; hardenedNozzle: guide PG027
 G024-23,M024,PETG+CF,within,within,within,not-needed,requires-hardened,required,
@@ -425,7 +425,7 @@ G026-02,M026,PolyMax PETG ESD,within,within,within,unknown,unknown,required,
 G026-03,M026,petg esd,within,within,within,not-needed,no-special-concern,required,
 G026-04,M026,ESD PETG,within,within,within,unknown,unknown,required,
 G026-05,M026,PETG ESD,within,within,within,unknown,unknown,required,
-G026-06,M026,Industrial PETG ESD,within,within,unknown,unknown,unknown,unknown,
+G026-06,M026,Industrial PETG ESD,unknown,within,unknown,unknown,unknown,unknown,
 G026-07,M026,PETG-ESD,within,within,unknown,unknown,unknown,required,
 G026-08,M026,PETG ESD,within,within,within,not-needed,unknown,required,
 G026-09,M026,ESD-Safe PETG,within,within,within,unknown,unknown,required,nozzle: twin G026-01; bed: twin G026-01; chamber: twin G026-01; drying: twin G026-01
@@ -435,8 +435,8 @@ G027-03,M027,ABS GP450,within,within,within,recommended,no-special-concern,requi
 G027-04,M027,ABS Medical,within,within,within,recommended,no-special-concern,required,
 G027-05,M027,Smart ABS,within,within,within,recommended,no-special-concern,required,
 G027-06,M027,3DXMAX ABS,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG018; bed: guide PG018; chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
-G027-07,M027,Polymaker ABS Max,within,within,partial,recommended,requires-hardened,required,
-G027-08,M027,Polymaker ABS Pro,within,within,partial,recommended,requires-hardened,required,
+G027-07,M027,Polymaker ABS Max,within,within,partial,recommended,no-special-concern,required,
+G027-08,M027,Polymaker ABS Pro,within,within,partial,recommended,no-special-concern,required,
 G027-09,M027,Polymaker ABS,within,within,partial,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-11,M027,DURAPRO ABS,within,within,within,recommended,no-special-concern,required,
 G027-12,M027,High Speed ABS,within,within,within,recommended,no-special-concern,required,enclosure: guide PG018; hardenedNozzle: guide PG018
@@ -444,14 +444,14 @@ G027-13,M027,ABS,within,within,within,recommended,no-special-concern,required,en
 G027-14,M027,ABS-FR,within,within,within,recommended,no-special-concern,required,enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-15,M027,Hyper -Speed ABS,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-16,M027,ABS Matte,within,within,within,recommended,no-special-concern,required,enclosure: guide PG018; hardenedNozzle: guide PG018
-G027-17,M027,Acrylnitrilbutadienstyrol (ABS),within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG018
+G027-17,M027,Acrylnitrilbutadienstyrol (ABS),within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-18,M027,Methylmethacrylat-Acrylnitrilbutadienstyrol (MABS),within,within,within,recommended,no-special-concern,required,chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-19,M027,ABS Extrafill,within,within,within,recommended,no-special-concern,required,chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-20,M027,eABS HS,within,within,within,recommended,no-special-concern,unknown,chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-21,M027,TOUGH,within,within,within,recommended,no-special-concern,unknown,bed: guide PG018; chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-22,M027,ABS+,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-23,M027,ABS,within,within,within,recommended,no-special-concern,required,chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
-G027-24,M027,Hyper Speed ABS,within,within,within,recommended,no-special-concern,unknown,chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
+G027-24,M027,Hyper Speed ABS,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG018; bed: guide PG018; chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-25,M027,ABS HT,within,within,within,recommended,no-special-concern,unknown,chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-26,M027,Modified ABS,within,within,within,recommended,no-special-concern,unknown,chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-27,M027,eABS Max,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
@@ -478,11 +478,11 @@ G027-47,M027,ABS,within,within,within,recommended,no-special-concern,required,en
 G027-48,M027,ClearScent ABS,within,within,within,recommended,no-special-concern,unknown,bed: guide PG018; chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-49,M027,Premium ABS,within,within,within,recommended,no-special-concern,unknown,bed: guide PG018; chamber: guide PG018; enclosure: guide PG018; hardenedNozzle: guide PG018
 G027-50,M027,ABS,within,within,partial,recommended,no-special-concern,unknown,enclosure: guide PG018; hardenedNozzle: guide PG018
-G027-51,M027,ReForm - rTitan,within,within,unknown,recommended,no-special-concern,unknown,hardenedNozzle: guide PG018
-G027-52,M027,R ABS,within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG018; anneal: twin G027-53
-G027-53,M027,ABS,within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG018
-G027-54,M027,ABS PLUS,within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG018
-G027-55,M027,EASY ABS,within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG018
+G027-51,M027,ReForm - rTitan,within,within,within,recommended,no-special-concern,unknown,hardenedNozzle: guide PG018
+G027-52,M027,R ABS,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018; anneal: twin G027-53
+G027-53,M027,ABS,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
+G027-54,M027,ABS PLUS,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
+G027-55,M027,EASY ABS,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-56,M027,TitanX,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG018
 G027-57,M027,Triton ABS Model Material,within,within,unknown,recommended,no-special-concern,required,nozzle: guide PG018; bed: guide PG018; enclosure: guide PG018
 G027-58,M027,EasyFil ABS - Glow in the Dark,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: twin G027-05
@@ -492,7 +492,7 @@ G028-03,M028,FibreX ABS+GF10 Glass Fiber ABS,within,within,within,recommended,re
 G028-04,M028,ABS-GF,within,within,within,recommended,requires-hardened,required,enclosure: guide PG019; hardenedNozzle: guide PG019
 G028-05,M028,Glass Fiber ABS,within,within,within,not-needed,requires-hardened,required,hardenedNozzle: guide PG019
 G028-06,M028,ABSGF10,within,within,within,recommended,requires-hardened,required,enclosure: guide PG019
-G028-07,M028,ABS GF,within,within,unknown,recommended,requires-hardened,required,hardenedNozzle: guide PG019
+G028-07,M028,ABS GF,within,within,within,recommended,requires-hardened,required,hardenedNozzle: guide PG019
 G028-09,M028,eABS-GF,within,within,within,recommended,requires-hardened,unknown,chamber: guide PG019; enclosure: guide PG019; hardenedNozzle: guide PG019
 G028-10,M028,NexABS-GF25,within,within,within,recommended,requires-hardened,required,chamber: guide PG019; enclosure: guide PG019
 G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),within,within,within,recommended,requires-hardened,required,
@@ -505,7 +505,7 @@ G029-05,M029,ABS CF,within,within,exceeds,unknown,requires-hardened,required,
 G029-06,M029,ABS CF,within,within,unknown,recommended,requires-hardened,required,
 G029-07,M029,ABS Carbon Fiber,within,within,unknown,recommended,requires-hardened,required,
 G029-08,M029,Fibreheart ABS CF Core,within,within,partial,recommended,unknown,required,
-G029-09,M029,Hyper Core ABS CF15,within,within,unknown,unknown,requires-hardened,required,
+G029-09,M029,Hyper Core ABS CF15,unknown,unknown,unknown,unknown,requires-hardened,required,
 G029-10,M029,ABS CF,within,within,unknown,recommended,requires-hardened,unknown,
 G029-11,M029,TriMax Carbon Fiber ABS Model Material,unknown,unknown,unknown,unknown,unknown,unknown,
 G030-01,M030,3DXSTAT ESD ABS,within,within,unknown,unknown,no-special-concern,required,
@@ -556,8 +556,8 @@ G031-36,M031,ApolloX,within,within,within,recommended,no-special-concern,require
 G031-37,M031,ASA,within,within,within,recommended,no-special-concern,unknown,chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
 G031-38,M031,ASA,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG020; bed: guide PG020; chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
 G031-39,M031,Triton ASA Model Material,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG020; bed: guide PG020; chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
-G031-40,M031,ASA,within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG020
-G031-41,M031,MATTE ASA,within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG020
+G031-40,M031,ASA,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG020
+G031-41,M031,MATTE ASA,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG020
 G031-42,M031,ReForm - rApollo,within,within,within,recommended,no-special-concern,required,hardenedNozzle: twin G031-03
 G031-43,M031,ASA,within,within,within,recommended,no-special-concern,required,
 G032-01,M032,ASA Aero,within,within,within,recommended,unknown,required,
@@ -768,7 +768,7 @@ G053-09,M053,Industrial PA12 CF,unknown,unknown,unknown,unknown,requires-hardene
 G053-10,M053,PA12-CF,within,within,within,unknown,unknown,required,
 G053-11,M053,PA12 CF,within,within,unknown,unknown,unknown,required,
 G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),within,within,unknown,unknown,requires-hardened,required,
-G053-13,M053,PA12CF,within,within,unknown,unknown,unknown,unknown,
+G053-13,M053,PA12CF,unknown,unknown,unknown,unknown,unknown,unknown,
 G053-14,M053,Nylon CF15 Carbon,within,within,unknown,unknown,requires-hardened,required,
 G053-15,M053,Carbon Fiber Nylon,within,within,unknown,unknown,unknown,unknown,
 G053-16,M053,Nylon PA12+CF15,within,within,unknown,recommended,unknown,required,
@@ -797,13 +797,13 @@ G067-01,M067,PET-CF,within,within,within,not-needed,requires-hardened,required,e
 G067-02,M067,Fiberon PET-CF17,within,within,within,not-needed,requires-hardened,required,enclosure: guide PG028; hardenedNozzle: guide PG028
 G067-03,M067,PET CF15,within,within,within,not-needed,requires-hardened,required,
 G067-04,M067,PET-CF,within,within,within,not-needed,requires-hardened,required,enclosure: guide PG028; hardenedNozzle: guide PG028
-G067-05,M067,Industrial PET CF,within,within,within,not-needed,requires-hardened,required,chamber: guide PG028; enclosure: guide PG028
+G067-05,M067,Industrial PET CF,within,within,within,not-needed,requires-hardened,required,nozzle: guide PG028; bed: guide PG028; chamber: guide PG028; enclosure: guide PG028
 G067-06,M067,Ultrafuse PET CF15,within,within,within,not-needed,requires-hardened,required,chamber: guide PG028; enclosure: guide PG028; hardenedNozzle: guide PG028
 G067-07,M067,Hyper Speed PET CF,within,within,within,not-needed,requires-hardened,unknown,nozzle: guide PG028; bed: guide PG028; chamber: guide PG028; enclosure: guide PG028; hardenedNozzle: guide PG028
 G067-08,M067,PET CF,within,within,within,not-needed,requires-hardened,required,nozzle: guide PG028; bed: guide PG028; enclosure: guide PG028; hardenedNozzle: guide PG028
 G068-01,M068,PET-GF,within,within,within,unknown,requires-hardened,required,
 G068-02,M068,Fiberon PET-GF15,within,within,within,recommended,requires-hardened,required,
-G068-04,M068,Industrial PET GF,within,within,unknown,unknown,requires-hardened,required,
+G068-04,M068,Industrial PET GF,unknown,unknown,unknown,unknown,requires-hardened,required,
 G068-05,M068,PET-GF,within,within,within,unknown,requires-hardened,required,
 G069-01,M069,PPA Pure Resin,within,within,within,recommended,no-special-concern,required,
 G069-02,M069,Fibreheart PPA,within,within,unknown,recommended,no-special-concern,required,
@@ -814,13 +814,13 @@ G070-04,M070,Industrial PPA CF,within,within,within,recommended,requires-hardene
 G070-05,M070,CarbonX Carbon Fiber High Temp Nylon (HTN),within,within,unknown,recommended,requires-hardened,required,enclosure: guide PG032
 G070-06,M070,PPA-CF,within,within,partial,recommended,requires-hardened,required,enclosure: guide PG032; hardenedNozzle: guide PG032
 G070-07,M070,PPA-CF,within,within,partial,recommended,requires-hardened,required,enclosure: guide PG032; hardenedNozzle: guide PG032
-G070-08,M070,Hyper Core PPA CF25,within,within,within,recommended,requires-hardened,required,chamber: guide PG032; enclosure: guide PG032
+G070-08,M070,Hyper Core PPA CF25,within,within,within,recommended,requires-hardened,required,nozzle: guide PG032; bed: guide PG032; chamber: guide PG032; enclosure: guide PG032
 G070-09,M070,Fibreheart PAHT CF (PPA based),within,within,within,recommended,requires-hardened,required,chamber: guide PG032; enclosure: guide PG032
 G071-01,M071,PPA-GF,within,within,within,recommended,requires-hardened,required,
 G071-02,M071,Fibreheart PPA-GF,within,within,partial,recommended,requires-hardened,required,
 G071-03,M071,PPA-GF,within,within,partial,unknown,unknown,required,
 G071-04,M071,Industrial PPA GF,unknown,unknown,unknown,unknown,requires-hardened,required,
-G071-05,M071,Hyper Core PPA GF25,within,within,unknown,unknown,requires-hardened,required,
+G071-05,M071,Hyper Core PPA GF25,unknown,unknown,unknown,unknown,requires-hardened,required,
 G072-01,M072,THERMAX PPS,within,exceeds,partial,unknown,unknown,required,
 G072-02,M072,pps am230,within,within,partial,recommended,no-special-concern,required,
 G073-01,M073,PPS-CF,within,within,partial,recommended,requires-hardened,required,enclosure: guide PG033; hardenedNozzle: guide PG033
@@ -829,7 +829,7 @@ G073-03,M073,PPS-CF,within,within,partial,recommended,requires-hardened,required
 G073-04,M073,FIBERON PPS CF10,within,within,within,recommended,requires-hardened,required,enclosure: guide PG033; hardenedNozzle: guide PG033
 G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,within,within,within,recommended,requires-hardened,required,chamber: guide PG033; enclosure: guide PG033
 G073-06,M073,PPS CF,within,within,partial,recommended,requires-hardened,required,enclosure: guide PG033; hardenedNozzle: guide PG033
-G073-07,M073,Industrial PPS CF,within,within,unknown,recommended,requires-hardened,unknown,enclosure: guide PG033
+G073-07,M073,Industrial PPS CF,within,within,unknown,recommended,requires-hardened,unknown,nozzle: guide PG033; bed: guide PG033; enclosure: guide PG033
 G074-01,M074,PPS-GF,exceeds,within,partial,recommended,unknown,required,
 G074-02,M074,Fiberon PPS-GF20,within,within,within,unknown,unknown,required,
 G075-01,M075,PVA,within,within,within,unknown,unknown,required,
@@ -910,7 +910,7 @@ G090-01,M090,CPE CF112 Carbon,within,within,within,not-needed,requires-hardened,
 G090-02,M090,pctg cf10,within,within,within,not-needed,requires-hardened,required,
 G090-03,M090,XT-CF20,within,within,unknown,unknown,unknown,unknown,
 G091-02,M091,Panchroma CoPE,within,within,within,not-needed,unknown,required,
-G092-02,M092,nGen,within,within,unknown,unknown,requires-hardened,unknown,
+G092-02,M092,nGen,within,within,unknown,unknown,no-special-concern,unknown,
 G093-01,M093,PVB Prusament,within,within,within,not-needed,unknown,required,
 G093-02,M093,PolySmooth,within,within,within,not-needed,unknown,required,
 G093-03,M093,PVB,within,within,within,unknown,unknown,required,

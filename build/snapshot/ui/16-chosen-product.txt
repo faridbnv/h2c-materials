@@ -1,4 +1,4 @@
-3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
+3DXTECH CarbonX CF PP
 PASS
 chosen <date> on release <id>
 Download the decision brief

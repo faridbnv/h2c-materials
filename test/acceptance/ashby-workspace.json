@@ -62,8 +62,8 @@
       "policy": { "unknownPolicy": "strict", "moisture": "conditioned" },
       "rankBy": "beam-stiffness",
       "expect": {
-        "ranked": ["M067", "M166", "M057"],
-        "because": "Of the in-scope products, those that publish a conditioned state include G048-02, G069-02, G067-06, G031-23, G166-01 and G157-02; G166-01 (Onyx GF) publishes both a conditioned XY modulus (3.1 GPa) and a density, the registry's moisture-invariant value, and since m298 (2026-10-02) so do Raise3D Industrial PET CF (G067-05: its V4.0 sheet's \"Conditioned, before annealed\" table, XY 5.731 GPa) and Polymaker PolyMide CoPA (G057-03: its V5.5 sheet's \"(Wet Status)\" table). The test re-derives this list from the products' own states, independently of the ranking. Before D107, 78 materials ranked on a dry first state.",
+        "ranked": ["M070", "M059", "M071", "M067", "M073", "M001", "M076", "M057"],
+        "because": "Of the in-scope products, those that publish a conditioned state include G048-02, G069-02, G067-06, G031-23, G166-01 and G157-02; G166-01 (Onyx GF) publishes both a conditioned XY modulus (3.1 GPa) and a density, the registry's moisture-invariant value, and since m298 (2026-10-02) so do Raise3D Industrial PET CF (G067-05: its V4.0 sheet's \"Conditioned, before annealed\" table, XY 5.731 GPa) and Polymaker PolyMide CoPA (G057-03: its V5.5 sheet's \"(Wet Status)\" table). The test re-derives this list from the products' own states, independently of the ranking. Before D107, 78 materials ranked on a dry first state. Reader round (m342, m345), 2026-10-04: the sheets' conditioned tables were recorded (Raise3D's \"Mechanical Properties (Conditioned, before/after annealed)\" for Hyper Core PPA-CF and PPA-GF, Industrial PPS-CF and Hyper Speed PLA Pro; Ultrafuse BVOH's \"conditioned 23°C, 50% RH 72h\" tensile and flexural values; PA12-CF+'s density and its as-printed conditioned table), so PPA-CF (M070), PPA-GF (M071), PPS-CF (M073), PLA (M001), BVOH (M076) and PA12-CF+ (M059) now rank. Onyx GF (M166) no longer does: its sheet conditions every specimen at 52 % RH \"unless otherwise noted\", so its density is a conditioned value too, which no headline takes (products.js, assess). Sheets that say only \"conditioned at room temperature for 24 h\" state no moisture and are not conditioned.",
         "noRankOnMissingState": true
       }
     },
@@ -78,8 +78,8 @@
       "policy": { "unknownPolicy": "strict" },
       "rankBy": "beam-stiffness",
       "expect": {
-        "passMaterials": 10,
-        "because": "The original eight materials remain passing. Campaign m271 adds M147 / G147-01 after independently re-reading exact PAHT9825 FFF guide bed<80C and non-heated-chamber instructions; its existing comparable stiffness/density and270-290C nozzle are unchanged. No application or environmental claim establishes this pass. The decision set is every passing product whose own judged state publishes both values, re-derived in the test from the products' states, not from the workspace. The error-class sweep (m288) adds M017 / G017-05: its own sheet's row \"Room Temp. | Room Temperature\", which the import had not read, settles its chamber gate; its stiffness and density are unchanged."
+        "passMaterials": 9,
+        "because": "The original eight materials remain passing. Campaign m271 adds M147 / G147-01 after independently re-reading exact PAHT9825 FFF guide bed<80C and non-heated-chamber instructions; its existing comparable stiffness/density and270-290C nozzle are unchanged. No application or environmental claim establishes this pass. The decision set is every passing product whose own judged state publishes both values, re-derived in the test from the products' states, not from the workspace. The error-class sweep (m288) adds M017 / G017-05: its own sheet's row \"Room Temp. | Room Temperature\", which the import had not read, settles its chamber gate; its stiffness and density are unchanged. Reader round (m342), 2026-10-04: M070 (PPA-CF) no longer passes: CarbonX HTN+CF (G070-05) prints \"Heated Chamber: Recommended\" with no temperature, which wins over the guide's reading and leaves the chamber gate unknown, so the pass set is nine."
       }
     }
   ]

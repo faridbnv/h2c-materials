@@ -1,7 +1,7 @@
-COUNT 36 shown PASS
-STATUS ☑ PASS 36 | ☐ UNKNOWN 88 | ☐ FAIL 29
-36 of the 153 materials meet these requirements
-Warm environment template · 88 more could not be checked, left out under Confirmed only
+COUNT 38 shown PASS
+STATUS ☑ PASS 38 | ☐ UNKNOWN 84 | ☐ FAIL 31
+38 of the 153 materials meet these requirements
+Warm environment template · 84 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -45,18 +45,18 @@ Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY 
 ABS PASS
 17 of 20 products
  1,050
-1,020–1,150 · 41
+1,020–1,150 · 48
 annealed median
  2.2
-1.77–2.38 · 10
+1.6–2.38 · 13
 annealed median
- 35
-15.7–45 · 16
+ 34
+15.7–45 · 19
  10
-3.9–40 · 15
+2.7–40 · 17
  passing: 85–104
-all products: 93.5
-78.9–104 · 22
+all products: 94
+78.9–118 · 24
  40
 24.5–70.7 · 9
 ↗ ☆
@@ -66,6 +66,7 @@ ABS-AF PASS
 1,040–1,050 · 3
  1.89 22 6* passing: 88
 all products: 88
+88 · 2
  127↗ ☆
 ABS-ESD PASS
 1 of 2 products
@@ -86,7 +87,7 @@ all products: 97
 out of stock
  ☆
 ABS-GF PASS
-7 of 7 products
+8 of 8 products
  1,100
 1,016–1,150 · 11
  3.16
@@ -97,45 +98,59 @@ annealed median
  2.1
 1.2–10 · 7
  passing: 82–100
-all products: 93.5
-82–100 · 8
+all products: 97
+82–100 · 9
  39↗ ☆
 ASA PASS
-15 of 16 products
+14 of 16 products
  1,070
-1,040–1,150 · 33
+1,040–1,150 · 36
  2.17
-0.943–2.45 · 9
+0.943–2.45 · 11
  38.5
-30.2–45 · 10
- 6.5
-1.9–11 · 11
+30.2–45 · 12
+ 6.6
+1.9–15 · 12
  passing: 82–103
 all products: 95
-82–103 · 18
+82–103 · 19
  39.5
 30.8–70.7 · 5
 ↗ ☆
+ASA Aero PASS
+1 of 2 products
+ 745
+400–1,080 · 4
+ 0.709
+0.594–0.824 · 2
+ 9.88
+8.25–11.5 · 2
+ 7.71
+3.9–11.5 · 2
+ passing: 85
+all products: 77.5
+70–85 · 2
+ 64↗ ☆
 ASA-CF PASS
-7 of 7 products
+6 of 6 products
  1,095
-1,020–1,170 · 14
+1,020–1,170 · 16
  3.91
 0.85–5.36 · 6
  41.3
 34–50.1 · 6
  3
 1.64–15.5 · 5
- passing: 86–103
+ passing: 86–130
 all products: 101
-86–110 · 8
+86–130 · 8
  65
 40–122 · 5
 ↗ ☆
 ASA-GF PASS
 3 of 3 products
  1,150
-1,110–1,170 · 5
+1,100–1,170 · 5
  2.31
 1.86–2.76 · 2
  39
@@ -143,47 +158,47 @@ ASA-GF PASS
  5.55
 5.3–5.8 · 2
  passing: 86–98
-all products: 88
-86–98 · 3
+all products: 91.5
+86–98 · 4
  96↗ ☆
 CPE
 Copolyesters
  PASS
-2 of 3 products
- 1,250
-1,180–1,270 · 3
+3 of 4 products
+ 1,215
+1,180–1,270 · 4
  1.68
 1.5–1.85 · 2
  52.5
 50–55 · 2
  16.1
 6.2–26 · 2
- passing: 80–99
+ passing: 80–100
 all products: 89.5
 70–100 · 4
  62.7↗ ☆
 HIPS
 Styrenics
  PASS
-1 of 2 products
+2 of 3 products
  1,040
-1,023–1,050 · 9
+1,023–1,050 · 10
  1.59
 1.35–2 · 3
  18.4
 16–40 · 3
  9.7
 1.4–18 · 2
- passing: 80
+ passing: 80–83
 all products: 88
 80–103 · 6
  43↗ ☆
 PA12-CF
 Nylon / Polyamide
  PASS
-2 of 3 products
+3 of 4 products
  1,070
-1,030–1,230 · 11
+1,010–1,230 · 13
  3.32
 3.3–8 · 4
 annealed median
@@ -193,14 +208,16 @@ annealed median
 2.1–14.8 · 7
 annealed median
  passing: 90–175
-all products: 159
-48–185 · 10
+all products: 150
+48–185 · 11
  300↗ ☆
 PA12-GF
 Nylon / Polyamide
  PASS
 1 of 2 products
- 1,230 7.8 82 4.5 passing: 175
+ 1,130
+1,000–1,230 · 3
+ 7.8 82 4.5 passing: 175
 all products: 163
 150–175 · 2
  247¤ ☆
@@ -217,9 +234,9 @@ all products: 140
 PA6-CF
 Nylon / Polyamide
  PASS
-7 of 7 products
- 1,170
-1,090–1,250 · 13
+8 of 8 products
+ 1,175
+1,090–1,250 · 14
  4.37
 3.8–8.64 · 6
 annealed median
@@ -229,15 +246,15 @@ annealed median
 2.1–16.5 · 6
 annealed median
  passing: 140–203
-all products: 185
-140–215 · 9
+all products: 183
+140–215 · 10
  130
 110–204 · 4
 ↗ ☆
 PA6-GF
 Nylon / Polyamide
  PASS
-5 of 6 products
+6 of 7 products
  1,310
 1,140–1,370 · 9
  4.35
@@ -259,7 +276,7 @@ Nylon / Polyamide
  PASS
 2 of 2 products
  1,120
-1,100–1,120 · 6
+1,100–1,140 · 7
  2.34
 1.98–2.7 · 2
  61
@@ -277,18 +294,18 @@ PA612-CF
 Nylon / Polyamide
  PASS
 1 of 1 product
- 1,060
-1,030–1,090 · 2
- 4.88
-3.5–5.14 · 3
- 80
-68–91.9 · 2
-annealed median
- 3.05
-2.6–3.5 · 2
+ 1,030
+1,030–1,090 · 3
+ 5.01
+4.88–5.14 · 2
+ 84.4
+77–91.9 · 2
+ 3.11
+2.6–3.62 · 2
 annealed median
  passing: 175
-all products: 175
+all products: 138
+110–175 · 3
  170
 98–242 · 2
 ↗ ☆
@@ -331,7 +348,7 @@ all products: 90
 PC
 Polycarbonate
  PASS
-5 of 8 products
+5 of 9 products
  1,200
 1,150–1,230 · 18
  2.15
@@ -343,7 +360,7 @@ annealed median
 3.2–25 · 11
  passing: 101–144
 all products: 114
-101–144 · 11
+101–144 · 14
  51
 39–72 · 5
 ↗ ☆
@@ -352,11 +369,11 @@ Polymer Blends
  PASS
 1 of 5 products
  1,140
-1,070–1,210 · 11
+1,070–1,210 · 12
  1.84
 0.8–2.2 · 4
- 41.7
-38–59 · 4
+ 40
+38–59 · 5
  8
 4.2–75 · 5
  passing: 126
@@ -369,8 +386,8 @@ PC-CF
 Polycarbonate
  PASS
 1 of 3 products
- 1,235
-1,180–1,360 · 8
+ 1,230
+1,180–1,360 · 9
  6.59
 6.2–6.98 · 2
  70
@@ -379,26 +396,25 @@ Polycarbonate
 2–7.5 · 3
  passing: 120
 all products: 128
-119–140 · 4
+114–140 · 6
  152↗ ☆
 PET-CF
 PET Engineering
  PASS
 2 of 3 products
  1,340
-1,290–1,400 · 6
+1,290–1,400 · 7
  5.11
 4.73–5.48 · 2
 annealed median
  74
 65.9–75 · 3
 annealed median
- 3.45
-2.4–4.5 · 2
-annealed median
+ 4
+2.4–4.5 · 3
  passing: 87–100
-all products: 100
-74–205 · 5
+all products: 124
+74–205 · 6
  113
 70–116 · 3
 ↗ ☆
@@ -419,24 +435,24 @@ annealed median
 annealed median
  passing: 81.6–200
 all products: 120
-81.6–200 · 3
+81.6–200 · 4
 annealed median
  69.5
 41–98 · 2
 ↗ ☆
 PLA PASS
-7 of 67 products
+7 of 84 products
  1,240
-1,170–1,329 · 147
- 2.56
-0.433–4.24 · 42
+1,170–1,329 · 157
+ 2.58
+0.433–4.24 · 50
  45
-26–70.9 · 59
- 6.3
-1.2–65 · 55
+26–70.9 · 66
+ 7.62
+1.2–65 · 62
  passing: 80–135
 all products: 55
-50–135 · 68
+50–135 · 86
  33.3
 18–80 · 27
 ↗ ☆
@@ -451,9 +467,9 @@ all products: 85.5
 46.9–75.4 · 3
 ¤ ☆
 PLA-CF PASS
-1 of 8 products
+1 of 9 products
  1,250
-1,190–1,420 · 17
+1,190–1,420 · 18
  2.8
 1.1–4.95 · 7
  42.3
@@ -462,17 +478,18 @@ PLA-CF PASS
 2–13.2 · 8
 annealed median
  passing: 91
-all products: 55.5
-54–91 · 9
+all products: 56.3
+54–91 · 10
  40.5
 40–41 · 2
 ↗ ☆
 PLA-NF PASS
-1 of 1 product
+1 of 2 products
  1,350
 1,250–1,450 · 2
  2.83 37 22.3* passing: 80
-all products: 80
+all products: 67.5
+55–80 · 2
  — ☆
 PLA-PHB
 Polymer Blends
@@ -484,7 +501,7 @@ all products: 119
 PP
 Polyolefins
  PASS
-1 of 3 products
+2 of 5 products
  900
 890–960 · 8
  1.2* 19 850 passing: 80
@@ -506,15 +523,29 @@ Polyolefins
  PASS
 2 of 2 products
  1,000
-910–1,100 · 4
+910–1,100 · 5
  6.26
 6.15–6.38 · 2
- 78 1.4
+ 59.5
+41–78 · 2
+ 1.4
 1.3–1.5 · 2
  passing: 88–124
-all products: 124
-88–158 · 3
+all products: 141
+88–158 · 4
  147↗ ☆
+PP-GF
+Polyolefins
+ PASS
+1 of 1 product
+ 1,120
+1,120 · 2
+ 6.75 65 1.7 passing: 138
+all products: 139
+138–139 · 2
+ 118¤↗
+out of stock
+ ☆
 PPA
 High-Performance Engineering
  PASS
@@ -528,18 +559,19 @@ all products: 92
 PPA-CF
 High-Performance Engineering
  PASS
-3 of 3 products
+4 of 4 products
  1,210
-1,150–1,250 · 8
+1,150–1,250 · 9
  7.65
 7.1–11.8 · 4
  108
 87–168 · 4
  3.35
 1.9–3.5 · 4
- passing: 84.5–240
-all products: 220
-84.5–240 · 6
+ passing: 84.5–188
+all products: 197
+84.5–240 · 9
+annealed median
  255↗ ☆
 PPA-GF
 High-Performance Engineering
@@ -554,8 +586,9 @@ High-Performance Engineering
  2.7
 2.1–3.5 · 3
  passing: 227
-all products: 220
-84–227 · 3
+all products: 196
+84–227 · 5
+annealed median
  106↗ ☆
 PVDF-ESD
 Fluoropolymers

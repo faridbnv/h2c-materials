@@ -29,7 +29,9 @@ test('permitted annealing, the product is judged in the annealed state its sheet
   assert.deepEqual(t.scenario.states, { anneal: true, annealMaxC: null, moisture: 'dry' });
   assert.equal(t.product.verdict, 'PASS');
   assert.equal(t.states.chosen, 'annealed:90:4');
-  assert.deepEqual(t.states.permitted.map((s) => [s.id, s.verdict]), [['as-printed', 'UNKNOWN'], ['annealed:90:4', 'PASS']]);
+  // Reader round (m342), 2026-10-04: Spectrum's 2024 portfolio table prints this filament's "HDT B - 116°C**" with the footnote "** annealed"
+  // and no schedule (V012362), a third state the product publishes: annealed, schedule unstated. It decides nothing (no schedule to cite).
+  assert.deepEqual(t.states.permitted.map((s) => [s.id, s.verdict]), [['as-printed', 'UNKNOWN'], ['annealed:90:4', 'PASS'], ['annealed:x:x', 'UNKNOWN']]);
 
   const hdt = t.requirements.find((r) => r.key === 'hdt045');
   assert.equal(hdt.status, 'PASS');
@@ -61,11 +63,11 @@ test('used as printed, the same product is unresolved, and the trace names the a
   const t = traceDecision(db, scenario(), PRODUCT, { requirement: 'hdt045' });
   assert.equal(t.product.verdict, 'UNKNOWN');
   assert.equal(t.states.chosen, 'as-printed');
-  assert.deepEqual(t.states.notPermitted.map((s) => [s.id, s.why]), [['annealed:90:4', 'the scenario does not permit annealing']]);
+  assert.deepEqual(t.states.notPermitted.map((s) => [s.id, s.why]), [['annealed:90:4', 'the scenario does not permit annealing'], ['annealed:x:x', 'the scenario does not permit annealing']]); // annealed:x:x: V012362, see above
   assert.deepEqual(t.requirements.map((r) => r.key), ['hdt045'], 'a trace of one requirement holds that one');
   const [r] = t.requirements;
   assert.match(r.reason, /90 °C.*4 h/);
-  assert.deepEqual(r.records.map((x) => [x.id, x.role]), [['V002780', 'published in state annealed:90:4']]);
+  assert.deepEqual(r.records.map((x) => [x.id, x.role]), [['V002780', 'published in state annealed:90:4'], ['V012362', 'published in state annealed:x:x']]);
   assert.throws(() => traceDecision(db, scenario(), PRODUCT, { requirement: 'warp' }), /No requirement "warp"/);
   assert.throws(() => traceDecision(db, scenario(), 'G999-01'), /not a product/);
 });

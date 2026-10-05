@@ -3,7 +3,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import{read
 import{readCsv}from'../build/src/csv.js';import{classifyFinding}from'../build/src/normalize/chemical.js';
 const table=n=>readCsv(new URL(`../data/tables/${n}.csv`,import.meta.url)).records.map(r=>r.values),measurements=table('measurements'),sources=table('sources');
 const own=(grade,property)=>measurements.filter(m=>m.GradeID===grade&&m.Property===property&&!/^Retired/.test(m['Data status']));
-function one(grade,property){const rows=own(grade,property);assert.equal(rows.length,1);return rows[0];}
+function one(grade,property,source){const rows=own(grade,property).filter(m=>!source||m.SourceID===source);assert.equal(rows.length,1);return rows[0];}
 test('Nanovia exact original bounds remain strict observations, not manufactured points',()=>{
  const pa=one('G049-06','Elongation at break');assert.equal(pa.Operator,'>');assert.equal(pa['Normalized value'],'50');assert.equal(pa['Normalized upper bound'],'Not applicable');assert.equal(pa.Standards,'ISO 527');assert.equal(pa['Moisture state'],'not-stated');
  const pp=one('G083-04','Water absorption');assert.equal(pp.Operator,'<');assert.equal(pp['Normalized value'],'1');assert.equal(pp['Specimen / print parameters'],'after 24h of submersion');assert.equal(pp.Standards,'Not published');assert.equal(pp['Test temperature °C'],'Not published');
@@ -15,7 +15,11 @@ test('Nanovia TPU70D retains own28MPa/320% without inventing printed, conditione
 });
 test('Nanovia thermal and MFR intervals retain both endpoints and unstated MFR conditions',()=>{
  for(const g of['G024-11','G020-39','G025-03','G026-08'])assert.equal(one(g,'Glass transition temperature')['Normalized value'],'80');
- for(const g of['G001-98','G001-135']){const m=one(g,'Glass transition temperature');assert.equal(m['Normalized value'],'55');assert.equal(m['Normalized upper bound'],'60');}
+ // The TDS interval is the sheet's own. Reader round (m342), 2026-10-04: the same products' safety data sheets (section 9.1) print
+ // one Tg each, 52 °C (PLA EF 3D850, p. 2) and 58 °C (PLA XRS); they are separate observations from separate documents, so the
+ // TDS interval is chosen by its source.
+ for(const[g,s]of[['G001-98','R-NANOVIA-PLA-EF-3D850'],['G001-135','R-NANOVIA-PLA-XRS']]){const m=one(g,'Glass transition temperature',s);assert.equal(m['Normalized value'],'55');assert.equal(m['Normalized upper bound'],'60');}
+ assert.equal(one('G001-98','Glass transition temperature','R-NANOVIA-PRIORITY-20261002-5ed344eda07d')['Normalized value'],'52');assert.equal(one('G001-135','Glass transition temperature','R-NANOVIA-PRIORITY-20261002-1ac5d2cab49d')['Normalized value'],'58');
  const mfr=one('G001-98','Melt mass-flow rate');assert.equal(mfr['Normalized value'],'7');assert.equal(mfr['Normalized upper bound'],'9');assert.equal(mfr['Test temperature °C'],'Not published');assert.equal(mfr['Specimen / print parameters'],'Not published');
 });
 test('Nanovia actual0° PETG tab cannot become an unstated XY observation',()=>{

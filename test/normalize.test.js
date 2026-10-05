@@ -155,7 +155,8 @@ test('a hardened-nozzle statement reads as what it says, a negation included', (
   const says = {
     false: ['Hardened nozzle not required', 'No hardened nozzle required', 'Nozzle: High quality metal nozzle, harden steel nozzle is not needed',
       'Ruby or hardened nozzle not necessary', 'Ruby or hardened nozzle recommended No', 'Hardened Nozzle no',
-      'Even though its high silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer.'],
+      'Even though its high silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer.',
+      'No. ABS Pro contains no abrasive fillers and prints well with standard nozzles.', 'nicht abrasiv; Messingdüse ausreichend'],
     true: ['When using PolyMide™ CoPA, we recommend to switch to a wear resistant nozzle', 'Nozzle & Gear Material Hardened steel',
       'A reinforced nozzle, suitable for abrasive materials is recommended.', 'It is recommended to use hardening steel nozzle, tungsten steel or ruby nozzle to avoid nozzle abrasion.',
       'Hardened Nozzle Recommended', 'Ruby or hardened nozzle recommended Yes', 'We recommend to use ruby nozzles or hardened steel nozzles.',
