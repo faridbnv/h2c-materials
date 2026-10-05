@@ -1,7 +1,7 @@
 // Gap round 2 (GOALS, "Decided on 2026-10-05, gap round 2", item 4), batch b43: the held data sheets the import's text reader
 // could not read, now read page by page from their page images (a table per layer height, a column per print orientation,
 // Japanese and Spanish labels, a mis-mapped text layer, four products in one table) and admitted through the import
-// pipeline (a bounded exception to the import pause, like b34 to b42). Ten documents for eleven new products; three held
+// pipeline (a bounded exception to the import pause, like b34 to b42). Ten documents for twelve new products; three held
 // sheets are not admitted (the packet's NotAdmitted: Stratasys ST-130 and Diran 410MF07 wait on the owner for a home,
 // and FKuR's Fibrolon sheet names no filament). The packet pins every proposal and original by digest.
 //

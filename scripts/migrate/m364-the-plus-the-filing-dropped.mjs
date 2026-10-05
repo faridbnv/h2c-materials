@@ -3,7 +3,7 @@
 //
 // Raise3D's "PA12 CF+" product page was admitted for Industrial PA12 CF+ (G059-03), the product the reader round found
 // without a nozzle or bed, but the batch writer matched the page's product to Industrial PA12 CF (G053-09): its product
-// key drops the "+", as GRADE-PRODUCT-DUPLICATE's does (OPEN-PROBLEMS §6). The profile moves to the product the page is
+// key dropped the "+", as GRADE-PRODUCT-DUPLICATE's did; both keep it since. The profile moves to the product the page is
 // for, the one its source's Applicable grades names. A re-run is a no-op, and a run after the data moved stops.
 //
 //   node scripts/migrate/m364-the-plus-the-filing-dropped.mjs

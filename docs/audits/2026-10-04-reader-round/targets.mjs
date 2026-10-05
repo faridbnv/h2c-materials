@@ -6,7 +6,7 @@
 //
 //   node docs/audits/2026-10-04-reader-round/targets.mjs [--after [--frozen <TARGETS.csv> --out <dir>]]
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv, csvText } from '../../../build/src/csv.js';
 import { cachedText } from '../../../scripts/lib/pdf-text.mjs';
@@ -142,7 +142,7 @@ if (process.argv.includes('--after')) {
   // A later round freezes its own list: --frozen <TARGETS.csv> and --out <dir> (gap round 2 reads the reader round's after/).
   const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
   const before = rows(arg('--frozen', 'docs/audits/2026-10-04-reader-round/TARGETS.csv'));
-  const outDir = join(root, arg('--out', 'docs/audits/2026-10-04-reader-round/after'));
+  const outDir = resolve(root, arg('--out', 'docs/audits/2026-10-04-reader-round/after'));
   const now = new Set(targets.map(key));
   const then = new Set(before.map(key));
   mkdirSync(outDir, { recursive: true });

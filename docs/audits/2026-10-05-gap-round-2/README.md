@@ -30,7 +30,7 @@ priority, with Claude Opus deciding and Claude Sonnet reading and coding, and ch
 | m360 | names written together ("HIPS-X", "GreenyPro"): 3 values |
 | m362 | batch b43, ten of the thirteen held sheets: 12 products, 296 values, 9 profiles |
 | m363, m364 | batch b44, twenty makers' pages, one profile each; the PA12 CF+ page filed under its product |
-| m365 | the blind draw's families (D129): 169 dry-box answers out of Drying, 105 cells the readers found, 21 page statements as printed, 101 one-sentence test-bar statements on 82 sheets (548 values' print parameters, 165 conditioning sentences) |
+| m365 | the blind draw's families (D129): 169 dry-box answers out of Drying, 105 cells the readers found, 21 page statements as printed, 101 one-sentence test-bar statements on 82 sheets (548 values' print parameters, 165 values' conditioning sentences) |
 
 m357 and m361 were planned (second reads applied, copies merged) and not used: the second reads offered only
 mis-pairings, and the copies were not worked (OPEN-PROBLEMS §31).
@@ -40,7 +40,8 @@ mis-pairings, and the copies were not worked (OPEN-PROBLEMS §31).
 | File | What |
 |---|---|
 | `TARGETS.csv`, `baseline/` | the frozen targets (the reader round's open list) and the build before the round |
-| `after/` | `PROGRESS.md`: closed and opened against the frozen list |
+| `after/` | `PROGRESS.md`: closed and opened against the frozen list; `DECISION-DIFF.md`: the decision diff of the round |
+| `fill-text.mjs` | phase 0: cached text for every registered original that is held, so it can be read again |
 | `guide-drying-backcheck.{mjs,md}` | the guide's drying against products that state their own (D127) |
 | `page-tables.mjs`, `page-tables/` | the statements that reach two tables, and their verdicts (D128) |
 | `specimen-blocks/` | the test-bar blocks read for m358 |
@@ -49,8 +50,10 @@ mis-pairings, and the copies were not worked (OPEN-PROBLEMS §31).
 | `digits/` | numbers a text layer prints that the optical reading does not (`compare.py`, `suspects.csv`) |
 | `reconcile/`, `readings/`, `proposals/` | the reader round's readings reconciled again, the second reads run, and what they proposed |
 | `held-sheets.csv`, `site-targets.csv`, `site-leads.csv`, `ingest/` | b43 and b44: what was read, fetched, admitted and not |
-| `MAKER-QUESTIONS.{csv,md}` | 126 questions to 36 makers, prepared for the owner; nothing sent |
-| `blind-draw/` | the draws (`draw.py`, samples, verdicts), the probe of moved answers, and the sweep of each family (`sweep/`) |
+| `MAKER-QUESTIONS.{csv,md}` | 125 questions to 36 makers, prepared for the owner; nothing sent |
+| `blind-draw/` | the draws (`draw.py`, samples, verdicts) and `PROBE.md`, the probe of moved answers |
+| `blind-draw/sweep/` | the sweep of each family the draws named (m365, D129): detectors, candidates, verdicts and decisions |
+| `DOCS-CHECK-PROMPT.md`, `docs-check.csv` | the documentation check of phase 8: the prompt, and the findings (file, line, what the document says, the truth, the fix) |
 
 ## Measured
 
@@ -58,5 +61,6 @@ mis-pairings, and the copies were not worked (OPEN-PROBLEMS §31).
   and drying as stated), then nozzle and bed (b44). No product's mechanical or thermal headline gap closed: the round's
   new values went to new products or corrected held ones.
 - **Error rate.** The first blind draw (seed 20261007) found 6 of 40 records wrong, 4 of them deciding, and the probe
-  of 22 moved answers 7 of 30 moved cells; every family was swept (m365, D129). The second draw's result is in
-  `blind-draw/verdicts-20261008.csv` and OPEN-PROBLEMS §31.
+  of 22 moved answers 7 of 30 moved cells; every family was swept (m365, D129). The second draw (seed 20261008) found
+  none of 40 wrong; eight of its records hold less than their page prints, each answered by another profile of the
+  product (`blind-draw/verdicts-20261008.csv`, OPEN-PROBLEMS §31).

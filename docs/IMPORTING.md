@@ -25,7 +25,10 @@ lists completed and remaining targets, and its [isolated ledger](audits/2026-09-
 retains source revisions and pipeline outcomes. On 2026-10-04 the owner opened the reader round (GOALS, "Decided on
 2026-10-04, the reader round"): the makers' own pages and guides for materials with two sources or fewer (batch b41) and
 for products still missing a nozzle or bed temperature (batch b42) entered through this pipeline, each batch bounded
-and complete. Reading the sheets already registered again is not an import and travels a path of its own, described
+and complete. On 2026-10-05 the owner opened gap round 2 (GOALS, "Decided on 2026-10-05, gap round 2"): the thirteen
+held sheets (batch b43; ten entered) and the makers' own pages for products still without a nozzle or bed (batch b44)
+entered through this pipeline, each bounded and complete; their packets are
+`docs/audits/2026-10-05-gap-round-2/ingest/b43-packet.json` and `b44-packet.json`. Reading the sheets already registered again is not an import and travels a path of its own, described
 under "Reading a registered sheet again" below (D123, D125). The general import pause remains outside those exceptions.
 What follows is the procedure for an authorized batch.
 
@@ -108,7 +111,8 @@ The rules that differ from editing a table by hand:
   image and says so (`review.visual`). `npm run audit:witness` asks the same of the rows already recorded.
 - **A page's statement, a test block and a print setting are read, not lost.** A heading or footnote that speaks for
   a whole table ("Mechanical properties (dry state)", "all specimens were annealed") enters as a `page_context.csv` row
-  the page's measurements inherit (D116), never as one guess per row. Settings printed for the test bars ("Print test
+  the page's measurements inherit (D116), never as one guess per row. Where a page holds two tables, the row names the one
+  it heads in Table (D128). Settings printed for the test bars ("Print test
   condition", "Printed Specimen Conditions", "How to make specimens") are not guidance (m170) and never fill a profile.
   The setting labels the reader knows are `scripts/ingest/lexicon/setting-labels.csv`; `npm run audit:context` runs
   the same reader over every profile already recorded, so a label it learns is checked on every sheet (D119). Beyond
@@ -201,6 +205,10 @@ npm run ingest:read-proposals -- --run docs/audits/2026-10-04-reader-round/recon
   vocabulary value, no conversion, a quote the cached sheet does not print, or a number the raw text does not begin with
   is held with its reason in `held.csv`. So is a setting printed for the test bars (`specimen-condition-not-guidance`,
   m170), and a twin's values go once to the formulation's carrier (R053, D89).
+- **Readings an importer should expect from gap round 2.** `matchProduct` reads a name written together as one name (m360),
+  and the batch writer's product key keeps a "+" as part of a name (m364). `parseDrying` types Drying need and Drying hours open (D127). `readAbrasion`
+  answers the hardened-nozzle question from the nozzle lines when the abrasion line is silent (D129). A dry box is a
+  Storage humidity note, never the Drying cell (D120, D129).
 - **A migration applies them.** `applyProposals` (`scripts/migrate/read-proposals-apply.mjs`) checks every quote on the
   cached, hash-checked sheet and every replaced value before it writes, stops on a row whose gate is not `ready`, and is
   a no-op on a re-run. m342 is the example, m351 (what the ligatures hid) a second.

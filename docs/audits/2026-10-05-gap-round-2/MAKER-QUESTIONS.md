@@ -2,13 +2,13 @@
 
 A deduplicated list of the questions only a filament maker can answer, built on 2026-10-05 for the owner. **Nothing has been sent to anyone.** Sending is outward-facing and the owner's call (OPEN-PROBLEMS s29). The same list, with the evidence behind each question, is `MAKER-QUESTIONS.csv` beside this file.
 
-Sources: the 255 vendor handoffs of `archive/research-2026-09-26/owner-handoffs.csv` (kept only where the record they name is still unsettled in `data/tables/`), the contradictions and maker questions of OPEN-PROBLEMS s4, s15, s21, s23 to s26, s28, s29 and s30, and the 28 products of `docs/audits/2026-10-04-reader-round/STILL-MISSING.csv` that still hold no nozzle or bed in `profiles.csv`. Where one question applies to several of a maker's products it is one numbered item with the products listed under it.
+Sources: the 255 vendor handoffs of `archive/research-2026-09-26/owner-handoffs.csv` (kept only where the record they name is still unsettled in `data/tables/`), the contradictions and maker questions of OPEN-PROBLEMS s4, s15, s21, s23 to s26, s28, s29 and s30, and the 28 products of `docs/audits/2026-10-04-reader-round/STILL-MISSING.csv` that held no nozzle or bed in `profiles.csv`. The print-setting questions of the 12 of them, and of 3DXPRO LG PETG, that batch b44's makers' pages gave a nozzle and a bed (`build/snapshot/print.csv`, 2026-10-05) were dropped. Where one question applies to several of a maker's products it is one numbered item with the products listed under it.
 
 Priority: **high** = the answer changes a selection answer or a print gate; **medium** = a property or a test condition; **low** = wording or a claim with no test behind it.
 
-**126 questions to 36 makers**: 53 high, 59 medium, 14 low.
+**125 questions to 36 makers**: 52 high, 59 medium, 14 low.
 
-Left out on purpose: the four BASF Styrolux rows (SBC-4 to SBC-7: they ask the owner to decide `polymers.csv`, not a maker); handoff rows whose record now states its condition or load (4 values), whose grade is retired (5 handoffs), or whose gap a printed value now fills (1); owner-ruling rows (127) and not-retrieved rows (9) of the handoff file, which are not maker questions. Nineteen products in the print-guidance block also have a product page or archive lead in `site-leads.csv` (gap round 2, not yet applied): they are marked, and the question stands until the lead is applied.
+Left out on purpose: the four BASF Styrolux rows (SBC-4 to SBC-7: they ask the owner to decide `polymers.csv`, not a maker); handoff rows whose record now states its condition or load (4 values), whose grade is retired (5 handoffs), or whose gap a printed value now fills (1); owner-ruling rows (127) and not-retrieved rows (9) of the handoff file, which are not maker questions. Six products in the print-guidance block also have a product page or archive lead in `site-leads.csv` (gap round 2, not yet applied): they are marked, and the question stands until the lead is applied.
 
 ## Counts by maker
 
@@ -40,7 +40,7 @@ Left out on purpose: the four BASF Styrolux rows (SBC-4 to SBC-7: they ask the o
 | Polymaker | 1 | 5 | 2 | 8 |
 | Protopasta | 0 | 1 | 0 | 1 |
 | Prusa Research | 1 | 0 | 0 | 1 |
-| purefil (Fabru) | 3 | 1 | 1 | 5 |
+| purefil (Fabru) | 2 | 1 | 1 | 4 |
 | Raise3D | 1 | 2 | 0 | 3 |
 | Recreus | 1 | 1 | 0 | 2 |
 | SIDDAMENT | 2 | 0 | 0 | 2 |
@@ -50,7 +50,7 @@ Left out on purpose: the four BASF Styrolux rows (SBC-4 to SBC-7: they ask the o
 | SUNLU | 2 | 2 | 1 | 5 |
 | UltiMaker | 1 | 1 | 1 | 3 |
 | Yousu | 1 | 1 | 0 | 2 |
-| **All** | 53 | 59 | 14 | 126 |
+| **All** | 52 | 59 | 14 | 125 |
 
 ## Questions by maker
 
@@ -105,13 +105,9 @@ Contact hint: 3dxtech.com
     - Product: CarbonX Carbon Fiber High Temp Nylon (HTN) (G070-05)
     - Why we ask: One page prints two sets of strength and heat deflection values.
 2. **[high]** Which nozzle temperature, bed temperature, chamber/enclosure temperature and drying schedule do you recommend for the product(s) below? Your data sheet prints no print settings.
-    - TriMax Carbon Fiber ABS Model Material (G029-11): missing nozzle, bed, chamber, drying
-    - TriStat ESD-ABS Model Material (G030-11): missing nozzle, bed, chamber, drying
-    - FIBREX GF PP (G084-01): missing nozzle, bed, chamber, drying
     - Triton PC/ABS Model Material (G094-12): missing nozzle, bed
     - 3DXSTAT ESD-TPC (90A) (G114-01): missing nozzle, bed, chamber, drying
     - TriStat ESD-PC Model Material (G116-02): missing nozzle, bed, chamber, drying
-    - 3DXPRO LG PETG (G020-01): missing nozzle, bed, chamber, drying
     - 3DXSTAT ESD-PEKK (G115-01): missing nozzle, bed, chamber, drying
     - ThermaX TPI (G121-01): missing nozzle, bed, chamber, drying
     - Why we ask: Without a nozzle and bed window the print gate for the product reads unknown, so it can neither pass nor fail a printer requirement.
@@ -347,7 +343,6 @@ Contact hint: filament2print.com
 
 1. **[high]** Which nozzle temperature, bed temperature, chamber/enclosure temperature and drying schedule do you recommend for the product(s) below? Your data sheet prints no print settings.
     - KOLTRON (G096-03): missing nozzle, bed, chamber, drying
-    - BioFil - PCL (G149-04): missing nozzle, bed, chamber
     - Why we ask: Without a nozzle and bed window the print gate for the product reads unknown, so it can neither pass nor fail a printer requirement.
 2. **[high]** Were the mechanical values on the data sheets for the products below measured on injection-moulded bars or on 3D-printed bars, and if printed, in which build orientation (flat XY, on edge XZ, upright Z), at which nozzle temperature and layer height, and were they annealed or conditioned?
     - PETG (G020-63): Elongation at break 18.268 % (TDS prints "18,268" with European decimal separator)
@@ -575,10 +570,7 @@ Contact hint: prusa3d.com
 
 Contact hint: purefil.de
 
-1. **[high]** Which nozzle temperature, bed temperature, chamber/enclosure temperature and drying schedule do you recommend for the product(s) below? Your data sheet prints no print settings.
-    - Cyclo-Olefin-Copolymer flexibel (COC flex) (G137-03): missing nozzle
-    - Why we ask: Without a nozzle and bed window the print gate for the product reads unknown, so it can neither pass nor fail a printer requirement.
-2. **[high]** Were the mechanical values on the data sheets for the products below measured on injection-moulded bars or on 3D-printed bars, and if printed, in which build orientation (flat XY, on edge XZ, upright Z), at which nozzle temperature and layer height, and were they annealed or conditioned?
+1. **[high]** Were the mechanical values on the data sheets for the products below measured on injection-moulded bars or on 3D-printed bars, and if printed, in which build orientation (flat XY, on edge XZ, upright Z), at which nozzle temperature and layer height, and were they annealed or conditioned?
     - GreenTEC Pro (G001-66): Tensile modulus 4400 MPa; Elongation at break 3.4 %
     - PLA with Cork Fibers (Cork Filament) (G014-05): Tensile modulus 2150 MPa
     - PLA with wood fibers (wood filament) (G014-06): Tensile modulus 2900 MPa
@@ -595,15 +587,15 @@ Contact hint: purefil.de
     - Polybutylenterephthalat (PBT) (G140-01): Tensile modulus 2600 MPa; Elongation at break 30 %
     - Thermoplastic vulcanizate (TPV) (G167-13): Tensile modulus 13.9 MPa
     - Why we ask: The sheet prints only a test standard (for example ISO 527) and nothing on how the bar was made, so the value stays 'as published' and cannot back a comparable selection answer.
-3. **[high]** For PA6 GF10, your sheet prints two bed temperatures, 'Heizbett Temperatur 120-140 C' and 'Heated bed temperature 80 C', and no drying row. Which is the bed temperature and what are the drying temperature and time?
+2. **[high]** For PA6 GF10, your sheet prints two bed temperatures, 'Heizbett Temperatur 120-140 C' and 'Heated bed temperature 80 C', and no drying row. Which is the bed temperature and what are the drying temperature and time?
     - Product: Polyamid 6 glass fiber 10% (PA6 GF10) (G051-08)
     - Why we ask: The profile holds 120-140 C, above the H2C's 120 C limit, so the bed gate reads 'exceeds'; the second row sits where purefil's other sheets print drying.
-4. **[medium]** For the products below, do you hold values for the listed properties measured on 3D-printed specimens (with the build orientation, nozzle temperature and, for HDT, the load)? If your sheet's figure comes from an injection-moulded or unspecified bar, please say so.
+3. **[medium]** For the products below, do you hold values for the listed properties measured on 3D-printed specimens (with the build orientation, nozzle temperature and, for HDT, the load)? If your sheet's figure comes from an injection-moulded or unspecified bar, please say so.
     - Polyvinylchlorid weich 94A (PVC-P) (G135-01): heat deflection temperature (HDT), tensile modulus
     - Styrol-Acrylnitril (SAN) (G136-02): tensile modulus
     - Liquid Crystal Polymer (LCP) (G139-01): heat deflection temperature (HDT)
     - Why we ask: The sheet prints no value for the property, or one whose bar is not described, so the product has no comparable printed figure for it.
-5. **[low]** Are your two POM data sheets (S-POM and the 3519 sheet) for one product or two?
+4. **[low]** Are your two POM data sheets (S-POM and the 3519 sheet) for one product or two?
     - Product: purefil POM (G087-01); Polyoxymethylen (POM) (G087-04)
     - Why we ask: One of the sheets has no cached text, so the two grades cannot be merged or kept apart.
 
@@ -612,15 +604,8 @@ Contact hint: purefil.de
 Contact hint: raise3d.com
 
 1. **[high]** Which nozzle temperature, bed temperature, chamber/enclosure temperature and drying schedule do you recommend for the product(s) below? Your data sheet prints only the conditions the test bars were printed at.
-    - Industrial PETG ESD (G026-06): missing nozzle, chamber, drying
-    - Hyper Core ABS CF15 (G029-09): missing nozzle, bed, chamber
     - Industrial PA12 CF (G053-09): missing nozzle, bed, chamber
-    - Industrial PA12 CF+ (G059-03): missing nozzle, bed, chamber
-    - Industrial PET GF (G068-04): missing nozzle, bed, chamber
-    - Industrial PPA GF (G071-04): missing nozzle, bed, chamber
-    - Hyper Core PPA GF25 (G071-05): missing nozzle, bed, chamber
     - Premium PVA+ (G075-09): missing nozzle, bed, chamber
-    - Industrial PET Support (G080-03): missing nozzle, bed, chamber
     - Why we ask: Without a nozzle and bed window the print gate for the product reads unknown, so it can neither pass nor fail a printer requirement.
 2. **[medium]** Does the Hyper Core PPA CF25 data sheet reprint the Industrial PET CF V4.0 table, or are its values from its own tests?
     - Product: Hyper Core PPA CF25 (G070-08)

@@ -952,11 +952,11 @@ product it is; and **Export their products** names them under Values read from a
 read from a twin.
 
 **The printer maker's guide** (D88). Where a product's own sheet and its twin's are both silent on a part of its print
-gate (nozzle, bed, chamber, enclosure, hardened nozzle), it reads its material's row of Bambu Lab's Filament Guide,
-if the guide names the material's type. The setting in **How to print it** then carries "per Bambu Lab's Filament
+gate (nozzle, bed, chamber, enclosure, hardened nozzle) or on its drying, it reads its material's row of Bambu Lab's
+Filament Guide, if the guide names the material's type; a product with a Variant reads none (D129). The setting in **How to print it** then carries "per Bambu Lab's Filament
 Guide for PLA, not this maker's sheet" ("not this product's data sheet" on Bambu Lab's own products); the gate's reason
 ends with the same words in brackets, so the results panel and the exports carry them; and the products export names
-the guide under Recipe read from. The guide never fills drying or annealing. For the eleven types it asks an
+the guide under Recipe read from. The guide fills drying (D127), labelled as the guide's, but never annealing. For the eleven types it asks an
 enclosure for, a chamber so read says "an enclosure, which the H2C's heated chamber is" (D90); where the product's own maker asks
 for one and states no temperature, it says "an enclosure its maker asks for, which the H2C's heated chamber is" (D93).
 
@@ -972,7 +972,7 @@ never the maker's; how many of the material's products read a part from it; and 
 material. Then its nozzle and bed, each with its gate chip; its chamber (for the eleven enclosure types, "No chamber
 temperature stated; the enclosure it asks for on its maker's own printers is the H2C's heated chamber"); its enclosure
 answer as the guide prints it, with its reading ("Optional: not needed"); its nozzle line, with whether a hardened nozzle is
-required; its drying line, marked "recorded; fills no product's recipe"; and its source, with the column and rows. A
+required; its drying line, with how the build reads it (required, optional, not needed); and its source, with the column and rows. A
 material the guide does not name has no such block, and a material with a guide row but no profile of its own shows
 the block alone.
 

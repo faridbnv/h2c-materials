@@ -138,7 +138,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D126 | No number shown contradicts what its own product's measurements prove | An estimate could sit below a strength the same product had measured: 46 materials and 343 products showed an ultimate-strength estimate under their own published break or yield stress, and LCP's HDT at 0.45 MPa was estimated under its own published HDT at 1.8 MPa. The orders physics sets between properties are now a table (`physical_relations.csv`), the lint reads it, every estimate is floored by what its own product's measurements prove, a material's range contains every product's floor, a product's strength taken from yield or break is the larger of the same test's two, and the build refuses a number shown that breaks an order. | In force; it replaces D78's material floor ("held at the highest own printed limit") with containment, and extends D55 (a value physics rules out is kept and flagged) and D84 (what a printed or unstated bar may decide) |
 | D127 | Drying is recorded as a sheet states it, and the printer maker's guide fills a silent product's drying | A sheet's drying line was read as a published schedule whatever it said, so "not necessary", "Optional" and "only if the material has absorbed moisture" counted as a product that must be dried, and "6+ hours" lost its open end. Each print profile now says whether drying is required, optional or not needed, and whether its duration has an upper end. Bambu Lab's guide, which already answers a silent product's nozzle, bed and chamber, now answers its drying too, labelled as the guide's. A product that holds a profile of its own no longer reads its twin's statement about wearing a brass nozzle. | In force; it amends D88 (the guide now answers drying) and D89 (a twin's hardened-nozzle statement reaches only a product with no profile of its own) |
 | D128 | A page statement can head one table | A heading or footnote recorded once for a page reached every value of its class on that page, so a footnote under the mechanical table also spoke for the physical table beside it. A page statement can now name the table it heads, matched against the values' locators, and a statement that heads one table outranks one that heads the page. | In force; it extends D116 (context the page states) |
-| D129 | What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer | A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 130 profiles read "drying not needed" (and 34 "required") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed. | In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads) |
+| D129 | What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer | A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 133 profiles read "drying not needed" (34 "required", 2 "optional") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed. | In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads) |
 
 <!-- end index -->
 
@@ -4101,7 +4101,7 @@ the owner chose that a bar whose specimen is not stated bounds as a printed one 
   break above its own ultimate is flagged where a sheet prints one (m338).
 - **Floors.** A product's yield, break or strength bounds its estimate from below when its bar is printed or its specimen
   is not stated, in any direction; a moulded bar, a film, a filament strand and a bar printed off the product's recipe
-  bound nothing (`build/src/estimate/lower-bounds.js`). A grade's estimate is floored at its own formulation's highest
+  bound nothing (`build/src/lower-bounds.js`). A grade's estimate is floored at its own formulation's highest
   floor. A material's range is the spread of its products, so it must contain every product's proven floor: its upper
   end reaches the highest product floor, and its lower end is floored at the lowest only when every active product has
   one. A heat deflection estimate is held under its semicrystalline polymer's melting point (`bounds.js`).
@@ -4123,14 +4123,15 @@ the owner chose that a bar whose specimen is not stated bounds as a printed one 
 > **In plain words:** A sheet's drying line was read as a published schedule whatever it said, so "not necessary", "Optional" and "only if the material has absorbed moisture" counted as a product that must be dried, and "6+ hours" lost its open end. Each print profile now says whether drying is required, optional or not needed, and whether its duration has an upper end. Bambu Lab's guide, which already answers a silent product's nozzle, bed and chamber, now answers its drying too, labelled as the guide's. A product that holds a profile of its own no longer reads its twin's statement about wearing a brass nozzle.
 > **Status:** In force; it amends D88 (the guide now answers drying) and D89 (a twin's hardened-nozzle statement reaches only a product with no profile of its own).
 
-*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, gap round 2", items 1 and 2), and on the reader
-round's recommendation for twins (OPEN-PROBLEMS §28); built by Claude (Opus specifying and reviewing, Sonnet coding).*
+*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, gap round 2", items 1, 2 and 6; item 6, the
+reader round's recommendation for twins in OPEN-PROBLEMS §28, approved with the round's plan); built by Claude (Opus
+specifying and reviewing, Sonnet coding).*
 
 - **Two typed columns** on profiles and guide rows: `Drying need` (required, optional, not-needed, unknown;
   `schema/vocab/drying-needs.csv`) and `Drying hours open` (TRUE where the duration has no upper end: "6+ hours", "> 5 h",
   "at least 8 h"). `parseDrying` (`build/src/normalize/process.js`) reads them; PARSE-MISMATCH checks them like the other
   typed cells; m355 typed every profile and guide row: 813 profiles required drying, 73 advised it for a condition, 155
-  said it was not needed. The blind draw that closed the round found 130 of those 155 were a dry box's answer held as
+  said it was not needed. The blind draw that closed the round found 133 of those 155 were a dry box's answer held as
   the drying cell, and many "required" schedules printed beside a condition the cell left out; after m365 (D129), 748
   require drying, 118 advise it for a condition, 25 say it is not needed.
 - **Decisions read the need.** A product's drying axis takes the strongest statement of its profiles (required, then
@@ -4138,7 +4139,8 @@ round's recommendation for twins (OPEN-PROBLEMS §28); built by Claude (Opus spe
   "drying not needed", "optional" or "≥ 6 h".
 - **The guide's drying.** `GUIDE_AXES` includes drying: a product whose own sheets and twin say nothing about drying
   reads its material's guide row, labelled as the guide's, and the guide's "Dry Out Before Use: Optional" reads as
-  optional, never as required. Products whose drying is unknown fell from 357 to 160.
+  optional, never as required. Products whose drying is unknown fell from 357 to 160, and stand at 202 since m365 took
+  the dry-box answers out of the drying cells (D129).
 - **Back-checked** (`docs/audits/2026-10-05-gap-round-2/guide-drying-backcheck.md`): over the 276 products that state
   their own drying beside a guide row, the guide's temperature window contains the maker's in 150 profiles, overlaps it
   in 43 and misses it in 164, most often ABS and ASA, where the guide's 80 °C stands above makers' 50 to 60 °C; and the
@@ -4165,7 +4167,7 @@ page statements reaching tables they do not head; built by Claude (Opus specifyi
 
 ## D129. What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer
 
-> **In plain words:** A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 130 profiles read "drying not needed" (and 34 "required") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed.
+> **In plain words:** A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 133 profiles read "drying not needed" (34 "required", 2 "optional") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed.
 > **Status:** In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads).
 
 *Decided by Claude Opus on 2026-10-05 from the round's blind draw and its probe of moved answers

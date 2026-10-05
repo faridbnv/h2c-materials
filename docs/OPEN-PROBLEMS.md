@@ -1,6 +1,6 @@
 # Open problems
 
-What is known to be wrong or missing in this database, reconciled on 2026-10-02. What it holds is counted in
+What is known to be wrong or missing in this database, reconciled on 2026-10-05. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
 
@@ -195,22 +195,26 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `MEAS-PHYSICS-WINDOW` | 165 | See item 2. Ten since 2026-10-02 are BASF's ISO 180 Izod values printed in J/m (m298), shown and never compared (D94). |
-| `IMPACT-UNIT-STANDARD` | 45 | A sheet that prints an impact unit beside a standard that reports another (kJ/m² beside ASTM D256; BASF's J/m beside ISO 180); kept as printed, compared only in its own unit. |
-| `MEAS-PHYSICS-STRAIN` | 31 | See item 2. |
-| `MEAS-PHYSICS-ORDER` | 21 | See item 2. |
-| `GRADE-VALUES-TWIN` | 13 | Two products whose sheets print one table, accepted as the separate products they are (R166 and its like). |
-| `MEAS-CROSS-SOURCE-TWIN` | 6 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). |
-| `EST-OUTLIER` | 5 | Five reviewed material/headline findings: PA6 and PA12 heat deflection, PA6-GS density, PLA-EC density and PBAT XY modulus. Each acceptance names the original value and why the model differs; nGen-CF's XY strength stopped being one when the model recalibrated on 2026-10-02. |
-| `MEAS-PHYSICS-Z-ABOVE-XY` | 5 | Polymaker prints a Z stiffness 15 to 26 % above XY (two rows), and three sheets a Z strength or impact above their own X-Y one. Unusual at 100 % infill but not impossible; whether a sheet swapped its labels cannot be settled from the table. |
-| `EST-FAMILY-ORDER` | 5 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C; Nylon-GF's one product's modulus. The per-record reasons preserve the sheets' values and conditions. |
+| `MEAS-PHYSICS-WINDOW` | 204 | See item 2. Ten since 2026-10-02 are BASF's ISO 180 Izod values printed in J/m (m298), shown and never compared (D94). |
+| `IMPACT-UNIT-STANDARD` | 46 | A sheet that prints an impact unit beside a standard that reports another (kJ/m² beside ASTM D256; BASF's J/m beside ISO 180); kept as printed, compared only in its own unit. |
+| `MEAS-PHYSICS-STRAIN` | 32 | See item 2. |
+| `MEAS-PHYSICS-ORDER` | 31 | See item 2. |
+| `GRADE-VALUES-TWIN` | 33 | Two products whose sheets print one table, accepted as the separate products they are (R166 and its like). |
+| `MEAS-CROSS-SOURCE-TWIN` | 14 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). |
+| `EST-OUTLIER` | 7 | Seven reviewed material/headline findings: ABS-GF, PAHT-CF and PA6 heat deflection at 0.45 MPa, and the density of ASA Aero, PA6-CE, PA6-GS and PLA-EC. Each acceptance names the original value and why the model differs; nGen-CF's XY strength stopped being one when the model recalibrated on 2026-10-02. |
+| `MEAS-PHYSICS-Z-ABOVE-XY` | 8 | Polymaker prints a Z stiffness 15 to 26 % above XY (two rows), and three sheets a Z strength or impact above their own X-Y one. Unusual at 100 % infill but not impossible; whether a sheet swapped its labels cannot be settled from the table. Three more, accepted on 2026-10-05, are where the sheet itself prints a Z value above XY: Fillamentum OBC 905's Izod impact twice, and a ZX bar a sheet advertises as its highest Z strength. |
+| `EST-FAMILY-ORDER` | 5 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C; Nylon-CF's (M165) modulus once b43 added Markforged's Onyx and Stratasys Nylon-CF10. The per-record reasons preserve the sheets' values and conditions. |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
 | `TEXT-FULLWIDTH` | 4 | Full-width punctuation a sheet prints inside Chinese text, kept as printed. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
 | `COVERAGE-SUPERSEDED` | 2 | "Evidence recorded" rows each a separate re-filing (C01184, C01185). Several Resolved rows in one domain are a log of closed events and no longer a finding (phase 5, part 4). |
 | `HEADLINE-FAMILY-UNLISTED` | 1 | Heat deflection does not name Flexible Elastomers, on purpose (D56). |
+| `MEAS-LOCATOR-DIRECTION` | 5 | PC-Max's page 2 figures show flat bars with Z through the thickness; the locator names that axis as figure context, not a Z-loaded result, and XY is supported (V011803 to V011807, 2026-10-03). |
+| `MEAS-PHYSICS-HDT-LOADS` | 2 | Heat deflection at the lighter load below the heavier: Prusament rPLA's 1 °C inversion is within ISO 75 repeatability (V013711); the lint paired two different columns of one sheet (V014653). |
+| `CONTEXT-ROW-CONTRADICTS-PAGE` | 1 | SUNLU PCL's bars were printed at 260 °C, far above its recommended 75-85 °C: a printed bar off the product's recipe (D95), a narrower form of the page's printed specimen (V010184, m365). |
+| `GRADE-KEY-PRODUCTS` | 1 | Spectrum's PLA Premium sheet prints one table for five products already keyed together; the table is recorded on the key's carrier grade (R053) and the others read it. |
 
-Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-02, 312 in all, and
+Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-05, 402 in all, and
 the command below counts them again. `npm run audit:data` refuses stale acceptances in the data; this documentation
 table must also be refreshed when the accepted rows change.
 
@@ -363,22 +367,22 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   and 85A and Python Flex 90A theirs from their sheets (the research package of 2026-09-26). Query: active products with
   no measurement and no same-key sibling.
 - **The guide's enclosure is the H2C's chamber, and some makers ask for more** (D90, m165). The owner ruled that for
-  the nine types Bambu Lab's guide asks an enclosure for, a silent product's chamber is within the H2C, labelled as the
-  guide's: 123 products read it when m165 made the reading, and 105 on 2026-09-27. Products of those types that state
+  the eleven types Bambu Lab's guide asks an enclosure for (nine when m165 made the reading), a silent product's
+  chamber is within the H2C, labelled as the guide's: 123 products read it when m165 made the reading, and 105 on 2026-09-27. Products of those types that state
   a chamber above 65 °C on their own sheets keep that reading (16 when D90 counted them, 21 on 2026-09-27), Bambu
   Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets among them, which the owner named as the reason to
   revisit. Since D93 (m190, 2026-09-27) a maker's own "enclosure needed" or "recommended" with no temperature reads
   as the guide's tick does: 28 products' own sheets and one twin's (Kratos PC, whose own sheet says "Enclosure
   recommended for large(r) prints" and holds no profile of its own). None of those types is unknown with an
   enclosure asked for since m193 merged PolyMax PC's two revisions: the 2018 sheet's "70 – 80 (recommended)" now
-  speaks for it beside the V5.5 sheet's unread "Not needed (70°C-100°C)" (below). Query: products of those nine
+  speaks for it beside the V5.5 sheet's unread "Not needed (70°C-100°C)" (below). Query: products of those eleven
   materials whose `print.chamber.verdict` is `exceeds`, `partial` or `exceeds-recommended`, and those unknown with
   `print.enclosure` recommended.
 - **What the guide prints and the tables do not use.** Since m209 the build reads the revision Bambu Lab's guide page
   links (B-GUIDE, eighteen types; D88 amended), checked on the page in headless Chrome. ASA-CF and PC FR are mapped to
   it, and the 15-column copy's rows are kept and read by no material. TPU for AMS is not mapped: its material (M040) is
-  an alias, and the TPU classes are not one Bambu product. The guide's drying line is recorded and fills no recipe, and
-  its annealing row, AMS compatibility, adhesion, desiccant, speed and fan rows are not recorded. Its TPU nozzle rows
+  an alias, and the TPU classes are not one Bambu product. The guide's drying fills a silent product's drying, labelled as the guide's (D127); its
+  annealing row, AMS compatibility, adhesion, desiccant, speed and fan rows are not recorded. Its TPU nozzle rows
   ("Hardened Steel / Stainless Steel") settle no hardened-nozzle question.
 - **A PolyTerra PLA+ sheet** (S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1) is cited by a PolyTerra PLA profile (P0316).
 - **What the finishing reads (m170 to m173) left** (RESPONSE.md, "Phase 6, lane 2, finished"):
@@ -395,19 +399,23 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
     (P0621): eStars-PLA is itself a luminous PLA ("gorgeous luminous star appearance effect"), so the advice is its own.
   - *One cell recorded unread:* PolyMax PC's "Closure chamber | Not needed (70°C-100°C)", beside a note that recommends an
     enclosure and a heated chamber for large parts (P0276, Parse review).
-  - *A drying cell that says drying is not needed* ("Not needed", "drying is not necessary", 4 profiles) counts as
-    drying stated, with no schedule: the drying states are stated or unknown, and nothing says "not needed".
-  - *The specimen blocks on some other sheets are not yet on their measurements.* D63 puts a sheet's specimen printing
-    conditions in its measurements' Specimen / print parameters. m192 wrote them on 310 of the 332 measurements of the
-    50 sheets whose profiles m170 left with no value (3DXTECH's "Printed Specimen Conditions", Raise3D's "All testing
-    specimens were printed under the following conditions", Polymaker PC-PBT's "How to make specimens"); the other 22
-    are density, DSC, melt flow, water uptake or moisture, not measured on the bar the block describes, and one 6 GPa
-    modulus Raise3D's PET CF prose claims. The 122 other sheets m170 read a specimen block on (their profiles kept a
-    recommended row) held 1,390 measurements Not published there on 2026-09-27, 1,016 of them bars or printed specimens:
-    Polymaker's, Flashforge's, eSUN's, Raise3D Premium's, 3DJake's and Fiberon's blocks. m300 (2026-10-02) wrote
-    Polymaker's and Fiberon's letter-spaced blocks, and Eryone's and SUNLU's notes, on 626 bar rows (below; §18); the
-    others' blocks still wait, and m192's CSV and check take them sheet by sheet. Five excluded high-temperature materials (PEKK-ESD, PEI-GF, PEI-ESD, TPI, PEEK-GF) now publish no
-    nozzle window at all; their exclusion is their H2C status.
+  - *The specimen blocks on the other sheets, and what still waits.* D63 puts a sheet's specimen printing conditions in
+    its measurements' Specimen / print parameters. m192 wrote them on 310 of the 332 measurements of the 50 sheets whose
+    profiles m170 left with no value (3DXTECH's "Printed Specimen Conditions", Raise3D's "All testing specimens were
+    printed under the following conditions", Polymaker PC-PBT's "How to make specimens"); the other 22 are density, DSC,
+    melt flow, water uptake or moisture, not measured on the bar the block describes, and one 6 GPa modulus Raise3D's PET
+    CF prose claims. The 122 other sheets m170 read a specimen block on (their profiles kept a recommended row) held
+    1,390 measurements Not published there on 2026-09-27, 1,016 of them bars or printed specimens. m300 (2026-10-02)
+    wrote Polymaker's and Fiberon's letter-spaced blocks, and Eryone's and SUNLU's notes, on 626 bar rows (below; §18).
+    m358 (2026-10-05) wrote the blocks of 96 further sheets (Flashforge, eSUN, the older Polymaker sheets, Raise3D
+    Premium, AzureFilm, 3DJake and SIDDAMENT): 252 page statements and 480 values' print parameters. m365 added 240 page
+    statements for sentences that state the bars' printing in one line (548 values) and 165 values' conditioning
+    sentences. What still waits is the heat-deflection bars the blocks do not name, and the sheets whose Locator names no
+    page, which no page_context row reaches. On 2026-10-05, 1,404 bar or printed-specimen rows on 251 sheets whose
+    page_context rows state a printed specimen still hold Not published print parameters (query below); a sheet that
+    prints no block leaves them so, and m192's CSV and check take the rest sheet by sheet. Five excluded
+    high-temperature materials (PEKK-ESD, PEI-GF, PEI-ESD, TPI, PEEK-GF) now publish no nozzle window at all; their
+    exclusion is their H2C status.
   - *Polymaker's newer sheets set "How to make specimens" letter by letter* ("H O W T O M A K E S P E C I M E N S"),
     which m128's reader did not match. Since m300 (2026-10-02) a page_context row per sheet and scope the block names says
     the bars were printed (34 sheets; 90 rows beside the three PLA Pro already had), and its conditions are each bar row's
@@ -425,6 +433,7 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
 ```bash
 npm run sql --silent -- "select profileid, drying from profiles where drying_state = 'stated' and drying_c_state = 'Not published' and drying_hours_state = 'Not published'"
 npm run sql --silent -- "select profileid, sourceid, nozzle_diameter from profiles where nozzle_diameter = '0.4mm'"
+npm run sql --silent -- "select count(*), count(distinct sourceid) from measurements where specimen_print_parameters = 'Not published' and data_status not like 'Retired%' and specimen_type in ('Printed specimen', 'Not published (do not assume printed)') and sourceid in (select sourceid from page_context where specimen_type like 'Printed%')"
 ```
 
 ---
@@ -447,8 +456,9 @@ was chosen by an agent and none by a person; a sample of 50 was read against the
     63 products (60 maker searches and three access/identity limits) are in
     `docs/audits/2026-09-28-gap-closing/C-SITE-OUTCOMES.csv`; qualitative heating advice without a setpoint remains
     unresolved. Re-derive the general counts with `npm run audit:know-how`.
-  - **31 products have no document read** (state no-document-read; 44 before b39, and 31 on 2026-10-02 by the
-    worklist). Most came in with batches b34, b35 and b37 after lane 3 had read.
+  - **41 products have no document read** (state no-document-read; 44 before b39, 31 on 2026-10-02, and 41 on
+    2026-10-05 by the worklist, with 47 sheet-silent). Most came in with batches b34, b35, b37 and b43 after lane 3
+    had read; b43's 12 new products read no know-how.
   - **Where the lists are:** `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md` (`npm run audit:know-how`), and
     `archive/research-2026-09-26/disposition.csv` for what became of each research finding.
 - **"Fabru" and "Fabru / purefil" held some products twice**; since m302 (D123) each such product is one grade, its
@@ -479,7 +489,8 @@ Batch b34 (m143, D87) took the 74 sheets deferred for their identity; 44 entered
 database holds, 2 are not data sheets, and 22 were deferred again with the gap named in the ledger. The owner answered
 the three identity questions they left the same day, and batch b35 (m144, m145) took two of those sheets in. Batch
 b37 (m207, the owner's leave of 2026-09-27) took two more whose makers' pages the research package of 2026-09-26
-found: Fillamentum Timberfill (PLA Wood, R203) and NinjaTek Eel (TPU-EC, R204). 18 remain deferred.
+found: Fillamentum Timberfill (PLA Wood, R203) and NinjaTek Eel (TPU-EC, R204). Batch b43 (m362, gap round 2) took ten of the
+thirteen sheets that waited on a reader gap, read page by page. 8 remain deferred.
 
 - **Five name neither a polymer nor a family**, so no home reaches them:
   - colorFabb's 2015 "20% milled carbon fibres";
@@ -491,14 +502,12 @@ found: Fillamentum Timberfill (PLA Wood, R203) and NinjaTek Eel (TPU-EC, R204). 
   A maker document naming the polymer or the family frees each. Electrifi's safety data sheet names one, "biodegradable
   polyester" (staged as a witness; the ledger note says so), but no material or home holds a polyester filament. The
   owner's word on a polyester home frees it.
-- **Thirteen wait on a reader gap**: four Stratasys condition tables (Antero 800NA is PEKK by R192; Diran 410MF07, "a
-  nylon-based ... mineral-filled 7%", waits on the owner for its home too), three layouts (Essentium PA and PA-CF,
-  3D4Makers PI Z2, which stays TPI by the owner's confirmation of R193), two languages (Smartfil FLEX 77A in Spanish,
-  a TPU; Flashforge FABRIAL-R in Japanese), BigRep HI-TEMP's mis-mapped text layer, Markforged's four-product
-  Composites table, FKuR's Fibrolon trial-grade sheet, a resin maker's that names no filament, and QIDI S-White. The
-  research package of 2026-09-26 found readable official copies or translations for several of them (Essentium's
-  orientation diagrams, the Spanish and Japanese texts, Markforged's column headings; its P1-IDENTITY folder). Each
-  still wants a reader or a per-figure migration of its own, as m198 was for LEHVOSS.
+- **Three wait**, of the thirteen that waited on a reader gap. Batch b43 (m362) read the other ten page by page and
+  admitted them (§31): Antero 800NA, Nylon-CF10, Essentium PA and PA-CF, 3D4Makers PI Z2, Smartfil FLEX 77A,
+  Flashforge FABRIAL-R, BigRep HI-TEMP, Markforged's Composites (Onyx, Onyx FR, Nylon White) and QIDI S-White. The three
+  that stay are Stratasys' Composite Molding Material (ST-130), which names no base polymer; Diran 410MF07, "a
+  nylon-based ... mineral-filled 7%", which waits on the owner for its home; and FKuR's Fibrolon trial-grade sheet, which
+  names no filament. Markforged's Onyx ESD, the fourth column of the Composites table, did not enter either (§31).
 - **Batch b36 deferred one sheet on a reader gap**, and m198 entered it by the owner's leave (decision 7 of 2026-09-26):
   LEHVOSS's printed-specimen sheet for LUVOCOM 3F PAHT 9825 NT is a second source of G147-01, checked line by line on
   its hash-checked page. PAHT (M147) has its comparable stiffness now, 3.1 GPa: it passes Lightweight structure and
@@ -508,10 +517,6 @@ found: Fillamentum Timberfill (PLA Wood, R203) and NinjaTek Eel (TPU-EC, R204). 
   to 290 °C, bed ≥ 50 °C, drying 110 °C for 6 to 8 h), which differs from the moulded sheet's (270 to 290 °C) that
   G147-01's profile holds. The reader gap itself (a condition cell and two headings) is not closed; a second sheet of
   this layout would need the same kind of migration, or the reader.
-- **QIDI S-White is Support for ABS (R202) and did not enter.** QIDI's bilingual layout holds it, as it holds
-  QIDI's other sheets: the reader read no profile, so the seven materials the sheet lists as suitable (its Support
-  pairing) have no row to go in, and it misread the water absorption (b35). The bilingual reader, or a profile read
-  from the page, frees it.
 - **SBC (M174) is not estimated**, and Crystal Flex publishes its strength and elongation without a direction, so
   SBC's answers are unknown until a scenario admits values as published (D84) or a resin reference gives it a
   polymers.csv row (R199). The reference the database cites, BASF's "Polystyrene and Styrolux"
@@ -1067,7 +1072,7 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   maker-undisclosed". Either way CPE-LW is left with no product, so it becomes a family entry or an alias (m141's
   shape): the owner's call. Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for
   value and sit under PA6-CE and PA6, as Spectrum's own documents name them, while the LUVOCOM grades sit under PAHT-CE.
-  13 cross-material twin pairs are accepted (R166).
+  33 twin acceptances (GRADE-VALUES-TWIN, §6) stand, R166's among them.
 - **The import's fibre sentence is gone since m296** (D121): 174 profiles say what their sheets say, the rule is in
   `method.csv`, and the page says it as the rule. Braskem's PP-CF prints "Nozzle Size (Material) ≥0.6 (Hardened Nozzle)",
   which its profile now holds (m299).
@@ -1078,14 +1083,14 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   MPa as the unit of its X-Y elongation; Raise3D's Hyper Core PPA CF25 (G070-08) carries Industrial PET CF V4.0's source as
   its formulation key, which no other grade shares and reads nothing, but which may say its sheet reprints that table
   (R166). `npm run audit:sources` finds such values.
-- **Guard precision.** `audit:context` keeps 57 accepted findings on measurements, where it matched a neighbouring line,
-  or a statement that does not speak for the rows it flagged, or a standard printed without its letter, and 19 on print
+- **Guard precision.** `audit:context` keeps 63 accepted findings on measurements, where it matched a neighbouring line,
+  or a statement that does not speak for the rows it flagged, or a standard printed without its letter, and 36 on print
   profiles, each a reading the profile is right to differ from (a test bar's single temperature under a heading the
   reader does not know, a neighbouring column, purefil's mislabelled bed row, a brass-wear caution, a decimal comma);
-  IMPACT-UNIT-STANDARD keeps 45, each a sheet that prints kJ/m² beside ASTM D256 or J/m beside ISO 180 (BASF, m298). PARSE-REVIEW-STALE checks print profiles and measurements alike.
-- **What the independent review left open.** A page_context row speaks for a property class of a page, not for one
-  table, so a statement that heads one of two tables on a page reaches the other (PC00012 and PC00041 were found and
-  corrected in m286; a probe of all 88 found no other). The migrations' quote check proves a quote is on the cached
+  123 acceptances in all (`data/review/context-witness-accepted.csv`), 8 of them unrecorded profiles from the reader
+  round's guard. IMPACT-UNIT-STANDARD keeps 46, each a sheet that prints kJ/m² beside ASTM D256 or J/m beside ISO 180 (BASF, m298). PARSE-REVIEW-STALE checks print profiles and measurements alike.
+- **What the independent review left open.** Since D128 a statement can name the table it heads (m356); a statement
+  recorded for the page still reaches every table of its scope. The migrations' quote check proves a quote is on the cached
   sheet, not that it applies to the rows it is used for. `audit:context` needs the text cache, so CI skips it and only a
   contributor's `verify` runs it. The 147 reviews m274 scoped were scoped to the columns that differed, not re-read.
 - **Print profiles, after the root-cause sweep of 2026-10-02** ([record](audits/2026-10-02-profile-root-causes/README.md),
@@ -1101,11 +1106,6 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
     learned to drop it; the v12 draw found five such notes (four test-bar settings and a "Cooling: From 90" that is an
     annealing cool-down). A note cannot be retired, and a removal is refused (D72): the owner decides whether notes get
     a way to retire.
-  - A twin reads its sibling's nozzle statement even where it names the sibling's own additive: eSUN PLA Clear asks for
-    a hardened nozzle because eStars-PLA's sheet says its luminous pigment wears brass (D89). PLA Clear's own sheet
-    prints a full recipe that names no nozzle, and eSUN prints one template table on both. Recommended: a twin reads a
-    sibling's hardened-nozzle statement only where it holds no profile of its own; the owner's call, since it narrows
-    D89.
   - purefil's PA6 GF10 sheet prints its bed twice, "Heizbett Temperatur 120-140 °C" and "Heated bed temperature 80°C" in
     the slot where every other purefil sheet prints its drying temperature, and no drying row at all; the profile holds
     the first, which is above the H2C's 120 °C and turns G051-08's bed gate to exceeds. The sheet's own words call both
@@ -1137,8 +1137,7 @@ on its own. What it could not, by who settles it:
 - **The owner.**
   - FiberFlex Aero's filing (§28): TPC / TPEE inferred, or "TPE, maker-undisclosed"; either leaves CPE-LW without a
     product.
-  - A way to retire a profile note (§28), and whether a twin reads a sibling's statement about its own additive (§28,
-    eSUN PLA Clear; recommended: not where the product holds a profile of its own).
+  - A way to retire a profile note (§28).
   - The 255 maker questions in `archive/research-2026-09-26/owner-handoffs.csv` (§15): sending them is outward-facing.
   - The coverage campaign (§27): the owner authorized completing material assessment and 100–150 priority products on
     2026-10-02. All 136 material assessments are complete; 100 additional product targets are frozen in STATUS.md.
@@ -1219,15 +1218,15 @@ is complete, with its completion count generated by STATUS.md.
 - Fiberlogy PP publishes HDT load1.8MPa on its TDS and0.45MPa on its page. FiberFlex Aero repeats
   CPE Antibac/Flex40D boilerplate. Neither discrepancy establishes the intended identity or test conditions.
   PA12CF table enclosure-not-required and prose enclosed/heated recommendation both remain visible.
-- Fillamentum Porthcurno drying is a strict >5h minimum at80°C, retained raw with no exact typed duration.
+- Fillamentum Porthcurno drying is a strict >5h minimum at80°C, typed as a 5 h lower bound, open (P1376; m355, D127).
   CPE guide75°C/min5h remains beside older3h/4h schedules. TPU chemical ratings are general25°C groups;
   exposure duration/concentration/specimen are absent. BAD is narrative under the existing reducer, while
   mixed solvent ratings remain INDETERMINATE and oil/grease GOOD remains a scoped category positive.
   Water BAD does not establish hydrolysis. The12–16HOUR helpdesk badge is not a test duration.
 - Extrudr reinforced-product pages use a generic0.4mm recipe heading beside specific ≥0.5mm ASA-GF or
   ≥0.6mm ABS-CF/PA6-CF nozzle advice. These different contexts remain visible, with hardened-nozzle guidance.
-  PETG optional60°C/0–6h drying is held because current compiled schedules are labelled required; release
-  needs faithful optional guidance representation, not a fabricated unconditional drying requirement.
+  PETG optional60°C/0–6h drying is recorded as optional since m355 (P1678; D127), not as a fabricated unconditional
+  drying requirement.
   Reinforced food exclusions and resin FDA wording do not certify printed parts.
 - eSUN ABS+ notice published2026-06-15 describes a2025 formulation change, with89°C/33MPa claims beside
   the current page table73°C/40.12MPaXY/14.94MPaZ. Its current observed download still serves the registered
@@ -1285,10 +1284,11 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
   BigRep PRO HT's prints "3onditions"; their settings were read from the page image (m353). The quality flags list 187
   such pages in 138 documents (`text-quality/pages.csv`); only pages tied to a gap were read. Gap round 2 compared every
   held number of 76 such documents with an optical reading of its page (§31).
-- **What the reading-order view finds alone.** 23 print settings and 36 values only the block view reads are listed in
+- **What the reading-order view finds alone.** 23 print settings and 35 values only the block view reads are listed in
   `reader-recall/candidates.csv`; gap round 2's verifiers read each on its page (m359), and the ones a page prints for a
   product the database holds were added.
-- **Thin materials.** 18 materials still have two sources or fewer; b41 searched ten makers' sites for them.
+- **Thin materials.** 18 materials had two sources or fewer at the round's end, and 17 after gap round 2 (b44 gave one
+  a data sheet); b41 searched ten makers' sites for them.
 - **Twin sheets.** Pairs of documents that print the same numbers (language editions of an Extrudr sheet; Raise3D's
   Premium PETG and PC beside Polymaker's PolyLite sheets) are accepted as MEAS-CROSS-SOURCE-TWIN with a reason, not
   retired, as the owner confirmed on 2026-10-05: whether a maker's sheet is a rebranded copy of another's is not shown
@@ -1301,3 +1301,69 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
   density stands in for no headline, and a sheet that prints only that leaves its product's density unpublished.
 - **Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table,
   V012362) is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.
+
+## 31. What gap round 2 (m355 to m365) leaves open
+
+The round (D127, D128, D129; `docs/audits/2026-10-05-gap-round-2/`) worked the reader round's causes by priority. Its
+progress against the 2,518 targets it froze is `after/PROGRESS.md`; `node docs/audits/2026-10-04-reader-round/targets.mjs
+--after --frozen docs/audits/2026-10-05-gap-round-2/TARGETS.csv --out docs/audits/2026-10-05-gap-round-2/after`
+re-derives it.
+
+- **The error rate.** The first blind draw of 40 of the round's records (seed 20261007) found 6 wrong, 4 of them
+  deciding, and a probe of 22 moved print answers found 7 of 30 moved cells wrong; each family was looked for over every
+  source and fixed (m365, D129). The second draw (seed 20261008, `blind-draw/verdicts-20261008.csv`) found
+  none of 40 wrong (0 %, under C9's 3 %); its one reported error was a row that inherits its page's printed specimen by
+  design (D116). Eight of its records hold less than their page prints, each a cell another profile of the same product
+  answers (below). Its sample leans on the families m365 swept, since they are most of what the round changed.
+- **No product's mechanical or thermal headline gap closed.** The round's 296 new values (b43) went to new products,
+  and m359's corrections to held ones; a product with no tensile modulus, strength, elongation or heat deflection still
+  has none (442, 215, 283 and 452 frozen targets, unchanged). Four material cells closed, one each. The rest wait on
+  documents that print them.
+- **What is left of the print recipe.** 20 products have no nozzle and 20 no bed (16 and 15 of the frozen list, and
+  the new products of b43 that print none); chamber stays the largest gap (284), and drying 179 after the dry-box
+  answers left the Drying cell (D129). §30's chamber ruling stands.
+- **Second reads.** Of the 1,792 second-read tasks still outstanding (`reconcile/final-3/summary.md`), the 57 whose reading
+  would decide something were run (`readings/second/w4-01.csv`); each was a mis-pairing and nothing was applied. The
+  rest stay held: each would confirm or add a value no answer turns on.
+- **Copies and densities, not worked.** Copies below MEAS-CROSS-SOURCE-TWIN's threshold (§15), other revisions of one
+  sheet filed on two grades (§16) and the 19 products whose density sits outside their polymer's neat range (§17) were
+  in the plan and were not reached; m361 was not used.
+- **Digits a text layer may misprint.** `digits/compare.py` lists 1,230 numbers on 76 documents (Bambu Lab's sheets and
+  the documents the quality flags name) that the text layer prints and the optical reading does not find
+  (`digits/suspects.csv`). Most are the optical reading's own misses; none was read on its page in this round.
+- **The guide's drying is the type's, not the product's.** Where a product states its own drying beside a guide row,
+  the guide's window contains the maker's in 150 of 357 profiles, overlaps it in 43 and misses it in 164 (ABS and ASA
+  most: the guide's 80 °C above makers' 50 to 60 °C), and the guide calls drying optional where the maker requires it in
+  201 (`guide-drying-backcheck.md`). It is always shown as the guide's.
+- **Pages that contradict themselves about drying.** Polymaker's product pages for Fiberon PA612-CF15, PA612-ESD, PA12-CF10,
+  PA6-CF20, PolyMide CoPA, PolyLite PC and PETG ESD print a schedule in their specifications and, in a tip, "only if the
+  material has absorbed moisture" or another cycle; the profiles keep the specification's schedule, required.
+- **Bars printed at 20 % infill.** Three 3DJake sheets (ABS-P, PLA, ASA) print their test bars at "Infill: 20 %" (m358);
+  the values are held as printed specimens like any other, though a 20 % bar is not comparable with the 100 % bars
+  others print. The comparison does not yet read infill.
+- **Statements the readers left.** The Bambu TPU for AMS and Kingroon PETG sheets say their specimens "were annealed and
+  dried at 70 °C for 12 h" (65 °C, 8 h) and Kingroon's TPU sheet "dried at 70 °C for 12 hours"; Stratasys's PA6/66-GF30-FR
+  sheet conditions its bars "per the respective ASTM standard". These are moisture and treatment states a reviewer must
+  type, and are not recorded on the rows that lack them. Spectrum's 2024 portfolio table prints a bed column its twelve
+  profiles do not hold, and its Polish sheets answer the closed chamber and the hardened nozzle "niewymagane"; the
+  profiles leave both unknown.
+- **Partial rows of multi-product tables.** Spectrum's 2024 portfolio (47 profiles) and 3DJake's catalogue
+  (R-COVERAGE-20261001-28aad1fe7597, 55) hold only some of their row's columns: no nozzle on 73, no bed on 81, no drying
+  on all 102; QIDI's filament guide rows hold "Required" or "Optional" and not the schedule beside it. The second draw's
+  eight such records were each answered by another profile of the product, so none decided; whether every one is, the
+  products' print gates in `build/snapshot/print.csv` say.
+- **A silk PLA under unfilled PLA.** eSUN's eSilk-PLA (G001-76) is filed under PLA with no variant, so Bambu Lab's PLA
+  guide row, whose mapping excludes PLA Silk, answers its chamber, enclosure, nozzle and drying. Whether it belongs under
+  PLA Silk is a filing question for the owner.
+- **Held sheets not admitted (b43).** Stratasys ST-130 names no base polymer; Diran 410MF07 waits on the owner for its
+  home (§14); FKuR's Fibrolon sheet names no filament; Markforged's Onyx ESD names no additive its filing accepts. b44's
+  `NotAdmitted` list gives each product page's reason.
+- **Bambu Lab's drawn V-notch.** Nine Bambu Lab sheets draw a V-notch beside impact values whose Z results sit above their
+  notched X-Y ones, which a notched Z bar cannot do; the drawing does not settle the notch and the values keep theirs
+  (m359).
+- **Questions only a maker can answer.** 125 questions to 36 makers, 52 of them changing a selection or print answer,
+  are in `MAKER-QUESTIONS.md`. Nothing has been sent: that is the owner's to do.
+- **CI does not run the context audit.** `audit:context` reads the private text cache, which CI does not hold; there it
+  prints "audit:context SKIPPED" and a GitHub Actions warning, and passes. It runs in a checkout that holds the cache,
+  and must pass there before a push. Committing the makers' extracted text so CI could run it is a redistribution
+  question for the owner.

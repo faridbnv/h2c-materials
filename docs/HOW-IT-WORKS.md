@@ -445,8 +445,8 @@ The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared
 profile, and each product reports **within**, **exceeds**, **partial** (a chamber window the printer only partly
 reaches), **recommended higher** (a recommended window above the H2C's) or **unknown**. Where its own sheet says
 nothing on a part, a product reads its twin's sheet (another product of the same material that prints the same table,
-D89), then Bambu Lab's Filament Guide for its type (D88), each labelled as such wherever it is shown; its own sheet
-always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the
+D89), then Bambu Lab's Filament Guide (D88) for its type only (a variant reads none, D129) and, since D127, for drying
+too, each labelled as such wherever it is shown; its own sheet always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the
 drawer counts how many of them the H2C can print on each axis, and a requirement on printing is met by a product that
 meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a
 requirement and never fails a product. Where a source says a heated chamber is not needed, that counts. For the eleven

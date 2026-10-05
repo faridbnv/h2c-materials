@@ -16,7 +16,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion. One setup a sheet prints, or one row of it (a print speed, a nozzle size); a copy is retired ("Retired duplicate record", D120) and never reaches the database |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
-| `page_context.csv` | What a source page states once for the values printed on it ("Mechanical properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded"): specimen type, moisture state, treatment and schedule, standard and test temperature, per page and scope (all, tensile, flexural, impact, thermal, physical). A measurement on that page that states nothing of its own inherits it, and a row that states the opposite is flagged (D116) |
+| `page_context.csv` | What a source page states once for the values printed on it ("Mechanical properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded"): specimen type, moisture state, treatment and schedule, standard and test temperature, per page and scope (all, tensile, flexural, impact, thermal, physical) and, where a page holds two tables, the table (Table, D128). A measurement on that page that states nothing of its own inherits it, and a row that states the opposite is flagged (D116) |
 | `evidence.csv` | Chemical, environmental and application evidence; and makers' know-how, a maker's statements about printing and using its product in its own words (Domain "Makers' know-how"), which the build keeps out of everything that screens (below, "Makers' know-how") |
 | `know_how_reads.csv` | Which sources were read for makers' know-how, how (a document held, or the maker's site searched), when and by whom: the one fact about know-how the build cannot derive |
 | `prices.csv` | price observations: Canadian listings in CAD, and foreign ones in their own currency (D113) |
@@ -96,7 +96,8 @@ and nothing is silently empty.
 ### Raw text and typed values
 
 What the build decides on is a typed column beside the raw text it came from (D49). A profile carries, per axis,
-the source's words ("Classic: 190 - 210 °C") and the state, minimum, maximum and requirement read from them; drying,
+the source's words ("Classic: 190 - 210 °C") and the state, minimum, maximum and requirement read from them; drying
+(Drying need: required, optional, not-needed or unknown; Drying hours open for a lower bound such as "6+ h", D127),
 enclosure and the hardened-nozzle requirement likewise; a measurement carries its Standard / load text and Test load
 MPa, and its Test temperature text and Test temperature °C (m175: the number the wording states, Not published where it
 states none or only in words). The parsers check every typed value against its raw text on every build, and Parse
@@ -294,7 +295,8 @@ a material's headline is derived from them, and no product stands for a material
   gate against the H2C and the window of the profile that decided it, the enclosure, whether it wants a hardened
   nozzle, drying, and the annealing its sheets state. Where its own profiles say nothing on a part, its twin's own
   (D89) are read; where those say nothing either on a part of the print gate (nozzle, bed, chamber, enclosure, hardened
-  nozzle), its material's printer maker's guide row (`print_guide.csv`, D88). `print.from[part]` and the gate's reason
+  nozzle) or on drying (D127), its material's printer maker's guide row (`print_guide.csv`, D88); a product with a
+  Variant reads none (D129). `print.from[part]` and the gate's reason
   say which, with the label a reader is shown. What a product's own sheet says, even words the parser cannot read,
   always stands. A guide row that asks for an enclosure and gives no chamber temperature leaves the chamber unknown,
   unless it declares Chamber state `enclosed`: Bambu Lab's rows for the eleven types its guide asks an enclosure for,

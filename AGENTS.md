@@ -27,8 +27,9 @@ npm run build:diff    # what the change did to the compiled database, against HE
 ```
 
 `verify` fails on a new lint finding, on an unreviewed build finding, on a context-audit finding without a reason
-(`npm run audit:context`: each value's line, page and print settings against its cached sheet, where the text cache is),
-on a stale `docs/RULES.md` or
+(`npm run audit:context`: each value's line, page and print settings against its cached sheet, where the text cache is;
+CI holds no text cache, so there it prints SKIPPED and a warning and passes: run it in a checkout that has the cache
+before a push), on a stale `docs/RULES.md` or
 `docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
 engine over 300 random scenarios (about three minutes more than `verify:fast`, as GOALS C13 measures it: the interface
 views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests
@@ -170,11 +171,12 @@ reproduced every one of them (`rule-vs-hand-picks.md` beside it).
 **A twin needs no row either.** Products of one material whose sheets print one table are a grade each under one Shared
 formulation key, with the values recorded once (R053). The build lets each read its sibling's values and print recipe
 wherever its own are silent, labelled "same sheet as …" (D89); a price is never read, and a product that reprints
-another material's table (R166) shares no key and reads nothing. Record a twin's own statement on its own grade: it
-always wins.
+another material's table (R166) shares no key and reads nothing. A twin's hardened-nozzle statement reaches only a
+product with no profile of its own (D127). Record a twin's own statement on its own grade: it always wins.
 
 **Add a printer maker's guide row.** Where a product's own sheet and its twin's are silent on its print gate, the build
-reads its material's row of `print_guide.csv` (D88). A guide is a source like any other: fetched, its SHA-256 recorded,
+reads its material's row of `print_guide.csv` (D88), and its drying too (D127; Drying need and Drying hours open are
+typed beside the raw cell). A product with a Variant is not the guide's type and reads none (D129). A guide is a source like any other: fetched, its SHA-256 recorded,
 Citation role `cited`, and a new revision is a new source row. A row is one type the guide heads a column with, in a
 profile's columns: the guide's words in the raw columns (a drawn mark as its glyph, ✓ or ✗), the parsers' reading in the
 typed ones, and a Locator naming the column and rows. Map it in `print_guide_materials.csv` only to the material that is
@@ -192,7 +194,7 @@ build refuses it otherwise (HEADLINE-SELECTION-INVALID), and refuses a second pi
 ID) and Status `active`. It joins its material's grade list with no other edit. If the product is a variant
 its material's Modifier / filler does not describe (a lightweight additive, an undisclosed dense filler), set
 Variant and say why in Composition / filler: its values stay its own, and the estimate model keeps them from
-pulling the family.
+pulling the family. It also reads no guide row, since it is not the guide's type (D129).
 
 **Add a material.** `npm run data:new-material -- --name "PA11" --polymer PA11 --family "Nylon / Polyamide"
 --manufacturer Arkema --product "Rilsan PA11" --source S-...` writes the material and its first grade, refuses to
@@ -274,7 +276,8 @@ research package of 2026-09-26 identified (batch b37). On 2026-09-28, the owner 
 sheet (b38) and the frozen chamber-target maker searches (b39), as bounded in GOALS' source-backup and targeted
 gap-closure section; on 2026-09-29, the gap-fill tranche's nine saved product pages (b40, GOALS' gap-fill tranche
 section); on 2026-09-30, the price pass (p01 to p04, GOALS' price pass section); on 2026-10-04, the makers' own pages for the
-reader round (b41, b42; GOALS, the reader round section). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
+reader round (b41, b42; GOALS, the reader round section); on 2026-10-05, the thirteen held sheets and the makers' own pages
+for products still without a nozzle or bed (b43, b44; GOALS, gap round 2, item 4). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
 2026-09-30 (GOALS, coverage-expansion campaign): isolated campaign batches c01–c14 have admitted 90 sources;
 the selected resumed run has completed all 136 material assessments and 100 additional priority products.
 The unselected full-catalogue backlog remains outside that narrowed run; any further work follows the
