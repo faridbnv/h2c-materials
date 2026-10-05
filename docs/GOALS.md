@@ -505,3 +505,16 @@ mismatches it meets corrected: GOALS steps 2 and 5; C3, C4, C9, C11, C12 and C13
    number shown may break an order physics sets: the ultimate strength is at least the yield and break strength,
    elongation at break at least elongation at yield, HDT at 0.45 MPa at least HDT at 1.8 MPa.
 4. Built on a branch, and pushed to main when done.
+
+## Decided on 2026-10-05, the reader round's open calls
+
+The owner accepted the three recommendations the reader round left open (OPEN-PROBLEMS §30):
+
+1. **A maker's "Heated Chamber: Recommended" with no temperature stays unknown** on the H2C's chamber (D33, D93): it
+   cannot be checked against the 65 °C limit, so the product waits for its maker to print one. PPA-CF and ASA-CF keep
+   their unknown answers in four templates.
+2. **A conditioned density stands in for no headline.** A sheet that prints density only after moisture conditioning
+   leaves its product's density unpublished; no product is affected today.
+3. **Two makers' sheets that print the same numbers stay two products**, each with its own sheet's values, accepted as
+   twins with a reason and never retired, until a maker says one is the other's rebrand (Raise3D Premium PETG and PC
+   beside Polymaker's PolyLite sheets; the Extrudr language editions).

@@ -1242,7 +1242,7 @@ cannot resolve these questions. Automatic approval review initially rejected clo
 existing private OneDrive destination and payload. The reproduced export contains2469 originals and2875
 derivatives, with124 historically absent inventory entries and no new original missing.
 
-## 30. What the reader round (m338 to m353) leaves open
+## 30. What the reader round (m338 to m354) leaves open
 
 The round (D125, D126) closed 853 of its 3,351 frozen targets; `docs/audits/2026-10-04-reader-round/after/PROGRESS.md`
 counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targets.mjs --after` re-derives it.
@@ -1260,9 +1260,9 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
   reason. The makers are the next source.
 - **The chamber stays the largest gap**: 267 products and 31 materials state no chamber, because makers rarely print
   one. Where a maker's page says "Heated Chamber: Recommended" with no temperature (PPA-CF, ASA-CF), the gate reads
-  unknown (D33, D93), which moved four template answers from pass to unknown. Whether such a recommendation passes on
-  the H2C's chamber is the owner's call; recommended: keep it unknown, since a recommendation with no temperature cannot
-  be checked against the H2C's 65 °C chamber.
+  unknown (D33, D93), which moved four template answers from pass to unknown. The owner decided on 2026-10-05 to keep it
+  unknown (GOALS, "Decided on 2026-10-05"): a recommendation with no temperature cannot be checked against the H2C's
+  65 °C chamber, so such a product waits for its maker to print one.
 - **Readings held, not applied.** 13,909 readings stay in `proposals/final/held.csv`, each with its reason: 5,313 name a
   property or setting no table column holds (the record tier's candidates for `properties.csv`), 1,752 would change a
   row the readers did not tie to a held one, 1,459 are already held on another product of the same formulation, 1,213
@@ -1288,12 +1288,13 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
 - **Thin materials.** 18 materials still have two sources or fewer; b41 searched ten makers' sites for them.
 - **Twin sheets.** Pairs of documents that print the same numbers (language editions of an Extrudr sheet; Raise3D's
   Premium PETG and PC beside Polymaker's PolyLite sheets) are accepted as MEAS-CROSS-SOURCE-TWIN with a reason, not
-  retired: whether a maker's sheet is a rebranded copy of another's is not shown by either document. Re-derive with `npm
+  retired, as the owner confirmed on 2026-10-05: whether a maker's sheet is a rebranded copy of another's is not shown
+  by either document, and each product keeps its own sheet's values until a maker says so. Re-derive with `npm
   run data:lint -- --all`.
 - **A conditioned density takes no headline.** `products.js` (assess) excludes every value measured after moisture
   conditioning from a headline that does not change with moisture, density included. No product is held out by it now:
   Markforged's Onyx GF sheet conditions its specimens at 52 % RH "unless otherwise noted", which m342 first read as heading
-  the whole page, and m354 narrowed to the mechanical tests it heads. Whether a conditioned density should stand in where a
-  sheet prints only that is a rule for the owner.
+  the whole page, and m354 narrowed to the mechanical tests it heads. The owner kept the rule on 2026-10-05: a conditioned
+  density stands in for no headline, and a sheet that prints only that leaves its product's density unpublished.
 - **Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table,
   V012362) is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.
