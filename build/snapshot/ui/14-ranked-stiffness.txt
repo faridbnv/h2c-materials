@@ -1,7 +1,7 @@
-COUNT 4 shown PASS
-STATUS ☑ PASS 4 | ☐ UNKNOWN 107 | ☐ FAIL 42
-4 of the 153 materials meet these requirements
-High-stiffness fixture template · 107 more could not be checked, left out under Confirmed only
+COUNT 5 shown PASS
+STATUS ☑ PASS 5 | ☐ UNKNOWN 106 | ☐ FAIL 42
+5 of the 153 materials meet these requirements
+High-stiffness fixture template · 106 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -45,9 +45,22 @@ PC
 ¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
+PP-GF
+Polyolefins
+#1 · best: 3DXTECH FIBREX GF PP
+ PASS
+1 of 1 product
+ 1,120 passing: 6.75
+all products: 6.75
+ 65 1.7 passing: 139
+all products: 139
+138–139 · 2
+ 118¤↗
+out of stock
+ ☆
 PP-CF
 Polyolefins
-#1 · best: 3DXTECH CarbonX CF PP
+#2 · best: 3DXTECH CarbonX CF PP
  PASS
 1 of 1 product
  1,000
@@ -65,7 +78,7 @@ all products: 141
  147↗ ☆
 PPA-GF
 High-Performance Engineering
-#2 · best: IPCON PPA-GF
+#3 · best: IPCON PPA-GF
  PASS
 1 of 1 product
  1,285
@@ -83,7 +96,7 @@ all products: 196
 annealed median
  106↗ ☆
 PETG-CF
-#3 · best: 3DXTECH CarbonX Carbon Fiber PETG
+#4 · best: 3DXTECH CarbonX Carbon Fiber PETG
  PASS
 1 of 7 products
  1,290

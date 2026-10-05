@@ -136,6 +136,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D124 | The page is written for an engineer: answer first, the data sheet's terms, no coinages, IDs out of sentences | Every text on the page is written for one reader, an engineer choosing a filament for a part on the H2C, and for the decision it serves. Engineering and data-sheet terms stay; the words this project coined for its own records ("twin", "admitted for screening", "research mode", "in scope", "Theoretical") are replaced by what that engineer would say. The left rail is ordered as an engineer screens, with the H2C's checks in one group and the part's state in another; the drawer's tabs follow how a material is checked, Products second and Sources last with the known gaps; record IDs leave the page's sentences for a small ID mark. No answer moves. | In force; it rewords the labels of D88 and D89 and the Overview of the drawer described under D83, D103 and D117 |
 | D125 | A sheet is read as its page shows it: reading order, page images read where they decide, and every own sheet guarded | The import's sheet reader read a page line by line in the order its text layer gave, so a two-column sheet interleaved its columns and a label lost its value; a font that drew "ti" as a digit hid a label; a web page's spec grid ran onto one line; and a product whose sheet the reader could not read got no print recipe, which no check noticed, because every check started from a profile that existed. The text is now also read in reading order and with its ligatures put back, web pages with their structured data and grids, and broken text layers are flagged and read optically beside the text. Every page of the 1,377 documents tied to a gap was read from its image by Claude Sonnet; a reading entered only where the page's own text bears its numbers out, a second blind reader agrees, or the importer's reader agrees, and Claude Opus decided every class of correction. A product's own sheet that prints a setting no profile holds is now a finding. | In force; it extends D97 (a value is bound to its evidence line), D115 and D116 (context the page states), D119 and D120 (the reader as the guard) and D123 (a registered sheet read in full is not an import) |
 | D126 | No number shown contradicts what its own product's measurements prove | An estimate could sit below a strength the same product had measured: 46 materials and 343 products showed an ultimate-strength estimate under their own published break or yield stress, and LCP's HDT at 0.45 MPa was estimated under its own published HDT at 1.8 MPa. The orders physics sets between properties are now a table (`physical_relations.csv`), the lint reads it, every estimate is floored by what its own product's measurements prove, a material's range contains every product's floor, a product's strength taken from yield or break is the larger of the same test's two, and the build refuses a number shown that breaks an order. | In force; it replaces D78's material floor ("held at the highest own printed limit") with containment, and extends D55 (a value physics rules out is kept and flagged) and D84 (what a printed or unstated bar may decide) |
+| D127 | Drying is recorded as a sheet states it, and the printer maker's guide fills a silent product's drying | A sheet's drying line was read as a published schedule whatever it said, so "not necessary", "Optional" and "only if the material has absorbed moisture" counted as a product that must be dried, and "6+ hours" lost its open end. Each print profile now says whether drying is required, optional or not needed, and whether its duration has an upper end. Bambu Lab's guide, which already answers a silent product's nozzle, bed and chamber, now answers its drying too, labelled as the guide's. A product that holds a profile of its own no longer reads its twin's statement about wearing a brass nozzle. | In force; it amends D88 (the guide now answers drying) and D89 (a twin's hardened-nozzle statement reaches only a product with no profile of its own) |
+| D128 | A page statement can head one table | A heading or footnote recorded once for a page reached every value of its class on that page, so a footnote under the mechanical table also spoke for the physical table beside it. A page statement can now name the table it heads, matched against the values' locators, and a statement that heads one table outranks one that heads the page. | In force; it extends D116 (context the page states) |
 
 <!-- end index -->
 
@@ -4114,3 +4116,46 @@ the owner chose that a bar whose specimen is not stated bounds as a printed one 
 - **What moved.** Every shown ultimate-strength estimate now sits at or above its product's own break and yield stress;
   `build/snapshot/` holds the new ranges, and `npm run build:diff` against the branch point lists only estimate ranges,
   product strengths taken as an endpoint maximum, and the findings above.
+
+## D127. Drying is recorded as a sheet states it, and the printer maker's guide fills a silent product's drying
+
+> **In plain words:** A sheet's drying line was read as a published schedule whatever it said, so "not necessary", "Optional" and "only if the material has absorbed moisture" counted as a product that must be dried, and "6+ hours" lost its open end. Each print profile now says whether drying is required, optional or not needed, and whether its duration has an upper end. Bambu Lab's guide, which already answers a silent product's nozzle, bed and chamber, now answers its drying too, labelled as the guide's. A product that holds a profile of its own no longer reads its twin's statement about wearing a brass nozzle.
+> **Status:** In force; it amends D88 (the guide now answers drying) and D89 (a twin's hardened-nozzle statement reaches only a product with no profile of its own).
+
+*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, gap round 2", items 1 and 2), and on the reader
+round's recommendation for twins (OPEN-PROBLEMS §28); built by Claude (Opus specifying and reviewing, Sonnet coding).*
+
+- **Two typed columns** on profiles and guide rows: `Drying need` (required, optional, not-needed, unknown;
+  `schema/vocab/drying-needs.csv`) and `Drying hours open` (TRUE where the duration has no upper end: "6+ hours", "> 5 h",
+  "at least 8 h"). `parseDrying` (`build/src/normalize/process.js`) reads them; PARSE-MISMATCH checks them like the other
+  typed cells; m355 typed every profile and guide row: 813 profiles require drying, 73 advise it for a condition, 155
+  say it is not needed.
+- **Decisions read the need.** A product's drying axis takes the strongest statement of its profiles (required, then
+  optional, then not needed); the material gate and the engine's "drying known" criterion read it, and the page says
+  "drying not needed", "optional" or "≥ 6 h".
+- **The guide's drying.** `GUIDE_AXES` includes drying: a product whose own sheets and twin say nothing about drying
+  reads its material's guide row, labelled as the guide's, and the guide's "Dry Out Before Use: Optional" reads as
+  optional, never as required. Products whose drying is unknown fell from 357 to 160.
+- **Back-checked** (`docs/audits/2026-10-05-gap-round-2/guide-drying-backcheck.md`): over the 276 products that state
+  their own drying beside a guide row, the guide's temperature window contains the maker's in 150 profiles, overlaps it
+  in 43 and misses it in 164, most often ABS and ASA, where the guide's 80 °C stands above makers' 50 to 60 °C; and the
+  guide calls drying optional where the maker requires it in 201. The guide's drying is general advice for a type, so it
+  is always shown as the guide's and never as the product's own.
+- **Twins.** 16 products with profiles of their own stopped reading a twin's hardened-nozzle statement; 6 changed their
+  abrasive gate.
+
+## D128. A page statement can head one table
+
+> **In plain words:** A heading or footnote recorded once for a page reached every value of its class on that page, so a footnote under the mechanical table also spoke for the physical table beside it. A page statement can now name the table it heads, matched against the values' locators, and a statement that heads one table outranks one that heads the page.
+> **Status:** In force; it extends D116 (context the page states).
+
+*Decided by the owner on 2026-10-05 (GOALS, "Decided on 2026-10-05, gap round 2", item 3), after two blind draws found
+page statements reaching tables they do not head; built by Claude (Opus specifying and reviewing, Sonnet coding).*
+
+- **`Table`** on `page_context`: a heading or column text a measurement's `Locator` must contain (compared without case,
+  spacing or punctuation); `Not applicable` keeps today's reach, the page within the statement's scope.
+  `contextFor` (`build/src/page-context.js`) filters on it and orders table, then scope, then page; the import's
+  proposals, the reconciler, the apply helper, the lint and CONTEXT-PAGE-UNRECORDED use the same match.
+- **Applied** (m356): a detector listed the 17 statements that reach two or more tables; Claude Sonnet read each page,
+  and 3 now head one table (a filament density footnote, a Vicat footnote, a specimen box split between the mechanical
+  and the heat-deflection tables). The test-specimen blocks m358 recorded name their table where a page holds two.

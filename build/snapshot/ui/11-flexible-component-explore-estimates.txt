@@ -237,24 +237,28 @@ nothing published to judge
 Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
-none judged
-nothing published to judge
- 1,400 — 107* 2* — 167¤ ☆
+0 of 1 product
+likely fails: 1 with data misses, 4 publish none
+ 1,200
+1,141–1,400 · 4
+ 2.16 55.9 18 145
+58–178 · 4
+ 167¤ ☆
 Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
 0 of 4 products
-likely fails: 4 with data miss, 1 publish none
- 1,175
-1,140–1,210 · 2
- 3.16
-3–3.33 · 2
- 66.1
-63–69.2 · 2
+likely fails: 4 with data miss, 3 publish none
+ 1,140
+1,100–1,210 · 3
+ 3
+1.95–3.33 · 3
+ 63
+49–69.2 · 3
  9.13
 8.5–9.77 · 2
- 85
-79–91 · 2
+ 79
+41–91 · 3
  107¤ ☆
 OBC
 Polyolefins
@@ -411,7 +415,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- ~1,010–1,070† ~1.4–4.3† ~42–96† ~6–50† ~59–99† 246¤ ☆
+ ~1,010–1,060† ~1.4–4.3† ~42–96† ~6–50† ~59–99† 246¤ ☆
 PAHT-CF
 Nylon / Polyamide
  UNKNOWN
@@ -703,10 +707,10 @@ annealed median
 PLA blend UNKNOWN
 none judged
 nothing published to judge
- 1,340
-1,300–1,540 · 7
- 4.3* 58* 14* 85.5
-54–115 · 4
+ 1,345
+1,300–1,540 · 8
+ 4.3* 58* 14* 84
+54–115 · 5
  53.6
 46.9–75.4 · 3
 ¤ ☆
@@ -1077,7 +1081,7 @@ none judged
 nothing published to judge
  1,125
 1,000–1,250 · 2
- 0.06* 11.5* > 300* n/a — ☆
+ 0.15* 10* > 400* n/a — ☆
 TPS
 Flexible Elastomers
  UNKNOWN
@@ -1090,12 +1094,12 @@ TPU 85A class and softer
 Flexible Elastomers
  PASS
 1 of 1 product
- 1,180
-1,070–1,210 · 13
+ 1,170
+1,070–1,210 · 14
  0.0159
 0.0068–0.025 · 2
  22
-6.2–30 · 5
+6.2–30 · 6
  passing: 700
 all products: 643
 560–729 · 4
@@ -1153,7 +1157,7 @@ none judged
 nothing published to judge
  1,230
 1,220–1,230 · 3
- ~0.02–0.89† ~22–76† ~21–66† n/a 189
+ ~0.02–0.89† ~22–75† ~21–66† n/a 189
 150–227 · 2
 ¤↗
 out of stock

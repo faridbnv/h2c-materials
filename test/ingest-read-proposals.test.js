@@ -449,3 +449,10 @@ test('rows an earlier folder holds by the same key are not proposed again, and r
   assert.equal(moved.profilesSet.length, 2); assert.equal(moved.valuesSet.length, 1);
   assert.deepEqual(out.profilesSet.map((r) => [r.id, r.column]), [['P2', 'Plate'], ['P2', 'Locator']]);
 });
+
+test('a product name written with or without its spaces and hyphens is one name (gap round 2)', () => {
+  const candidates = [{ GradeID: 'G081-02', Manufacturer: 'Spectrum', 'Product name': 'hipsx' }, { GradeID: 'G168-05', Manufacturer: 'Spectrum', 'Product name': 'Greeny Pro' }, { GradeID: 'G081-01', Manufacturer: 'Spectrum', 'Product name': 'HIPS' }];
+  assert.deepEqual(matchProduct('HIPS-X', candidates), { id: 'G081-02', from: 'matched:joined' });
+  assert.deepEqual(matchProduct('GreenyPro', candidates), { id: 'G168-05', from: 'matched:joined' });
+  assert.deepEqual(matchProduct('HIPS', candidates), { id: 'G081-01', from: 'matched:exact' });
+});

@@ -1,7 +1,7 @@
-COUNT 6 shown PASS
-STATUS ☑ PASS 6 | ☐ UNKNOWN 103 | ☐ FAIL 44
-6 of the 153 materials meet these requirements
-Outdoor structural part template · 103 more could not be checked, left out under Confirmed only
+COUNT 7 shown PASS
+STATUS ☑ PASS 7 | ☐ UNKNOWN 102 | ☐ FAIL 44
+7 of the 153 materials meet these requirements
+Outdoor structural part template · 102 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -151,6 +151,20 @@ all products: 6.26
 all products: 141
 88–158 · 4
  147↗ ☆
+PP-GF
+Polyolefins
+ PASS
+1 of 1 product
+ passing: 1,120
+all products: 1,120
+ passing: 6.75
+all products: 6.75
+ 65 1.7 passing: 139
+all products: 139
+138–139 · 2
+ 118¤↗
+out of stock
+ ☆
 PPA-GF
 High-Performance Engineering
  PASS

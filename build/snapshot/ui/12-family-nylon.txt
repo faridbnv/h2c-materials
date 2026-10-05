@@ -39,8 +39,12 @@ Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY 
 Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
-1 of 1 product
- 1,400 — 107* 2* — 167¤ ☆
+5 of 5 products
+ 1,200
+1,141–1,400 · 4
+ 2.16 55.9 18 145
+58–178 · 4
+ 167¤ ☆
 Nylon-GF, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
@@ -49,17 +53,17 @@ Nylon / Polyamide
 Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
-5 of 5 products
- 1,175
-1,140–1,210 · 2
- 3.16
-3–3.33 · 2
- 66.1
-63–69.2 · 2
+7 of 7 products
+ 1,140
+1,100–1,210 · 3
+ 3
+1.95–3.33 · 3
+ 63
+49–69.2 · 3
  9.13
 8.5–9.77 · 2
- 85
-79–91 · 2
+ 79
+41–91 · 3
  107¤ ☆
 PA-ESD
 Nylon / Polyamide

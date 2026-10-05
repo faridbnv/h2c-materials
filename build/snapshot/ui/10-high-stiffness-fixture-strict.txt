@@ -1,7 +1,7 @@
-COUNT 4 shown PASS
-STATUS ☑ PASS 4 | ☐ UNKNOWN 107 | ☐ FAIL 42
-4 of the 153 materials meet these requirements
-High-stiffness fixture template · 107 more could not be checked, left out under Confirmed only
+COUNT 5 shown PASS
+STATUS ☑ PASS 5 | ☐ UNKNOWN 106 | ☐ FAIL 42
+5 of the 153 materials meet these requirements
+High-stiffness fixture template · 106 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -96,6 +96,18 @@ all products: 6.26
 all products: 141
 88–158 · 4
  147↗ ☆
+PP-GF
+Polyolefins
+ PASS
+1 of 1 product
+ 1,120 passing: 6.75
+all products: 6.75
+ 65 1.7 passing: 139
+all products: 139
+138–139 · 2
+ 118¤↗
+out of stock
+ ☆
 PPA-GF
 High-Performance Engineering
  PASS

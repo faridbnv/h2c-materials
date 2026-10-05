@@ -561,6 +561,11 @@ export function matchProduct(product, candidates) {
   const exact = candidates.filter((g) => forms(g).some((f) => same(f, wanted)));
   if (exact.length === 1) return { id: exact[0].GradeID, from: 'matched:exact' };
   if (exact.length > 1) return { why: 'several products have that name' };
+  // A name written with or without its spaces and hyphens is one name: Spectrum's portfolio prints "GreenyPro", "HIPS-X"
+  // and "PET-G/PTFE" for its "Greeny Pro", "hipsx" and "PETG/PTFE" (gap round 2).
+  const joined = (a) => a.join('');
+  const run = candidates.filter((g) => forms(g).some((f) => joined(f) === joined(wanted)));
+  if (run.length === 1) return { id: run[0].GradeID, from: 'matched:joined' };
   const related = candidates.filter((g) => forms(g).some((f) => wanted.every((t) => f.includes(t))));
   if (related.length === 1) return { id: related[0].GradeID, from: 'matched:tokens' };
   return { why: related.length ? 'several products share its tokens' : 'no product has its tokens' };

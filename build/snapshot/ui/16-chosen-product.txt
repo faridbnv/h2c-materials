@@ -1,4 +1,4 @@
-3DXTECH CarbonX CF PP
+3DXTECH FIBREX GF PP
 PASS
 chosen <date> on release <id>
 Download the decision brief

@@ -495,7 +495,7 @@ export function classifyProduct(product, context = {}, world = {}) {
 
   const match = pinned ? pinned.material
     : supportPick?.materialId ? (world.materials ?? []).find((m) => m.MaterialID === supportPick.materialId)
-      : matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [], hardness: rated });
+      : matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [], hardness: rated, supportChemistry: Boolean(supportPick?.polymer && !supportPick.materialId) });
   const classes = (world.materials ?? []).filter((m) => m.Scope !== 'Family entry' && identityOf(m) === identity.polymer && m['Modifier / filler'] === identity.modifier);
   if (!match && hardnessSplit(classes)) {
     reasons.push(`a ${identity.polymer} is filed by the Shore rating its maker gives it, and "${product}" states none: find the maker's rating (its product page, its safety data sheet, its other sheets) and rule it (D106)`);
@@ -574,7 +574,11 @@ export function matchMaterial(identity, materials, context = {}) {
   // maker is the one maker of its products (ownProduct allows no more); until m137 it was its representative grade's.
   const mayAnswer = (m) => !ownProduct(m) || (maker && [...(makersOf.get(m.MaterialID) ?? [])][0] === maker);
   if (context.product) {
-    const byName = open.find((m) => mayAnswer(m) && names(m).some((n) => named(n, context.product)));
+    // A support whose sheet states its chemistry is filed by it (R076): the material named for what a support supports
+    // ("Support for ABS") is not its home by name, now that such a material holds another maker's support (QIDI S-White,
+    // R202, gap round 2).
+    const byName = open.find((m) => mayAnswer(m) && names(m).some((n) => named(n, context.product))
+      && !(context.supportChemistry && /^Support for\b/i.test(m['Original name'] ?? '')));
     if (byName) return byName;
   }
   // A finish is an identity, and the material for it exists: PLA Metal, PLA Wood, PLA Glow and their siblings

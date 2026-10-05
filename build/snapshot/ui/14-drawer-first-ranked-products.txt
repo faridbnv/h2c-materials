@@ -1,50 +1,39 @@
 Meet all your requirements
 1 product
-3DXTECH CarbonX CF PP
+3DXTECH FIBREX GF PP
 PASS
-Modulus XY 6.15 GPa · HDT 0.45 124 °C
+Modulus XY 6.75 GPa · HDT 0.45 139 °C
 Choose this product
 PRINT SETTINGS
 Nozzle
 240–270 °C within
 Bed
-45–65 °C within
+80–110 °C within
 Chamber
 not required within
 Enclosure
 not published
 Hardened nozzle
-not published
+required
 Drying
 65 °C for 4 h
 VALUES
 Density
-1,100 kg/m³
+1,120 kg/m³
 Tensile modulus (XY)
-6.15 GPa
+6.75 GPa
 Tensile strength (XY)
-78 MPa
+65 MPa
 Elongation at break (XY)
-1.5 %
+1.7 %
 HDT at 0.45 MPa
-124 °C
-Price
-147 CAD/kg (1 listing)
-WHAT THE MAKER SAYS
-Moisture sensitivity
-“Low moisture absorption, typically does not require drying prior to use” — product page, p. 1 where ID
-Not stated by the maker: applications, benefits, pitfalls, warping, dimensional accuracy, surface finish, layer adhesion, nozzle wear, odour, supports, printing advice and annealing schedule (website checked 2026-09-26).
-SOURCES 3DXTECH, Technical Data Sheet: CarbonX™ PP+CF 3D Printing Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, CARBONX™ PP+CF; 3DXTECH, CARBONX™ PP+CF
+139 °C
+Not stated by the maker: anything beyond its numbers and annealing schedule.
+SOURCES 3DXTECH, Technical Data Sheet: FibreX™ PP+GF30 3D Printing Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, FibreX™ PP+GF30 Polypropylene
 Product details
 Across its products: median and range, and what their makers say
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 3DXTECH
 1 product
-Braskem
-1 product
 Prusa Research
-1 product
-Nanovia
-1 product
-LEHVOSS
 1 product

@@ -1,7 +1,7 @@
-COUNT 87 shown PASS
-STATUS ☑ PASS 87 | ☐ UNKNOWN 40 | ☐ FAIL 26
-87 of the 153 materials meet these requirements
-Indoor prototype template · 40 more could not be checked, left out under Confirmed only
+COUNT 88 shown PASS
+STATUS ☑ PASS 88 | ☐ UNKNOWN 39 | ☐ FAIL 26
+88 of the 153 materials meet these requirements
+Indoor prototype template · 39 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -210,17 +210,17 @@ Styrenics
 Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
-2 of 3 products
- 1,175
-1,140–1,210 · 2
- 3.16
-3–3.33 · 2
- 66.1
-63–69.2 · 2
+3 of 4 products
+ 1,140
+1,100–1,210 · 3
+ 3
+1.95–3.33 · 3
+ 63
+49–69.2 · 3
  9.13
 8.5–9.77 · 2
- 85
-79–91 · 2
+ 79
+41–91 · 3
  107¤ ☆
 OBC
 Polyolefins
@@ -456,6 +456,13 @@ Polycarbonate
  128
 114–140 · 6
  152↗ ☆
+PCL
+PVB / Specialty Polymers
+ PASS
+1 of 1 product
+ 1,100
+1,100–1,130 · 3
+ 0.35* 45* 800 57 — ☆
 PCTG
 Copolyesters
  PASS
@@ -638,10 +645,10 @@ annealed median
  58↗ ☆
 PLA blend PASS
 4 of 4 products
- 1,340
-1,300–1,540 · 7
- 4.3* 58* 14* 85.5
-54–115 · 4
+ 1,345
+1,300–1,540 · 8
+ 4.3* 58* 14* 84
+54–115 · 5
  53.6
 46.9–75.4 · 3
 ¤ ☆
@@ -844,7 +851,7 @@ Polyolefins
 PP-GF
 Polyolefins
  PASS
-1 of 1 product
+2 of 2 products
  1,120 6.75 65 1.7 139
 138–139 · 2
  118¤↗
@@ -954,7 +961,7 @@ Styrenics
 TPC
 also called TPEE · Flexible Elastomers
  PASS
-1 of 2 products
+3 of 4 products
  1,150
 1,070–1,220 · 10
  0.048
@@ -974,17 +981,17 @@ Flexible Elastomers
 4 of 4 products
  1,125
 1,000–1,250 · 2
- 0.06* 11.5* > 300* n/a — ☆
+ 0.15* 10* > 400* n/a — ☆
 TPU 85A class and softer
 Flexible Elastomers
  PASS
 8 of 8 products
- 1,180
-1,070–1,210 · 13
+ 1,170
+1,070–1,210 · 14
  0.0159
 0.0068–0.025 · 2
  22
-6.2–30 · 5
+6.2–30 · 6
  643
 560–729 · 4
  n/a 58

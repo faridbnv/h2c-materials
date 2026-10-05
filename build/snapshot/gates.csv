@@ -77,12 +77,12 @@ M075,PVA,within,within,within,within,unknown,required
 M076,BVOH,within,within,within,within,unknown,required
 M077,Support for PLA,within,within,within,within,unknown,required
 M078,Support for PLA/PETG,within,within,within,within,unknown,required
-M079,Support for ABS,within,within,within,within,unknown,required
+M079,Support for ABS,within,within,within,within,requires-hardened,required
 M080,Support for PA/PET,within,within,within,within,requires-hardened,required
 M081,HIPS,within,within,within,within,no-special-concern,required
 M082,PP,within,within,within,within,no-special-concern,required
 M083,PP-CF,within,within,within,within,requires-hardened,required
-M084,PP-GF,within,within,within,within,requires-hardened,not-needed
+M084,PP-GF,within,within,within,within,requires-hardened,required
 M085,PE,within,within,within,unknown,no-special-concern,not-needed
 M086,OBC,within,within,within,within,unknown,unknown
 M087,POM / Acetal,within,within,within,exceeds,unknown,required
@@ -96,7 +96,7 @@ M094,PC-ABS,within,within,within,within,no-special-concern,required
 M095,PC-PBT,within,within,within,exceeds,no-special-concern,required
 M096,PVDF,within,within,within,unknown,unknown,not-needed
 M097,PEEK,excluded,exceeds,within,within,unknown,required
-M098,PEKK,excluded,exceeds,exceeds,within,unknown,required
+M098,PEKK,excluded,exceeds,exceeds,within,requires-hardened,required
 M099,PEI / ULTEM,excluded,exceeds,within,exceeds,requires-hardened,required
 M100,PSU,excluded,exceeds,exceeds,unknown,unknown,required
 M101,PESU / PES,excluded,exceeds,exceeds,unknown,unknown,required
@@ -119,7 +119,7 @@ M117,PEI-GF,excluded,unknown,unknown,unknown,unknown,unknown
 M118,PEI-CF,excluded,exceeds,exceeds,exceeds,requires-hardened,required
 M119,PC-ASA,within,within,within,unknown,unknown,unknown
 M120,PVDF-ESD,within,within,within,within,unknown,not-needed
-M121,TPI,excluded,unknown,unknown,unknown,unknown,unknown
+M121,TPI,excluded,exceeds,exceeds,exceeds,requires-hardened,required
 M122,PEKK-CF,excluded,exceeds,exceeds,exceeds-recommended,requires-hardened,required
 M123,PEI-ESD,excluded,exceeds,exceeds,unknown,unknown,required
 M124,PPS-ESD,within,within,exceeds,partial,unknown,required

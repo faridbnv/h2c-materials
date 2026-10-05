@@ -2318,3 +2318,63 @@ P1844,Storage humidity,Filament should be stored at room temperature in a dry an
 P1845,Cooling,50 - 75 %
 P1846,Layer height,≥ 0.2mm
 P1846,Cooling,50-100%
+P1883,Speed,造形スピード 5 - 10 mm/秒 (forming speed 5 - 10 mm/s)
+P1884,Speed,Print speed 15-150 mm/s
+P1884,Adhesion / release,"Adhesion promoter Magigoo HT, Nano polymer adhesive, GeckoTec EZ-Hot"
+P1885,Cooling,Ventilador de capa 60 – 80 %
+P1885,Layer height,"≥ 0,2 mm"
+P1885,Speed,Velocidad impresión 15 – 20 mm/s
+P1886,Cooling,Cooling fan speed OFF
+P1886,Speed,Print speed 30-120 mm/s
+P1886,Retraction,Retraction distance 1-3 mm; retraction speed 1800-3600 mm/min
+P1886,Adhesion / release,Coating with PVP glue; raft separation distance 0 mm
+P1886,Storage humidity,Put the filament into a dry box (humidity below 15%) immediately after opening the vacuum foil bag; put the unused filament back into the original aluminum foil bag
+P1888,Layer height,0.254 mm (0.010 in.) with the T20D or T20F tip; the T20F improves mechanical performance and is the recommended tip
+P1889,Cooling,Fan Speed 50 - 100 %
+P1891,Speed,Print Speed 30 – 60 mm/s; First Layer Speed 15 – 30 mm/s
+P1891,Cooling,Fan Speed 0 – 50 %
+P1891,Adhesion / release,Bed Adhesion Method Magigoo PA or PVA glue
+P1891,Storage humidity,Keep the material in the vacuum sealed packaging until ready to print; feed the filament from a dry container and store it in a dry cabinet; the drying oven has a low dew point (below -40˚C)
+P1892,Layer height,0.15 mm; Range of 0.10 – 0.25 mm (Resolution)
+P1892,Speed,Default print speed 35 mm/s
+P1892,Cooling,No cooling; Part cooling increases warpage
+P1892,Retraction,Retraction distance (direct/Bowden) 1.5 mm/5.0 mm; Retraction speed 45 mm/s
+P1893,Speed,20–200 mm/s
+P1893,Cooling,30–80 %
+P1894,Layer height,0.1-0.25 mm
+P1894,Speed,35-90 mm/s
+P1894,Cooling,Cooling fan ON
+P1895,Adhesion / release,Magigoo Bed Prep Adhesive
+P1897,Layer height,0.2 mm
+P1897,Speed,50-300 mm/s
+P1897,Cooling,Cooling fan Off
+P1897,Odour / emissions,Please print in a well-ventilated environment.
+P1898,Layer height,No special concerns
+P1899,Speed,Maximum recommended print speed: <35 mm/s
+P1900,Layer height,0.25mm or higher
+P1901,Layer height,0.15-0.25 mm (with 0.4mm nozzle)
+P1901,Speed,35-100 mm/s
+P1901,Cooling,Cooling fan On
+P1902,Layer height,0.1-0.25 mm
+P1902,Speed,35-120 mm/s
+P1902,Cooling,Cooling fan ON
+P1902,Storage humidity,PET Support is sensitive to moisture and should be stored and used under dry conditions (Surrounding humidity below 15%).
+P1903,Layer height,0.1-0.25 mm
+P1903,Speed,20-80 mm/s
+P1903,Cooling,Cooling fan Off
+P1903,Shell / walls,we recomend to print model with higher infill density and minimal wall thickness of 1.5 mm for a better interlayer bonding quality and ESD property
+P1903,Adhesion / release,brim or raft are recommended
+P1905,Speed,20–200 mm/s
+P1905,Cooling,30–80 %
+P1906,Layer height,≥ 0.10mm
+P1906,Cooling,Fan speed: 10 – 50%
+P1907,Layer height,0.15mm or Larger
+P1908,Speed,Maximum recommended print speed: < 45 mm/s
+P1909,Layer height,0.1-0.25 mm
+P1909,Speed,30-120 mm/s
+P1909,Cooling,Cooling fan OFF
+P1910,Layer height,0.1-0.25 mm
+P1910,Speed,25-300 mm/s
+P1910,Cooling,Cooling fan On
+P1911,Layer height,0.25mm or higher
+P1911,Adhesion / release,Magigoo Bed Prep

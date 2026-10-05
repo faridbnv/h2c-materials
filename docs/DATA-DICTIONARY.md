@@ -1098,6 +1098,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Recreus | Spanish maker of the Filaflex elastomer line, which is a brand and not a separate maker. | Recreus / Filaflex;Recreus Industries;recreus |
 | SIDDAMENT |  | Siddament |
 | Siraya Tech | The Fibreheart line is its filled-fibre brand. | Siraya;SirayaTech |
+| Smart Materials 3D | Spanish maker of the Smartfil filament line (Smart Materials 3D, Jaén); its sheets are titled FICHA TÉCNICA and name the Smartfil product. | Smartfil;Smart Materials;smartmaterials3d |
 | Spectrum | Spectrum Filaments. | Spectrum Filaments;SPECTRUM |
 | Stratasys |  |  |
 | SUNLU | Chinese maker (Shenzhen Sunlu Industrial); sells worldwide under its own name. | Sunlu;sunlu;SUNLU 3D;Shenzhen Sunlu Industrial;三绿 |
@@ -1431,9 +1432,11 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
+| ASTM B923 | Metal powder skeletal density by helium or nitrogen pycnometry (printed by Zymergen as the method of its filament density). |
 | ASTM D1004 | Tear resistance of plastic film and sheeting. |
 | ASTM D1238 | Melt flow rates by extrusion plastometer. |
 | ASTM D149 | Dielectric breakdown voltage and dielectric strength of solid insulating materials at commercial power frequencies. |
+| ASTM D150 | AC loss characteristics and permittivity (dielectric constant) of solid electrical insulation. |
 | ASTM D1505 | Density by density-gradient technique. |
 | ASTM D1525 | Vicat softening temperature. |
 | ASTM D1708 | Tensile properties by microtensile specimens. |
@@ -1445,6 +1448,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM D3418 | Transition temperatures by DSC. |
 | ASTM D3638 | Comparative tracking index of electrical insulating materials. |
 | ASTM D412 | Tensile properties of vulcanised rubber and thermoplastic elastomers. |
+| ASTM D4812 | Unnotched cantilever beam impact resistance of plastics. |
 | ASTM D570 | Water absorption of plastics. |
 | ASTM D638 | Tensile properties of plastics. |
 | ASTM D648 | Deflection temperature under flexural load. |
@@ -1459,6 +1463,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM D955 | Moulding shrinkage from mould dimensions. |
 | ASTM E1356 | Glass transition temperatures by DSC. |
 | ASTM E1530 | Resistance to thermal transmission by the guarded heat flow meter technique (thermal conductivity). |
+| ASTM E1952 | Thermal conductivity and thermal diffusivity by modulated temperature differential scanning calorimetry. |
 | ASTM E2092 | Distortion temperature in three-point bending by thermomechanical analysis. |
 | ASTM E2402 | Mass loss and residue of a material by thermogravimetry; a sheet cites it for the temperature at which its filament has lost five per cent of its mass. |
 | ASTM E831 | Linear thermal expansion of solid materials by thermomechanical analysis. |
@@ -1505,6 +1510,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 294 | Injection moulding of test specimens, including moulding shrinkage. |
 | ISO 306 | Vicat softening temperature. |
 | ISO 3146 | Melting behaviour of semi-crystalline polymers. |
+| ISO 3164 | Printed on Essentium's PA sheet as the method of a melting point; probably ISO 3146 (melting behaviour of semi-crystalline polymers), kept as the sheet prints it. |
 | ISO 3167 | Multipurpose test specimens; what a sheet names when it says how its bars were shaped. |
 | ISO 34 | Tear strength of rubber and thermoplastic elastomers. |
 | ISO 36 | Adhesion of rubber to textile fabrics. |

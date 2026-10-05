@@ -4,7 +4,7 @@
   "Documents": [
     {
       "File": "893aa52753128a6f.json",
-      "ProposalSHA256": "7aa0a62ca61ac1bec572aad15cef2101aa78b0e7f9eecefbada6adc21cab1409",
+      "ProposalSHA256": "0eec9b070230fcb1681024f82322d523836c600954927a21363eee9d3d8f28c6",
       "OriginalSHA256": "893aa52753128a6faed685c450fcbbcb03089483e3e9c98f1bfd01fd6a022577",
       "DocKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/antero-800na/mds_fdm_antero-800na_0825a.pdf?v=4a4973",
       "Source": {
@@ -43,7 +43,7 @@
     },
     {
       "File": "d311f4ae2286bd10.json",
-      "ProposalSHA256": "89ff21e41730d4b128557741b797705a7e73e4c6bb2ded233ceb9f804d450721",
+      "ProposalSHA256": "cd0234a2a5adf9d0ca688d45292ba8ba794605045844440caacb0f842e5d0d82",
       "OriginalSHA256": "d311f4ae2286bd106c3be034245dd03f4428abf23a1b7ee79dd9d630177ce84c",
       "DocKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-cf10/redesign/fdm-nylon-cf10-material-datasheet.pdf?v=4ac731",
       "Source": {
@@ -82,7 +82,7 @@
     },
     {
       "File": "8395359922703506.json",
-      "ProposalSHA256": "7957b770307a6fd645130d739ab1760210ef720caa7e2c84b787af4db903d4f4",
+      "ProposalSHA256": "cb2fa335b28cd4a280ad8f6bdd5d0b0068efeb3b6aa9032e5d4463823e89de06",
       "OriginalSHA256": "83953599227035063ae445aa52a5e983d41f0a01494b3d582cce7752d91d5bb8",
       "DocKey": "8395359922703506",
       "Source": {
@@ -119,7 +119,7 @@
     },
     {
       "File": "e48afc79b561cc0f.json",
-      "ProposalSHA256": "f6053543918f7742fcc8cc332142951633d4476992c17833da39d807267db73d",
+      "ProposalSHA256": "951d2daecd5535b04bbf378cc0dc7fe73b8400f8da96d46ab8cf268ff92e8749",
       "OriginalSHA256": "e48afc79b561cc0f26e7b3d43d628d706d1ee243e70092b9f5708bd6cad0d333",
       "DocKey": "e48afc79b561cc0f",
       "Source": {
@@ -156,7 +156,7 @@
     },
     {
       "File": "556fd3e0d2ebf186.json",
-      "ProposalSHA256": "7aa702dc6a97afc694d32c19263a5d029ee74a98c408f70386e8405a8592b9c8",
+      "ProposalSHA256": "8bb0fc557efe60c1619e4036a8decee6b5a3498dded373e434032a185bcb1a05",
       "OriginalSHA256": "556fd3e0d2ebf186c45a4a32e7a7bf504ba91a86a0859e97fd9c4f4b5b9a9e73",
       "DocKey": "556fd3e0d2ebf186",
       "Source": {
@@ -194,7 +194,7 @@
     },
     {
       "File": "36bdc5d8f5c3688c.json",
-      "ProposalSHA256": "b577eea2060c7fee369595b346c728e5b498e07d9fbd15fa032ad5438858b04b",
+      "ProposalSHA256": "89ce080a07f9b020621c8fe6abc9574e3c75d6f81b44eda598e73c682f8e7d80",
       "OriginalSHA256": "36bdc5d8f5c3688c6f49629cf2ac5ac6e2ee6f587d8b91d2392e36e088fdd501",
       "DocKey": "36bdc5d8f5c3688c",
       "Source": {
@@ -232,7 +232,7 @@
     },
     {
       "File": "691787121528d8e1.json",
-      "ProposalSHA256": "8c44f1a4c3e836cd79c0a7b63f04492551fa7fb7770bf5ec6bbbd94a10edf71c",
+      "ProposalSHA256": "8057674f9bb41b252eb7bb5b12edc43d2ee426f38e008e55828e5803e750b3ec",
       "OriginalSHA256": "691787121528d8e1554f478078d3e869dff0e705852afc6ab710e1929138a32e",
       "DocKey": "691787121528d8e1",
       "Source": {
@@ -269,7 +269,7 @@
     },
     {
       "File": "9c6f8b6fe1d8e213.json",
-      "ProposalSHA256": "09aa85ebbdfafdb04113b336c9c2269f8502e12c7aa4e31e51198daead66b4ff",
+      "ProposalSHA256": "5ce90aa0e5e2f1991ef94dd0e12b0edfe08894acc167247946180317db60504d",
       "OriginalSHA256": "9c6f8b6fe1d8e21360ca83ecb8de97f127b241bfb2223f661057c95844d61861",
       "DocKey": "https://bigrepgmbh.sharepoint.com/:b:/g/Edf9dbsNa39BiC-Vl1Fh9MwB917sFqJdBc2ekgXXAjmr3g?e=tQs3vW",
       "Source": {
@@ -357,7 +357,7 @@
     },
     {
       "File": "715a70a33079fa3f.json",
-      "ProposalSHA256": "304e13dbcc85a4094701ce0e0e22ae71893410a2abac77f3b0205e866c8c5390",
+      "ProposalSHA256": "e8cb10c8f00a6b879595c2e263a542fd15979edb2a2860f212aebc790d9fc982",
       "OriginalSHA256": "715a70a33079fa3f19ef7eb2cbe4cb77c6a15511a7f826cc19d7a4d0704fa2ea",
       "DocKey": "https://drive.google.com/file/d/1SmKn9yDfEWdgjZGdPaeDpQ8je57Egjdh/view?usp=drive_link",
       "Source": {

@@ -1,6 +1,6 @@
-COUNT 14 shown PASS
-STATUS ☑ PASS 14 | ☐ UNKNOWN 86 | ☐ FAIL 53
-14 of the 153 materials meet these requirements
+COUNT 15 shown PASS
+STATUS ☑ PASS 15 | ☐ UNKNOWN 86 | ☐ FAIL 52
+15 of the 153 materials meet these requirements
 Lightweight structure template · 86 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
@@ -95,19 +95,19 @@ all products: 2.31
 Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
-1 of 3 products
+1 of 4 products
  passing: 1,210
-all products: 1,175
-1,140–1,210 · 2
+all products: 1,140
+1,100–1,210 · 3
  passing: 3.33
-all products: 3.16
-3–3.33 · 2
- 66.1
-63–69.2 · 2
+all products: 3
+1.95–3.33 · 3
+ 63
+49–69.2 · 3
  9.13
 8.5–9.77 · 2
- 85
-79–91 · 2
+ 79
+41–91 · 3
  107¤ ☆
 PA6-CF
 Nylon / Polyamide
@@ -256,6 +256,19 @@ all products: 6.26
  141
 88–158 · 4
  147↗ ☆
+PP-GF
+Polyolefins
+ PASS
+1 of 1 product
+ passing: 1,120
+all products: 1,120
+ passing: 6.75
+all products: 6.75
+ 65 1.7 139
+138–139 · 2
+ 118¤↗
+out of stock
+ ☆
 PPA
 High-Performance Engineering
  PASS

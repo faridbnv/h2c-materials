@@ -5,16 +5,21 @@ Every measurement, profile and page statement the round added or changed (agains
 fact; 16 measurements, 16 profiles and 8 page statements are drawn with the seed given, leaving out any record an earlier
 draw already took. Writes sample-<seed>.csv beside this file.
 
-    python3 docs/audits/2026-10-04-reader-round/blind-draw/draw.py 20261006 [sample.csv ...]
+    python3 docs/audits/2026-10-04-reader-round/blind-draw/draw.py 20261006 [sample.csv ...] [--base <commit>] [--out <dir>]
 """
 import csv, io, random, subprocess, sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
+args = sys.argv[1:]
 BASE = '138ebc9'
-seed = int(sys.argv[1]); taken = set()
-for f in sys.argv[2:]:
-    taken |= {r['Record'] for r in csv.DictReader(open(HERE / f))}
+OUT = HERE
+if '--base' in args: i = args.index('--base'); BASE = args[i + 1]; del args[i:i + 2]
+if '--out' in args: i = args.index('--out'); OUT = Path(args[i + 1]); del args[i:i + 2]
+seed = int(args[0]); taken = set()
+for f in args[1:]:
+    p = Path(f) if Path(f).exists() else HERE / f
+    taken |= {r['Record'] for r in csv.DictReader(open(p))}
 
 def load(ref, t):
     txt = subprocess.run(['git', 'show', f'{ref}:data/tables/{t}.csv'], capture_output=True, text=True).stdout if ref else open(f'data/tables/{t}.csv').read()
@@ -49,7 +54,8 @@ pick = []
 for t, n in [('measurements', 16), ('profiles', 16), ('page_context', 8)]:
     pool = [f for f in facts if f[0] == t and f[1] not in taken]
     pick += random.sample(pool, n)
-out = HERE / f'sample-{seed}.csv'
+OUT.mkdir(parents=True, exist_ok=True)
+out = OUT / f'sample-{seed}.csv'
 with open(out, 'w', newline='') as fh:
     w = csv.writer(fh, lineterminator='\n'); w.writerow(['Draw', 'Table', 'Record', 'Change', 'Fact', 'SourceID', 'SHA256', 'Locator', 'GradeID'])
     for i, f in enumerate(pick, 1): w.writerow([i, f[0], f[1], f[2], f[3], f[4], S[f[4]]['SHA256'], f[5], f[6]])

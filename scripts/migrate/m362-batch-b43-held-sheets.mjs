@@ -25,7 +25,7 @@ import { buildDatabase } from '../../build/src/pipeline.js';
 
 const migration = 'm362-batch-b43-held-sheets', date = '2026-10-05';
 const at = join(projectRoot, 'docs/audits/2026-10-05-gap-round-2');
-const PACKET_SHA256 = '58bb8a3b7c4ec15043e376e4f488e8297ca6606c0136f81165001016ce4d4049';
+const PACKET_SHA256 = '62ae6e7aef286924352e81570e7d9eb276ee8c5e44e7f307e49fc883e39897d2';
 const hash = (b) => createHash('sha256').update(b).digest('hex');
 const bytes = readFileSync(join(at, 'ingest/b43-packet.json')), digest = hash(bytes);
 if (digest !== PACKET_SHA256) throw Error(`${migration}: changed packet`);

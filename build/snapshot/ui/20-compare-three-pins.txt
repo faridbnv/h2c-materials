@@ -1,5 +1,5 @@
 COUNT 86 shown PASS + UNKNOWN
-STATUS ☑ PASS 6 | ☑ UNKNOWN 103 | ☐ FAIL 44 | ☐ SCREENED 23
+STATUS ☑ PASS 7 | ☑ UNKNOWN 102 | ☐ FAIL 44 | ☐ SCREENED 23
 Requirements: Within H2C capability; Build material (not a support); Nozzle ≤ 350 °C; Bed ≤ 120 °C; Chamber ≤ 65 °C; HDT at 0.45 MPa at least 100 °C; Tensile modulus (XY) at least 3 GPa; Density at most 1500 kg/m³. Reported, not required: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials with missing data: Include uncertain; estimates and resin data may exclude a material, never pass one. Release <id>, data of 2026-09-21, build <date>. A material's values span its products: check the exact product in its Products tab before you buy or print.
 3 shortlisted, each with its result against the requirements above:
@@ -42,7 +42,7 @@ ABS-AF
 ABS-CF
 4.35
 2.7–5.21 · 4
-0.00127
+0.00126
 log scale
 22.2
 all 153 candidates
@@ -68,7 +68,7 @@ ABS-CF
 28
 16–29.9 · 3
 7.5
-57.5
+59.4
 all 153 candidates
 Elongation at break (XY) %
 ABS
@@ -103,7 +103,7 @@ Not published
 ABS-CF
 45*
 2
-47
+48
 all 153 candidates
 HDT at 0.45 MPa °C
 HDT at 0.45 MPa at least 100 °C
@@ -129,7 +129,7 @@ ABS-CF
 105
 101–110 · 6
 -60
-247
+225
 all 153 candidates
 Price CAD/kg
 Price at most 100 CAD/kg (reported only)
@@ -149,7 +149,7 @@ For a material with passing products, each check uses those products' own settin
 Material Nozzle Bed Chamber Hardened nozzle Drying
 ABS within within within not needed published
 ABS-AF within within within 1 of 3 products need one optional
-ABS-CF within within partly within 7 of 11 products need one published
+ABS-CF within within partly within 8 of 11 products need one published
 DATA ON FILE
 Material Key properties published Estimated Products Measurements
 ABS 10 of 10 — 56 767
