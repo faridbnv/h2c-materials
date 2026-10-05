@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { openTables } from '../scripts/data/table-io.mjs';
 import { applyProposals } from '../scripts/migrate/read-proposals-apply.mjs';
 import {
-  boundOfReading, buildProposals, conditionsOf, directionOf, proseClaim, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
+  boundOfReading, tidy, buildProposals, conditionsOf, directionOf, proseClaim, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
 } from '../scripts/ingest/read-proposals.mjs';
 
 const COLUMNS = ['RowID', 'Class', 'Kind', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Lo', 'Hi', 'Unit', 'Operator', 'Direction', 'Specimen', 'Moisture', 'PostProcessing', 'Standard', 'TestConditions',
@@ -225,7 +225,7 @@ test('applyProposals writes the ready rows, is a no-op the second time, and stop
   const profile = t.rows('profiles').find((p) => p.SourceID === 'S-FIXTURE');
   assert.equal(profile['Nozzle min °C'], '260'); assert.equal(profile['Bed state'], 'range'); assert.equal(profile.GradeID, 'G116-01');
   const added = t.rows('measurements').find((m) => m.SourceID === 'S-FIXTURE');
-  assert.equal(added['Normalized value'], '2.01'); assert.equal(added.Direction, 'XY'); assert.match(added.Notes, /m000/);
+  assert.equal(added['Normalized value'], '2.01'); assert.equal(added.Direction, 'XY'); assert.match(added.Notes, /^Added 2026-10-04 \(m000\)/);
   const fixed = t.get('measurements', 'V000544');
   assert.equal(fixed['Raw numeric'], '75'); assert.equal(fixed['Data status'], 'Published value (transcription corrected)'); assert.match(fixed.Notes, /\(m000/);
   assert.deepEqual(applyProposals(t, dir, opts), { profilesAdded: 0, profileCells: 0, valueCells: 0, valuesAdded: 0, contextAdded: 0, causes: {} }, 'a re-run changes nothing');
@@ -380,4 +380,43 @@ test('a maker\'s claim in a sentence is not a result, wherever it sits; a table 
   const out = build([value({ Field: 'HDT', Raw: '145 °C', Lo: '145', Unit: '°C', Label: 'Heat deflection', Quote: 'Heat deflection temperature up to approx. 145 °C' })]);
   assert.equal(out.valuesAdd.length, 0);
   assert.ok(out.held[0].reason.startsWith('prose-claim'));
+});
+
+test('text is tidied as the lint reads it: full-width punctuation made ASCII outside Chinese, runs of spaces made one', () => {
+  assert.equal(tidy('40-50℃，6-8  H（air oven）'), '40-50℃,6-8 H(air oven)');
+  assert.equal(tidy('＜0.5 %'), '<0.5 %');
+  assert.equal(tidy('～5、6'), '~5,6');
+  assert.equal(tidy('温度：40，50  ℃'), '温度：40，50 ℃', 'Chinese text keeps its punctuation, and still has single spaces');
+  const registry = new Map(tables.properties.map((p) => [p.Property, p]));
+  const p = valueProposal(value({ Field: 'HDT', Raw: '＜57  ℃', Lo: '57', Unit: '℃', Standard: 'ISO 75，ISO 306' }), { registry, grade: 'G001-01' });
+  assert.equal(p['Raw value'], '<57 ℃'); assert.equal(p['Standard / load'], 'ISO 75,ISO 306'); assert.equal(p.Operator, '<');
+});
+
+test('a value the product or its formulation twin already holds from another source is held, and so is one the page context contradicts', () => {
+  const held = { MeasurementID: 'V9', SourceID: 'S-9', GradeID: 'G001-02', MaterialID: 'M001', Property: 'Tensile modulus', 'Data status': 'Published value', 'Normalized value': '3', 'Normalized unit': 'GPa',
+    Direction: 'XY', 'Moisture state': 'not-stated', 'Post-processing state': 'not-stated', Notch: 'Not applicable', 'Test temperature °C': 'Not published', 'Test load MPa': 'Not applicable', Operator: '=' };
+  const withHeld = { ...tables, measurements: [...tables.measurements, held] };
+  const row = (o) => value({ SourceID: 'S-1', Grade: 'G001-03', Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus', Direction: 'X-Y', ...o });
+  const twin = buildProposals({ rows: [row({})], tables: withHeld });
+  assert.equal(twin.valuesAdd.length, 0); assert.equal(twin.held[0].reason, 'already-held-elsewhere');
+  assert.equal(buildProposals({ rows: [row({ Raw: '3100 MPa', Lo: '3100' })], tables: withHeld }).valuesAdd.length, 1, 'another number is no twin');
+  assert.equal(buildProposals({ rows: [row({ Direction: 'Z' })], tables: withHeld }).valuesAdd.length, 1, 'another condition is no twin');
+  const two = buildProposals({ rows: [row({ SourceID: 'S-1' }), row({ SourceID: 'S-2', Label: 'Modulus 2' })], tables: { ...tables } });
+  assert.equal(two.valuesAdd.length, 1, 'the second source of one proposal batch is the twin');
+  const page = { PageContextID: 'PC1', SourceID: 'S-1', Page: '1', 'Applies to': 'tensile', Statement: 'Dry state', 'Specimen type': 'Not published', 'Moisture state': 'dry', 'Post-processing state': 'not-stated', Standard: 'Not published', 'Test temperature °C': 'Not published' };
+  const clash = buildProposals({ rows: [row({ Moisture: 'conditioned 50 % RH' })], tables: { ...tables, page_context: [page] } });
+  assert.equal(clash.valuesAdd.length, 0); assert.equal(clash.held[0].reason, 'contradicts-page-context');
+  // a page statement the page's rows contradict is held too
+  const ctxRow = reading({ Kind: 'context', Class: 'context', Field: 'tensile', Specimen: '', Moisture: 'dry', TableHeading: 'Dry state', Quote: 'Dry state', HeldValues: 'V1(moisture=dry)' });
+  const rowsOnPage = { ...tables, measurements: tables.measurements.map((m) => ({ ...m, 'Moisture state': 'conditioned', 'Specimen type': 'Printed specimen', 'Post-processing state': 'not-stated' })) };
+  rowsOnPage.measurements[0].Locator = 'p. 1: Modulus';
+  assert.equal(buildProposals({ rows: [ctxRow], tables: rowsOnPage }).held[0].reason, 'contradicts-a-row-of-the-page');
+  assert.equal(buildProposals({ rows: [ctxRow], tables }).pageContextAdd.length, 1);
+});
+
+test('a product the document does not name, whose formulation twin it does, needs no row', () => {
+  const sources = tables.sources.map((s) => (s.SourceID === 'S-2' ? { ...s, 'Applicable grades': 'G001-02 G001-01' } : s));
+  const out = buildProposals({ rows: [value({ SourceID: 'S-2', Grade: '', Product: 'Silk PLA Dual-Color', Field: 'Tensile modulus', Raw: '3000 MPa', Lo: '3000', Label: 'Modulus', Direction: 'XY' })], tables: { ...tables, sources }, ctx: { makerWide: true } });
+  assert.equal(out.valuesAdd.length, 0);
+  assert.match(out.held[0].reason, /^no-grade:twin-needs-no-row:G001-03 reads G001-02|^twin-needs-no-row:G001-03 reads G001-02/);
 });

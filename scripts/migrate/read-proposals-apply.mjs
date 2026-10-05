@@ -25,7 +25,7 @@ import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { nextId } from '../data/table-io.mjs';
 import { projectRoot } from '../ingest/context.mjs';
-import { NUM, quoteViews } from '../ingest/read-proposals.mjs';
+import { NUM, quoteViews, tidy } from '../ingest/read-proposals.mjs';
 import { onSheet, rowsOf } from './m277-m279-sweep-shared.mjs';
 import { TYPED, retype, typedOf } from './m290-profile-settings.mjs';
 import { addValue, withNote } from './source-edits.mjs';
@@ -57,10 +57,12 @@ const viewNote = (view) => (!view || view === 'line' ? '' : ` Its quote was read
 
 /**
  * Apply a proposals folder to the open tables. `migration` names the migration in every note; `read` is the sentence the notes
- * start with (who read the pages, when, and what bore the reading out). `sheet` is the quote guard, replaceable in tests.
+ * start with (who read the pages, when, and what bore the reading out). `date` is the day an added value's note names (the day the
+ * pages were read; default 2026-10-04). `sheet` is the quote guard, replaceable in tests. Every text cell written is tidied after its
+ * quote is checked: full-width punctuation made ASCII outside Chinese and Japanese text, runs of spaces made one (the lint's TEXT rules).
  * Returns the counts of what was written. A re-run writes nothing.
  */
-export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet } = {}) {
+export function applyProposals(t, dir, { migration, read, date = '2026-10-04', sheet = onCachedSheet } = {}) {
   if (!migration || !read) throw new Error('applyProposals needs { migration, read }: a note must name both');
   const guard = (...args) => { const v = sheet(...args); return typeof v === 'string' && v ? v : 'line'; };
   const root = resolve(projectRoot, dir);
@@ -90,8 +92,8 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     const sameProduct = like.GradeID === e.GradeID || like.MaterialID === grade.MaterialID;
     const row = {
       ...like, ...(sameProduct ? {} : H2C_DEFAULTS), ProfileID: nextId('profiles', ids), MaterialID: grade.MaterialID, GradeID: e.GradeID, Profile: e.Profile,
-      SourceID: e.SourceID, Locator: e.Locator, 'Parse review': NA, 'Nozzle material': NP, 'AMS published': NP, 'Support pairing': NP, 'Failure modes': NP,
-      ...Object.fromEntries(RAW_PROFILE_CELLS.map((c) => [c, e[c] ?? NP])),
+      SourceID: e.SourceID, Locator: tidy(e.Locator), 'Parse review': NA, 'Nozzle material': NP, 'AMS published': NP, 'Support pairing': NP, 'Failure modes': NP,
+      ...Object.fromEntries(RAW_PROFILE_CELLS.map((c) => [c, tidy(e[c] ?? NP)])),
     };
     const typed = typedOf(row);
     for (const c of TYPED_COLUMNS) {
@@ -105,10 +107,10 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
   for (const e of load('profiles-set.csv')) {
     if (e.table !== 'profiles') throw new Error(`${migration}: ${e.table} is not a table profiles-set edits`);
     const r = t.get('profiles', e.id);
-    if (value(r[e.column]) === value(e.value)) continue;
+    if (value(r[e.column]) === tidy(e.value)) continue;
     if (r.SourceID !== e.source) throw new Error(`${migration}: ${e.id} cites ${r.SourceID}, not ${e.source}`);
     const view = guard(t, e.source, e.quote, migration) || 'line';
-    t.set('profiles', e.id, e.column, e.value, { expect: e.expect ?? '', migration });
+    t.set('profiles', e.id, e.column, tidy(e.value), { expect: e.expect ?? '', migration });
     if (TYPED[e.column]) retype(t, e.id, [e.column], migration);
     because(e); counts.profileCells++;
   }
@@ -118,10 +120,10 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
   for (const e of load('values-set.csv')) {
     if (e.table !== 'measurements') throw new Error(`${migration}: ${e.table} is not a table values-set edits`);
     const r = t.get('measurements', e.id);
-    if (value(r[e.column]) === value(e.value)) continue;
+    if (value(r[e.column]) === tidy(e.value)) continue;
     if (r.SourceID !== e.source) throw new Error(`${migration}: ${e.id} cites ${r.SourceID}, not ${e.source}`);
     const view = guard(t, e.source, e.quote, migration) || 'line';
-    t.set('measurements', e.id, e.column, e.value, { expect: e.expect ?? '', migration });
+    t.set('measurements', e.id, e.column, tidy(e.value), { expect: e.expect ?? '', migration });
     if (!touched.has(e.id)) touched.set(e.id, { columns: new Set(), reader: e.reader, views: new Set(), causes: new Set() });
     touched.get(e.id).causes.add(because(e));
     touched.get(e.id).views.add(view);
@@ -134,7 +136,7 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
       throw new Error(`${migration}: ${id}: ${r['Raw numeric']} × ${r['Conversion factor']} is not ${r['Normalized value']}`);
     }
     if (String(r.Notes).includes(`(${migration})`)) continue;
-    t.set('measurements', id, 'Notes', withNote(r.Notes, `${read} (${migration}${reader ? `, ${reader}` : ''}): ${[...columns].join(', ')} as the page prints them (${[...causes].join(', ')}).${viewNote([...views].join('+'))}`), { expect: r.Notes, migration });
+    t.set('measurements', id, 'Notes', withNote(r.Notes, tidy(`${read} (${migration}${reader ? `, ${reader}` : ''}): ${[...columns].join(', ')} as the page prints them (${[...causes].join(', ')}).${viewNote([...views].join('+'))}`)), { expect: r.Notes, migration });
   }
 
   // ---------------------------------------------------------------- values never transcribed
@@ -142,7 +144,7 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     'Moisture condition', 'Moisture state', 'Post-processing', 'Post-processing state', 'Anneal °C', 'Anneal h', 'Test temperature', 'Standard / load', 'Test load MPa',
     'Specimen / print parameters', 'Locator', 'Raw uncertainty ±', 'Normalized uncertainty ±', 'Raw upper bound', 'Normalized upper bound'];
   for (const e of load('values-add.csv')) {
-    if (t.rows('measurements').some((m) => m.SourceID === e.SourceID && m.Locator === e.Locator && m['Data status'] !== 'Retired duplicate record')) continue;
+    if (t.rows('measurements').some((m) => m.SourceID === e.SourceID && m.Locator === tidy(e.Locator) && m['Data status'] !== 'Retired duplicate record')) continue;
     const grade = t.get('grades', e.GradeID);
     const like = t.get('measurements', e.like);
     const view = guard(t, e.SourceID, e.quote, migration) || 'line';
@@ -161,7 +163,11 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     }
     set['Data status'] = 'Published value';
     set['Parse review'] = NA;
-    const id = addValue(t, { like: like.MeasurementID, set, migration, why: 'published in the source, never transcribed.', note: `${e.note} ${read} (${e.cause || 'unspecified'}).${viewNote(view)}` });
+    // Text as the tables hold it, after the quote check; the parsers must read the tidy cells as they read the proposed ones.
+    for (const k of Object.keys(set)) if (typeof set[k] === 'string') set[k] = tidy(set[k]);
+    if ((readStandards(set['Standard / load']).join('; ') || NP) !== set.Standards) throw new Error(`${migration}: ${e.Locator}: the parser reads the tidied Standard / load differently`);
+    if (testTemperatureCell(set['Test temperature']) !== set['Test temperature °C']) throw new Error(`${migration}: ${e.Locator}: the parser reads the tidied Test temperature differently`);
+    const id = addValue(t, { like: like.MeasurementID, set, migration, date, why: 'published in the source, never transcribed.', note: tidy(`${e.note} ${read} (${e.cause || 'unspecified'}).${viewNote(view)}`) });
     if (id) { because(e); counts.valuesAdded++; }
   }
 
@@ -170,9 +176,9 @@ export function applyProposals(t, dir, { migration, read, sheet = onCachedSheet 
     if (t.rows('page_context').some((c) => c.SourceID === e.SourceID && String(c.Page) === String(e.Page) && c['Applies to'] === e['Applies to'])) continue;
     const view = guard(t, e.SourceID, e.quote, migration) || 'line';
     t.append('page_context', {
-      PageContextID: nextId('page_context', t.rows('page_context').map((c) => c.PageContextID)), SourceID: e.SourceID, Page: e.Page, 'Applies to': e['Applies to'], Statement: e.Statement,
+      PageContextID: nextId('page_context', t.rows('page_context').map((c) => c.PageContextID)), SourceID: e.SourceID, Page: e.Page, 'Applies to': e['Applies to'], Statement: tidy(e.Statement),
       'Specimen type': e['Specimen type'], 'Moisture state': e['Moisture state'], 'Post-processing state': e['Post-processing state'], 'Anneal °C': e['Anneal °C'], 'Anneal h': e['Anneal h'],
-      Standard: e.Standard, 'Test temperature °C': e['Test temperature °C'], Locator: e.Locator, 'Reviewed by': `${read} (${migration}${e.reader ? `, ${e.reader}` : ''})${viewNote(view)}`,
+      Standard: e.Standard, 'Test temperature °C': e['Test temperature °C'], Locator: tidy(e.Locator), 'Reviewed by': tidy(`${read} (${migration}${e.reader ? `, ${e.reader}` : ''})${viewNote(view)}`),
     });
     because(e); counts.contextAdded++;
   }

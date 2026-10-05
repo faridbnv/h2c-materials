@@ -34,6 +34,8 @@ import { csvText, readCsv } from '../../build/src/csv.js';
 import { projectRoot } from './context.mjs';
 import { NP, numbersIn, ocrSidecar, readTable, sameNumber, squash } from './read-common.mjs';
 import { notchOf, targetUnit } from './propose.mjs';
+import { pageOf, scopeOf, specimenApplies } from '../../build/src/page-context.js';
+import { pageStates, rowStates } from '../../build/src/page-context.js';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { withReadingOrder } from '../lib/pdf-layout.mjs';
 import { rawNumber, unitKey } from '../../build/src/measurement-rules.js';
@@ -52,6 +54,20 @@ const num = (v) => { if (v == null || v === '') return null; const n = Number(St
 /** The migration's number format (m298): twelve significant digits, so 5.731 is 5.731 and not 5.731000000000001. */
 export const NUM = (x) => String(Number(Number(x).toPrecision(12)));
 const isMissing = (v) => v == null || v === '' || /^Not (published|applicable)/i.test(String(v));
+
+// ---- text as the tables hold it -----------------------------------------------------------------------------------
+
+const CJK_TEXT = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]/;
+const FULLWIDTH_PUNCT = /[\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff5e\u3001\u3002]/g;
+/**
+ * A text cell as the lint reads it (TEXT-FULLWIDTH, TEXT-SPACING): full-width punctuation made ASCII outside Chinese and Japanese text,
+ * runs of spaces made one. Done after the quote check, never before it: the quote is the page's own characters, the cell the sheet's words.
+ */
+export function tidy(v) {
+  const t = String(v ?? '');
+  const plain = CJK_TEXT.test(t) ? t : t.replace(FULLWIDTH_PUNCT, (c) => (c === '\u3001' ? ',' : c === '\u3002' ? '.' : String.fromCharCode(c.charCodeAt(0) - 0xfee0)));
+  return plain.replace(/ {2,}/g, ' ').trim();
+}
 
 // ---- the gate ---------------------------------------------------------------------------------------------------
 
@@ -356,7 +372,7 @@ export function valueProposal(row, { registry, grade, standards = null }) {
   if (claim) return { error: 'prose-claim', detail: claim };
   const lo = num(row.Lo), hi = num(row.Hi);
   if (lo == null) return { error: 'no-number' };
-  let raw = text(row.Raw);
+  let raw = tidy(text(row.Raw));
   if (!raw) return { error: 'no-raw-text' };
   // A value cell that leads with words ("Tg of 147C") is recorded from its number, the part the sheet prints as the value.
   if (rawNumber(raw) !== lo) {
@@ -387,7 +403,7 @@ export function valueProposal(row, { registry, grade, standards = null }) {
   const out = {
     Property: property, 'Raw value': raw, 'Raw unit': u.rawUnit, 'Raw numeric': NUM(lo), 'Conversion factor': NUM(u.factor), 'Normalized value': normalized,
     'Normalized unit': u.unit, Operator: operator, 'Specimen type': specimen.value, Direction: direction.value, Notch: notch.value,
-    'Moisture condition': moisture.condition, 'Moisture state': moisture.state, 'Post-processing': post.text, 'Post-processing state': post.state,
+    'Moisture condition': tidy(moisture.condition), 'Moisture state': moisture.state, 'Post-processing': tidy(post.text), 'Post-processing state': post.state,
     'Anneal °C': post.tempC, 'Anneal h': post.hours, 'Raw upper bound': NA, 'Normalized upper bound': NA, 'Raw uncertainty ±': NA, 'Normalized uncertainty ±': NA,
   };
   if (hi != null && hi !== lo) { out['Raw upper bound'] = NUM(hi); out['Normalized upper bound'] = NUM(hi * u.factor); }
@@ -395,12 +411,18 @@ export function valueProposal(row, { registry, grade, standards = null }) {
   if (pm) { const spread = Number(pm[1].replace(',', '.')); out['Raw uncertainty ±'] = NUM(spread); out['Normalized uncertainty ±'] = NUM(spread * u.factor); }
 
   // The test temperature the row names, and the rest of its test conditions, which are part of the method it states.
-  out['Test temperature'] = conditions.temp[0] ?? NP;
+  out['Test temperature'] = tidy(conditions.temp[0] ?? NP);
   const standard = [text(row.Standard), ...conditions.load.map((l) => (squash(row.Standard).includes(squash(l)) ? '' : l)), ...conditions.other.filter((o) => !/^scale=/i.test(o) || property !== 'Hardness')].filter(Boolean);
-  out['Standard / load'] = standard.join('; ') || NP;
+  out['Standard / load'] = tidy(standard.join('; ')) || NP;
   out['Test temperature °C'] = testTemperatureCell(out['Test temperature']);
   if (out['Test temperature'] !== NP && readTestTemperature(out['Test temperature']) == null) out['Test temperature °C'] = NP;
   out.Standards = readStandards(out['Standard / load']).join('; ') || NP;
+  // The unit a standard reports: ASTM D256 gives J/m, ISO 179 and 180 kJ/m²; the other pairing is a template error, not a result (IMPACT-UNIT-STANDARD).
+  if (/Izod|Charpy|Impact/i.test(property)) {
+    const std = `${out['Standard / load']} ${out.Standards}`;
+    const astm = /D\s?256/i.test(std), iso = /ISO\s?1(79|80)/i.test(std), unit = String(out['Raw unit']);
+    if ((astm && !iso && /kJ/i.test(unit)) || (iso && !astm && /J\/m(?![²2])/i.test(unit) && !/kJ/i.test(unit))) return { error: `impact-unit-standard:${unit} beside ${out['Standard / load']}` };
+  }
   // A standard the vocabulary lacks is a schema change, which is the owner's: the reading waits for it.
   const unlisted = standards ? readStandards(out['Standard / load']).filter((s) => !standards.has(s)) : [];
   if (unlisted.length) return { error: `standard-not-in-vocabulary:${unlisted.join(', ')}` };
@@ -432,8 +454,7 @@ const NO_VALUE = /^[\s\-–—*]*$|^n\/?a\.?$/i;
 
 /** The raw cell a setting row gives a profile: the reader's text as printed (full-width punctuation plain outside Chinese), a drying row with its hours. */
 export function cellOf(row) {
-  let raw = text(row.Raw);
-  if (!CJK.test(raw)) raw = raw.replace(/，/g, ',').replace(/；/g, ';').replace(/：/g, ':').replace(/（/g, '(').replace(/）/g, ')');
+  let raw = tidy(text(row.Raw));
   if (row.Field === 'drying') {
     const hours = /hours?\s*=\s*([\d.,\- –]+)/i.exec(text(row.TestConditions));
     if (hours && raw && !/\b\d+(?:[.,]\d+)?\s*(?:h|hr|hrs|hours?)\b/i.test(raw)) raw = `${raw}, ${hours[1].trim()} h`;
@@ -615,6 +636,9 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const match = matchProduct(r.Product, pool.map((id) => grades.get(id)));
     if (match.id) {
       const from = candidates.includes(match.id) ? match.from : `${match.from}:maker-wide`;
+      // A product the document does not name, whose formulation twin it does: the twin reads its sibling's values and settings (R053, D89).
+      const sibling = candidates.includes(match.id) ? null : formulation(match.id).find((g) => g !== match.id && candidates.includes(g));
+      if (sibling) return { error: `twin-needs-no-row:${match.id} reads ${sibling}` };
       gradeFromOf.set(r.RowID, from); gradeResolvedOf.set(r.RowID, match.id);
       return { id: match.id, from };
     }
@@ -745,7 +769,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       gate: 'ready', SourceID: g.sourceId, GradeID: g.gradeId, MaterialID: grade.MaterialID, like: like.ProfileID,
       Profile: /^XP-/.test(g.sourceId) ? 'Current manufacturer product guidance' : 'Manufacturer published guidance',
       ...Object.fromEntries(CELL_COLUMNS.map((c) => [c, cells[c] ?? NP])),
-      Locator: rowsUsed.map((r) => `p. ${r.Page}: ${text(r.Label) || r.Field}`).join('; '),
+      Locator: tidy(rowsUsed.map((r) => `p. ${r.Page}: ${text(r.Label) || r.Field}`).join('; ')),
       quote: [...new Set(rowsUsed.flatMap((r) => text(r.Quote).split(' | ')))].join(' | '),
       ...Object.fromEntries(TYPED_COLUMNS.map((c) => [c, typedKept[c]])),
       parsed_vs_read: 'agrees', cause: 'gap-fill', quote_view: viewOf(...rowsUsed), grade_from: [...new Set(rowsUsed.map((r) => gradeFromOf.get(r.RowID)))].join('+'), reader: [...new Set(rowsUsed.map((r) => r.Reader))].join(' '), rows: rowsUsed.map((r) => r.RowID).join(' '),
@@ -789,7 +813,7 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const note = `p. ${row.Page}, "${text(row.Label) || field}": the page prints "${text(row.Raw)}" (reader ${row.Reader}, ${row.Presence}).${labelled ? ' The sheet\'s label is written before its bare answer.' : ''}${mismatch ? ` The record held "${current}".` : ''}`;
     const rows = [{ ...base, column, expect: current ?? '', value: cell, note }];
     cellClaimed.set(`${profile.ProfileID}|${column}`, row.RowID);
-    return { rows, where: `p. ${row.Page}: ${text(row.Label) || field}`, base };
+    return { rows, where: tidy(`p. ${row.Page}: ${text(row.Label) || field}`), base };
   }
 
   // -- 1b. a held list of nozzle sizes cut short: every size the record holds is in the page's longer list
@@ -860,6 +884,30 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     for (const m of publishedRows) { const k = near(m); if (k < bestRank) { best = m; bestRank = k; if (k === 0) break; } }
     return best;
   };
+  // The same property, number, unit and conditions already held for this product (or one of its formulation key) is held again by
+  // nothing new: a maker's portfolio or second sheet reprinting its datasheet adds a twin (MEAS-CROSS-SOURCE-TWIN).
+  const conditionKey = (m) => [m.Direction, m['Moisture state'], m['Post-processing state'], m.Notch, m['Test temperature °C'], m['Test load MPa'], m.Operator].join('\u0001');
+  const valueKey = (m) => `${m.Property}\u0001${Number(m['Normalized value'])}\u0001${m['Normalized unit']}\u0001${conditionKey(m)}`;
+  const heldValues = new Map();
+  const remember = (index, gradeId, key, sourceId, id) => {
+    const k = `${gradeId}\u0002${key}`;
+    if (!index.has(k)) index.set(k, []);
+    index.get(k).push({ sourceId, id });
+  };
+  for (const m of tables.measurements) {
+    if (!/^Published value/.test(m['Data status'] ?? '') || m['Data status'] === 'Retired duplicate record') continue;
+    remember(heldValues, m.GradeID, valueKey(m), m.SourceID, m.MeasurementID);
+  }
+  const batchValues = new Map();
+  const twinOf = (gradeId, sourceId, key) => {
+    for (const g of formulation(gradeId)) {
+      for (const [index, where] of [[heldValues, 'held'], [batchValues, 'proposed']]) {
+        const hit = (index.get(`${g}\u0002${key}`) ?? []).find((h) => h.sourceId !== sourceId);
+        if (hit) return `${where} for ${g} from ${hit.sourceId} (${hit.id})`;
+      }
+    }
+    return null;
+  };
   const valueCandidates = [];
   for (const r of considered.filter((x) => x.Kind === 'value' && x.Class === 'new')) {
     const reasons = [];
@@ -879,12 +927,21 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     if (!reasons.length && quoteReason(r)) reasons.push(quoteReason(r));
     const gate = gateOf(r);
     if (reasons.length || gate.gate !== 'ready') { hold(r, reasonsFor(r, ...reasons), 'values'); continue; }
+    const key = valueKey({ Property: p.Property, 'Normalized value': p['Normalized value'], 'Normalized unit': p['Normalized unit'], Direction: p.Direction, 'Moisture state': p['Moisture state'], 'Post-processing state': p['Post-processing state'],
+      Notch: p.Notch, 'Test temperature °C': p['Test temperature °C'], 'Test load MPa': p['Test load MPa'], Operator: p.Operator });
+    const own = rowStates(p);
+    const contradicted = tables.page_context.find((c) => c.SourceID === r.SourceID && Number(c.Page) === Number(r.Page) && (c['Applies to'] === 'all' || c['Applies to'] === scopeOf(p.Property))
+      && [['specimen', specimenApplies(p.Property)], ['moisture', true], ['treatment', true]].some(([f, applies]) => applies && own[f] && pageStates(c)[f] && own[f] !== pageStates(c)[f]));
+    if (contradicted) { hold(r, 'contradicts-page-context', 'values', `${contradicted.PageContextID}: ${contradicted.Statement}`); continue; }
+    const twin = twinOf(grade.id, r.SourceID, key);
+    if (twin) { hold(r, 'already-held-elsewhere', 'values', twin); continue; }
+    remember(batchValues, grade.id, key, r.SourceID, r.RowID);
     valueCandidates.push({ row: r, grade: grade.id, p, like, signView });
   }
   // Locators: "p. N: label", with what tells two rows of one label apart, so no two rows of a source share one.
   const byBase = new Map();
   for (const c of valueCandidates) {
-    c.base = `p. ${c.row.Page}: ${text(c.row.Label) || c.row.Field}`;
+    c.base = tidy(`p. ${c.row.Page}: ${text(c.row.Label) || c.row.Field}`);
     const k = `${c.row.SourceID}\u0001${c.base}`;
     if (!byBase.has(k)) byBase.set(k, []);
     byBase.get(k).push(c);
@@ -994,6 +1051,23 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const reasons = [];
     if (!r.HeldValues) reasons.push('changes-no-held-row');
     if (/(^|\s)contradicts:/.test(r.Flags)) reasons.push('contradicts-held-rows');
+    if (!reasons.length) {
+      // Any row of the page and scope, held or proposed, that states the opposite of what this row would state for it.
+      const speaksFor = (m, page) => Number(page) === Number(r.Page) && (r.Field === 'all' || scopeOf(m.Property) === r.Field);
+      const rowsOnPage = [
+        ...tables.measurements.filter((m) => m.SourceID === r.SourceID && m['Data status'] !== 'Retired duplicate record' && speaksFor(m, pageOf(m.Locator))),
+        ...out.valuesAdd.filter((m) => m.SourceID === r.SourceID && speaksFor(m, pageOf(m.Locator))),
+      ];
+      const wantSpecimen = text(r.Specimen) ? specimenOf(r, 'context').value : null;
+      const wantMoisture = moistureOf(r.Moisture).state, wantTreatment = postProcessingOf(r.PostProcessing).state;
+      const clash = rowsOnPage.find((m) => {
+        const specimen = /^Not published/.test(m['Specimen type'] ?? NP) ? null : m['Specimen type'];
+        return (wantSpecimen && !/^Not published/.test(wantSpecimen) && specimenApplies(m.Property) && specimen && specimen !== wantSpecimen)
+          || (wantMoisture && wantMoisture !== 'not-stated' && m['Moisture state'] && m['Moisture state'] !== 'not-stated' && m['Moisture state'] !== wantMoisture)
+          || (wantTreatment && wantTreatment !== 'not-stated' && m['Post-processing state'] && m['Post-processing state'] !== 'not-stated' && m['Post-processing state'] !== wantTreatment);
+      });
+      if (clash) reasons.push('contradicts-a-row-of-the-page');
+    }
     if (contextExists.has(`${r.SourceID}\u0001${r.Page}\u0001${r.Field}`)) reasons.push('page-context-exists');
     const specimen = text(r.Specimen) ? specimenOf(r, 'context') : { value: NP };
     if (specimen.error) reasons.push(specimen.error);
@@ -1013,9 +1087,9 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
     const statement = text(r.Raw) || text(r.TableHeading) || text(r.Label);
     contextExists.add(`${r.SourceID}\u0001${r.Page}\u0001${r.Field}`);
     out.pageContextAdd.push({
-      gate: 'ready', SourceID: r.SourceID, Page: r.Page, 'Applies to': r.Field, Statement: statement, 'Specimen type': specimenValue, 'Moisture state': moisture.state,
+      gate: 'ready', SourceID: r.SourceID, Page: r.Page, 'Applies to': r.Field, Statement: tidy(statement), 'Specimen type': specimenValue, 'Moisture state': moisture.state,
       'Post-processing state': post.state, 'Anneal °C': post.state === 'annealed' ? post.tempC : NA, 'Anneal h': post.state === 'annealed' ? post.hours : NA,
-      Standard: standard, 'Test temperature °C': testTemp, Locator: `p. ${r.Page}: ${text(r.TableHeading) || text(r.Label) || statement}`, quote: text(r.Quote),
+      Standard: standard, 'Test temperature °C': testTemp, Locator: tidy(`p. ${r.Page}: ${text(r.TableHeading) || text(r.Label) || statement}`), quote: text(r.Quote),
       cause: 'page-context', moisture_words: text(r.Moisture), post_processing_words: text(r.PostProcessing), inherits: r.HeldValues, quote_view: viewOf(r), reader: r.Reader, rows: r.RowID,
     });
   }
