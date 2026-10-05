@@ -280,7 +280,7 @@ export function parseEnclosure(raw) {
   if (/^needed\b/i.test(text)) return { text, state: 'recommended' };
   // A sentence that recommends printing in a closed printer: eSUN's "we highly recommend printing PC-HT material within
   // a closed chamber printer", or "print in a printer with a closed chamber".
-  if (/\brecommend\w*\b[^.]*\b(closed|enclosed)(\s+or\s+semi-enclosed)?\s+(print(ing)?\s+)?(chamber|printer)|\bprint\w*\s+in\s+a\s+printer\s+with\s+(a\s+)?closed\s+chamber/i.test(text)) return { text, state: 'recommended' };
+  if (/\brecommend\w*\b[^.]*\b(closed|enclosed)(\s+or\s+semi-enclosed)?\s+(print(ing)?\s+)?(chamber|printer)|\brecommend\w*\b[^.]*\bprinter\s+with\s+an?\s+enclosure\b|\bprint\w*\s+in\s+a\s+printer\s+with\s+(a\s+)?closed\s+chamber/i.test(text)) return { text, state: 'recommended' };
   // A sentence that says the filament prints best enclosed: 3D-Fuel's "works best with an enclosed print area", SUNLU's
   // "Printing in an enclosed printer", BASF's "At least closed chamber" (the profile root-cause sweep of 2026-10-02).
   // A cell that names the printing it is for ("enclosed-chamber printing"); a filament "ideal for use in open desktop 3D
