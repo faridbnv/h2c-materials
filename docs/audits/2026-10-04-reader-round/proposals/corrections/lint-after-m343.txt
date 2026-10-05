@@ -1,0 +1,138 @@
+MEAS-PHYSICS-Z-ABOVE-XY    measurements V013466 [Direction]  Charpy strength Z 39.58 > XY 8.87 kJ/m² (V003522)
+MEAS-PHYSICS-STRAIN        measurements V012010 [Normalized value]  6 % < stress / modulus 10.60 % (V012008 / V012007)
+MEAS-PHYSICS-STRAIN        measurements V011864 [Normalized value]  4.2 % < stress / modulus 1787.88 % (V011863 / V011862)
+MEAS-PHYSICS-STRAIN        measurements V012754 [Normalized value]  2.2 % < stress / modulus 3.01 % (V012752 / V012753)
+MEAS-PHYSICS-STRAIN        measurements V012772 [Normalized value]  1.2 % < stress / modulus 2.14 % (V012770 / V012771)
+MEAS-PHYSICS-STRAIN        measurements V013870 [Normalized value]  0.9 % < stress / modulus 1.30 % (V013867 / V013865)
+MEAS-CROSS-SOURCE-TWIN     sources R-FIBERLOGY-FIBERLOGY-PETGCF-TDS | R-RECREUS-PET-G-CF-TECHNICAL-DATA-SHEET-TDS-2022  4 of 8 and 5 values are the same under the same conditions
+MEAS-CROSS-SOURCE-TWIN     sources R-3DJAKE-PLA-TDS | R-3DJAKE-SILK-TDS-4  4 of 8 and 5 values are the same under the same conditions
+MEAS-CROSS-SOURCE-TWIN     sources R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS | S-SPECTRUM-en-tds-spectrum-petg-fx120  6 of 9 and 7 values are the same under the same conditions
+MEAS-CROSS-SOURCE-TWIN     sources S-PEBA-eSUN-ePLA-Silk-Magic-Filament-TDS-V4-02 | S-PEBA-eSUN-ePLA-Silk-Mystic-Filament-TDS-V4-0  6 of 7 and 7 values are the same under the same conditions
+GRADE-KEY-PRODUCTS         grades G001-31 | G001-64 | G001-69 | G001-162 | G001-165 [Shared formulation key]  S-SPECTRUM-en-tds-spectrum-pla-premium is on PLA, PLA Extrafill, PLA Premium, EasyFil ePLA, ReFill PLA
+MEAS-PHYSICS-WINDOW        measurements V011859 [Normalized value]  Elongation at yield 300 % on a elastomer compound material is above 100, which is surprising (W0114)
+MEAS-PHYSICS-WINDOW        measurements V011862 [Normalized value]  Tensile modulus 0.0033 GPa on a amorphous compound material is below 0.5, which is impossible (W0009)
+MEAS-PHYSICS-WINDOW        measurements V011973 [Normalized value]  Elongation at break 35 % on a amorphous fibre material is above 25, which is surprising (W0044)
+MEAS-PHYSICS-WINDOW        measurements V012007 [Normalized value]  Tensile modulus 0.5 GPa on a amorphous fibre material is below 1.2, which is surprising (W0009)
+MEAS-PHYSICS-WINDOW        measurements V012012 [Normalized value]  Tensile modulus 0.4 GPa on a elastomer unfilled material is above 0.2, which is surprising (W0007)
+MEAS-PHYSICS-WINDOW        measurements V012016 [Normalized value]  Flexural modulus 0.38 GPa on a elastomer unfilled material is above 0.2, which is surprising (W0013)
+MEAS-PHYSICS-WINDOW        measurements V012168 [Normalized value]  Izod impact strength 92 kJ/m² on a amorphous unfilled material is above 60, which is surprising (W0050)
+MEAS-PHYSICS-WINDOW        measurements V012183 [Normalized value]  HDT 40 °C on a semicrystalline densely filled material is below 45, which is surprising (W0057)
+MEAS-PHYSICS-WINDOW        measurements V012218 [Normalized value]  Flexural modulus 0.217 GPa on a elastomer unfilled material is above 0.2, which is surprising (W0013)
+MEAS-PHYSICS-WINDOW        measurements V012225 [Normalized value]  Density 990 kg/m³ on a semicrystalline compound material is below 1000, which is surprising (W0004)
+MEAS-PHYSICS-WINDOW        measurements V012226 [Normalized value]  Density 920 kg/m³ on a semicrystalline compound material is below 1000, which is surprising (W0004)
+MEAS-PHYSICS-WINDOW        measurements V012252 [Normalized value]  Elongation at yield 307 % on a semicrystalline unfilled material is above 100, which is impossible (W0113)
+MEAS-PHYSICS-WINDOW        measurements V012257 [Normalized value]  Melting temperature 58 °C on a semicrystalline unfilled material is below 90, which is impossible (W0068)
+MEAS-PHYSICS-WINDOW        measurements V012283 [Normalized value]  HDT 41 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V012287 [Normalized value]  Tensile modulus 0.298 GPa on a elastomer compound material is above 0.2, which is surprising (W0007)
+MEAS-PHYSICS-WINDOW        measurements V012293 [Normalized value]  Tensile modulus 2403 GPa on a amorphous compound material is above 30, which is impossible (W0009)
+MEAS-PHYSICS-WINDOW        measurements V012305 [Normalized value]  Tensile modulus 0.392 GPa on a elastomer unfilled material is above 0.2, which is surprising (W0007)
+MEAS-PHYSICS-WINDOW        measurements V012332 [Normalized value]  Tensile yield strength 2.8 MPa on a elastomer foamed or lightened material is below 3, which is surprising (W0025)
+MEAS-PHYSICS-WINDOW        measurements V012357 [Normalized value]  Izod impact strength 6 J/m on a amorphous compound material is below 10, which is surprising (W0052)
+MEAS-PHYSICS-WINDOW        measurements V012385 [Normalized value]  HDT 72 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V012386 [Normalized value]  HDT 74 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V012428 [Normalized value]  HDT 75 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V012429 [Normalized value]  HDT 134 °C on a elastomer fibre material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V012446 [Normalized value]  Elongation at break 900 % on a semicrystalline densely filled material is above 800, which is surprising (W0046)
+MEAS-PHYSICS-WINDOW        measurements V012454 [Normalized value]  Elongation at break 850 % on a semicrystalline unfilled material is above 800, which is surprising (W0046)
+MEAS-PHYSICS-WINDOW        measurements V012464 [Normalized value]  Tensile modulus 1.121 GPa on a amorphous compound material is below 1.2, which is surprising (W0009)
+MEAS-PHYSICS-WINDOW        measurements V012465 [Normalized value]  Flexural modulus 0.856 GPa on a amorphous compound material is below 1.2, which is surprising (W0015)
+MEAS-PHYSICS-WINDOW        measurements V012493 [Normalized value]  Melting temperature 80 °C on a amorphous unfilled material is below 120, which is surprising (W0071)
+MEAS-PHYSICS-WINDOW        measurements V012518 [Normalized value]  Flexural modulus 2.30456275 GPa on a elastomer unfilled material is above 0.5, which is impossible (W0013)
+MEAS-PHYSICS-WINDOW        measurements V012608 [Normalized value]  Tensile yield strength 0 MPa on a amorphous unfilled material is below 3, which is impossible (W0026)
+MEAS-PHYSICS-WINDOW        measurements V012641 [Normalized value]  Tensile modulus 0.5 GPa on a amorphous unfilled material is below 1, which is surprising (W0008)
+MEAS-PHYSICS-WINDOW        measurements V012666 [Normalized value]  Flexural strength 2.7 MPa on a amorphous compound material is below 5, which is impossible (W0039)
+MEAS-PHYSICS-WINDOW        measurements V012674 [Normalized value]  Tensile modulus 0.0033 GPa on a amorphous unfilled material is below 0.3, which is impossible (W0008)
+MEAS-PHYSICS-WINDOW        measurements V012709 [Normalized value]  Izod impact strength 860 J/m on a amorphous unfilled material is above 600, which is surprising (W0052)
+MEAS-PHYSICS-WINDOW        measurements V012719 [Normalized value]  Elongation at break 1110 % on a elastomer unfilled material is above 1000, which is surprising (W0043)
+MEAS-PHYSICS-WINDOW        measurements V012723 [Normalized value]  Elongation at break 1050 % on a elastomer unfilled material is above 1000, which is surprising (W0043)
+MEAS-PHYSICS-WINDOW        measurements V012761 [Normalized value]  HDT 70 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V012883 [Normalized value]  Elongation at break 35 % on a semicrystalline fibre material is above 25, which is surprising (W0044)
+MEAS-PHYSICS-WINDOW        measurements V013111 [Normalized value]  Density 350 kg/m³ on a amorphous foamed or lightened material is below 400, which is surprising (W0084)
+MEAS-PHYSICS-WINDOW        measurements V013131 [Normalized value]  Izod impact strength 93 kJ/m² on a amorphous unfilled material is above 60, which is surprising (W0050)
+MEAS-PHYSICS-WINDOW        measurements V013185 [Normalized value]  Charpy strength 110 kJ/m² on a amorphous unfilled material is above 100, which is impossible (W0048)
+MEAS-PHYSICS-WINDOW        measurements V013206 [Normalized value]  Elongation at break 50 % on a semicrystalline fibre material is above 25, which is surprising (W0044)
+MEAS-PHYSICS-WINDOW        measurements V013233 [Normalized value]  Izod impact strength 686.4655 J/m on a amorphous unfilled material is above 600, which is surprising (W0052)
+MEAS-PHYSICS-WINDOW        measurements V013235 [Normalized value]  HDT 74 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V013264 [Normalized value]  Melting temperature 115 °C on a amorphous compound material is below 120, which is surprising (W0071)
+MEAS-PHYSICS-WINDOW        measurements V013289 [Normalized value]  Melting temperature 77 °C on a amorphous densely filled material is below 80, which is impossible (W0071)
+MEAS-PHYSICS-WINDOW        measurements V013305 [Normalized value]  Izod impact strength 900 J/m on a amorphous unfilled material is above 600, which is surprising (W0052)
+MEAS-PHYSICS-WINDOW        measurements V013416 [Normalized value]  Glass transition temperature 50 °C on a elastomer unfilled material is above 20, which is surprising (W0066)
+MEAS-PHYSICS-WINDOW        measurements V013440 [Normalized value]  HDT 49 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V013443 [Normalized value]  HDT 44 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V013606 [Normalized value]  HDT 78.6 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V013624 [Normalized value]  Density 910 kg/m³ on a semicrystalline fibre material is below 1000, which is surprising (W0004)
+MEAS-PHYSICS-WINDOW        measurements V013981 [Normalized value]  Continuous service temperature -20 °C on a amorphous unfilled material is below 20, which is impossible (W0117)
+MEAS-PHYSICS-WINDOW        measurements V014123 [Normalized value]  Flexural modulus 0.0038 GPa on a amorphous compound material is below 0.5, which is impossible (W0015)
+MEAS-PHYSICS-WINDOW        measurements V014131 [Normalized value]  Elongation at yield 38 % on a amorphous unfilled material is above 15, which is surprising (W0112)
+MEAS-PHYSICS-WINDOW        measurements V014132 [Normalized value]  Elongation at break 400 % on a amorphous unfilled material is above 250, which is surprising (W0045)
+MEAS-PHYSICS-WINDOW        measurements V014133 [Normalized value]  Flexural modulus 0.15 GPa on a amorphous unfilled material is below 0.3, which is impossible (W0014)
+MEAS-PHYSICS-WINDOW        measurements V014142 [Normalized value]  Flexural modulus 0.0038 GPa on a amorphous compound material is below 0.5, which is impossible (W0015)
+MEAS-PHYSICS-WINDOW        measurements V014346 [Normalized value]  Elongation at break 1063 % on a elastomer unfilled material is above 1000, which is surprising (W0043)
+MEAS-PHYSICS-WINDOW        measurements V014349 [Normalized value]  HDT 52 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-WINDOW        measurements V014375 [Normalized value]  Flexural strength 65 MPa on a elastomer unfilled material is above 45, which is surprising (W0037)
+MEAS-PHYSICS-WINDOW        measurements V014377 [Normalized value]  Elongation at break 10 % on a elastomer unfilled material is below 50, which is surprising (W0043)
+MEAS-PHYSICS-WINDOW        measurements V014381 [Normalized value]  HDT 55 °C on a elastomer unfilled material: Physics: ISO 75 needs a modulus near 225 MPa to reach 0.2 % outer-fibre strain, so an elastomer has no meaningful heat deflection temperature (D56)
+MEAS-PHYSICS-ORDER         measurements V009442 [Normalized value]  Glass transition temperature 161 above Vicat softening temperature 139 (V014338): a bar softens above the temperature at which its polymer goes rubbery
+MEAS-PHYSICS-ORDER         measurements V012750 [Normalized value]  Glass transition temperature 62 above Vicat softening temperature 54 (V012748): a bar softens above the temperature at which its polymer goes rubbery
+MEAS-PHYSICS-ORDER         measurements V013018 [Normalized value]  Glass transition temperature 105 above Vicat softening temperature 94 (V013017): a bar softens above the temperature at which its polymer goes rubbery
+MEAS-PHYSICS-ORDER         measurements V014235 [Normalized value]  Elongation at yield 2.3 above Elongation at break 1.8 (V014208): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014235 [Normalized value]  Elongation at yield 2.3 above Elongation at break 1.8 (V014222): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014247 [Normalized value]  Elongation at yield 2.6 above Elongation at break 1.8 (V014208): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014247 [Normalized value]  Elongation at yield 2.6 above Elongation at break 1.8 (V014222): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014247 [Normalized value]  Elongation at yield 2.6 above Elongation at break 2.3 (V014238): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014320 [Normalized value]  Elongation at yield 2.4 above Elongation at break 1.9 (V014319): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014320 [Normalized value]  Elongation at yield 2.4 above Elongation at break 1.9 (V014323): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014324 [Normalized value]  Elongation at yield 2.8 above Elongation at break 1.9 (V014319): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014324 [Normalized value]  Elongation at yield 2.8 above Elongation at break 2.5 (V014321): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014324 [Normalized value]  Elongation at yield 2.8 above Elongation at break 1.9 (V014323): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014332 [Normalized value]  Elongation at yield 2 above Elongation at break 1.8 (V014331): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V014334 [Normalized value]  Elongation at yield 2.1 above Elongation at break 1.8 (V014331): a bar yields before it breaks
+MEAS-PHYSICS-ORDER         measurements V012666 [Normalized value]  Tensile strength (endpoint unspecified) 13.2 above Flexural strength 2.7 (V012654): a bar bends harder than it pulls, because its outer fibre carries the load
+MEAS-PHYSICS-ORDER         measurements V013874 [Normalized value]  Tensile strength (endpoint unspecified) 70 above Flexural strength 45 (V013867): a bar bends harder than it pulls, because its outer fibre carries the load
+MEAS-PHYSICS-ORDER         measurements V013901 [Normalized value]  Tensile strength (endpoint unspecified) 60 above Flexural strength 48 (V013894): a bar bends harder than it pulls, because its outer fibre carries the load
+MEAS-PHYSICS-HDT-LOADS     measurements V013711 [Normalized value]  HDT at 1.8 MPa 60 above HDT at 0.45 MPa 59 (V013712): a bar deflects at a lower temperature under a heavier load
+MEAS-PHYSICS-ORDER         measurements V012009 [Normalized value]  Tensile break strength 60 above Tensile strength (endpoint unspecified) 53 (V012008): the ultimate tensile strength is the highest stress on the stress-strain curve, so the stress at break cannot exceed it in the same test
+MEAS-PHYSICS-FLEX-STRAIN   measurements V010719 [Normalized value]  flexural strength 71.5 MPa is 9 % of flexural modulus 0.8 GPa (V014047)
+MEAS-PHYSICS-FLEX-STRAIN   measurements V014123 [Normalized value]  flexural strength 83 MPa is 2184 % of flexural modulus 0.0038 GPa (V014122)
+MEAS-PHYSICS-FLEX-STRAIN   measurements V014142 [Normalized value]  flexural strength 83 MPa is 2184 % of flexural modulus 0.0038 GPa (V014141)
+GRADE-VALUES-TWIN          grades G012-07 | G016-05 [Shared formulation key]  8 of 10 values identical (Spectrum PLA Stone Age / Spectrum PLA Glow in the Dark)
+GRADE-VALUES-TWIN          grades G088-02 | G088-03 [Shared formulation key]  10 of 11 values identical (Spectrum pctg / Extrudr PCTG)
+GRADE-VALUES-TWIN          grades G088-03 | G088-05 [Shared formulation key]  10 of 11 values identical (Extrudr PCTG / FormFutura AthenaX)
+GRADE-VALUES-TWIN          grades G001-74 | G001-78 [Shared formulation key]  6 of 7 values identical (eSUN PLA+CMYK / eSUN PLA+)
+GRADE-VALUES-TWIN          grades G001-143 | G001-37 [Shared formulation key]  11 of 11 values identical (SUNLU PLA+2.0 / SUNLU PLA)
+GRADE-VALUES-TWIN          grades G001-84 | G016-07 [Shared formulation key]  6 of 7 values identical (eSUN eStars-PLA / eSUN Luminous PLA Rainbow)
+GRADE-VALUES-TWIN          grades G001-84 | G016-06 [Shared formulation key]  6 of 7 values identical (eSUN eStars-PLA / eSUN Luminous PLA)
+GRADE-VALUES-TWIN          grades G016-06 | G016-07 [Shared formulation key]  6 of 7 values identical (eSUN Luminous PLA / eSUN Luminous PLA Rainbow)
+GRADE-VALUES-TWIN          grades G001-153 | G008-33 [Shared formulation key]  5 of 5 values identical (AzureFilm PLA / AzureFilm SILK)
+GRADE-VALUES-TWIN          grades G106-01 | G106-02 [Shared formulation key]  8 of 10 values identical (Spectrum ABS Kevlar / 3D4Makers ABSKevlar)
+GRADE-VALUES-TWIN          grades G109-01 | G109-02 [Shared formulation key]  7 of 7 values identical (Spectrum PETG/PTFE / Fiberlogy PETG+PTFE)
+GRADE-VALUES-TWIN          grades G001-192 | G002-01 [Shared formulation key]  18 of 19 values identical (Kingroon PLA Basic / Bambu Lab PLA Basic)
+GRADE-VALUES-TWIN          grades G149-02 | G149-04 [Shared formulation key]  10 of 10 values identical (3D4Makers Facilan PCL100 / Filament2Print BioFil - PCL)
+GRADE-VALUES-TWIN          grades G089-02 | G089-05 [Shared formulation key]  11 of 11 values identical (Fiberlogy CPE ANTIBAC / Fiberlogy CPE HT)
+GRADE-VALUES-TWIN          grades G075-09 | G075-10 [Shared formulation key]  5 of 6 values identical (Raise3D Premium PVA+ / FormFutura Atlas Support)
+GRADE-VALUES-TWIN          grades G027-50 | G028-12 [Shared formulation key]  8 of 8 values identical (iSANMATE ABS / iSANMATE ABS Glass Fiber)
+GRADE-VALUES-TWIN          grades G039-05 | G039-53 [Shared formulation key]  5 of 5 values identical (Spectrum THE FILAMENT TPU 95A / The Filament TPU 95A)
+GRADE-VALUES-TWIN          grades G020-72 | G023-01 [Shared formulation key]  19 of 19 values identical (Kingroon PETG Basic / Bambu Lab PETG Translucent)
+GRADE-VALUES-TWIN          grades G008-30 | G008-31 [Shared formulation key]  6 of 7 values identical (eSUN ePLA-Silk Magic / eSUN ePLA-Silk Mystic)
+GRADE-VALUES-TWIN          grades G001-174 | G001-33 [Shared formulation key]  6 of 7 values identical (3DJake mattePLA / Extrudr PLA NX2 MATT)
+GRADE-VALUES-TWIN          grades G033-07 | G033-17 [Shared formulation key]  6 of 7 values identical (Flashforge ASACF10 / SIDDAMENT ASA CF)
+GRADE-VALUES-TWIN          grades G020-13 | G020-58 [Shared formulation key]  9 of 9 values identical (Polymaker PolyLite PETG / Raise3D Premium PETG)
+GRADE-VALUES-TWIN          grades G070-02 | G070-09 [Shared formulation key]  17 of 18 values identical (Siraya Tech Fibreheart PPA-CF / Siraya Tech Fibreheart PAHT CF (PPA based))
+GRADE-VALUES-TWIN          grades G039-47 | G162-01 [Shared formulation key]  6 of 7 values identical (FormFutura Python Flex / Copper3D MD Flex)
+GRADE-VALUES-TWIN          grades G001-193 | G013-04 [Shared formulation key]  5 of 5 values identical (eSUN eTwinkling / eSUN Twinkling)
+GRADE-VALUES-TWIN          grades G027-05 | G027-56 [Shared formulation key]  5 of 5 values identical (Spectrum Smart ABS / FormFutura TitanX)
+GRADE-VALUES-TWIN          grades G088-03 | G088-08 [Shared formulation key]  6 of 7 values identical (Extrudr PCTG / 3DJake PCTG)
+GRADE-VALUES-TWIN          grades G020-74 | G143-01 [Shared formulation key]  10 of 10 values identical (Spectrum PET-G FX120 / colorFabb nGen_FLEX)
+GRADE-VALUES-TWIN          grades G039-70 | G042-01 [Shared formulation key]  10 of 11 values identical (Kingroon TPU 90A / Bambu Lab TPU 90A)
+GRADE-VALUES-TWIN          grades G094-05 | G094-13 [Shared formulation key]  6 of 7 values identical (Flashforge PC/ABS / SIDDAMENT PC ABS)
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G001-162 | G107-01 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G001-165 | G013-02 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G001-165 | G107-01 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G001-166 | G001-168 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G001-31 | G013-02 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G001-31 | G107-01 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G001-69 | G107-01 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G013-02 | G107-01 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           GRADE-VALUES-TWIN grades G104-01 | G148-02 [Shared formulation key]: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           MEAS-CROSS-SOURCE-TWIN sources S-PET-TDS-ReForm-rPET | S-PET-tds-hdglass: no longer occurs; remove it from data/review/accepted-findings.csv
+STALE ACCEPTANCE           MEAS-PHYSICS-STRAIN measurements V007440 [Normalized value]: no longer occurs; remove it from data/review/accepted-findings.csv

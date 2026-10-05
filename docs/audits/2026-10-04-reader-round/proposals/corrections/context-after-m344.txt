@@ -1,0 +1,335 @@
+accepted CONTEXT-DIRECTION          V000716 [Direction] the line says Z; Direction is XY — "Bending Strength (Z) ISO 178, GB/T 9341 47 ± 2 MPa 55 ± 2.1 kJ/m²;"
+accepted CONTEXT-STANDARD           V000716 [Standards] the line names ISO 178, GB/T 9341; Standards is ISO 179; GB/T 1043 — "Bending Strength (Z) ISO 178, GB/T 9341 47 ± 2 MPa 55 ± 2.1 kJ/m²;"
+accepted CONTEXT-DIRECTION          V000940 [Direction] the line says Z; Direction is XY — "Bending Strength (Z) ISO 178, GB/T 9341 80 ± 7 MPa 40.3 ± 2.5 kJ/m²;"
+accepted CONTEXT-STANDARD           V000940 [Standards] the line names ISO 178, GB/T 9341; Standards is ISO 179; GB/T 1043 — "Bending Strength (Z) ISO 178, GB/T 9341 80 ± 7 MPa 40.3 ± 2.5 kJ/m²;"
+accepted CONTEXT-DIRECTION          V001038 [Direction] the line says XY; Direction is Z — "Tensile strength (X-Y) 31.4 ± 1.5 MPa"
+accepted CONTEXT-STANDARD           V002054 [Standards] the line names ISO 178; Standards is ISO 527 — "Flexural Strength MPa ISO178 13.9"
+accepted CONTEXT-STANDARD           V004152 [Standards] the line names ASTM D1525; Standards is ASTM D648 — "VICAT A (VST) ASTM D1525 °C 96*"
+accepted CONTEXT-STANDARD           V004262 [Standards] the line names ASTM D882; Standards is ASTM D1238 — "Nominal elongation at break ASTM D882 % 6 Speed 20-200mm/s"
+accepted CONTEXT-DIRECTION          V004349 [Direction] the line says XY; Direction is ZX — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 50±4"
+accepted CONTEXT-STANDARD           V004349 [Standards] the line names ISO 527; Standards is ISO 180 — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 50±4"
+accepted CONTEXT-DIRECTION          V004370 [Direction] the line says XY; Direction is ZX — "拉伸模量(X-Y) Tensile Modulus ISO 527/2 50 mm/min MPa 363±30"
+accepted CONTEXT-DIRECTION          V004372 [Direction] the line says XY; Direction is ZX — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 18±3"
+accepted CONTEXT-DIRECTION          V004374 [Direction] the line says XY; Direction is ZX — "断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min % 5±1.5"
+accepted CONTEXT-DIRECTION          V004376 [Direction] the line says XY; Direction is ZX — "弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa 1719±200"
+accepted CONTEXT-DIRECTION          V004378 [Direction] the line says XY; Direction is ZX — "弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa 27±3"
+accepted CONTEXT-DIRECTION          V004390 [Direction] the line says XY; Direction is ZX — "拉伸模量(X-Y) Tensile Modulus ISO 527/2 50 mm/min MPa 300±50"
+accepted CONTEXT-DIRECTION          V004392 [Direction] the line says XY; Direction is ZX — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 20±5"
+accepted CONTEXT-DIRECTION          V004394 [Direction] the line says XY; Direction is ZX — "断裂伸长率(X-Y) Elongation at break ISO 527/2 50 mm/min % 8±3"
+accepted CONTEXT-DIRECTION          V004396 [Direction] the line says XY; Direction is ZX — "弯曲模量(X-Y) Flexural Modulus ISO 178 2 mm/min MPa 1650±300"
+accepted CONTEXT-DIRECTION          V004398 [Direction] the line says XY; Direction is ZX — "弯曲强度(X-Y) Flexural Strength ISO 178 2 mm/min MPa 35±10"
+accepted CONTEXT-DIRECTION          V004460 [Direction] the line says XY; Direction is ZX — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 55±5"
+accepted CONTEXT-STANDARD           V004460 [Standards] the line names ISO 527; Standards is ISO 180 — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 55±5"
+accepted CONTEXT-STANDARD           V004576 [Standards] the line names ISO 527; Standards is ISO 180 — "(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 33±6"
+accepted CONTEXT-DIRECTION          V004602 [Direction] the line says XY; Direction is ZX — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 45±5"
+accepted CONTEXT-STANDARD           V004602 [Standards] the line names ISO 527; Standards is ISO 180 — "拉伸强度(X-Y) Tensile Strength ISO 527/2 50 mm/min MPa 45±5"
+accepted CONTEXT-DIRECTION          V004728 [Direction] the line says XY; Direction is ZX — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 73±5"
+accepted CONTEXT-STANDARD           V004728 [Standards] the line names ISO 178; Standards is ISO 180 — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 73±5"
+accepted CONTEXT-DIRECTION          V004795 [Direction] the line says XY; Direction is ZX — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 78±6"
+accepted CONTEXT-STANDARD           V004795 [Standards] the line names ISO 178; Standards is ISO 180 — "(X-Y) Flexural Strength ISO 178 2 mm/min MPa 78±6"
+accepted CONTEXT-STANDARD           V006416 [Standards] the line names ASTM D882; Standards is ASTM D1238 — "Nominal elongation at break ASTM D882 % 6 Speed 20-200mm/s"
+accepted CONTEXT-STANDARD           V007360 [Standards] the line names ASTM 3418; Standards is Not published — "Melting Point ASTM 3418 145 - 160 ºC"
+accepted CONTEXT-STANDARD           V007432 [Standards] the line names ASTM 648; Standards is Not published — "Heat Deflection (ASTM 648,66 psi) 204°F 96°C"
+accepted CONTEXT-STANDARD           V008610 [Standards] the line names ASTM D882; Standards is ASTM D1238 — "Nominelle Bruchdehnung ASTM D882 % 6 Geschwindigkeit 20-200mm/s"
+accepted CONTEXT-DIRECTION          V008819 [Direction] the line says XY; Direction is Z — "Elongation at Break (X-Y) 4.2±1.1"
+accepted CONTEXT-STANDARD           V008914 [Standards] the line names ASTM 256; Standards is Not published — "Izod Impact Strength, Notched 175 J/m 3.2mm Sample ASTM256"
+accepted CONTEXT-DIRECTION          V009194 [Direction] the line says XY; Direction is XZ — "Elongation at yield (tensile test) 5mm/min, Orientation XY 2,6 % DIN EN ISO 527-2 7)"
+accepted CONTEXT-STANDARD           V009473 [Standards] the line names ISO 306, GB/T 1633; Standards is ISO 75 — "Vicat softening temperature ISO 306,GB/T 1633 57℃"
+accepted CONTEXT-STANDARD           V009856 [Standards] the line names ASTM 3418; Standards is Not published — "ASTM 3418 145- 160 ºC"
+accepted CONTEXT-DIRECTION          V010126 [Direction] the line says XY; Direction is Z — "Notched Charpy impact strength (X-Y) ISO 179, GB/T 1043 2.9 + 0.3 kJ/m"
+accepted CONTEXT-STANDARD           V010360 [Standards] the line names GB/T 9341; Standards is GB/T 1040 — "Flexural Strength GB/T 9341 140 MPa"
+accepted CONTEXT-NOTCH              V010705 [Notch] the line says unnotched; Notch is Notched — "Izod Impact Strength (Unnotched) @ 23°C ISO 180 kJ/m?2 45 4"
+accepted CONTEXT-STANDARD           V011114 [Standards] the line names ISO 306; Standards is ISO 75 — "Vicat softening temperature 140 °C ISO 306 50 °C/h, 5 kg"
+accepted CONTEXT-STANDARD           V011163 [Standards] the line names ASTM 648; Standards is Not published — "Heat Deflection (ASTM 648,66 psi) 196°F 91°C"
+accepted CONTEXT-BOUND-SIGN         V011225 [Operator] the line prints "up to 160"; Operator is "=" — "• Heat distortion resistance up to 160°C VICAT A / 115°C HDT/B*"
+accepted CONTEXT-BOUND-SIGN         V011237 [Operator] the line prints "up to 115"; Operator is "=" — "• Heat distortion resistance up to 115°C VICAT A"
+accepted CONTEXT-DIRECTION          V011424 [Direction] the line says XY; Direction is ZX — "Modulus of elasticity 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 2.8 ± 0.3"
+accepted CONTEXT-DIRECTION          V011436 [Direction] the line says XY; Direction is ZX — "Modulus of elasticity 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 2.8 ± 0.3"
+NEW      CONTEXT-TEST-TEMPERATURE   V012229 [Test temperature °C] the line states a sub-zero test temperature; none is recorded — "also at temperatures up to -40 °C. Other Elongation at break 20 % ISO 527"
+NEW      CONTEXT-STANDARD           V012298 [Standards] the line names ISO 1183; Standards is ISO 7619 — "Printing density 250ºC 90% Flow 1,080 g/cm3 ISO 1183"
+NEW      CONTEXT-STANDARD           V012301 [Standards] the line names ISO 1183; Standards is ISO 7619 — "Printing density 250ºC 70% Flow 0,800 g/cm3 ISO 1183"
+NEW      CONTEXT-STANDARD           V012343 [Standards] the line names DIN 16742; Standards is Not published — "Linear mould shrinkage 0.3-0.5 % DIN 16742"
+NEW      CONTEXT-STANDARD           V012344 [Standards] the line names DIN 16742; Standards is Not published — "Linear mould shrinkage 0.3-0.5 % DIN 16742"
+NEW      CONTEXT-STANDARD           V012350 [Standards] the line names DIN 16742; Standards is Not published — "Linear shrinkage 0.0-0.1% DIN 16742"
+NEW      CONTEXT-STANDARD           V012351 [Standards] the line names DIN 16742; Standards is Not published — "Linear mould shrinkage 0.3-0.5% DIN 16742"
+NEW      CONTEXT-STANDARD           V012700 [Standards] the line names ISO 527; Standards is ISO 179 — "Tensile Strength ISO 527 30 MPa"
+NEW      CONTEXT-STANDARD           V012748 [Standards] the line names ASTM D648; Standards is ASTM D1525; ISO 306; GB/T 1633 — "Heat distortion temperature(° C) ASTM D648 0.45MPa 54"
+NEW      CONTEXT-NOTCH              V013185 [Notch] the line says notched; Notch is Unnotched — "Charpy Impact Strength (not notched) @ 23°C ISO 180 kJ/m? 110"
+NEW      CONTEXT-TEST-TEMPERATURE   V013269 [Test temperature °C] the line states a test temperature; none is recorded — "Impact strength 15 KJ/m² ISO 179 Charpy Notched @23° C (73° F)"
+NEW      CONTEXT-STANDARD           V014128 [Standards] the line names DIN 16742; Standards is Not published — "Linear mould shrinkage 0.00-0.1 % DIN 16742"
+NEW      CONTEXT-BOUND-SIGN         V014374 [Operator] the line prints "≤40"; Operator is "=" — "Tensile Strength（MPa） 40±6 Density（g/cm³） 1.23 Nozzle Temperature & Print Speed 220-240℃/≤40mm/s"
+accepted CONTEXT-PAGE-UNRECORDED    I-ESD-ABS-TDS p. 1 [Post-processing state] the page says "(after annealing)"; 7 of its rows (V000606, V000607, V000608, V000609, …) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    S-SPECTRUM-en-tds-spectrum-pp p. 1 [Moisture state] the page says "(dry, at 50"; 1 of its rows (V002673) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2 p. 6 [Specimen type] the page says "specimens printed"; 3 of its rows (V003740, V003741, V013444) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-ColorFabb-PLA-HP-5210c3 p. 1 [Specimen type] the page says "typical material properties – 3d printed"; 1 of its rows (V005792) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-ColorFabb-PETG-Economy-0 p. 2 [Specimen type] the page says "3d printed specimens"; 3 of its rows (V006304, V006305, V006306) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon p. 2 [Specimen type] the page says "3d printed specimens"; 4 of its rows (V006532, V006533, V006534, V006535) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967 p. 1 [Post-processing state] the page says "all specimens were annealed"; 2 of its rows (V013938, V013939) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Hyper-Speed-ABS-Filament-TDS-V2-0 p. 1 [Specimen type] the page says "3d printed specimen"; 1 of its rows (V013862) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1 p. 1 [Post-processing state] the page says "all specimens were annealed"; 2 of its rows (V013954, V013955) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    R-NINJATEK-Armadillo-TDS p. 1 [Specimen type] the page says "printed specimens"; 1 of its rows (V012283) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0 p. 1 [Specimen type] the page says "specimens were printed"; 1 of its rows (V007190) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0 p. 1 [Moisture state] the page says "(conditioned"; 1 of its rows (V007190) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-NANOVIA-PLA-VX p. 1 [Specimen type] the page says "3d printed test samples"; 5 of its rows (V007532, V007533, V013428, V013429, …) record nothing, and no page_context row carries it
+accepted CONTEXT-PAGE-UNRECORDED    R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4 p. 4 [Moisture state] the page says "conditioned in standard climate (23°c, 50% rh"; 9 of its rows (V007693, V007694, V007695, V011703, …) record nothing, and no page_context row car
+NEW      CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-colorFabbPABlueMetalDetectable p. 1 [Specimen type] the page says "typical material properties – 3d printed"; 1 of its rows (V012716) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    R-BAMBU-PRIORITY-20261003-f50ef28e766c p. 1 [Moisture state] the page says "dry state"; 2 of its rows (V012675, V012677) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo p. 2 [Specimen type] the page says "3d printed specimens"; 3 of its rows (V012713, V012714, V012715) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Hyper-Core-PPA-CF25-TDS-V2-0 p. 2 [Specimen type] the page says "specimens were printed"; 2 of its rows (V013840, V013841) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1 p. 2 [Specimen type] the page says "specimens were printed"; 2 of its rows (V013859, V013860) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0 p. 2 [Specimen type] the page says "specimens were printed"; 2 of its rows (V013890, V013891) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0 p. 2 [Specimen type] the page says "specimens were printed"; 2 of its rows (V013905, V013906) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1 p. 2 [Specimen type] the page says "specimens were printed"; 2 of its rows (V013978, V013979) record nothing, and no page_context row carries it
+NEW      CONTEXT-PAGE-UNRECORDED    D-SIRAYA-TECH-PRINT-20260928-2a59ac01371f p. 1 [Moisture state] the page says "(dry)"; 5 of its rows (V014101, V014102, V014103, V014104, …) record nothing, and no page_context row carries it
+NEW      CONTEXT-PROFILE-SETTING    P1412 [Nozzle °C] its own sheet prints "extruder temperature are 190-210 C"; the profile holds Not published (no profile of the product holds one)
+NEW      CONTEXT-PROFILE-SETTING    P1420 [Chamber °C] its own sheet prints "Chamber Temperature: - Bed Temperature: 80 - 100 °"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1437 [Nozzle °C] its own sheet prints "Extruder Temperature(°C) 210-230℃"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1438 [Nozzle °C] its own sheet prints "Extruder Temperature(°C) 210-250℃"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1439 [Nozzle °C] its own sheet prints "Extruder Temperature(°C) 210-250℃"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1615 [Nozzle °C] its own sheet prints "Nozzle Temperature & Print Speed 240-260℃"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1650 [Bed °C] its own sheet prints "Bed Temperature 55 - 69°"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1650 [Chamber °C] its own sheet prints "Chamber Temperature 29- 40°"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1654 [Bed °C] its own sheet prints "Bed Temperature 100 – 120 °"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1654 [Nozzle °C] its own sheet prints "Nozzle Temperature 260 – 280 °"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1654 [Chamber °C] its own sheet prints "Chamber Temperature - - Bed Temperature 100 – 120 °"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1666 [Nozzle °C] its own sheet prints "Extruder Temperature(°C) 190-230℃"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1668 [Nozzle °C] its own sheet prints "Extruder Temperature(°C) 230-270℃"; the profile holds Not published (another profile of the product holds a window)
+NEW      CONTEXT-PROFILE-SETTING    P1669 [Nozzle °C] its own sheet prints "Extruder Temperature(°C) 230-260℃"; the profile holds Not published (another profile of the product holds a window)
+accepted CONTEXT-PROFILE-SETTING    P0170 [Nozzle °C] the import's sheet reader finds "Nozzle Temperature 240~260℃ (250℃ recommended)"; the profile holds "240-260 °C"
+accepted CONTEXT-PROFILE-SETTING    P0170 [Bed °C] the import's sheet reader finds "Build Platform Temperature 100~120℃ (110℃ recommended)"; the profile holds "100-120 °C"
+accepted CONTEXT-PROFILE-SETTING    P0212 [Nozzle °C] the import's sheet reader finds "Nozzle temperature 190-220°C"; the profile holds "225-250°C"
+accepted CONTEXT-PROFILE-SETTING    P0287 [Nozzle °C] the import's sheet reader finds "Nozzle temperature Classic: 190-210 °C"; the profile holds "High-speed: 210-230 °C"
+accepted CONTEXT-PROFILE-SETTING    P0313 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "80˚C for 8h"
+accepted CONTEXT-PROFILE-SETTING    P0319 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "70˚C for 12h"
+accepted CONTEXT-PROFILE-SETTING    P0324 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "80˚C for 12h"
+accepted CONTEXT-PROFILE-SETTING    P0330 [Nozzle °C] the import's sheet reader finds "Nozzle temperature Classic: 190-210 °C"; the profile holds "High-speed: 210-230 °C"
+accepted CONTEXT-PROFILE-SETTING    P0468 [Chamber °C] the import's sheet reader finds "Ambient Temperature for Printing Ambient Temperature for Printing"; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P0470 [Enclosure] the import's sheet reader finds "chamber FFF 3D printers."; the profile holds Not published
+accepted CONTEXT-PROFILE-SETTING    P0637 [Nozzle °C] the import's sheet reader finds "Nozzle Temperature 275 °C"; the profile holds "260~280℃(270℃ recommended)"
+accepted CONTEXT-PROFILE-SETTING    P0868 [Nozzle °C] the import's sheet reader finds "Nozzle temperature: 250 °C"; the profile holds "240 – 260 °C"
+accepted CONTEXT-PROFILE-SETTING    P0871 [Nozzle °C] the import's sheet reader finds "Nozzle temperature: 230 °C"; the profile holds "220 – 240°C"
+accepted CONTEXT-PROFILE-SETTING    P1028 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "70˚C for 8h"
+accepted CONTEXT-PROFILE-SETTING    P1034 [Drying] the import's sheet reader finds "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; the profile holds "80˚C for 12h"
+NEW      CONTEXT-PROFILE-SETTING    P1101 [Bed °C] the import's sheet reader finds "Bed Temperature 55 - 69°C"; the profile holds "35 - 65 °C"
+NEW      CONTEXT-PROFILE-SETTING    P1101 [Chamber °C] the import's sheet reader finds "Chamber Temperature 29- 40°C"; the profile holds "25 - 40 °C"
+accepted CONTEXT-PROFILE-SETTING    P1229 [Nozzle °C] the import's sheet reader finds "Nozzle temperature: 230 °C"; the profile holds "210 – 240°C"
+accepted CONTEXT-PROFILE-SETTING    P1252 [Nozzle °C] the import's sheet reader finds "Extruder Temperature 210-250℃"; the profile holds "220 - 250℃"
+accepted CONTEXT-PROFILE-SETTING    P1257 [Bed °C] the import's sheet reader finds "Heated bed temperature | 80°C"; the profile holds "120-140 °C"
+NEW      CONTEXT-PROFILE-SETTING    P1402 [Enclosure] the import's sheet reader finds "Enclosure kit for Flashforge AD5X"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1402 [Enclosure] the import's sheet reader finds "Enclosure Kit for Flashforge Adventurer 5M"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1402 [Enclosure] the import's sheet reader finds "Enclosure kit for Flashforge AD5X"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1402 [Enclosure] the import's sheet reader finds "Enclosure Kit for Flashforge Adventurer 5M"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1406 [Nozzle °C] the import's sheet reader finds "Print Temperature : 130°C (130 to 170°C)"; the profile holds "around 120°C"
+NEW      CONTEXT-PROFILE-SETTING    P1407 [Nozzle °C] the import's sheet reader finds "Print Temperature : 130°C (130 to 170°C)"; the profile holds "around 120°C"
+NEW      CONTEXT-PROFILE-SETTING    P1415 [Enclosure] the import's sheet reader finds "Ideal for printing without a heated bed, no enclosure required"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1437 [Nozzle °C] the import's sheet reader finds "Extruder Temperature(°C)  210-230℃/410-446℉"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1438 [Nozzle °C] the import's sheet reader finds "Extruder Temperature(°C)  210-250℃/410-482℉"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1438 [Drying] the import's sheet reader finds "Dry at55℃/>4h，direct-drive extruder，slow printing Download"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1439 [Nozzle °C] the import's sheet reader finds "Extruder Temperature(°C)  210-250℃/410-482℉"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1439 [Drying] the import's sheet reader finds "Dry at55℃/>4h，direct-drive extruder，slow printing Download"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1486 [Nozzle °C] the import's sheet reader finds "Print temp: ± 235 – 260° C  Fan speed: 0-50%  Experience level: Intermediate"; the profile holds "± 235 – 260° C"
+NEW      CONTEXT-PROFILE-SETTING    P1492 [Bed °C] the import's sheet reader finds "temperature: 265 - 290 °C / nozzle material: abbrasion resistant / print bed tem"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1493 [Bed °C] the import's sheet reader finds "Print bed temperature °C ≥ 50"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1494 [Bed °C] the import's sheet reader finds "Plate Temp. 130 - 150 °C"; the profile holds "between 100 and 140°C"
+NEW      CONTEXT-PROFILE-SETTING    P1495 [Enclosure] the import's sheet reader finds "Enclosure T° 110 °C"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1496 [Bed °C] the import's sheet reader finds "Platform Temperature Room temperature to 50°C"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1553 [Drying] the import's sheet reader finds "*** at least 6h at 75°C using a hot dry air oven SUPPORT"; the profile holds "No"
+NEW      CONTEXT-PROFILE-SETTING    P1643 [Nozzle °C] the import's sheet reader finds "Extruder Temp  230-260C"; the profile holds "230-270°C"
+NEW      CONTEXT-PROFILE-SETTING    P1648 [Nozzle °C] the import's sheet reader finds "Nozzle Specs  No special concerns"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1650 [Bed °C] the import's sheet reader finds "Bed Temperature 55 - 69°C"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1650 [Chamber °C] the import's sheet reader finds "Chamber Temperature 29- 40°C"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1651 [Nozzle °C] the import's sheet reader finds "Nozzle Temperature / °C  230  230"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1653 [Nozzle °C] the import's sheet reader finds "Printing Temperature  240 - 270 °C  240 - 280 °C  210 - 260 °C"; the profile holds "240 - 280 °C"
+NEW      CONTEXT-PROFILE-SETTING    P1654 [Nozzle °C] the import's sheet reader finds "Nozzle Temperature 260 – 280 °C / 500 – 536 °F 285 °C / 545 °F"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1654 [Bed °C] the import's sheet reader finds "Bed Temperature 100 – 120 °C / 212 – 248 °F 110 °C / 212 °F"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1666 [Nozzle °C] the import's sheet reader finds "Extruder Temperature(°C)  190-230℃/374-446℉"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1666 [Enclosure] the import's sheet reader finds "Retains PLA's easy-printing nature-no enclosure needed, beginner-friendly. Minim"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1668 [Nozzle °C] the import's sheet reader finds "Extruder Temperature(°C)  230-270℃/446-518℉"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1669 [Nozzle °C] the import's sheet reader finds "Extruder Temperature(°C)  230-260℃/446-500℉"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1691 [Drying] the import's sheet reader finds "Trocknungstemperatur | 65°C | Drying time 2-4h"; the profile holds "im Backofen bei 80°C 2h-4h getrocknet werden"
+NEW      CONTEXT-PROFILE-SETTING    P1726 [Enclosure] the import's sheet reader finds "Enclosed chamber: not required"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1733 [Nozzle °C] the import's sheet reader finds "Print temp: ± 230 – 255° C  Fan speed: 0 – 50%  Experience level: Beginner"; the profile holds "± 230 – 255° C"
+NEW      CONTEXT-PROFILE-SETTING    P1734 [Nozzle °C] the import's sheet reader finds "Print temp: ± 245 – 265° C  Fan speed: 0 – 30%  Experience level: Intermediate"; the profile holds "± 245 – 265° C"
+NEW      CONTEXT-PROFILE-SETTING    P1755 [Enclosure] the import's sheet reader finds "Do I need an enclosure to print ABS Max? Yes. ABS Max requires an actively heate"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1755 [Enclosure] the import's sheet reader finds "Actively Heated Enclosure Required."; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1760 [Nozzle °C] the import's sheet reader finds "Nozzle  Temperature: 210 ± 20 °C 0.4 mm brass high-flow (CHT) nozzle"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1760 [Bed °C] the import's sheet reader finds "Heatbed  Temperature: 50 ± 10 °C"; the profile holds Not published
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 6-8 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 60°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 100°C / 10 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 6-8 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 50°C / 4-8 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 50°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-55°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-60°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-55°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 45-50°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 45-50°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-55°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 100°C / 10 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 100°C / 10 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 60°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1775 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 6-8 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 60°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 100°C / 10 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 6-8 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 60-65°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 50°C / 4-8 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 50°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-55°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-60°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-55°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 45-50°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 45-50°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 50-55°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 100°C / 10 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 100°C / 10 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 60°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 70-80°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P1776 [Drying] the import's sheet reader finds "Blast Drying Oven: 80-100°C / 4-6 h"; the profile holds "Required"
+NEW      CONTEXT-PROFILE-SETTING    P0618 [Nozzle °C] "250 °C" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0618 [Bed °C] "70 °C" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0633 [Nozzle °C] "320℃" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0656 [Nozzle °C] "300ºC" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0673 [Nozzle °C] "320 ºC" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0907 [Nozzle °C] "230 ºC" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0907 [Bed °C] "55 ºC" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0912 [Nozzle °C] "340 ºC" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0919 [Nozzle °C] "220 °C" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P0919 [Bed °C] "60 °C" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-SETTING    P1263 [Nozzle °C] "320 ºC" is printed on its sheet only under a test-bar or pellet-processing heading
+NEW      CONTEXT-PROFILE-UNRECORDED G026-01 XP-3dxstat-esd-petg-1-2 [Nozzle °C] the product's own sheet prints "Extruder Temp  260-280C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G026-02 R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe [Drying] the product's own sheet prints "Drying settings Diameter accuracy (2.85/1.75 mm): Weight accuracy:"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G027-01 R-BAMBU-PRIORITY-20261003-f9c029df1bc8 [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G028-01 R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-01 R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6 [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G033-01 R-BAMBU-PRIORITY-20261003-94bc784d0793 [Enclosure] the product's own sheet prints "Enclosure Printers Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G048-01 R-BAMBU-PRIORITY-20261003-a100c1bb3a92 [Enclosure] the product's own sheet prints "Enclosure Printer Required"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G059-01 R-POLYMAKER-PRIORITY-20261003-540bc284ede5 [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G065-01 R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca [Nozzle °C] the product's own sheet prints "Nozzle 260-300 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G065-01 R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G065-01 R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca [Drying] the product's own sheet prints "• Dry before printing: 100°C for 10–16h • Use a hardened steel or ruby nozzle to"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G046-03 D-DSM-ARNITEL-ID2045-PRINT-GUIDELINE [Nozzle °C] the product's own sheet prints "Extruder: 220 - 245°C / 428 - 473°F"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G046-03 D-DSM-ARNITEL-ID2045-PRINT-GUIDELINE [Bed °C] the product's own sheet prints "Build plate temperature setting: 40-60°C / 104-140°F"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G050-03 R-SPECTRUM-PORTFOLIO-2024 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G122-01 XP-carbonx-pekk-a-cf15-1 [Nozzle °C] the product's own sheet prints "Extruder Temp  360-390C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G122-01 XP-carbonx-pekk-a-cf15-1 [Bed °C] the product's own sheet prints "Bed Temp  120-140C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G123-01 XP-3dxstat-esd-pei-ultem-1010 [Nozzle °C] the product's own sheet prints "Extruder Temp  360-390°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G123-01 XP-3dxstat-esd-pei-ultem-1010 [Bed °C] the product's own sheet prints "Bed Temp  140-160°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G123-01 XP-3dxstat-esd-pei-ultem-1010 [Drying] the product's own sheet prints "Drying Specs 120°C for 4 hours Need Stratasys Compatible Filament?"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G118-02 XP-pei-cf15 [Nozzle °C] the product's own sheet prints "Extruder Temp  365-390C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G118-02 XP-pei-cf15 [Bed °C] the product's own sheet prints "Bed Temp  140-160C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G118-02 XP-pei-cf15 [Drying] the product's own sheet prints "Drying Specs 140°C for 6-8 hours Click to open this material’s TDS."; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G020-13 R-POLYMAKER-PRIORITY-20261002-a01e6574d210 [Enclosure] the product's own sheet prints "Superior Chemical and Heat Resistance PolyLite™ PETG offers enhanced chemical re"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 S-POLYCN-PolyLite-ASA-TDS-V5-3 [Nozzle °C] the product's own sheet prints "Nozzle temperature 240 – 260 (℃)"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 S-POLYCN-PolyLite-ASA-TDS-V5-3 [Chamber °C] the product's own sheet prints "Environmental temperature Room temperature - 90 (˚C)"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 S-POLYCN-PolyLite-ASA-TDS-V5-3 [Bed °C] the product's own sheet prints "Bed temperature 80 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a [Nozzle °C] the product's own sheet prints "Printing Temperature: 240˚C - 260˚C Bed Temperature: 75˚C - 95˚C Printing Speed:"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-06 R-POLYMAKER-PRIORITY-20261002-f4d14d72d55a [Drying] the product's own sheet prints "Printing Temperature: 240˚C - 260˚C Bed Temperature: 75˚C - 95˚C Printing Speed:"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G057-03 R-POLYMAKER-PRIORITY-20261003-46df2b78af77 [Drying] the product's own sheet prints "Drying 80°C for 8h Compatibility ☑ Good"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G035-10 S-POLYCN-PolyLite-PC-TDS-V5-3 [Nozzle °C] the product's own sheet prints "Printing temperature 255 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G035-10 S-POLYCN-PolyLite-PC-TDS-V5-3 [Bed °C] the product's own sheet prints "Bed temperature 100 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G035-10 R-POLYMAKER-PRIORITY-20261003-eb1e58e6f967 [Drying] the product's own sheet prints "Drying 100°C for 8h Compatibility ☑ Good"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-28 R-FILLAMENTUM-PRIORITY-20261003-3f22b7dd7442 [Drying] the product's own sheet prints "It should be noted that the drying temperature is precisely determined by the ty"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G026-05 R-POLYMAKER-PRIORITY-20261002-06bd5efb417b [Enclosure] the product's own sheet prints "Enclosure Not needed"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G053-08 R-POLYMAKER-PRIORITY-20261003-effcc17a7754 [Nozzle °C] the product's own sheet prints "Nozzle 260-300 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G053-08 R-POLYMAKER-PRIORITY-20261003-effcc17a7754 [Enclosure] the product's own sheet prints "Enclosure Not needed"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G051-09 R-POLYMAKER-PRIORITY-20261003-02efe50f9eac [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G050-11 R-POLYMAKER-PRIORITY-20261003-aa05f44c1437 [Enclosure] the product's own sheet prints "Enclosure Recommended"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G098-03 D-3D4MAKERS-PEKK-A-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying Temperature: 120°C, 4 - 8 hours"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G099-04 D-3D4MAKERS-PEI-FILAMENT-PAGE [Bed °C] the product's own sheet prints "Heated bed temperature  120 - 160°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G099-04 D-3D4MAKERS-PEI-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying recommendations  120°C, minimal 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G099-06 D-3D4MAKERS-PEI-ULTEM-9085-FILAMENT-PAGE [Drying] the product's own sheet prints "Drying recommendations  120°C, minimal 4 hours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G027-32 R-QIDI-FILAMENT-GUIDE [Drying] the product's own sheet prints "Blast Drying Oven: 80-100°C / 4-6 h"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-52 D-MATTERHACKERS-MH-BUILD-TPU-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 240±10 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G039-52 D-MATTERHACKERS-MH-BUILD-TPU-PAGE [Bed °C] the product's own sheet prints "Bed Temperature: 50±10 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-123 D-MATTERHACKERS-MH-BUILD-PLA-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 205±15°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G020-50 D-MATTERHACKERS-MH-BUILD-PETG-2-85MM-PAGE [Bed °C] the product's own sheet prints "Bed Temperature: 60±10 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G026-09 D-MATTERHACKERS-PRO-ESD-PETG-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 220–240 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G026-09 D-MATTERHACKERS-PRO-ESD-PETG-PAGE [Bed °C] the product's own sheet prints "Bed Temperature: 100–110 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G001-130 D-MATTERHACKERS-MH-BUILD-PLA-PAGE [Nozzle °C] the product's own sheet prints "Extruder Temperature: 205±15°C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G031-35 D-CREATBOT-ASA-PAGE [Enclosure] the product's own sheet prints "Is CreatBot ASA filament compatible with other brands of 3D printers?"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G153-01 R-COVERAGE-20261001-28aad1fe7597 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G154-01 D-FILLAMENTUM-NYLON-CF15-PAGE [Nozzle °C] the product's own sheet prints "Working temperature:  235–260 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G153-02 R-COVERAGE-20261001-28aad1fe7597 [Bed °C] the product's own sheet prints "Hot pad 40 - 60 °C"; its profiles hold another reading of it
+NEW      CONTEXT-PROFILE-UNRECORDED G099-11 D-FIBERLOGY-PEI-9085-FILAMENT-2-PAGE [Drying] the product's own sheet prints "Drying conditions: 120°C / 6 hours – Higher drying temperatures may cause the sp"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G099-11 D-FIBERLOGY-PEI-9085-FILAMENT-2-PAGE [Enclosure] the product's own sheet prints "Enclosed chamber: >80°C"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G168-01 R-BIGREP-Ec5wx9MmYX1KseTcD5XV1IABzL0ure69YNjObGyOPwDL-w [Drying] the product's own sheet prints "Drying Recommendations 50 TS for 4 - 6 âours"; no profile of the product holds this setting
+NEW      CONTEXT-PROFILE-UNRECORDED G173-01 R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1 [Drying] the product's own sheet prints "Trocknungstemperatur 6"; no profile of the product holds this setting
+STALE CONTEXT-PROFILE-SETTING P0993 [Abrasion / clogging]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1366 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1366 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1376 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1377 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1378 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1379 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1380 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1381 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1382 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1383 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1384 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1385 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1385 [Drying]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1385 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1385 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1386 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1386 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1386 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1387 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1387 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1387 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1388 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1388 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1388 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1389 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1389 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1389 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1390 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1390 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1390 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1391 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1391 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1391 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1392 [Bed °C]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1392 [Enclosure]: the finding no longer occurs; remove its acceptance
+STALE CONTEXT-PROFILE-SETTING P1392 [Nozzle °C]: the finding no longer occurs; remove its acceptance
+audit:context: 297 finding(s): 75 accepted, 222 new {"CONTEXT-DIRECTION":23,"CONTEXT-STANDARD":30,"CONTEXT-NOTCH":2,"CONTEXT-BOUND-SIGN":3,"CONTEXT-TEST-TEMPERATURE":2,"CONTEXT-PAGE-UNRECORDED":23,"CONTEXT-PROFILE-SETTING":156,"CONTEXT-PROFILE-UNRECORDED":58}, 37 stale

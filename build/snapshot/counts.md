@@ -10,17 +10,17 @@ rather than repeat a number.
 | … family entries and aliases | 22 | names that own no product (D44, D86) |
 | … out of scope | 17 | recorded, never a candidate |
 | Products | 1,099 | active procurement grades |
-| … with a comparable value for at least one property | 998 | D84 |
-| … with a print profile of their own | 990 |  |
-| … reading values from a twin's sheet | 64 | the same table, recorded once (D89) |
-| … reading part of the print gate from a printer maker's guide | 450 | where their own sheet is silent (D88); 33 guide rows |
+| … with a comparable value for at least one property | 1,046 | D84 |
+| … with a print profile of their own | 1,056 |  |
+| … reading values from a twin's sheet | 71 | the same table, recorded once (D89) |
+| … reading part of the print gate from a printer maker's guide | 444 | where their own sheet is silent (D88); 33 guide rows |
 | … with a maker's know-how statement | 1,022 | lane 3 |
-| Measurements | 11,509 | active rows |
-| … with a usable number | 11,328 |  |
-| Product values | 4,565 | one per product and headline, chosen by rule (D83) |
-| Material values from products | 665 | headline cells of in-scope materials |
-| Material values estimated | 148 | where no product publishes (D43) |
-| Print profiles | 1,324 |  |
+| Measurements | 14,097 | active rows |
+| … with a usable number | 13,914 |  |
+| Product values | 5,068 | one per product and headline, chosen by rule (D83) |
+| Material values from products | 683 | headline cells of in-scope materials |
+| Material values estimated | 141 | where no product publishes (D43) |
+| Print profiles | 1,723 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 4,867 | the makers' words, shown in the panel only (D85) |
 | Price observations | 357 | sampled 2026-09-30 |

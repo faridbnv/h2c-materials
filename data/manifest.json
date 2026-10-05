@@ -10,20 +10,20 @@
       "sha256": "f59e8aa5f24b0ecc3a957c4874479eba2c282aae52ef421687d0992900c4ad51"
     },
     "profiles": {
-      "rows": 1403,
-      "sha256": "2384ad64969eda490f6a26d39ebf6e2500f6ab18917707de34683b8c04af0bfa"
+      "rows": 1802,
+      "sha256": "9e4aa1987bf83b7e5557c6b0dc52dd736844c1bd601c961435d823623810daaa"
     },
     "profile_notes": {
       "rows": 2199,
       "sha256": "4c21807bb5d7922ed824d6d51237b6e255573325972a380594a9da72e281dfcb"
     },
     "measurements": {
-      "rows": 11819,
-      "sha256": "33217e077432c35a43ea7e0199b5da8131128632e42f4c22cfc914872b5659d8"
+      "rows": 14407,
+      "sha256": "32eb80634cbb8f09551ce25d5f176cb8b31ecab1a8af9234a118c2f0295eb4eb"
     },
     "page_context": {
-      "rows": 285,
-      "sha256": "db7d3317c1a58aa0d42322d5b5782f76aabffa3b41eb6b89b26976bfaae512d0"
+      "rows": 387,
+      "sha256": "ebe17272908d2a777d2bfcd306df6a97d00518d64522d6cd84a0bd245a0cf2a3"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -55,7 +55,7 @@
     },
     "sources": {
       "rows": 1928,
-      "sha256": "dc2d48463f8e9b3b7cabaa8177a0a77cfa252ac0f2404568c0cc2e8a744287e5"
+      "sha256": "bf66327078354ea4e103a87bd89223ae777753d32c899a2fbd5eb793cbe2639f"
     },
     "coverage": {
       "rows": 948,

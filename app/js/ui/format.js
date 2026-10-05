@@ -374,7 +374,9 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     + `${s.products > s.n ? ` ${s.products - s.n} of its ${s.products} products ${s.products - s.n === 1 ? 'does' : 'do'} not report it on that basis.` : ''}`
     + `${apart.length ? ` Left out: ${apart.join('; ')}.` : ''}`;
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
-  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${lo}–${hi}<span class="spread-n"> · ${s.n}</span></span>`;
+  // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2").
+  const span = s.min === s.max && !s.bounds ? hi : `${lo}–${hi}`;
+  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${span}<span class="spread-n"> · ${s.n}</span></span>`;
   return compact ? `${main}${range}${convertedMark(entry.converted)}` : `${main} ${range}${convertedMark(entry.converted)}`;
 }
 

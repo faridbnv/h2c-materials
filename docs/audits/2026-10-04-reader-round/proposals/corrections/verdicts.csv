@@ -1,0 +1,60 @@
+id,decision,held,proposed,evidence
+P0039,both,"Blast Drying Oven: 80 °C, 8 h","X1 Series Printer Heatbed: 90 - 100 °C, 12 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0050,reject,30 -500 ºC,50 º C,p2 Print Recommendation table prints Bed Temperature '30 -500 C' verbatim (held); 50C is from intro sentence
+P0052,both,"Blast Drying Oven: 70 °C, 8 h","X1 Series Printer Heatbed: 80 - 90 °C, 12 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0053,both,"Blast Drying Oven: 70 °C,8 h","Printer Heatbed: 90 °C, 16 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0054,both,"Blast Drying Oven: 70 °C, 8 h","Printer Heatbed: 90 °C, 16 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0096,both,"Blast Drying Oven: 80 °C,8 - 12 h","X1 Series Printer Heatbed: 90 - 100 °C, 12 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0098,both,"Blast Drying Oven: 75 °C,8 h","X1 Series Printer Heatbed: 65 - 75 °C, 12 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0099,both,"Blast Drying Oven: 80 °C, 4 h","X1 Series Printer Heatbed: 85 - 95 °C, 6 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0157,reject,"Blast drying oven 55 °C, 8 h; X1 heatbed 65-75 °C, 12 h","X1 Series Printer Heatbed: 65 - 75 °C, 12 h",p1: held already records both blast oven 55C 8h and X1 heatbed 65-75C 12h; proposal drops the oven method
+P0466,reject,Room temperature~50℃,printable on non-heated chamber FFF 3D printers,p2 table 'Ambient Temperature for Printing' Room temperature~50C (held); proposal is marketing sentence 'printable on non-heated chamber'
+P0545,reject,190-220°C,225-250°C,p1: Nozzle temperature 190-220 (held); 225-250 is the separate High Speed row
+P0560,reject,80,20-40 / Multi-purpose adhesive spray,p1: Recommended bed 80 (held); 20-40 is the Alternate bed temperature row
+P0586,reject,100-110°C,45℃,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0588,reject,100-110℃,90℃,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0606,reject,190-270℃,190-280°C,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0613,reject,250 - 290℃,240-290℃,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0637,reject,Room temperature to 50℃,can be used on FFF 3D printers in non-heated chambers,p2 table 'Printing Environmental Temperature' room temp to 50C (held); proposal is a description sentence
+P0641,reject,55°C,90℃,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0662,reject,not required,70 °C,p1 recommended settings: Chamber not required (held); 70C is p2 specimen test condition
+P0668,reject,240 - 270℃,230-270°C,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0751,both,"80 °C, 8 h","X1 Series Printer Heatbed: 90 - 100 °C, 12 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P0752,reject,220 - 250℃,210-250°C,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0756,reject,200- 230℃,190-230°C,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P0820,both,60°C,25-60°C,"p1 Hot Bed 60C (held, spec list) and p2 settings table 25-60C both printed; held stays"
+P0843,both,60℃,25-60℃,"p1 Hot Bed 60C (held, spec list) and p2 settings table 25-60C both printed; held stays"
+P0856,reject,"Pre-dry material for 4-6 hours at 80°C (max.), 6-8 hours at 70°C or 10-12 hours at 60°C.",6-8 hours at 70°C,"p1 drying note prints three options (4-6h 80C, 6-8h 70C, 10-12h 60C); held is the full sentence, proposal is a fragment"
+P0938,reject,Even though its high silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer.,not abrasive to the nozzle,p1 sentence 'not abrasive to the nozzle' is already held in full; proposal only shortens it
+P0954,reject,265 - 290 °C,250 - 290 °C,p2: 'Nozzle C 250-290' is the pellet extrusion Processing table; 3D-printing indication is 265-290 C (held)
+P0965,reject,265 - 290 °C,250 - 290 °C,p2: 'Nozzle C 250-290' is the pellet extrusion Processing table; 3D-printing indication is 265-290 C (held)
+P1101,both,"Blast Drying Oven: 50 °C, 8h","X1 Series & P Series & H2 Series Printer Heatbed: 60 - 70 °C, 12 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P1110,reject,Effective drying takes place at 60°C for 5 hours.,5 hours at 80℃,p2 drying note: 'Effective drying takes place at 60C for 5 hours' (held); 80C/5h is for granules before MFR measurement (p1)
+P1124,both,Not necessary,40 - 40 °C 6 h,"p1 Drying prints 'Not necessary' (held) and beneath it '40-40C 6h'; both printed, held stays"
+P1197,reject,210- 230℃,190-230°C,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P1212,reject,200- 230℃,190-230°C,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+P1255,both,"Blast Drying Oven: 70 °C, 8 h","Printer Heatbed: 90 °C, 16 h","p1 Drying Settings prints blast oven line (held) and a separate printer heatbed line; both printed, held stays"
+P1261,reject,250 - 290℃,240-290°C,p2: held is 'Recommended printing parameters' table; proposed value is from the 'Print test condition' block (specimen printing settings)
+V000731,reject,"24 000 kg/cm2 (TDS prints ""24.000"" with European decimal separator)",24.000 kg/cm2,"p1 Flexural Modulus prints 24.000 kg/cm2 (European thousands separator, 920 kg/cm2 strength); held 24 000 is the intended reading, proposal would give 0.0024 GPa"
+V002882,reject,"24 000 kg/cm2 (TDS prints ""24.000"" with European decimal separator)",24.000 kg/cm2,"p1 Flexural Modulus prints 24.000 kg/cm2 (European thousands separator, 920 kg/cm2 strength); held 24 000 is the intended reading, proposal would give 0.0024 GPa"
+V002992,reject,"6,8 kJ/m2",139 NB kJ/m²,"p1: notched 23C row prints 6,8 kJ/m2 (held); 139 NB is the separate unnotched row"
+V003040,reject,"1,08 g/cm3","0,36 g/cm³","p1: Density 1,08 (held) is unfoamed; 0,36 is the separate 'Density (foamed)' row"
+V003787,reject,20.24 ± 3.95 kJ/m2,4.95 ± 0.55 kJ/m²,p1: held 20.24 is 'Charpy impact strength (X-Y) ISO 179' unnotched row; 4.95 is the separate notched row
+V003932,reject,20.76 ± 2.18 kJ/m2,51.7 ± 4.58 kJ/m²,p1: held 20.76 is Notched charpy (X-Y); 51.7 is the Un-notched row
+V004043,reject,21 kJ/m2,4.4 kJ/m2,p1: held 21 is the unnotched (eU) row; 4.4 is the separate notched Charpy RT row
+V004285,reject,98 °C,106 °C,p1: 1.8 MPa row prints 98 (held row); 106 is the 0.45 MPa row
+V005776,reject,40 kJ/m2,20 kJ/m²,"p1: Charpy prints 40 (210C unfoamed, held) and 20 (230C 70% foamed); held is the unfoamed column"
+V005777,reject,59 MPa,24 MPa,p1: held 59 is Injection Molded table (Raw material value); 24 is the 3D-printed 100% column
+V005778,reject,490 %,465 %,p1: held 490 is Injection Molded table; 465 is the 3D-printed 210C column
+V006137,reject,130 kJ/m2,17 kJ/m²,p1: Charpy 130 kJ/m2 at -30C unnotched = held; 17 is the 23C notched row
+V006264,reject,"24 000 kg/cm2 (TDS prints ""24.000"" with European decimal separator)",24.000 kg/cm2,"p1 Flexural Modulus prints 24.000 kg/cm2 (European thousands separator, 920 kg/cm2 strength); held 24 000 is the intended reading, proposal would give 0.0024 GPa"
+V006708,reject,1.05 g/cm³,1.037 g/cm³,p1 table row Density (ISO1183) prints 1.05 g/cm3 = held; 1.037 is only in the marketing sentence comparing to regular ABS
+V006763,reject,1.2 g/cm3,0.54g/cm3,p1 table: Density GB/T 1033 1.2 g/cm3 = held; 0.54 is the foamed 'as low as' claim
+V006990,reject,104.35 ℃,100°C,p1 table: Heat distortion Temperature 104.35C (0.45MPa) = held; 100C only in intro sentence 'as high as'
+V007484,reject,111 °C,100 °C,p1: HDT 111C is 0.45 MPa (held row); 100C is the 1.82 MPa row
+V007487,reject,144 °C,133 °C,p1: HDT 144C is 4.6 kg/cm2 (held); 133C is the 18.6 kg/cm2 row
+V007724,reject,144 °C,133 °C,"p1: HDT 144C is D648 @4.6 kg/cm2 (0.45MPa, held row, load unstated); 133C is the 18.6 kg/cm2 row"
+V007849,both,7.5 ± 1.3 kJ/m²,34.8 ± 2.1 kJ/m²,"p2 Impact Strength (X-Y) cell prints 34.8 (unnotched) and 7.5 (notched); held row is notched 7.5, correct"
+V008136,reject,42.70 ± 0.51 MPa,21.92 ± 3.98 MPa,p2: held 42.70 is Tensile breaking strength (Z); 21.92 is the (X-Y) row
+V008161,reject,3322.37 ± 94.04 MPa,4130.13 ± 107.0 Mpa,p3: held 3322.37 is Young's modulus (Z); 4130.13 is the (X-Y) row
+V009391,reject,14 kJ/m²,7 kJ/m²,p1: Izod 23C row prints 14 (held row is 23C); 7 is the -30C row

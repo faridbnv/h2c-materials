@@ -111,12 +111,20 @@ for (const [k, list] of byPage) {
   }
 }
 
+// ---- a page that prints one column per product (QIDI's filament guide, Spectrum's portfolios): every setting the reader
+// finds there belongs to some product, and nothing on the line says which, so a profile is not checked against the
+// page's other columns (the reader round, D125: such pages were read product by product from the page or its markup,
+// and a second reader or the markup's own product key bore each column out). A page names its products in
+// Applicable grades; three formulations or more make it a comparison page.
+const formulationOf = new Map(rows('Grades').map((g) => [g.GradeID, g['Shared formulation key'] || g.GradeID]));
+const perProductPage = new Set(rows('Sources').filter((s) => new Set((String(s['Applicable grades'] ?? '').match(/G\d{3}-(?:\d+(?:-R\d+)?|R\d+)/g) ?? []).map((g) => formulationOf.get(g) ?? g)).size >= 3).map((s) => s.SourceID));
+
 // ---- print settings a sheet prints and its profile does not hold
 const LABEL = { Bed: /(?:platform temp|print platform|bed temp(?:erature)?|heated bed|hot ?bed temp|build plate temp(?:erature)?|plate temp|底板温度|热床)[^0-9]{0,40}?(\d{2,3})\s*(?:-|–|~|to)\s*(\d{2,3})\s*(?:°|℃|˚|c\b)/i, Nozzle: /(?:nozzle temp(?:erature)?|print(?:ing)? temp(?:erature)?|extru(?:der|sion) temp(?:erature)?|喷嘴温度|打印温度)[^0-9]{0,40}?(\d{3})\s*(?:-|–|~|to)\s*(\d{3})\s*(?:°|℃|˚|c\b)/i };
 const profilesByGrade = new Map(); for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record')) { if (!profilesByGrade.has(r.GradeID)) profilesByGrade.set(r.GradeID, []); profilesByGrade.get(r.GradeID).push(r); }
 for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record')) {
   // A profile that records how a sheet's test bars were printed holds no guidance by design (m170).
-  if (/not printing guidance/.test(r.Locator)) continue;
+  if (/not printing guidance/.test(r.Locator) || perProductPage.has(r.SourceID)) continue;
   const pages0 = pagesOf(r.SourceID); if (!pages0) continue;
   // The sheet as the extractor lines it up, and (layout on) in reading order; a finding of the second view is added
   // only where the first did not raise it.
@@ -199,7 +207,7 @@ const inSpecimenBlock = (pages, x) => {
   }
   return false;
 };
-for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record')) {
+for (const r of rows('Print setup').filter((x) => x.Profile !== 'Retired duplicate record' && !perProductPage.has(x.SourceID))) {
   const h = sha.get(r.SourceID); if (!h || !/^[0-9a-f]{64}$/.test(h)) continue;
   if (!sheetSettings.has(r.SourceID)) {
     const c = cachedText(h);
