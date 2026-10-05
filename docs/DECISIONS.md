@@ -134,6 +134,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D122 | A stress at a stated elongation is its own property, never a strength | Elastomer sheets print the stress their test bar carries at 100, 200 or 300 % stretch (an elastomer's "100 % modulus"), and one sheet at 5 and 10 %. With no property for it, the import filed each as a tensile strength, and where a sheet printed no other strength, it became the product's strength and decided answers. Each is now a property of its own, one per stated elongation, which is recorded and shown and never compared with a strength. | In force |
 | D123 | The owner's rulings of 2026-10-02: one product one grade, the registered sheets read in full, Eryone's "X-Z" is Z | Three recommendations of the priorities review, taken by the owner. A product the database held on two grades (one per sheet revision or language) is one grade now, with every record moved to it rather than the copy retired with its prices and profiles. Values a sheet the database already holds prints, and nobody transcribed, are recorded: reading a registered, hash-checked sheet again is not an import. And Eryone's template labels its upright tensile bar "X-Z", as two of its sheets say, so that bar is the layer strength on every sheet of the template. | In force; it extends D86 (a merged product's records keep their IDs, as a moved product's do), D89 (twins) and D92 (the layer strength), and amends D72 (a chamber band on an alias leaves through the ledger though nothing derives it) |
 | D124 | The page is written for an engineer: answer first, the data sheet's terms, no coinages, IDs out of sentences | Every text on the page is written for one reader, an engineer choosing a filament for a part on the H2C, and for the decision it serves. Engineering and data-sheet terms stay; the words this project coined for its own records ("twin", "admitted for screening", "research mode", "in scope", "Theoretical") are replaced by what that engineer would say. The left rail is ordered as an engineer screens, with the H2C's checks in one group and the part's state in another; the drawer's tabs follow how a material is checked, Products second and Sources last with the known gaps; record IDs leave the page's sentences for a small ID mark. No answer moves. | In force; it rewords the labels of D88 and D89 and the Overview of the drawer described under D83, D103 and D117 |
+| D125 | A sheet is read as its page shows it: reading order, page images read where they decide, and every own sheet guarded | The import's sheet reader read a page line by line in the order its text layer gave, so a two-column sheet interleaved its columns and a label lost its value; a font that drew "ti" as a digit hid a label; a web page's spec grid ran onto one line; and a product whose sheet the reader could not read got no print recipe, which no check noticed, because every check started from a profile that existed. The text is now also read in reading order and with its ligatures put back, web pages with their structured data and grids, and broken text layers are flagged and read optically beside the text. Every page of the 1,377 documents tied to a gap was read from its image by Claude Sonnet; a reading entered only where the page's own text bears its numbers out, a second blind reader agrees, or the importer's reader agrees, and Claude Opus decided every class of correction. A product's own sheet that prints a setting no profile holds is now a finding. | In force; it extends D97 (a value is bound to its evidence line), D115 and D116 (context the page states), D119 and D120 (the reader as the guard) and D123 (a registered sheet read in full is not an import) |
+| D126 | No number shown contradicts what its own product's measurements prove | An estimate could sit below a strength the same product had measured: 46 materials and 343 products showed an ultimate-strength estimate under their own published break or yield stress, and LCP's HDT at 0.45 MPa was estimated under its own published HDT at 1.8 MPa. The orders physics sets between properties are now a table (`physical_relations.csv`), the lint reads it, every estimate is floored by what its own product's measurements prove, a material's range contains every product's floor, a product's strength taken from yield or break is the larger of the same test's two, and the build refuses a number shown that breaks an order. | In force; it replaces D78's material floor ("held at the highest own printed limit") with containment, and extends D55 (a value physics rules out is kept and flagged) and D84 (what a printed or unstated bar may decide) |
 
 <!-- end index -->
 
@@ -4028,3 +4030,87 @@ mind. When rewriting your english know what you are doing for whom and to what p
   only label, reason, note and example fields. The release ID changes, as for any change to the rules' inputs (D96), so a
   scenario saved before this release says so when reopened. `verify:fast` stays within its budget.
 
+
+## D125. A sheet is read as its page shows it: reading order, page images read where they decide, and every own sheet guarded
+
+> **In plain words:** The import's sheet reader read a page line by line in the order its text layer gave, so a two-column sheet interleaved its columns and a label lost its value; a font that drew "ti" as a digit hid a label; a web page's spec grid ran onto one line; and a product whose sheet the reader could not read got no print recipe, which no check noticed, because every check started from a profile that existed. The text is now also read in reading order and with its ligatures put back, web pages with their structured data and grids, and broken text layers are flagged and read optically beside the text. Every page of the 1,377 documents tied to a gap was read from its image by Claude Sonnet; a reading entered only where the page's own text bears its numbers out, a second blind reader agrees, or the importer's reader agrees, and Claude Opus decided every class of correction. A product's own sheet that prints a setting no profile holds is now a finding.
+> **Status:** In force; it extends D97 (a value is bound to its evidence line), D115 and D116 (context the page states), D119 and D120 (the reader as the guard) and D123 (a registered sheet read in full is not an import).
+
+*Decided by the owner on 2026-10-04 (GOALS, "Decided on 2026-10-04, the reader round"), after opening sheets the tool
+called silent and finding the values printed there; built by Claude (Opus deciding and reviewing, Sonnet reading pages
+and writing code to specification).*
+
+- **Reading order** (`scripts/lib/pdf-layout.mjs`). Each page's cached spans are cut into blocks by gaps (XY-cut): a
+  horizontal cut at 1.5 line heights, a vertical cut only through a clean band with one-sided lines on both sides, so a
+  row-aligned property table stays whole. `readSheet` reads the line view and the block view and merges them; an item
+  only the blocks give carries `viaLayout`. The cached text and the evidence binding are unchanged. On, it recovered 85
+  sheets' items the line view missed (`docs/audits/2026-10-04-reader-round/reader-recall/`).
+- **Ligatures** (`repairLigatures`, `scripts/lib/pdf-text.mjs`). purefil's sheets map "ti" and "ft" to digits and "W"
+  ("Prin5ng temperature", "SoWening"). The repaired text is a further view at read time only; `spanText` and the cache
+  stay as extracted, so a quote is still checked against what the file holds.
+- **Web pages** (`scripts/lib/html-text.mjs`, version 5). JSON-LD product data, Shopify product JSON and `__NEXT_DATA__`
+  are read before scripts are dropped; `dl` lists, colspan and rowspan, and label/value div grids are read as tables;
+  `capture.mjs` opens tabs and accordions before it saves. The cached HTML texts were re-read from their bytes
+  (`scripts/audit/refresh-html-cache.mjs`). A grid run onto one line ends a setting where the next "Label:" begins.
+- **Broken text** (`scripts/lib/text-quality.mjs`, `npm run ingest:quality`, `npm run ingest:ocr-pass`). A page with no
+  text, private-use glyphs, few letters or a label with no number beside it is flagged (187 pages of 138 documents); an
+  optical reading goes to `.cache/ocr-text/` beside the text layer, never in its place.
+- **Page reading** (`npm run ingest:read-packet`, `ingest:read-reconcile`, `ingest:read-proposals`, and
+  `scripts/migrate/read-proposals-apply.mjs`). A packet holds a document's page images, its text and every row the
+  tables hold from it; a reader records every setting, value with its conditions, and page statement, and says of every
+  held row whether the page confirms it. Each reading is checked against the text layer, the reading-order view, the
+  ligature-repaired view and the optical sidecar. A reading that decides something (a print setting the H2C gate reads,
+  a headline property, a page statement) and that the text does not bear out, or that contradicts a held row, is read
+  again blind; the proposals are mapped to the vocabularies, typed by the parsers, and held where they cannot be
+  (13,909 held, each with its reason). A migration applies them, quote by quote and value by value (m342, m351).
+- **Corrections are decided by cause, not applied by count.** All 59 automatic corrections of held rows were
+  mis-pairings when read again, so none was applied; the readers' flags were compiled and decided on the page one row at
+  a time (m343), the physics lint's findings likewise (m344), the tests that pinned earlier data likewise (m345), and the
+  guard's findings likewise (m353). What the round learned became a rule of the reader or the guard: a setting printed
+  for the test bars is held ("Printed conditions", "conditions of the test specimens", m170), a "± 50 – 60 °C" window is a
+  value, "brass or hardened steel compatible" needs no hardened nozzle, and five more wordings the parsers now read
+  (m346).
+- **The guard** (`npm run audit:context`, CONTEXT-PROFILE-UNRECORDED). A product's own sheet that prints a print-settings
+  block no profile of the product holds is a finding; a comparison page that speaks for three formulations or more is
+  left to its products' own sheets. Its first run found 36 such sheets, each now a profile of its product (m353).
+- **Makers' sites.** Where the registered sheets were silent, the makers' own pages and guides entered through the import
+  pipeline: b41 (10 documents, thin materials, m340) and b42 (44 documents, products missing a nozzle or bed, m352). A
+  page that names another product line, a slicer preset, a retailer page or a search summary was not admitted (the
+  b42 packet's NotAdmitted list says why for each).
+- **What moved.** Of 3,351 frozen targets, 847 closed: products missing a nozzle 83 → 28, a bed 103 → 24, drying 520 →
+  335; materials with no nozzle 18 → 5, no bed 19 → 5 (`docs/audits/2026-10-04-reader-round/after/PROGRESS.md`). In the
+  templates, 11 materials became candidates under Strict and 4 left it: PPA-CF and ASA-CF, whose makers' pages say
+  "Heated Chamber: Recommended" with no temperature (D33, D93). `verify:fast` stays within its budget.
+
+## D126. No number shown contradicts what its own product's measurements prove
+
+> **In plain words:** An estimate could sit below a strength the same product had measured: 46 materials and 343 products showed an ultimate-strength estimate under their own published break or yield stress, and LCP's HDT at 0.45 MPa was estimated under its own published HDT at 1.8 MPa. The orders physics sets between properties are now a table (`physical_relations.csv`), the lint reads it, every estimate is floored by what its own product's measurements prove, a material's range contains every product's floor, a product's strength taken from yield or break is the larger of the same test's two, and the build refuses a number shown that breaks an order.
+> **Status:** In force; it replaces D78's material floor ("held at the highest own printed limit") with containment, and extends D55 (a value physics rules out is kept and flagged) and D84 (what a printed or unstated bar may decide).
+
+*Decided by the owner on 2026-10-04 (GOALS, "Decided on 2026-10-04, the reader round", item 3): "some of the ultimate
+strength estimates go beyond the strength and break value, these are some constraints that your logic should capture";
+the owner chose that a bar whose specimen is not stated bounds as a printed one does. Built by Claude.*
+
+- **The orders are data** (`data/tables/physical_relations.csv`, PR01 to PR11): Tg ≤ Vicat ≤ Tm, Tc ≤ Tm, elongation at
+  yield ≤ at break, yield and break stress ≤ the ultimate tensile strength, tensile ≤ flexural strength, the strain at
+  strength ≤ elongation at break, HDT at 1.8 MPa ≤ HDT at 0.45 MPa, HDT ≤ Tm, each with its same-test keys, margin and
+  scope. The lint's MEAS-PHYSICS pairs read it in place of their constants (`build/src/physical-relations.js`), and a
+  break above its own ultimate is flagged where a sheet prints one (m338).
+- **Floors.** A product's yield, break or strength bounds its estimate from below when its bar is printed or its specimen
+  is not stated, in any direction; a moulded bar, a film, a filament strand and a bar printed off the product's recipe
+  bound nothing (`build/src/estimate/lower-bounds.js`). A grade's estimate is floored at its own formulation's highest
+  floor. A material's range is the spread of its products, so it must contain every product's proven floor: its upper
+  end reaches the highest product floor, and its lower end is floored at the lowest only when every active product has
+  one. A heat deflection estimate is held under its semicrystalline polymer's melting point (`bounds.js`).
+- **Back-tested** (`build/src/estimate/floors.js`, `docs/audits/2026-10-04-reader-round/estimate-order/backtest.md`).
+  Flooring a material at its highest product floor, the first version, broke calibration (likely coverage of tensile
+  strength 29.7 %); containment kept it (85.9 / 80.7 / 79.0 % likely for tensile strength, elongation and HDT at 0.45
+  MPa, against 81.3 / 80.7 / 77.8 % unfloored). EST-CALIBRATION and the screening certification are unchanged.
+- **A product's strength.** Where a product's tensile strength comes from its yield or break stress, it is the larger of
+  the two endpoints of the same test (same source, direction, specimen and state), never the smaller (`products.js`).
+- **Guards.** EST-ORDER (error) refuses a build whose material or product estimate, range end or centre breaks a
+  relation; PRODUCT-ORDER (information) names a product's value lying under another of its measurements from a different
+  test, which stays the product's own value until a re-read settles which source is wrong.
+- **What moved.** Every shown ultimate-strength estimate now sits at or above its product's own break and yield stress;
+  `build/snapshot/` holds the new ranges, and `npm run build:diff` against the branch point lists only estimate ranges,
+  product strengths taken as an endpoint maximum, and the findings above.

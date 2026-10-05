@@ -131,7 +131,7 @@ all products: 77.5
 70–85 · 2
  64↗ ☆
 ASA-CF PASS
-7 of 7 products
+6 of 6 products
  1,095
 1,020–1,170 · 16
  3.91
@@ -148,8 +148,8 @@ all products: 101
 ↗ ☆
 ASA-GF PASS
 3 of 3 products
- 1,150
-1,100–1,170 · 5
+ 1,130
+1,100–1,170 · 6
  2.31
 1.86–2.76 · 2
  39

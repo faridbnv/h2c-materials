@@ -26,8 +26,8 @@ A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limit
 Flexible component
 A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
 153 materials, 136 within H2C capability
-14104 measurements, each traceable to its source
-148 have a density, 100 a modulus, 101 a price
+14098 measurements, each traceable to its source
+149 have a density, 100 a modulus, 101 a price
 Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -163,8 +163,8 @@ ASA-CF not tested 1,095
 40–122 · 5
 ↗ ☆
 ASA-EC not tested 1,170 3.57* 48.7* 3* 101* 125¤ ☆
-ASA-GF not tested 1,150
-1,100–1,170 · 5
+ASA-GF not tested 1,130
+1,100–1,170 · 6
  2.31
 1.86–2.76 · 2
  39
@@ -236,7 +236,7 @@ Nylon / Polyamide
  not tested 1,400 — 107* 2* — 167¤ ☆
 Nylon-GF, maker-undisclosed polyamide
 Nylon / Polyamide
- not tested 1,210* 3.1 60.4 5.5 138* — ☆
+ not tested 1,210 3.1 60.4 5.5 138* — ☆
 Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  not tested 1,175
@@ -517,7 +517,9 @@ PC-PTFE
 Polycarbonate
  not tested 1,290
 1,260–1,320 · 2
- 1.77* 55* 8* 140* — ☆
+ 1.77* 55* 8* 140
+annealed median
+ — ☆
 PCL
 PVB / Specialty Polymers
  not tested 1,100
@@ -698,15 +700,15 @@ PET Engineering
  — — ☆
 PETG not tested 1,270
 1,180–1,350 · 64
- 1.68
-0.5–3.5 · 19
- 47.5
-33–68.4 · 25
- 8.96
-4.1–90 · 24
+ 1.67
+0.5–3.5 · 20
+ 47.3
+31.9–68.4 · 26
+ 8.6
+4.1–90 · 25
 annealed median
  70
-63–80 · 40
+63–80 · 42
  26
 20–66 · 14
 ↗ ☆
@@ -994,7 +996,9 @@ Polymer Blends
  2.25 67 12 112* 148¤ ☆
 PPS
 High-Performance Engineering
- not tested 1,280 2.65 50 18 90 230
+ not tested 1,305
+1,280–1,330 · 2
+ 2.65 50 18 90 230
 176–284 · 2
 ¤↗
 out of stock
@@ -1154,7 +1158,7 @@ Flexible Elastomers
 TPU 90A class
 Flexible Elastomers
  not tested 1,220
-1,170–1,240 · 11
+1,120–1,240 · 11
  0.027
 0.0053–0.05 · 5
  24
@@ -1188,8 +1192,8 @@ Flexible Elastomers
  n/a 47.5↗ ☆
 TPU-CF
 Flexible Elastomers
- not tested 1,225
-1,220–1,230 · 2
+ not tested 1,230
+1,220–1,230 · 3
  0.035* 61* 380* n/a 189
 150–227 · 2
 ¤↗

@@ -42,9 +42,9 @@ ABS-AF
 ABS-CF
 4.35
 2.7–5.21 · 4
-0.00138
+0.00127
 log scale
-21.3
+22.2
 all 153 candidates
 Tensile strength (XY) MPa
 ABS
@@ -56,19 +56,19 @@ ABS-CF
 43.3
 27.3–48 · 5
 7
-292
+293
 all 153 candidates
 Tensile strength (Z) MPa
 ABS
-27.1
-13.2–33 · 10
+27
+13.2–33 · 11
 ABS-AF
 Not published
 ABS-CF
 22.9
 16–29.9 · 2
 7.5
-60.7
+57.5
 all 153 candidates
 Elongation at break (XY) %
 ABS
@@ -122,7 +122,7 @@ all 153 candidates
 Glass transition (Tg) °C
 ABS
 105
-81–126 · 19
+60–126 · 20
 ABS-AF
 110
 ABS-CF

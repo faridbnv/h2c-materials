@@ -1,7 +1,7 @@
 COUNT 14 shown PASS
-STATUS ☑ PASS 14 | ☐ UNKNOWN 87 | ☐ FAIL 52
+STATUS ☑ PASS 14 | ☐ UNKNOWN 86 | ☐ FAIL 53
 14 of the 153 materials meet these requirements
-Lightweight structure template · 87 more could not be checked, left out under Confirmed only
+Lightweight structure template · 86 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -80,8 +80,8 @@ all products: 3.91
 ASA-GF PASS
 1 of 2 products
  passing: 1,110
-all products: 1,150
-1,100–1,170 · 5
+all products: 1,130
+1,100–1,170 · 6
  passing: 2.76
 all products: 2.31
 1.86–2.76 · 2
@@ -160,20 +160,20 @@ all products: 1,200
 all products: 3.1
  82.1 — 80* — ☆
 PETG PASS
-1 of 57 products
+1 of 58 products
  passing: 1,250
 all products: 1,270
 1,180–1,350 · 64
  passing: 2.78
-all products: 1.68
-0.5–3.5 · 19
- 47.5
-33–68.4 · 25
- 8.96
-4.1–90 · 24
+all products: 1.67
+0.5–3.5 · 20
+ 47.3
+31.9–68.4 · 26
+ 8.6
+4.1–90 · 25
 annealed median
  70
-63–80 · 40
+63–80 · 42
  26
 20–66 · 14
 ↗ ☆

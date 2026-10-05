@@ -1,0 +1,296 @@
+Group,MeasurementID,decision,column,expect,value,quote,reason
+1,V002553,keep,,,,,p. 3 table prints Filament Density g/cm3 1.21 ISO 1183; locator names the page and row
+1,V014063,keep,,,,,"p. 1 marketing text ""1.2 g/cm³ density"" is a rounded restatement; locator tells it apart from the p. 3 table value"
+2,V007436,keep,,,,,"p. 2 table: Tensile Modulus 310,000 psi 2,100 MPa; locator names the table"
+2,V014392,flag,,,,"TENSILE MODULUS 2,167 MPA (p. 1 summary) vs p. 2 table ""310,000 psi 2,100 MPa""","Value is as printed on p. 1, but the sheet gives 2,167 MPa on p. 1 and 2,100 MPa on p. 2 for the same property; recorded as printed, source slightly inconsistent"
+3,V011139,keep,,,,,"Shore A, Shore D and Shore D 15s are three separate printed rows (81, 30, 27); locator names the scale"
+3,V011140,keep,,,,,"Shore A, Shore D and Shore D 15s are three separate printed rows (81, 30, 27); locator names the scale"
+3,V012195,keep,,,,,"Shore A, Shore D and Shore D 15s are three separate printed rows (81, 30, 27); locator names the scale"
+4,V011167,keep,,,,,"p. 2 table: Tensile Modulus 320,000 psi 2,200 MPa"
+4,V014387,keep,,,,,"p. 1 summary prints 2,200 MPA, same as p. 2 table; locator separates the page"
+5,V011258,keep,,,,,"Shore A 91, Shore D 40, Shore D 15s 37 are three printed rows; locator names the scale"
+5,V011259,keep,,,,,"Shore A 91, Shore D 40, Shore D 15s 37 are three printed rows; locator names the scale"
+5,V012196,keep,,,,,"Shore A 91, Shore D 40, Shore D 15s 37 are three printed rows; locator names the scale"
+6,V011457,keep,,,,,"p. 1 XY Orientation column, conditioned (footnote: conditioned 52% RH); locator names the column"
+6,V011474,keep,,,,,"p. 2 environments table, Wet column (soaked in water 72 h); locator names the Wet column"
+6,V012260,flag,,,,"p. 2 directional table, XY Orientation column","Same value, direction and conditioned state as V011457 (the p. 1 XY column repeats in the p. 2 directional table): duplicate, retire"
+6,V012263,flag,,,,"p. 2 environments table, Conditioned column (XY Orientation)","Same value, direction and conditioned state as V011457 (Conditioned column repeats the p. 1 XY value): duplicate, retire"
+7,V011458,keep,,,,,"p. 1 XY Orientation column, conditioned (footnote: conditioned 52% RH); locator names the column"
+7,V011475,keep,,,,,"p. 2 environments table, Wet column (soaked in water 72 h); locator names the Wet column"
+7,V012261,flag,,,,"p. 2 directional table, XY Orientation column","Same value, direction and conditioned state as V011458 (the p. 1 XY column repeats in the p. 2 directional table): duplicate, retire"
+7,V012264,flag,,,,"p. 2 environments table, Conditioned column (XY Orientation)","Same value, direction and conditioned state as V011458 (Conditioned column repeats the p. 1 XY value): duplicate, retire"
+8,V011460,keep,,,,,"p. 1 XY Orientation column, conditioned (footnote: conditioned 52% RH); locator names the column"
+8,V011477,keep,,,,,"p. 2 environments table, Wet column (soaked in water 72 h); locator names the Wet column"
+8,V012262,flag,,,,"p. 2 directional table, XY Orientation column","Same value, direction and conditioned state as V011460 (the p. 1 XY column repeats in the p. 2 directional table): duplicate, retire"
+8,V012265,flag,,,,"p. 2 environments table, Conditioned column (XY Orientation)","Same value, direction and conditioned state as V011460 (Conditioned column repeats the p. 1 XY value): duplicate, retire"
+9,V011919,keep,,,,ZYTEL 151L  DAM / 50% RH: Tensile modulus 1 mm/min 527-1/-2 MPa 2400 1700,1700 is the 151L 50% RH column
+9,V011920,flag,,,,ZYTEL 153HSL  DAM / 50% RH: Tensile modulus 2400 1600,"1600 MPa is the ZYTEL 153HSL 50% RH column, another product than G058-R1 (Zytel 151L); no 153HSL grade exists, so retire or move, do not keep on 151L"
+10,V011991,keep,,,,,Compression set 24h/70C method A 47 %; Standard / load names method A
+10,V011992,keep,,,,,Compression set 24h/70C method C 30 %; Standard / load names method C
+11,V012227,keep,,,,"Dielectric constant 2,0 frequency 10^6 Hz","2,0 at 10^6 Hz; Standard / load carries the frequency"
+11,V012228,keep,,,,"Dielectric constant 3,0 frequency 100 Hz","3,0 at 100 Hz; Standard / load carries the frequency"
+12,V012296,keep,,,,,Initial 95A and adjusted 70A are separate statements; Standard / load says which
+12,V012297,keep,,,,,Initial 95A and adjusted 70A are separate statements; Standard / load says which
+13,V012298,keep,,,,Printing density 250ºC 90% Flow ... 90 shore A DIN ISO 7619-1 (3s),"90% flow block, one hardness line"
+13,V012299,flag,,,,Printing density 250ºC 80% Flow ... 61 shore A / 65 shore A DIN ISO 7619-1 (3s),The 80% Flow block prints two hardness values (61 and 65 shore A) with no label telling them apart; sheet is ambiguous
+13,V012300,flag,,,,Printing density 250ºC 80% Flow ... 61 shore A / 65 shore A DIN ISO 7619-1 (3s),The 80% Flow block prints two hardness values (61 and 65 shore A) with no label telling them apart; sheet is ambiguous
+13,V012301,keep,,,,Printing density 250ºC 70% Flow ... 70 shore A,"70% flow block, one hardness line"
+14,V012311,keep,,,,,Print @ 240C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+14,V012317,keep,,,,,Print @ 250C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+14,V012323,keep,,,,,Print @ 260C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+14,V012329,keep,,,,,Print @ 270C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+15,V012312,keep,,,,,Print @ 240C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+15,V012318,keep,,,,,Print @ 250C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+15,V012324,keep,,,,,Print @ 260C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+15,V012330,keep,,,,,Print @ 270C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+16,V012313,keep,,,,,Print @ 240C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+16,V012319,keep,,,,,Print @ 250C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+16,V012325,keep,,,,,Print @ 260C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+16,V012331,keep,,,,,Print @ 270C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+17,V012314,keep,,,,,Print @ 240C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+17,V012320,keep,,,,,Print @ 250C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+17,V012326,keep,,,,,Print @ 260C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+17,V012332,keep,,,,,Print @ 270C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+18,V012315,keep,,,,,Print @ 240C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+18,V012321,keep,,,,,Print @ 250C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+18,V012327,keep,,,,,Print @ 260C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+18,V012333,keep,,,,,Print @ 270C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+19,V012316,keep,,,,,Print @ 240C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+19,V012322,keep,,,,,Print @ 250C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+19,V012328,keep,,,,,Print @ 260C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+19,V012334,keep,,,,,Print @ 270C column of the TPU Air table; Standard / load and Locator name the print temperature (X-Y for tensile rows as printed)
+20,V012335,keep,,,,,Temperature vs Hardness guide row 230-240 C; Standard / load names the print temperature
+20,V012336,keep,,,,,Temperature vs Hardness guide row 250 C; Standard / load names the print temperature
+20,V012337,keep,,,,,Temperature vs Hardness guide row 260 C; Standard / load names the print temperature
+20,V012338,keep,,,,,Temperature vs Hardness guide row 270 C; Standard / load names the print temperature
+21,V012491,keep,,,,Glass transition temp 57°C ISO 11357,Table value with method
+21,V012492,flag,,,,The glass temperature is typically around 50 °C,"Generic sentence about PLA polymer in the description, not a measurement of this product; the product table says 57 C. Retire or treat as non-product statement"
+22,V012644,flag,,,,Benefits of CARBONX HTN+CF: 106 MPa tensile strength and a heat deflection temperature of 200°C,The same page prints 106 MPa/200 C in the Benefits list and 87 MPa/240 C in the product description for the same product; page is internally inconsistent
+22,V012646,flag,,,,it offers 87 MPa tensile strength and a heat deflection temperature of 240°C,The same page prints 106 MPa/200 C in the Benefits list and 87 MPa/240 C in the product description for the same product; page is internally inconsistent
+23,V012645,flag,,,,106 MPa tensile strength and a heat deflection temperature of 200°C,Page also prints HDT 240 C in the description; page is internally inconsistent
+23,V012647,flag,,,,87 MPa tensile strength and a heat deflection temperature of 240°C,Page also prints HDT 200 C in the Benefits list; page is internally inconsistent
+24,V012717,keep,,,,"Value unfoamed @ 210 °C, flow: 100%",Unfoamed column; Standard / load names the column
+24,V012718,keep,,,,"Value foamed @ 250 °C, flow: 55%",Foamed column; Standard / load names the column
+25,V012719,keep,,,,"Value unfoamed @ 210 °C, flow: 100%",Unfoamed column; Standard / load names the column
+25,V012720,keep,,,,"Value foamed @ 250 °C, flow: 55%",Foamed column; Standard / load names the column
+26,V012721,keep,,,,"Value unfoamed @ 210 °C, flow: 100%",Unfoamed column; Standard / load names the column
+26,V012722,keep,,,,"Value foamed @ 250 °C, flow: 55%",Foamed column; Standard / load names the column
+27,V012723,keep,,,,"Value unfoamed @ 210 °C, flow: 100%",Unfoamed column; Standard / load names the column
+27,V012724,keep,,,,"Value foamed @ 250 °C, flow: 55%",Foamed column; Standard / load names the column
+28,V012726,keep,,,,Value @ foaming 210˚C; 100%,First foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+28,V012727,keep,,,,Value @ foaming 230°C; 70%,Second foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+29,V012728,keep,,,,Value @ foaming 210˚C; 100%,First foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+29,V012729,keep,,,,Value @ foaming 230°C; 70%,Second foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+30,V012730,keep,,,,Value @ foaming 210˚C; 100%,First foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+30,V012731,keep,,,,Value @ foaming 230°C; 70%,Second foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+31,V012732,keep,,,,Value @ foaming 210˚C; 100%,First foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+31,V012733,keep,,,,Value @ foaming 230°C; 70%,Second foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+32,V012734,keep,,,,Value @ foaming 210˚C; 100%,First foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+32,V012735,keep,,,,Value @ foaming 230°C; 70%,Second foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+33,V012736,keep,,,,Value @ foaming 210˚C; 100%,First foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+33,V012737,keep,,,,Value @ foaming 230°C; 70%,Second foaming column; Standard / load names the column; sheet says specimens printed in XY plane
+34,V012895,keep,,,,Wasseraufnahme (Sättigungswert) ISO 62 % 0.5,Saturation value; Moisture condition and Locator say saturation
+34,V012896,keep,,,,Wasseraufnahme (Gleichgewichtswert) ISO 62 % 0.2,Equilibrium value; Moisture condition and Locator say equilibrium
+35,V012905,keep,,,,Wasseraufnahme (Sättigungswert) ISO 62 % 0.5,Saturation value; Moisture condition and Locator say saturation
+35,V012906,keep,,,,Wasseraufnahme (Gleichgewichtswert) ISO 62 % 0.2,Equilibrium value; Moisture condition and Locator say equilibrium
+36,V012916,keep,,,,"HTB, amorphous ISO 75-1 °C 60",Amorphous row; Locator names it
+36,V012917,keep,,,,"HTB, crystalline ISO 75-1 °C 105",Crystalline row; Locator names it
+37,V013216,fix,Notch,Not applicable,Unnotched,115 kN/m ISO 34-1 unnotched,Tear resistance row is printed unnotched; Notch column should say so
+37,V013217,fix,Notch,Not applicable,Notched,85 kN/m ISO 34-1 notched,Tear resistance row is printed notched; Notch column should say so
+38,V013520,keep,,,,MECHANICAL PROPERTIES - Classic Speed: Charpy impact strength (X-Y) notched 22.7 ± 2.5,Classic speed table; Standard / load names mode
+38,V013524,keep,,,,MECHANICAL PROPERTIES - High Speed: Charpy impact strength (X-Y) notched 19.4 ± 3.4,High speed table; Standard / load names mode
+39,V013537,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+39,V013538,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+40,V013552,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+40,V013553,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+41,V013589,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+41,V013590,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+42,V013603,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+42,V013604,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+43,V013625,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+43,V013626,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+44,V013642,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+44,V013643,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+45,V013667,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+45,V013668,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+46,V013682,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+46,V013683,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+47,V013695,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+47,V013696,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+48,V013709,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+48,V013710,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+49,V013728,keep,,,,Moisture Absorption in 24 hours [%],24 h row; Locator and Standard / load name 24 hours
+49,V013729,keep,,,,Moisture Absorption in 7 days [%],7 day row; Locator and Standard / load name 7 days
+50,V013788,fix,Direction,Unstated,XY,Method X-Y Axis X-Z Axis Z-X Axis,"first column (bar drawn flat, X-Y); the three rows are three orientations, recorded all Unstated"
+50,V013789,fix,Direction,Unstated,XZ,Method X-Y Axis X-Z Axis Z-X Axis,"second column (bar drawn on edge, X-Z); the three rows are three orientations, recorded all Unstated"
+50,V013790,fix,Direction,Unstated,ZX,Method X-Y Axis X-Z Axis Z-X Axis,"third column (bar drawn upright, Z-X); the three rows are three orientations, recorded all Unstated"
+50,V013788,fix,Notch,Not published,Unnotched,Impact Strength (kJ/m²) ISO 179 20-30 32-42 3-13 | Notch Impact Strength,"The sheet gives a separate ""Notch Impact Strength"" row, so the plain ""Impact Strength"" row is the unnotched one (inferred, sheet does not say ""unnotched"")"
+50,V013789,fix,Notch,Not published,Unnotched,Impact Strength (kJ/m²) ISO 179 20-30 32-42 3-13 | Notch Impact Strength,"The sheet gives a separate ""Notch Impact Strength"" row, so the plain ""Impact Strength"" row is the unnotched one (inferred, sheet does not say ""unnotched"")"
+50,V013790,fix,Notch,Not published,Unnotched,Impact Strength (kJ/m²) ISO 179 20-30 32-42 3-13 | Notch Impact Strength,"The sheet gives a separate ""Notch Impact Strength"" row, so the plain ""Impact Strength"" row is the unnotched one (inferred, sheet does not say ""unnotched"")"
+51,V013791,fix,Direction,Unstated,XY,Method X-Y Axis X-Z Axis Z-X Axis,"first column (bar drawn flat, X-Y); the three rows are three orientations, recorded all Unstated"
+51,V013792,fix,Direction,Unstated,XZ,Method X-Y Axis X-Z Axis Z-X Axis,"second column (bar drawn on edge, X-Z); the three rows are three orientations, recorded all Unstated"
+51,V013793,fix,Direction,Unstated,ZX,Method X-Y Axis X-Z Axis Z-X Axis,"third column (bar drawn upright, Z-X); the three rows are three orientations, recorded all Unstated"
+52,V013794,fix,Direction,Unstated,XY,Method X-Y Axis X-Z Axis Z-X Axis,"first column (bar drawn flat, X-Y); the three rows are three orientations, recorded all Unstated"
+52,V013795,fix,Direction,Unstated,XZ,Method X-Y Axis X-Z Axis Z-X Axis,"second column (bar drawn on edge, X-Z); the three rows are three orientations, recorded all Unstated"
+52,V013796,fix,Direction,Unstated,ZX,Method X-Y Axis X-Z Axis Z-X Axis,"third column (bar drawn upright, Z-X); the three rows are three orientations, recorded all Unstated"
+53,V013959,keep,,,,"Typical Value (XY, Flat)","First column (XY, Flat), recorded XY; once the ZX row is corrected the Direction tells the two apart"
+53,V013960,fix,Direction,XY,ZX,"Typical Value (ZX, Flat)","2nd column of the after-annealed table is headed ""ZX, Flat"", recorded XY"
+53,V013960,fix,Locator,p. 1: Young’s modulus (MPa) (2800 ± 150),"p. 1: Young’s modulus (MPa) (2800 ± 150) (Typical Value (ZX, Flat) column)","Typical Value (ZX, Flat)",Name the column so the two values are told apart
+54,V013961,keep,,,,"Typical Value (XY, Flat)","First column (XY, Flat), recorded XY; once the ZX row is corrected the Direction tells the two apart"
+54,V013962,fix,Direction,XY,ZX,"Typical Value (ZX, Flat)","2nd column of the after-annealed table is headed ""ZX, Flat"", recorded XY"
+54,V013962,fix,Locator,p. 1: Tensile strength (MPa) (32.0 ± 5.0),"p. 1: Tensile strength (MPa) (32.0 ± 5.0) (Typical Value (ZX, Flat) column)","Typical Value (ZX, Flat)",Name the column so the two values are told apart
+55,V013963,keep,,,,"Typical Value (XY, Flat)","First column (XY, Flat), recorded XY; once the ZX row is corrected the Direction tells the two apart"
+55,V013964,fix,Direction,XY,ZX,"Typical Value (ZX, Flat)","2nd column of the after-annealed table is headed ""ZX, Flat"", recorded XY"
+55,V013964,fix,Locator,p. 1: Elongation at break (%) (1.9 ± 0.2),"p. 1: Elongation at break (%) (1.9 ± 0.2) (Typical Value (ZX, Flat) column)","Typical Value (ZX, Flat)",Name the column so the two values are told apart
+56,V013965,keep,,,,"Typical Value (XY, Flat)","First column (XY, Flat), recorded XY; once the ZX row is corrected the Direction tells the two apart"
+56,V013966,fix,Direction,XY,ZX,"Typical Value (ZX, Flat)","2nd column of the after-annealed table is headed ""ZX, Flat"", recorded XY"
+56,V013966,fix,Locator,p. 1: Bending modulus (MPa) (2600 ± 150),"p. 1: Bending modulus (MPa) (2600 ± 150) (Typical Value (ZX, Flat) column)","Typical Value (ZX, Flat)",Name the column so the two values are told apart
+57,V013967,fix,Notch,Not published,Unnotched,11.4 ± 0.7 (Un-notched),"Value is printed ""(Un-notched)""; Notch column says Not published"
+57,V013968,fix,Direction,XY,ZX,"Typical Value (ZX, Flat) | 4.1± 1.3 (Un-notched)","Second column of the after-annealed table (headed ""ZX, Flat"" on p. 1, continued on p. 2) was recorded XY; this is the blind-check finding"
+57,V013968,fix,Notch,Not published,Unnotched,4.1± 1.3 (Un-notched),"Value is printed ""(Un-notched)""; Notch column says Not published"
+57,V013968,fix,Locator,"p. 2: Charpy impact strength (kJ/m²) (XY; annealed at 125 ºC for 16h; Mechanical Properties (Conditioned, after annealed); 4.1± 1.3 (Un-notched))","p. 2: Charpy impact strength (kJ/m²) (ZX, Flat; annealed at 125 ºC for 16h; Mechanical Properties (Conditioned, after annealed); 4.1± 1.3 (Un-notched)) (Typical Value (ZX, Flat) column)","Typical Value (ZX, Flat)",Locator names XY for the ZX column; correct and name the column
+58,V014109,flag,,,,Tensile stress at 100%  6.7 MPa  ASTM D412 / Tensile stress at 100%  7.6 MPa / Tensile stress at 100%  8.5 MPa,"The Unannealed table prints ""Tensile stress at 100%"" three times with three values and no label to tell them apart; page is ambiguous (V014109-11)"
+58,V014110,flag,,,,Tensile stress at 100%  7.6 MPa  ASTM D412,"Same label printed three times (6.7, 7.6, 8.5 MPa); page is ambiguous"
+58,V014111,flag,,,,Tensile stress at 100%  8.5 MPa  ASTM D412,"Same label printed three times (6.7, 7.6, 8.5 MPa); page is ambiguous"
+59,V014173,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+59,V014177,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+60,V014174,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+60,V014180,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+61,V014186,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+61,V014195,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+62,V014187,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+62,V014196,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+63,V014188,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+63,V014197,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+64,V014189,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+64,V014198,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+65,V014190,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+65,V014199,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+66,V014191,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+66,V014200,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+67,V014193,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+67,V014203,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+68,V014194,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+68,V014204,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+69,V014205,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+69,V014217,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+69,V014233,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+69,V014245,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+70,V014206,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+70,V014220,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+70,V014236,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+70,V014248,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+71,V014207,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+71,V014221,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+71,V014237,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+71,V014249,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+72,V014208,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+72,V014222,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+72,V014238,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+72,V014250,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+73,V014209,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+73,V014223,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+73,V014239,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+73,V014251,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+74,V014210,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+74,V014224,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+74,V014240,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+74,V014252,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+75,V014211,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+75,V014226,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+75,V014241,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+75,V014254,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+76,V014212,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+76,V014228,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+76,V014242,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+76,V014255,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+77,V014213,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+77,V014229,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+77,V014243,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+77,V014256,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+78,V014214,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+78,V014230,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+78,V014244,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+78,V014257,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+79,V014215,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+79,V014231,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+80,V014216,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+80,V014232,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+81,V014218,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+81,V014234,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+81,V014246,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+82,V014219,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+82,V014235,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+82,V014247,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+83,V014225,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+83,V014253,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+84,V014259,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+84,V014270,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+85,V014260,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+85,V014271,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+86,V014261,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+86,V014272,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+87,V014262,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+87,V014273,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+88,V014263,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+88,V014274,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+89,V014264,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+89,V014275,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+90,V014266,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+90,V014277,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+91,V014267,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+91,V014278,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+92,V014268,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+92,V014279,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+93,V014269,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+93,V014280,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+94,V014282,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+94,V014297,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+95,V014283,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+95,V014298,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+96,V014284,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+96,V014299,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+97,V014286,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+97,V014301,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+98,V014287,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+98,V014302,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+99,V014288,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+99,V014303,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+100,V014289,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+100,V014304,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+101,V014290,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+101,V014305,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+102,V014291,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+102,V014306,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+103,V014292,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+103,V014307,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+104,V014293,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+104,V014295,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+104,V014308,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+104,V014310,keep,,,,,Value sits in the XZ column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+105,V014294,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+105,V014296,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+105,V014309,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+105,V014311,keep,,,,,Value sits in the ZX column of the stated table; Standard / load and Locator name the printer/tip/table that tells it from its siblings
+106,V014312,keep,,,,8: ISO 4589-2 ILO (%O2) 1 mm XY Fortus 450mc,"Limit oxygen index per thickness and printer table, matches the page row; Standard / load names thickness and printer"
+106,V014313,keep,,,,8: ISO 4589-2 ILO (%O2) 7 mm XY Fortus 450mc,"Limit oxygen index per thickness and printer table, matches the page row; Standard / load names thickness and printer"
+106,V014314,keep,,,,8: ISO 4589-2 ILO (%O2) 1.1 mm XY F900,"Limit oxygen index per thickness and printer table, matches the page row; Standard / load names thickness and printer"
+106,V014315,keep,,,,8: ISO 4589-2 ILO (%O2) 7.3 mm XY F900,"Limit oxygen index per thickness and printer table, matches the page row; Standard / load names thickness and printer"
+107,V014318,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+107,V014318,fix,Locator,p. 8: Elongation @ Yield % [G035-23],p. 8: Elongation @ Yield % [G035-23] (Table 4: PC White Mechanical Properties - F900 - T16 Tip),Table 4: PC White Mechanical Properties - F900 - T16 Tip,"Locator and Standard / load name no table or printer; the page has several tables (White F900, Black/Red Fortus 450mc, Red F900) so name this one"
+107,V014320,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+107,V014322,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+107,V014324,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+107,V014324,fix,Locator,p. 12: Elongation @ Yield % [G035-23],"p. 12: Elongation @ Yield % [G035-23] (Table 10: Mechanical Properties of PC Red, F900, T16)","Table 10: Mechanical Properties of PC Red, F900, T16","Locator and Standard / load name no table or printer; the page has several tables (White F900, Black/Red Fortus 450mc, Red F900) so name this one"
+108,V014319,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+108,V014319,fix,Locator,p. 8: Elongation @ Break % [G035-23],p. 8: Elongation @ Break % [G035-23] (Table 4: PC White Mechanical Properties - F900 - T16 Tip),Table 4: PC White Mechanical Properties - F900 - T16 Tip,"Locator and Standard / load name no table or printer; the page has several tables (White F900, Black/Red Fortus 450mc, Red F900) so name this one"
+108,V014321,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+108,V014323,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+108,V014325,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+108,V014325,fix,Locator,p. 12: Elongation @ Break % [G035-23],"p. 12: Elongation @ Break % [G035-23] (Table 10: Mechanical Properties of PC Red, F900, T16)","Table 10: Mechanical Properties of PC Red, F900, T16","Locator and Standard / load name no table or printer; the page has several tables (White F900, Black/Red Fortus 450mc, Red F900) so name this one"
+109,V014331,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+109,V014331,fix,Locator,p. 7: Elongation @ Break % [G094-09],p. 7: Elongation @ Break % [G094-09] (Table 4. PC-ABS Mechanical Properties (F900 - T16 Tip)),Table 4. PC-ABS Mechanical Properties (F900 - T16 Tip),"Locator and Standard / load name no table or printer; the page has several tables (White F900, Black/Red Fortus 450mc, Red F900) so name this one"
+109,V014333,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+109,V014335,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+110,V014332,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"
+110,V014334,fix,Direction,ZX,Z,Flat (XY)  On Edge (XZ)  Upright (ZX),"ZX column of a TENSILE table that the sheet itself calls Upright: the vocabulary (m191/D92) records a tensile bar the sheet shows upright as Z, the layer strength"

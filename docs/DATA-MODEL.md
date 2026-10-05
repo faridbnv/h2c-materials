@@ -122,6 +122,12 @@ build reads (D68).
 - **Physically implausible measurements** (Data status "Published value (physically implausible)"): a number the source
   really publishes that physics rules out, with the reason in Notes. It is shown, flagged, and backs no headline,
   estimate, conversion, implied bound or plot point (D55).
+- **A value read again from its page** (D125): a measurement or page statement that a reader recorded from the page image
+  of a registered sheet, because the text layer did not pair the label with its number (two columns, a font that broke a
+  label, a scan), is an ordinary row. The page is its Locator, and its note (measurements, Notes; page statements,
+  Reviewed by) says who read it, in which migration it was applied and which view of the cached sheet bore its quote out.
+  It enters only where that text bears its numbers out, a second blind reading agrees, or the importer's own reader finds
+  it (IMPORTING, "Reading a registered sheet again").
 - **Declared states** (D53, D56, D68): a measurement carries its Moisture state (dry, conditioned, not-stated) and
   Post-processing state (as-printed, annealed, not-stated) as typed columns beside the source's own words, and each
   Specimen type declares a Form (printed, not-stated, moulded, film, filament, off-recipe) in its vocabulary, because
@@ -192,7 +198,7 @@ polymers           the polymer identities the estimate model knows (polymers.csv
 polymerEnvironment a base polymer's published environmental behaviour, per category and agent (D64)
 polymerEvidence    those rows attached to each material with no record of its own in the category: one inferred,
                    polymer-level verdict per category; shown, may screen, never passes (D64)
-registry           { properties, headlines }: what every property and headline means
+registry           { properties, headlines, relations }: what every property and headline means, and the orders physics fixes (D126)
 ```
 
 `dist/h2c.sqlite` (`npm run sql`, D75) holds the same tables for queries. It also holds the **record tier** (D85),
@@ -392,6 +398,45 @@ interval says whether a threshold lies within its spread (D54).
 A product value is always a printed or unstated specimen, dry or unstated, and as printed where the product publishes
 both states; a moulded, film, filament, off-recipe, conditioned, annealed-beside-as-printed or physically implausible
 measurement is never one, and a pin on it stops the build (D55, D56, D95).
+
+### Physical order
+
+Physics fixes some orders between two numbers, and no number shown may contradict one (D126).
+`physical_relations.csv` lists them, one row each: yield stress and break stress at most the ultimate tensile strength
+(PR06, PR09), the ultimate at most the flexural strength (PR07), elongation at yield and the strain at maximum stress at
+most elongation at break (PR05, PR10), HDT at 1.8 MPa at most HDT at 0.45 MPa (PR08), glass transition at most Vicat
+softening, Vicat and crystallization at most melting (PR01 to PR04), and HDT at most the melting point of a
+semicrystalline polymer (PR11). A row says what the two values must share to be one test (Same test: some of grade,
+source, direction, unit, specimen form, moisture condition and post-processing; the HDT pair also states its two loads), the
+relative and absolute margin a pair may exceed it by, the materials it holds for (Applies to), the lint code a broken
+pair raises, which of the two measurements the finding is recorded on, and its Scope: `measurement` (the lint on
+published values), `headline` (a headline's lower bound) or `both`. Three readers use the one list:
+
+- **The data lint** judges every pair of one product's published values against it (MEAS-PHYSICS-ORDER and
+  MEAS-PHYSICS-HDT-LOADS, `build/src/physical-relations.js`). A pair it finds is fixed on the page, flagged physically
+  implausible, or accepted with a reason.
+- **The registry.** A headline's Lower bound columns (`headline_definitions.csv`) are the projection of the rows with
+  Scope `headline` or `both`; a bound no row covers, or a row no headline reads, stops the build
+  (RELATIONS-HEADLINE-DRIFT). The compiled list is `db.registry.relations`.
+- **The estimate stage** floors every estimate by what the product's own measurements prove (`build/src/lower-bounds.js`).
+  A printed bar bounds a headline, and so does a bar whose source states no specimen, in any direction (a printed part is
+  strongest in XY); a moulded, film, filament or off-recipe bar bounds nothing, nor does a value flagged implausible or
+  quarantined, an annealed value beside an as-printed one, or a conditioned elongation. A grade's estimate is floored at its
+  own formulation's highest floor. A material's range is the spread of its products, so it contains every product's floor:
+  its upper ends reach the highest, and its lower ends are floored at the lowest only when every active product has one. A
+  semicrystalline polymer's heat deflection is held under its melting point. The floors are back-tested on the hidden
+  headlines (`build/src/estimate/floors.js`, `meta.estimateModel.properties.*.floors`).
+
+A product's own strength follows the same order. Where the rule takes a yield or break stress as its tensile strength,
+the value is the greatest of the stress endpoints one test prints (same source, grade, direction, specimen type, moisture
+and post-processing state, anneal schedule and test temperature), and `grades[].headline[key].endpoints` lists the
+measurements compared so the drawer can say which. Another source's number is another test and is not compared.
+
+Two checks guard the result (both in `docs/RULES.md`). EST-ORDER is a build error: a grade's or a material's estimate that
+lies under its floor, a material's range that misses a product's floor, or a heat deflection estimate above the melting
+point. PRODUCT-ORDER is informational: a product's published value lies under another of its own measurements from a
+different source, direction, specimen or state. That is two tests that disagree, so the value stays the product's own until
+a re-read says which sheet is wrong.
 
 ---
 

@@ -19,9 +19,11 @@ import { dirname } from 'node:path';
 import { cacheDir, cellSpans, spanText } from './pdf-text.mjs';
 
 export const LAYOUT = 'xycut v1';
-// Whether the sheet readers and the audits that run beside them also read a page in reading order. Off until the audit
-// of what that adds (scripts/audit/reader-recall.mjs) has been read; H2C_READER_LAYOUT=1 turns it on for one run.
-export const LAYOUT_DEFAULT = process.env.H2C_READER_LAYOUT === '1';
+// Whether the sheet readers and the audits that run beside them also read a page in reading order. On since the reader
+// round (D125): the recall audit (scripts/audit/reader-recall.mjs) found 85 sheets gaining an item and no item lost, and
+// the context guard with it on found three settings purefil and Nanovia print across a column, all real.
+// H2C_READER_LAYOUT=0 turns it off for one run.
+export const LAYOUT_DEFAULT = process.env.H2C_READER_LAYOUT !== '0';
 
 // A horizontal cut needs this much white space (in line heights) between two lines: a paragraph's leading and a
 // table row's pitch are about half a line of it, a section break is two.

@@ -1,0 +1,2518 @@
+TargetID,Level,MaterialID,GradeID,Domain,Field,State,Note
+T0001,material,M038,,printing,chamber,unknown,PC-GF
+T0002,material,M055,,printing,chamber,unknown,PA66
+T0003,material,M056,,printing,nozzle,unknown,PA66-CF
+T0004,material,M056,,printing,bed,unknown,PA66-CF
+T0005,material,M056,,printing,chamber,unknown,PA66-CF
+T0006,material,M056,,printing,drying,unknown,PA66-CF
+T0007,material,M058,,printing,nozzle,unknown,PA612
+T0008,material,M058,,printing,bed,unknown,PA612
+T0009,material,M058,,printing,chamber,unknown,PA612
+T0010,material,M060,,printing,nozzle,unknown,PA612-GF
+T0011,material,M060,,printing,bed,unknown,PA612-GF
+T0012,material,M060,,printing,chamber,unknown,PA612-GF
+T0013,material,M060,,printing,drying,unknown,PA612-GF
+T0014,material,M064,,printing,chamber,unknown,PA-ESD
+T0015,material,M085,,printing,chamber,unknown,PE
+T0016,material,M086,,printing,drying,unknown,OBC
+T0017,material,M092,,printing,chamber,unknown,nGen / Amphora
+T0018,material,M092,,printing,drying,unknown,nGen / Amphora
+T0019,material,M096,,printing,chamber,unknown,PVDF
+T0020,material,M108,,printing,chamber,unknown,PA6-GS
+T0021,material,M114,,printing,nozzle,unknown,TPC-ESD
+T0022,material,M114,,printing,bed,unknown,TPC-ESD
+T0023,material,M114,,printing,chamber,unknown,TPC-ESD
+T0024,material,M114,,printing,drying,unknown,TPC-ESD
+T0025,material,M116,,printing,chamber,unknown,PC-ESD
+T0026,material,M119,,printing,chamber,unknown,PC-ASA
+T0027,material,M119,,printing,drying,unknown,PC-ASA
+T0028,material,M128,,printing,chamber,unknown,PC-ABS-CF
+T0029,material,M131,,printing,chamber,unknown,PC-PBT-CF
+T0030,material,M135,,printing,chamber,unknown,PVC
+T0031,material,M136,,printing,chamber,unknown,SAN
+T0032,material,M138,,printing,chamber,unknown,PE-GF
+T0033,material,M139,,printing,chamber,unknown,LCP
+T0034,material,M140,,printing,chamber,unknown,PBT
+T0035,material,M141,,printing,chamber,unknown,PET-LW
+T0036,material,M141,,printing,drying,unknown,PET-LW
+T0037,material,M142,,printing,chamber,unknown,nGen-CF
+T0038,material,M143,,printing,chamber,unknown,nGen FLEX
+T0039,material,M145,,printing,chamber,unknown,PLA-PHA
+T0040,material,M148,,printing,chamber,unknown,PAHT-CE
+T0041,material,M150,,printing,chamber,unknown,TPU-LW
+T0042,material,M154,,printing,chamber,unknown,PA12-AF
+T0043,material,M155,,printing,drying,unknown,PLA-GR
+T0044,material,M156,,printing,chamber,unknown,PA6/66-CF
+T0045,material,M157,,printing,chamber,unknown,TPU-EC
+T0046,material,M165,,printing,chamber,unknown,"Nylon-CF, maker-undisclosed polyamide"
+T0047,material,M166,,printing,nozzle,unknown,"Nylon-GF, maker-undisclosed polyamide"
+T0048,material,M166,,printing,bed,unknown,"Nylon-GF, maker-undisclosed polyamide"
+T0049,material,M166,,printing,chamber,unknown,"Nylon-GF, maker-undisclosed polyamide"
+T0050,material,M166,,printing,drying,unknown,"Nylon-GF, maker-undisclosed polyamide"
+T0051,material,M174,,printing,drying,unknown,SBC
+T0052,material,M049,,mechanical,tensileModulusXY,estimate,PA6
+T0053,material,M049,,mechanical,tensileStrengthXY,estimate,PA6
+T0054,material,M049,,mechanical,elongationXY,estimate,PA6
+T0055,material,M052,,mechanical,tensileModulusXY,estimate,PA12
+T0056,material,M052,,mechanical,tensileStrengthXY,estimate,PA12
+T0057,material,M052,,mechanical,elongationXY,estimate,PA12
+T0058,material,M055,,mechanical,density,estimate,PA66
+T0059,material,M055,,mechanical,tensileModulusXY,estimate,PA66
+T0060,material,M055,,mechanical,tensileStrengthXY,estimate,PA66
+T0061,material,M055,,mechanical,elongationXY,estimate,PA66
+T0062,material,M055,,thermal,hdt045,estimate,PA66
+T0063,material,M056,,mechanical,density,estimate,PA66-CF
+T0064,material,M056,,mechanical,tensileModulusXY,estimate,PA66-CF
+T0065,material,M056,,mechanical,tensileStrengthXY,estimate,PA66-CF
+T0066,material,M056,,mechanical,elongationXY,estimate,PA66-CF
+T0067,material,M056,,thermal,hdt045,estimate,PA66-CF
+T0068,material,M058,,mechanical,density,estimate,PA612
+T0069,material,M058,,mechanical,tensileModulusXY,estimate,PA612
+T0070,material,M058,,mechanical,tensileStrengthXY,estimate,PA612
+T0071,material,M058,,mechanical,elongationXY,estimate,PA612
+T0072,material,M058,,thermal,hdt045,estimate,PA612
+T0073,material,M060,,mechanical,density,estimate,PA612-GF
+T0074,material,M060,,mechanical,tensileModulusXY,estimate,PA612-GF
+T0075,material,M060,,mechanical,tensileStrengthXY,estimate,PA612-GF
+T0076,material,M060,,mechanical,elongationXY,estimate,PA612-GF
+T0077,material,M060,,thermal,hdt045,estimate,PA612-GF
+T0078,material,M064,,mechanical,tensileModulusXY,estimate,PA-ESD
+T0079,material,M064,,mechanical,tensileStrengthXY,estimate,PA-ESD
+T0080,material,M064,,mechanical,elongationXY,estimate,PA-ESD
+T0081,material,M076,,thermal,hdt045,estimate,BVOH
+T0082,material,M080,,thermal,hdt045,estimate,Support for PA/PET
+T0083,material,M082,,mechanical,tensileModulusXY,estimate,PP
+T0084,material,M086,,mechanical,tensileModulusXY,estimate,OBC
+T0085,material,M091,,mechanical,elongationXY,estimate,CoPE
+T0086,material,M091,,thermal,hdt045,estimate,CoPE
+T0087,material,M104,,mechanical,tensileModulusXY,estimate,PA6-CE
+T0088,material,M104,,mechanical,tensileStrengthXY,estimate,PA6-CE
+T0089,material,M104,,mechanical,elongationXY,estimate,PA6-CE
+T0090,material,M104,,thermal,hdt045,estimate,PA6-CE
+T0091,material,M105,,mechanical,tensileModulusXY,estimate,ASA-EC
+T0092,material,M105,,mechanical,tensileStrengthXY,estimate,ASA-EC
+T0093,material,M105,,mechanical,elongationXY,estimate,ASA-EC
+T0094,material,M105,,thermal,hdt045,estimate,ASA-EC
+T0095,material,M106,,mechanical,elongationXY,estimate,ABS-AF
+T0096,material,M108,,mechanical,tensileModulusXY,estimate,PA6-GS
+T0097,material,M108,,mechanical,tensileStrengthXY,estimate,PA6-GS
+T0098,material,M108,,mechanical,elongationXY,estimate,PA6-GS
+T0099,material,M108,,thermal,hdt045,estimate,PA6-GS
+T0100,material,M109,,mechanical,tensileModulusXY,estimate,PETG-PTFE
+T0101,material,M109,,mechanical,tensileStrengthXY,estimate,PETG-PTFE
+T0102,material,M109,,mechanical,elongationXY,estimate,PETG-PTFE
+T0103,material,M109,,thermal,hdt045,estimate,PETG-PTFE
+T0104,material,M110,,mechanical,tensileModulusXY,estimate,PCTG-GF
+T0105,material,M110,,mechanical,tensileStrengthXY,estimate,PCTG-GF
+T0106,material,M110,,mechanical,elongationXY,estimate,PCTG-GF
+T0107,material,M111,,mechanical,tensileModulusXY,estimate,PLA-EC
+T0108,material,M111,,mechanical,tensileStrengthXY,estimate,PLA-EC
+T0109,material,M111,,mechanical,elongationXY,estimate,PLA-EC
+T0110,material,M111,,thermal,hdt045,estimate,PLA-EC
+T0111,material,M112,,mechanical,tensileModulusXY,estimate,PC-PTFE
+T0112,material,M112,,mechanical,tensileStrengthXY,estimate,PC-PTFE
+T0113,material,M112,,mechanical,elongationXY,estimate,PC-PTFE
+T0114,material,M113,,mechanical,tensileModulusXY,estimate,ASA-AF
+T0115,material,M113,,mechanical,tensileStrengthXY,estimate,ASA-AF
+T0116,material,M113,,mechanical,elongationXY,estimate,ASA-AF
+T0117,material,M113,,thermal,hdt045,estimate,ASA-AF
+T0118,material,M126,,mechanical,tensileModulusXY,estimate,TPU-ESD
+T0119,material,M126,,mechanical,elongationXY,estimate,TPU-ESD
+T0120,material,M129,,mechanical,tensileModulusXY,estimate,TPU-CF
+T0121,material,M129,,mechanical,tensileStrengthXY,estimate,TPU-CF
+T0122,material,M129,,mechanical,elongationXY,estimate,TPU-CF
+T0123,material,M130,,thermal,hdt045,estimate,PPE-PS
+T0124,material,M131,,mechanical,tensileModulusXY,estimate,PC-PBT-CF
+T0125,material,M131,,mechanical,tensileStrengthXY,estimate,PC-PBT-CF
+T0126,material,M131,,mechanical,elongationXY,estimate,PC-PBT-CF
+T0127,material,M131,,thermal,hdt045,estimate,PC-PBT-CF
+T0128,material,M134,,mechanical,tensileModulusXY,estimate,CPE-LW
+T0129,material,M134,,mechanical,tensileStrengthXY,estimate,CPE-LW
+T0130,material,M134,,mechanical,elongationXY,estimate,CPE-LW
+T0131,material,M135,,mechanical,tensileModulusXY,estimate,PVC
+T0132,material,M135,,mechanical,tensileStrengthXY,estimate,PVC
+T0133,material,M135,,mechanical,elongationXY,estimate,PVC
+T0134,material,M135,,thermal,hdt045,estimate,PVC
+T0135,material,M136,,mechanical,tensileModulusXY,estimate,SAN
+T0136,material,M136,,mechanical,tensileStrengthXY,estimate,SAN
+T0137,material,M136,,mechanical,elongationXY,estimate,SAN
+T0138,material,M136,,thermal,hdt045,estimate,SAN
+T0139,material,M137,,mechanical,tensileModulusXY,estimate,COC
+T0140,material,M137,,mechanical,tensileStrengthXY,estimate,COC
+T0141,material,M137,,mechanical,elongationXY,estimate,COC
+T0142,material,M138,,mechanical,tensileModulusXY,estimate,PE-GF
+T0143,material,M138,,mechanical,tensileStrengthXY,estimate,PE-GF
+T0144,material,M138,,mechanical,elongationXY,estimate,PE-GF
+T0145,material,M139,,mechanical,tensileModulusXY,estimate,LCP
+T0146,material,M139,,mechanical,tensileStrengthXY,estimate,LCP
+T0147,material,M139,,mechanical,elongationXY,estimate,LCP
+T0148,material,M139,,thermal,hdt045,estimate,LCP
+T0149,material,M140,,mechanical,tensileModulusXY,estimate,PBT
+T0150,material,M140,,mechanical,tensileStrengthXY,estimate,PBT
+T0151,material,M140,,mechanical,elongationXY,estimate,PBT
+T0152,material,M141,,thermal,hdt045,estimate,PET-LW
+T0153,material,M143,,thermal,hdt045,estimate,nGen FLEX
+T0154,material,M144,,mechanical,tensileModulusXY,estimate,PCTG-CF
+T0155,material,M144,,mechanical,tensileStrengthXY,estimate,PCTG-CF
+T0156,material,M144,,mechanical,elongationXY,estimate,PCTG-CF
+T0157,material,M145,,thermal,hdt045,estimate,PLA-PHA
+T0158,material,M146,,mechanical,tensileModulusXY,estimate,PLA-PHB
+T0159,material,M146,,mechanical,tensileStrengthXY,estimate,PLA-PHB
+T0160,material,M146,,mechanical,elongationXY,estimate,PLA-PHB
+T0161,material,M147,,mechanical,elongationXY,estimate,PAHT
+T0162,material,M147,,thermal,hdt045,estimate,PAHT
+T0163,material,M148,,mechanical,tensileModulusXY,estimate,PAHT-CE
+T0164,material,M148,,mechanical,tensileStrengthXY,estimate,PAHT-CE
+T0165,material,M148,,mechanical,elongationXY,estimate,PAHT-CE
+T0166,material,M148,,thermal,hdt045,estimate,PAHT-CE
+T0167,material,M149,,mechanical,tensileModulusXY,estimate,PCL
+T0168,material,M149,,mechanical,tensileStrengthXY,estimate,PCL
+T0169,material,M150,,mechanical,tensileModulusXY,estimate,TPU-LW
+T0170,material,M152,,mechanical,elongationXY,estimate,PLA-NF
+T0171,material,M153,,mechanical,tensileModulusXY,estimate,PETG-GR
+T0172,material,M153,,mechanical,tensileStrengthXY,estimate,PETG-GR
+T0173,material,M153,,mechanical,elongationXY,estimate,PETG-GR
+T0174,material,M153,,thermal,hdt045,estimate,PETG-GR
+T0175,material,M154,,mechanical,tensileModulusXY,estimate,PA12-AF
+T0176,material,M154,,mechanical,tensileStrengthXY,estimate,PA12-AF
+T0177,material,M154,,mechanical,elongationXY,estimate,PA12-AF
+T0178,material,M154,,thermal,hdt045,estimate,PA12-AF
+T0179,material,M155,,mechanical,tensileModulusXY,estimate,PLA-GR
+T0180,material,M155,,mechanical,tensileStrengthXY,estimate,PLA-GR
+T0181,material,M155,,mechanical,elongationXY,estimate,PLA-GR
+T0182,material,M155,,thermal,hdt045,estimate,PLA-GR
+T0183,material,M156,,mechanical,tensileModulusXY,estimate,PA6/66-CF
+T0184,material,M156,,thermal,hdt045,estimate,PA6/66-CF
+T0185,material,M157,,mechanical,tensileModulusXY,estimate,TPU-EC
+T0186,material,M157,,mechanical,tensileStrengthXY,estimate,TPU-EC
+T0187,material,M157,,mechanical,elongationXY,estimate,TPU-EC
+T0188,material,M158,,mechanical,tensileModulusXY,estimate,PLA-CE
+T0189,material,M158,,mechanical,tensileStrengthXY,estimate,PLA-CE
+T0190,material,M158,,mechanical,elongationXY,estimate,PLA-CE
+T0191,material,M162,,mechanical,tensileModulusXY,estimate,TPU harder than 95A
+T0192,material,M165,,mechanical,tensileModulusXY,none,"Nylon-CF, maker-undisclosed polyamide"
+T0193,material,M165,,mechanical,tensileStrengthXY,none,"Nylon-CF, maker-undisclosed polyamide"
+T0194,material,M165,,mechanical,elongationXY,none,"Nylon-CF, maker-undisclosed polyamide"
+T0195,material,M165,,thermal,hdt045,none,"Nylon-CF, maker-undisclosed polyamide"
+T0196,material,M166,,thermal,hdt045,none,"Nylon-GF, maker-undisclosed polyamide"
+T0197,material,M167,,mechanical,tensileModulusXY,none,"TPE, maker-undisclosed elastomer"
+T0198,material,M167,,mechanical,tensileStrengthXY,none,"TPE, maker-undisclosed elastomer"
+T0199,material,M167,,mechanical,elongationXY,none,"TPE, maker-undisclosed elastomer"
+T0200,material,M168,,mechanical,tensileModulusXY,none,PLA blend
+T0201,material,M168,,mechanical,tensileStrengthXY,none,PLA blend
+T0202,material,M168,,mechanical,elongationXY,none,PLA blend
+T0203,material,M169,,mechanical,tensileModulusXY,none,PLA blend-CF
+T0204,material,M169,,mechanical,tensileStrengthXY,none,PLA blend-CF
+T0205,material,M169,,mechanical,elongationXY,none,PLA blend-CF
+T0206,material,M174,,mechanical,tensileModulusXY,none,SBC
+T0207,material,M174,,mechanical,tensileStrengthXY,none,SBC
+T0208,material,M174,,mechanical,elongationXY,none,SBC
+T0209,material,M174,,thermal,hdt045,none,SBC
+T0210,material,M175,,mechanical,tensileModulusXY,none,TPV
+T0211,material,M175,,mechanical,tensileStrengthXY,none,TPV
+T0212,material,M175,,mechanical,elongationXY,none,TPV
+T0213,product,M001,G001-01,thermal,hdt045,none,ECOMAX PLA
+T0214,product,M001,G001-03,printing,drying,unknown,PLA
+T0215,product,M001,G001-03,mechanical,tensileStrengthXY,none,PLA
+T0216,product,M001,G001-03,mechanical,tensileModulusXY,none,PLA
+T0217,product,M001,G001-03,mechanical,elongationXY,none,PLA
+T0218,product,M001,G001-03,thermal,hdt045,none,PLA
+T0219,product,M001,G001-07,mechanical,elongationXY,none,Huracan PLA
+T0220,product,M001,G001-08,mechanical,tensileModulusXY,none,THE FILAMENT PLA Matte
+T0221,product,M001,G001-10,mechanical,elongationXY,none,rPLA
+T0222,product,M001,G001-11,mechanical,tensileStrengthXY,none,THE FILAMENT PLA HS
+T0223,product,M001,G001-11,mechanical,tensileModulusXY,none,THE FILAMENT PLA HS
+T0224,product,M001,G001-11,mechanical,elongationXY,none,THE FILAMENT PLA HS
+T0225,product,M001,G001-12,mechanical,tensileStrengthXY,none,THE FILAMENT PLA Lite
+T0226,product,M001,G001-12,mechanical,tensileModulusXY,none,THE FILAMENT PLA Lite
+T0227,product,M001,G001-12,mechanical,elongationXY,none,THE FILAMENT PLA Lite
+T0228,product,M001,G001-13,mechanical,tensileStrengthXY,none,THE FILAMENT PLA
+T0229,product,M001,G001-13,mechanical,tensileModulusXY,none,THE FILAMENT PLA
+T0230,product,M001,G001-13,mechanical,elongationXY,none,THE FILAMENT PLA
+T0231,product,M001,G001-16,mechanical,elongationXY,none,PLA Pro
+T0232,product,M001,G001-17,mechanical,tensileModulusXY,none,Pastello PLA
+T0233,product,M001,G001-19,printing,drying,unknown,PolyLite PLA
+T0234,product,M001,G001-22,printing,drying,unknown,Polymaker PolyLite PLA PRO Army Beige
+T0235,product,M001,G001-22,mechanical,elongationXY,none,Polymaker PolyLite PLA PRO Army Beige
+T0236,product,M001,G001-31,mechanical,tensileStrengthXY,none,PLA
+T0237,product,M001,G001-31,mechanical,tensileModulusXY,none,PLA
+T0238,product,M001,G001-31,mechanical,elongationXY,none,PLA
+T0239,product,M001,G001-32,printing,drying,unknown,PLA TOUGH
+T0240,product,M001,G001-32,mechanical,tensileStrengthXY,none,PLA TOUGH
+T0241,product,M001,G001-32,mechanical,tensileModulusXY,none,PLA TOUGH
+T0242,product,M001,G001-32,mechanical,elongationXY,none,PLA TOUGH
+T0243,product,M001,G001-32,mechanical,density,none,PLA TOUGH
+T0244,product,M001,G001-32,thermal,hdt045,none,PLA TOUGH
+T0245,product,M001,G001-33,printing,drying,unknown,PLA NX2 MATT
+T0246,product,M001,G001-33,mechanical,tensileStrengthXY,none,PLA NX2 MATT
+T0247,product,M001,G001-33,mechanical,tensileModulusXY,none,PLA NX2 MATT
+T0248,product,M001,G001-33,mechanical,elongationXY,none,PLA NX2 MATT
+T0249,product,M001,G001-33,thermal,hdt045,none,PLA NX2 MATT
+T0250,product,M001,G001-34,printing,drying,unknown,PLA BASIC
+T0251,product,M001,G001-34,mechanical,tensileStrengthXY,none,PLA BASIC
+T0252,product,M001,G001-34,mechanical,tensileModulusXY,none,PLA BASIC
+T0253,product,M001,G001-34,mechanical,elongationXY,none,PLA BASIC
+T0254,product,M001,G001-34,thermal,hdt045,none,PLA BASIC
+T0255,product,M001,G001-35,printing,drying,unknown,PLA HIGH-SPEED
+T0256,product,M001,G001-35,mechanical,tensileStrengthXY,none,PLA HIGH-SPEED
+T0257,product,M001,G001-35,mechanical,tensileModulusXY,none,PLA HIGH-SPEED
+T0258,product,M001,G001-35,mechanical,elongationXY,none,PLA HIGH-SPEED
+T0259,product,M001,G001-35,thermal,hdt045,none,PLA HIGH-SPEED
+T0260,product,M001,G001-36,mechanical,tensileModulusXY,none,PLA Lite
+T0261,product,M001,G001-39,mechanical,tensileModulusXY,none,PLA-METALLIC PLA
+T0262,product,M001,G001-40,mechanical,tensileModulusXY,none,PLA Matte Dual-Color
+T0263,product,M001,G001-41,mechanical,tensileModulusXY,none,PLA Rainbow
+T0264,product,M001,G001-42,mechanical,tensileModulusXY,none,High Speed PLA+2.0
+T0265,product,M001,G001-48,printing,drying,unknown,PLA Multicolor
+T0266,product,M001,G001-49,printing,drying,unknown,HS PLA
+T0267,product,M001,G001-50,printing,drying,unknown,PLA Matte
+T0268,product,M001,G001-51,printing,drying,unknown,PLA Pro
+T0269,product,M001,G001-52,printing,drying,unknown,PLA Crystal
+T0270,product,M001,G001-52,mechanical,tensileModulusXY,none,PLA Crystal
+T0271,product,M001,G001-55,mechanical,elongationXY,none,IMPACT PLA
+T0272,product,M001,G001-58,printing,drying,unknown,PLA-HP
+T0273,product,M001,G001-58,mechanical,density,none,PLA-HP
+T0274,product,M001,G001-59,printing,drying,unknown,PLA Economy
+T0275,product,M001,G001-59,thermal,hdt045,none,PLA Economy
+T0276,product,M001,G001-60,printing,drying,unknown,PLA Color On Demand (COD)
+T0277,product,M001,G001-60,mechanical,density,none,PLA Color On Demand (COD)
+T0278,product,M001,G001-60,thermal,hdt045,none,PLA Color On Demand (COD)
+T0279,product,M001,G001-61,printing,drying,unknown,PLA Regrind
+T0280,product,M001,G001-61,mechanical,density,none,PLA Regrind
+T0281,product,M001,G001-61,thermal,hdt045,none,PLA Regrind
+T0282,product,M001,G001-62,printing,drying,unknown,PLA High Speed PRO
+T0283,product,M001,G001-62,mechanical,density,none,PLA High Speed PRO
+T0284,product,M001,G001-62,thermal,hdt045,none,PLA High Speed PRO
+T0285,product,M001,G001-63,printing,drying,unknown,Vibers PLA
+T0286,product,M001,G001-63,mechanical,density,none,Vibers PLA
+T0287,product,M001,G001-63,thermal,hdt045,none,Vibers PLA
+T0288,product,M001,G001-64,mechanical,tensileStrengthXY,none,PLA Extrafill
+T0289,product,M001,G001-64,mechanical,tensileModulusXY,none,PLA Extrafill
+T0290,product,M001,G001-64,mechanical,elongationXY,none,PLA Extrafill
+T0291,product,M001,G001-65,printing,drying,unknown,PLA Crystal Clear
+T0292,product,M001,G001-65,thermal,hdt045,none,PLA Crystal Clear
+T0293,product,M168,G001-66,printing,chamber,unknown,GreenTEC Pro
+T0294,product,M001,G001-67,printing,drying,unknown,PLA
+T0295,product,M001,G001-68,mechanical,tensileStrengthXY,none,Polylactide (PLA)
+T0296,product,M001,G001-68,mechanical,tensileModulusXY,none,Polylactide (PLA)
+T0297,product,M001,G001-68,mechanical,elongationXY,none,Polylactide (PLA)
+T0298,product,M001,G001-69,mechanical,tensileStrengthXY,none,PLA Premium
+T0299,product,M001,G001-69,mechanical,tensileModulusXY,none,PLA Premium
+T0300,product,M001,G001-69,mechanical,elongationXY,none,PLA Premium
+T0301,product,M001,G001-70,printing,drying,unknown,PLA Chameleon
+T0302,product,M001,G001-70,mechanical,density,none,PLA Chameleon
+T0303,product,M001,G001-71,mechanical,tensileModulusXY,none,PLA-Matte
+T0304,product,M001,G001-72,printing,drying,unknown,PLA
+T0305,product,M001,G001-72,thermal,hdt045,none,PLA
+T0306,product,M001,G001-73,mechanical,density,none,PLLA
+T0307,product,M001,G001-74,printing,drying,unknown,PLA+CMYK
+T0308,product,M001,G001-74,mechanical,tensileStrengthXY,none,PLA+CMYK
+T0309,product,M001,G001-74,mechanical,tensileModulusXY,none,PLA+CMYK
+T0310,product,M001,G001-74,mechanical,elongationXY,none,PLA+CMYK
+T0311,product,M001,G001-74,thermal,hdt045,none,PLA+CMYK
+T0312,product,M001,G001-75,printing,drying,unknown,PLA Matte Dual
+T0313,product,M001,G001-75,mechanical,tensileStrengthXY,none,PLA Matte Dual
+T0314,product,M001,G001-75,mechanical,tensileModulusXY,none,PLA Matte Dual
+T0315,product,M001,G001-75,mechanical,elongationXY,none,PLA Matte Dual
+T0316,product,M001,G001-75,thermal,hdt045,none,PLA Matte Dual
+T0317,product,M001,G001-76,printing,drying,unknown,eSilk-PLA
+T0318,product,M001,G001-76,mechanical,tensileStrengthXY,none,eSilk-PLA
+T0319,product,M001,G001-76,mechanical,tensileModulusXY,none,eSilk-PLA
+T0320,product,M001,G001-76,mechanical,elongationXY,none,eSilk-PLA
+T0321,product,M001,G001-76,thermal,hdt045,none,eSilk-PLA
+T0322,product,M001,G001-77,printing,drying,unknown,Prusament rPLA Natural Pigments by Prusa Polymers
+T0323,product,M001,G001-77,mechanical,tensileStrengthXY,none,Prusament rPLA Natural Pigments by Prusa Polymers
+T0324,product,M001,G001-77,mechanical,tensileModulusXY,none,Prusament rPLA Natural Pigments by Prusa Polymers
+T0325,product,M001,G001-77,mechanical,elongationXY,none,Prusament rPLA Natural Pigments by Prusa Polymers
+T0326,product,M001,G001-78,mechanical,tensileModulusXY,none,PLA+
+T0327,product,M001,G001-79,printing,drying,unknown,PLA-Rock
+T0328,product,M001,G001-79,mechanical,tensileStrengthXY,none,PLA-Rock
+T0329,product,M001,G001-79,mechanical,tensileModulusXY,none,PLA-Rock
+T0330,product,M001,G001-79,mechanical,elongationXY,none,PLA-Rock
+T0331,product,M001,G001-79,thermal,hdt045,none,PLA-Rock
+T0332,product,M001,G001-80,mechanical,tensileModulusXY,none,PLA HF
+T0333,product,M001,G001-81,printing,drying,unknown,ePLA-Magic
+T0334,product,M001,G001-81,mechanical,tensileStrengthXY,none,ePLA-Magic
+T0335,product,M001,G001-81,mechanical,tensileModulusXY,none,ePLA-Magic
+T0336,product,M001,G001-81,mechanical,elongationXY,none,ePLA-Magic
+T0337,product,M001,G001-81,thermal,hdt045,none,ePLA-Magic
+T0338,product,M001,G001-82,printing,drying,unknown,Premium PLA
+T0339,product,M001,G001-82,thermal,hdt045,none,Premium PLA
+T0340,product,M001,G001-83,mechanical,tensileModulusXY,none,PLA Basic EN
+T0341,product,M001,G001-84,printing,drying,unknown,eStars-PLA
+T0342,product,M001,G001-84,mechanical,tensileStrengthXY,none,eStars-PLA
+T0343,product,M001,G001-84,mechanical,tensileModulusXY,none,eStars-PLA
+T0344,product,M001,G001-84,mechanical,elongationXY,none,eStars-PLA
+T0345,product,M001,G001-84,thermal,hdt045,none,eStars-PLA
+T0346,product,M001,G001-85,printing,drying,unknown,ePLA HS
+T0347,product,M001,G001-85,mechanical,tensileStrengthXY,none,ePLA HS
+T0348,product,M001,G001-85,mechanical,tensileModulusXY,none,ePLA HS
+T0349,product,M001,G001-85,mechanical,elongationXY,none,ePLA HS
+T0350,product,M001,G001-85,thermal,hdt045,none,ePLA HS
+T0351,product,M001,G001-86,mechanical,tensileModulusXY,none,PLA Cast EN
+T0352,product,M001,G001-87,printing,drying,unknown,Prusament PLA High Speed by Prusa Polymers
+T0353,product,M001,G001-87,mechanical,tensileStrengthXY,none,Prusament PLA High Speed by Prusa Polymers
+T0354,product,M001,G001-87,mechanical,tensileModulusXY,none,Prusament PLA High Speed by Prusa Polymers
+T0355,product,M001,G001-87,mechanical,elongationXY,none,Prusament PLA High Speed by Prusa Polymers
+T0356,product,M001,G001-88,mechanical,tensileModulusXY,none,PLA+HS
+T0357,product,M001,G001-89,printing,drying,unknown,ePLA-Chameleon
+T0358,product,M001,G001-89,mechanical,tensileStrengthXY,none,ePLA-Chameleon
+T0359,product,M001,G001-89,mechanical,tensileModulusXY,none,ePLA-Chameleon
+T0360,product,M001,G001-89,mechanical,elongationXY,none,ePLA-Chameleon
+T0361,product,M001,G001-89,thermal,hdt045,none,ePLA-Chameleon
+T0362,product,M001,G001-90,printing,drying,unknown,Prusament PLA Recycled by Prusa Polymers
+T0363,product,M001,G001-90,mechanical,tensileStrengthXY,none,Prusament PLA Recycled by Prusa Polymers
+T0364,product,M001,G001-90,mechanical,tensileModulusXY,none,Prusament PLA Recycled by Prusa Polymers
+T0365,product,M001,G001-90,mechanical,elongationXY,none,Prusament PLA Recycled by Prusa Polymers
+T0366,product,M001,G001-90,mechanical,density,none,Prusament PLA Recycled by Prusa Polymers
+T0367,product,M001,G001-91,printing,drying,unknown,PLA+HS Silver
+T0368,product,M001,G001-91,mechanical,tensileStrengthXY,none,PLA+HS Silver
+T0369,product,M001,G001-91,mechanical,tensileModulusXY,none,PLA+HS Silver
+T0370,product,M001,G001-91,mechanical,elongationXY,none,PLA+HS Silver
+T0371,product,M001,G001-91,thermal,hdt045,none,PLA+HS Silver
+T0372,product,M001,G001-92,printing,drying,unknown,PLA UV Color Change
+T0373,product,M001,G001-92,mechanical,tensileStrengthXY,none,PLA UV Color Change
+T0374,product,M001,G001-92,mechanical,tensileModulusXY,none,PLA UV Color Change
+T0375,product,M001,G001-92,mechanical,elongationXY,none,PLA UV Color Change
+T0376,product,M001,G001-92,thermal,hdt045,none,PLA UV Color Change
+T0377,product,M001,G001-93,printing,drying,unknown,Pro PLA
+T0378,product,M001,G001-93,mechanical,tensileStrengthXY,none,Pro PLA
+T0379,product,M001,G001-93,mechanical,tensileModulusXY,none,Pro PLA
+T0380,product,M001,G001-93,mechanical,elongationXY,none,Pro PLA
+T0381,product,M001,G001-94,mechanical,tensileModulusXY,none,3D Printing PLA Basic
+T0382,product,M001,G001-95,printing,drying,unknown,PLA
+T0383,product,M001,G001-95,mechanical,elongationXY,none,PLA
+T0384,product,M001,G001-95,thermal,hdt045,none,PLA
+T0385,product,M001,G001-96,printing,drying,unknown,ePLA Matte
+T0386,product,M001,G001-96,mechanical,tensileStrengthXY,none,ePLA Matte
+T0387,product,M001,G001-96,mechanical,tensileModulusXY,none,ePLA Matte
+T0388,product,M001,G001-96,mechanical,elongationXY,none,ePLA Matte
+T0389,product,M001,G001-96,thermal,hdt045,none,ePLA Matte
+T0390,product,M001,G001-97,printing,drying,unknown,PLA Basic
+T0391,product,M001,G001-97,mechanical,tensileStrengthXY,none,PLA Basic
+T0392,product,M001,G001-97,mechanical,tensileModulusXY,none,PLA Basic
+T0393,product,M001,G001-97,mechanical,elongationXY,none,PLA Basic
+T0394,product,M001,G001-97,thermal,hdt045,none,PLA Basic
+T0395,product,M001,G001-98,mechanical,elongationXY,none,PLA EF 3D850
+T0396,product,M001,G001-99,printing,drying,unknown,PLA VX
+T0397,product,M001,G001-100,mechanical,tensileStrengthXY,none,Bulk PLA
+T0398,product,M001,G001-100,mechanical,tensileModulusXY,none,Bulk PLA
+T0399,product,M001,G001-100,mechanical,elongationXY,none,Bulk PLA
+T0400,product,M001,G001-102,printing,drying,unknown,Matt PLA
+T0401,product,M001,G001-102,mechanical,elongationXY,none,Matt PLA
+T0402,product,M001,G001-102,thermal,hdt045,none,Matt PLA
+T0403,product,M001,G001-103,mechanical,tensileModulusXY,none,PLA
+T0404,product,M001,G001-104,printing,drying,unknown,eMarble
+T0405,product,M001,G001-104,mechanical,tensileStrengthXY,none,eMarble
+T0406,product,M001,G001-104,mechanical,tensileModulusXY,none,eMarble
+T0407,product,M001,G001-104,mechanical,elongationXY,none,eMarble
+T0408,product,M001,G001-104,thermal,hdt045,none,eMarble
+T0409,product,M001,G001-105,printing,drying,unknown,ePLA ST
+T0410,product,M001,G001-105,mechanical,tensileStrengthXY,none,ePLA ST
+T0411,product,M001,G001-105,mechanical,tensileModulusXY,none,ePLA ST
+T0412,product,M001,G001-105,mechanical,elongationXY,none,ePLA ST
+T0413,product,M001,G001-105,thermal,hdt045,none,ePLA ST
+T0414,product,M001,G001-106,mechanical,tensileModulusXY,none,PLA Matte
+T0415,product,M001,G001-108,mechanical,tensileModulusXY,none,Buddy3D PLA
+T0416,product,M001,G001-108,mechanical,elongationXY,none,Buddy3D PLA
+T0417,product,M001,G001-108,mechanical,density,none,Buddy3D PLA
+T0418,product,M001,G001-111,mechanical,tensileModulusXY,none,PLA Classic
+T0419,product,M001,G001-113,printing,drying,unknown,Translucent / Sparkly (HTPLA)
+T0420,product,M001,G001-113,mechanical,tensileStrengthXY,none,Translucent / Sparkly (HTPLA)
+T0421,product,M001,G001-113,mechanical,tensileModulusXY,none,Translucent / Sparkly (HTPLA)
+T0422,product,M001,G001-113,mechanical,elongationXY,none,Translucent / Sparkly (HTPLA)
+T0423,product,M001,G001-113,thermal,hdt045,none,Translucent / Sparkly (HTPLA)
+T0424,product,M001,G001-114,printing,drying,unknown,PLA
+T0425,product,M001,G001-114,mechanical,tensileModulusXY,none,PLA
+T0426,product,M001,G001-115,mechanical,elongationXY,none,Tough PLA
+T0427,product,M001,G001-117,printing,drying,unknown,Hyper-PLA RFID
+T0428,product,M001,G001-117,thermal,hdt045,none,Hyper-PLA RFID
+T0429,product,M001,G001-118,printing,drying,unknown,PLA Matte (HS)
+T0430,product,M001,G001-118,mechanical,elongationXY,none,PLA Matte (HS)
+T0431,product,M001,G001-119,printing,drying,unknown,ecoPLA Sparkling
+T0432,product,M001,G001-119,thermal,hdt045,none,ecoPLA Sparkling
+T0433,product,M001,G001-120,printing,drying,unknown,magicPLA
+T0434,product,M001,G001-120,thermal,hdt045,none,magicPLA
+T0435,product,M001,G001-121,printing,drying,unknown,PLA Basic
+T0436,product,M001,G001-121,mechanical,tensileStrengthXY,none,PLA Basic
+T0437,product,M001,G001-121,mechanical,tensileModulusXY,none,PLA Basic
+T0438,product,M001,G001-121,mechanical,elongationXY,none,PLA Basic
+T0439,product,M001,G001-122,printing,drying,unknown,Hyper-PLA+
+T0440,product,M001,G001-122,thermal,hdt045,none,Hyper-PLA+
+T0441,product,M001,G001-123,printing,drying,unknown,Build Series PLA
+T0442,product,M001,G001-123,mechanical,tensileStrengthXY,none,Build Series PLA
+T0443,product,M001,G001-123,mechanical,tensileModulusXY,none,Build Series PLA
+T0444,product,M001,G001-123,mechanical,density,none,Build Series PLA
+T0445,product,M001,G001-123,thermal,hdt045,none,Build Series PLA
+T0446,product,M001,G001-124,printing,drying,unknown,PLA+
+T0447,product,M001,G001-124,mechanical,tensileModulusXY,none,PLA+
+T0448,product,M001,G001-125,printing,drying,unknown,mysteryPLA
+T0449,product,M001,G001-125,mechanical,density,none,mysteryPLA
+T0450,product,M001,G001-125,thermal,hdt045,none,mysteryPLA
+T0451,product,M001,G001-126,mechanical,tensileModulusXY,none,PLAx
+T0452,product,M001,G001-126,thermal,hdt045,none,PLAx
+T0453,product,M001,G001-127,mechanical,tensileStrengthXY,none,Quantum Dots (HTPLA)
+T0454,product,M001,G001-127,mechanical,tensileModulusXY,none,Quantum Dots (HTPLA)
+T0455,product,M001,G001-127,mechanical,elongationXY,none,Quantum Dots (HTPLA)
+T0456,product,M001,G001-127,thermal,hdt045,none,Quantum Dots (HTPLA)
+T0457,product,M001,G001-128,printing,drying,unknown,ecoPLA
+T0458,product,M001,G001-128,thermal,hdt045,none,ecoPLA
+T0459,product,M001,G001-129,printing,drying,unknown,PLA
+T0460,product,M001,G001-129,mechanical,tensileStrengthXY,none,PLA
+T0461,product,M001,G001-129,mechanical,tensileModulusXY,none,PLA
+T0462,product,M001,G001-129,mechanical,elongationXY,none,PLA
+T0463,product,M001,G001-130,printing,drying,unknown,MH Build Series PLA
+T0464,product,M001,G001-130,mechanical,tensileStrengthXY,none,MH Build Series PLA
+T0465,product,M001,G001-130,mechanical,tensileModulusXY,none,MH Build Series PLA
+T0466,product,M001,G001-130,thermal,hdt045,none,MH Build Series PLA
+T0467,product,M001,G001-131,printing,drying,unknown,Opaque HTPLA (v3)
+T0468,product,M001,G001-131,mechanical,tensileStrengthXY,none,Opaque HTPLA (v3)
+T0469,product,M001,G001-131,mechanical,tensileModulusXY,none,Opaque HTPLA (v3)
+T0470,product,M001,G001-131,mechanical,elongationXY,none,Opaque HTPLA (v3)
+T0471,product,M001,G001-131,thermal,hdt045,none,Opaque HTPLA (v3)
+T0472,product,M001,G001-133,printing,drying,unknown,Stainless Steel PLA
+T0473,product,M001,G001-133,mechanical,tensileStrengthXY,none,Stainless Steel PLA
+T0474,product,M001,G001-133,mechanical,tensileModulusXY,none,Stainless Steel PLA
+T0475,product,M001,G001-133,mechanical,elongationXY,none,Stainless Steel PLA
+T0476,product,M001,G001-133,thermal,hdt045,none,Stainless Steel PLA
+T0477,product,M168,G001-134,mechanical,tensileModulusXY,none,GreenyHT
+T0478,product,M001,G001-135,printing,drying,unknown,PLA XRS
+T0479,product,M001,G001-135,mechanical,tensileStrengthXY,none,PLA XRS
+T0480,product,M001,G001-135,thermal,hdt045,none,PLA XRS
+T0481,product,M001,G001-136,printing,drying,unknown,BronzeFill
+T0482,product,M001,G001-136,thermal,hdt045,none,BronzeFill
+T0483,product,M001,G001-137,printing,drying,unknown,steelFill
+T0484,product,M001,G001-137,thermal,hdt045,none,steelFill
+T0485,product,M001,G001-138,printing,drying,unknown,Magnetic Iron PLA
+T0486,product,M001,G001-138,mechanical,tensileStrengthXY,none,Magnetic Iron PLA
+T0487,product,M001,G001-138,mechanical,tensileModulusXY,none,Magnetic Iron PLA
+T0488,product,M001,G001-138,mechanical,elongationXY,none,Magnetic Iron PLA
+T0489,product,M001,G001-138,thermal,hdt045,none,Magnetic Iron PLA
+T0490,product,M001,G001-139,printing,drying,unknown,"Brass Fill, Bronze Fill, Copper Fill HTPLA"
+T0491,product,M001,G001-139,mechanical,tensileStrengthXY,none,"Brass Fill, Bronze Fill, Copper Fill HTPLA"
+T0492,product,M001,G001-139,mechanical,tensileModulusXY,none,"Brass Fill, Bronze Fill, Copper Fill HTPLA"
+T0493,product,M001,G001-139,mechanical,elongationXY,none,"Brass Fill, Bronze Fill, Copper Fill HTPLA"
+T0494,product,M001,G001-139,thermal,hdt045,none,"Brass Fill, Bronze Fill, Copper Fill HTPLA"
+T0495,product,M001,G001-141,mechanical,tensileStrengthXY,none,PLA Nature
+T0496,product,M001,G001-141,mechanical,tensileModulusXY,none,PLA Nature
+T0497,product,M001,G001-141,mechanical,elongationXY,none,PLA Nature
+T0498,product,M001,G001-143,mechanical,tensileModulusXY,none,PLA+2.0
+T0499,product,M001,G001-143,mechanical,density,none,PLA+2.0
+T0500,product,M001,G001-144,printing,drying,unknown,Prusament PLA by Prusa Polymers
+T0501,product,M001,G001-144,mechanical,tensileStrengthXY,none,Prusament PLA by Prusa Polymers
+T0502,product,M001,G001-144,mechanical,tensileModulusXY,none,Prusament PLA by Prusa Polymers
+T0503,product,M001,G001-144,mechanical,elongationXY,none,Prusament PLA by Prusa Polymers
+T0504,product,M001,G001-144,mechanical,density,none,Prusament PLA by Prusa Polymers
+T0505,product,M001,G001-145,mechanical,tensileModulusXY,none,High Speed Matte PLA
+T0506,product,M001,G001-146,printing,drying,unknown,PLA Clear
+T0507,product,M001,G001-146,mechanical,tensileStrengthXY,none,PLA Clear
+T0508,product,M001,G001-146,mechanical,tensileModulusXY,none,PLA Clear
+T0509,product,M001,G001-146,mechanical,elongationXY,none,PLA Clear
+T0510,product,M001,G001-146,thermal,hdt045,none,PLA Clear
+T0511,product,M001,G001-147,mechanical,tensileStrengthXY,none,PLA Thermoactive
+T0512,product,M001,G001-147,mechanical,tensileModulusXY,none,PLA Thermoactive
+T0513,product,M001,G001-147,mechanical,elongationXY,none,PLA Thermoactive
+T0514,product,M001,G001-149,printing,drying,unknown,PLA Vertigo
+T0515,product,M001,G001-149,mechanical,density,none,PLA Vertigo
+T0516,product,M001,G001-150,mechanical,tensileStrengthXY,none,SafeGuard PLA
+T0517,product,M001,G001-150,mechanical,tensileModulusXY,none,SafeGuard PLA
+T0518,product,M001,G001-150,mechanical,elongationXY,none,SafeGuard PLA
+T0519,product,M001,G001-152,mechanical,tensileStrengthXY,none,Hyper Speed PLA Pro
+T0520,product,M001,G001-152,mechanical,tensileModulusXY,none,Hyper Speed PLA Pro
+T0521,product,M001,G001-152,mechanical,elongationXY,none,Hyper Speed PLA Pro
+T0522,product,M001,G001-153,printing,drying,unknown,PLA
+T0523,product,M001,G001-153,mechanical,density,none,PLA
+T0524,product,M001,G001-153,thermal,hdt045,none,PLA
+T0525,product,M001,G001-154,printing,drying,unknown,Precise PLA
+T0526,product,M001,G001-154,mechanical,density,none,Precise PLA
+T0527,product,M001,G001-154,thermal,hdt045,none,Precise PLA
+T0528,product,M001,G001-155,printing,drying,unknown,Hyper Speed PLA
+T0529,product,M001,G001-156,thermal,hdt045,none,Copper filled PLA
+T0530,product,M001,G001-157,printing,drying,unknown,High Gloss PLA
+T0531,product,M001,G001-157,thermal,hdt045,none,High Gloss PLA
+T0532,product,M001,G001-158,thermal,hdt045,none,High Precision PLA
+T0533,product,M001,G001-159,printing,drying,unknown,EasyFil PLA
+T0534,product,M001,G001-159,mechanical,tensileStrengthXY,none,EasyFil PLA
+T0535,product,M001,G001-159,mechanical,tensileModulusXY,none,EasyFil PLA
+T0536,product,M001,G001-159,mechanical,elongationXY,none,EasyFil PLA
+T0537,product,M001,G001-159,thermal,hdt045,none,EasyFil PLA
+T0538,product,M001,G001-160,printing,drying,unknown,Premium PLA
+T0539,product,M001,G001-160,mechanical,tensileStrengthXY,none,Premium PLA
+T0540,product,M001,G001-160,mechanical,tensileModulusXY,none,Premium PLA
+T0541,product,M001,G001-160,mechanical,elongationXY,none,Premium PLA
+T0542,product,M001,G001-160,thermal,hdt045,none,Premium PLA
+T0543,product,M001,G001-161,printing,drying,unknown,Tough PLA
+T0544,product,M001,G001-161,mechanical,elongationXY,none,Tough PLA
+T0545,product,M001,G001-161,thermal,hdt045,none,Tough PLA
+T0546,product,M001,G001-162,mechanical,tensileStrengthXY,none,EasyFil ePLA
+T0547,product,M001,G001-162,mechanical,tensileModulusXY,none,EasyFil ePLA
+T0548,product,M001,G001-162,mechanical,elongationXY,none,EasyFil ePLA
+T0549,product,M001,G001-163,printing,drying,unknown,PLACTIVE
+T0550,product,M001,G001-163,mechanical,tensileStrengthXY,none,PLACTIVE
+T0551,product,M001,G001-163,mechanical,tensileModulusXY,none,PLACTIVE
+T0552,product,M001,G001-163,mechanical,elongationXY,none,PLACTIVE
+T0553,product,M001,G001-163,thermal,hdt045,none,PLACTIVE
+T0554,product,M001,G001-164,printing,drying,unknown,Volcano PLA
+T0555,product,M001,G001-165,mechanical,tensileStrengthXY,none,ReFill PLA
+T0556,product,M001,G001-165,mechanical,tensileModulusXY,none,ReFill PLA
+T0557,product,M001,G001-165,mechanical,elongationXY,none,ReFill PLA
+T0558,product,M001,G001-166,printing,drying,unknown,PDS
+T0559,product,M001,G001-166,mechanical,tensileModulusXY,none,PDS
+T0560,product,M001,G001-166,thermal,hdt045,none,PDS
+T0561,product,M001,G001-167,printing,drying,unknown,PLA i5+
+T0562,product,M001,G001-167,mechanical,tensileModulusXY,none,PLA i5+
+T0563,product,M001,G001-167,mechanical,density,none,PLA i5+
+T0564,product,M001,G001-167,thermal,hdt045,none,PLA i5+
+T0565,product,M001,G001-168,printing,drying,unknown,HS PLA Matte
+T0566,product,M001,G001-168,mechanical,tensileModulusXY,none,HS PLA Matte
+T0567,product,M001,G001-168,thermal,hdt045,none,HS PLA Matte
+T0568,product,M001,G001-170,printing,drying,unknown,HS - PLA
+T0569,product,M001,G001-170,mechanical,tensileModulusXY,none,HS - PLA
+T0570,product,M001,G001-171,mechanical,tensileStrengthXY,none,FiberSilk
+T0571,product,M001,G001-171,mechanical,tensileModulusXY,none,FiberSilk
+T0572,product,M001,G001-171,mechanical,elongationXY,none,FiberSilk
+T0573,product,M001,G001-172,printing,drying,unknown,BIOFUSION
+T0574,product,M001,G001-172,mechanical,tensileStrengthXY,none,BIOFUSION
+T0575,product,M001,G001-172,mechanical,tensileModulusXY,none,BIOFUSION
+T0576,product,M001,G001-172,mechanical,elongationXY,none,BIOFUSION
+T0577,product,M001,G001-172,thermal,hdt045,none,BIOFUSION
+T0578,product,M001,G001-173,printing,drying,unknown,PEARL
+T0579,product,M001,G001-173,mechanical,tensileStrengthXY,none,PEARL
+T0580,product,M001,G001-173,mechanical,tensileModulusXY,none,PEARL
+T0581,product,M001,G001-173,mechanical,elongationXY,none,PEARL
+T0582,product,M001,G001-173,thermal,hdt045,none,PEARL
+T0583,product,M001,G001-174,printing,drying,unknown,mattePLA
+T0584,product,M001,G001-174,mechanical,density,none,mattePLA
+T0585,product,M001,G001-174,thermal,hdt045,none,mattePLA
+T0586,product,M001,G001-175,mechanical,tensileStrengthXY,none,FiberSatin
+T0587,product,M001,G001-175,mechanical,tensileModulusXY,none,FiberSatin
+T0588,product,M001,G001-175,mechanical,elongationXY,none,FiberSatin
+T0589,product,M001,G001-177,printing,drying,unknown,Facilan C8
+T0590,product,M001,G001-177,mechanical,elongationXY,none,Facilan C8
+T0591,product,M001,G001-180,mechanical,density,none,stoneFill
+T0592,product,M001,G001-180,thermal,hdt045,none,stoneFill
+T0593,product,M001,G001-182,mechanical,elongationXY,none,EASY PLA
+T0594,product,M001,G001-183,mechanical,tensileModulusXY,none,PLA Pure
+T0595,product,M001,G001-183,mechanical,elongationXY,none,PLA Pure
+T0596,product,M001,G001-183,thermal,hdt045,none,PLA Pure
+T0597,product,M001,G001-184,printing,drying,unknown,PLA Purifier
+T0598,product,M001,G001-184,thermal,hdt045,none,PLA Purifier
+T0599,product,M001,G001-185,mechanical,elongationXY,none,R PLA
+T0600,product,M001,G001-187,mechanical,tensileModulusXY,none,MATTE PLA
+T0601,product,M001,G001-187,mechanical,elongationXY,none,MATTE PLA
+T0602,product,M001,G001-188,printing,drying,unknown,PLA
+T0603,product,M001,G001-188,mechanical,tensileModulusXY,none,PLA
+T0604,product,M001,G001-188,mechanical,density,none,PLA
+T0605,product,M001,G001-188,thermal,hdt045,none,PLA
+T0606,product,M001,G001-189,mechanical,elongationXY,none,rPLA
+T0607,product,M001,G001-190,printing,drying,unknown,MagicFil Thermo PLA
+T0608,product,M001,G001-190,mechanical,tensileStrengthXY,none,MagicFil Thermo PLA
+T0609,product,M001,G001-190,mechanical,tensileModulusXY,none,MagicFil Thermo PLA
+T0610,product,M001,G001-190,mechanical,elongationXY,none,MagicFil Thermo PLA
+T0611,product,M001,G001-190,thermal,hdt045,none,MagicFil Thermo PLA
+T0612,product,M001,G001-191,mechanical,density,none,Standard PLA
+T0613,product,M001,G001-193,printing,drying,unknown,eTwinkling
+T0614,product,M001,G001-193,mechanical,tensileStrengthXY,none,eTwinkling
+T0615,product,M001,G001-193,mechanical,tensileModulusXY,none,eTwinkling
+T0616,product,M001,G001-193,mechanical,elongationXY,none,eTwinkling
+T0617,product,M001,G001-193,mechanical,density,none,eTwinkling
+T0618,product,M001,G001-193,thermal,hdt045,none,eTwinkling
+T0619,product,M001,G001-194,printing,drying,unknown,ReForm - rPLA
+T0620,product,M001,G001-194,mechanical,tensileStrengthXY,none,ReForm - rPLA
+T0621,product,M001,G001-194,mechanical,tensileModulusXY,none,ReForm - rPLA
+T0622,product,M001,G001-194,mechanical,elongationXY,none,ReForm - rPLA
+T0623,product,M001,G001-194,thermal,hdt045,none,ReForm - rPLA
+T0624,product,M001,G001-195,printing,drying,unknown,Modified PLA
+T0625,product,M001,G001-195,mechanical,tensileModulusXY,none,Modified PLA
+T0626,product,M001,G001-195,thermal,hdt045,none,Modified PLA
+T0627,product,M001,G001-197,mechanical,tensileModulusXY,none,PLA Matte
+T0628,product,M001,G001-198,mechanical,tensileStrengthXY,none,PLA Lite
+T0629,product,M001,G001-198,mechanical,tensileModulusXY,none,PLA Lite
+T0630,product,M001,G001-198,mechanical,elongationXY,none,PLA Lite
+T0631,product,M001,G004-01,printing,drying,unknown,PLA-Lite
+T0632,product,M001,G004-01,mechanical,tensileModulusXY,none,PLA-Lite
+T0633,product,M008,G008-01,mechanical,elongationXY,none,Panchroma Silk PLA
+T0634,product,M008,G008-01,thermal,hdt045,none,Panchroma Silk PLA
+T0635,product,M008,G008-02,printing,chamber,unknown,PLA-Silk
+T0636,product,M008,G008-02,mechanical,tensileModulusXY,none,PLA-Silk
+T0637,product,M008,G008-04,mechanical,tensileModulusXY,none,Silk PLA+ Four-Color
+T0638,product,M008,G008-09,printing,drying,unknown,Silk
+T0639,product,M008,G008-10,printing,chamber,unknown,Polylactide Silk (PLA Silk)
+T0640,product,M008,G008-10,mechanical,tensileStrengthXY,none,Polylactide Silk (PLA Silk)
+T0641,product,M008,G008-10,mechanical,tensileModulusXY,none,Polylactide Silk (PLA Silk)
+T0642,product,M008,G008-10,mechanical,elongationXY,none,Polylactide Silk (PLA Silk)
+T0643,product,M008,G008-12,printing,chamber,unknown,ePLA-Silk Rainbow
+T0644,product,M008,G008-12,printing,drying,unknown,ePLA-Silk Rainbow
+T0645,product,M008,G008-12,mechanical,tensileStrengthXY,none,ePLA-Silk Rainbow
+T0646,product,M008,G008-12,mechanical,tensileModulusXY,none,ePLA-Silk Rainbow
+T0647,product,M008,G008-12,mechanical,elongationXY,none,ePLA-Silk Rainbow
+T0648,product,M008,G008-12,thermal,hdt045,none,ePLA-Silk Rainbow
+T0649,product,M008,G008-13,printing,chamber,unknown,Silk PLA
+T0650,product,M008,G008-13,printing,drying,unknown,Silk PLA
+T0651,product,M008,G008-13,mechanical,tensileModulusXY,none,Silk PLA
+T0652,product,M008,G008-13,thermal,hdt045,none,Silk PLA
+T0653,product,M008,G008-14,mechanical,tensileModulusXY,none,PLA Silk
+T0654,product,M008,G008-16,printing,chamber,unknown,ecoPLA Silk
+T0655,product,M008,G008-16,printing,drying,unknown,ecoPLA Silk
+T0656,product,M008,G008-16,mechanical,density,none,ecoPLA Silk
+T0657,product,M008,G008-16,thermal,hdt045,none,ecoPLA Silk
+T0658,product,M008,G008-17,printing,chamber,unknown,PLA Silk
+T0659,product,M008,G008-18,printing,chamber,unknown,ecoPLA Silk Rainbow
+T0660,product,M008,G008-18,printing,drying,unknown,ecoPLA Silk Rainbow
+T0661,product,M008,G008-18,thermal,hdt045,none,ecoPLA Silk Rainbow
+T0662,product,M008,G008-19,mechanical,tensileModulusXY,none,Silk PLA+
+T0663,product,M008,G008-25,mechanical,tensileModulusXY,none,Silk PLA+ Dual-Color
+T0664,product,M008,G008-26,mechanical,tensileModulusXY,none,Silk PLA+ Rainbow
+T0665,product,M008,G008-27,mechanical,tensileModulusXY,none,Silk PLA+ Tri-Color
+T0666,product,M008,G008-28,printing,drying,unknown,Silk Gloss PLA
+T0667,product,M008,G008-28,mechanical,elongationXY,none,Silk Gloss PLA
+T0668,product,M008,G008-28,thermal,hdt045,none,Silk Gloss PLA
+T0669,product,M008,G008-29,printing,drying,unknown,PLA Silk Dual Color
+T0670,product,M008,G008-29,mechanical,tensileStrengthXY,none,PLA Silk Dual Color
+T0671,product,M008,G008-29,mechanical,tensileModulusXY,none,PLA Silk Dual Color
+T0672,product,M008,G008-29,thermal,hdt045,none,PLA Silk Dual Color
+T0673,product,M008,G008-30,printing,chamber,unknown,ePLA-Silk Magic
+T0674,product,M008,G008-30,printing,drying,unknown,ePLA-Silk Magic
+T0675,product,M008,G008-30,mechanical,tensileStrengthXY,none,ePLA-Silk Magic
+T0676,product,M008,G008-30,mechanical,tensileModulusXY,none,ePLA-Silk Magic
+T0677,product,M008,G008-30,mechanical,elongationXY,none,ePLA-Silk Magic
+T0678,product,M008,G008-30,mechanical,density,none,ePLA-Silk Magic
+T0679,product,M008,G008-30,thermal,hdt045,none,ePLA-Silk Magic
+T0680,product,M008,G008-31,printing,chamber,unknown,ePLA-Silk Mystic
+T0681,product,M008,G008-31,printing,drying,unknown,ePLA-Silk Mystic
+T0682,product,M008,G008-31,mechanical,tensileStrengthXY,none,ePLA-Silk Mystic
+T0683,product,M008,G008-31,mechanical,tensileModulusXY,none,ePLA-Silk Mystic
+T0684,product,M008,G008-31,mechanical,elongationXY,none,ePLA-Silk Mystic
+T0685,product,M008,G008-31,mechanical,density,none,ePLA-Silk Mystic
+T0686,product,M008,G008-31,thermal,hdt045,none,ePLA-Silk Mystic
+T0687,product,M008,G008-32,printing,drying,unknown,PLA Silk
+T0688,product,M008,G008-32,mechanical,tensileStrengthXY,none,PLA Silk
+T0689,product,M008,G008-32,mechanical,tensileModulusXY,none,PLA Silk
+T0690,product,M008,G008-32,thermal,hdt045,none,PLA Silk
+T0691,product,M008,G008-33,printing,chamber,unknown,SILK
+T0692,product,M008,G008-33,printing,drying,unknown,SILK
+T0693,product,M008,G008-33,mechanical,tensileModulusXY,none,SILK
+T0694,product,M008,G008-33,mechanical,density,none,SILK
+T0695,product,M008,G008-33,thermal,hdt045,none,SILK
+T0696,product,M011,G011-02,mechanical,tensileModulusXY,none,PLA Metal Copper
+T0697,product,M011,G011-02,mechanical,elongationXY,none,PLA Metal Copper
+T0698,product,M011,G011-02,thermal,hdt045,none,PLA Metal Copper
+T0699,product,M011,G011-03,mechanical,tensileModulusXY,none,PLA Metal Brass
+T0700,product,M011,G011-03,mechanical,elongationXY,none,PLA Metal Brass
+T0701,product,M011,G011-03,thermal,hdt045,none,PLA Metal Brass
+T0702,product,M011,G011-04,mechanical,tensileModulusXY,none,PLA Metal Bronze
+T0703,product,M011,G011-04,mechanical,elongationXY,none,PLA Metal Bronze
+T0704,product,M011,G011-04,thermal,hdt045,none,PLA Metal Bronze
+T0705,product,M011,G011-05,printing,chamber,unknown,ePLA Metal
+T0706,product,M011,G011-05,printing,drying,unknown,ePLA Metal
+T0707,product,M011,G011-05,mechanical,tensileStrengthXY,none,ePLA Metal
+T0708,product,M011,G011-05,mechanical,tensileModulusXY,none,ePLA Metal
+T0709,product,M011,G011-05,mechanical,elongationXY,none,ePLA Metal
+T0710,product,M011,G011-05,thermal,hdt045,none,ePLA Metal
+T0711,product,M011,G011-06,printing,chamber,unknown,PLA Metal
+T0712,product,M011,G011-07,printing,drying,unknown,MetalFil Brass
+T0713,product,M011,G011-07,mechanical,tensileStrengthXY,none,MetalFil Brass
+T0714,product,M011,G011-07,mechanical,tensileModulusXY,none,MetalFil Brass
+T0715,product,M011,G011-07,mechanical,elongationXY,none,MetalFil Brass
+T0716,product,M011,G011-07,thermal,hdt045,none,MetalFil Brass
+T0717,product,M011,G011-08,printing,drying,unknown,MetalFil - Classic Copper
+T0718,product,M011,G011-08,thermal,hdt045,none,MetalFil - Classic Copper
+T0719,product,M011,G011-09,printing,drying,unknown,MetalFil - Ancient Bronze
+T0720,product,M011,G011-09,thermal,hdt045,none,MetalFil - Ancient Bronze
+T0721,product,M012,G012-02,mechanical,tensileModulusXY,none,High Speed Marble PLA
+T0722,product,M012,G012-04,mechanical,tensileModulusXY,none,PLA Marble
+T0723,product,M012,G012-06,printing,chamber,unknown,StoneFil
+T0724,product,M012,G012-06,printing,drying,unknown,StoneFil
+T0725,product,M012,G012-06,thermal,hdt045,none,StoneFil
+T0726,product,M013,G013-02,mechanical,tensileStrengthXY,none,PLA Glitter
+T0727,product,M013,G013-02,mechanical,tensileModulusXY,none,PLA Glitter
+T0728,product,M013,G013-02,mechanical,elongationXY,none,PLA Glitter
+T0729,product,M013,G013-03,mechanical,tensileModulusXY,none,PLA Twinkling
+T0730,product,M013,G013-04,printing,chamber,unknown,Twinkling
+T0731,product,M013,G013-04,printing,drying,unknown,Twinkling
+T0732,product,M013,G013-04,mechanical,tensileStrengthXY,none,Twinkling
+T0733,product,M013,G013-04,mechanical,tensileModulusXY,none,Twinkling
+T0734,product,M013,G013-04,mechanical,elongationXY,none,Twinkling
+T0735,product,M013,G013-04,thermal,hdt045,none,Twinkling
+T0736,product,M014,G014-03,mechanical,tensileModulusXY,none,WOOD
+T0737,product,M014,G014-04,printing,drying,unknown,WOOD
+T0738,product,M014,G014-05,printing,chamber,unknown,PLA with Cork Fibers (Cork Filament)
+T0739,product,M014,G014-05,thermal,hdt045,none,PLA with Cork Fibers (Cork Filament)
+T0740,product,M014,G014-06,printing,chamber,unknown,PLA with wood fibers (wood filament)
+T0741,product,M014,G014-06,thermal,hdt045,none,PLA with wood fibers (wood filament)
+T0742,product,M014,G014-07,printing,chamber,unknown,WOOD
+T0743,product,M014,G014-07,printing,drying,unknown,WOOD
+T0744,product,M014,G014-07,mechanical,tensileModulusXY,none,WOOD
+T0745,product,M014,G014-07,thermal,hdt045,none,WOOD
+T0746,product,M014,G014-08,mechanical,tensileStrengthXY,none,PLA Wood
+T0747,product,M014,G014-08,mechanical,tensileModulusXY,none,PLA Wood
+T0748,product,M014,G014-08,mechanical,elongationXY,none,PLA Wood
+T0749,product,M014,G014-08,thermal,hdt045,none,PLA Wood
+T0750,product,M014,G014-09,mechanical,tensileModulusXY,none,PLA Wood
+T0751,product,M014,G014-11,printing,chamber,unknown,ecoPLA Wood
+T0752,product,M014,G014-11,printing,drying,unknown,ecoPLA Wood
+T0753,product,M014,G014-11,thermal,hdt045,none,ecoPLA Wood
+T0754,product,M014,G014-12,printing,chamber,unknown,Wood
+T0755,product,M014,G014-12,printing,drying,unknown,Wood
+T0756,product,M014,G014-12,mechanical,tensileStrengthXY,none,Wood
+T0757,product,M014,G014-12,mechanical,tensileModulusXY,none,Wood
+T0758,product,M014,G014-12,mechanical,elongationXY,none,Wood
+T0759,product,M014,G014-12,thermal,hdt045,none,Wood
+T0760,product,M014,G014-13,thermal,hdt045,none,EasyCork
+T0761,product,M014,G014-14,printing,chamber,unknown,EasyWood
+T0762,product,M014,G014-14,printing,drying,unknown,EasyWood
+T0763,product,M014,G014-14,mechanical,tensileStrengthXY,none,EasyWood
+T0764,product,M014,G014-14,mechanical,tensileModulusXY,none,EasyWood
+T0765,product,M014,G014-14,mechanical,elongationXY,none,EasyWood
+T0766,product,M014,G014-14,thermal,hdt045,none,EasyWood
+T0767,product,M014,G014-15,printing,chamber,unknown,PLA Wood
+T0768,product,M014,G014-15,mechanical,tensileStrengthXY,none,PLA Wood
+T0769,product,M014,G014-15,mechanical,tensileModulusXY,none,PLA Wood
+T0770,product,M014,G014-15,mechanical,elongationXY,none,PLA Wood
+T0771,product,M014,G014-15,thermal,hdt045,none,PLA Wood
+T0772,product,M014,G014-16,printing,chamber,unknown,COFFEE
+T0773,product,M014,G014-16,printing,drying,unknown,COFFEE
+T0774,product,M014,G014-17,printing,chamber,unknown,LumberLay
+T0775,product,M014,G014-17,printing,drying,unknown,LumberLay
+T0776,product,M014,G014-17,mechanical,elongationXY,none,LumberLay
+T0777,product,M014,G014-21,printing,chamber,unknown,Timberfill
+T0778,product,M014,G014-21,printing,drying,unknown,Timberfill
+T0779,product,M015,G015-02,mechanical,tensileModulusXY,none,PLA Galaxy
+T0780,product,M015,G015-04,printing,drying,unknown,Galaxy PLA
+T0781,product,M015,G015-04,mechanical,elongationXY,none,Galaxy PLA
+T0782,product,M015,G015-04,thermal,hdt045,none,Galaxy PLA
+T0783,product,M016,G016-02,thermal,hdt045,none,Glow in the dark PLA
+T0784,product,M016,G016-03,mechanical,tensileModulusXY,none,PLA Glow in the Dark
+T0785,product,M016,G016-04,mechanical,tensileModulusXY,none,PLA Glow In The Dark
+T0786,product,M016,G016-06,printing,chamber,unknown,Luminous PLA
+T0787,product,M016,G016-06,printing,drying,unknown,Luminous PLA
+T0788,product,M016,G016-06,mechanical,tensileStrengthXY,none,Luminous PLA
+T0789,product,M016,G016-06,mechanical,tensileModulusXY,none,Luminous PLA
+T0790,product,M016,G016-06,mechanical,elongationXY,none,Luminous PLA
+T0791,product,M016,G016-06,mechanical,density,none,Luminous PLA
+T0792,product,M016,G016-06,thermal,hdt045,none,Luminous PLA
+T0793,product,M016,G016-07,printing,chamber,unknown,Luminous PLA Rainbow
+T0794,product,M016,G016-07,printing,drying,unknown,Luminous PLA Rainbow
+T0795,product,M016,G016-07,mechanical,tensileStrengthXY,none,Luminous PLA Rainbow
+T0796,product,M016,G016-07,mechanical,tensileModulusXY,none,Luminous PLA Rainbow
+T0797,product,M016,G016-07,mechanical,elongationXY,none,Luminous PLA Rainbow
+T0798,product,M016,G016-07,mechanical,density,none,Luminous PLA Rainbow
+T0799,product,M016,G016-07,thermal,hdt045,none,Luminous PLA Rainbow
+T0800,product,M017,G017-06,mechanical,elongationXY,none,Light Weight PLA
+T0801,product,M017,G017-07,mechanical,tensileModulusXY,none,PLA LW
+T0802,product,M017,G017-08,printing,chamber,unknown,Lightweight Polylactide (LW-PLA)
+T0803,product,M017,G017-08,mechanical,tensileModulusXY,none,Lightweight Polylactide (LW-PLA)
+T0804,product,M017,G017-09,printing,chamber,unknown,Light Weight PLA (LW-PLA)
+T0805,product,M017,G017-09,printing,drying,unknown,Light Weight PLA (LW-PLA)
+T0806,product,M017,G017-09,thermal,hdt045,none,Light Weight PLA (LW-PLA)
+T0807,product,M017,G017-11,printing,chamber,unknown,Light Weight PLA-HT (LW-PLA-HT)
+T0808,product,M017,G017-11,printing,drying,unknown,Light Weight PLA-HT (LW-PLA-HT)
+T0809,product,M017,G017-11,mechanical,density,none,Light Weight PLA-HT (LW-PLA-HT)
+T0810,product,M017,G017-11,thermal,hdt045,none,Light Weight PLA-HT (LW-PLA-HT)
+T0811,product,M017,G017-12,printing,chamber,unknown,ePLA LW
+T0812,product,M017,G017-12,printing,drying,unknown,ePLA LW
+T0813,product,M017,G017-12,mechanical,tensileStrengthXY,none,ePLA LW
+T0814,product,M017,G017-12,mechanical,tensileModulusXY,none,ePLA LW
+T0815,product,M017,G017-12,mechanical,elongationXY,none,ePLA LW
+T0816,product,M017,G017-12,thermal,hdt045,none,ePLA LW
+T0817,product,M017,G017-13,printing,chamber,unknown,Light Weight PLA
+T0818,product,M017,G017-13,printing,drying,unknown,Light Weight PLA
+T0819,product,M017,G017-13,mechanical,density,none,Light Weight PLA
+T0820,product,M017,G017-13,thermal,hdt045,none,Light Weight PLA
+T0821,product,M017,G017-14,printing,chamber,unknown,PLA-LW
+T0822,product,M017,G017-14,printing,drying,unknown,PLA-LW
+T0823,product,M017,G017-14,mechanical,tensileStrengthXY,none,PLA-LW
+T0824,product,M017,G017-14,mechanical,tensileModulusXY,none,PLA-LW
+T0825,product,M017,G017-14,mechanical,elongationXY,none,PLA-LW
+T0826,product,M017,G017-14,mechanical,density,none,PLA-LW
+T0827,product,M017,G017-14,thermal,hdt045,none,PLA-LW
+T0828,product,M018,G018-02,mechanical,tensileModulusXY,none,THE FILAMENT PLA CF
+T0829,product,M018,G018-02,mechanical,elongationXY,none,THE FILAMENT PLA CF
+T0830,product,M018,G018-03,thermal,hdt045,none,PLA Carbon
+T0831,product,M018,G018-11,printing,drying,unknown,ePLA CF
+T0832,product,M018,G018-11,mechanical,tensileStrengthXY,none,ePLA CF
+T0833,product,M018,G018-11,mechanical,tensileModulusXY,none,ePLA CF
+T0834,product,M018,G018-11,mechanical,elongationXY,none,ePLA CF
+T0835,product,M018,G018-11,thermal,hdt045,none,ePLA CF
+T0836,product,M018,G018-12,mechanical,tensileModulusXY,none,PLA Carbon Fiber
+T0837,product,M018,G018-14,printing,drying,unknown,Carbon Fiber Composite HTPLA
+T0838,product,M018,G018-14,mechanical,tensileStrengthXY,none,Carbon Fiber Composite HTPLA
+T0839,product,M018,G018-14,mechanical,tensileModulusXY,none,Carbon Fiber Composite HTPLA
+T0840,product,M018,G018-14,mechanical,elongationXY,none,Carbon Fiber Composite HTPLA
+T0841,product,M018,G018-14,thermal,hdt045,none,Carbon Fiber Composite HTPLA
+T0842,product,M018,G018-15,printing,drying,unknown,Original Carbon Fiber Composite PLA
+T0843,product,M018,G018-15,mechanical,tensileStrengthXY,none,Original Carbon Fiber Composite PLA
+T0844,product,M018,G018-15,mechanical,tensileModulusXY,none,Original Carbon Fiber Composite PLA
+T0845,product,M018,G018-15,mechanical,elongationXY,none,Original Carbon Fiber Composite PLA
+T0846,product,M018,G018-15,thermal,hdt045,none,Original Carbon Fiber Composite PLA
+T0847,product,M018,G018-16,mechanical,tensileModulusXY,none,PLAx CF
+T0848,product,M018,G018-16,thermal,hdt045,none,PLAx CF
+T0849,product,M018,G018-18,printing,drying,unknown,PLA CF
+T0850,product,M018,G018-18,mechanical,tensileStrengthXY,none,PLA CF
+T0851,product,M018,G018-18,mechanical,tensileModulusXY,none,PLA CF
+T0852,product,M018,G018-18,mechanical,elongationXY,none,PLA CF
+T0853,product,M018,G018-18,thermal,hdt045,none,PLA CF
+T0854,product,M018,G018-19,printing,drying,unknown,ecoPLA CF
+T0855,product,M019,G019-02,printing,nozzle,unknown,PLA Glass Fiber
+T0856,product,M019,G019-02,printing,bed,unknown,PLA Glass Fiber
+T0857,product,M019,G019-02,printing,chamber,unknown,PLA Glass Fiber
+T0858,product,M019,G019-02,printing,drying,unknown,PLA Glass Fiber
+T0859,product,M019,G019-02,mechanical,tensileModulusXY,none,PLA Glass Fiber
+T0860,product,M019,G019-02,thermal,hdt045,none,PLA Glass Fiber
+T0861,product,M019,G019-03,printing,chamber,unknown,PLA GF
+T0862,product,M019,G019-03,printing,drying,unknown,PLA GF
+T0863,product,M019,G019-03,mechanical,tensileStrengthXY,none,PLA GF
+T0864,product,M019,G019-03,mechanical,tensileModulusXY,none,PLA GF
+T0865,product,M019,G019-03,mechanical,elongationXY,none,PLA GF
+T0866,product,M019,G019-03,thermal,hdt045,none,PLA GF
+T0867,product,M019,G019-04,printing,chamber,unknown,PLAx GF
+T0868,product,M019,G019-04,mechanical,tensileModulusXY,none,PLAx GF
+T0869,product,M019,G019-04,thermal,hdt045,none,PLAx GF
+T0870,product,M020,G020-01,printing,drying,unknown,3DXPRO LG PETG
+T0871,product,M020,G020-03,printing,drying,unknown,PETG
+T0872,product,M020,G020-06,mechanical,tensileStrengthXY,none,THE FILAMENT PETG Lite
+T0873,product,M020,G020-06,mechanical,tensileModulusXY,none,THE FILAMENT PETG Lite
+T0874,product,M020,G020-08,printing,chamber,unknown,PET-G HT100
+T0875,product,M020,G020-08,mechanical,tensileModulusXY,none,PET-G HT100
+T0876,product,M020,G020-09,mechanical,tensileStrengthXY,none,PET-G MATT
+T0877,product,M020,G020-09,mechanical,tensileModulusXY,none,PET-G MATT
+T0878,product,M020,G020-09,mechanical,elongationXY,none,PET-G MATT
+T0879,product,M020,G020-10,mechanical,elongationXY,none,THE FILAMENT PETG
+T0880,product,M020,G020-11,mechanical,tensileStrengthXY,none,rPETG
+T0881,product,M020,G020-11,mechanical,tensileModulusXY,none,rPETG
+T0882,product,M020,G020-11,mechanical,elongationXY,none,rPETG
+T0883,product,M020,G020-12,printing,drying,unknown,3DXMAX PETG
+T0884,product,M020,G020-17,printing,chamber,unknown,PETG
+T0885,product,M020,G020-20,mechanical,tensileModulusXY,none,High Speed Matte PETG
+T0886,product,M020,G020-21,thermal,hdt045,none,Standard PETG
+T0887,product,M020,G020-23,printing,drying,unknown,HS PETG
+T0888,product,M020,G020-27,printing,drying,unknown,PETG Economy
+T0889,product,M020,G020-29,printing,drying,unknown,Prusament PETG by Prusa Polymers
+T0890,product,M020,G020-29,mechanical,tensileStrengthXY,none,Prusament PETG by Prusa Polymers
+T0891,product,M020,G020-29,mechanical,tensileModulusXY,none,Prusament PETG by Prusa Polymers
+T0892,product,M020,G020-29,mechanical,elongationXY,none,Prusament PETG by Prusa Polymers
+T0893,product,M020,G020-30,mechanical,elongationXY,none,rPETG
+T0894,product,M020,G020-30,thermal,hdt045,none,rPETG
+T0895,product,M020,G020-31,mechanical,tensileModulusXY,none,PETG
+T0896,product,M020,G020-31,mechanical,density,none,PETG
+T0897,product,M020,G020-32,mechanical,tensileModulusXY,none,PETG
+T0898,product,M020,G020-33,printing,drying,unknown,PETG HS
+T0899,product,M020,G020-33,mechanical,tensileStrengthXY,none,PETG HS
+T0900,product,M020,G020-33,mechanical,tensileModulusXY,none,PETG HS
+T0901,product,M020,G020-33,mechanical,elongationXY,none,PETG HS
+T0902,product,M020,G020-33,thermal,hdt045,none,PETG HS
+T0903,product,M020,G020-34,printing,drying,unknown,PETG
+T0904,product,M020,G020-35,mechanical,tensileModulusXY,none,PETG+
+T0905,product,M020,G020-36,printing,drying,unknown,Pro PETG
+T0906,product,M020,G020-36,mechanical,tensileModulusXY,none,Pro PETG
+T0907,product,M020,G020-36,mechanical,density,none,Pro PETG
+T0908,product,M020,G020-37,mechanical,tensileModulusXY,none,PETG Basic
+T0909,product,M020,G020-37,thermal,hdt045,none,PETG Basic
+T0910,product,M020,G020-38,mechanical,tensileModulusXY,none,PETG-Matte
+T0911,product,M020,G020-39,mechanical,tensileStrengthXY,none,PETG
+T0912,product,M020,G020-39,mechanical,elongationXY,none,PETG
+T0913,product,M020,G020-39,thermal,hdt045,none,PETG
+T0914,product,M020,G020-40,mechanical,tensileModulusXY,none,Bulk PETG
+T0915,product,M020,G020-41,printing,chamber,unknown,HDglass
+T0916,product,M020,G020-41,printing,drying,unknown,HDglass
+T0917,product,M020,G020-41,thermal,hdt045,none,HDglass
+T0918,product,M020,G020-42,mechanical,tensileModulusXY,none,PETG
+T0919,product,M020,G020-43,printing,chamber,unknown,PETG Matte
+T0920,product,M020,G020-43,mechanical,tensileStrengthXY,none,PETG Matte
+T0921,product,M020,G020-43,mechanical,tensileModulusXY,none,PETG Matte
+T0922,product,M020,G020-44,mechanical,tensileStrengthXY,none,PETG RAPIDO
+T0923,product,M020,G020-44,mechanical,tensileModulusXY,none,PETG RAPIDO
+T0924,product,M020,G020-44,mechanical,elongationXY,none,PETG RAPIDO
+T0925,product,M020,G020-45,printing,drying,unknown,ToughPETG-HF
+T0926,product,M020,G020-46,mechanical,tensileModulusXY,none,Buddy3D PET-G
+T0927,product,M020,G020-46,mechanical,density,none,Buddy3D PET-G
+T0928,product,M020,G020-47,mechanical,tensileStrengthXY,none,Prusament PETG V0 by Prusa Polymers
+T0929,product,M020,G020-47,mechanical,tensileModulusXY,none,Prusament PETG V0 by Prusa Polymers
+T0930,product,M020,G020-47,mechanical,elongationXY,none,Prusament PETG V0 by Prusa Polymers
+T0931,product,M020,G020-49,printing,drying,unknown,RYNO
+T0932,product,M020,G020-49,mechanical,tensileModulusXY,none,RYNO
+T0933,product,M020,G020-49,mechanical,density,none,RYNO
+T0934,product,M020,G020-50,printing,drying,unknown,Build Series PETG
+T0935,product,M020,G020-50,mechanical,tensileModulusXY,none,Build Series PETG
+T0936,product,M020,G020-50,thermal,hdt045,none,Build Series PETG
+T0937,product,M020,G020-51,mechanical,tensileModulusXY,none,PETG
+T0938,product,M020,G020-51,thermal,hdt045,none,PETG
+T0939,product,M020,G020-52,printing,drying,unknown,PETG
+T0940,product,M020,G020-52,mechanical,tensileStrengthXY,none,PETG
+T0941,product,M020,G020-52,mechanical,tensileModulusXY,none,PETG
+T0942,product,M020,G020-52,mechanical,density,none,PETG
+T0943,product,M020,G020-53,printing,drying,unknown,Hyper PETG
+T0944,product,M020,G020-53,thermal,hdt045,none,Hyper PETG
+T0945,product,M020,G020-54,printing,drying,unknown,PETG
+T0946,product,M020,G020-55,printing,drying,unknown,MH Build Series PETG
+T0947,product,M020,G020-55,mechanical,tensileModulusXY,none,MH Build Series PETG
+T0948,product,M020,G020-55,thermal,hdt045,none,MH Build Series PETG
+T0949,product,M020,G020-56,printing,chamber,unknown,XPETG MATT
+T0950,product,M020,G020-56,thermal,hdt045,none,XPETG MATT
+T0951,product,M020,G020-58,printing,drying,unknown,Premium PETG
+T0952,product,M020,G020-58,mechanical,density,none,Premium PETG
+T0953,product,M020,G020-58,thermal,hdt045,none,Premium PETG
+T0954,product,M020,G020-59,printing,drying,unknown,Prusament PETG Recycled by Prusa Polymers
+T0955,product,M020,G020-59,mechanical,tensileStrengthXY,none,Prusament PETG Recycled by Prusa Polymers
+T0956,product,M020,G020-59,mechanical,tensileModulusXY,none,Prusament PETG Recycled by Prusa Polymers
+T0957,product,M020,G020-59,mechanical,elongationXY,none,Prusament PETG Recycled by Prusa Polymers
+T0958,product,M020,G020-60,printing,drying,unknown,MakerBot PETG
+T0959,product,M020,G020-60,mechanical,elongationXY,none,MakerBot PETG
+T0960,product,M020,G020-60,mechanical,density,none,MakerBot PETG
+T0961,product,M020,G020-61,printing,drying,unknown,EasyFil ePETG
+T0962,product,M020,G020-61,mechanical,tensileStrengthXY,none,EasyFil ePETG
+T0963,product,M020,G020-61,mechanical,elongationXY,none,EasyFil ePETG
+T0964,product,M020,G020-61,thermal,hdt045,none,EasyFil ePETG
+T0965,product,M020,G020-62,printing,chamber,unknown,ReForm - rPET
+T0966,product,M020,G020-62,printing,drying,unknown,ReForm - rPET
+T0967,product,M020,G020-62,thermal,hdt045,none,ReForm - rPET
+T0968,product,M020,G020-63,mechanical,tensileModulusXY,none,PETG
+T0969,product,M020,G020-63,thermal,hdt045,none,PETG
+T0970,product,M020,G020-64,printing,drying,unknown,ReFill PETG
+T0971,product,M020,G020-64,mechanical,elongationXY,none,ReFill PETG
+T0972,product,M020,G020-65,printing,drying,unknown,PETG
+T0973,product,M020,G020-65,mechanical,tensileModulusXY,none,PETG
+T0974,product,M020,G020-66,printing,drying,unknown,easyPETG
+T0975,product,M020,G020-66,mechanical,tensileModulusXY,none,easyPETG
+T0976,product,M020,G020-66,mechanical,density,none,easyPETG
+T0977,product,M020,G020-66,thermal,hdt045,none,easyPETG
+T0978,product,M020,G020-69,mechanical,tensileModulusXY,none,MATTE PET-G
+T0979,product,M020,G020-69,mechanical,elongationXY,none,MATTE PET-G
+T0980,product,M020,G020-70,printing,drying,unknown,PET-G
+T0981,product,M020,G020-73,mechanical,tensileStrengthXY,none,PETG Lite
+T0982,product,M020,G020-73,mechanical,tensileModulusXY,none,PETG Lite
+T0983,product,M020,G020-74,printing,chamber,unknown,PET-G FX120
+T0984,product,M020,G020-74,mechanical,tensileModulusXY,none,PET-G FX120
+T0985,product,M020,G020-74,thermal,hdt045,none,PET-G FX120
+T0986,product,M024,G024-04,mechanical,tensileModulusXY,none,THE FILAMENT PETG CF
+T0987,product,M024,G024-04,mechanical,elongationXY,none,THE FILAMENT PETG CF
+T0988,product,M024,G024-06,mechanical,tensileModulusXY,none,PETG Carbon Fiber
+T0989,product,M024,G024-09,printing,chamber,unknown,XPETG CF
+T0990,product,M024,G024-10,thermal,hdt045,none,PETGCarbon
+T0991,product,M024,G024-11,mechanical,elongationXY,none,PETG CF
+T0992,product,M024,G024-11,thermal,hdt045,none,PETG CF
+T0993,product,M024,G024-12,mechanical,tensileModulusXY,none,PETG CF V2s
+T0994,product,M024,G024-12,mechanical,elongationXY,none,PETG CF V2s
+T0995,product,M024,G024-12,thermal,hdt045,none,PETG CF V2s
+T0996,product,M024,G024-14,mechanical,tensileModulusXY,none,PETG Carbon Fiber
+T0997,product,M024,G024-15,printing,drying,unknown,PETG CF
+T0998,product,M024,G024-15,mechanical,tensileStrengthXY,none,PETG CF
+T0999,product,M024,G024-15,mechanical,tensileModulusXY,none,PETG CF
+T1000,product,M024,G024-15,mechanical,elongationXY,none,PETG CF
+T1001,product,M024,G024-15,thermal,hdt045,none,PETG CF
+T1002,product,M024,G024-16,mechanical,tensileStrengthXY,none,PETG CF
+T1003,product,M024,G024-16,mechanical,tensileModulusXY,none,PETG CF
+T1004,product,M024,G024-16,mechanical,elongationXY,none,PETG CF
+T1005,product,M024,G024-17,printing,drying,unknown,easyPETG CF
+T1006,product,M024,G024-17,mechanical,tensileModulusXY,none,easyPETG CF
+T1007,product,M024,G024-18,mechanical,tensileModulusXY,none,PETG CF
+T1008,product,M024,G024-18,thermal,hdt045,none,PETG CF
+T1009,product,M024,G024-19,printing,chamber,unknown,Fibreheart PETG CF Pro
+T1010,product,M024,G024-20,printing,drying,unknown,Hyper Speed PETG CF
+T1011,product,M024,G024-21,printing,drying,unknown,CarbonFil
+T1012,product,M024,G024-21,thermal,hdt045,none,CarbonFil
+T1013,product,M024,G024-22,printing,drying,unknown,PETG CF
+T1014,product,M024,G024-22,mechanical,tensileModulusXY,none,PETG CF
+T1015,product,M024,G024-22,thermal,hdt045,none,PETG CF
+T1016,product,M024,G024-24,printing,drying,unknown,PET-G CF
+T1017,product,M024,G024-24,mechanical,density,none,PET-G CF
+T1018,product,M025,G025-01,printing,chamber,unknown,PETG Glass Fiber
+T1019,product,M025,G025-01,printing,drying,unknown,PETG Glass Fiber
+T1020,product,M025,G025-01,mechanical,tensileModulusXY,none,PETG Glass Fiber
+T1021,product,M025,G025-01,mechanical,elongationXY,none,PETG Glass Fiber
+T1022,product,M025,G025-01,thermal,hdt045,none,PETG Glass Fiber
+T1023,product,M025,G025-02,printing,chamber,unknown,PETG-GF
+T1024,product,M025,G025-03,mechanical,elongationXY,none,PETG GF UV
+T1025,product,M025,G025-03,thermal,hdt045,none,PETG GF UV
+T1026,product,M025,G025-04,printing,chamber,unknown,PETG GF
+T1027,product,M025,G025-04,mechanical,tensileStrengthXY,none,PETG GF
+T1028,product,M025,G025-04,mechanical,tensileModulusXY,none,PETG GF
+T1029,product,M025,G025-04,mechanical,elongationXY,none,PETG GF
+T1030,product,M025,G025-05,printing,chamber,unknown,PETG GF
+T1031,product,M025,G025-05,mechanical,tensileModulusXY,none,PETG GF
+T1032,product,M025,G025-05,thermal,hdt045,none,PETG GF
+T1033,product,M026,G026-06,printing,nozzle,unknown,Industrial PETG ESD
+T1034,product,M026,G026-06,printing,chamber,unknown,Industrial PETG ESD
+T1035,product,M026,G026-06,printing,drying,unknown,Industrial PETG ESD
+T1036,product,M026,G026-06,thermal,hdt045,none,Industrial PETG ESD
+T1037,product,M026,G026-07,printing,chamber,unknown,PETG-ESD
+T1038,product,M026,G026-07,mechanical,tensileModulusXY,none,PETG-ESD
+T1039,product,M026,G026-08,mechanical,elongationXY,none,PETG ESD
+T1040,product,M026,G026-08,thermal,hdt045,none,PETG ESD
+T1041,product,M026,G026-10,printing,chamber,unknown,ESD PET-G
+T1042,product,M027,G027-03,thermal,hdt045,none,ABS GP450
+T1043,product,M027,G027-04,thermal,hdt045,none,ABS Medical
+T1044,product,M027,G027-05,mechanical,tensileModulusXY,none,Smart ABS
+T1045,product,M027,G027-06,printing,drying,unknown,3DXMAX ABS
+T1046,product,M027,G027-12,mechanical,tensileModulusXY,none,High Speed ABS
+T1047,product,M027,G027-14,mechanical,tensileModulusXY,none,ABS-FR
+T1048,product,M027,G027-15,mechanical,tensileModulusXY,none,Hyper -Speed ABS
+T1049,product,M027,G027-16,mechanical,tensileModulusXY,none,ABS Matte
+T1050,product,M027,G027-18,thermal,hdt045,none,Methylmethacrylat-Acrylnitrilbutadienstyrol (MABS)
+T1051,product,M027,G027-19,mechanical,tensileModulusXY,none,ABS Extrafill
+T1052,product,M027,G027-19,thermal,hdt045,none,ABS Extrafill
+T1053,product,M027,G027-20,printing,drying,unknown,eABS HS
+T1054,product,M027,G027-20,mechanical,tensileStrengthXY,none,eABS HS
+T1055,product,M027,G027-20,mechanical,tensileModulusXY,none,eABS HS
+T1056,product,M027,G027-20,mechanical,elongationXY,none,eABS HS
+T1057,product,M027,G027-20,thermal,hdt045,none,eABS HS
+T1058,product,M027,G027-21,printing,drying,unknown,TOUGH
+T1059,product,M027,G027-21,mechanical,tensileStrengthXY,none,TOUGH
+T1060,product,M027,G027-21,mechanical,tensileModulusXY,none,TOUGH
+T1061,product,M027,G027-21,mechanical,elongationXY,none,TOUGH
+T1062,product,M027,G027-21,mechanical,density,none,TOUGH
+T1063,product,M027,G027-21,thermal,hdt045,none,TOUGH
+T1064,product,M027,G027-22,mechanical,tensileModulusXY,none,ABS+
+T1065,product,M027,G027-24,printing,drying,unknown,Hyper Speed ABS
+T1066,product,M027,G027-25,printing,drying,unknown,ABS HT
+T1067,product,M027,G027-25,mechanical,tensileStrengthXY,none,ABS HT
+T1068,product,M027,G027-25,mechanical,tensileModulusXY,none,ABS HT
+T1069,product,M027,G027-25,mechanical,elongationXY,none,ABS HT
+T1070,product,M027,G027-25,thermal,hdt045,none,ABS HT
+T1071,product,M027,G027-26,printing,drying,unknown,Modified ABS
+T1072,product,M027,G027-26,mechanical,tensileStrengthXY,none,Modified ABS
+T1073,product,M027,G027-26,mechanical,tensileModulusXY,none,Modified ABS
+T1074,product,M027,G027-26,mechanical,elongationXY,none,Modified ABS
+T1075,product,M027,G027-27,mechanical,tensileStrengthXY,none,eABS Max
+T1076,product,M027,G027-27,mechanical,tensileModulusXY,none,eABS Max
+T1077,product,M027,G027-27,mechanical,elongationXY,none,eABS Max
+T1078,product,M027,G027-27,thermal,hdt045,none,eABS Max
+T1079,product,M027,G027-28,printing,drying,unknown,ABS
+T1080,product,M027,G027-28,mechanical,elongationXY,none,ABS
+T1081,product,M027,G027-28,thermal,hdt045,none,ABS
+T1082,product,M027,G027-29,mechanical,tensileStrengthXY,none,Workday ABS
+T1083,product,M027,G027-29,mechanical,tensileModulusXY,none,Workday ABS
+T1084,product,M027,G027-29,mechanical,elongationXY,none,Workday ABS
+T1085,product,M027,G027-29,mechanical,density,none,Workday ABS
+T1086,product,M027,G027-29,thermal,hdt045,none,Workday ABS
+T1087,product,M027,G027-30,mechanical,elongationXY,none,ABS EF
+T1088,product,M027,G027-30,thermal,hdt045,none,ABS EF
+T1089,product,M027,G027-31,mechanical,tensileModulusXY,none,ABS
+T1090,product,M027,G027-33,printing,drying,unknown,Buddy3D ABS
+T1091,product,M027,G027-33,mechanical,tensileModulusXY,none,Buddy3D ABS
+T1092,product,M027,G027-33,mechanical,density,none,Buddy3D ABS
+T1093,product,M027,G027-33,thermal,hdt045,none,Buddy3D ABS
+T1094,product,M027,G027-35,mechanical,tensileModulusXY,none,ABSx
+T1095,product,M027,G027-35,thermal,hdt045,none,ABSx
+T1096,product,M027,G027-37,printing,drying,unknown,ABS
+T1097,product,M027,G027-37,mechanical,tensileModulusXY,none,ABS
+T1098,product,M027,G027-37,thermal,hdt045,none,ABS
+T1099,product,M027,G027-38,printing,drying,unknown,Hyper-ABS
+T1100,product,M027,G027-38,thermal,hdt045,none,Hyper-ABS
+T1101,product,M027,G027-39,printing,drying,unknown,ABS Prime
+T1102,product,M027,G027-39,mechanical,elongationXY,none,ABS Prime
+T1103,product,M027,G027-40,printing,drying,unknown,Premium ABS
+T1104,product,M027,G027-40,mechanical,density,none,Premium ABS
+T1105,product,M027,G027-41,printing,drying,unknown,ABS
+T1106,product,M027,G027-41,mechanical,tensileModulusXY,none,ABS
+T1107,product,M027,G027-41,mechanical,density,none,ABS
+T1108,product,M027,G027-41,thermal,hdt045,none,ABS
+T1109,product,M027,G027-42,printing,drying,unknown,ABS-M30
+T1110,product,M027,G027-42,mechanical,tensileStrengthXY,none,ABS-M30
+T1111,product,M027,G027-42,mechanical,tensileModulusXY,none,ABS-M30
+T1112,product,M027,G027-42,mechanical,elongationXY,none,ABS-M30
+T1113,product,M027,G027-42,mechanical,density,none,ABS-M30
+T1114,product,M027,G027-43,printing,drying,unknown,ABS-M30i
+T1115,product,M027,G027-43,mechanical,tensileStrengthXY,none,ABS-M30i
+T1116,product,M027,G027-43,mechanical,tensileModulusXY,none,ABS-M30i
+T1117,product,M027,G027-43,mechanical,elongationXY,none,ABS-M30i
+T1118,product,M027,G027-43,mechanical,density,none,ABS-M30i
+T1119,product,M027,G027-44,printing,drying,unknown,ABS-ESD7
+T1120,product,M027,G027-44,mechanical,tensileStrengthXY,none,ABS-ESD7
+T1121,product,M027,G027-44,mechanical,tensileModulusXY,none,ABS-ESD7
+T1122,product,M027,G027-44,mechanical,elongationXY,none,ABS-ESD7
+T1123,product,M027,G027-44,mechanical,density,none,ABS-ESD7
+T1124,product,M027,G027-44,thermal,hdt045,none,ABS-ESD7
+T1125,product,M027,G027-45,printing,drying,unknown,ABSpro
+T1126,product,M027,G027-45,thermal,hdt045,none,ABSpro
+T1127,product,M027,G027-46,printing,drying,unknown,EasyFil ABS
+T1128,product,M027,G027-46,thermal,hdt045,none,EasyFil ABS
+T1129,product,M027,G027-48,printing,drying,unknown,ClearScent ABS
+T1130,product,M027,G027-48,thermal,hdt045,none,ClearScent ABS
+T1131,product,M027,G027-49,printing,drying,unknown,Premium ABS
+T1132,product,M027,G027-49,thermal,hdt045,none,Premium ABS
+T1133,product,M027,G027-50,printing,drying,unknown,ABS
+T1134,product,M027,G027-50,thermal,hdt045,none,ABS
+T1135,product,M027,G027-51,printing,drying,unknown,ReForm - rTitan
+T1136,product,M027,G027-51,thermal,hdt045,none,ReForm - rTitan
+T1137,product,M027,G027-55,mechanical,tensileModulusXY,none,EASY ABS
+T1138,product,M027,G027-55,thermal,hdt045,none,EASY ABS
+T1139,product,M027,G027-56,mechanical,tensileStrengthXY,none,TitanX
+T1140,product,M027,G027-56,mechanical,tensileModulusXY,none,TitanX
+T1141,product,M027,G027-56,thermal,hdt045,none,TitanX
+T1142,product,M027,G027-57,printing,chamber,unknown,Triton ABS Model Material
+T1143,product,M027,G027-57,mechanical,tensileStrengthXY,none,Triton ABS Model Material
+T1144,product,M027,G027-57,mechanical,tensileModulusXY,none,Triton ABS Model Material
+T1145,product,M027,G027-57,mechanical,elongationXY,none,Triton ABS Model Material
+T1146,product,M027,G027-57,thermal,hdt045,none,Triton ABS Model Material
+T1147,product,M027,G027-58,mechanical,tensileModulusXY,none,EasyFil ABS - Glow in the Dark
+T1148,product,M028,G028-03,printing,drying,unknown,FibreX ABS+GF10 Glass Fiber ABS
+T1149,product,M028,G028-06,mechanical,tensileModulusXY,none,ABSGF10
+T1150,product,M028,G028-09,printing,drying,unknown,eABS-GF
+T1151,product,M028,G028-09,mechanical,tensileStrengthXY,none,eABS-GF
+T1152,product,M028,G028-09,mechanical,tensileModulusXY,none,eABS-GF
+T1153,product,M028,G028-09,mechanical,elongationXY,none,eABS-GF
+T1154,product,M028,G028-09,thermal,hdt045,none,eABS-GF
+T1155,product,M028,G028-12,printing,drying,unknown,ABS Glass Fiber
+T1156,product,M028,G028-12,mechanical,tensileModulusXY,none,ABS Glass Fiber
+T1157,product,M028,G028-12,thermal,hdt045,none,ABS Glass Fiber
+T1158,product,M029,G029-01,printing,chamber,unknown,CarbonX CF ABS
+T1159,product,M029,G029-02,printing,drying,unknown,CF ABS
+T1160,product,M029,G029-03,printing,chamber,unknown,DURAPRO ABS CF
+T1161,product,M029,G029-04,printing,chamber,unknown,ABS-CF
+T1162,product,M029,G029-04,mechanical,tensileModulusXY,none,ABS-CF
+T1163,product,M029,G029-04,mechanical,elongationXY,none,ABS-CF
+T1164,product,M029,G029-05,mechanical,elongationXY,none,ABS CF
+T1165,product,M029,G029-05,thermal,hdt045,none,ABS CF
+T1166,product,M029,G029-06,printing,chamber,unknown,ABS CF
+T1167,product,M029,G029-06,mechanical,tensileModulusXY,none,ABS CF
+T1168,product,M029,G029-07,printing,chamber,unknown,ABS Carbon Fiber
+T1169,product,M029,G029-07,mechanical,tensileModulusXY,none,ABS Carbon Fiber
+T1170,product,M029,G029-08,mechanical,tensileStrengthXY,none,Fibreheart ABS CF Core
+T1171,product,M029,G029-08,mechanical,tensileModulusXY,none,Fibreheart ABS CF Core
+T1172,product,M029,G029-08,mechanical,elongationXY,none,Fibreheart ABS CF Core
+T1173,product,M029,G029-09,printing,nozzle,unknown,Hyper Core ABS CF15
+T1174,product,M029,G029-09,printing,bed,unknown,Hyper Core ABS CF15
+T1175,product,M029,G029-09,printing,chamber,unknown,Hyper Core ABS CF15
+T1176,product,M029,G029-10,printing,chamber,unknown,ABS CF
+T1177,product,M029,G029-10,printing,drying,unknown,ABS CF
+T1178,product,M029,G029-10,thermal,hdt045,none,ABS CF
+T1179,product,M029,G029-11,printing,nozzle,unknown,TriMax Carbon Fiber ABS Model Material
+T1180,product,M029,G029-11,printing,bed,unknown,TriMax Carbon Fiber ABS Model Material
+T1181,product,M029,G029-11,printing,chamber,unknown,TriMax Carbon Fiber ABS Model Material
+T1182,product,M029,G029-11,printing,drying,unknown,TriMax Carbon Fiber ABS Model Material
+T1183,product,M029,G029-11,mechanical,tensileStrengthXY,none,TriMax Carbon Fiber ABS Model Material
+T1184,product,M029,G029-11,thermal,hdt045,none,TriMax Carbon Fiber ABS Model Material
+T1185,product,M030,G030-01,printing,chamber,unknown,3DXSTAT ESD ABS
+T1186,product,M030,G030-02,printing,nozzle,unknown,ESD ABS
+T1187,product,M030,G030-02,printing,chamber,unknown,ESD ABS
+T1188,product,M030,G030-02,printing,drying,unknown,ESD ABS
+T1189,product,M030,G030-02,thermal,hdt045,none,ESD ABS
+T1190,product,M030,G030-04,printing,chamber,unknown,ABSESD
+T1191,product,M030,G030-04,thermal,hdt045,none,ABSESD
+T1192,product,M030,G030-05,printing,chamber,unknown,ABS-ESD
+T1193,product,M030,G030-05,mechanical,tensileModulusXY,none,ABS-ESD
+T1194,product,M030,G030-06,mechanical,elongationXY,none,ABS ESD
+T1195,product,M030,G030-06,thermal,hdt045,none,ABS ESD
+T1196,product,M030,G030-07,printing,chamber,unknown,ESD ABS
+T1197,product,M030,G030-07,thermal,hdt045,none,ESD ABS
+T1198,product,M030,G030-08,printing,chamber,unknown,Buddy3D ABS-ESD VE
+T1199,product,M030,G030-08,printing,drying,unknown,Buddy3D ABS-ESD VE
+T1200,product,M030,G030-08,mechanical,density,none,Buddy3D ABS-ESD VE
+T1201,product,M030,G030-08,thermal,hdt045,none,Buddy3D ABS-ESD VE
+T1202,product,M030,G030-09,printing,chamber,unknown,ABSx ESD
+T1203,product,M030,G030-09,mechanical,tensileModulusXY,none,ABSx ESD
+T1204,product,M030,G030-09,thermal,hdt045,none,ABSx ESD
+T1205,product,M030,G030-10,printing,chamber,unknown,ESD-Safe ABS
+T1206,product,M030,G030-11,printing,nozzle,unknown,TriStat ESD-ABS Model Material
+T1207,product,M030,G030-11,printing,bed,unknown,TriStat ESD-ABS Model Material
+T1208,product,M030,G030-11,printing,chamber,unknown,TriStat ESD-ABS Model Material
+T1209,product,M030,G030-11,printing,drying,unknown,TriStat ESD-ABS Model Material
+T1210,product,M030,G030-11,mechanical,tensileStrengthXY,none,TriStat ESD-ABS Model Material
+T1211,product,M030,G030-11,mechanical,tensileModulusXY,none,TriStat ESD-ABS Model Material
+T1212,product,M030,G030-11,thermal,hdt045,none,TriStat ESD-ABS Model Material
+T1213,product,M031,G031-05,printing,chamber,unknown,3DXMAX ASA
+T1214,product,M031,G031-07,printing,drying,unknown,DURAPRO ASA
+T1215,product,M031,G031-07,mechanical,tensileStrengthXY,none,DURAPRO ASA
+T1216,product,M031,G031-07,mechanical,tensileModulusXY,none,DURAPRO ASA
+T1217,product,M031,G031-07,mechanical,elongationXY,none,DURAPRO ASA
+T1218,product,M031,G031-07,mechanical,density,none,DURAPRO ASA
+T1219,product,M031,G031-07,thermal,hdt045,none,DURAPRO ASA
+T1220,product,M031,G031-08,mechanical,tensileModulusXY,none,ASA
+T1221,product,M031,G031-09,mechanical,tensileModulusXY,none,Hyper-Speed ASA
+T1222,product,M031,G031-10,mechanical,elongationXY,none,ASA
+T1223,product,M031,G031-13,printing,drying,unknown,ASA
+T1224,product,M031,G031-14,printing,drying,unknown,ASA Extrafill
+T1225,product,M031,G031-14,thermal,hdt045,none,ASA Extrafill
+T1226,product,M031,G031-16,printing,drying,unknown,Premium ASA
+T1227,product,M031,G031-16,mechanical,tensileStrengthXY,none,Premium ASA
+T1228,product,M031,G031-16,thermal,hdt045,none,Premium ASA
+T1229,product,M031,G031-17,printing,drying,unknown,ASA V1 1
+T1230,product,M031,G031-17,mechanical,tensileStrengthXY,none,ASA V1 1
+T1231,product,M031,G031-17,mechanical,tensileModulusXY,none,ASA V1 1
+T1232,product,M031,G031-17,mechanical,elongationXY,none,ASA V1 1
+T1233,product,M031,G031-17,thermal,hdt045,none,ASA V1 1
+T1234,product,M031,G031-18,mechanical,elongationXY,none,ASA
+T1235,product,M031,G031-19,printing,drying,unknown,ASA
+T1236,product,M031,G031-19,thermal,hdt045,none,ASA
+T1237,product,M031,G031-20,printing,drying,unknown,Prusament ASA by Prusa Polymers
+T1238,product,M031,G031-20,mechanical,tensileStrengthXY,none,Prusament ASA by Prusa Polymers
+T1239,product,M031,G031-20,mechanical,tensileModulusXY,none,Prusament ASA by Prusa Polymers
+T1240,product,M031,G031-20,mechanical,elongationXY,none,Prusament ASA by Prusa Polymers
+T1241,product,M031,G031-21,printing,drying,unknown,Precision ASA
+T1242,product,M031,G031-21,mechanical,elongationXY,none,Precision ASA
+T1243,product,M031,G031-21,mechanical,density,none,Precision ASA
+T1244,product,M031,G031-22,mechanical,tensileModulusXY,none,ASA
+T1245,product,M031,G031-22,thermal,hdt045,none,ASA
+T1246,product,M031,G031-23,mechanical,tensileStrengthXY,none,Ultrafuse ASA
+T1247,product,M031,G031-23,mechanical,tensileModulusXY,none,Ultrafuse ASA
+T1248,product,M031,G031-23,mechanical,elongationXY,none,Ultrafuse ASA
+T1249,product,M031,G031-23,mechanical,density,none,Ultrafuse ASA
+T1250,product,M031,G031-23,thermal,hdt045,none,Ultrafuse ASA
+T1251,product,M031,G031-24,mechanical,tensileModulusXY,none,ASA
+T1252,product,M031,G031-28,thermal,hdt045,none,ASA
+T1253,product,M031,G031-29,printing,drying,unknown,ASA Prime
+T1254,product,M031,G031-29,mechanical,elongationXY,none,ASA Prime
+T1255,product,M031,G031-31,printing,drying,unknown,ASA
+T1256,product,M031,G031-31,mechanical,density,none,ASA
+T1257,product,M031,G031-31,thermal,hdt045,none,ASA
+T1258,product,M031,G031-32,mechanical,tensileModulusXY,none,ASA
+T1259,product,M031,G031-32,thermal,hdt045,none,ASA
+T1260,product,M031,G031-33,printing,drying,unknown,ASA
+T1261,product,M031,G031-33,mechanical,tensileStrengthXY,none,ASA
+T1262,product,M031,G031-33,mechanical,tensileModulusXY,none,ASA
+T1263,product,M031,G031-33,mechanical,elongationXY,none,ASA
+T1264,product,M031,G031-33,mechanical,density,none,ASA
+T1265,product,M031,G031-34,mechanical,tensileModulusXY,none,ASA
+T1266,product,M031,G031-34,thermal,hdt045,none,ASA
+T1267,product,M031,G031-37,printing,drying,unknown,ASA
+T1268,product,M031,G031-37,mechanical,elongationXY,none,ASA
+T1269,product,M031,G031-37,thermal,hdt045,none,ASA
+T1270,product,M031,G031-38,printing,drying,unknown,ASA
+T1271,product,M031,G031-38,mechanical,tensileModulusXY,none,ASA
+T1272,product,M031,G031-38,thermal,hdt045,none,ASA
+T1273,product,M031,G031-39,printing,drying,unknown,Triton ASA Model Material
+T1274,product,M031,G031-39,mechanical,tensileStrengthXY,none,Triton ASA Model Material
+T1275,product,M031,G031-39,mechanical,tensileModulusXY,none,Triton ASA Model Material
+T1276,product,M031,G031-39,thermal,hdt045,none,Triton ASA Model Material
+T1277,product,M032,G032-01,mechanical,tensileStrengthXY,none,ASA Aero
+T1278,product,M032,G032-01,mechanical,tensileModulusXY,none,ASA Aero
+T1279,product,M032,G032-01,mechanical,elongationXY,none,ASA Aero
+T1280,product,M032,G032-02,printing,chamber,unknown,LW-ASA UltraFoam
+T1281,product,M032,G032-03,printing,chamber,unknown,Light Weight ASA (LW-ASA)
+T1282,product,M032,G032-03,printing,drying,unknown,Light Weight ASA (LW-ASA)
+T1283,product,M032,G032-03,thermal,hdt045,none,Light Weight ASA (LW-ASA)
+T1284,product,M033,G033-02,printing,chamber,unknown,CarbonX CF ASA
+T1285,product,M033,G033-03,mechanical,tensileModulusXY,none,THE FILAMENT ASA CF
+T1286,product,M033,G033-04,mechanical,tensileModulusXY,none,ASA-X CF10
+T1287,product,M033,G033-05,printing,drying,unknown,DURAPRO ASA CF
+T1288,product,M033,G033-05,mechanical,tensileStrengthXY,none,DURAPRO ASA CF
+T1289,product,M033,G033-05,mechanical,tensileModulusXY,none,DURAPRO ASA CF
+T1290,product,M033,G033-05,mechanical,elongationXY,none,DURAPRO ASA CF
+T1291,product,M033,G033-05,mechanical,density,none,DURAPRO ASA CF
+T1292,product,M033,G033-05,thermal,hdt045,none,DURAPRO ASA CF
+T1293,product,M033,G033-06,mechanical,elongationXY,none,ASA-CF
+T1294,product,M033,G033-09,printing,drying,unknown,ASA CF10 Carbon
+T1295,product,M033,G033-09,thermal,hdt045,none,ASA CF10 Carbon
+T1296,product,M033,G033-12,mechanical,tensileModulusXY,none,ApolloX CF10
+T1297,product,M033,G033-13,mechanical,tensileModulusXY,none,ASA Carbon Fiber
+T1298,product,M033,G033-15,mechanical,tensileModulusXY,none,ASAx CF
+T1299,product,M033,G033-15,thermal,hdt045,none,ASAx CF
+T1300,product,M033,G033-16,printing,drying,unknown,ASA CF
+T1301,product,M033,G033-16,mechanical,tensileModulusXY,none,ASA CF
+T1302,product,M033,G033-16,thermal,hdt045,none,ASA CF
+T1303,product,M033,G033-17,mechanical,tensileModulusXY,none,ASA CF
+T1304,product,M033,G033-17,thermal,hdt045,none,ASA CF
+T1305,product,M033,G033-18,mechanical,tensileModulusXY,none,ASA CF
+T1306,product,M034,G034-01,mechanical,tensileStrengthXY,none,asax x gf10
+T1307,product,M034,G034-01,mechanical,tensileModulusXY,none,asax x gf10
+T1308,product,M034,G034-01,mechanical,elongationXY,none,asax x gf10
+T1309,product,M034,G034-01,thermal,hdt045,none,asax x gf10
+T1310,product,M034,G034-02,printing,chamber,unknown,ASA Glass Fiber
+T1311,product,M034,G034-02,printing,drying,unknown,ASA Glass Fiber
+T1312,product,M034,G034-02,mechanical,tensileModulusXY,none,ASA Glass Fiber
+T1313,product,M034,G034-02,thermal,hdt045,none,ASA Glass Fiber
+T1314,product,M034,G034-04,mechanical,tensileModulusXY,none,ASAGF10
+T1315,product,M034,G034-05,printing,chamber,unknown,DURAPRO ASA GF
+T1316,product,M034,G034-06,mechanical,elongationXY,none,ASA - GF
+T1317,product,M035,G035-01,thermal,hdt045,none,PC
+T1318,product,M035,G035-03,mechanical,tensileModulusXY,none,PC 275
+T1319,product,M035,G035-04,printing,chamber,unknown,ezPC Polycarbonate
+T1320,product,M035,G035-05,printing,chamber,unknown,3DXMAX Polycarbonate
+T1321,product,M035,G035-09,printing,drying,unknown,Polymaker PC Max
+T1322,product,M035,G035-09,thermal,hdt045,none,Polymaker PC Max
+T1323,product,M035,G035-11,printing,drying,unknown,DURAPRO PC FR V0
+T1324,product,M035,G035-11,mechanical,tensileStrengthXY,none,DURAPRO PC FR V0
+T1325,product,M035,G035-11,mechanical,tensileModulusXY,none,DURAPRO PC FR V0
+T1326,product,M035,G035-11,mechanical,elongationXY,none,DURAPRO PC FR V0
+T1327,product,M035,G035-11,mechanical,density,none,DURAPRO PC FR V0
+T1328,product,M035,G035-11,thermal,hdt045,none,DURAPRO PC FR V0
+T1329,product,M035,G035-12,mechanical,tensileModulusXY,none,PC
+T1330,product,M035,G035-14,thermal,hdt045,none,Polycarbonat (PC)
+T1331,product,M035,G035-15,printing,drying,unknown,Prusament PC Blend by Prusa Polymers
+T1332,product,M035,G035-15,mechanical,tensileStrengthXY,none,Prusament PC Blend by Prusa Polymers
+T1333,product,M035,G035-15,mechanical,tensileModulusXY,none,Prusament PC Blend by Prusa Polymers
+T1334,product,M035,G035-15,mechanical,elongationXY,none,Prusament PC Blend by Prusa Polymers
+T1335,product,M035,G035-15,mechanical,density,none,Prusament PC Blend by Prusa Polymers
+T1336,product,M035,G035-16,printing,drying,unknown,Premium PC
+T1337,product,M035,G035-17,mechanical,tensileModulusXY,none,PC-HT
+T1338,product,M035,G035-18,printing,drying,unknown,Premium PC Black White
+T1339,product,M035,G035-19,mechanical,elongationXY,none,PC V0
+T1340,product,M035,G035-20,mechanical,tensileModulusXY,none,PC
+T1341,product,M035,G035-21,mechanical,tensileModulusXY,none,Kratos PC
+T1342,product,M035,G035-23,printing,drying,unknown,PC
+T1343,product,M035,G035-23,mechanical,tensileStrengthXY,none,PC
+T1344,product,M035,G035-23,mechanical,tensileModulusXY,none,PC
+T1345,product,M035,G035-23,mechanical,elongationXY,none,PC
+T1346,product,M035,G035-23,mechanical,density,none,PC
+T1347,product,M035,G035-24,printing,drying,unknown,PC-ISO
+T1348,product,M035,G035-24,mechanical,tensileStrengthXY,none,PC-ISO
+T1349,product,M035,G035-24,mechanical,tensileModulusXY,none,PC-ISO
+T1350,product,M035,G035-24,mechanical,elongationXY,none,PC-ISO
+T1351,product,M035,G035-24,mechanical,density,none,PC-ISO
+T1352,product,M035,G035-25,printing,drying,unknown,PC
+T1353,product,M035,G035-25,thermal,hdt045,none,PC
+T1354,product,M035,G035-26,printing,drying,unknown,Trilan PC Model Material
+T1355,product,M035,G035-26,mechanical,elongationXY,none,Trilan PC Model Material
+T1356,product,M035,G035-26,thermal,hdt045,none,Trilan PC Model Material
+T1357,product,M037,G037-01,printing,chamber,unknown,CarbonX CF PC
+T1358,product,M037,G037-02,printing,chamber,unknown,pc cf
+T1359,product,M037,G037-02,mechanical,tensileModulusXY,none,pc cf
+T1360,product,M037,G037-02,mechanical,elongationXY,none,pc cf
+T1361,product,M037,G037-03,printing,chamber,unknown,PC CF
+T1362,product,M037,G037-03,printing,drying,unknown,PC CF
+T1363,product,M037,G037-03,mechanical,tensileModulusXY,none,PC CF
+T1364,product,M037,G037-03,thermal,hdt045,none,PC CF
+T1365,product,M037,G037-04,printing,chamber,unknown,CarbonX Carbon Fiber ezPC Polycarbonate
+T1366,product,M037,G037-05,mechanical,tensileModulusXY,none,PCCF10
+T1367,product,M037,G037-06,printing,chamber,unknown,Prusament PC Space Grade Black by Prusa Polymers
+T1368,product,M037,G037-06,printing,drying,unknown,Prusament PC Space Grade Black by Prusa Polymers
+T1369,product,M037,G037-06,mechanical,tensileStrengthXY,none,Prusament PC Space Grade Black by Prusa Polymers
+T1370,product,M037,G037-06,mechanical,tensileModulusXY,none,Prusament PC Space Grade Black by Prusa Polymers
+T1371,product,M037,G037-06,mechanical,elongationXY,none,Prusament PC Space Grade Black by Prusa Polymers
+T1372,product,M037,G037-06,mechanical,density,none,Prusament PC Space Grade Black by Prusa Polymers
+T1373,product,M037,G037-07,mechanical,tensileStrengthXY,none,PC CF
+T1374,product,M037,G037-07,mechanical,elongationXY,none,PC CF
+T1375,product,M037,G037-08,printing,chamber,unknown,PC Carbon Fiber
+T1376,product,M037,G037-08,mechanical,tensileModulusXY,none,PC Carbon Fiber
+T1377,product,M037,G037-09,printing,chamber,unknown,PCx CF
+T1378,product,M037,G037-09,mechanical,tensileModulusXY,none,PCx CF
+T1379,product,M037,G037-09,thermal,hdt045,none,PCx CF
+T1380,product,M037,G037-10,printing,chamber,unknown,Prusament PC Blend Carbon Fiber by Prusa Polymers
+T1381,product,M037,G037-10,printing,drying,unknown,Prusament PC Blend Carbon Fiber by Prusa Polymers
+T1382,product,M037,G037-10,mechanical,tensileStrengthXY,none,Prusament PC Blend Carbon Fiber by Prusa Polymers
+T1383,product,M037,G037-10,mechanical,tensileModulusXY,none,Prusament PC Blend Carbon Fiber by Prusa Polymers
+T1384,product,M037,G037-10,mechanical,elongationXY,none,Prusament PC Blend Carbon Fiber by Prusa Polymers
+T1385,product,M038,G038-01,printing,chamber,unknown,V2 PC-GF
+T1386,product,M038,G038-01,mechanical,tensileModulusXY,none,V2 PC-GF
+T1387,product,M038,G038-01,mechanical,density,none,V2 PC-GF
+T1388,product,M038,G038-02,printing,chamber,unknown,Ultrafuse PC GF30
+T1389,product,M038,G038-03,printing,chamber,unknown,Polycarbonate glass fibers 10% (PC GF10)
+T1390,product,M038,G038-03,thermal,hdt045,none,Polycarbonate glass fibers 10% (PC GF10)
+T1391,product,M161,G039-02,printing,drying,unknown,TPU
+T1392,product,M161,G039-02,thermal,hdt045,none,TPU
+T1393,product,M160,G039-04,mechanical,tensileModulusXY,none,S-Flex 90A
+T1394,product,M160,G039-04,thermal,hdt045,none,S-Flex 90A
+T1395,product,M161,G039-05,printing,drying,unknown,THE FILAMENT TPU 95A
+T1396,product,M161,G039-05,mechanical,tensileModulusXY,none,THE FILAMENT TPU 95A
+T1397,product,M161,G039-05,thermal,hdt045,none,THE FILAMENT TPU 95A
+T1398,product,M159,G039-06,mechanical,tensileModulusXY,none,THE FILAMENT TPU 87A
+T1399,product,M159,G039-06,thermal,hdt045,none,THE FILAMENT TPU 87A
+T1400,product,M159,G039-07,mechanical,tensileModulusXY,none,S-Flex 85A
+T1401,product,M159,G039-07,thermal,hdt045,none,S-Flex 85A
+T1402,product,M162,G039-08,mechanical,tensileModulusXY,none,S-Flex 98A
+T1403,product,M162,G039-08,thermal,hdt045,none,S-Flex 98A
+T1404,product,M159,G039-09,mechanical,tensileModulusXY,none,THE FILAMENT TPU 82A
+T1405,product,M159,G039-09,thermal,hdt045,none,THE FILAMENT TPU 82A
+T1406,product,M160,G039-11,mechanical,tensileModulusXY,none,Polymaker PolyFlex TPU90
+T1407,product,M160,G039-11,thermal,hdt045,none,Polymaker PolyFlex TPU90
+T1408,product,M161,G039-12,mechanical,tensileModulusXY,none,Polymaker PolyFlex TPU95 HF
+T1409,product,M161,G039-12,thermal,hdt045,none,Polymaker PolyFlex TPU95 HF
+T1410,product,M161,G039-13,thermal,hdt045,none,Polymaker PolyFlex TPU95
+T1411,product,M162,G039-14,thermal,hdt045,none,FLEX MEDIUM MATT
+T1412,product,M159,G039-15,thermal,hdt045,none,FLEX SEMISOFT
+T1413,product,M162,G039-16,thermal,hdt045,none,FLEX HARD
+T1414,product,M162,G039-17,thermal,hdt045,none,FLEX MEDIUM
+T1415,product,M160,G039-18,mechanical,tensileModulusXY,none,TPU 90A
+T1416,product,M160,G039-18,thermal,hdt045,none,TPU 90A
+T1417,product,M161,G039-19,thermal,hdt045,none,TPU 95A
+T1418,product,M160,G039-20,thermal,hdt045,none,TPU 90A
+T1419,product,M161,G039-21,thermal,hdt045,none,Hyper Speed TPU
+T1420,product,M161,G039-22,thermal,hdt045,none,TPU95A
+T1421,product,M162,G039-23,printing,chamber,unknown,TPU 64D
+T1422,product,M162,G039-23,mechanical,tensileModulusXY,none,TPU 64D
+T1423,product,M162,G039-23,thermal,hdt045,none,TPU 64D
+T1424,product,M162,G039-24,printing,chamber,unknown,Thermoplastic polyurethane (TPU)
+T1425,product,M162,G039-24,thermal,hdt045,none,Thermoplastic polyurethane (TPU)
+T1426,product,M160,G039-25,printing,chamber,unknown,varioShore TPU
+T1427,product,M160,G039-25,printing,drying,unknown,varioShore TPU
+T1428,product,M160,G039-25,thermal,hdt045,none,varioShore TPU
+T1429,product,M159,G039-26,printing,chamber,unknown,TPU85A
+T1430,product,M159,G039-26,printing,drying,unknown,TPU85A
+T1431,product,M159,G039-26,mechanical,density,none,TPU85A
+T1432,product,M159,G039-26,thermal,hdt045,none,TPU85A
+T1433,product,M161,G039-27,printing,drying,unknown,TPU95A
+T1434,product,M161,G039-27,mechanical,density,none,TPU95A
+T1435,product,M161,G039-27,thermal,hdt045,none,TPU95A
+T1436,product,M159,G039-28,printing,chamber,unknown,varioShore 85A
+T1437,product,M159,G039-28,printing,drying,unknown,varioShore 85A
+T1438,product,M159,G039-28,mechanical,tensileModulusXY,none,varioShore 85A
+T1439,product,M159,G039-28,mechanical,density,none,varioShore 85A
+T1440,product,M159,G039-28,thermal,hdt045,none,varioShore 85A
+T1441,product,M162,G039-29,printing,chamber,unknown,Flexfill TPU 98A
+T1442,product,M162,G039-29,mechanical,tensileModulusXY,none,Flexfill TPU 98A
+T1443,product,M162,G039-29,thermal,hdt045,none,Flexfill TPU 98A
+T1444,product,M160,G039-30,printing,chamber,unknown,Flexfill TPU 92A
+T1445,product,M160,G039-30,mechanical,tensileModulusXY,none,Flexfill TPU 92A
+T1446,product,M160,G039-30,thermal,hdt045,none,Flexfill TPU 92A
+T1447,product,M161,G039-31,printing,drying,unknown,Cheetah
+T1448,product,M161,G039-31,thermal,hdt045,none,Cheetah
+T1449,product,M159,G039-32,printing,chamber,unknown,NinjaFlex
+T1450,product,M159,G039-32,printing,drying,unknown,NinjaFlex
+T1451,product,M159,G039-32,thermal,hdt045,none,NinjaFlex
+T1452,product,M159,G039-33,printing,chamber,unknown,70A
+T1453,product,M159,G039-33,mechanical,tensileModulusXY,none,70A
+T1454,product,M159,G039-33,thermal,hdt045,none,70A
+T1455,product,M162,G039-34,printing,chamber,unknown,TPU 98A
+T1456,product,M162,G039-34,mechanical,tensileStrengthXY,none,TPU 98A
+T1457,product,M162,G039-34,mechanical,tensileModulusXY,none,TPU 98A
+T1458,product,M162,G039-34,mechanical,elongationXY,none,TPU 98A
+T1459,product,M162,G039-34,thermal,hdt045,none,TPU 98A
+T1460,product,M161,G039-35,printing,drying,unknown,Prusament TPU 95A by Prusa Polymers
+T1461,product,M161,G039-35,mechanical,tensileStrengthXY,none,Prusament TPU 95A by Prusa Polymers
+T1462,product,M161,G039-35,mechanical,tensileModulusXY,none,Prusament TPU 95A by Prusa Polymers
+T1463,product,M161,G039-35,mechanical,elongationXY,none,Prusament TPU 95A by Prusa Polymers
+T1464,product,M161,G039-35,thermal,hdt045,none,Prusament TPU 95A by Prusa Polymers
+T1465,product,M161,G039-36,thermal,hdt045,none,Premium TPU-95A
+T1466,product,M161,G039-37,mechanical,tensileStrengthXY,none,TPU 95A
+T1467,product,M161,G039-37,mechanical,tensileModulusXY,none,TPU 95A
+T1468,product,M161,G039-37,mechanical,elongationXY,none,TPU 95A
+T1469,product,M161,G039-37,thermal,hdt045,none,TPU 95A
+T1470,product,M159,G039-38,printing,chamber,unknown,TPU 80A-Z
+T1471,product,M159,G039-38,printing,drying,unknown,TPU 80A-Z
+T1472,product,M159,G039-38,mechanical,tensileModulusXY,none,TPU 80A-Z
+T1473,product,M159,G039-38,mechanical,density,none,TPU 80A-Z
+T1474,product,M159,G039-38,thermal,hdt045,none,TPU 80A-Z
+T1475,product,M162,G039-39,printing,chamber,unknown,Armadillo
+T1476,product,M162,G039-39,printing,drying,unknown,Armadillo
+T1477,product,M162,G039-39,thermal,hdt045,none,Armadillo
+T1478,product,M161,G039-40,mechanical,tensileModulusXY,none,95A
+T1479,product,M161,G039-40,mechanical,elongationXY,none,95A
+T1480,product,M161,G039-40,thermal,hdt045,none,95A
+T1481,product,M159,G039-41,printing,chamber,unknown,60A
+T1482,product,M159,G039-41,mechanical,tensileModulusXY,none,60A
+T1483,product,M159,G039-41,thermal,hdt045,none,60A
+T1484,product,M161,G039-42,printing,drying,unknown,RECIFLEX
+T1485,product,M161,G039-42,mechanical,tensileModulusXY,none,RECIFLEX
+T1486,product,M161,G039-42,thermal,hdt045,none,RECIFLEX
+T1487,product,M159,G039-43,printing,chamber,unknown,82A
+T1488,product,M159,G039-43,thermal,hdt045,none,82A
+T1489,product,M162,G039-44,printing,chamber,unknown,TPU-64D
+T1490,product,M162,G039-44,mechanical,tensileModulusXY,none,TPU-64D
+T1491,product,M162,G039-44,thermal,hdt045,none,TPU-64D
+T1492,product,M162,G039-45,mechanical,tensileModulusXY,none,TPU 70D
+T1493,product,M162,G039-45,thermal,hdt045,none,TPU 70D
+T1494,product,M161,G039-46,mechanical,tensileModulusXY,none,ReForm rTPU 95A
+T1495,product,M161,G039-46,thermal,hdt045,none,ReForm rTPU 95A
+T1496,product,M162,G039-47,printing,chamber,unknown,Python Flex
+T1497,product,M162,G039-47,thermal,hdt045,none,Python Flex
+T1498,product,M159,G039-48,printing,chamber,unknown,eFlex
+T1499,product,M159,G039-48,mechanical,tensileStrengthXY,none,eFlex
+T1500,product,M159,G039-48,mechanical,tensileModulusXY,none,eFlex
+T1501,product,M159,G039-48,mechanical,elongationXY,none,eFlex
+T1502,product,M159,G039-48,thermal,hdt045,none,eFlex
+T1503,product,M161,G039-49,mechanical,tensileModulusXY,none,TPU 95A
+T1504,product,M161,G039-49,thermal,hdt045,none,TPU 95A
+T1505,product,M161,G039-50,mechanical,tensileModulusXY,none,TPU95A-HF
+T1506,product,M161,G039-50,thermal,hdt045,none,TPU95A-HF
+T1507,product,M161,G039-52,printing,drying,unknown,Build Series TPU
+T1508,product,M161,G039-52,mechanical,tensileModulusXY,none,Build Series TPU
+T1509,product,M161,G039-52,thermal,hdt045,none,Build Series TPU
+T1510,product,M161,G039-53,printing,drying,unknown,TPU 95A
+T1511,product,M161,G039-53,mechanical,tensileModulusXY,none,TPU 95A
+T1512,product,M161,G039-53,thermal,hdt045,none,TPU 95A
+T1513,product,M159,G039-54,printing,drying,unknown,TPU 87A
+T1514,product,M159,G039-54,mechanical,tensileModulusXY,none,TPU 87A
+T1515,product,M159,G039-54,thermal,hdt045,none,TPU 87A
+T1516,product,M161,G039-55,thermal,hdt045,none,TPU
+T1517,product,M159,G039-56,printing,drying,unknown,TPU 82A
+T1518,product,M159,G039-56,mechanical,tensileModulusXY,none,TPU 82A
+T1519,product,M159,G039-56,thermal,hdt045,none,TPU 82A
+T1520,product,M161,G039-57,thermal,hdt045,none,TPU
+T1521,product,M161,G039-58,mechanical,tensileStrengthXY,none,TPU HS
+T1522,product,M161,G039-58,mechanical,tensileModulusXY,none,TPU HS
+T1523,product,M161,G039-58,mechanical,elongationXY,none,TPU HS
+T1524,product,M161,G039-58,thermal,hdt045,none,TPU HS
+T1525,product,M161,G039-59,printing,drying,unknown,TPU 95A-Z
+T1526,product,M161,G039-59,mechanical,tensileModulusXY,none,TPU 95A-Z
+T1527,product,M161,G039-59,mechanical,density,none,TPU 95A-Z
+T1528,product,M161,G039-59,thermal,hdt045,none,TPU 95A-Z
+T1529,product,M160,G039-60,printing,chamber,unknown,varioShore Prosthetic TPU
+T1530,product,M160,G039-60,printing,drying,unknown,varioShore Prosthetic TPU
+T1531,product,M160,G039-60,thermal,hdt045,none,varioShore Prosthetic TPU
+T1532,product,M161,G039-61,thermal,hdt045,none,Standard TPU
+T1533,product,M160,G039-62,mechanical,tensileModulusXY,none,ReForm rTPU 90A
+T1534,product,M160,G039-62,mechanical,density,none,ReForm rTPU 90A
+T1535,product,M160,G039-62,thermal,hdt045,none,ReForm rTPU 90A
+T1536,product,M160,G039-63,printing,chamber,unknown,Python Flex TPU 90A
+T1537,product,M160,G039-63,mechanical,tensileStrengthXY,none,Python Flex TPU 90A
+T1538,product,M160,G039-63,mechanical,tensileModulusXY,none,Python Flex TPU 90A
+T1539,product,M160,G039-63,mechanical,elongationXY,none,Python Flex TPU 90A
+T1540,product,M160,G039-63,thermal,hdt045,none,Python Flex TPU 90A
+T1541,product,M159,G039-64,mechanical,tensileModulusXY,none,ReForm rTPU 85A
+T1542,product,M159,G039-64,mechanical,density,none,ReForm rTPU 85A
+T1543,product,M159,G039-64,thermal,hdt045,none,ReForm rTPU 85A
+T1544,product,M161,G039-65,printing,drying,unknown,TPU A95
+T1545,product,M161,G039-65,mechanical,tensileModulusXY,none,TPU A95
+T1546,product,M161,G039-65,thermal,hdt045,none,TPU A95
+T1547,product,M161,G039-66,mechanical,elongationXY,none,Flex TPU 95A
+T1548,product,M161,G039-66,thermal,hdt045,none,Flex TPU 95A
+T1549,product,M159,G039-67,printing,chamber,unknown,Flex TPU 85A
+T1550,product,M159,G039-67,mechanical,elongationXY,none,Flex TPU 85A
+T1551,product,M159,G039-67,thermal,hdt045,none,Flex TPU 85A
+T1552,product,M162,G039-68,thermal,hdt045,none,Flex TPU 64D
+T1553,product,M150,G039-69,printing,chamber,unknown,Flex TPU Air
+T1554,product,M150,G039-69,mechanical,tensileModulusXY,none,Flex TPU Air
+T1555,product,M150,G039-69,thermal,hdt045,none,Flex TPU Air
+T1556,product,M160,G039-70,thermal,hdt045,none,TPU 90A
+T1557,product,M162,G040-01,mechanical,tensileModulusXY,none,TPU for AMS
+T1558,product,M162,G040-01,thermal,hdt045,none,TPU for AMS
+T1559,product,M161,G041-01,thermal,hdt045,none,TPU 95A HF
+T1560,product,M160,G042-01,thermal,hdt045,none,TPU 90A
+T1561,product,M159,G043-01,thermal,hdt045,none,TPU 85A
+T1562,product,M045,G045-01,printing,chamber,unknown,PEBA90A
+T1563,product,M045,G045-01,mechanical,tensileModulusXY,none,PEBA90A
+T1564,product,M045,G045-01,thermal,hdt045,none,PEBA90A
+T1565,product,M045,G045-02,mechanical,tensileStrengthXY,none,peba
+T1566,product,M045,G045-02,mechanical,tensileModulusXY,none,peba
+T1567,product,M045,G045-02,mechanical,elongationXY,none,peba
+T1568,product,M045,G045-02,thermal,hdt045,none,peba
+T1569,product,M045,G045-03,printing,chamber,unknown,Kimya PEBA-S
+T1570,product,M045,G045-03,printing,drying,unknown,Kimya PEBA-S
+T1571,product,M045,G045-03,thermal,hdt045,none,Kimya PEBA-S
+T1572,product,M045,G045-04,printing,chamber,unknown,Flexfill PEBA 90A
+T1573,product,M045,G045-04,mechanical,tensileModulusXY,none,Flexfill PEBA 90A
+T1574,product,M045,G045-04,thermal,hdt045,none,Flexfill PEBA 90A
+T1575,product,M045,G045-05,printing,chamber,unknown,PEBA 45D
+T1576,product,M045,G045-05,printing,drying,unknown,PEBA 45D
+T1577,product,M045,G045-05,mechanical,tensileModulusXY,none,PEBA 45D
+T1578,product,M045,G045-05,mechanical,density,none,PEBA 45D
+T1579,product,M045,G045-05,thermal,hdt045,none,PEBA 45D
+T1580,product,M045,G045-06,printing,chamber,unknown,PEBA 40D
+T1581,product,M045,G045-06,printing,drying,unknown,PEBA 40D
+T1582,product,M045,G045-06,mechanical,tensileModulusXY,none,PEBA 40D
+T1583,product,M045,G045-06,mechanical,density,none,PEBA 40D
+T1584,product,M045,G045-06,thermal,hdt045,none,PEBA 40D
+T1585,product,M045,G045-07,printing,chamber,unknown,PEBA 95A
+T1586,product,M045,G045-07,mechanical,tensileModulusXY,none,PEBA 95A
+T1587,product,M045,G045-07,thermal,hdt045,none,PEBA 95A
+T1588,product,M045,G045-08,printing,chamber,unknown,Rebound PEBA 95A
+T1589,product,M045,G045-08,thermal,hdt045,none,Rebound PEBA 95A
+T1590,product,M045,G045-09,printing,chamber,unknown,Rebound PEBA Air 70A–95A
+T1591,product,M045,G045-09,mechanical,tensileModulusXY,none,Rebound PEBA Air 70A–95A
+T1592,product,M045,G045-09,thermal,hdt045,none,Rebound PEBA Air 70A–95A
+T1593,product,M045,G045-10,printing,chamber,unknown,Rebound PEBA 85A
+T1594,product,M045,G045-10,thermal,hdt045,none,Rebound PEBA 85A
+T1595,product,M046,G046-01,printing,chamber,unknown,Ultrafuse TPC 45D
+T1596,product,M046,G046-01,mechanical,tensileStrengthXY,none,Ultrafuse TPC 45D
+T1597,product,M046,G046-01,mechanical,tensileModulusXY,none,Ultrafuse TPC 45D
+T1598,product,M046,G046-01,mechanical,elongationXY,none,Ultrafuse TPC 45D
+T1599,product,M046,G046-01,thermal,hdt045,none,Ultrafuse TPC 45D
+T1600,product,M046,G046-02,printing,chamber,unknown,Kimya TPC-91A
+T1601,product,M046,G046-02,printing,drying,unknown,Kimya TPC-91A
+T1602,product,M046,G046-02,thermal,hdt045,none,Kimya TPC-91A
+T1603,product,M046,G046-03,printing,chamber,unknown,Arnitel ID 2045
+T1604,product,M046,G046-03,printing,drying,unknown,Arnitel ID 2045
+T1605,product,M046,G046-03,thermal,hdt045,none,Arnitel ID 2045
+T1606,product,M046,G046-04,printing,chamber,unknown,Thermoplastic polyester elastomer (TPC)
+T1607,product,M046,G046-04,printing,drying,unknown,Thermoplastic polyester elastomer (TPC)
+T1608,product,M046,G046-04,mechanical,elongationXY,none,Thermoplastic polyester elastomer (TPC)
+T1609,product,M046,G046-04,thermal,hdt045,none,Thermoplastic polyester elastomer (TPC)
+T1610,product,M046,G046-05,printing,chamber,unknown,FlexiFil TPC 30D
+T1611,product,M046,G046-05,mechanical,tensileStrengthXY,none,FlexiFil TPC 30D
+T1612,product,M046,G046-05,mechanical,tensileModulusXY,none,FlexiFil TPC 30D
+T1613,product,M046,G046-05,thermal,hdt045,none,FlexiFil TPC 30D
+T1614,product,M046,G046-06,printing,chamber,unknown,FlexiFil TPC 40D
+T1615,product,M046,G046-06,mechanical,tensileStrengthXY,none,FlexiFil TPC 40D
+T1616,product,M046,G046-06,mechanical,tensileModulusXY,none,FlexiFil TPC 40D
+T1617,product,M046,G046-06,thermal,hdt045,none,FlexiFil TPC 40D
+T1618,product,M046,G046-07,printing,chamber,unknown,FlexiFil
+T1619,product,M046,G046-07,printing,drying,unknown,FlexiFil
+T1620,product,M046,G046-07,thermal,hdt045,none,FlexiFil
+T1621,product,M048,G048-02,mechanical,density,none,Ultrafuse PAHT CF15
+T1622,product,M048,G048-03,thermal,hdt045,none,LUVOCOM 3F PA CF 9742 BK
+T1623,product,M048,G048-04,mechanical,tensileStrengthXY,none,LUVOCOM 3F PAHT CF 9891 BK
+T1624,product,M048,G048-04,mechanical,tensileModulusXY,none,LUVOCOM 3F PAHT CF 9891 BK
+T1625,product,M048,G048-04,mechanical,elongationXY,none,LUVOCOM 3F PAHT CF 9891 BK
+T1626,product,M048,G048-04,thermal,hdt045,none,LUVOCOM 3F PAHT CF 9891 BK
+T1627,product,M048,G048-05,printing,drying,unknown,PAHT CF
+T1628,product,M048,G048-05,mechanical,density,none,PAHT CF
+T1629,product,M048,G048-05,thermal,hdt045,none,PAHT CF
+T1630,product,M049,G049-01,printing,chamber,unknown,pa6 neat bk
+T1631,product,M049,G049-01,mechanical,elongationXY,none,pa6 neat bk
+T1632,product,M049,G049-02,printing,chamber,unknown,STYX PA6
+T1633,product,M049,G049-03,printing,chamber,unknown,PA6 Low Warp
+T1634,product,M049,G049-04,printing,chamber,unknown,PA6 Neat NT
+T1635,product,M049,G049-04,mechanical,elongationXY,none,PA6 Neat NT
+T1636,product,M049,G049-05,printing,chamber,unknown,Fishy Filaments’ Porthcurno
+T1637,product,M049,G049-05,thermal,hdt045,none,Fishy Filaments’ Porthcurno
+T1638,product,M049,G049-07,printing,chamber,unknown,PA
+T1639,product,M049,G049-07,mechanical,tensileStrengthXY,none,PA
+T1640,product,M049,G049-07,mechanical,tensileModulusXY,none,PA
+T1641,product,M049,G049-08,mechanical,elongationXY,none,PA Rail
+T1642,product,M049,G049-08,thermal,hdt045,none,PA Rail
+T1643,product,M049,G049-09,printing,chamber,unknown,WearX Wear Resistant PA6 Copolymer
+T1644,product,M050,G050-02,printing,drying,unknown,PA6 CF
+T1645,product,M050,G050-02,mechanical,tensileModulusXY,none,PA6 CF
+T1646,product,M050,G050-02,mechanical,elongationXY,none,PA6 CF
+T1647,product,M050,G050-02,thermal,hdt045,none,PA6 CF
+T1648,product,M050,G050-04,mechanical,elongationXY,none,PA6 CF15
+T1649,product,M050,G050-06,mechanical,tensileModulusXY,none,PA6-CF
+T1650,product,M050,G050-09,printing,drying,unknown,Fishy Filaments’ 0rCA
+T1651,product,M050,G050-09,thermal,hdt045,none,Fishy Filaments’ 0rCA
+T1652,product,M050,G050-12,mechanical,elongationXY,none,PA-6 CF
+T1653,product,M050,G050-14,mechanical,tensileModulusXY,none,PA6-CF
+T1654,product,M050,G050-14,thermal,hdt045,none,PA6-CF
+T1655,product,M051,G051-02,printing,drying,unknown,AMIDEX Nylon GF30
+T1656,product,M051,G051-03,printing,drying,unknown,PolyMide PA6 GF
+T1657,product,M051,G051-05,printing,drying,unknown,DURAPRO PA6 GF
+T1658,product,M051,G051-05,mechanical,tensileStrengthXY,none,DURAPRO PA6 GF
+T1659,product,M051,G051-05,mechanical,tensileModulusXY,none,DURAPRO PA6 GF
+T1660,product,M051,G051-05,mechanical,elongationXY,none,DURAPRO PA6 GF
+T1661,product,M051,G051-05,mechanical,density,none,DURAPRO PA6 GF
+T1662,product,M051,G051-05,thermal,hdt045,none,DURAPRO PA6 GF
+T1663,product,M051,G051-06,mechanical,tensileModulusXY,none,PA6-GF
+T1664,product,M051,G051-07,mechanical,tensileModulusXY,none,PA6-GF20
+T1665,product,M051,G051-11,printing,drying,unknown,PA6/66-GF30-FR
+T1666,product,M051,G051-11,mechanical,tensileStrengthXY,none,PA6/66-GF30-FR
+T1667,product,M051,G051-11,mechanical,tensileModulusXY,none,PA6/66-GF30-FR
+T1668,product,M051,G051-11,mechanical,elongationXY,none,PA6/66-GF30-FR
+T1669,product,M051,G051-11,mechanical,density,none,PA6/66-GF30-FR
+T1670,product,M052,G052-01,mechanical,tensileStrengthXY,none,AMIDEX Nylon 12
+T1671,product,M052,G052-01,mechanical,tensileModulusXY,none,AMIDEX Nylon 12
+T1672,product,M052,G052-01,mechanical,elongationXY,none,AMIDEX Nylon 12
+T1673,product,M052,G052-01,mechanical,density,none,AMIDEX Nylon 12
+T1674,product,M052,G052-01,thermal,hdt045,none,AMIDEX Nylon 12
+T1675,product,M052,G052-02,printing,chamber,unknown,DURAPRO PA12
+T1676,product,M052,G052-02,mechanical,density,none,DURAPRO PA12
+T1677,product,M052,G052-03,printing,chamber,unknown,Polyamide 12 (PA12)
+T1678,product,M052,G052-04,printing,chamber,unknown,ePA12
+T1679,product,M052,G052-04,mechanical,tensileStrengthXY,none,ePA12
+T1680,product,M052,G052-04,mechanical,tensileModulusXY,none,ePA12
+T1681,product,M052,G052-04,mechanical,elongationXY,none,ePA12
+T1682,product,M052,G052-04,thermal,hdt045,none,ePA12
+T1683,product,M052,G052-05,printing,chamber,unknown,STYX-12
+T1684,product,M052,G052-05,printing,drying,unknown,STYX-12
+T1685,product,M052,G052-05,thermal,hdt045,none,STYX-12
+T1686,product,M052,G052-06,printing,chamber,unknown,Nylon PA12
+T1687,product,M052,G052-07,printing,chamber,unknown,R Nylon
+T1688,product,M053,G053-01,printing,chamber,unknown,CarbonX CF PA12
+T1689,product,M053,G053-02,printing,drying,unknown,PolyMide PA12 CF
+T1690,product,M053,G053-03,printing,chamber,unknown,pa12 cf15
+T1691,product,M053,G053-04,printing,chamber,unknown,DURAPRO PA12 CF
+T1692,product,M053,G053-04,printing,drying,unknown,DURAPRO PA12 CF
+T1693,product,M053,G053-04,mechanical,tensileStrengthXY,none,DURAPRO PA12 CF
+T1694,product,M053,G053-04,mechanical,tensileModulusXY,none,DURAPRO PA12 CF
+T1695,product,M053,G053-04,mechanical,elongationXY,none,DURAPRO PA12 CF
+T1696,product,M053,G053-04,thermal,hdt045,none,DURAPRO PA12 CF
+T1697,product,M053,G053-05,mechanical,tensileModulusXY,none,PA12-CF
+T1698,product,M053,G053-06,printing,chamber,unknown,PA12-CF
+T1699,product,M053,G053-06,mechanical,tensileModulusXY,none,PA12-CF
+T1700,product,M053,G053-09,printing,nozzle,unknown,Industrial PA12 CF
+T1701,product,M053,G053-09,printing,bed,unknown,Industrial PA12 CF
+T1702,product,M053,G053-09,printing,chamber,unknown,Industrial PA12 CF
+T1703,product,M053,G053-09,mechanical,density,none,Industrial PA12 CF
+T1704,product,M053,G053-10,mechanical,tensileModulusXY,none,PA12-CF
+T1705,product,M053,G053-11,printing,chamber,unknown,PA12 CF
+T1706,product,M053,G053-11,mechanical,elongationXY,none,PA12 CF
+T1707,product,M053,G053-12,printing,chamber,unknown,Polyamid 12 carbon fiber 15% (PA12 CF15)
+T1708,product,M053,G053-12,thermal,hdt045,none,Polyamid 12 carbon fiber 15% (PA12 CF15)
+T1709,product,M053,G053-13,printing,nozzle,unknown,PA12CF
+T1710,product,M053,G053-13,printing,bed,unknown,PA12CF
+T1711,product,M053,G053-13,printing,chamber,unknown,PA12CF
+T1712,product,M053,G053-13,printing,drying,unknown,PA12CF
+T1713,product,M053,G053-13,mechanical,tensileStrengthXY,none,PA12CF
+T1714,product,M053,G053-13,mechanical,tensileModulusXY,none,PA12CF
+T1715,product,M053,G053-13,mechanical,elongationXY,none,PA12CF
+T1716,product,M053,G053-13,mechanical,density,none,PA12CF
+T1717,product,M053,G053-13,thermal,hdt045,none,PA12CF
+T1718,product,M053,G053-14,printing,chamber,unknown,Nylon CF15 Carbon
+T1719,product,M053,G053-14,thermal,hdt045,none,Nylon CF15 Carbon
+T1720,product,M053,G053-15,printing,chamber,unknown,Carbon Fiber Nylon
+T1721,product,M053,G053-15,printing,drying,unknown,Carbon Fiber Nylon
+T1722,product,M053,G053-15,mechanical,tensileModulusXY,none,Carbon Fiber Nylon
+T1723,product,M053,G053-16,printing,chamber,unknown,Nylon PA12+CF15
+T1724,product,M054,G054-02,printing,chamber,unknown,NylonG
+T1725,product,M054,G054-02,printing,drying,unknown,NylonG
+T1726,product,M054,G054-02,mechanical,elongationXY,none,NylonG
+T1727,product,M054,G054-02,thermal,hdt045,none,NylonG
+T1728,product,M057,G057-04,printing,chamber,unknown,PA Nylon Filament (1kg) Natural
+T1729,product,M057,G057-04,mechanical,tensileStrengthXY,none,PA Nylon Filament (1kg) Natural
+T1730,product,M057,G057-04,mechanical,tensileModulusXY,none,PA Nylon Filament (1kg) Natural
+T1731,product,M057,G057-04,mechanical,elongationXY,none,PA Nylon Filament (1kg) Natural
+T1732,product,M057,G057-04,thermal,hdt045,none,PA Nylon Filament (1kg) Natural
+T1733,product,M057,G057-05,printing,chamber,unknown,PA6/66
+T1734,product,M057,G057-05,mechanical,elongationXY,none,PA6/66
+T1735,product,M057,G057-07,printing,chamber,unknown,ePA
+T1736,product,M057,G057-07,mechanical,tensileStrengthXY,none,ePA
+T1737,product,M057,G057-07,mechanical,tensileModulusXY,none,ePA
+T1738,product,M057,G057-07,mechanical,elongationXY,none,ePA
+T1739,product,M057,G057-07,thermal,hdt045,none,ePA
+T1740,product,M059,G059-02,printing,chamber,unknown,PA612-CF
+T1741,product,M059,G059-03,printing,nozzle,unknown,Industrial PA12 CF+
+T1742,product,M059,G059-03,printing,bed,unknown,Industrial PA12 CF+
+T1743,product,M059,G059-03,printing,chamber,unknown,Industrial PA12 CF+
+T1744,product,M059,G059-03,mechanical,tensileStrengthXY,none,Industrial PA12 CF+
+T1745,product,M059,G059-03,mechanical,tensileModulusXY,none,Industrial PA12 CF+
+T1746,product,M059,G059-03,mechanical,elongationXY,none,Industrial PA12 CF+
+T1747,product,M064,G064-01,printing,chamber,unknown,3DXSTAT ESD PA12
+T1748,product,M066,G066-01,thermal,hdt045,none,High Precision PET
+T1749,product,M066,G066-02,mechanical,elongationXY,none,ecoPET 9021
+T1750,product,M066,G066-02,thermal,hdt045,none,ecoPET 9021
+T1751,product,M066,G066-03,printing,chamber,unknown,PET HIGH SPEED PRO
+T1752,product,M066,G066-03,printing,drying,unknown,PET HIGH SPEED PRO
+T1753,product,M066,G066-03,mechanical,density,none,PET HIGH SPEED PRO
+T1754,product,M066,G066-03,thermal,hdt045,none,PET HIGH SPEED PRO
+T1755,product,M066,G066-04,printing,chamber,unknown,PET ULTRA HIGH SPEED
+T1756,product,M066,G066-04,printing,drying,unknown,PET ULTRA HIGH SPEED
+T1757,product,M066,G066-04,mechanical,density,none,PET ULTRA HIGH SPEED
+T1758,product,M066,G066-04,thermal,hdt045,none,PET ULTRA HIGH SPEED
+T1759,product,M066,G066-05,printing,chamber,unknown,PET Flex Max
+T1760,product,M066,G066-05,printing,drying,unknown,PET Flex Max
+T1761,product,M066,G066-05,mechanical,density,none,PET Flex Max
+T1762,product,M066,G066-05,thermal,hdt045,none,PET Flex Max
+T1763,product,M066,G066-06,printing,chamber,unknown,Facilan HT
+T1764,product,M066,G066-06,printing,drying,unknown,Facilan HT
+T1765,product,M066,G066-06,mechanical,elongationXY,none,Facilan HT
+T1766,product,M066,G066-07,thermal,hdt045,none,EasyFil PET
+T1767,product,M067,G067-03,mechanical,elongationXY,none,PET CF15
+T1768,product,M067,G067-03,thermal,hdt045,none,PET CF15
+T1769,product,M067,G067-05,mechanical,tensileStrengthXY,none,Industrial PET CF
+T1770,product,M067,G067-05,mechanical,tensileModulusXY,none,Industrial PET CF
+T1771,product,M067,G067-05,mechanical,elongationXY,none,Industrial PET CF
+T1772,product,M067,G067-06,mechanical,tensileStrengthXY,none,Ultrafuse PET CF15
+T1773,product,M067,G067-06,mechanical,tensileModulusXY,none,Ultrafuse PET CF15
+T1774,product,M067,G067-06,mechanical,elongationXY,none,Ultrafuse PET CF15
+T1775,product,M067,G067-06,mechanical,density,none,Ultrafuse PET CF15
+T1776,product,M067,G067-07,printing,drying,unknown,Hyper Speed PET CF
+T1777,product,M067,G067-07,mechanical,tensileStrengthXY,none,Hyper Speed PET CF
+T1778,product,M067,G067-07,mechanical,tensileModulusXY,none,Hyper Speed PET CF
+T1779,product,M067,G067-07,mechanical,elongationXY,none,Hyper Speed PET CF
+T1780,product,M067,G067-08,mechanical,tensileModulusXY,none,PET CF
+T1781,product,M067,G067-08,thermal,hdt045,none,PET CF
+T1782,product,M068,G068-01,mechanical,tensileModulusXY,none,PET-GF
+T1783,product,M068,G068-04,printing,nozzle,unknown,Industrial PET GF
+T1784,product,M068,G068-04,printing,bed,unknown,Industrial PET GF
+T1785,product,M068,G068-04,printing,chamber,unknown,Industrial PET GF
+T1786,product,M068,G068-04,mechanical,density,none,Industrial PET GF
+T1787,product,M068,G068-05,mechanical,tensileModulusXY,none,PET-GF
+T1788,product,M069,G069-02,printing,chamber,unknown,Fibreheart PPA
+T1789,product,M070,G070-04,mechanical,tensileStrengthXY,none,Industrial PPA CF
+T1790,product,M070,G070-04,mechanical,tensileModulusXY,none,Industrial PPA CF
+T1791,product,M070,G070-04,mechanical,elongationXY,none,Industrial PPA CF
+T1792,product,M070,G070-05,printing,chamber,unknown,CarbonX Carbon Fiber High Temp Nylon (HTN)
+T1793,product,M070,G070-08,mechanical,tensileStrengthXY,none,Hyper Core PPA CF25
+T1794,product,M070,G070-08,mechanical,tensileModulusXY,none,Hyper Core PPA CF25
+T1795,product,M070,G070-08,mechanical,elongationXY,none,Hyper Core PPA CF25
+T1796,product,M071,G071-04,printing,nozzle,unknown,Industrial PPA GF
+T1797,product,M071,G071-04,printing,bed,unknown,Industrial PPA GF
+T1798,product,M071,G071-04,printing,chamber,unknown,Industrial PPA GF
+T1799,product,M071,G071-04,mechanical,tensileStrengthXY,none,Industrial PPA GF
+T1800,product,M071,G071-04,mechanical,tensileModulusXY,none,Industrial PPA GF
+T1801,product,M071,G071-04,mechanical,elongationXY,none,Industrial PPA GF
+T1802,product,M071,G071-04,mechanical,density,none,Industrial PPA GF
+T1803,product,M071,G071-05,printing,nozzle,unknown,Hyper Core PPA GF25
+T1804,product,M071,G071-05,printing,bed,unknown,Hyper Core PPA GF25
+T1805,product,M071,G071-05,printing,chamber,unknown,Hyper Core PPA GF25
+T1806,product,M071,G071-05,mechanical,tensileStrengthXY,none,Hyper Core PPA GF25
+T1807,product,M071,G071-05,mechanical,tensileModulusXY,none,Hyper Core PPA GF25
+T1808,product,M071,G071-05,mechanical,elongationXY,none,Hyper Core PPA GF25
+T1809,product,M072,G072-02,mechanical,tensileStrengthXY,none,pps am230
+T1810,product,M072,G072-02,mechanical,tensileModulusXY,none,pps am230
+T1811,product,M072,G072-02,mechanical,elongationXY,none,pps am230
+T1812,product,M073,G073-02,mechanical,density,none,Essentium PPS-CF
+T1813,product,M073,G073-02,thermal,hdt045,none,Essentium PPS-CF
+T1814,product,M073,G073-05,mechanical,tensileStrengthXY,none,LUVOCOM 3F PPS CF 9938 BK
+T1815,product,M073,G073-05,mechanical,tensileModulusXY,none,LUVOCOM 3F PPS CF 9938 BK
+T1816,product,M073,G073-05,mechanical,elongationXY,none,LUVOCOM 3F PPS CF 9938 BK
+T1817,product,M073,G073-05,thermal,hdt045,none,LUVOCOM 3F PPS CF 9938 BK
+T1818,product,M073,G073-07,printing,drying,unknown,Industrial PPS CF
+T1819,product,M073,G073-07,mechanical,tensileStrengthXY,none,Industrial PPS CF
+T1820,product,M073,G073-07,mechanical,tensileModulusXY,none,Industrial PPS CF
+T1821,product,M073,G073-07,mechanical,elongationXY,none,Industrial PPS CF
+T1822,product,M075,G075-01,mechanical,tensileStrengthXY,none,PVA
+T1823,product,M075,G075-01,mechanical,tensileModulusXY,none,PVA
+T1824,product,M075,G075-01,mechanical,elongationXY,none,PVA
+T1825,product,M075,G075-01,thermal,hdt045,none,PVA
+T1826,product,M075,G075-02,mechanical,tensileModulusXY,none,PVA
+T1827,product,M075,G075-03,printing,chamber,unknown,PVA
+T1828,product,M075,G075-03,printing,drying,unknown,PVA
+T1829,product,M075,G075-03,mechanical,tensileModulusXY,none,PVA
+T1830,product,M075,G075-03,thermal,hdt045,none,PVA
+T1831,product,M075,G075-04,printing,drying,unknown,AquaSolve - PVA
+T1832,product,M075,G075-04,thermal,hdt045,none,AquaSolve - PVA
+T1833,product,M075,G075-05,printing,chamber,unknown,PVA
+T1834,product,M075,G075-05,mechanical,tensileStrengthXY,none,PVA
+T1835,product,M075,G075-05,mechanical,tensileModulusXY,none,PVA
+T1836,product,M075,G075-05,mechanical,elongationXY,none,PVA
+T1837,product,M075,G075-05,thermal,hdt045,none,PVA
+T1838,product,M075,G075-06,mechanical,tensileStrengthXY,none,Helios Support
+T1839,product,M075,G075-06,mechanical,tensileModulusXY,none,Helios Support
+T1840,product,M075,G075-06,mechanical,elongationXY,none,Helios Support
+T1841,product,M075,G075-06,thermal,hdt045,none,Helios Support
+T1842,product,M075,G075-07,printing,drying,unknown,PVA
+T1843,product,M075,G075-08,printing,chamber,unknown,Polyvinyl alcohol (PVA)
+T1844,product,M075,G075-08,printing,drying,unknown,Polyvinyl alcohol (PVA)
+T1845,product,M075,G075-08,mechanical,tensileModulusXY,none,Polyvinyl alcohol (PVA)
+T1846,product,M075,G075-08,mechanical,elongationXY,none,Polyvinyl alcohol (PVA)
+T1847,product,M075,G075-08,thermal,hdt045,none,Polyvinyl alcohol (PVA)
+T1848,product,M075,G075-09,printing,nozzle,unknown,Premium PVA+
+T1849,product,M075,G075-09,printing,bed,unknown,Premium PVA+
+T1850,product,M075,G075-09,printing,chamber,unknown,Premium PVA+
+T1851,product,M075,G075-09,mechanical,tensileStrengthXY,none,Premium PVA+
+T1852,product,M075,G075-09,mechanical,elongationXY,none,Premium PVA+
+T1853,product,M075,G075-09,thermal,hdt045,none,Premium PVA+
+T1854,product,M075,G075-10,printing,drying,unknown,Atlas Support
+T1855,product,M075,G075-10,mechanical,tensileStrengthXY,none,Atlas Support
+T1856,product,M075,G075-10,mechanical,elongationXY,none,Atlas Support
+T1857,product,M075,G075-10,thermal,hdt045,none,Atlas Support
+T1858,product,M075,G075-11,mechanical,tensileStrengthXY,none,PolyDissolve S1
+T1859,product,M075,G075-11,mechanical,tensileModulusXY,none,PolyDissolve S1
+T1860,product,M075,G075-11,mechanical,elongationXY,none,PolyDissolve S1
+T1861,product,M075,G075-11,thermal,hdt045,none,PolyDissolve S1
+T1862,product,M076,G076-01,printing,chamber,unknown,BVOH
+T1863,product,M076,G076-01,thermal,hdt045,none,BVOH
+T1864,product,M076,G076-02,printing,chamber,unknown,Ultrafuse BVOH
+T1865,product,M076,G076-02,thermal,hdt045,none,Ultrafuse BVOH
+T1866,product,M076,G076-03,mechanical,tensileStrengthXY,none,BVOH
+T1867,product,M076,G076-03,mechanical,tensileModulusXY,none,BVOH
+T1868,product,M076,G076-03,mechanical,elongationXY,none,BVOH
+T1869,product,M076,G076-03,thermal,hdt045,none,BVOH
+T1870,product,M076,G076-04,mechanical,tensileModulusXY,none,BVOH
+T1871,product,M076,G076-04,thermal,hdt045,none,BVOH
+T1872,product,M077,G077-01,mechanical,tensileStrengthXY,none,Support for PLA (New Version)
+T1873,product,M077,G077-01,mechanical,tensileModulusXY,none,Support for PLA (New Version)
+T1874,product,M077,G077-01,mechanical,elongationXY,none,Support for PLA (New Version)
+T1875,product,M077,G077-01,thermal,hdt045,none,Support for PLA (New Version)
+T1876,product,M077,G077-02,mechanical,tensileStrengthXY,none,PolySupport
+T1877,product,M077,G077-02,mechanical,tensileModulusXY,none,PolySupport
+T1878,product,M077,G077-02,mechanical,elongationXY,none,PolySupport
+T1879,product,M077,G077-02,thermal,hdt045,none,PolySupport
+T1880,product,M078,G078-01,mechanical,tensileStrengthXY,none,Support for PLA/PETG
+T1881,product,M078,G078-01,mechanical,tensileModulusXY,none,Support for PLA/PETG
+T1882,product,M078,G078-01,mechanical,elongationXY,none,Support for PLA/PETG
+T1883,product,M078,G078-01,thermal,hdt045,none,Support for PLA/PETG
+T1884,product,M079,G079-01,mechanical,tensileStrengthXY,none,Support for ABS
+T1885,product,M079,G079-01,mechanical,tensileModulusXY,none,Support for ABS
+T1886,product,M079,G079-01,mechanical,elongationXY,none,Support for ABS
+T1887,product,M079,G079-01,thermal,hdt045,none,Support for ABS
+T1888,product,M080,G080-01,mechanical,tensileStrengthXY,none,Support for PA/PET
+T1889,product,M080,G080-01,mechanical,tensileModulusXY,none,Support for PA/PET
+T1890,product,M080,G080-01,mechanical,elongationXY,none,Support for PA/PET
+T1891,product,M080,G080-01,thermal,hdt045,none,Support for PA/PET
+T1892,product,M080,G080-02,mechanical,tensileStrengthXY,none,PolySupport for PA12
+T1893,product,M080,G080-02,mechanical,tensileModulusXY,none,PolySupport for PA12
+T1894,product,M080,G080-02,mechanical,elongationXY,none,PolySupport for PA12
+T1895,product,M080,G080-02,thermal,hdt045,none,PolySupport for PA12
+T1896,product,M080,G080-03,printing,nozzle,unknown,Industrial PET Support
+T1897,product,M080,G080-03,printing,bed,unknown,Industrial PET Support
+T1898,product,M080,G080-03,printing,chamber,unknown,Industrial PET Support
+T1899,product,M080,G080-03,mechanical,tensileStrengthXY,none,Industrial PET Support
+T1900,product,M080,G080-03,mechanical,tensileModulusXY,none,Industrial PET Support
+T1901,product,M080,G080-03,mechanical,elongationXY,none,Industrial PET Support
+T1902,product,M080,G080-03,mechanical,density,none,Industrial PET Support
+T1903,product,M080,G080-03,thermal,hdt045,none,Industrial PET Support
+T1904,product,M081,G081-02,printing,chamber,unknown,hipsx
+T1905,product,M081,G081-02,mechanical,tensileModulusXY,none,hipsx
+T1906,product,M081,G081-03,printing,chamber,unknown,High impact Polystyrol (HIPS)
+T1907,product,M081,G081-04,printing,chamber,unknown,HIPS Extrafill
+T1908,product,M081,G081-04,printing,drying,unknown,HIPS Extrafill
+T1909,product,M081,G081-04,thermal,hdt045,none,HIPS Extrafill
+T1910,product,M081,G081-05,printing,chamber,unknown,HIPS
+T1911,product,M081,G081-05,printing,drying,unknown,HIPS
+T1912,product,M081,G081-05,mechanical,tensileStrengthXY,none,HIPS
+T1913,product,M081,G081-05,mechanical,tensileModulusXY,none,HIPS
+T1914,product,M081,G081-05,mechanical,elongationXY,none,HIPS
+T1915,product,M081,G081-05,thermal,hdt045,none,HIPS
+T1916,product,M130,G081-06,mechanical,tensileStrengthXY,none,Insublend
+T1917,product,M130,G081-06,mechanical,tensileModulusXY,none,Insublend
+T1918,product,M081,G081-07,printing,nozzle,unknown,FDM HIPS
+T1919,product,M081,G081-07,printing,bed,unknown,FDM HIPS
+T1920,product,M081,G081-07,printing,chamber,unknown,FDM HIPS
+T1921,product,M081,G081-07,printing,drying,unknown,FDM HIPS
+T1922,product,M081,G081-07,mechanical,tensileStrengthXY,none,FDM HIPS
+T1923,product,M081,G081-07,mechanical,tensileModulusXY,none,FDM HIPS
+T1924,product,M081,G081-07,mechanical,elongationXY,none,FDM HIPS
+T1925,product,M081,G081-07,mechanical,density,none,FDM HIPS
+T1926,product,M081,G081-08,printing,chamber,unknown,EasyFil HIPS
+T1927,product,M081,G081-08,printing,drying,unknown,EasyFil HIPS
+T1928,product,M081,G081-08,thermal,hdt045,none,EasyFil HIPS
+T1929,product,M081,G081-09,printing,chamber,unknown,Ultrafuse HiPS
+T1930,product,M081,G081-10,mechanical,elongationXY,none,HIPS
+T1931,product,M081,G081-10,thermal,hdt045,none,HIPS
+T1932,product,M081,G081-12,printing,chamber,unknown,LimoSolve
+T1933,product,M081,G081-12,printing,drying,unknown,LimoSolve
+T1934,product,M081,G081-12,thermal,hdt045,none,LimoSolve
+T1935,product,M082,G082-02,printing,chamber,unknown,PP
+T1936,product,M082,G082-02,printing,drying,unknown,PP
+T1937,product,M082,G082-02,mechanical,tensileModulusXY,none,PP
+T1938,product,M082,G082-03,mechanical,tensileModulusXY,none,PP
+T1939,product,M082,G082-04,mechanical,tensileModulusXY,none,PP2.0
+T1940,product,M082,G082-05,mechanical,tensileModulusXY,none,PP
+T1941,product,M082,G082-06,printing,chamber,unknown,Polypropylene (PP)
+T1942,product,M082,G082-07,printing,chamber,unknown,PP 2320
+T1943,product,M082,G082-07,thermal,hdt045,none,PP 2320
+T1944,product,M082,G082-08,printing,chamber,unknown,PP
+T1945,product,M082,G082-08,printing,drying,unknown,PP
+T1946,product,M082,G082-08,mechanical,tensileModulusXY,none,PP
+T1947,product,M082,G082-08,thermal,hdt045,none,PP
+T1948,product,M082,G082-09,printing,drying,unknown,P
+T1949,product,M082,G082-09,mechanical,tensileStrengthXY,none,P
+T1950,product,M082,G082-09,mechanical,tensileModulusXY,none,P
+T1951,product,M082,G082-09,mechanical,elongationXY,none,P
+T1952,product,M082,G082-09,thermal,hdt045,none,P
+T1953,product,M082,G082-11,printing,chamber,unknown,Centaur PP
+T1954,product,M082,G082-11,printing,drying,unknown,Centaur PP
+T1955,product,M082,G082-11,mechanical,tensileModulusXY,none,Centaur PP
+T1956,product,M082,G082-11,thermal,hdt045,none,Centaur PP
+T1957,product,M082,G082-12,printing,chamber,unknown,Pegasus PP
+T1958,product,M082,G082-12,printing,drying,unknown,Pegasus PP
+T1959,product,M082,G082-12,thermal,hdt045,none,Pegasus PP
+T1960,product,M083,G083-02,printing,chamber,unknown,FL900PP-CF
+T1961,product,M083,G083-02,printing,drying,unknown,FL900PP-CF
+T1962,product,M083,G083-03,printing,chamber,unknown,Prusament PP Carbon Fiber by Prusa Polymers
+T1963,product,M083,G083-03,printing,drying,unknown,Prusament PP Carbon Fiber by Prusa Polymers
+T1964,product,M083,G083-03,mechanical,tensileStrengthXY,none,Prusament PP Carbon Fiber by Prusa Polymers
+T1965,product,M083,G083-03,mechanical,tensileModulusXY,none,Prusament PP Carbon Fiber by Prusa Polymers
+T1966,product,M083,G083-03,mechanical,elongationXY,none,Prusament PP Carbon Fiber by Prusa Polymers
+T1967,product,M083,G083-04,mechanical,tensileStrengthXY,none,PP CF
+T1968,product,M083,G083-04,mechanical,elongationXY,none,PP CF
+T1969,product,M083,G083-05,mechanical,tensileStrengthXY,none,LUVOCOM 3F PP CF 9928 BK
+T1970,product,M083,G083-05,mechanical,tensileModulusXY,none,LUVOCOM 3F PP CF 9928 BK
+T1971,product,M083,G083-05,mechanical,elongationXY,none,LUVOCOM 3F PP CF 9928 BK
+T1972,product,M083,G083-05,thermal,hdt045,none,LUVOCOM 3F PP CF 9928 BK
+T1973,product,M084,G084-01,printing,nozzle,unknown,FIBREX GF PP
+T1974,product,M084,G084-01,printing,bed,unknown,FIBREX GF PP
+T1975,product,M084,G084-01,printing,chamber,unknown,FIBREX GF PP
+T1976,product,M084,G084-01,printing,drying,unknown,FIBREX GF PP
+T1977,product,M084,G084-02,mechanical,tensileStrengthXY,none,Prusament PP Glass Fiber by Prusa Polymers
+T1978,product,M084,G084-02,mechanical,tensileModulusXY,none,Prusament PP Glass Fiber by Prusa Polymers
+T1979,product,M084,G084-02,mechanical,elongationXY,none,Prusament PP Glass Fiber by Prusa Polymers
+T1980,product,M085,G085-01,printing,chamber,unknown,hdpe
+T1981,product,M085,G085-01,thermal,hdt045,none,hdpe
+T1982,product,M085,G085-02,printing,chamber,unknown,FL300PE
+T1983,product,M085,G085-02,printing,drying,unknown,FL300PE
+T1984,product,M086,G086-01,printing,drying,unknown,EVOLV3D OBC
+T1985,product,M086,G086-01,mechanical,tensileModulusXY,none,EVOLV3D OBC
+T1986,product,M086,G086-01,thermal,hdt045,none,EVOLV3D OBC
+T1987,product,M086,G086-02,printing,drying,unknown,OBC 905
+T1988,product,M086,G086-02,mechanical,tensileModulusXY,none,OBC 905
+T1989,product,M086,G086-02,thermal,hdt045,none,OBC 905
+T1990,product,M087,G087-01,printing,chamber,unknown,purefil POM
+T1991,product,M087,G087-01,printing,drying,unknown,purefil POM
+T1992,product,M087,G087-01,mechanical,tensileStrengthXY,none,purefil POM
+T1993,product,M087,G087-01,mechanical,tensileModulusXY,none,purefil POM
+T1994,product,M087,G087-01,mechanical,elongationXY,none,purefil POM
+T1995,product,M087,G087-01,mechanical,density,none,purefil POM
+T1996,product,M087,G087-01,thermal,hdt045,none,purefil POM
+T1997,product,M087,G087-02,thermal,hdt045,none,Tarfuse POM 3D Filament
+T1998,product,M087,G087-03,printing,chamber,unknown,POM
+T1999,product,M087,G087-03,printing,drying,unknown,POM
+T2000,product,M087,G087-03,mechanical,tensileModulusXY,none,POM
+T2001,product,M087,G087-03,thermal,hdt045,none,POM
+T2002,product,M087,G087-04,printing,chamber,unknown,Polyoxymethylen (POM)
+T2003,product,M088,G088-02,mechanical,tensileModulusXY,none,pctg
+T2004,product,M088,G088-03,printing,chamber,unknown,PCTG
+T2005,product,M088,G088-03,thermal,hdt045,none,PCTG
+T2006,product,M088,G088-04,mechanical,tensileModulusXY,none,Pro PCTG
+T2007,product,M088,G088-05,mechanical,tensileModulusXY,none,AthenaX
+T2008,product,M088,G088-06,printing,chamber,unknown,PCTG
+T2009,product,M088,G088-06,mechanical,tensileModulusXY,none,PCTG
+T2010,product,M088,G088-06,thermal,hdt045,none,PCTG
+T2011,product,M088,G088-08,mechanical,tensileModulusXY,none,PCTG
+T2012,product,M089,G089-01,mechanical,tensileModulusXY,none,CPE HG100
+T2013,product,M089,G089-03,printing,chamber,unknown,XT
+T2014,product,M089,G089-03,printing,drying,unknown,XT
+T2015,product,M089,G089-04,printing,chamber,unknown,HT
+T2016,product,M089,G089-04,printing,drying,unknown,HT
+T2017,product,M089,G089-04,mechanical,density,none,HT
+T2018,product,M089,G089-04,thermal,hdt045,none,HT
+T2019,product,M090,G090-01,thermal,hdt045,none,CPE CF112 Carbon
+T2020,product,M090,G090-02,mechanical,tensileModulusXY,none,pctg cf10
+T2021,product,M090,G090-03,printing,chamber,unknown,XT-CF20
+T2022,product,M090,G090-03,printing,drying,unknown,XT-CF20
+T2023,product,M090,G090-03,mechanical,density,none,XT-CF20
+T2024,product,M090,G090-03,thermal,hdt045,none,XT-CF20
+T2025,product,M091,G091-02,mechanical,elongationXY,none,Panchroma CoPE
+T2026,product,M091,G091-02,thermal,hdt045,none,Panchroma CoPE
+T2027,product,M092,G092-02,printing,chamber,unknown,nGen
+T2028,product,M092,G092-02,printing,drying,unknown,nGen
+T2029,product,M093,G093-01,mechanical,tensileStrengthXY,none,PVB Prusament
+T2030,product,M093,G093-01,mechanical,tensileModulusXY,none,PVB Prusament
+T2031,product,M093,G093-01,mechanical,elongationXY,none,PVB Prusament
+T2032,product,M093,G093-03,mechanical,tensileModulusXY,none,PVB
+T2033,product,M093,G093-05,printing,chamber,unknown,PVB
+T2034,product,M093,G093-05,printing,drying,unknown,PVB
+T2035,product,M093,G093-05,thermal,hdt045,none,PVB
+T2036,product,M093,G093-06,thermal,hdt045,none,FiberSmooth
+T2037,product,M094,G094-03,printing,chamber,unknown,pc abs fr v0
+T2038,product,M094,G094-03,thermal,hdt045,none,pc abs fr v0
+T2039,product,M094,G094-04,mechanical,tensileModulusXY,none,PC/ABS
+T2040,product,M094,G094-06,printing,chamber,unknown,PC/ABS
+T2041,product,M094,G094-07,mechanical,tensileStrengthXY,none,PC-ABS Rail
+T2042,product,M094,G094-07,mechanical,elongationXY,none,PC-ABS Rail
+T2043,product,M094,G094-08,mechanical,tensileStrengthXY,none,PC-ABS V0
+T2044,product,M094,G094-08,mechanical,elongationXY,none,PC-ABS V0
+T2045,product,M094,G094-08,thermal,hdt045,none,PC-ABS V0
+T2046,product,M094,G094-09,printing,nozzle,unknown,PC-ABS
+T2047,product,M094,G094-09,printing,bed,unknown,PC-ABS
+T2048,product,M094,G094-09,printing,chamber,unknown,PC-ABS
+T2049,product,M094,G094-09,printing,drying,unknown,PC-ABS
+T2050,product,M094,G094-09,mechanical,tensileStrengthXY,none,PC-ABS
+T2051,product,M094,G094-09,mechanical,tensileModulusXY,none,PC-ABS
+T2052,product,M094,G094-09,mechanical,elongationXY,none,PC-ABS
+T2053,product,M094,G094-09,mechanical,density,none,PC-ABS
+T2054,product,M094,G094-10,printing,chamber,unknown,ABSpro - Flame Retardant
+T2055,product,M094,G094-10,printing,drying,unknown,ABSpro - Flame Retardant
+T2056,product,M094,G094-10,thermal,hdt045,none,ABSpro - Flame Retardant
+T2057,product,M094,G094-11,printing,chamber,unknown,PC/ABS
+T2058,product,M094,G094-12,printing,nozzle,unknown,Triton PC/ABS Model Material
+T2059,product,M094,G094-12,printing,bed,unknown,Triton PC/ABS Model Material
+T2060,product,M094,G094-12,printing,chamber,unknown,Triton PC/ABS Model Material
+T2061,product,M094,G094-12,thermal,hdt045,none,Triton PC/ABS Model Material
+T2062,product,M094,G094-13,printing,chamber,unknown,PC ABS
+T2063,product,M094,G094-13,mechanical,tensileModulusXY,none,PC ABS
+T2064,product,M094,G094-13,thermal,hdt045,none,PC ABS
+T2065,product,M095,G095-02,printing,chamber,unknown,DURAPRO PC-PBT
+T2066,product,M095,G095-02,mechanical,tensileModulusXY,none,DURAPRO PC-PBT
+T2067,product,M095,G095-02,mechanical,elongationXY,none,DURAPRO PC-PBT
+T2068,product,M095,G095-02,mechanical,density,none,DURAPRO PC-PBT
+T2069,product,M095,G095-02,thermal,hdt045,none,DURAPRO PC-PBT
+T2070,product,M096,G096-01,printing,chamber,unknown,FLUORX PVDF
+T2071,product,M096,G096-02,printing,chamber,unknown,Fluorodur
+T2072,product,M096,G096-02,printing,drying,unknown,Fluorodur
+T2073,product,M096,G096-02,thermal,hdt045,none,Fluorodur
+T2074,product,M096,G096-03,printing,nozzle,unknown,KOLTRON
+T2075,product,M096,G096-03,printing,bed,unknown,KOLTRON
+T2076,product,M096,G096-03,printing,chamber,unknown,KOLTRON
+T2077,product,M096,G096-03,printing,drying,unknown,KOLTRON
+T2078,product,M104,G104-01,mechanical,elongationXY,none,PA6 CS20 FR V0
+T2079,product,M105,G105-01,mechanical,tensileStrengthXY,none,ASA Conductive
+T2080,product,M105,G105-01,mechanical,tensileModulusXY,none,ASA Conductive
+T2081,product,M105,G105-01,mechanical,elongationXY,none,ASA Conductive
+T2082,product,M105,G105-01,thermal,hdt045,none,ASA Conductive
+T2083,product,M106,G106-02,printing,chamber,unknown,ABSKevlar
+T2084,product,M106,G106-02,printing,drying,unknown,ABSKevlar
+T2085,product,M106,G106-02,mechanical,tensileModulusXY,none,ABSKevlar
+T2086,product,M106,G106-02,mechanical,elongationXY,none,ABSKevlar
+T2087,product,M106,G106-03,mechanical,elongationXY,none,ABS AF
+T2088,product,M106,G106-03,thermal,hdt045,none,ABS AF
+T2089,product,M107,G107-01,mechanical,tensileStrengthXY,none,PLA ESD
+T2090,product,M107,G107-01,mechanical,tensileModulusXY,none,PLA ESD
+T2091,product,M107,G107-01,mechanical,elongationXY,none,PLA ESD
+T2092,product,M108,G108-01,printing,chamber,unknown,PA6 GK10
+T2093,product,M108,G108-01,mechanical,elongationXY,none,PA6 GK10
+T2094,product,M109,G109-01,printing,drying,unknown,PETG/PTFE
+T2095,product,M109,G109-01,mechanical,tensileStrengthXY,none,PETG/PTFE
+T2096,product,M109,G109-01,mechanical,tensileModulusXY,none,PETG/PTFE
+T2097,product,M109,G109-01,mechanical,elongationXY,none,PETG/PTFE
+T2098,product,M109,G109-01,thermal,hdt045,none,PETG/PTFE
+T2099,product,M109,G109-02,thermal,hdt045,none,PETG+PTFE
+T2100,product,M110,G110-01,mechanical,tensileModulusXY,none,PCTG GF10
+T2101,product,M110,G110-02,mechanical,tensileModulusXY,none,AthenaX GF10
+T2102,product,M111,G111-01,mechanical,tensileStrengthXY,none,PLA Conductive
+T2103,product,M111,G111-01,mechanical,tensileModulusXY,none,PLA Conductive
+T2104,product,M111,G111-01,mechanical,elongationXY,none,PLA Conductive
+T2105,product,M111,G111-01,thermal,hdt045,none,PLA Conductive
+T2106,product,M111,G111-02,printing,chamber,unknown,Conductive PLA
+T2107,product,M111,G111-02,printing,drying,unknown,Conductive PLA
+T2108,product,M111,G111-02,mechanical,tensileStrengthXY,none,Conductive PLA
+T2109,product,M111,G111-02,mechanical,tensileModulusXY,none,Conductive PLA
+T2110,product,M111,G111-02,mechanical,elongationXY,none,Conductive PLA
+T2111,product,M111,G111-02,thermal,hdt045,none,Conductive PLA
+T2112,product,M112,G112-01,printing,chamber,unknown,PC/PTFE
+T2113,product,M112,G112-02,mechanical,tensileStrengthXY,none,PC-PTFE
+T2114,product,M112,G112-02,mechanical,elongationXY,none,PC-PTFE
+T2115,product,M112,G112-02,thermal,hdt045,none,PC-PTFE
+T2116,product,M113,G113-03,printing,chamber,unknown,ASA+AF
+T2117,product,M114,G114-01,printing,nozzle,unknown,3DXSTAT ESD-TPC (90A)
+T2118,product,M114,G114-01,printing,bed,unknown,3DXSTAT ESD-TPC (90A)
+T2119,product,M114,G114-01,printing,chamber,unknown,3DXSTAT ESD-TPC (90A)
+T2120,product,M114,G114-01,printing,drying,unknown,3DXSTAT ESD-TPC (90A)
+T2121,product,M114,G114-01,thermal,hdt045,none,3DXSTAT ESD-TPC (90A)
+T2122,product,M116,G116-01,printing,chamber,unknown,3DXSTAT ESD-PC
+T2123,product,M116,G116-02,printing,nozzle,unknown,TriStat ESD-PC Model Material
+T2124,product,M116,G116-02,printing,bed,unknown,TriStat ESD-PC Model Material
+T2125,product,M116,G116-02,printing,chamber,unknown,TriStat ESD-PC Model Material
+T2126,product,M116,G116-02,printing,drying,unknown,TriStat ESD-PC Model Material
+T2127,product,M116,G116-02,mechanical,tensileStrengthXY,none,TriStat ESD-PC Model Material
+T2128,product,M116,G116-02,mechanical,tensileModulusXY,none,TriStat ESD-PC Model Material
+T2129,product,M116,G116-02,thermal,hdt045,none,TriStat ESD-PC Model Material
+T2130,product,M119,G119-01,printing,chamber,unknown,3DXMAX PC/ASA
+T2131,product,M119,G119-01,printing,drying,unknown,3DXMAX PC/ASA
+T2132,product,M126,G126-01,mechanical,tensileModulusXY,none,3DXSTAT ESD-TPU (90A)
+T2133,product,M126,G126-01,mechanical,elongationXY,none,3DXSTAT ESD-TPU (90A)
+T2134,product,M126,G126-01,thermal,hdt045,none,3DXSTAT ESD-TPU (90A)
+T2135,product,M126,G126-02,mechanical,tensileModulusXY,none,FLEX MEDIUM ESD
+T2136,product,M126,G126-02,thermal,hdt045,none,FLEX MEDIUM ESD
+T2137,product,M128,G128-01,printing,chamber,unknown,CarbonX Carbon Fiber PC/ABS
+T2138,product,M129,G129-01,mechanical,tensileStrengthXY,none,S-Flex Carbon
+T2139,product,M129,G129-01,mechanical,tensileModulusXY,none,S-Flex Carbon
+T2140,product,M129,G129-01,mechanical,elongationXY,none,S-Flex Carbon
+T2141,product,M129,G129-01,thermal,hdt045,none,S-Flex Carbon
+T2142,product,M129,G129-02,printing,drying,unknown,FLEX HARD CF
+T2143,product,M129,G129-02,mechanical,tensileStrengthXY,none,FLEX HARD CF
+T2144,product,M129,G129-02,mechanical,tensileModulusXY,none,FLEX HARD CF
+T2145,product,M129,G129-02,mechanical,elongationXY,none,FLEX HARD CF
+T2146,product,M129,G129-02,thermal,hdt045,none,FLEX HARD CF
+T2147,product,M129,G129-07,thermal,hdt045,none,FiberFlex CF
+T2148,product,M131,G131-01,printing,chamber,unknown,DURAPRO PC-PBT CF
+T2149,product,M131,G131-01,thermal,hdt045,none,DURAPRO PC-PBT CF
+T2150,product,M134,G134-01,mechanical,tensileModulusXY,none,FiberFlex Aero
+T2151,product,M135,G135-01,printing,chamber,unknown,Polyvinylchlorid weich 94A (PVC-P)
+T2152,product,M135,G135-01,mechanical,tensileModulusXY,none,Polyvinylchlorid weich 94A (PVC-P)
+T2153,product,M135,G135-01,thermal,hdt045,none,Polyvinylchlorid weich 94A (PVC-P)
+T2154,product,M135,G135-02,printing,chamber,unknown,Vinyl 303
+T2155,product,M135,G135-02,printing,drying,unknown,Vinyl 303
+T2156,product,M135,G135-02,mechanical,tensileModulusXY,none,Vinyl 303
+T2157,product,M135,G135-02,thermal,hdt045,none,Vinyl 303
+T2158,product,M136,G136-02,printing,chamber,unknown,Styrol-Acrylnitril (SAN)
+T2159,product,M136,G136-02,mechanical,elongationXY,none,Styrol-Acrylnitril (SAN)
+T2160,product,M136,G136-02,thermal,hdt045,none,Styrol-Acrylnitril (SAN)
+T2161,product,M137,G137-03,printing,nozzle,unknown,Cyclo-Olefin-Copolymer flexibel (COC flex)
+T2162,product,M138,G138-02,printing,chamber,unknown,Polyethylen high density glass fiber 20% (HDPE GF20)
+T2163,product,M138,G138-03,printing,nozzle,unknown,HDPE Glass Fiber
+T2164,product,M138,G138-03,printing,bed,unknown,HDPE Glass Fiber
+T2165,product,M138,G138-03,printing,chamber,unknown,HDPE Glass Fiber
+T2166,product,M138,G138-03,printing,drying,unknown,HDPE Glass Fiber
+T2167,product,M138,G138-03,mechanical,tensileModulusXY,none,HDPE Glass Fiber
+T2168,product,M138,G138-03,thermal,hdt045,none,HDPE Glass Fiber
+T2169,product,M139,G139-01,printing,chamber,unknown,Liquid Crystal Polymer (LCP)
+T2170,product,M139,G139-01,thermal,hdt045,none,Liquid Crystal Polymer (LCP)
+T2171,product,M140,G140-01,printing,chamber,unknown,Polybutylenterephthalat (PBT)
+T2172,product,M141,G141-01,printing,chamber,unknown,Lightweight PET
+T2173,product,M141,G141-01,printing,drying,unknown,Lightweight PET
+T2174,product,M141,G141-01,thermal,hdt045,none,Lightweight PET
+T2175,product,M141,G141-02,printing,chamber,unknown,Lightweight PET FLEX
+T2176,product,M141,G141-02,printing,drying,unknown,Lightweight PET FLEX
+T2177,product,M141,G141-02,thermal,hdt045,none,Lightweight PET FLEX
+T2178,product,M142,G142-01,printing,chamber,unknown,nGen CF10
+T2179,product,M143,G143-01,printing,chamber,unknown,nGen_FLEX
+T2180,product,M143,G143-01,thermal,hdt045,none,nGen_FLEX
+T2181,product,M144,G144-01,mechanical,tensileModulusXY,none,AthenaX CF10
+T2182,product,M144,G144-02,mechanical,tensileModulusXY,none,PCTG CF
+T2183,product,M144,G144-02,thermal,hdt045,none,PCTG CF
+T2184,product,M144,G144-03,mechanical,tensileModulusXY,none,PCTG+CF10
+T2185,product,M145,G145-01,printing,chamber,unknown,PLA/PHA
+T2186,product,M145,G145-01,thermal,hdt045,none,PLA/PHA
+T2187,product,M147,G147-01,mechanical,elongationXY,none,LUVOCOM 3F PAHT 9825 NT
+T2188,product,M147,G147-01,thermal,hdt045,none,LUVOCOM 3F PAHT 9825 NT
+T2189,product,M148,G148-01,printing,chamber,unknown,LUVOCOM 3F PAHT 9936 BK
+T2190,product,M148,G148-01,mechanical,tensileStrengthXY,none,LUVOCOM 3F PAHT 9936 BK
+T2191,product,M148,G148-01,mechanical,tensileModulusXY,none,LUVOCOM 3F PAHT 9936 BK
+T2192,product,M148,G148-01,mechanical,elongationXY,none,LUVOCOM 3F PAHT 9936 BK
+T2193,product,M148,G148-01,thermal,hdt045,none,LUVOCOM 3F PAHT 9936 BK
+T2194,product,M148,G148-02,printing,chamber,unknown,LUVOCOM 3F PAHT KK 50056 BK
+T2195,product,M148,G148-02,mechanical,tensileStrengthXY,none,LUVOCOM 3F PAHT KK 50056 BK
+T2196,product,M148,G148-02,mechanical,tensileModulusXY,none,LUVOCOM 3F PAHT KK 50056 BK
+T2197,product,M148,G148-02,mechanical,elongationXY,none,LUVOCOM 3F PAHT KK 50056 BK
+T2198,product,M148,G148-02,thermal,hdt045,none,LUVOCOM 3F PAHT KK 50056 BK
+T2199,product,M149,G149-01,printing,nozzle,unknown,Capa 6500 Polycaprolactone
+T2200,product,M149,G149-01,printing,bed,unknown,Capa 6500 Polycaprolactone
+T2201,product,M149,G149-01,printing,chamber,unknown,Capa 6500 Polycaprolactone
+T2202,product,M149,G149-01,printing,drying,unknown,Capa 6500 Polycaprolactone
+T2203,product,M149,G149-01,mechanical,tensileStrengthXY,none,Capa 6500 Polycaprolactone
+T2204,product,M149,G149-01,mechanical,tensileModulusXY,none,Capa 6500 Polycaprolactone
+T2205,product,M149,G149-01,mechanical,density,none,Capa 6500 Polycaprolactone
+T2206,product,M149,G149-01,thermal,hdt045,none,Capa 6500 Polycaprolactone
+T2207,product,M149,G149-02,printing,chamber,unknown,Facilan PCL100
+T2208,product,M149,G149-02,printing,drying,unknown,Facilan PCL100
+T2209,product,M149,G149-02,mechanical,elongationXY,none,Facilan PCL100
+T2210,product,M149,G149-03,printing,nozzle,unknown,PCL
+T2211,product,M149,G149-03,mechanical,tensileStrengthXY,none,PCL
+T2212,product,M149,G149-03,mechanical,tensileModulusXY,none,PCL
+T2213,product,M149,G149-03,thermal,hdt045,none,PCL
+T2214,product,M149,G149-04,printing,nozzle,unknown,BioFil - PCL
+T2215,product,M149,G149-04,printing,bed,unknown,BioFil - PCL
+T2216,product,M149,G149-04,printing,chamber,unknown,BioFil - PCL
+T2217,product,M149,G149-04,mechanical,elongationXY,none,BioFil - PCL
+T2218,product,M150,G150-01,printing,chamber,unknown,FILAFLEX FOAMY
+T2219,product,M150,G150-01,mechanical,tensileStrengthXY,none,FILAFLEX FOAMY
+T2220,product,M150,G150-01,mechanical,tensileModulusXY,none,FILAFLEX FOAMY
+T2221,product,M150,G150-01,mechanical,elongationXY,none,FILAFLEX FOAMY
+T2222,product,M150,G150-01,thermal,hdt045,none,FILAFLEX FOAMY
+T2223,product,M150,G150-02,printing,chamber,unknown,TPU LW
+T2224,product,M150,G150-02,mechanical,tensileStrengthXY,none,TPU LW
+T2225,product,M150,G150-02,mechanical,tensileModulusXY,none,TPU LW
+T2226,product,M150,G150-02,mechanical,elongationXY,none,TPU LW
+T2227,product,M150,G150-02,thermal,hdt045,none,TPU LW
+T2228,product,M150,G150-03,printing,chamber,unknown,FILAFLEX 95 FOAMY
+T2229,product,M150,G150-03,mechanical,tensileStrengthXY,none,FILAFLEX 95 FOAMY
+T2230,product,M150,G150-03,mechanical,tensileModulusXY,none,FILAFLEX 95 FOAMY
+T2231,product,M150,G150-03,mechanical,elongationXY,none,FILAFLEX 95 FOAMY
+T2232,product,M150,G150-03,mechanical,density,none,FILAFLEX 95 FOAMY
+T2233,product,M150,G150-03,thermal,hdt045,none,FILAFLEX 95 FOAMY
+T2234,product,M151,G151-01,thermal,hdt045,none,Fibreheart TPU GF
+T2235,product,M152,G152-02,mechanical,elongationXY,none,PLA Flax
+T2236,product,M153,G153-01,thermal,hdt045,none,PROGRAFEN PET-G GRAPHENE STRONG
+T2237,product,M154,G154-01,printing,chamber,unknown,Nylon AF80 Aramid
+T2238,product,M154,G154-01,thermal,hdt045,none,Nylon AF80 Aramid
+T2239,product,M155,G155-01,printing,drying,unknown,PLA PROGRAFEN GRAPHENE LIGHT
+T2240,product,M155,G155-01,thermal,hdt045,none,PLA PROGRAFEN GRAPHENE LIGHT
+T2241,product,M155,G155-02,printing,drying,unknown,PLA PROGRAFEN GRAPHENE STRONG
+T2242,product,M155,G155-02,thermal,hdt045,none,PLA PROGRAFEN GRAPHENE STRONG
+T2243,product,M156,G156-01,printing,chamber,unknown,ePA CF
+T2244,product,M156,G156-01,mechanical,tensileModulusXY,none,ePA CF
+T2245,product,M157,G157-01,printing,chamber,unknown,CONDUCTIVE FILAFLEX
+T2246,product,M157,G157-01,mechanical,tensileStrengthXY,none,CONDUCTIVE FILAFLEX
+T2247,product,M157,G157-01,mechanical,elongationXY,none,CONDUCTIVE FILAFLEX
+T2248,product,M157,G157-01,thermal,hdt045,none,CONDUCTIVE FILAFLEX
+T2249,product,M157,G157-02,printing,chamber,unknown,Eel
+T2250,product,M157,G157-02,printing,drying,unknown,Eel
+T2251,product,M157,G157-02,thermal,hdt045,none,Eel
+T2252,product,M162,G162-01,printing,chamber,unknown,MD Flex
+T2253,product,M162,G162-01,printing,drying,unknown,MD Flex
+T2254,product,M162,G162-01,thermal,hdt045,none,MD Flex
+T2255,product,M052,G164-01,printing,chamber,unknown,Nylon FX256
+T2256,product,M052,G164-01,thermal,hdt045,none,Nylon FX256
+T2257,product,M164,G164-02,printing,chamber,unknown,PA Blue Metal Detectable
+T2258,product,M055,G164-03,printing,chamber,unknown,ThermaTech PA
+T2259,product,M055,G164-03,mechanical,tensileStrengthXY,none,ThermaTech PA
+T2260,product,M055,G164-03,mechanical,tensileModulusXY,none,ThermaTech PA
+T2261,product,M055,G164-03,mechanical,elongationXY,none,ThermaTech PA
+T2262,product,M055,G164-03,thermal,hdt045,none,ThermaTech PA
+T2263,product,M057,G164-04,printing,chamber,unknown,PRO Series Nylon
+T2264,product,M057,G164-04,mechanical,tensileModulusXY,none,PRO Series Nylon
+T2265,product,M164,G164-05,printing,nozzle,unknown,MAKERBOT SPECIALTY NYLON
+T2266,product,M164,G164-05,printing,bed,unknown,MAKERBOT SPECIALTY NYLON
+T2267,product,M164,G164-05,printing,drying,unknown,MAKERBOT SPECIALTY NYLON
+T2268,product,M164,G164-05,mechanical,elongationXY,none,MAKERBOT SPECIALTY NYLON
+T2269,product,M164,G164-05,mechanical,density,none,MAKERBOT SPECIALTY NYLON
+T2270,product,M164,G164-06,printing,chamber,unknown,PA NEAT
+T2271,product,M164,G164-06,thermal,hdt045,none,PA NEAT
+T2272,product,M164,G164-07,mechanical,elongationXY,none,PA Food Industry
+T2273,product,M164,G164-07,thermal,hdt045,none,PA Food Industry
+T2274,product,M055,G164-08,printing,chamber,unknown,Nylon
+T2275,product,M055,G164-08,printing,drying,unknown,Nylon
+T2276,product,M055,G164-08,mechanical,tensileModulusXY,none,Nylon
+T2277,product,M055,G164-08,mechanical,elongationXY,none,Nylon
+T2278,product,M055,G164-08,mechanical,density,none,Nylon
+T2279,product,M165,G165-01,printing,chamber,unknown,PA-CF low warp
+T2280,product,M165,G165-01,mechanical,tensileModulusXY,none,PA-CF low warp
+T2281,product,M165,G165-01,thermal,hdt045,none,PA-CF low warp
+T2282,product,M166,G166-01,printing,nozzle,unknown,Onyx GF
+T2283,product,M166,G166-01,printing,bed,unknown,Onyx GF
+T2284,product,M166,G166-01,printing,chamber,unknown,Onyx GF
+T2285,product,M166,G166-01,printing,drying,unknown,Onyx GF
+T2286,product,M166,G166-01,thermal,hdt045,none,Onyx GF
+T2287,product,M167,G167-01,mechanical,tensileStrengthXY,none,TPE 22D
+T2288,product,M167,G167-01,mechanical,elongationXY,none,TPE 22D
+T2289,product,M167,G167-01,thermal,hdt045,none,TPE 22D
+T2290,product,M170,G167-02,printing,chamber,unknown,Flexfill TPE 90A
+T2291,product,M170,G167-02,printing,drying,unknown,Flexfill TPE 90A
+T2292,product,M170,G167-02,mechanical,tensileModulusXY,none,Flexfill TPE 90A
+T2293,product,M170,G167-02,thermal,hdt045,none,Flexfill TPE 90A
+T2294,product,M046,G167-03,printing,chamber,unknown,FiberFlex 30D
+T2295,product,M046,G167-03,printing,drying,unknown,FiberFlex 30D
+T2296,product,M046,G167-03,mechanical,tensileModulusXY,none,FiberFlex 30D
+T2297,product,M046,G167-03,thermal,hdt045,none,FiberFlex 30D
+T2298,product,M046,G167-04,mechanical,tensileModulusXY,none,MattFlex 40D
+T2299,product,M046,G167-04,thermal,hdt045,none,MattFlex 40D
+T2300,product,M046,G167-05,printing,chamber,unknown,Chinchilla
+T2301,product,M046,G167-05,printing,drying,unknown,Chinchilla
+T2302,product,M046,G167-05,thermal,hdt045,none,Chinchilla
+T2303,product,M046,G167-06,printing,chamber,unknown,FiberFlex 40D
+T2304,product,M046,G167-06,printing,drying,unknown,FiberFlex 40D
+T2305,product,M046,G167-06,mechanical,tensileModulusXY,none,FiberFlex 40D
+T2306,product,M046,G167-06,thermal,hdt045,none,FiberFlex 40D
+T2307,product,M167,G167-07,mechanical,tensileStrengthXY,none,Flex B4C
+T2308,product,M167,G167-07,mechanical,tensileModulusXY,none,Flex B4C
+T2309,product,M167,G167-07,mechanical,elongationXY,none,Flex B4C
+T2310,product,M167,G167-07,thermal,hdt045,none,Flex B4C
+T2311,product,M167,G167-08,mechanical,tensileStrengthXY,none,Flex VX
+T2312,product,M167,G167-08,mechanical,tensileModulusXY,none,Flex VX
+T2313,product,M167,G167-08,mechanical,elongationXY,none,Flex VX
+T2314,product,M167,G167-08,thermal,hdt045,none,Flex VX
+T2315,product,M160,G167-09,mechanical,tensileModulusXY,none,Flex
+T2316,product,M160,G167-09,thermal,hdt045,none,Flex
+T2317,product,M170,G167-10,printing,chamber,unknown,TPE 83A
+T2318,product,M170,G167-10,mechanical,tensileStrengthXY,none,TPE 83A
+T2319,product,M170,G167-10,mechanical,tensileModulusXY,none,TPE 83A
+T2320,product,M170,G167-10,mechanical,elongationXY,none,TPE 83A
+T2321,product,M170,G167-10,thermal,hdt045,none,TPE 83A
+T2322,product,M170,G167-11,printing,chamber,unknown,Flexfill TPE 96A
+T2323,product,M170,G167-11,printing,drying,unknown,Flexfill TPE 96A
+T2324,product,M170,G167-11,mechanical,tensileModulusXY,none,Flexfill TPE 96A
+T2325,product,M170,G167-11,thermal,hdt045,none,Flexfill TPE 96A
+T2326,product,M167,G167-12,thermal,hdt045,none,ISTROFLEX
+T2327,product,M175,G167-13,thermal,hdt045,none,Thermoplastic vulcanizate (TPV)
+T2328,product,M168,G168-01,printing,chamber,unknown,PRO HT
+T2329,product,M168,G168-01,mechanical,elongationXY,none,PRO HT
+T2330,product,M168,G168-01,thermal,hdt045,none,PRO HT
+T2331,product,M168,G168-02,printing,chamber,unknown,niceBIO
+T2332,product,M168,G168-02,printing,drying,unknown,niceBIO
+T2333,product,M168,G168-02,mechanical,tensileModulusXY,none,niceBIO
+T2334,product,M168,G168-02,mechanical,elongationXY,none,niceBIO
+T2335,product,M168,G168-03,printing,drying,unknown,GREENTEC PRO
+T2336,product,M168,G168-03,mechanical,tensileStrengthXY,none,GREENTEC PRO
+T2337,product,M168,G168-03,mechanical,tensileModulusXY,none,GREENTEC PRO
+T2338,product,M168,G168-03,mechanical,elongationXY,none,GREENTEC PRO
+T2339,product,M168,G168-03,thermal,hdt045,none,GREENTEC PRO
+T2340,product,M168,G168-04,printing,drying,unknown,GREENTEC
+T2341,product,M168,G168-04,mechanical,tensileStrengthXY,none,GREENTEC
+T2342,product,M168,G168-04,mechanical,tensileModulusXY,none,GREENTEC
+T2343,product,M168,G168-04,mechanical,elongationXY,none,GREENTEC
+T2344,product,M168,G168-04,thermal,hdt045,none,GREENTEC
+T2345,product,M168,G168-05,printing,drying,unknown,Greeny Pro
+T2346,product,M169,G169-01,thermal,hdt045,none,GREENTEC PRO CF
+T2347,product,M169,G169-02,printing,chamber,unknown,HI-TEMP CF
+T2348,product,M169,G169-02,mechanical,elongationXY,none,HI-TEMP CF
+T2349,product,M170,G170-01,mechanical,tensileStrengthXY,none,Thermoplastic styrene block copolymer elastomer (TPS)
+T2350,product,M170,G170-01,thermal,hdt045,none,Thermoplastic styrene block copolymer elastomer (TPS)
+T2351,product,M170,G170-02,printing,chamber,unknown,Ultrafuse TPS 90A
+T2352,product,M170,G170-02,thermal,hdt045,none,Ultrafuse TPS 90A
+T2353,product,M174,G174-01,printing,drying,unknown,Crystal Flex
+T2354,product,M174,G174-01,mechanical,tensileModulusXY,none,Crystal Flex
+T2355,product,M174,G174-01,thermal,hdt045,none,Crystal Flex
+T2356,conflict,M088,G088-02,Measurement parsing,C01106,Quarantined,"V001540 PCTG (Spectrum) notched Izod prints ""93 C KJ/m2"" - verified verbatim in the current TDS 2026-09-11, so this is a genuine defect in the source, not a transcription error. 93 kJ/m2 is not credible for a notched PCTG specimen (typical 5-10 kJ/m2). Action: manufacturer clarification required; do"
+T2357,conflict,M018,G018-01,Source ambiguity,C01108,Conflict,"V000343 remains direction XY exactly as printed, but the third impact row repeats the XY label and gives no notch state. Notch is now Not published; do not infer Z or notched."
+T2358,conflict,M019,G019-02,Composition,C01409,Conflict,"Re-read 2026-09-27 (m208-conflicts-the-research-reread): iSANMATE's own Formnext announcement (I-ISANMATE-FORMNEXT-BLOG-PAGE) says ""PLA-Glass Fiber blends PLA's eco-friendliness with glass fiber strength"", as the iSANMATE PLA Glass Fiber sheet's heading does; the sheet's prose still says carbon fibr"
+T2359,conflict,M092,,Identity,C01411,Conflict,"Re-read 2026-09-27 (m208-conflicts-the-research-reread): colorFabb's nGen page (D-COLORFABB-NGEN-PAGE) says ""nGen is made with Eastman Amphora AM3300 3D Polymer"" and its German printing guide (D-COLORFABB-HOW-TO-PRINT-WITH-NGEN-PAGE) ""Basierend auf Eastmans Amphora AM3300""; colorFabb TDS v2.0 (2023-"
+T2360,conflict,M008,G008-12,Source conflict,C01412,Conflict,"Found 2026-09-27 (m208-conflicts-the-research-reread): eSUN's ePLA-Silk Rainbow page (D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE) labels by build direction the figures its sheet (S-PEBA-79f73c22-1) prints for a moulded bar (m128): ""Tensile Strength (Z) (MPa) 11.1"", ""Elongation at Break (Z) (%) 3.05"", ""Fl"
+T2361,conflict,M162,G039-14,Source conflict,C01413,Conflict,"Found 2026-09-27 (m208-conflicts-the-research-reread): Extrudr's FLEX MEDIUM MATT page (D-EXTRUDR-FLEX-MEDIUM-MATT-PAGE) prints ""Elongation at break ISO 527-1 420 %"" and ""Tensile strength at yield ISO 527-1 34 MPa"", where the sheet (R-EXTRUDR-flex-medium-matt-TDS-en) prints 6.9 % and 470 N/mm², flag"
+T2362,conflict,M148,G148-02,Source conflict,C01414,Conflict,"Found 2026-09-27 (m208-conflicts-the-research-reread): LEHVOSS's own preliminary datasheet for the compound (D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR) prints ""Tensile modulus GPa 5,5"" and ""Specific gravity g/cm³ 1,40"", delivered as pellets; the 3D4Makers filament sheet G148-02 cites prints 6 GPa (V0"
+T2363,conflict,M130,G081-06,Source conflict,C01540,Conflict,"Reviewed 2026-09-30: Insublend SDS September 2023 (R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c) §1.2 prohibits food/drinking-fluid contact and mouth-contact toys, while §7.2 says the product is approved for food contact. Both English and French repeat this internal disagreement (Q05379/Q05380). Reta"
+T2364,sparse,M001,,sparse,rarely published properties,Gap,PLA
+T2365,sparse,M008,,sparse,rarely published properties,Gap,PLA Silk
+T2366,sparse,M011,,sparse,rarely published properties,Gap,PLA Metal
+T2367,sparse,M012,,sparse,rarely published properties,Gap,PLA Marble
+T2368,sparse,M013,,sparse,rarely published properties,Gap,PLA Sparkle
+T2369,sparse,M014,,sparse,rarely published properties,Gap,PLA Wood
+T2370,sparse,M015,,sparse,rarely published properties,Gap,PLA Galaxy
+T2371,sparse,M016,,sparse,rarely published properties,Gap,PLA Glow
+T2372,sparse,M017,,sparse,rarely published properties,Gap,PLA Aero
+T2373,sparse,M018,,sparse,rarely published properties,Gap,PLA-CF
+T2374,sparse,M019,,sparse,rarely published properties,Gap,PLA-GF
+T2375,sparse,M020,,sparse,rarely published properties,Gap,PETG
+T2376,sparse,M024,,sparse,rarely published properties,Gap,PETG-CF
+T2377,sparse,M025,,sparse,rarely published properties,Gap,PETG-GF
+T2378,sparse,M026,,sparse,rarely published properties,Gap,PETG-ESD
+T2379,sparse,M027,,sparse,rarely published properties,Gap,ABS
+T2380,sparse,M028,,sparse,rarely published properties,Gap,ABS-GF
+T2381,sparse,M029,,sparse,rarely published properties,Gap,ABS-CF
+T2382,sparse,M030,,sparse,rarely published properties,Gap,ABS-ESD
+T2383,sparse,M031,,sparse,rarely published properties,Gap,ASA
+T2384,sparse,M032,,sparse,rarely published properties,Gap,ASA Aero
+T2385,sparse,M033,,sparse,rarely published properties,Gap,ASA-CF
+T2386,sparse,M034,,sparse,rarely published properties,Gap,ASA-GF
+T2387,sparse,M035,,sparse,rarely published properties,Gap,PC
+T2388,sparse,M036,,sparse,rarely published properties,Gap,PC FR
+T2389,sparse,M037,,sparse,rarely published properties,Gap,PC-CF
+T2390,sparse,M038,,sparse,rarely published properties,Gap,PC-GF
+T2391,sparse,M045,,sparse,rarely published properties,Gap,PEBA
+T2392,sparse,M046,,sparse,rarely published properties,Gap,TPC / TPEE
+T2393,sparse,M048,,sparse,rarely published properties,Gap,PAHT-CF
+T2394,sparse,M049,,sparse,rarely published properties,Gap,PA6
+T2395,sparse,M050,,sparse,rarely published properties,Gap,PA6-CF
+T2396,sparse,M051,,sparse,rarely published properties,Gap,PA6-GF
+T2397,sparse,M052,,sparse,rarely published properties,Gap,PA12
+T2398,sparse,M053,,sparse,rarely published properties,Gap,PA12-CF
+T2399,sparse,M054,,sparse,rarely published properties,Gap,PA12-GF
+T2400,sparse,M055,,sparse,rarely published properties,Gap,PA66
+T2401,sparse,M056,,sparse,rarely published properties,Gap,PA66-CF
+T2402,sparse,M057,,sparse,rarely published properties,Gap,PA6/66
+T2403,sparse,M058,,sparse,rarely published properties,Gap,PA612
+T2404,sparse,M059,,sparse,rarely published properties,Gap,PA612-CF
+T2405,sparse,M060,,sparse,rarely published properties,Gap,PA612-GF
+T2406,sparse,M064,,sparse,rarely published properties,Gap,PA-ESD
+T2407,sparse,M065,,sparse,rarely published properties,Gap,PA612-ESD
+T2408,sparse,M066,,sparse,rarely published properties,Gap,PET
+T2409,sparse,M067,,sparse,rarely published properties,Gap,PET-CF
+T2410,sparse,M068,,sparse,rarely published properties,Gap,PET-GF
+T2411,sparse,M069,,sparse,rarely published properties,Gap,PPA
+T2412,sparse,M070,,sparse,rarely published properties,Gap,PPA-CF
+T2413,sparse,M071,,sparse,rarely published properties,Gap,PPA-GF
+T2414,sparse,M072,,sparse,rarely published properties,Gap,PPS
+T2415,sparse,M073,,sparse,rarely published properties,Gap,PPS-CF
+T2416,sparse,M074,,sparse,rarely published properties,Gap,PPS-GF
+T2417,sparse,M075,,sparse,rarely published properties,Gap,PVA
+T2418,sparse,M076,,sparse,rarely published properties,Gap,BVOH
+T2419,sparse,M077,,sparse,rarely published properties,Gap,Support for PLA
+T2420,sparse,M078,,sparse,rarely published properties,Gap,Support for PLA/PETG
+T2421,sparse,M079,,sparse,rarely published properties,Gap,Support for ABS
+T2422,sparse,M080,,sparse,rarely published properties,Gap,Support for PA/PET
+T2423,sparse,M081,,sparse,rarely published properties,Gap,HIPS
+T2424,sparse,M082,,sparse,rarely published properties,Gap,PP
+T2425,sparse,M083,,sparse,rarely published properties,Gap,PP-CF
+T2426,sparse,M084,,sparse,rarely published properties,Gap,PP-GF
+T2427,sparse,M085,,sparse,rarely published properties,Gap,PE
+T2428,sparse,M086,,sparse,rarely published properties,Gap,OBC
+T2429,sparse,M087,,sparse,rarely published properties,Gap,POM / Acetal
+T2430,sparse,M088,,sparse,rarely published properties,Gap,PCTG
+T2431,sparse,M089,,sparse,rarely published properties,Gap,CPE
+T2432,sparse,M090,,sparse,rarely published properties,Gap,CPE-CF
+T2433,sparse,M091,,sparse,rarely published properties,Gap,CoPE
+T2434,sparse,M092,,sparse,rarely published properties,Gap,nGen / Amphora
+T2435,sparse,M093,,sparse,rarely published properties,Gap,PVB
+T2436,sparse,M094,,sparse,rarely published properties,Gap,PC-ABS
+T2437,sparse,M095,,sparse,rarely published properties,Gap,PC-PBT
+T2438,sparse,M096,,sparse,rarely published properties,Gap,PVDF
+T2439,sparse,M103,,sparse,rarely published properties,Gap,PP Lightweight
+T2440,sparse,M104,,sparse,rarely published properties,Gap,PA6-CE
+T2441,sparse,M105,,sparse,rarely published properties,Gap,ASA-EC
+T2442,sparse,M106,,sparse,rarely published properties,Gap,ABS-AF
+T2443,sparse,M107,,sparse,rarely published properties,Gap,PLA-ESD
+T2444,sparse,M108,,sparse,rarely published properties,Gap,PA6-GS
+T2445,sparse,M109,,sparse,rarely published properties,Gap,PETG-PTFE
+T2446,sparse,M110,,sparse,rarely published properties,Gap,PCTG-GF
+T2447,sparse,M111,,sparse,rarely published properties,Gap,PLA-EC
+T2448,sparse,M112,,sparse,rarely published properties,Gap,PC-PTFE
+T2449,sparse,M113,,sparse,rarely published properties,Gap,ASA-AF
+T2450,sparse,M114,,sparse,rarely published properties,Gap,TPC-ESD
+T2451,sparse,M116,,sparse,rarely published properties,Gap,PC-ESD
+T2452,sparse,M119,,sparse,rarely published properties,Gap,PC-ASA
+T2453,sparse,M120,,sparse,rarely published properties,Gap,PVDF-ESD
+T2454,sparse,M124,,sparse,rarely published properties,Gap,PPS-ESD
+T2455,sparse,M126,,sparse,rarely published properties,Gap,TPU-ESD
+T2456,sparse,M128,,sparse,rarely published properties,Gap,PC-ABS-CF
+T2457,sparse,M129,,sparse,rarely published properties,Gap,TPU-CF
+T2458,sparse,M130,,sparse,rarely published properties,Gap,PPE-PS
+T2459,sparse,M131,,sparse,rarely published properties,Gap,PC-PBT-CF
+T2460,sparse,M132,,sparse,rarely published properties,Gap,PBT-GF
+T2461,sparse,M133,,sparse,rarely published properties,Gap,PBAT
+T2462,sparse,M134,,sparse,rarely published properties,Gap,CPE-LW
+T2463,sparse,M135,,sparse,rarely published properties,Gap,PVC
+T2464,sparse,M136,,sparse,rarely published properties,Gap,SAN
+T2465,sparse,M137,,sparse,rarely published properties,Gap,COC
+T2466,sparse,M138,,sparse,rarely published properties,Gap,PE-GF
+T2467,sparse,M139,,sparse,rarely published properties,Gap,LCP
+T2468,sparse,M140,,sparse,rarely published properties,Gap,PBT
+T2469,sparse,M141,,sparse,rarely published properties,Gap,PET-LW
+T2470,sparse,M142,,sparse,rarely published properties,Gap,nGen-CF
+T2471,sparse,M143,,sparse,rarely published properties,Gap,nGen FLEX
+T2472,sparse,M144,,sparse,rarely published properties,Gap,PCTG-CF
+T2473,sparse,M145,,sparse,rarely published properties,Gap,PLA-PHA
+T2474,sparse,M146,,sparse,rarely published properties,Gap,PLA-PHB
+T2475,sparse,M147,,sparse,rarely published properties,Gap,PAHT
+T2476,sparse,M148,,sparse,rarely published properties,Gap,PAHT-CE
+T2477,sparse,M149,,sparse,rarely published properties,Gap,PCL
+T2478,sparse,M150,,sparse,rarely published properties,Gap,TPU-LW
+T2479,sparse,M151,,sparse,rarely published properties,Gap,TPU-GF
+T2480,sparse,M152,,sparse,rarely published properties,Gap,PLA-NF
+T2481,sparse,M153,,sparse,rarely published properties,Gap,PETG-GR
+T2482,sparse,M154,,sparse,rarely published properties,Gap,PA12-AF
+T2483,sparse,M155,,sparse,rarely published properties,Gap,PLA-GR
+T2484,sparse,M156,,sparse,rarely published properties,Gap,PA6/66-CF
+T2485,sparse,M157,,sparse,rarely published properties,Gap,TPU-EC
+T2486,sparse,M158,,sparse,rarely published properties,Gap,PLA-CE
+T2487,sparse,M159,,sparse,rarely published properties,Gap,TPU 85A class and softer
+T2488,sparse,M160,,sparse,rarely published properties,Gap,TPU 90A class
+T2489,sparse,M161,,sparse,rarely published properties,Gap,TPU 95A class
+T2490,sparse,M162,,sparse,rarely published properties,Gap,TPU harder than 95A
+T2491,sparse,M164,,sparse,rarely published properties,Gap,"Nylon, maker-undisclosed polyamide"
+T2492,sparse,M165,,sparse,rarely published properties,Gap,"Nylon-CF, maker-undisclosed polyamide"
+T2493,sparse,M166,,sparse,rarely published properties,Gap,"Nylon-GF, maker-undisclosed polyamide"
+T2494,sparse,M167,,sparse,rarely published properties,Gap,"TPE, maker-undisclosed elastomer"
+T2495,sparse,M168,,sparse,rarely published properties,Gap,PLA blend
+T2496,sparse,M169,,sparse,rarely published properties,Gap,PLA blend-CF
+T2497,sparse,M170,,sparse,rarely published properties,Gap,TPS
+T2498,sparse,M174,,sparse,rarely published properties,Gap,SBC
+T2499,sparse,M175,,sparse,rarely published properties,Gap,TPV
+T2500,thin,M056,,sources,sources,0,PA66-CF
+T2501,thin,M058,,sources,sources,1,PA612
+T2502,thin,M060,,sources,sources,0,PA612-GF
+T2503,thin,M078,,sources,sources,1,Support for PLA/PETG
+T2504,thin,M079,,sources,sources,1,Support for ABS
+T2505,thin,M114,,sources,sources,1,TPC-ESD
+T2506,thin,M119,,sources,sources,2,PC-ASA
+T2507,thin,M120,,sources,sources,2,PVDF-ESD
+T2508,thin,M124,,sources,sources,2,PPS-ESD
+T2509,thin,M128,,sources,sources,2,PC-ABS-CF
+T2510,thin,M132,,sources,sources,2,PBT-GF
+T2511,thin,M133,,sources,sources,2,PBAT
+T2512,thin,M137,,sources,sources,2,COC
+T2513,thin,M139,,sources,sources,1,LCP
+T2514,thin,M146,,sources,sources,2,PLA-PHB
+T2515,thin,M166,,sources,sources,1,"Nylon-GF, maker-undisclosed polyamide"
+T2516,thin,M174,,sources,sources,2,SBC
+T2517,thin,M175,,sources,sources,1,TPV

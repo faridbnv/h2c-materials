@@ -1,0 +1,11 @@
+id,expect,value,quote,note
+V012260,Published value,Retired duplicate record,,"Retired duplicate of V011457 (m354): Markforged's p. 2 directional table repeats the p. 1 XY value, which V011457 holds."
+V012263,Published value,Retired duplicate record,,"Retired duplicate of V011457 (m354): Markforged's p. 2 directional table repeats the p. 1 XY value, which V011457 holds."
+V012261,Published value,Retired duplicate record,,"Retired duplicate of V011458 (m354): Markforged's p. 2 directional table repeats the p. 1 XY value, which V011458 holds."
+V012264,Published value,Retired duplicate record,,"Retired duplicate of V011458 (m354): Markforged's p. 2 directional table repeats the p. 1 XY value, which V011458 holds."
+V012262,Published value,Retired duplicate record,,"Retired duplicate of V011460 (m354): Markforged's p. 2 directional table repeats the p. 1 XY value, which V011460 holds."
+V012265,Published value,Retired duplicate record,,"Retired duplicate of V011460 (m354): Markforged's p. 2 directional table repeats the p. 1 XY value, which V011460 holds."
+V011920,Published value,Unresolved unit / layout,,"Quarantined (m354): 1600 MPa is the guide's ZYTEL 153HSL column (50 % RH), a product the database does not hold, not Zytel 151L's."
+V012299,Published value,Unresolved unit / layout,,"Quarantined (m354): the sheet's 80 % flow block prints two hardness values, 61 and 65 shore A, with no label to tell them apart."
+V012300,Published value,Unresolved unit / layout,,"Quarantined (m354): the sheet's 80 % flow block prints two hardness values, 61 and 65 shore A, with no label to tell them apart."
+V012492,Published value,Unresolved unit / layout,,"Quarantined (m354): ""50 °C"" is the page's sentence about PLA in general, not a measurement of this product; its product table prints 57°C (V012491)."

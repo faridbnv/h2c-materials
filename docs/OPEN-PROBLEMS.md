@@ -156,6 +156,9 @@ npm run sql --silent -- "select measurementid, materialid, property, raw_value f
 | C01414 | PAHT-CE | LEHVOSS's compound sheet prints 5,5 GPa and 1,40 g/cm³, the 3D4Makers filament sheet 6 GPa and 1,49 (m208). |
 | C01540 | PPE/PS blend, Insublend | The own SDS prohibits food/drinking-fluid contact in §1.2 but says approved for food contact in §7.2, in both languages. Both statements remain; maker clarification and certificate/test scope needed (§23). |
 
+Each was read again from its page images in the reader round (2026-10-04, D125): every one stands as its sources print
+it, so none could be corrected from the page, and each still waits on what its row names.
+
 C01110 (ABS: a PLA Pure listing, CA0069, filed under ABS) is resolved: the listing is filed under PLA Pure (G001-183)
 since m233, once the price pass gave that grade listings of its own. C01136 (Fiberon PET-GF15's chamber) is resolved:
 Polymaker's wiki prints room temperature and recommends an enclosure "for best results" (C01410, m208).
@@ -381,7 +384,9 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
 - **A PolyTerra PLA+ sheet** (S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1) is cited by a PolyTerra PLA profile (P0316).
 - **What the finishing reads (m170 to m173) left** (RESPONSE.md, "Phase 6, lane 2, finished"):
   - *Rows the rules did not reach with confidence.* iSANMATE's two-column tables, and purefil's where the text layer
-    garbles the label ("Hea5ng bed temperature" with no value on its line); Siraya Tech's "An enclosure is crucial …";
+    garbles the label ("Hea5ng bed temperature" with no value on its line), are read since the reader round (D125): the
+    reading-order view keeps a column's label with its value, and the ligature view puts purefil's "ti" back (m351).
+    Left: Siraya Tech's "An enclosure is crucial …";
     Siraya Tech Rebound PEBA's "0.4mm brass nozzle works well". Since the profile root-cause sweep (D120) the reader
     reads purefil's value two lines under its label, LEHVOSS's "print bed temperature: > 50 °C" (six profiles) and
     Fabru's "Needs a warm room, or closed pressure" (P1245, P1257).
@@ -1105,7 +1110,8 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   - purefil's PA6 GF10 sheet prints its bed twice, "Heizbett Temperatur 120-140 °C" and "Heated bed temperature 80°C" in
     the slot where every other purefil sheet prints its drying temperature, and no drying row at all; the profile holds
     the first, which is above the H2C's 120 °C and turns G051-08's bed gate to exceeds. The sheet's own words call both
-    rows bed, so only the maker can settle it.
+    rows bed, so only the maker can settle it. The page image (read 2026-10-04) shows the same: the second "Heated bed
+    temperature 80°C" stands where purefil's template prints its drying temperature, above "Drying time 4-8h".
   - "Enclosed-frame (rec.), open-frame" stays a reviewer's reading. (P0445's "75℃-85, 6h" reads 85 °C for 6 h since
     m299, and Recreus PET-G's garbled bed row, P1239, holds the rendered page's 40-70°C.)
   - Braskem's PP-CF prints a recommended bed (80 °C with its PP adhesive) and an alternate one (20-40 °C with a spray);
@@ -1236,17 +1242,54 @@ cannot resolve these questions. Automatic approval review initially rejected clo
 existing private OneDrive destination and payload. The reproduced export contains2469 originals and2875
 derivatives, with124 historically absent inventory entries and no new original missing.
 
-## 30. What the reader round (m342 to m345) leaves open
+## 30. What the reader round (m338 to m353) leaves open
 
-- **Twin sheets.** Pairs of documents that print the same numbers (language editions of an Extrudr sheet; Raise3D's Premium
-  PETG and PC beside Polymaker's PolyLite sheets) are accepted as MEAS-CROSS-SOURCE-TWIN with a reason, not retired: whether a
-  maker's sheet is a rebranded copy of another's is not shown by either document. Re-derive with `npm run data:lint -- --all`.
+The round (D125, D126) closed 847 of its 3,351 frozen targets; `docs/audits/2026-10-04-reader-round/after/PROGRESS.md`
+counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targets.mjs --after` re-derives it.
+
+- **28 products still have no nozzle or bed** (`docs/audits/2026-10-04-reader-round/STILL-MISSING.csv`). Raise3D's nine
+  sheets print only the conditions the test bars were printed at (m170, m345), and its ideaMaker presets are a slicer's,
+  not guidance. Stratasys (2), Markforged (1) and UltiMaker (1) sell printer-controlled materials whose pages print no
+  settings. 3DXTECH's Triton3D model materials (G029-11, G030-11, G094-12, G116-02) have pages that name another product
+  line; iSANMATE's PLA-GF and HDPE-GF have no product page, and its PCL page is a 3D-pen filament; SUNLU's PCL sheet
+  prints "/" for the bed and a selling point for the nozzle. Each is in the b42 packet's NotAdmitted list with its
+  reason. The makers are the next source.
+- **The chamber stays the largest gap**: 267 products and 31 materials state no chamber, because makers rarely print
+  one. Where a maker's page says "Heated Chamber: Recommended" with no temperature (PPA-CF, ASA-CF), the gate reads
+  unknown (D33, D93), which moved four template answers from pass to unknown. Whether such a recommendation passes on
+  the H2C's chamber is the owner's call; recommended: keep it unknown, since a recommendation with no temperature cannot
+  be checked against the H2C's 65 °C chamber.
+- **Readings held, not applied.** 13,909 readings stay in `proposals/final/held.csv`, each with its reason: 5,313 name a
+  property or setting no table column holds (the record tier's candidates for `properties.csv`), 1,752 would change a
+  row the readers did not tie to a held one, 1,459 are already held on another product of the same formulation, 1,213
+  state no number. 1,843 second reads were not run; their readings stay held. The 59 corrections the proposals offered
+  were all mis-pairings when read again (`proposals/corrections/moved-out/`), and none was applied.
+- **Pages that contradict themselves.** iSANMATE's PLA Wood page prints the bed as 35-60 ℃ in its parameter table and
+  45-60℃ in a second block; Polymaker's PolyMide CoPA page says "Enclosure Recommended" in its specifications and "does
+  not require an enclosure" under its printing requirements; its PolyLite PC page prints "Drying 100°C for 8h" and a tip
+  naming a 75°C / 6h cycle. The profiles hold the specification grid, and the context guard accepts the other line with
+  that reason (`data/review/context-witness-accepted.csv`). 3DXTECH's CarbonX HTN-CF page prints 106 MPa and HDT 200 °C
+  in its benefits list and 87 MPa and 240 °C in its description; Siraya Tech's PEBA 85A table prints "Tensile stress at
+  100%" three times (6.7, 7.6, 8.5 MPa) with nothing to tell them apart; UltiMaker's Precision ASA sheet prints its
+  tensile modulus as 2,167 MPa on p. 1 and 2,100 MPa on p. 2. Each row holds what its line prints; the maker is the
+  source that can settle them.
+- **A foamed filament's density is a range of prints.** Bambu Lab's ASA Aero page prints "Prints Density 0.46 ~ 0.97
+  g/cm³" across its foaming settings and colorFabb's LW-ASA 0.40-1,07; the material's density spread follows them and
+  sits far from what the model expects of a solid print (EST-OUTLIER, accepted with that reason).
+- **Garbled text layers.** Bambu PLA Pure's text layer prints digits as other digits ("55 - 69°C" for 35 - 65 °C) and
+  BigRep PRO HT's prints "3onditions"; their settings were read from the page image (m353). The quality flags list 187
+  such pages in 138 documents (`text-quality/pages.csv`); only pages tied to a gap were read.
+- **What the reading-order view finds alone.** 23 print settings and 36 values only the block view reads are listed in
+  `reader-recall/candidates.csv` and were not read by a person or a reader.
+- **Thin materials.** 18 materials still have two sources or fewer; b41 searched ten makers' sites for them.
+- **Twin sheets.** Pairs of documents that print the same numbers (language editions of an Extrudr sheet; Raise3D's
+  Premium PETG and PC beside Polymaker's PolyLite sheets) are accepted as MEAS-CROSS-SOURCE-TWIN with a reason, not
+  retired: whether a maker's sheet is a rebranded copy of another's is not shown by either document. Re-derive with `npm
+  run data:lint -- --all`.
 - **A conditioned density takes no headline.** `products.js` (assess) excludes every value measured after moisture
-  conditioning from a headline that does not change with moisture, density included. Markforged's Onyx GF sheet conditions all
-  its specimens at 52 % RH "unless otherwise noted", so G166-01 now has no comparable density and no longer ranks in the
-  conditioned beam question (test/acceptance A01). Whether a conditioned density should stand in is a rule for the owner.
-- **Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table, V012362)
-  is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.
-- **Layout probe.** `npm run ui:check` reports "1024x768-warm: 2 candidate row(s) in view before scrolling; at least 3 should
-  be" since m342 (the ABS-AF row's HDT cell now shows a one-value spread on an extra line). It is a presentation matter, not a
-  data one, and fails `npm run verify`.
+  conditioning from a headline that does not change with moisture, density included. No product is held out by it now:
+  Markforged's Onyx GF sheet conditions its specimens at 52 % RH "unless otherwise noted", which m342 first read as heading
+  the whole page, and m354 narrowed to the mechanical tests it heads. Whether a conditioned density should stand in where a
+  sheet prints only that is a rule for the owner.
+- **Unscheduled annealing.** A page that marks a value "annealed" without a schedule (Spectrum's 2024 portfolio table,
+  V012362) is a state, `annealed:x:x`, that no scenario can ask for; it is listed beside the scheduled one in a trace.

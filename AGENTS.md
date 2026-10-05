@@ -143,6 +143,14 @@ published where they name none); the parser checks that too. Never write a stand
 also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 
+**Read a registered sheet's pages again.** A reading of a page (by a model from the page image, or by a person) is a row
+of the reading schema (`docs/audits/2026-10-04-reader-round/READING-SCHEMA.md`). `npm run ingest:read-reconcile` checks it
+against the cached text in every view (line, reading order, ligatures put back, optical sidecar), `npm run
+ingest:read-proposals` maps and gates it, and a migration applies the proposals with `applyProposals`
+(`scripts/migrate/read-proposals-apply.mjs`), which checks each quote on the cached sheet and each value it replaces (m342
+is the example, D125). It is not an import (D123). A correction of a held row is decided on its page, row by row, never
+applied because a count of readings agrees.
+
 **Record what a page states once.** A heading or footnote that speaks for every value of a table ("Mechanical
 properties (dry state)", "all specimens were annealed at 100 °C for 16 h", "printed, non-injection molded") is a row of
 `page_context.csv`: the source, page and scope (all, tensile, flexural, impact, thermal, physical), the page's words in
@@ -264,7 +272,8 @@ blocking answer (batch b36; GOALS, phase 6, decision 4), and on 2026-09-27 the o
 research package of 2026-09-26 identified (batch b37). On 2026-09-28, the owner authorized the held Recreus PET-G
 sheet (b38) and the frozen chamber-target maker searches (b39), as bounded in GOALS' source-backup and targeted
 gap-closure section; on 2026-09-29, the gap-fill tranche's nine saved product pages (b40, GOALS' gap-fill tranche
-section); on 2026-09-30, the price pass (p01 to p04, GOALS' price pass section). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
+section); on 2026-09-30, the price pass (p01 to p04, GOALS' price pass section); on 2026-10-04, the makers' own pages for the
+reader round (b41, b42; GOALS, the reader round section). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
 2026-09-30 (GOALS, coverage-expansion campaign): isolated campaign batches c01–c14 have admitted 90 sources;
 the selected resumed run has completed all 136 material assessments and 100 additional priority products.
 The unselected full-catalogue backlog remains outside that narrowed run; any further work follows the

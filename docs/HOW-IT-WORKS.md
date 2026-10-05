@@ -77,7 +77,7 @@ flowchart TB
     end
     ASSM --> OBSV
 
-    VALD{{"6 · Validate<br/>every record filed under the material its grade belongs to<br/>each product value its own grade's, or its twin's where the two<br/>print one table · printed, dry, as printed<br/>quarantined values in no summary · XY never merged with Z<br/>coverage agrees with the records · calibration still holds"}}
+    VALD{{"6 · Validate<br/>every record filed under the material its grade belongs to<br/>each product value its own grade's, or its twin's where the two<br/>print one table · printed, dry, as printed<br/>quarantined values in no summary · XY never merged with Z<br/>coverage agrees with the records · calibration still holds<br/>no estimate lies under what its own product's measurements prove"}}
     ASSM --> VALD
     SCRN --> VALD
     VALD -- "any error" --> STOP2(["Build stops"])
@@ -143,6 +143,17 @@ Every document the database uses is registered once: publisher, title, revision,
 the SHA-256 hash of the file that was read. If a manufacturer silently changes a PDF, the hash no longer matches when
 the document is fetched again, and `npm run audit:sources` reports it. A source that could not be retrieved is recorded
 as such and nothing may cite it.
+
+**How a sheet is read.** A data sheet's text layer is not always the page you see. A two-column sheet can come out with
+its columns interleaved, so that a label is separated from its value; a font can draw "ti" as a digit ("Prin5ng
+temperature") and hide the label; a web page can keep its specification grid in tabs that are closed until clicked; a
+scan has no text at all. The import tools therefore read a sheet both line by line and in reading order, put the
+ligatures back for reading only, read a web page's tables, definition lists and product data, and flag pages whose text
+is not a reading of the page. Where the text does not settle a value, a model reads the rendered page image. A reading
+becomes a record only if the page's own text prints its numbers and its quote, or a second reader who did not see the
+first agrees, or the importer's reader finds the same thing; every value is still checked against the hash-checked
+sheet before it is written. A product whose own sheet prints a print setting none of its profiles holds is a finding of
+the audit, so a sheet the reader once missed is not forgotten (D125).
 
 ### 2. Tables
 
@@ -269,6 +280,10 @@ measured failure does not rule out products nobody has measured. Products that p
 but never held against the material. Open the material's **Products** tab: the products that pass come first, each with
 the state it passed in, how to print it, its own numbers and what its maker says about it.
 
+Where a sheet prints both the stress at yield and the stress at break, a product's tensile strength is the larger of the
+two from the same test, since the ultimate strength is the maximum stress the bar carried (D126). The value says which
+endpoints it compared. Another sheet's number is another test and is not compared.
+
 **A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
 measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one
 filed under the whole material, is shown as context and never passes it.
@@ -337,6 +352,12 @@ What an estimate may do is deliberately limited:
   and screens nothing. The drawer says, for each estimate, which ends may screen and why.
 - **A material's own printed measurement can veto a screen.** If its published yield strength already meets your
   minimum, no estimate of its ultimate strength can remove it.
+- **No number shown contradicts what its own products' measurements prove** (D126). When a product
+  publishes a yield or break stress, a strain at yield, or HDT at 1.8 MPa, its ultimate strength, strain at break and
+  HDT at 0.45 MPa are at least that large, and the estimate is floored there; a heat deflection estimate for a
+  semicrystalline polymer stays under its melting point. A bar that is moulded, a film, a filament strand or printed off the product's recipe proves
+  nothing about a printed part, so it floors nothing. A material's range is the spread of its products, so it contains
+  every product's floor. The build refuses to ship an estimate that breaks one of these orders.
 
 In Strict mode ("Confirmed only") estimates are neither shown nor used.
 
@@ -472,8 +493,10 @@ its question again; every release published from `main` keeps its page as the Gi
 
 The tool is only as good as the sheets it read. Several products publish values physics rules out (a heat deflection
 at 0.45 MPa below the one at 1.8 MPa; a 1.19 GPa modulus on a 68D elastomer); these are kept, flagged, and decide
-nothing. Two materials have no measurements at all. Where a polymer has little data of its own, its estimates rest
-on its family. The current list of known limits is kept in [DATA-MODEL.md](DATA-MODEL.md) under "Known limits of the
+nothing. The orders physics fixes between two properties (yield below ultimate, glass transition below melting) are a
+table the data check reads, and a product whose value sits under another of its own measurements from a different test
+is listed rather than corrected. Two materials have no measurements at all. Where a polymer has little data of its own,
+its estimates rest on its family. The current list of known limits is kept in [DATA-MODEL.md](DATA-MODEL.md) under "Known limits of the
 snapshot", and every build's validation report is published beside the page.
 
 ## Reading on

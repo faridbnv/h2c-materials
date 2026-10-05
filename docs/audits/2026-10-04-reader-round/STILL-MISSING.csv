@@ -1,0 +1,29 @@
+GradeID,MaterialID,Maker,Product,Missing,Sheet
+G019-02,M019,iSANMATE,PLA Glass Fiber,nozzle bed chamber drying,https://www.isanmate.com/wp-content/uploads/2025/08/PLA-Glass-Fiber-Technical-Data-Sheet.pdf
+G026-06,M026,Raise3D,Industrial PETG ESD,nozzle chamber drying,https://s1.raise3d.com/2024/12/Raise3D_Industrial-PETG-ESD_TDS_V3.pdf
+G029-09,M029,Raise3D,Hyper Core ABS CF15,nozzle bed chamber,https://s1.raise3d.com/2024/01/Raise3D-Hyper-Core-ABS-CF15_TDS_V1.0.pdf
+G029-11,M029,3DXTECH,TriMax Carbon Fiber ABS Model Material,nozzle bed chamber drying,https://cdn.shopify.com/s/files/1/0625/4185/6821/files/TriMax_CF_ABS_TDS_v1.pdf?v=1724507805
+G030-02,M030,iSANMATE,ESD ABS,nozzle chamber drying,https://www.isanmate.com/wp-content/uploads/2024/09/ESD-ABS_TDS.pdf
+G030-11,M030,3DXTECH,TriStat ESD-ABS Model Material,nozzle bed chamber drying,https://cdn.shopify.com/s/files/1/0625/4185/6821/files/TriStat_ESD_ABS_TDS_v1.pdf?v=1724507805
+G053-09,M053,Raise3D,Industrial PA12 CF,nozzle bed chamber,https://s1.raise3d.com/2022/03/Raise3D-Industrial-PA12-CF_TDS-V3.0.pdf
+G053-13,M053,iSANMATE,PA12CF,nozzle bed chamber drying,https://www.isanmate.com/wp-content/uploads/2024/09/PA12_CF-TDS.pdf
+G059-03,M059,Raise3D,Industrial PA12 CF+,nozzle bed chamber,https://s1.raise3d.com/2024/09/Raise3D-Industrial-PA12-CF_TDS_V3.0.pdf
+G068-04,M068,Raise3D,Industrial PET GF,nozzle bed chamber,https://s1.raise3d.com/2023/03/Raise3D-Industrial-PET-GF_TDS_V1.pdf
+G071-04,M071,Raise3D,Industrial PPA GF,nozzle bed chamber,https://s1.raise3d.com/2023/02/Raise3D-Industrial-PPA-GF-TDS_v2.1.pdf
+G071-05,M071,Raise3D,Hyper Core PPA GF25,nozzle bed chamber,https://s1.raise3d.com/2024/05/Raise3D-Hyper-Core-PPA-GF25_TDS_V1.1.pdf
+G075-09,M075,Raise3D,Premium PVA+,nozzle bed chamber,https://s1.raise3d.com/2021/06/Raise3D-Premium-PVA_TDS_V2.1-2021_06.pdf
+G080-03,M080,Raise3D,Industrial PET Support,nozzle bed chamber,https://s1.raise3d.com/2023/03/Raise3D-Industrial-PET-Support_TDS_V1.pdf
+G081-07,M081,Stratasys,FDM HIPS,nozzle bed chamber drying,https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/validated-materials/hips/mds_fdm_hips_0823a.pdf?v=4a77b9
+G084-01,M084,3DXTECH,FIBREX GF PP,nozzle bed chamber drying,https://cdn.shopify.com/s/files/1/0625/4185/6821/files/FIBREX_GF_PP_TDS_v1.pdf?v=1723942768
+G094-09,M094,Stratasys,PC-ABS,nozzle bed chamber drying,https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc-abs/pc-abs-redesign/mds_fdm_pc-abs_0823a.pdf?v=48d8a5
+G094-12,M094,3DXTECH,Triton PC/ABS Model Material,nozzle bed chamber,https://cdn.shopify.com/s/files/1/0625/4185/6821/files/Triton_PC-ABS_TDS_v1.pdf?v=1724507805
+G096-03,M096,Filament2Print,KOLTRON,nozzle bed chamber drying,https://filament2print.com/en/index.php?controller=attachment&id_attachment=587
+G114-01,M114,3DXTECH,3DXSTAT ESD-TPC (90A),nozzle bed chamber drying,https://irp.cdn-website.com/8ecbc4ef/files/uploaded/ESD_TPC_92A_v3.pdf
+G116-02,M116,3DXTECH,TriStat ESD-PC Model Material,nozzle bed chamber drying,https://cdn.shopify.com/s/files/1/0625/4185/6821/files/TriStat_ESD_PC_TDS_v1.pdf?v=1724507805
+G137-03,M137,Fabru,Cyclo-Olefin-Copolymer flexibel (COC flex),nozzle,https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10857%2FMaterial-datasheet-COC-flex-purefil-EN.pdf
+G138-03,M138,iSANMATE,HDPE Glass Fiber,nozzle bed chamber drying,https://www.isanmate.com/wp-content/uploads/2024/09/HDPE-GF_TDS.pdf
+G149-01,M149,iSANMATE,Capa 6500 Polycaprolactone,nozzle bed chamber drying,https://www.isanmate.com/wp-content/uploads/2024/09/PCL_TDS.pdf
+G149-03,M149,SUNLU,PCL,nozzle,https://media.sunlu.com/prod/20260414/9c709eea-12c7-4a05-b5cd-227c63c700b8.pdf?filename=TDS
+G149-04,M149,Filament2Print,BioFil - PCL,nozzle bed chamber,https://filament2print.com/en/index.php?controller=attachment&id_attachment=4150
+G164-05,M164,UltiMaker,MAKERBOT SPECIALTY NYLON,nozzle bed drying,https://ultimaker.com/wp-content/uploads/2023/12/MakerBot-Nylon-092020.pdf
+G166-01,M166,Markforged,Onyx GF,nozzle bed chamber drying,https://s3.us-east-1.amazonaws.com/static.markforged.com/downloads/Onyx-GF-Material-Datasheet.pdf
