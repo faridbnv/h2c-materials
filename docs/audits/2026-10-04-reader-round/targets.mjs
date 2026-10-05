@@ -4,7 +4,7 @@
 // tables; writes TARGETS.csv and DOCS.csv beside this file. With --after it leaves those frozen and writes after/TARGETS.csv
 // and after/PROGRESS.md: what the round closed, target by target, against the frozen list.
 //
-//   node docs/audits/2026-10-04-reader-round/targets.mjs [--after]
+//   node docs/audits/2026-10-04-reader-round/targets.mjs [--after [--frozen <TARGETS.csv> --out <dir>]]
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -139,11 +139,14 @@ const tcols = ['TargetID', 'Level', 'MaterialID', 'GradeID', 'Domain', 'Field', 
 if (process.argv.includes('--after')) {
   // A target is its level, material, product and field; the frozen list is the round's starting point.
   const key = (t) => [t.Level, t.MaterialID, t.GradeID, t.Field].join('|');
-  const before = rows('docs/audits/2026-10-04-reader-round/TARGETS.csv');
+  // A later round freezes its own list: --frozen <TARGETS.csv> and --out <dir> (gap round 2 reads the reader round's after/).
+  const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
+  const before = rows(arg('--frozen', 'docs/audits/2026-10-04-reader-round/TARGETS.csv'));
+  const outDir = join(root, arg('--out', 'docs/audits/2026-10-04-reader-round/after'));
   const now = new Set(targets.map(key));
   const then = new Set(before.map(key));
-  mkdirSync(join(here, 'after'), { recursive: true });
-  writeFileSync(join(here, 'after/TARGETS.csv'), csvText(tcols, targets));
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(join(outDir, 'TARGETS.csv'), csvText(tcols, targets));
   const groups = new Map();
   for (const t of before) {
     const g = `${t.Level}|${t.Level === 'material' || t.Level === 'product' ? t.Field : t.Level}`;
@@ -164,7 +167,7 @@ if (process.argv.includes('--after')) {
     lines.push(`| ${e.level} | ${e.field || '—'} | ${e.before} | ${e.closed} | ${e.before - e.closed} | ${e.opened} | ${e.before - e.closed + e.opened} |`);
   }
   lines.push('', `${before.length} frozen targets; ${before.filter((t) => !now.has(key(t))).length} closed; ${targets.length} now.`);
-  writeFileSync(join(here, 'after/PROGRESS.md'), lines.join('\n') + '\n');
+  writeFileSync(join(outDir, 'PROGRESS.md'), lines.join('\n') + '\n');
   console.log(lines.join('\n'));
   process.exit(0);
 }

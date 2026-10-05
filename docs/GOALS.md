@@ -518,3 +518,19 @@ The owner accepted the three recommendations the reader round left open (OPEN-PR
 3. **Two makers' sheets that print the same numbers stay two products**, each with its own sheet's values, accepted as
    twins with a reason and never retired, until a maker says one is the other's rebrand (Raise3D Premium PETG and PC
    beside Polymaker's PolyLite sheets; the Extrudr language editions).
+
+## Decided on 2026-10-05, gap round 2
+
+The reader round named the causes that still keep values out or wrong; the owner asked for a round that works them by
+priority (OPEN-PROBLEMS §30 and the sections it bundles with), Claude Opus deciding and Claude Sonnet doing the reading
+and coding, and chose:
+
+1. **Bambu Lab's guide fills a silent product's drying**, labelled as the guide's, as it fills nozzle, bed and chamber
+   (D88): a product whose own sheet and twin say nothing about drying reads its material's guide row.
+2. **Drying is recorded as it is stated**: required, optional or not needed, with an open-ended duration ("6+ hours",
+   "> 5 h"). A sheet that says drying is not needed no longer counts as publishing a schedule.
+3. **A page statement can be scoped to the table it heads**, not only to a page and a class of property.
+4. **New documents within a bound**: the thirteen held sheets that failed only on the reader's limits (OPEN-PROBLEMS
+   §14), and the makers' own sites for the products still without a nozzle or bed, those with no document read, and the
+   materials with no data (batches b43 onward, a bounded exception to the import pause like b41 and b42).
+5. Built on a branch, checked for documentation consistency and for the fixes' effect, cleaned, and pushed to main.
