@@ -7,6 +7,9 @@
 // A reading with no grade_id takes its product from the document's own products (its Applicable grades, the grades citing it and the
 // grades of the rows held from it; active ones): a sheet of one product gets it, and otherwise the product name is matched
 // (matchProduct) when exactly one fits. --maker-wide adds the maker's other active products as candidates, for portfolios.
+// --exclude <dir>,... drops the ready rows an earlier proposals folder holds by the same key (rows the tables already hold are
+// not proposed in the first place: the builder reads them); --move-out <cause>,... puts the profiles-set and values-set rows of those
+// causes in <out>/moved-out/ instead (with the Locator edits only they needed).
 //
 // Output, in docs/audits/2026-10-04-reader-round/proposals/<run>/ (nothing here writes data/):
 //
@@ -36,7 +39,7 @@ import { NP, numbersIn, ocrSidecar, readTable, sameNumber, squash } from './read
 import { notchOf, targetUnit } from './propose.mjs';
 import { pageOf, scopeOf, specimenApplies } from '../../build/src/page-context.js';
 import { pageStates, rowStates } from '../../build/src/page-context.js';
-import { cachedText } from '../lib/pdf-text.mjs';
+import { cachedText, repairLigatures } from '../lib/pdf-text.mjs';
 import { withReadingOrder } from '../lib/pdf-layout.mjs';
 import { rawNumber, unitKey } from '../../build/src/measurement-rules.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
@@ -71,7 +74,7 @@ export function tidy(v) {
 
 // ---- the gate ---------------------------------------------------------------------------------------------------
 
-export const READY_PRESENCE = ['text', 'block', 'ocr'];
+export const READY_PRESENCE = ['text', 'block', 'ocr', 'repaired'];
 export const AGREED = ['agreed', 'agreed-reader', 'agreed-text'];
 
 /** `ready`, or `held` with why: low confidence and a disagreeing second reading always hold; otherwise a page that bears the row out, or a second reading that agrees, passes. */
@@ -93,10 +96,12 @@ function sheetViews(sha) {
     const flat = (pages) => squash(pages.map((p) => p.lines.map((l) => l.text).join(' ')).join(' '));
     let block = null;
     if (c) { try { block = flat(withReadingOrder(c).pages); } catch { block = null; } }
+    const repaired = c ? squash(c.pages.map((p) => p.lines.map((l) => repairLigatures(l.text)).join(' ')).join(' ')) : null;
     sheetTexts.set(sha, [
       ['line', c ? flat(c.pages) : null],
       ['block', block],
       ['ocr', ocr ? squash([...ocr.values()].map((lines) => lines.join(' ')).join(' ')) : null],
+      ['repaired', repaired],
     ]);
   }
   return sheetTexts.get(sha);
@@ -118,7 +123,7 @@ export function quoteViews(sha, quote) {
     if (!hit) return '';
     if (!used.includes(hit[0])) used.push(hit[0]);
   }
-  return ['line', 'block', 'ocr'].filter((v) => used.includes(v)).join('+') || 'line';
+  return ['line', 'block', 'ocr', 'repaired'].filter((v) => used.includes(v)).join('+') || 'line';
 }
 
 const pageViews = new Map();
@@ -134,6 +139,7 @@ function sheetPages(sha) {
       ['line', c ? byPage(c.pages) : null],
       ['block', block],
       ['ocr', ocr ? new Map([...ocr].map(([n, lines]) => [Number(n), flatBound(lines.join(' '))])) : null],
+      ['repaired', c ? new Map(c.pages.map((p) => [Number(p.page), flatBound(p.lines.map((l) => repairLigatures(l.text)).join(' '))])) : null],
     ]);
   }
   return pageViews.get(sha);
@@ -953,6 +959,8 @@ export function buildProposals({ rows, tables, ctx = {}, today = new Date().toIS
       gradeFromOf.set(r.RowID, `${gradeFromOf.get(r.RowID) ?? ''}+carrier`);
       gradeResolvedOf.set(r.RowID, target);
     }
+    const here = (heldValues.get(`${target}\u0002${key}`) ?? []).find((h) => h.sourceId === r.SourceID);
+    if (here) { hold(r, 'already-held-here', 'values', `${here.id} holds it from this source`); continue; }
     const twin = twinOf(target, r.SourceID, key);
     if (twin) { hold(r, 'already-held-elsewhere', 'values', twin); continue; }
     remember(batchValues, target, key, r.SourceID, r.RowID);
@@ -1189,10 +1197,56 @@ export function loadFullTables(root = projectRoot) {
   return Object.fromEntries(['measurements', 'profiles', 'page_context', 'grades', 'sources', 'properties'].map((n) => [n, readTable(n, root)]));
 }
 
+// ---- what was applied already, and what is moved out -----------------------------------------------------------------
+
+const valueAddKey = (r) => [r.SourceID, r.GradeID, r.Property, Number(r['Normalized value']), r.Direction, r['Moisture state'], r['Post-processing state'], r.Notch, r['Test temperature °C']].join('\u0001');
+/** The key a proposal row is applied under: the same key in an earlier folder means the same proposal. */
+export const proposalKeys = {
+  profilesAdd: (r) => [r.SourceID, r.GradeID].join('\u0001'),
+  profilesSet: (r) => [r.id, r.column, r.value].join('\u0001'),
+  valuesAdd: valueAddKey,
+  valuesSet: (r) => [r.id, r.column, r.value].join('\u0001'),
+  pageContextAdd: (r) => [r.SourceID, r.Page, r['Applies to']].join('\u0001'),
+};
+const FILES = { profilesAdd: 'profiles-add.csv', profilesSet: 'profiles-set.csv', valuesAdd: 'values-add.csv', valuesSet: 'values-set.csv', pageContextAdd: 'page-context-add.csv' };
+
+/** Drop the ready rows an earlier proposals folder already holds by the same key (and a profile's Locator edit whose cells are all gone). */
+export function excludeApplied(out, dirs) {
+  const dropped = {};
+  for (const [name, file] of Object.entries(FILES)) {
+    const seen = new Set();
+    for (const d of dirs) {
+      const path = join(d, file);
+      if (existsSync(path)) for (const r of readCsv(path).records) seen.add(proposalKeys[name](Object.fromEntries(Object.entries(r.values).map(([k, v]) => [k, v ?? '']))));
+    }
+    const before = out[name].length;
+    out[name] = out[name].filter((r) => !seen.has(proposalKeys[name](r)));
+    dropped[name] = before - out[name].length;
+  }
+  dropLocatorOrphans(out);
+  return dropped;
+}
+
+function dropLocatorOrphans(out) {
+  const withCells = new Set(out.profilesSet.filter((r) => r.column !== 'Locator').map((r) => r.id));
+  out.profilesSet = out.profilesSet.filter((r) => r.column !== 'Locator' || withCells.has(r.id));
+}
+
+/** Rows of the given causes leave profiles-set and values-set (with the Locator edits only they needed); returns them. */
+export function moveOut(out, causes) {
+  const take = (rows) => ({ moved: rows.filter((r) => causes.includes(r.cause)), kept: rows.filter((r) => !causes.includes(r.cause)) });
+  const profiles = take(out.profilesSet), values = take(out.valuesSet);
+  out.profilesSet = profiles.kept; out.valuesSet = values.kept;
+  const before = out.profilesSet.length;
+  dropLocatorOrphans(out);
+  void before;
+  return { profilesSet: profiles.moved, valuesSet: values.moved };
+}
+
 async function main() {
   const arg = (name, fallback = null) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : fallback; };
   const runArg = arg('run');
-  if (!runArg) { console.error('usage: read-proposals --run <reconcile run dir> [--out <dir>]'); process.exit(2); }
+  if (!runArg) { console.error('usage: read-proposals --run <reconcile run dir> [--out <dir>] [--maker-wide] [--exclude dirA,dirB] [--move-out cause,cause]'); process.exit(2); }
   const runDir = resolve(projectRoot, runArg);
   const run = basename(runDir);
   const dir = resolve(projectRoot, arg('out', `docs/audits/2026-10-04-reader-round/proposals/${run}`));
@@ -1221,7 +1275,17 @@ async function main() {
   };
   const rows = readRunRows(runDir);
   const out = buildProposals({ rows, tables, ctx: { ...ctx, makerWide: process.argv.includes('--maker-wide') } });
+  const list = (name) => (arg(name) ?? '').split(',').filter(Boolean);
+  const dropped = list('exclude').length ? excludeApplied(out, list('exclude').map((d) => resolve(projectRoot, d))) : null;
+  const moved = list('move-out').length ? moveOut(out, list('move-out')) : null;
   const files = writeProposals(out, dir, { run, readRows: rows.length });
+  if (moved) {
+    mkdirSync(join(dir, 'moved-out'), { recursive: true });
+    writeFileSync(join(dir, 'moved-out', 'profiles-set.csv'), csvText(SET_HEADER, moved.profilesSet));
+    writeFileSync(join(dir, 'moved-out', 'values-set.csv'), csvText(VALUE_SET_HEADER, moved.valuesSet));
+    console.log(`moved out: ${moved.profilesSet.length} profiles-set row(s), ${moved.valuesSet.length} values-set row(s)`);
+  }
+  if (dropped) console.log(`already applied (same key in --exclude): ${JSON.stringify(dropped)}`);
   console.log(`${rows.length} reading(s) considered -> ${dir}`);
   console.log(JSON.stringify(files));
 }

@@ -62,7 +62,8 @@ export function spanText(spans) {
     }
     out += s.str ?? '';
   }
-  return out.replace(/\s+/g, ' ').trim();
+  // The ligatures a font damaged are put back here (repairLigatures), so every line and cell the reader composes reads as the page does.
+  return repairLigatures(out.replace(/\s+/g, ' ').trim());
 }
 
 /** Spans grouped into lines, top down, each left to right. The y rounding is what the audit has always used. */
@@ -225,6 +226,30 @@ export function cachedText(sha) {
   if (!existsSync(path)) return null;
   const cached = JSON.parse(readFileSync(path, 'utf8'));
   return CURRENT.has(cached.extractor) ? cached : null;
+}
+
+/**
+ * Some PDF fonts map a ligature to another character, and pdf.js reads that character: "ti" comes out as 3, 5, 8 or >
+ * ("Prin5ng temperature", "Hea5ng bed", "Drying 5me", "elonga3on", "applica>ons") and "ft" as W ("SoWening"). A reader that
+ * looks for the label "Printing temperature" never finds it, and a quote copied from the rendered page is on no line.
+ *
+ * Pure, and about letters only: it never touches a number or a token that holds more than letters and the one stray
+ * character. A token is repaired only when it is one word (a letter, lowercase letters, then runs of a stray character and
+ * lowercase letters, at least six characters, no @, /, . or capital inside); the stray character needs two letters before it
+ * ending lowercase and lowercase letters after (two after a 3 or 5, which "Slic3r" and "eryone3d" show are digits). The strays are 3, 5, 8, > and + (the last in "elas+city", "proper+es"). A word-initial 3, 5, 8 or > before "me", "tle", "p" or "ps" is "ti" (time, title,
+ * tip, tips). W is "ft" only in "-W-ening", "-W-ened" and "-W-ware" (softening, software): every other W in the corpus is a
+ * name (FiberWood, NatureWorks, PolyWood, MakerWorld), which the survey of 2,505 cached sheets showed.
+ */
+export function repairLigatures(text) {
+  return String(text ?? '').replace(/\S+/g, (token) => {
+    const m = /^([^A-Za-z0-9>]*)(.*?)([^A-Za-z0-9]*)$/s.exec(token);
+    const [, lead, core, trail] = m;
+    let fixed = core;
+    if (/^[358>](me|tle|ps?)$/.test(core)) fixed = `ti${core.slice(1)}`;
+    else if (core.length >= 6 && /^[A-Za-z][a-z]*(?:[358>+][a-z]+)+$/.test(core)) fixed = core.replace(/(?<=[A-Za-z][a-z])(?:[35](?=[a-z]{2})|[8+>](?=[a-z]))/g, 'ti');
+    fixed = fixed.replace(/(?<=[a-z])W(?=(?:ening|ened|ware)$)/, 'ft');
+    return fixed === core ? token : `${lead}${fixed}${trail}`;
+  });
 }
 
 /** Every line of a document, as the audit reads them: [{ page, text }]. */

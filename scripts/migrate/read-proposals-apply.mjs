@@ -42,8 +42,7 @@ const TYPED_COLUMNS = Object.values(TYPED).flat();
 /** The sheet guard: each piece of the quote is on the cached sheet in the line view (onSheet), else in its reading-order view, else in its OCR sidecar. Returns the view(s) that bore it out. */
 export function onCachedSheet(t, sourceId, quote, migration) {
   try {
-    onSheet(t, sourceId, quote, migration);
-    return 'line';
+    return onSheet(t, sourceId, quote, migration);
   } catch (error) {
     const views = quoteViews(t.get('sources', sourceId)?.SHA256, quote);
     if (views == null || views === '') throw error;
@@ -53,7 +52,7 @@ export function onCachedSheet(t, sourceId, quote, migration) {
 
 const value = (v) => (v == null ? '' : String(v));
 /** A note's account of the view that bore a quote out, when it was not the line view the other migrations read. */
-const viewNote = (view) => (!view || view === 'line' ? '' : ` Its quote was read in the ${view.replace('block', 'reading-order')} view of the cached sheet.`);
+const viewNote = (view) => (!view || view === 'line' ? '' : ` Its quote was read in the ${view.replace('block', 'reading-order').replace('repaired', 'ligature-repaired')} view of the cached sheet.`);
 
 /**
  * Apply a proposals folder to the open tables. `migration` names the migration in every note; `read` is the sentence the notes

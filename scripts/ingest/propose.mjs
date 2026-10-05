@@ -24,7 +24,7 @@ import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { INGEST_ROOT as AUDIT, PROPOSALS } from './context.mjs';
-import { cachedText, columnPositions, cellsAt, joinDigits, lineCells, spanText } from '../lib/pdf-text.mjs';
+import { cachedText, columnPositions, cellsAt, joinDigits, lineCells, repairLigatures, spanText } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
 import { readPostProcessingState, parseAnnealSchedule, specimenForm } from '../../build/src/normalize/specimen.js';
@@ -1430,15 +1430,29 @@ export function axisRows(line, columns) {
 // lines in the order it read them. Off by default until the audit of what the second reading adds has been read.
 export { LAYOUT_DEFAULT };
 
+/** The sheet with each line's text repaired; the sheet itself when no line needed it. */
+function withLigaturesRepaired(sheet) {
+  let changed = false;
+  const pages = sheet.pages.map((p) => ({
+    ...p,
+    lines: (p.lines ?? []).map((l) => { const fixed = repairLigatures(l.text); if (fixed === l.text) return l; changed = true; return { ...l, text: fixed }; }),
+  }));
+  return changed ? { ...sheet, pages } : sheet;
+}
+
 /**
  * A sheet read into values, settings and the lines it left unread. `layout` adds what a second reading of the page in
  * reading order finds; those items carry `viaLayout: true`, and a skipped line one of them states is no longer skipped.
  */
-export function readSheet(text, registry, { layout = LAYOUT_DEFAULT } = {}) {
+export function readSheet(sheet, registry, { layout = LAYOUT_DEFAULT } = {}) {
+  // A font that maps "ti" to a digit and "ft" to W would hide every label ("Prin5ng temperature"): the labels are read as the
+  // page prints them. Only letters change (repairLigatures), never a number.
+  const text = withLigaturesRepaired(sheet);
   const base = readSheetOnce(text, registry);
   if (!layout) return base;
-  const ordered = withReadingOrder(text);
-  if (ordered === text) return base;
+  const reordered = withReadingOrder(sheet);
+  if (reordered === sheet) return base;
+  const ordered = withLigaturesRepaired(reordered);
   const more = readSheetOnce(ordered, registry);
   const valueKey = (v) => `${v.page}|${v.property}|${squash(v.line)}|${squash(v.read?.raw)}`;
   const seen = new Set(base.values.map(valueKey));

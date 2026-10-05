@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { openTables } from '../scripts/data/table-io.mjs';
 import { applyProposals } from '../scripts/migrate/read-proposals-apply.mjs';
 import {
-  boundOfReading, tidy, buildProposals, conditionsOf, directionOf, proseClaim, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
+  boundOfReading, excludeApplied, moveOut, tidy, buildProposals, conditionsOf, directionOf, proseClaim, gateOf, labelledAnswers, loadFullTables, matchProduct, moistureOf, nameTokens, postProcessingOf, quoteViews, valueProposal, writeProposals,
 } from '../scripts/ingest/read-proposals.mjs';
 
 const COLUMNS = ['RowID', 'Class', 'Kind', 'SourceID', 'Page', 'Grade', 'Product', 'Field', 'Label', 'Raw', 'Lo', 'Hi', 'Unit', 'Operator', 'Direction', 'Specimen', 'Moisture', 'PostProcessing', 'Standard', 'TestConditions',
@@ -433,4 +433,19 @@ test('a formulation key\'s values are recorded once, on the carrier: the grade o
   assert.ok(same.held.some((h) => h.reason === 'already-held-elsewhere'));
   assert.equal(buildProposals({ rows: [row({ Grade: 'G001-02' })], tables: withHeld }).valuesAdd[0].grade_from, 'reader', 'the carrier\'s own reading is not moved');
   assert.equal(buildProposals({ rows: [row({ Grade: 'G001-01' })], tables: withHeld }).valuesAdd[0].GradeID, 'G001-01', 'a product outside a key is not either');
+});
+
+test('rows an earlier folder holds by the same key are not proposed again, and rows of a cause can be moved out', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'earlier-'));
+  const row = (o) => ({ gate: 'ready', task: 'reader-round', table: 'profiles', id: 'P1', column: 'Plate', expect: 'Not published', value: 'PEI', source: 'S-2', cause: 'gap-fill', ...o });
+  const earlier = { profilesAdd: [], profilesSet: [row({}), row({ column: 'Locator', value: 'p. 1: a; p. 1: b' })], valuesAdd: [], valuesSet: [], pageContextAdd: [], held: [], duplicates: [] };
+  writeProposals(earlier, dir, { run: 'earlier', readRows: 0 });
+  const out = { profilesAdd: [], profilesSet: [row({}), row({ column: 'Locator', value: 'p. 1: a; p. 1: b' }), row({ id: 'P2', value: 'glass', cause: 'plate-label' }), row({ id: 'P2', column: 'Locator', value: 'p. 1: c', cause: 'plate-label' }),
+    row({ id: 'P3', column: 'Bed °C', value: '60 °C', cause: 'agreed-mismatch' }), row({ id: 'P3', column: 'Locator', value: 'p. 1: d', cause: 'agreed-mismatch' })],
+  valuesAdd: [], valuesSet: [{ gate: 'ready', id: 'V1', column: 'Raw value', value: '3 MPa', cause: 'page-contradicts' }], pageContextAdd: [], held: [], duplicates: [] };
+  assert.equal(excludeApplied(out, [dir]).profilesSet, 2, 'the cell and its Locator edit are the earlier folder\'s');
+  assert.deepEqual(out.profilesSet.map((r) => [r.id, r.column]), [['P2', 'Plate'], ['P2', 'Locator'], ['P3', 'Bed °C'], ['P3', 'Locator']]);
+  const moved = moveOut(out, ['agreed-mismatch', 'page-contradicts']);
+  assert.equal(moved.profilesSet.length, 2); assert.equal(moved.valuesSet.length, 1);
+  assert.deepEqual(out.profilesSet.map((r) => [r.id, r.column]), [['P2', 'Plate'], ['P2', 'Locator']]);
 });
