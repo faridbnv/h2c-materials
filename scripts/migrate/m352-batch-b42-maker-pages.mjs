@@ -1,8 +1,8 @@
 // Reader round (GOALS, "Decided on 2026-10-04", item 2), the second maker-page batch b42: the makers' own pages and
 // guides for products still missing a nozzle or bed temperature after the re-read, admitted through the import pipeline
-// (a bounded exception to the import pause, like b34 to b41). Forty-six documents for forty-one existing products:
+// (a bounded exception to the import pause, like b34 to b41). Forty-four documents for thirty-nine existing products:
 // FormFutura "General printing guidelines" pages (live, or the Internet Archive's capture where the page is gone),
-// iSANMATE, 3DXTECH (Triton3D and the ESD-Flex archive), NinjaTek, BigRep, Fillamentum, SIDDAMENT and Spectrum product
+// iSANMATE, 3DXTECH (Triton3D PC/ABS and the ESD-Flex archive), NinjaTek, BigRep, Fillamentum, SIDDAMENT and Spectrum product
 // pages, and LEHVOSS's own current datasheet. Each enters for the print settings it prints (nozzle, bed, enclosure or
 // chamber, drying, nozzle hardness, with the layer height, speed, cooling and retraction as notes) that the registered
 // sheets leave unpublished; a differing statement is a second profile from its own source, never an overwrite. No
@@ -24,7 +24,7 @@ import { buildDatabase } from '../../build/src/pipeline.js';
 
 const migration = 'm352-batch-b42-maker-pages', date = '2026-10-04';
 const at = join(projectRoot, 'docs/audits/2026-10-04-reader-round');
-const PACKET_SHA256 = '55eba7e3157fdd97ad5974f87a62a2cd5ee4296b338f070b5a96ea85264df1aa';
+const PACKET_SHA256 = '0f529db520d84b57c7c3044a4a5b1ea8d36eb55e40c039b6568f0260dd400fd6';
 const hash = (b) => createHash('sha256').update(b).digest('hex');
 const bytes = readFileSync(join(at, 'ingest/b42-packet.json')), digest = hash(bytes);
 if (digest !== PACKET_SHA256) throw Error(`${migration}: changed packet`);

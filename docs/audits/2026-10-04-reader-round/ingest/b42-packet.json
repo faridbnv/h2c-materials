@@ -189,18 +189,6 @@
       "Product name": "PC CF"
     },
     {
-      "GradeID": "G029-11",
-      "MaterialID": "M029",
-      "Manufacturer": "3DXTECH",
-      "Product name": "TriMax Carbon Fiber ABS Model Material"
-    },
-    {
-      "GradeID": "G030-11",
-      "MaterialID": "M030",
-      "Manufacturer": "3DXTECH",
-      "Product name": "TriStat ESD-ABS Model Material"
-    },
-    {
       "GradeID": "G094-12",
       "MaterialID": "M094",
       "Manufacturer": "3DXTECH",
@@ -2879,158 +2867,6 @@
       "Skipped": "No chamber, enclosure or drying statement (\"Sealed printing, good adhesion\" is a feature claim)."
     },
     {
-      "File": "ca66923e9ba10a2d.json",
-      "Extension": "html",
-      "ProposalSHA256": "da49e1e6bd0e63ce896258269bc478d343d8d3e9ab8903ba6303d9f6741df64e",
-      "OriginalSHA256": "ca66923e9ba10a2d338d7506acbd33817f7c137a7aa7e2863bc34b20e531ead9",
-      "Source": {
-        "SourceID": "R-3DXTECH-READER-20261004-ca66923e9ba1",
-        "Publisher": "3DXTECH",
-        "Title": "TRITON3D™ ABS+CF - Stratasys® Compatible",
-        "Revision": "Not published",
-        "Publication date": "Not published",
-        "Access date": "2026-10-04",
-        "Source class": "Manufacturer product page or guide",
-        "Source note": "3DXTECH's product page as served on 2026-10-04 for TRITON3D™ ABS+CF - Stratasys® Compatible (3DXTECH TriMax Carbon Fiber ABS Model Material, G029-11): its Print Recommendations block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
-        "Citation role": "cited",
-        "URL": "https://www.3dxtech.com/products/triton-abs-cf-1",
-        "Locator": "Document / exact product page",
-        "Applicable grades": "G029-11",
-        "Access state": "retrieved",
-        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from https://3dxtech.com/products/triton-abs-cf-1, which the maker's server redirects to https://www.3dxtech.com/products/triton-abs-cf-1; staged by digest (ingest:witness --from).",
-        "SHA256": "ca66923e9ba10a2d338d7506acbd33817f7c137a7aa7e2863bc34b20e531ead9"
-      },
-      "ProposedProfiles": [
-        {
-          "row": {
-            "MaterialID": "M029",
-            "GradeID": "G029-11",
-            "Profile": "Current manufacturer product guidance",
-            "Nozzle °C": "220-240C",
-            "Nozzle state": "range",
-            "Nozzle min °C": "220",
-            "Nozzle max °C": "240",
-            "Nozzle requirement": "required",
-            "Bed °C": "100-110C",
-            "Bed state": "range",
-            "Bed min °C": "100",
-            "Bed max °C": "110",
-            "Bed requirement": "required",
-            "Chamber °C": "Recommended",
-            "Chamber state": "recommended",
-            "Chamber min °C": "Not applicable",
-            "Chamber max °C": "Not applicable",
-            "Chamber requirement": "recommended",
-            "Enclosure": "Not published",
-            "Enclosure state": "unknown",
-            "Plate": "Not published",
-            "Drying": "80C for 4 hours",
-            "Drying state": "stated",
-            "Drying °C": "80",
-            "Drying hours": "4",
-            "Nozzle material": "Hardened Steel with .4mm diameter minimum",
-            "Nozzle diameter": ".4mm diameter minimum",
-            "Abrasion / clogging": "Hardened Steel with .4mm diameter minimum",
-            "Hardened nozzle": "TRUE",
-            "H2C left": "Verify exact grade/nozzle; no blanket approval",
-            "H2C right": "Verify exact grade/nozzle; no blanket approval",
-            "AMS 2 Pro": "Not verified for every grade",
-            "AMS HT": "Not verified for every grade",
-            "AMS published": "Not published",
-            "Support pairing": "Not published",
-            "Failure modes": "Not published",
-            "SourceID": "R-3DXTECH-READER-20261004-ca66923e9ba1",
-            "H2C SourceID": "H2C-WIKI",
-            "Locator": "p. 1: Print Recommendations",
-            "Parse review": "Not applicable"
-          },
-          "notes": [
-            {
-              "Topic": "Layer height",
-              "Text": "0.25mm or higher"
-            }
-          ]
-        }
-      ],
-      "Skipped": "IDENTITY: the registered sheet is \"TriMax Carbon Fiber ABS Model Material\" (a TRITON 3D sheet: ABS with carbon fibre, Fortus 400mc specimens, Stratasys model material); the page is the maker's \"TRITON3D ABS+CF - Stratasys Compatible\", its only listed carbon-fibre ABS for Stratasys printers, made with Sabic MG-94 ABS and carbon fibre. The page does not print the name TriMax; it is taken as the same product on those grounds and the lead should drop it if that is not accepted. The page also prints a 50 % tip-life reduction warning and a price: not entered."
-    },
-    {
-      "File": "9a31aea86163a0a6.json",
-      "Extension": "html",
-      "ProposalSHA256": "3f096b4c7dbcb3ba1b6aa86c942dfa8faf602c49cec2aa7af513abd0cafab484",
-      "OriginalSHA256": "9a31aea86163a0a6efa5cdf3aec08a7d12d524889c5f34d74153200afd011aca",
-      "Source": {
-        "SourceID": "R-3DXTECH-READER-20261004-9a31aea86163",
-        "Publisher": "3DXTECH",
-        "Title": "TRITON3D™ ESD-ABS - Stratasys® Compatible",
-        "Revision": "Not published",
-        "Publication date": "Not published",
-        "Access date": "2026-10-04",
-        "Source class": "Manufacturer product page or guide",
-        "Source note": "3DXTECH's product page as served on 2026-10-04 for TRITON3D™ ESD-ABS - Stratasys® Compatible (3DXTECH TriStat ESD-ABS Model Material, G030-11): its Print Recommendations block. The registered sheet leaves nozzle, bed, chamber and drying unpublished.",
-        "Citation role": "cited",
-        "URL": "https://www.3dxtech.com/products/triton-esd-abs-1",
-        "Locator": "Document / exact product page",
-        "Applicable grades": "G030-11",
-        "Access state": "retrieved",
-        "Access note": "Fetched 2026-10-04 by Claude Sonnet (reader round b42) from the maker's address; staged by digest (ingest:witness --from).",
-        "SHA256": "9a31aea86163a0a6efa5cdf3aec08a7d12d524889c5f34d74153200afd011aca"
-      },
-      "ProposedProfiles": [
-        {
-          "row": {
-            "MaterialID": "M030",
-            "GradeID": "G030-11",
-            "Profile": "Current manufacturer product guidance",
-            "Nozzle °C": "220-240C",
-            "Nozzle state": "range",
-            "Nozzle min °C": "220",
-            "Nozzle max °C": "240",
-            "Nozzle requirement": "required",
-            "Bed °C": "100-110C",
-            "Bed state": "range",
-            "Bed min °C": "100",
-            "Bed max °C": "110",
-            "Bed requirement": "required",
-            "Chamber °C": "Recommended",
-            "Chamber state": "recommended",
-            "Chamber min °C": "Not applicable",
-            "Chamber max °C": "Not applicable",
-            "Chamber requirement": "recommended",
-            "Enclosure": "Not published",
-            "Enclosure state": "unknown",
-            "Plate": "Not published",
-            "Drying": "80C for 4 hours",
-            "Drying state": "stated",
-            "Drying °C": "80",
-            "Drying hours": "4",
-            "Nozzle material": "No special concerns",
-            "Nozzle diameter": "Not published",
-            "Abrasion / clogging": "Not published",
-            "Hardened nozzle": "Not published",
-            "H2C left": "Verify exact grade/nozzle; no blanket approval",
-            "H2C right": "Verify exact grade/nozzle; no blanket approval",
-            "AMS 2 Pro": "Not verified for every grade",
-            "AMS HT": "Not verified for every grade",
-            "AMS published": "Not published",
-            "Support pairing": "Not published",
-            "Failure modes": "Not published",
-            "SourceID": "R-3DXTECH-READER-20261004-9a31aea86163",
-            "H2C SourceID": "H2C-WIKI",
-            "Locator": "p. 1: Print Recommendations",
-            "Parse review": "Not applicable"
-          },
-          "notes": [
-            {
-              "Topic": "Layer height",
-              "Text": "No special concerns"
-            }
-          ]
-        }
-      ],
-      "Skipped": "IDENTITY: the registered sheet is \"TriStat ESD-ABS Model Material\" (a TRITON 3D sheet, Fortus specimens); the page is the maker's \"TRITON3D ESD-ABS - Stratasys Compatible\", its Stratasys-compatible ESD ABS; taken as the same product (the page does not print the name TriStat). The separate 3DXSTAT ESD-ABS spool page prints the same settings but is the maker's own spool filament, not this model material: not admitted."
-    },
-    {
       "File": "4b61d2baf58c16e8.json",
       "Extension": "html",
       "ProposalSHA256": "e37d9b6467662ee1f027d20a6872b6e8c3cf109cd2b71da41c3cceab34c0750e",
@@ -4094,6 +3930,10 @@
     {
       "Product": "G116-02 TriStat ESD-PC Model Material",
       "Why": "the page found is the 3DXSTAT ESD-PC spool filament, not the Triton3D model material; the Triton ESD-PC page prints no settings block"
+    },
+    {
+      "Product": "G029-11 TriMax Carbon Fiber ABS, G030-11 TriStat ESD-ABS (Triton3D pages)",
+      "Why": "identity unconfirmed: Triton3D page names another product line (TRITON3D ABS+CF and ESD-ABS; nothing on them names TriMax or TriStat). OPEN-PROBLEMS lead"
     },
     {
       "Product": "G030-11 3DXSTAT ESD-ABS spool page",

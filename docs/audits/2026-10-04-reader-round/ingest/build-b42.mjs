@@ -298,28 +298,6 @@ const docs = [
 
   // ---- 3DXTECH (Triton3D line and the ESD-Flex archive) ----
   {
-    file: 'g029-11', grade: 'G029-11', maker: '3DXTECH', slug: '3DXTECH', title: 'TRITON3D™ ABS+CF - Stratasys® Compatible', url: 'https://www.3dxtech.com/products/triton-abs-cf-1', requested: 'https://3dxtech.com/products/triton-abs-cf-1',
-    kind: 'Current manufacturer product guidance', block: 'Print Recommendations', sourceClass: PAGE,
-    profiles: [{
-      locator: 'Print Recommendations', evidence: 'Extruder Temp  220-240C',
-      cells: { nozzle: '220-240C', bed: '100-110C', chamber: 'Recommended', nozzleMaterial: 'Hardened Steel with .4mm diameter minimum', diameter: '.4mm diameter minimum', abrasion: 'Hardened Steel with .4mm diameter minimum', drying: '80C for 4 hours' },
-      lines: { nozzle: 'Extruder Temp  220-240C', bed: 'Bed Temp  100-110C', chamber: 'Heated Chamber  Recommended', nozzleMaterial: 'Nozzle Specs  Hardened Steel with .4mm diameter minimum', drying: 'Drying Specs  80C for 4 hours' },
-      notes: [['Layer height', '0.25mm or higher']],
-    }],
-    skipped: 'IDENTITY: the registered sheet is "TriMax Carbon Fiber ABS Model Material" (a TRITON 3D sheet: ABS with carbon fibre, Fortus 400mc specimens, Stratasys model material); the page is the maker\'s "TRITON3D ABS+CF - Stratasys Compatible", its only listed carbon-fibre ABS for Stratasys printers, made with Sabic MG-94 ABS and carbon fibre. The page does not print the name TriMax; it is taken as the same product on those grounds and the lead should drop it if that is not accepted. The page also prints a 50 % tip-life reduction warning and a price: not entered.',
-  },
-  {
-    file: 'g030-11a', grade: 'G030-11', maker: '3DXTECH', slug: '3DXTECH', title: 'TRITON3D™ ESD-ABS - Stratasys® Compatible', url: 'https://www.3dxtech.com/products/triton-esd-abs-1',
-    kind: 'Current manufacturer product guidance', block: 'Print Recommendations', sourceClass: PAGE,
-    profiles: [{
-      locator: 'Print Recommendations', evidence: 'Extruder Temp  220-240C',
-      cells: { nozzle: '220-240C', bed: '100-110C', chamber: 'Recommended', nozzleMaterial: 'No special concerns', drying: '80C for 4 hours' },
-      lines: { nozzle: 'Extruder Temp  220-240C', bed: 'Bed Temp  100-110C', chamber: 'Heated Chamber  Recommended', nozzleMaterial: 'Nozzle Specs  No special concerns', drying: 'Drying Specs  80C for 4 hours' },
-      notes: [['Layer height', 'No special concerns']],
-    }],
-    skipped: 'IDENTITY: the registered sheet is "TriStat ESD-ABS Model Material" (a TRITON 3D sheet, Fortus specimens); the page is the maker\'s "TRITON3D ESD-ABS - Stratasys Compatible", its Stratasys-compatible ESD ABS; taken as the same product (the page does not print the name TriStat). The separate 3DXSTAT ESD-ABS spool page prints the same settings but is the maker\'s own spool filament, not this model material: not admitted.',
-  },
-  {
     file: 'g094-12', grade: 'G094-12', maker: '3DXTECH', slug: '3DXTECH', title: 'TRITON3D™ PC/ABS - Stratasys® Compatible', url: 'https://www.3dxtech.com/products/triton3d-pc-abs-stratasys-compatible',
     kind: 'Current manufacturer product guidance', block: 'Print Recommendations', sourceClass: PAGE,
     profiles: [{
@@ -539,6 +517,7 @@ const packet = {
     { Product: 'G137-01, G137-03, G167-13, G170-01 (purefil / Fabru)', Why: 'the registered sheets already print the values; the text layer drops a ligature in "Printing temperature"' },
     { Product: 'G030-02, G084-01, G114-01, G126-01 TDS and 3DXTECH specimen blocks', Why: 'a test-bar "Extrusion Temp" / "Bottom Plate Heating" is a specimen setting, never guidance (m170)' },
     { Product: 'G116-02 TriStat ESD-PC Model Material', Why: 'the page found is the 3DXSTAT ESD-PC spool filament, not the Triton3D model material; the Triton ESD-PC page prints no settings block' },
+    { Product: 'G029-11 TriMax Carbon Fiber ABS, G030-11 TriStat ESD-ABS (Triton3D pages)', Why: 'identity unconfirmed: Triton3D page names another product line (TRITON3D ABS+CF and ESD-ABS; nothing on them names TriMax or TriStat). OPEN-PROBLEMS lead' },
     { Product: 'G030-11 3DXSTAT ESD-ABS spool page', Why: 'the same settings as the admitted Triton3D ESD-ABS page, but the maker\'s spool product, not the model material' },
     { Product: 'G084-01 FibreX GF PP archive', Why: 'the archived page prints no settings; the quoted figures were seen only in a search summary' },
     { Product: 'Raise3D ideaMaker profiles (G053-09, G059-03, G071-04)', Why: 'a slicer preset, not the maker\'s guidance document' },
