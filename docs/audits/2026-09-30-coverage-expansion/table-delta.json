@@ -43,9 +43,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 14421,
-    "added": 2885,
-    "edited_existing": 1415,
+    "current": 14435,
+    "added": 2899,
+    "edited_existing": 1853,
     "removed": 0
   },
   "method": {
@@ -57,8 +57,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 461,
-    "added": 461,
+    "current": 714,
+    "added": 714,
     "edited_existing": 0,
     "removed": 0
   },

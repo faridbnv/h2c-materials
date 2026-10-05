@@ -27,6 +27,7 @@ import { onCachedSheet } from './read-proposals-apply.mjs';
 import { withNote } from './source-edits.mjs';
 import { pageOf, scopeOf } from '../../build/src/page-context.js';
 import { specimenForm } from '../../build/src/normalize/specimen.js';
+import { tidy } from '../ingest/read-proposals.mjs';
 
 const MIGRATION = 'm358';
 const DIR = join(projectRoot, 'docs/audits/2026-10-05-gap-round-2/specimen-blocks');
@@ -37,7 +38,7 @@ const t = openTables();
 const hasTable = 'Table' in (t.rows('page_context')[0] ?? {});
 const norm = (s) => String(s ?? '').toLowerCase().replace(/[°º˚]/g, '°').replace(/[–—]/g, '-').replace(/\s+/g, ' ').trim();
 
-const blocks = rowsOf(join(DIR, 'blocks.csv'));
+const blocks = rowsOf(join(DIR, 'blocks.csv')).map((b) => ({ ...b, print_parameters: tidy(b.print_parameters) }));
 let added = 0, cells = 0;
 for (const b of blocks) {
   onCachedSheet(t, b.source, b.quote, MIGRATION);

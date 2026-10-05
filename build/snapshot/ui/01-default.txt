@@ -26,7 +26,7 @@ A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limit
 Flexible component
 A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
 153 materials, 136 within H2C capability
-14098 measurements, each traceable to its source
+14104 measurements, each traceable to its source
 149 have a density, 100 a modulus, 101 a price
 Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer
@@ -657,14 +657,14 @@ PET-CF
 PET Engineering
  not tested 1,340
 1,290–1,400 · 7
- 5.11
-4.73–5.48 · 2
+ 4.73
+3.6–5.48 · 3
 annealed median
- 74
-65.9–75 · 3
+ 70
+45–75 · 4
 annealed median
- 4
-2.4–4.5 · 3
+ 4.25
+2.4–6 · 4
  124
 74–205 · 6
  113

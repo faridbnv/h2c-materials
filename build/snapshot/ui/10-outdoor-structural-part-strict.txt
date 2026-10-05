@@ -1,7 +1,7 @@
-COUNT 5 shown PASS
-STATUS ☑ PASS 5 | ☐ UNKNOWN 104 | ☐ FAIL 44
-5 of the 153 materials meet these requirements
-Outdoor structural part template · 104 more could not be checked, left out under Confirmed only
+COUNT 6 shown PASS
+STATUS ☑ PASS 6 | ☐ UNKNOWN 103 | ☐ FAIL 44
+6 of the 153 materials meet these requirements
+Outdoor structural part template · 103 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -19,7 +19,7 @@ Density at most 1500 kg/m³
 REPORTED, NOT REQUIRED
 Price at most 100 CAD/kg
 ×
-Values judged: as printed, dry. Allow annealing: 5 more pass
+Values judged: as printed, dry. Allow annealing: 4 more pass
 Not checked by this template: UV and weathering
 Properties
 Printing
@@ -110,6 +110,28 @@ all products: 184
 annealed median
  84
 77–146 · 3
+↗ ☆
+PET-CF
+PET Engineering
+ PASS
+1 of 3 products
+ passing: 1,400
+all products: 1,340
+1,290–1,400 · 7
+ passing: 3.6
+all products: 4.73
+3.6–5.48 · 3
+annealed median
+ 70
+45–75 · 4
+annealed median
+ 4.25
+2.4–6 · 4
+ passing: 100
+all products: 124
+74–205 · 6
+ 113
+70–116 · 3
 ↗ ☆
 PP-CF
 Polyolefins

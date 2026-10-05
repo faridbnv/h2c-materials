@@ -15,7 +15,7 @@ Tensile strain at strength
 Flexural modulus
 186 values
 Flexural strength
-183 values
+184 values
 Flexural elongation at break
 3 values
 Flexural stress at conventional deflection

@@ -65,7 +65,7 @@ ABS-AF PASS
 1 of 2 products
  1,050
 1,040–1,050 · 3
- 1.89 22 ~2–16† passing: 88
+ 1.89 22 ~2–15† passing: 88
 all products: 88
  127↗ ☆
 ABS-CF UNKNOWN
@@ -150,7 +150,7 @@ all products: 77.5
 ASA-AF UNKNOWN
 none judged
 nothing published to judge
- 1,070 ~1.0–3.4† ~41–64† ~6–23† ~95–104† 115
+ 1,070 ~1.0–3.5† ~41–64† ~6–23† ~95–104† 115
 109–120 · 2
 ↗ ☆
 ASA-CF PASS
@@ -172,7 +172,7 @@ all products: 101
 ASA-EC UNKNOWN
 none judged
 nothing published to judge
- 1,170 ~2.2–3.9† ~30–49† ~1–13† ~87–105† 125¤ ☆
+ 1,170 ~2.2–3.9† ~30–49† ~2–13† ~87–105† 125¤ ☆
 ASA-GF PASS
 3 of 3 products
  1,130
@@ -192,13 +192,13 @@ PVB / Specialty Polymers
  UNKNOWN
 0 of 1 product
 likely fails: 1 with data misses, 1 publish none
- 1,020 ~0.4–1.6† ~43–84† ~20–500† 160 — ☆
+ 1,020 ~0.4–1.6† ~43–86† ~20–500† 160 — ☆
 CoPE
 Copolyesters
  UNKNOWN
 none judged
 nothing published to judge
- 1,300 2.52 51.6 ~8–69† ~50–70† 21.6↗ ☆
+ 1,300 2.52 51.6 ~9–81† ~50–70† 21.6↗ ☆
 CPE
 Copolyesters
  PASS
@@ -244,7 +244,7 @@ Copolyesters
  UNKNOWN
 none judged
 nothing published to judge
- 1,130 0.15 19.3 320 ~73–144† 76.3¤ ☆
+ 1,130 0.15 19.3 320 ~72–145† 76.3¤ ☆
 Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
@@ -278,7 +278,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,140 ~4.9–8.3† ~68–80† ~4.0–8.3† 142 — ☆
+ 1,140 ~5.0–8.3† ~68–80† ~4.0–8.3† 142 — ☆
 PA12
 Nylon / Polyamide
  UNKNOWN
@@ -286,7 +286,7 @@ none judged
 nothing published to judge
  1,010
 1,000–1,020 · 6
- ~0.7–2.0† ~32–66† ~200–350† 135
+ ~0.7–2.0† ~32–66† ~200–360† 135
 100–135 · 4
  183
 123–242 · 2
@@ -296,7 +296,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 990 ~0.46–0.78† ~52–76† ~6.2–12.4† ~59–146† — ☆
+ 990 ~0.46–0.77† ~52–75† ~6.2–12.6† ~58–147† — ☆
 PA12-CF
 Nylon / Polyamide
  PASS
@@ -331,7 +331,7 @@ Nylon / Polyamide
 1 of 2 products
  1,150
 1,130–1,200 · 7
- ~1.5–4.0† ~40–82† ~51–99† passing: 140
+ ~1.5–4.0† ~40–82† ~52–98† passing: 140
 all products: 140
 60–143 · 3
  163↗ ☆
@@ -340,7 +340,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,490 ~4.3–7.2† ~57–87† ~2.0–7.8† ~91–106† 161¤ ☆
+ 1,490 ~4.3–7.2† ~57–86† ~2.0–7.7† ~91–106† 161¤ ☆
 PA6-CF
 Nylon / Polyamide
  PASS
@@ -386,7 +386,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,010 ~3.1–5.3† ~88–120† ~3.5–12.4† ~91–106† 180↗ ☆
+ 1,010 ~3.2–5.2† ~88–120† ~3.5–12.2† ~91–106† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -416,7 +416,7 @@ out of stock
  ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.0–3.7† ~35–82† ~8–63† ~80–169† — ☆
+ UNKNOWN ~990–1,070† ~1.0–3.7† ~36–84† ~7–58† ~79–170† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS
@@ -451,22 +451,22 @@ all products: 157
  178↗ ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,040–1,260† ~1.9–9.3† ~52–131† ~1–12† ~134–211† — ☆
+ UNKNOWN ~1,040–1,260† ~1.9–9.3† ~52–131† ~1.3–11.2† ~131–211† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- ~1,010–1,060† ~1.4–4.3† ~41–96† ~7–54† ~60–99† 246¤ ☆
+ ~1,010–1,070† ~1.4–4.3† ~42–96† ~6–50† ~59–99† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,170† ~2–13† ~56–141† ~1.4–11.2† ~130–250† — ☆
+ UNKNOWN ~1,050–1,170† ~2–13† ~56–140† ~1.2–10.8† ~130–250† — ☆
 PAHT
 Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,200 3.1 82.1 ~4.5–12.7† ~93–184† — ☆
+ 1,200 3.1 82.1 ~4.5–12.6† ~93–186† — ☆
 PAHT-CE
 Nylon / Polyamide
  UNKNOWN
@@ -474,7 +474,7 @@ none judged
 nothing published to judge
  1,370
 1,250–1,490 · 2
- ~1.7–5.5† ~40–99† ~2–24† ~60–170† — ☆
+ ~1.7–5.5† ~40–98† ~2–21† ~60–170† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS
@@ -621,7 +621,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,250 ~3.6–5.1† ~90–103† ~3.1–5.8† ~113–127† 115¤ ☆
+ 1,250 ~3.7–5.1† ~90–104† ~3.1–5.7† ~113–127† 115¤ ☆
 PC-PTFE
 Polycarbonate
  UNKNOWN
@@ -639,7 +639,7 @@ PVB / Specialty Polymers
 likely fails: 2 with data miss, 2 publish none
  1,100
 1,100–1,130 · 3
- ~0.21–0.69† ~9–45† 800 57 — ☆
+ ~0.21–0.69† ~8–45† 800 57 — ☆
 PCTG
 Copolyesters
  UNKNOWN
@@ -653,7 +653,7 @@ Copolyesters
  UNKNOWN
 0 of 2 products
 likely fails: 2 with data miss, 1 publish none
- 1,280 ~1.6–5.6† ~44–86† ~5–21† 77
+ 1,280 ~1.6–5.6† ~44–87† ~5–22† 77
 76–78 · 2
  138¤ ☆
 PE
@@ -669,7 +669,7 @@ none judged
 nothing published to judge
  1,050
 1,020–1,080 · 2
- ~1.3–4.5† ~20–42† ~10–36† 85 — ☆
+ ~1.3–4.5† ~19–41† ~10–39† 85 — ☆
 PET
 PET Engineering
  UNKNOWN
@@ -690,14 +690,14 @@ PET Engineering
 2 of 3 products
  1,340
 1,290–1,400 · 7
- 5.11
-4.73–5.48 · 2
+ 4.73
+3.6–5.48 · 3
 annealed median
- 74
-65.9–75 · 3
+ 70
+45–75 · 4
 annealed median
- 4
-2.4–4.5 · 3
+ 4.25
+2.4–6 · 4
  passing: 87–100
 all products: 124
 74–205 · 6
@@ -802,11 +802,11 @@ likely fails: 1 with data misses, 4 publish none
 PETG-GR UNKNOWN
 none judged
 nothing published to judge
- 1,290 ~1.2–3.8† ~54–80† ~5–29† ~54–81† 85.8¤ ☆
+ 1,290 ~1.2–3.8† ~54–80† ~5–27† ~54–81† 85.8¤ ☆
 PETG-PTFE UNKNOWN
 none judged
 nothing published to judge
- 1,320 ~0.8–2.7† ~25–55† ~104–189† ~49–73† 86↗ ☆
+ 1,320 ~0.8–2.7† ~25–55† ~103–184† ~49–73† 86↗ ☆
 PLA PASS
 7 of 84 products
  1,240
@@ -992,7 +992,7 @@ none judged
 nothing published to judge
  1,295
 1,240–1,350 · 2
- ~0.9–3.0† ~23–53† ~2–17† ~50–112† 200↗ ☆
+ ~0.9–3.0† ~23–53† ~2–17† ~50–115† 200↗ ☆
 PLA-ESD UNKNOWN
 0 of 1 product
 likely fails: 1 with data misses, 1 publish none
@@ -1008,7 +1008,7 @@ likely fails: 1 with data misses, 3 publish none
 PLA-GR UNKNOWN
 none judged
 nothing published to judge
- 1,240 ~1.7–5.3† ~59–86† ~4–17† ~50–112† 42.9
+ 1,240 ~1.7–5.3† ~59–86† ~4–17† ~50–115† 42.9
 32.1–53.6 · 2
 ¤ ☆
 PLA-NF PASS
@@ -1024,12 +1024,12 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,240 3.29 57.7 6.1 ~46–70† 77.3↗ ☆
+ 1,240 3.29 57.7 6.1 ~46–71† 77.3↗ ☆
 PLA-PHB
 Polymer Blends
  PASS
 1 of 1 product
- 1,200 ~1.4–2.5† ~40–56† ~8.2–16.5† passing: 119
+ 1,200 ~1.49–2.46† ~39–56† ~8.2–16.4† passing: 119
 all products: 119
  — ☆
 POM
@@ -1137,7 +1137,7 @@ Polymer Blends
 likely fails: 1 with data misses, 1 publish none
  1,090
 1,080–1,100 · 2
- 2.25 67 12 ~100–130† 148¤ ☆
+ 2.25 67 12 ~99–130† 148¤ ☆
 PPS
 High-Performance Engineering
  UNKNOWN
@@ -1210,7 +1210,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–7.7† ~26–53† ~10–370† ~51–76† — ☆
+ ~0.1–7.7† ~26–52† ~20–370† ~51–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN
@@ -1233,7 +1233,7 @@ Styrenics
  UNKNOWN
 none judged
 nothing published to judge
- 1,080 ~2.7–4.6† ~72–92† ~6–54† ~102–113† — ☆
+ 1,080 ~2.7–4.6† ~72–92† ~5–51† ~102–113† — ☆
 SBC
 Styrenics
  UNKNOWN

@@ -35,6 +35,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA-GF (M034) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 1 / 6 | — |
 | PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 1 / 3 | — |
 | PBAT (M133) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PET-CF (M067) | Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 1 / 4 | — |
 | PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 18 | 6 / 4 / 14 | — |
 | PLA-NF (M152) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
 | PP (M082) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 4 / 7 | — |
@@ -57,7 +58,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA612-CF (M059) | Indoor prototype; Warm environment | collected | 0 of 3 | 1 / 0 / 0 | — |
 | PAHT (M147) | Indoor prototype; Lightweight structure | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-CF (M037) | Indoor prototype; Warm environment | collected | 0 of 10 | 4 / 3 / 8 | — |
-| PET-CF (M067) | Indoor prototype; Warm environment | collected | 0 of 8 | 3 / 1 / 4 | — |
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 1 / 0 / 1 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 9 / 5 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 6 / 5 / 10 | — |
