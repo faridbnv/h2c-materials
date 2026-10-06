@@ -497,6 +497,13 @@ supplied them) and its other impact records (unnotched, notch not stated, Z, mou
 or a value opens its measurement in Sources; hovering a product's dot on one row lights its dot on the other. Which
 headlines are drawn together is the Drawer comparison column of headline_definitions.csv.
 
+**Sold as toughened (D133).** A product whose maker's own statement presents it as toughened or impact-modified
+(product_claims.csv) carries a **sold as toughened** mark beside its name, in its product card and in the impact table;
+the mark's explanation is the maker's quote, its document and page, and "the maker's statement, not a test result". Its
+dots are coloured. Under the impact rows, and under the Products tab's spread table, a sentence says how many of the
+comparable values are from such products, their range, and what the others give; the median's explanation says
+"Included: …" beside "Left out: …". They stay in the median.
+
 **Record notes.** Nearly every measurement's Notes cell is the record's history ("Added 2026-09-17 (m39): re-read from
 the source document"). It is shown, collapsed, as **Record notes**, never among the test conditions. Every record ID is
 behind a small **ID** mark beside what it names.

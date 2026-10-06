@@ -290,7 +290,11 @@ is not an Izod value, and Izod in J/m (ASTM D256) is energy per metre of notch, 
 gives. The tool never converts one into another. In a material's **Mechanical** tab the two tests are drawn one above
 the other on one scale, a dot per product, with a table of products listing both and every other impact record each
 product has. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 4.9 to 72.3
-kJ/m², but its middle half is 6.6 to 21, and the high end is a handful of products sold as toughened.
+kJ/m², but its middle half is 6.6 to 21, and the high end is products sold as toughened. Where a maker's own words
+present a product as toughened or impact-modified, it is marked **sold as toughened**, with the quote, and the page says
+what those products and the others give: for PLA, 7 of the 16 comparable values are such products (5.76 to 72.3), and
+the other 9 give 4.94 to 20.3, median 7.9. A product's name is never the reason, and the mark is a claim, not a test:
+Polymaker's ABS Pro is sold as tougher and publishes ABS's lowest notched Charpy.
 
 **A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
 measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one

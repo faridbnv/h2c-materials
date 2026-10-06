@@ -382,6 +382,20 @@
           "print": {
             "$ref": "#/$defs/productPrint"
           },
+          "claims": {
+            "type": "array",
+            "description": "What the maker sells the product as (product_claims.csv, D133), each with the maker's statement that makes it; absent where it has none.",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["claim", "evidenceId"],
+              "properties": {
+                "claim": { "type": "string" },
+                "evidenceId": { "type": "string", "pattern": "^Q\\d{5}$" }
+              }
+            }
+          },
           "knowHow": {
             "type": "object",
             "description": "What the product's maker says beyond the numbers, as a state (build/src/know-how.js): collected, searched with nothing published, sheet silent, or no document read; its statements per topic (db.knowHow holds them); when its documents were read and its maker's site searched; and the same states for the chamber, drying and annealing parts of its print recipe. Absent for a retired grade.",
@@ -1626,6 +1640,7 @@
         "endpointNote",
         "comparisonNote",
         "drawerComparison",
+        "toughened",
         "labels",
         "better",
         "filter",
@@ -1777,6 +1792,13 @@
           "type": [
             "string",
             "null"
+          ]
+        },
+        "toughened": {
+          "description": "What the material's spread does with the products their makers sell as toughened (D133): named, or null.",
+          "enum": [
+            "named",
+            null
           ]
         },
         "labels": {
@@ -1967,6 +1989,9 @@
               "type": "integer",
               "minimum": 1,
               "description": "How many of the n values are a twin's reading of its sibling's sheet (D89); absent when none."
+            },
+            "claimed": {
+              "$ref": "#/$defs/claimedSplit"
             },
             "bounds": {
               "description": "How many of the comparable values are a published bound (\"> 650 %\", counted as its number), and whether the lowest and the highest are one: 'lower' for a lower bound, 'upper' for an upper one, null for a measured number. Absent when none is a bound.",
@@ -3066,6 +3091,40 @@
               "type": "number"
             }
           }
+        },
+        "claimed": {
+          "$ref": "#/$defs/claimedSplit"
+        }
+      }
+    },
+    "claimedSplit": {
+      "description": "The comparable values of a spread from products their makers sell as toughened or impact-modified (product_claims.csv, D133), and what the other comparable products give; present only where at least one comparable value is claimed and the headline names them. Both stay in the median.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim", "n", "min", "max", "gradeIds", "others"],
+      "properties": {
+        "claim": { "type": "string" },
+        "n": { "type": "integer", "minimum": 1 },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "gradeIds": { "type": "array", "items": { "type": "string" } },
+        "others": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["n", "min", "max", "median"],
+              "properties": {
+                "n": { "type": "integer", "minimum": 1 },
+                "min": { "type": "number" },
+                "max": { "type": "number" },
+                "median": { "type": "number" },
+                "q1": { "type": "number" },
+                "q3": { "type": "number" }
+              }
+            },
+            { "type": "null" }
+          ]
         }
       }
     },

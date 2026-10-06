@@ -35,6 +35,7 @@ import { median, cents } from './normalize/values.js';
 import { priceSample, convertedFrom } from './prices.js';
 import { measurementHeadlines, applies } from './registry.js';
 import { aggregateGate } from './gates.js';
+import { CLAIM } from './product-claims.js';
 
 export const LEVEL = { COMPARABLE: 'comparable', AS_PUBLISHED: 'as-published' };
 
@@ -440,6 +441,25 @@ function summarise(entries, products) {
 }
 
 /**
+ * The comparable values of a spread from products their makers sell as toughened (product_claims.csv, D133), and what
+ * the other comparable products give. Both stay in the median; the page names the split so the high end is not read as
+ * the material's. A twin reads its sibling's claim as it reads its sibling's value (D89). Null where none is claimed.
+ */
+function claimedSplit(entries, claim, isClaimed) {
+  const comparable = entries.filter((e) => !e.variant && e.v.level === LEVEL.COMPARABLE);
+  const claimed = comparable.filter(isClaimed);
+  if (!claimed.length) return null;
+  const values = (list) => list.map((e) => e.v.value).sort((a, b) => a - b);
+  const c = values(claimed);
+  const o = values(comparable.filter((e) => !isClaimed(e)));
+  return {
+    claim, n: c.length, min: c[0], max: c.at(-1), gradeIds: claimed.map((e) => e.gradeId).sort(),
+    others: o.length ? { n: o.length, min: o[0], max: o.at(-1), median: tidy(median(o)),
+      ...(o.length >= QUARTILES_FROM ? { q1: quantile(o, 0.25), q3: quantile(o, 0.75) } : {}) } : null,
+  };
+}
+
+/**
  * A material's headline where its products publish comparably: their median, with the spread and the typical product
  * (the one nearest the median) it came from. One product's value is that product's, and cites its measurement as a
  * single value always did. It is what the table, the chart, Compare and the export show; it decides nothing (D83).
@@ -450,7 +470,7 @@ function productsHeadline(unit, s, gradeById, key) {
     known: true, value: s.median, unit, origin: 'products', verified: true,
     interval: { lo: s.median, hi: s.median, kind: 'point' },
     spread: { n: s.n, products: s.products, min: s.min, max: s.max, q1: s.q1 ?? null, q3: s.q3 ?? null,
-      asPublished: s.asPublished ?? null, variants: s.variants ?? null, ...(s.twins ? { twins: s.twins } : {}) },
+      asPublished: s.asPublished ?? null, variants: s.variants ?? null, ...(s.twins ? { twins: s.twins } : {}), ...(s.claimed ? { claimed: s.claimed } : {}) },
     typical: { gradeId: s.typical, measurementId: typical?.measurementId ?? null, value: typical?.value ?? null },
   };
   if (s.bounds) h.spread.bounds = s.bounds;
@@ -639,6 +659,7 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
   }
 
   const keys = [...defs.map((d) => d.key), 'priceCADkg'];
+  const defByKey = new Map(defs.map((d) => [d.key, d]));
   for (const m of materials) {
     if (m.familyEntry) continue;
     const products = m.gradeIds.map((id) => gradeById.get(id)).filter((g) => g && !g.retired);
@@ -648,11 +669,16 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     // A twin's value is its sibling's: where the sibling is a declared variant, what it reads is set apart as the
     // sibling's is (D57, D89), whatever the twin's own row says.
     const variantValue = (g, v) => !!g.variant || (v.from?.origin === 'twin' && !!gradeById.get(v.from.gradeId)?.variant);
+    // The same for what a maker sells a product as (D133): a twin's value is its sibling's, and so is its claim.
+    const claimsOf = (g, v) => (v.from?.origin === 'twin' ? gradeById.get(v.from.gradeId) : g)?.claims?.map((c) => c.claim) ?? [];
     const summary = {};
     for (const key of keys) {
       if (m.headline[key]?.notApplicable) continue;
       const entries = products.filter((g) => g.headline?.[key]).map((g) => ({ gradeId: g.id, variant: !variantOnly && variantValue(g, g.headline[key]), v: g.headline[key] }));
       summary[key] = summarise(entries, variantOnly ? products.length : plain);
+      // A headline whose spread names the products sold as toughened (D133) says how many and what the others give.
+      const split = defByKey.get(key)?.toughened ? claimedSplit(entries, CLAIM.TOUGHENED, (e) => claimsOf(gradeById.get(e.gradeId), e.v).includes(CLAIM.TOUGHENED)) : null;
+      if (split) summary[key].claimed = split;
       if (summary[key].n > 0) {
         m.headline[key] = productsHeadline(m.headline[key].unit, summary[key], gradeById, key);
         // The listings behind the products the median is of: a variant's are its own, and apart (unless it is all there is).

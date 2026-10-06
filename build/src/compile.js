@@ -24,6 +24,7 @@ import { lowerBoundsOf } from './lower-bounds.js';
 import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
+import { attachProductClaims } from './product-claims.js';
 import { indexPageContext, contextFor, inheritPageContext } from './page-context.js';
 import { compilePrices, priceSample, convertedFrom, priceSampleMeta } from './prices.js';
 
@@ -685,6 +686,8 @@ export function compile(wb, { snapshot, build }) {
 
   // Every product's own values and print recipe, every material's spread across its products, and the headline that
   // spread gives it (products.js). The engine judges the products; the material's headline is what the page shows.
+  // What a maker sells a product as (D133): read before the spreads, which name the products that make the claim.
+  attachProductClaims(wb['Product claims']?.rows ?? [], { grades, evidenceRows, issues });
   attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, guideByMaterial: printGuide.byMaterial, sources, issues });
   for (const m of materials) m.headlineBasis = headlineBasis(m);
 

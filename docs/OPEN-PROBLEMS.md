@@ -839,6 +839,13 @@ and counts exact product states. It leaves these, each with where it is counted:
   D638 (Spectrum PLA Tough, 0.43 GPa, 100 % infill), beside solid PLA's usual 3 to 4 GPa. The engine compares them as
   "comparable" (printed, stated direction, dry or unstated); telling a sheet's method apart from its material is a data
   and rules question, not the chart's. The second query lists a material's products by stiffness with their standards.
+- **Toughened grades sit beside plain ones** (2026-10-06, D133). A material's impact spread now names the products their
+  makers sell as toughened or impact-modified (product_claims.csv, 19 products from statements already held, m386) and
+  says what the others give: PLA's notched Charpy median of 13.5 is 7 such products (5.76 to 72.3) and 9 others (4.94 to
+  20.3, median 7.9). They stay in the median. Setting them apart from the impact medians, as special formulations are,
+  waits until the claims round has read the other held statements (345 speak of toughness or impact, on 258 products)
+  and a draw of unmarked products finds at most one missed claim in 20 (GOALS, 2026-10-06, later). Stiffness and strength
+  are not split: no headline but the two impact rows names them.
 - **Cost reaches 214 products.** The cost goal uses each product's own CAD/kg price, converted from USD or EUR where the
   product has no Canadian listing (D113); since the price pass 214 products and 101 materials have one, and the rest are
   listed as unpriced (§22). The first query counts the products with a listing, by currency.

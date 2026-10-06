@@ -387,7 +387,10 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     // A bound is counted as its number; the marks say where that number is one, so no end reads as a measurement.
     + `${s.bounds ? ` ${s.bounds.n} ${s.bounds.n === 1 ? 'is' : 'are'} published as a bound ("more than 650") and counted as that number, marked "+" or with a sign.` : ''}`
     + `${s.products > s.n ? ` ${s.products - s.n} of its ${s.products} products ${s.products - s.n === 1 ? 'does' : 'do'} not report it on that basis.` : ''}`
-    + `${apart.length ? ` Left out: ${apart.join('; ')}.` : ''}`;
+    + `${apart.length ? ` Left out: ${apart.join('; ')}.` : ''}`
+    // Products their makers sell as toughened stay in the median; the popover says how many, and what the others give (D133).
+    + `${s.claimed ? ` Included: ${s.claimed.n} ${s.claimed.n === 1 ? 'product its maker sells' : 'products their makers sell'} as toughened or impact-modified (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`}).${
+      s.claimed.others ? ` Without them the median is ${fmtNumber(s.claimed.others.median)} (${s.claimed.others.min === s.claimed.others.max ? fmtNumber(s.claimed.others.min) : `${fmtNumber(s.claimed.others.min)} to ${fmtNumber(s.claimed.others.max)}`}, ${s.claimed.others.n} product${s.claimed.others.n === 1 ? '' : 's'}).` : ''}` : ''}`;
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
   // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2"); in the table the
   // value says it, and a line under it would only repeat it (the 1024 x 768 layout guard, reader round). The count is in

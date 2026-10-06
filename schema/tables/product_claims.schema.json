@@ -1,0 +1,73 @@
+{
+  "$comment": "Contract for data/tables/product_claims.csv. Checked by build/src/schema.js; what a row may point at by build/src/product-claims.js.",
+  "title": "Product claims",
+  "description": "What a maker sells a product as, where it matters to how its values are read (D133): one row per product and claim, pointing at the maker's own recorded statement that makes it, with the reviewer's reason. Shown beside the product's values; never read by a filter, a verdict or an estimate.",
+  "primaryKey": null,
+  "identity": [
+    "GradeID",
+    "Claim"
+  ],
+  "uniqueKeys": [
+    [
+      "GradeID",
+      "Claim"
+    ]
+  ],
+  "fields": [
+    {
+      "name": "GradeID",
+      "type": "string",
+      "role": "editorial",
+      "description": "The product the maker makes the claim for: an active grade.",
+      "reference": {
+        "table": "grades",
+        "field": "GradeID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Claim",
+      "type": "string",
+      "role": "canonical",
+      "description": "What the maker sells the product as (schema/vocab/product-claims.csv, whose Meaning is the rule a row must meet).",
+      "vocabulary": "product-claims",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "EvidenceID",
+      "type": "string",
+      "role": "editorial",
+      "description": "The maker's own statement that makes the claim: a Makers' know-how row of evidence.csv on the same product, a Manufacturer statement (checked by the build, PRODUCT-CLAIM-REFERENCE).",
+      "reference": {
+        "table": "evidence",
+        "field": "EvidenceID"
+      },
+      "constraints": {
+        "required": true,
+        "pattern": "^Q\\d{5}$"
+      }
+    },
+    {
+      "name": "Reason",
+      "type": "string",
+      "role": "editorial",
+      "description": "Which part of the rule the statement meets, in words a reviewer can check against it.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Reviewed by",
+      "type": "string",
+      "role": "editorial",
+      "description": "Who judged the statement against the rule, and when.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

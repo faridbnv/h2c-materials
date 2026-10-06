@@ -11,6 +11,8 @@ HDT at 0.45 MPa °C 55 50–135 86 of 175 31 with no stated test load (53–108)
 Glass transition (Tg) °C 59 54–67.5 74 of 175 7 special formulations (55–62.4)
 Price CAD/kg 33.7 18–80 26 of 175 2 special formulations (23–65)
 Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.
+Notched Charpy impact. 7 of the 16 are products their makers sell as toughened or impact-modified (5.76 to 72.3 kJ/m²). The other 9 give 4.94 to 20.3 kJ/m², median 7.9. "Sold as toughened" is the maker's statement, not a test result.
+Notched Izod impact. 1 of the 7 is a product its maker sells as toughened or impact-modified (10 kJ/m²). The other 6 give 4.5 to 6.5 kJ/m², median 5. "Sold as toughened" is the maker's statement, not a test result.
 WHAT MAKERS SAY
 191 of 194 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 25 of them so far.
 Good for: 21 of 40 makers (64 products)
@@ -76,5 +78,3 @@ Raise3D
 3 products
 3D-Fuel
 1 product
-Nanovia
-3 products

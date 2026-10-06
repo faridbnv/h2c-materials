@@ -122,6 +122,9 @@ export function compileRegistry(wb, issues) {
       // The comparison the drawer draws it in, beside the headlines that name the same one (D133): a Topic of method.csv,
       // whose rule is the caption. Nothing is converted between them.
       drawerComparison: orNull(r['Drawer comparison']),
+      // What its spread does with the products sold as toughened (product_claims.csv, D133): named, it says how many and
+      // what the others give, and keeps them in the median.
+      toughened: orNull(r['Sold as toughened']),
       labels: { short: r.Short, plain: r.Plain, technical: r.Technical, hint: r.Hint, axis: r['Axis label'], export: r['Export header'] },
       better: r.Better,
       filter: { group: r['Filter group'], operator: r['Filter operator'], example: r['Filter example'], nonNegative: bool(r['Non-negative']) },
@@ -129,6 +132,7 @@ export function compileRegistry(wb, issues) {
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
     };
     if (h.drawerComparison && !methodTopics.has(h.drawerComparison)) err('REGISTRY-HEADLINE', where, `Drawer comparison "${h.drawerComparison}" names no Topic of method.csv, whose rule is its caption`);
+    if (h.toughened && h.kind !== 'measurement') err('REGISTRY-HEADLINE', where, 'Only a measurement headline\'s spread names the products sold as toughened');
     if (h.drawerComparison && h.kind !== 'measurement') err('REGISTRY-HEADLINE', where, 'Only a measurement headline is drawn product by product in a drawer comparison');
     for (const name of [...h.valueProperties, ...h.relatedProperties, ...(h.lowerBounds?.properties ?? [])]) {
       if (propertyByName.get(name)?.replacedBy) err('REGISTRY-REPLACED', where, `${name} is replaced by ${propertyByName.get(name).replacedBy}; name that instead`);

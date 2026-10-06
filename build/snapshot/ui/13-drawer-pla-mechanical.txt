@@ -32,11 +32,13 @@ orientation stated (XY)
 no stated orientation
 measured after annealing
 special formulation
+sold as toughened (the maker's statement)
 middle half
 median
-Notched Charpy impact (kJ/m²): 16 products on a comparable basis, median 13.5, middle half 6.55 to 21.2, 22 more with no stated orientation and 6 special formulations, left out of the median.
-Notched Izod impact (kJ/m²): 7 products on a comparable basis, median 5, middle half 4.75 to 6.25, 7 more with no stated orientation and 5 special formulations, left out of the median.
+Notched Charpy impact (kJ/m²): 16 products on a comparable basis, median 13.5, middle half 6.55 to 21.2, 22 more with no stated orientation and 6 special formulations, left out of the median. 7 of the 16 are products their makers sell as toughened or impact-modified (5.76 to 72.3 kJ/m²). The other 9 give 4.94 to 20.3 kJ/m², median 7.9.
+Notched Izod impact (kJ/m²): 7 products on a comparable basis, median 5, middle half 4.75 to 6.25, 7 more with no stated orientation and 5 special formulations, left out of the median. 1 of the 7 is a product its maker sells as toughened or impact-modified (10 kJ/m²). The other 6 give 4.5 to 6.5 kJ/m², median 5.
 Both tests: 1 product (colorFabb Copper filled PLA).
+"Sold as toughened" is the maker's own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.
 Products, test by test (143)
 Charpy strength
 117 values

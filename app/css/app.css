@@ -21,6 +21,8 @@
   --fail: #a32b1f;      --fail-bg: #fae8e6;
   --unknown: #8a6100;   --unknown-bg: #fbf0da;
   --indet: #24568f;     --indet-bg: #e6eefa;
+  /* A product its maker sells as toughened (D133): a maker's claim, not a verdict, so none of the verdict colours. */
+  --claim: #7d3c86;     --claim-bg: #f4e8f5;
 
   --radius: 7px;
   --rail: 340px;
@@ -47,6 +49,7 @@
     --fail: #f08a7d; --fail-bg: #3a1a16;
     --unknown: #e0b458; --unknown-bg: #352a10;
     --indet: #85b4ea; --indet-bg: #16283f;
+    --claim: #d895e0; --claim-bg: #33203a;
   }
 }
 :root[data-theme="dark"] {
@@ -58,6 +61,7 @@
   --fail: #f08a7d; --fail-bg: #3a1a16;
   --unknown: #e0b458; --unknown-bg: #352a10;
   --indet: #85b4ea; --indet-bg: #16283f;
+  --claim: #d895e0; --claim-bg: #33203a;
 }
 
 * { box-sizing: border-box; }
@@ -855,6 +859,10 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .imp-dot.open { background: var(--surface); }
 .imp-dot.annealed { border-radius: 1px; }
 .imp-dot.variant { border-color: var(--ink-3); background: var(--surface); border-radius: 1px; transform: rotate(45deg) scale(.85); }
+.imp-dot.claimed { border-color: var(--claim); background: var(--claim); }
+.imp-dot.claimed.open { background: var(--surface); }
+.chip-claim { background: var(--claim-bg); color: var(--claim); }
+.imp-split { margin: 4px 0 0; }
 .imp-dot:hover, .imp-dot.partner { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); z-index: 2; }
 .imp-axis { padding-top: 0; }
 .imp-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0; }

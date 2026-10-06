@@ -144,7 +144,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D130 | The owner's answers after gap round 2: drying read with the whole page, bars below full infill labelled, three identities judged, CI once per push | Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly. | In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero |
 | D131 | Check round 3: what decides is checked by code first, every check runs to the end, and the errors found were words in the wrong place, not wrong numbers | This round checked the values and print settings the tool's answers rest on, and read on their pages only what the code could not confirm. Of 540 records read, none held a wrong number; 29 held words in the wrong place (a label inside a cell, a note read for rows it does not speak for, a condition dropped), and each kind was swept everywhere it occurred. A sealed sample of 100 deciding records, read at the end, found two errors in what decides: a temperature parser that read a Fahrenheit window as Celsius, so the tool said one printable product could not be printed, and a dropped condition; both were fixed everywhere. Nine products held twice became one each, 43 records filed under the wrong product moved, MakerBot Tough is filed under PLA, the 123 documents whose bytes were lost were fetched again, and a check that once hid a real failure behind a slow timing now runs every step and lists every failure. | In force; it amends D57 (an outlier's acceptance names the value it was accepted for) and applies D89, D99, D106, D116, D120, D123 and D129 |
 | D132 | Published impact evidence is explained beside the exact product, without changing what decides (withdrawn) | Withdrawn the day it was made. Its drawer text told readers that makers were silent on things they had said, and called conditions "not stated" that the page states once for its whole table. The code is reverted; the four maker statements and the later Bambu PLA Tough+ page it recorded stay, under the topics they belong to. | Withdrawn on 2026-10-06 (code reverted; its statements re-filed by m384); the impact comparison is redone under GOALS, "Decided on 2026-10-06, later" |
-| D133 | Notched Charpy and notched Izod are drawn side by side in the drawer, a product each | The Mechanical tab now opens its impact records with the two impact tests drawn one above the other on one scale: a dot per product at its published value, the middle half of the comparable products shaded and their median marked, and a table of products with a column per test. The two tests are still never mixed or converted. | In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, and decides nothing |
+| D133 | Notched Charpy and notched Izod are drawn side by side in the drawer, a product each | The Mechanical tab now opens its impact records with the two impact tests drawn one above the other on one scale: a dot per product at its published value, the middle half of the comparable products shaded and their median marked, and a table of products with a column per test. The two tests are still never mixed or converted. Products their makers sell as toughened are marked from the maker's own words, and the page says what they and the other products give, so a few toughened products are not read as the material. | In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, names the products sold as toughened (product_claims.csv), and decides nothing |
 
 <!-- end index -->
 
@@ -4369,8 +4369,8 @@ the refactored rule; complete numerical/state parity and browser checks establis
 
 ## D133. Notched Charpy and notched Izod are drawn side by side in the drawer, a product each
 
-> **In plain words:** The Mechanical tab now opens its impact records with the two impact tests drawn one above the other on one scale: a dot per product at its published value, the middle half of the comparable products shaded and their median marked, and a table of products with a column per test. The two tests are still never mixed or converted.
-> **Status:** In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, and decides nothing.
+> **In plain words:** The Mechanical tab now opens its impact records with the two impact tests drawn one above the other on one scale: a dot per product at its published value, the middle half of the comparable products shaded and their median marked, and a table of products with a column per test. The two tests are still never mixed or converted. Products their makers sell as toughened are marked from the maker's own words, and the page says what they and the other products give, so a few toughened products are not read as the material.
+> **Status:** In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, names the products sold as toughened (product_claims.csv), and decides nothing.
 
 The owner asked, after D132 was withdrawn, for "a better way to make comparison of the two impact measures" in the
 drawer. Before this, a material's impact records were two long lists, Charpy and Izod, each sorted by value, mixing
@@ -4397,6 +4397,33 @@ which publish both tests.
   Izod in J/m is never placed on the kJ/m² scale (D94).
 
 Nothing a filter, a verdict, an estimate, the table or the export reads changes: templates.csv and the build's values
-are as they were. Showing which products are sold as toughened, the second half of the owner's request, follows in this
-decision once its marks are recorded.
+are as they were.
+
+**Products sold as toughened are named, and kept in the median** (m386). The owner's second request: where a few
+toughened products push a range high, a reader must not take it for every product. PLA's notched Charpy median was 13.5
+kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5 to 8.
+
+- **The mark is the maker's statement, judged against a rule, never the name.** product_claims.csv holds a row per
+  product, pointing at the maker's own recorded statement (a Makers' know-how Manufacturer statement on that product,
+  PRODUCT-CLAIM-REFERENCE) that speaks of toughness or impact (PRODUCT-CLAIM-WORDS), with the reviewer's reason. The
+  rule (schema/vocab/product-claims.csv) admits a statement that the product is toughened or impact-modified or names
+  what toughens it, one that claims more toughness or impact resistance than its own standard grade or the standard form
+  of its polymer, one that says it was designed for impact, and one that calls it a tough grade of its polymer ("a tough
+  PLA", "High-toughness PLA"). A name (Tough, Pro, +), a property listed with no comparison, and a comparison with another
+  polymer are not enough: D132's code read "PETG+CF" as a claim. Polymaker's ABS Pro is marked, on "enhanced … impact
+  resistance … the ideal upgrade", and publishes ABS's lowest notched Charpy: the mark is a claim, and its values are
+  shown beside it.
+- **It is not a Variant.** A Variant is set apart from every median, gets the estimate model's covariate and reads no
+  printer guide row (D57, D129), which would move print answers. A claim moves nothing a filter, verdict or estimate reads;
+  a test runs the templates with and without the claims.
+- **A spread names them where its row says so.** headline_definitions.csv's Sold as toughened is "named" on the two
+  impact rows. Their spread keeps every product in the median and carries `claimed`: how many comparable values the
+  marked products give, their range, and the others' count, range and median. The drawer's dots for them are coloured,
+  the counts say "7 of the 16 are products their makers sell as toughened or impact-modified (5.76 to 72.3 kJ/m²). The
+  other 9 give 4.94 to 20.3 kJ/m², median 7.9", the median's explanation says "Included: …" beside "Left out: …", and
+  each product carries a "sold as toughened" mark whose explanation is the maker's quote and page. A twin reads its
+  sibling's claim as it reads its sibling's value (D89).
+- **Setting them apart waits for the marks to be complete.** The first 19 rows come from statements already held on
+  products that publish an impact value. Once the claims round has judged the rest and a draw of unmarked products finds
+  at most one missed claim in 20, the two impact rows may say "set apart", and the median becomes the other products'.
 

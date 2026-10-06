@@ -1014,6 +1014,25 @@ function spreadEntries(m, c, key) {
   });
 }
 
+const TOUGHENED = 'Toughened or impact-modified';
+/** Whether a product is sold as toughened (product_claims.csv, D133): its own claim, or its sibling's where it reads the
+ *  sibling's sheet (D89). */
+const soldToughened = (g, v, c) => ((v?.from?.origin === 'twin' ? c.gradeById.get(v.from.gradeId) : g)?.claims ?? []).some((x) => x.claim === TOUGHENED);
+/**
+ * The mark beside a product its maker sells as toughened: the maker's words, where, and that they are a claim. The
+ * product's name is never the reason (D133).
+ */
+function toughenedMark(g, c) {
+  const claim = (g?.claims ?? []).find((x) => x.claim === TOUGHENED);
+  if (!claim) return '';
+  c.knowHowById ??= new Map((c.db.knowHow ?? []).map((k) => [k.id, k]));
+  const k = c.knowHowById.get(claim.evidenceId);
+  const where = k ? `${sourceName(c.sourceById.get(k.sourceId), k.sourceId)}${stated(k.locator) ? `, ${k.locator}` : ''}` : '';
+  const text = `${g.manufacturer ?? 'Its maker'} sells it as toughened or impact-modified: "${k?.text ?? claim.evidenceId}"${where ? ` (${where})` : ''}. `
+    + 'This is the maker\'s statement, not a test result; its published values are beside it.';
+  return ` ${explainButton('sold as toughened', text, { cls: 'chip chip-claim chip-small', head: 'Sold as toughened by its maker' })}`;
+}
+
 const UNSTATED_DIRECTION = new Set(['unknown', 'not-applicable']);
 // A bar's state in words, from the typed fields the build reads, never the cell's own words: a page that states once,
 // for its whole table, that every bar was annealed has annealed bars, whatever each row's cell says (D116).
@@ -1080,10 +1099,11 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
   const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of ${s.n} products on a comparable basis: ${fmtNumber(s.median, h.unit)}`)}"></span>` : '';
   const dots = entries.map((e) => {
     const x = c.msById.get(e.v.measurementId);
+    const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
     const kind = [e.v.level === 'as-published' ? 'no stated orientation' : null, e.v.anneal || x?.postProcessingState === 'annealed' ? barState(x, e.v) : null,
-      e.variant ? 'special formulation, left out of the median' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
+      e.variant ? 'special formulation, left out of the median' : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
-    const cls = [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : ''].filter(Boolean).join(' ');
+    const cls = [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '', claimed ? 'claimed' : ''].filter(Boolean).join(' ');
     return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" data-measurement="${esc(e.v.measurementId)}" data-grade="${esc(e.g.id)}"
       style="left:${e.x}%;bottom:${3 + e.row * 9}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
   }).join('');
@@ -1097,7 +1117,22 @@ function rowCounts(h, s) {
   const parts = [s.n ? `${plural(s.n, 'product')} on a comparable basis${s.n > 1 ? `, median ${fmtNumber(s.median)}${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}` : ''}` : 'no product on a comparable basis',
     s.asPublished ? `${s.asPublished.n} more with no stated orientation` : null,
     s.variants ? `${plural(s.variants.n, 'special formulation')}, left out of the median` : null].filter(Boolean);
-  return `<li><b>${esc(h.labels.plain)}</b> (${esc(h.unit)}): ${esc(andList(parts))}.</li>`;
+  return `<li><b>${esc(h.labels.plain)}</b> (${esc(h.unit)}): ${esc(andList(parts))}.${s.claimed ? ` ${esc(toughenedSplit(s, h.unit))}` : ''}</li>`;
+}
+
+/**
+ * What a spread's products sold as toughened give, and what the others give (D133): the reason a wide range is not the
+ * material's. Both stay in the median.
+ */
+function toughenedSplit(s, unit) {
+  const k = s.claimed;
+  const span = (x) => (x.min === x.max ? fmtNumber(x.min, unit) : `${fmtNumber(x.min)} to ${fmtNumber(x.max, unit)}`);
+  if (!k.others) {
+    return s.n === 1 ? `That product is one its maker sells as toughened or impact-modified (${span(k)}).`
+      : `All ${s.n} are products their makers sell as toughened or impact-modified (${span(k)}).`;
+  }
+  const others = ` The other ${k.others.n} give ${span(k.others)}${k.others.n > 1 ? `, median ${fmtNumber(k.others.median)}` : ''}.`;
+  return `${k.n} of the ${s.n} ${k.n === 1 ? 'is a product its maker sells' : 'are products their makers sell'} as toughened or impact-modified (${span(k)}).${others}`;
 }
 
 /** The product table: each product's value of every headline in the comparison side by side, and its other records. */
@@ -1124,7 +1159,7 @@ function comparisonTable(hs, byKey, c, records, gradeLabel) {
       .sort((a, b) => a.property.localeCompare(b.property) || b.value - a.value);
     const otherCell = others.slice(0, 3).map((x) => `<button type="button" class="link-btn" data-measurement="${esc(x.id)}">${esc(impactKind(x))}</button>`).join('; ')
       + (others.length > 3 ? ` <span class="fine">and ${others.length - 3} more below</span>` : '');
-    return `<tr><td>${esc(gradeLabel(p.g))}</td><td>${esc(p.g.manufacturer ?? '')}</td>${hs.map((h) => valueCell(p.values[h.key], h)).join('')}
+    return `<tr><td>${esc(gradeLabel(p.g))}${hs.some((h) => h.toughened) ? toughenedMark(p.g, c) : ''}</td><td>${esc(p.g.manufacturer ?? '')}</td>${hs.map((h) => valueCell(p.values[h.key], h)).join('')}
       <td>${esc(entries.length ? state : '—')}</td><td>${esc(entries.length ? orientation : '—')}</td><td>${otherCell || '—'}</td></tr>`;
   };
   const all = [...products.values()];
@@ -1170,6 +1205,7 @@ function drawerComparisons(m, c, tab) {
         <div class="imp-row imp-axis"><span></span><span class="cmp-scale${scale.log ? ' log' : ''}"><span>${esc(fmtNumber(scale.from))}</span>${scale.log ? '<span class="cmp-scale-kind">log scale</span>' : ''}<span>${esc(fmtNumber(scale.hi, hs[0].unit))}</span></span></div>
         <p class="imp-key fine"><span><i class="imp-dot"></i> orientation stated (XY)</span><span><i class="imp-dot open"></i> no stated orientation</span>
           <span><i class="imp-dot annealed"></i> measured after annealing</span><span><i class="imp-dot variant"></i> special formulation</span>
+          ${hs.some((h) => h.toughened && byKey.get(h.key).some((e) => soldToughened(e.g, e.v, c))) ? '<span><i class="imp-dot claimed"></i> sold as toughened (the maker\'s statement)</span>' : ''}
           <span><i class="imp-band-key"></i> middle half</span><span><i class="imp-median-key"></i> median</span></p></div>` : '';
     const bothLine = both.length
       ? `Both tests: ${plural(both.length, 'product')} (${esc(andList(both.slice(0, 5).map((id) => gradeLabel(c.gradeById.get(id)))))}${both.length > 5 ? ' and others' : ''}).`
@@ -1178,6 +1214,7 @@ function drawerComparisons(m, c, tab) {
       ${caption ? `<p class="fine imp-caption">${esc(caption)}</p>` : ''}
       ${strips}
       <ul class="imp-counts fine">${hs.map((h) => rowCounts(h, m.summary?.[h.key])).join('')}<li>${bothLine}</li></ul>
+      ${hs.some((h) => m.summary?.[h.key]?.claimed) ? '<p class="fine">"Sold as toughened" is the maker\'s own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.</p>' : ''}
       ${comparisonTable(hs, byKey, c, records, gradeLabel)}</section>`;
     return { topic, properties, html };
   }).filter(Boolean);
@@ -1195,7 +1232,8 @@ function spreadTable(m, c) {
       <td class="num">${s.n} of ${s.products}</td>
       <td>${[s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : ''].filter(Boolean).map(esc).join('; ') || '—'}</td></tr>`).join('')}
   </tbody></table>`)}
-  <p class="fine">Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.</p>`;
+  <p class="fine">Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.</p>
+  ${rows.filter(([, s]) => s.claimed).map(([h, s]) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))} "Sold as toughened" is the maker's statement, not a test result.</p>`).join('')}`;
 }
 
 function tabBody(tab, c) {
@@ -1471,7 +1509,7 @@ function tabBody(tab, c) {
       return `<div class="grade-block" data-search-item="${esc([gradeName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
       <div class="grade-head">
         <button type="button" class="grade-toggle" data-grade-toggle="${esc(g.id)}" aria-expanded="${isOpen}">
-          <span class="chevron" aria-hidden="true"></span><span class="grade-name">${esc(gradeName(g) || 'Product not named')}</span>${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}${isProduct(g) ? '' : ' <span class="chip chip-neutral chip-small">reference</span>'}
+          <span class="chevron" aria-hidden="true"></span><span class="grade-name">${esc(gradeName(g) || 'Product not named')}</span>${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}${toughenedMark(g, c)}${isProduct(g) ? '' : ' <span class="chip chip-neutral chip-small">reference</span>'}
           ${keys(g) ? `<span class="grade-keys">${esc(keys(g))}</span>` : ''}</button>
         ${c.tested ? `<button type="button" class="btn btn-sm choose-btn" data-choose="${esc(g.id)}" aria-pressed="${c.chosen.has(g.id)}"
           title="${c.chosen.has(g.id) ? 'Chosen: its decision brief is under Save / share. Press to remove it.' : 'Choose this product: its decision brief, print settings and test plan go under Save / share, saved with the scenario'}">${c.chosen.has(g.id) ? '✓ Chosen' : 'Choose this product'}</button>` : ''}

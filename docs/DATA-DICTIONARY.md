@@ -34,6 +34,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [prices](#prices) | PriceID | One row per market observation of one SKU on one access date: a Canadian listing in CAD, or a foreign one in its own currency, which prices a product that has no Canadian listing and is compared at the Bank of Canada rate in force (D113). |
 | [print_guide](#print_guide) | PrintGuideID | What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). Where they say nothing on drying, the row's drying statement fills it, labelled as the guide's (D127). |
 | [print_guide_materials](#print_guide_materials) | MaterialID | Which of our materials a print_guide row speaks for, and why: a guide type applies to a material only where it is the same material type (the guide's PC to PC, never to a PC blend or a filled PC the guide does not name). One row per material; a material no row names has no guide, and its silent products stay unknown (D88). |
+| [product_claims](#product_claims) | GradeID + Claim | What a maker sells a product as, where it matters to how its values are read (D133): one row per product and claim, pointing at the maker's own recorded statement that makes it, with the reviewer's reason. Shown beside the product's values; never read by a filter, a verdict or an estimate. |
 | [profile_notes](#profile_notes) | ProfileID + Topic | One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile. |
 | [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. Its qualitative notes are rows of profile_notes.csv, one per topic (D69). |
 | [properties](#properties) | Property | One row per measured property. A new property is a new row here plus its measurements: no code changes. Domain decides the drawer tab and coverage domain; Units lists the canonical units a usable measurement may carry; Applies to limits the property to some materials (blank: all). |
@@ -184,6 +185,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Endpoint note | canonical | boolean | yes |  |  | Whether related evidence of a non-first property is labelled as a different endpoint. |
 | Comparison note | prose | string | yes | Not applicable |  | What the headline compares, and why its related values that are not its own (another test, unit, notch, direction or temperature) are left out, in a reader's words. The drawer shows it beside those values (D92). Not applicable: the per-value reason says enough. |
 | Drawer comparison | canonical | string | yes | Not applicable |  | The comparison the drawer draws this headline in, beside the others that name the same one (D133): each product's value on a shared scale, test by test, and a table of products with a column per headline. It names a Topic of method.csv, whose rule is the caption. Nothing is converted between the headlines it groups. Not applicable: drawn in no such comparison. |
+| Sold as toughened | canonical | string | yes | Not applicable | named | What the material's spread does with the products their makers sell as toughened or impact-modified (product_claims.csv, D133). named: they stay in the median, and the drawer and the median's explanation say how many there are, their range, and what the other products give. Not applicable: no such account. |
 | Short | prose | string | yes |  |  | Column and pill label. |
 | Plain | prose | string | yes |  |  | Plain-language name. |
 | Technical | prose | string | yes |  |  | Technical name, shown as a subtitle. |
@@ -480,6 +482,18 @@ lists the missing states a column accepts instead of a value; a blank required c
 | PrintGuideID | canonical | string | yes |  | → print_guide.PrintGuideID | The guide row read for the material's silent products. |
 | Reason | prose | string | yes |  |  | Why the guide type is this material type, and which neighbouring materials it is not. |
 | Reviewed by | editorial | string | yes |  |  | Who made the mapping, and when: a person, or an agent named as one. |
+
+### product_claims
+
+`data/tables/product_claims.csv` (Product claims). What a maker sells a product as, where it matters to how its values are read (D133): one row per product and claim, pointing at the maker's own recorded statement that makes it, with the reviewer's reason. Shown beside the product's values; never read by a filter, a verdict or an estimate.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| GradeID | editorial | string | yes |  | → grades.GradeID | The product the maker makes the claim for: an active grade. |
+| Claim | canonical | string | yes |  | [product-claims](#vocab-product-claims) | What the maker sells the product as (schema/vocab/product-claims.csv, whose Meaning is the rule a row must meet). |
+| EvidenceID | editorial | string | yes |  | → evidence.EvidenceID | The maker's own statement that makes the claim: a Makers' know-how row of evidence.csv on the same product, a Manufacturer statement (checked by the build, PRODUCT-CLAIM-REFERENCE). |
+| Reason | editorial | string | yes |  |  | Which part of the rule the statement meets, in words a reviewer can check against it. |
+| Reviewed by | editorial | string | yes |  |  | Who judged the statement against the rule, and when. |
 
 ### profile_notes
 
@@ -1295,6 +1309,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 | range | A temperature window; min and max hold it (min may be Not published for 'up to', max for 'at least'). |
 | recommended | Recommended, with no temperature. |
 | unknown | Not published, or text the parser could not read. |
+
+<a id="vocab-product-claims"></a>
+### product-claims
+
+`schema/vocab/product-claims.csv`, used by product_claims.Claim.
+
+| Value | Meaning |
+|---|---|
+| Toughened or impact-modified | The maker's own document presents the product as a tougher or impact-modified version of its polymer, in one of four ways: it says the product is toughened or impact-modified, or names what toughens it (an impact modifier, PHA, aramid fibre); it claims more impact resistance or toughness than its own standard grade or the standard, regular or generic form of its polymer; it says the product was engineered or designed for impact resistance or toughness; or it calls the product a tough, high-toughness or toughened grade of its polymer ("a tough PLA", "High-toughness PLA"). Not enough on their own: the product's name (Tough, Pro, +), toughness or impact resistance listed as a property with no comparison, a comparison with another polymer ("tougher than PLA" said of a PETG) or with another product, and a sentence about what the polymer itself is. The mark is the maker's statement, not a test result: the drawer shows the product's published values beside it (D133). |
 
 <a id="vocab-profile-kinds"></a>
 ### profile-kinds

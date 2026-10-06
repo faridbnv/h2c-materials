@@ -10,27 +10,29 @@ orientation stated (XY)
 no stated orientation
 measured after annealing
 special formulation
+sold as toughened (the maker's statement)
 middle half
 median
-Notched Charpy impact (kJ/m²): 16 products on a comparable basis, median 13.5, middle half 6.55 to 21.2, 22 more with no stated orientation and 6 special formulations, left out of the median.
-Notched Izod impact (kJ/m²): 7 products on a comparable basis, median 5, middle half 4.75 to 6.25, 7 more with no stated orientation and 5 special formulations, left out of the median.
+Notched Charpy impact (kJ/m²): 16 products on a comparable basis, median 13.5, middle half 6.55 to 21.2, 22 more with no stated orientation and 6 special formulations, left out of the median. 7 of the 16 are products their makers sell as toughened or impact-modified (5.76 to 72.3 kJ/m²). The other 9 give 4.94 to 20.3 kJ/m², median 7.9.
+Notched Izod impact (kJ/m²): 7 products on a comparable basis, median 5, middle half 4.75 to 6.25, 7 more with no stated orientation and 5 special formulations, left out of the median. 1 of the 7 is a product its maker sells as toughened or impact-modified (10 kJ/m²). The other 6 give 4.5 to 6.5 kJ/m², median 5.
 Both tests: 1 product (colorFabb Copper filled PLA).
+"Sold as toughened" is the maker's own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.
 Products, test by test (143)
 Product Maker Charpy notched kJ/m² Izod notched kJ/m² State Orientation Other impact records
 colorFabb Copper filled PLA colorFabb 2.97 kJ/m² no stated orientation special formulation 5.5 kJ/m² no stated orientation special formulation treatment not stated not stated Unnotched Izod 10 kJ/m² (orientation not stated)
-Bambu Lab PLA Tough+ Bambu Lab 72.3 kJ/m² — annealed at 50 °C for 8 h XY Unnotched Charpy 80.6 kJ/m² (annealed); Charpy 25.9 kJ/m² (notch not stated, Z bar, annealed); Charpy 18.6 kJ/m² (notch not stated, Z bar, annealed) and 1 more below
-Polymaker PolyMax PLA Polymaker 38.9 kJ/m² — treatment not stated XY —
-FormFutura Tough PLA FormFutura 29.8 kJ/m² no stated orientation — treatment not stated not stated —
-colorFabb PLA High Speed PRO colorFabb 27.9 kJ/m² — treatment not stated XY Notched Charpy 27.9 kJ/m² (orientation not stated, flagged implausible)
-Polymaker PolySonic PLA Pro 6.0 Polymaker 22.7 kJ/m² — treatment not stated XY Notched Charpy 19.4 kJ/m²
+Bambu Lab PLA Tough+ sold as toughened Bambu Lab 72.3 kJ/m² — annealed at 50 °C for 8 h XY Unnotched Charpy 80.6 kJ/m² (annealed); Charpy 25.9 kJ/m² (notch not stated, Z bar, annealed); Charpy 18.6 kJ/m² (notch not stated, Z bar, annealed) and 1 more below
+Polymaker PolyMax PLA sold as toughened Polymaker 38.9 kJ/m² — treatment not stated XY —
+FormFutura Tough PLA sold as toughened FormFutura 29.8 kJ/m² no stated orientation — treatment not stated not stated —
+colorFabb PLA High Speed PRO sold as toughened colorFabb 27.9 kJ/m² — treatment not stated XY Notched Charpy 27.9 kJ/m² (orientation not stated, flagged implausible)
+Polymaker PolySonic PLA Pro 6.0 sold as toughened Polymaker 22.7 kJ/m² — treatment not stated XY Notched Charpy 19.4 kJ/m²
 FormFutura Volcano PLA FormFutura 22 kJ/m² no stated orientation — treatment not stated not stated —
-Polymaker PLA Pro Polymaker 20.8 kJ/m² — treatment not stated XY Unnotched Charpy 51.7 kJ/m²; Unnotched Charpy 21.7 kJ/m² (Z bar)
+Polymaker PLA Pro sold as toughened Polymaker 20.8 kJ/m² — treatment not stated XY Unnotched Charpy 51.7 kJ/m²; Unnotched Charpy 21.7 kJ/m² (Z bar)
 Bambu Lab PLA Basic Gradient Bambu Lab 20.3 kJ/m² — annealed at 55 °C for 8 h XY Unnotched Charpy 61.2 kJ/m² (annealed); Charpy 23.8 kJ/m² (notch not stated, Z bar, annealed)
 SUNLU PLA Classic SUNLU — 18.1 kJ/m² special formulation treatment not stated XY Notched Izod 5.73 kJ/m² (ZX bar)
 Polymaker PolyLite CosPLA Version B Polymaker 17.1 kJ/m² — treatment not stated XY —
 Polymaker PolyLite PLA Pro Polymaker 17.1 kJ/m² — treatment not stated XY —
-SUNLU PLA+2.0 SUNLU — 10 kJ/m² treatment not stated XY Unnotched Izod 8 kJ/m² (ZX bar)
-Polymaker HT PLA Pro Polymaker 9.94 kJ/m² — as printed XY Unnotched Charpy 45.7 kJ/m²; Unnotched Charpy 38.7 kJ/m² (annealed); Unnotched Charpy 10.3 kJ/m² (Z bar) and 2 more below
+SUNLU PLA+2.0 sold as toughened SUNLU — 10 kJ/m² treatment not stated XY Unnotched Izod 8 kJ/m² (ZX bar)
+Polymaker HT PLA Pro sold as toughened Polymaker 9.94 kJ/m² — as printed XY Unnotched Charpy 45.7 kJ/m²; Unnotched Charpy 38.7 kJ/m² (annealed); Unnotched Charpy 10.3 kJ/m² (Z bar) and 2 more below
 SUNLU High Speed Matte PLA SUNLU — 8 kJ/m² special formulation data sheet shared with SUNLU PLA Lite treatment not stated XY —
 SUNLU PLA Lite SUNLU — 8 kJ/m² special formulation treatment not stated XY Unnotched Izod 5 kJ/m² (ZX bar)
 Bambu Lab PLA Basic Bambu Lab 7.9 kJ/m² — annealed at 55 °C for 8 h XY Unnotched Charpy 26.6 kJ/m² (annealed); Charpy 13.8 kJ/m² (notch not stated, Z bar, annealed); Charpy 13.8 kJ/m² (notch not stated, Z bar, annealed)
@@ -42,7 +44,7 @@ Recreus PLA Purifier Recreus 6.3 kJ/m² no stated orientation special formulatio
 Polymaker PolySonic PLA Polymaker 6.1 kJ/m² — treatment not stated XY Notched Charpy 5 kJ/m²
 SUNLU PLA-METALLIC PLA SUNLU — 6 kJ/m² treatment not stated XY Unnotched Izod 5 kJ/m² (ZX bar)
 Polymaker PolyLite CosPLA Version A Polymaker 5.9 kJ/m² — treatment not stated XY —
-Polymaker PolyTerra PLA Polymaker 5.76 kJ/m² — treatment not stated XY —
+Polymaker PolyTerra PLA sold as toughened Polymaker 5.76 kJ/m² — treatment not stated XY —
 Fiberlogy FiberSilk Fiberlogy — 5 kJ/m² no stated orientation treatment not stated not stated —
 Fiberlogy HS PLA CLEAR Fiberlogy < 5 kJ/m² no stated orientation — treatment not stated not stated —
 Fillamentum PLA Crystal Clear Fillamentum < 5 kJ/m² no stated orientation — treatment not stated not stated —
@@ -56,5 +58,3 @@ SIDDAMENT PLA Matte SIDDAMENT — 4.9 kJ/m² no stated orientation treatment not
 SUNLU High Speed PLA SUNLU — 4.5 kJ/m² treatment not stated XY Unnotched Izod 6 kJ/m² (ZX bar); Notched Izod 6 kJ/m²; Unnotched Izod 6 kJ/m² (ZX bar) and 1 more below
 SUNLU High Speed PLA+2.0 SUNLU — 4.5 kJ/m² treatment not stated XY Unnotched Izod 5 kJ/m² (ZX bar)
 BigRep PLX BigRep 4 kJ/m² no stated orientation — treatment not stated not stated —
-Fiberlogy FiberSatin Fiberlogy — 4 kJ/m² no stated orientation treatment not stated not stated —
-Fiberlogy FiberWORKS PLA Fiberlogy — 4 kJ/m² no stated orientation treatment not stated not stated —

@@ -16,6 +16,8 @@
 //   build/snapshot/summaries.csv   every material's spread per headline across its products: n, range, quartiles,
 //                                   the typical product, the values published without direction or load, the variants,
 //                                   and how many of its values a twin reads from its sibling's sheet (D89)
+//   build/snapshot/claims.csv      every product its maker sells as toughened (product_claims.csv), and every spread that
+//                                   names them: how many of its comparable values they give, and what the others give (D133)
 //   build/snapshot/environment.csv every verdict an environment requirement screens on: a material's own records in a
 //                                   filterable category, and the polymer-level ones attached where it has none (D64)
 //   build/snapshot/print.csv       every product's print gates as the engine judges them, and which parts of its recipe
@@ -126,6 +128,14 @@ for (const m of db.materials) {
   }
 }
 
+// What a maker sells a product as, and the spreads that name those products (D133): a claim or a split that moves shows
+// here, apart from summaries.csv, which keeps every product in the median.
+const claimRows = [
+  ...db.grades.filter((g) => g.claims).flatMap((g) => g.claims.map((c) => ({ Record: g.id, Material: g.materialId, Headline: '', Claim: c.claim, What: `${g.manufacturer} ${g.product}: ${c.evidenceId}` }))),
+  ...db.materials.flatMap((m) => Object.entries(m.summary ?? {}).filter(([, s]) => s.claimed).map(([key, s]) => ({ Record: m.id, Material: m.name, Headline: key, Claim: s.claimed.claim,
+    What: `${s.claimed.n} of ${s.n}: ${s.claimed.min}-${s.claimed.max} (${s.claimed.gradeIds.join(' ')}); others ${s.claimed.others ? `${s.claimed.others.n}: ${s.claimed.others.min}-${s.claimed.others.max}, median ${s.claimed.others.median}` : 'none'}` }))),
+];
+
 // Every verdict an environment requirement can screen on: a material's own records in a filterable category, and the
 // polymer-level ones attached where it has none (D64). A test once pinned four of them by name (the recovered Bambu
 // chemical records); a change to any of them now shows here, in the diff of the change that made it.
@@ -205,6 +215,7 @@ const files = {
   'grades.csv': csvText(['GradeID', 'MaterialID', 'Product', 'Headline', 'Strength', 'Precision', 'Centre', 'Likely', 'Plausible', 'Unit', 'Own'], gradeRows),
   'products.csv': csvText(Object.keys(productRows[0]), productRows),
   'summaries.csv': csvText(Object.keys(summaryRows[0]), summaryRows),
+  'claims.csv': csvText(['Record', 'Material', 'Headline', 'Claim', 'What'], claimRows),
   'environment.csv': csvText(['MaterialID', 'Category', 'Record', 'GradeID', 'Level', 'Verdict', 'Qualified', 'Screens'], environmentRows),
   'print.csv': csvText(Object.keys(printRows[0]), printRows),
   'states.csv': csvText(['GradeID', 'MaterialID', 'Product', 'State', 'Headline', 'Value', 'Measurement', 'Shown', 'From'], stateRows),

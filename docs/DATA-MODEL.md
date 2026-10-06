@@ -34,6 +34,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | Table | What it holds |
 |---|---|
 | `headlines.csv` | Pins one product's value for one headline where the rule chooses wrongly, with its Reason; empty since m137 retired its 493 rows, the 477 hand picks and 16 citations that were not values |
+| `product_claims.csv` | What a maker sells a product as, where it changes how its values are read: a row per product and claim ("Toughened or impact-modified"), pointing at the maker's own recorded statement, with the reviewer's reason. Shown beside the product's values and named in its material's impact spread; read by no filter, verdict or estimate (D133) |
 | `material_links.csv` | A material's citations, in order: printing (profiles, evidence), h2c-status (sources), use, durability, safety (evidence) |
 
 **Registry**
@@ -354,6 +355,9 @@ may also name its test Standard, which a value naming only other standards does 
 A row's Drawer comparison names the comparison the drawer draws it in, beside the rows naming the same one: the two
 impact rows name "Impact tests", a Topic of method.csv whose rule is the caption, and the Mechanical tab draws them one
 above the other, a product each, never converted (D133).
+A row's Sold as toughened says what its spread does with the products product_claims.csv marks: "named" on the two
+impact rows, so the spread keeps them in the median and carries `claimed`: how many of its comparable values they give,
+their range, and the other products' count, range and median (D133).
 
 ### A headline value
 

@@ -77,6 +77,10 @@
       "rows": 0,
       "sha256": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b"
     },
+    "product_claims": {
+      "rows": 19,
+      "sha256": "4574b4fe074f49a0a68d2411245d38a95d8c3bbfccff7337c030afaa69ca13af"
+    },
     "material_links": {
       "rows": 830,
       "sha256": "b721d51674cc3517282e88e430fc6f6f3545191ba3f8034c310337c53cb86587"
@@ -91,7 +95,7 @@
     },
     "headline_definitions": {
       "rows": 10,
-      "sha256": "069f6b7dd51d2818e96f2c18b4a26c20ef1087de2018cc5ce8cbfefc5e5f21e4"
+      "sha256": "b6e231b8f43106b33e080b77f5932dfa3a7c931087dbf14302bff5bd35a30f7a"
     },
     "polymers": {
       "rows": 48,

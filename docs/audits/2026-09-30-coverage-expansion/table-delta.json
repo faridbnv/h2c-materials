@@ -111,6 +111,13 @@
     "edited_existing": 20,
     "removed": 0
   },
+  "product_claims": {
+    "baseline": 0,
+    "current": 19,
+    "added": 19,
+    "edited_existing": 0,
+    "removed": 0
+  },
   "profile_notes": {
     "baseline": 2061,
     "current": 2493,
