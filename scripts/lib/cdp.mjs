@@ -3,7 +3,7 @@
 // the probe and many targets for the fuzz.
 
 import { spawn } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, rmSync } from 'node:fs';
 
 const CHROMES = [process.env.CHROME, '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome',
   '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser'];
@@ -22,18 +22,26 @@ export function skipWithoutChrome(what) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** Launch headless Chrome with its own profile and return the process and the debugging port it wrote. */
-export async function launchChrome(chrome, profile, extraArgs = []) {
-  const proc = spawn(chrome, ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
-    '--remote-debugging-port=0', `--user-data-dir=${profile}`, '--window-size=1400,1000', ...extraArgs, 'about:blank'], { stdio: 'ignore' });
-  for (let i = 0; i < 150; i++) {
-    const f = `${profile}/DevToolsActivePort`;
-    if (existsSync(f)) {
-      const port = readFileSync(f, 'utf8').split('\n')[0];
-      if (port) return { proc, port };
+/**
+ * Launch headless Chrome with its own profile and return the process and the debugging port it wrote. A Chrome that
+ * opens no port within 20 s is killed and launched once more: on GitHub's runners a cold Chrome sometimes never opens
+ * one, and a whole verify run had to be repeated for it (2026-10-05).
+ */
+export async function launchChrome(chrome, profile, extraArgs = [], { attempts = 2, waitMs = 20000 } = {}) {
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    rmSync(`${profile}/DevToolsActivePort`, { force: true });
+    const proc = spawn(chrome, ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
+      '--remote-debugging-port=0', `--user-data-dir=${profile}`, '--window-size=1400,1000', ...extraArgs, 'about:blank'], { stdio: 'ignore' });
+    for (let waited = 0; waited < waitMs; waited += 100) {
+      const f = `${profile}/DevToolsActivePort`;
+      if (existsSync(f)) {
+        const port = readFileSync(f, 'utf8').split('\n')[0];
+        if (port) return { proc, port };
+      }
+      await sleep(100);
     }
-    await sleep(100);
+    proc.kill();
+    if (attempt < attempts) console.log(`Chrome opened no debugging port in ${waitMs / 1000} s; launching it again`);
   }
-  proc.kill();
   throw new Error('Chrome did not open a debugging port');
 }

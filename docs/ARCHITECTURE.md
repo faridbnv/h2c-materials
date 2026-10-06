@@ -183,13 +183,14 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 time against the budget: about 75 seconds after a change and 25 to 30 when nothing the build reads changed
 (`npm run bench` measures the parts), because the build result is cached by content
 (`build/src/build-cache.js`, `.cache/build/`); its budget is 90 seconds (docs/GOALS.md). The import pipeline's tests
-run in `verify` (`npm run test:ingest`), not here, while imports are paused.
+run in `verify` (`npm run test:ingest`), not here, to keep `verify:fast` within its budget.
 `npm run verify` adds the import tests, the scale and reproducible-build checks (`npm run scale`, `npm run
 reproducible`), the audits (`audit:data`, and `audit:context` where the text cache is), review snapshot, interface
 views and 300 rendered scenarios, before a commit. Both scripts run every step even when one fails and list the
 failures at the end (`scripts/lib/run-steps.mjs`), so one run shows everything that is wrong. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
-`schema/`, CI runs `verify` on every push to main and on pull requests, and 2,000 rendered scenarios on a new seed every week, and
+`schema/`, CI runs `verify`'s data and interface groups side by side on every push to main and on pull requests, and its
+scale and reproducible-build checks and 2,000 rendered scenarios on a new seed every week, and
 `npm run build:diff` shows what a change did to the compiled database. `AGENTS.md` is the editing guide.
 
 ### Engine, `app/js/engine/`

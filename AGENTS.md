@@ -35,14 +35,15 @@ before a push), on a stale `docs/RULES.md` or
 `docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
 engine over 300 random scenarios (about three minutes more than `verify:fast`, as GOALS C13 measures it: the interface
 views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests
-(`npm run test:ingest`), which `verify:fast` leaves out while imports are paused.
+(`npm run test:ingest`), which `verify:fast` leaves out to stay within its budget.
 
 The build result is cached by content in `.cache/build/` (`build/src/build-cache.js`): the same tables, code, runtime
 and options give the stored result back instead of running the estimate stage again, which is what keeps
 `verify:fast` inside its budget. The key covers everything the build reads, so a stale hit is not possible;
-`H2C_NO_BUILD_CACHE=1` turns it off, CI starts with it empty, and the audit and the reproducibility test rebuild without it. CI runs `verify` on every push to
-main and on pull requests (a branch is checked locally before it is merged), publishes the page once that has passed, and
-runs 2,000 scenarios on a new seed every week (`npm run ui:fuzz:full` locally). After a data or rule change, run `npm run snapshot`
+`H2C_NO_BUILD_CACHE=1` turns it off, CI starts with it empty, and the audit and the reproducibility test rebuild without it. CI runs `verify`'s data and interface checks side by side on every push to
+main and on pull requests (a branch is checked locally, every step, before it is merged), publishes the page once they
+have passed, and runs the scale and reproducible-build checks and 2,000 scenarios on a new seed every week (`node
+scripts/verify.mjs --group trend` and `npm run ui:fuzz:full` locally). After a data or rule change, run `npm run snapshot`
 (and `npm run ui:check -- --write` when a view changed), read the diff, and commit it with the change: it is the change's
 downstream effect. A change meant to move nothing (code moved, a table split, a column retyped) shows `0 difference(s)`
 in `npm run build:diff`; a change of behaviour shows exactly the paths it meant to move.
@@ -272,23 +273,13 @@ its load, its notch and its test temperature (D92), and the test standard a valu
 
 ## Importing a batch of data sheets
 
-**Paused on 2026-09-25 by the owner**, until the re-center in `docs/GOALS.md` is built. The owner lifted it for the
-sheets held for identity (batches b34 and b35, D87), phase 6 allowed a targeted fetch where one document settled a
-blocking answer (batch b36; GOALS, phase 6, decision 4), and on 2026-09-27 the owner lifted it for two held sheets the
-research package of 2026-09-26 identified (batch b37). On 2026-09-28, the owner authorized the held Recreus PET-G
-sheet (b38) and the frozen chamber-target maker searches (b39), as bounded in GOALS' source-backup and targeted
-gap-closure section; on 2026-09-29, the gap-fill tranche's nine saved product pages (b40, GOALS' gap-fill tranche
-section); on 2026-09-30, the price pass (p01 to p04, GOALS' price pass section); on 2026-10-04, the makers' own pages for the
-reader round (b41, b42; GOALS, the reader round section); on 2026-10-05, the thirteen held sheets and the makers' own pages
-for products still without a nozzle or bed (b43, b44; GOALS, gap round 2, item 4); and on 2026-10-05, fetching again
-the 123 registered documents whose bytes were lost (GOALS, check round 3, item 2): a copy that hashes to the recorded
-digest went back into the store, and a page that changed since is kept as a later copy in `.cache/later-copies/`, read
-by checks and not registered (D131). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
-2026-09-30 (GOALS, coverage-expansion campaign): isolated campaign batches c01–c14 have admitted 90 sources;
-the selected resumed run has completed all 136 material assessments and 100 additional priority products.
-The unselected full-catalogue backlog remains outside that narrowed run; any further work follows the
-owner-authorized scope and the same guarded pipeline. [Current status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) distinguish
-that authority from completed research. The general import pause remains outside this campaign. A page a reader saved enters from its copy by digest
+**Open since 2026-10-05.** The owner paused imports on 2026-09-25, until the re-center in `docs/GOALS.md` was built,
+and lifted the pause on 2026-10-05 (GOALS, check round 3, item 5): a new document may enter whenever a round needs it,
+through the import pipeline, with no exception to ask for. Nothing was imported when it was lifted. Under the pause the
+owner had opened bounded batches one by one (b34 to b44, the price pass p01 to p04, the coverage campaign's c01 to c14,
+and the re-fetch of the lost documents in check round 3); each is complete, and GOALS keeps their dates and scope.
+The coverage campaign's [status and targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md) still record what that
+campaign covered. A page a reader saved enters from its copy by digest
 (`ingest:witness --from`). A document never enters by hand: it travels the import
 pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing
 a table by hand, are in [docs/IMPORTING.md](docs/IMPORTING.md).

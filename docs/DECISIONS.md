@@ -4315,6 +4315,15 @@ Sonnet"); Claude Sonnet readers read the pages. The packet is `docs/audits/2026-
   since and are kept beside it as later copies (`.cache/later-copies/`, backed up with the store), not registered; 6
   shop pages would not load. The 134 deciding records they back were read against them: 133 hold, and 3DXTECH's
   3DXSTAT ESD-PETG page now prints a 260-280 °C nozzle where its record holds 230-260 °C (OPEN-PROBLEMS §32).
+- **CI waits less** (the owner's decision of 2026-10-05). `scripts/verify.mjs` names three groups of its steps: data
+  (verify:fast, the import tests, the audit, the context audit, the snapshot), interface (the views and 300 rendered
+  scenarios) and trend (the scale check and the reproducible build). Locally all three run before a push; CI runs data
+  and interface as two parallel jobs on every push and pull request, and trend weekly with the 2,000 scenarios, so a
+  push reaches the site in about half the time. A Chrome that opens no debugging port is launched once more
+  (`scripts/lib/cdp.mjs`): one such start had cost a whole repeated run.
+- **The import pause is lifted** (the owner's decision of 2026-10-05; GOALS, check round 3, item 5). A new document may
+  enter through the import pipeline whenever a round needs it; how it enters (IMPORTING.md) is unchanged, and nothing
+  was imported when the pause ended.
 - **OCR.** Mistral's best model (`mistral-ocr-latest`) was to read the deciding pages as an independent, image-based
   check of digits; the account's billing was off, so no page was read (`ocr/ocr-mistral.mjs` is ready, and `compare.mjs`
   takes its output with `--source mistral`). The digit check rests on the readers' page images and the tesseract readings

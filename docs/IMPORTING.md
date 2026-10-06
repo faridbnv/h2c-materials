@@ -1,11 +1,15 @@
 # Importing a batch of data sheets
 
-> **In short.** How a new maker's document enters the database: it is fetched and fingerprinted (SHA-256), its text read page by page, each value proposed with the line it came from, checked, and applied by a numbered batch script. Imports are paused; only batches the owner approves run (GOALS lists each, the latest b43 and b44 of 2026-10-05). Correcting a value of a document already held is not an import: [AGENTS.md](../AGENTS.md) says how.
+> **In short.** How a new maker's document enters the database: it is fetched and fingerprinted (SHA-256), its text read page by page, each value proposed with the line it came from, checked, and applied by a numbered batch script. Imports are open since 2026-10-05, when the owner lifted the pause of 2026-09-25 (GOALS lists the batches run under it, the last b43 and b44). Correcting a value of a document already held is not an import: [AGENTS.md](../AGENTS.md) says how.
 
-*Moved out of AGENTS.md on 2026-09-25 (re-center phase 5): imports are paused, and the procedure is read only when
-one runs. AGENTS.md keeps the rules every change follows.*
+*Moved out of AGENTS.md on 2026-09-25 (re-center phase 5), when imports were paused; the procedure is read when one
+runs. AGENTS.md keeps the rules every change follows.*
 
-**Paused on 2026-09-25 by the owner.** No new batch until the re-center in `docs/GOALS.md` is built. The owner
+**Open since 2026-10-05.** The owner lifted the pause on 2026-10-05 (GOALS, "Decided on 2026-10-05, check round 3",
+item 5): a new document may enter through this pipeline whenever a round needs it, with no exception to ask for. What
+follows, to the procedure, is the record of the pause and the batches the owner opened under it.
+
+**Paused from 2026-09-25 to 2026-10-05 by the owner.** No new batch until the re-center in `docs/GOALS.md` was built. The owner
 lifted it for the 74 sheets deferred for their identity (batch b34, and batch b35 for the three questions b34 left;
 D87). The documents already fetched may be mined for the record tier, print recipes and makers' know-how under the
 re-center plan (`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is not a batch, and it does not travel
@@ -36,7 +40,7 @@ is the registered document and went back into the store; a page that changed sin
 `.cache/later-copies/` (backed up with the store), read by checks, and not registered, so no record cites it (D131,
 `docs/audits/2026-10-05-check-round-3/refetch/`). The round also changed what the import reads: a build plate or a shop
 card is not a composition (m369), and the temperature parser sets a °F window aside beside a °C one (m381). Reading the sheets already registered again is not an import and travels a path of its own, described
-under "Reading a registered sheet again" below (D123, D125). The general import pause remains outside those exceptions.
+under "Reading a registered sheet again" below (D123, D125). The owner lifted the general pause on 2026-10-05.
 What follows is the procedure for an authorized batch.
 
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it

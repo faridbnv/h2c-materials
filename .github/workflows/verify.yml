@@ -1,8 +1,13 @@
-# Verify every push to main and every pull request: data format, schema, build, tests, the source-to-HTML audit, the
-# review snapshot, the interface views and 300 random rendered scenarios. Publishing (pages.yml) runs after this
-# succeeds on main and only builds and deploys: the gate runs once per push, not twice. Once a week, and on demand,
-# 2,000 rendered scenarios run on a new seed. A push to another branch is checked locally (npm run verify) and here
-# when it is merged or opened as a pull request; the owner reduced the load on 2026-10-05 (GOALS). Node is the version
+# Verify every push to main and every pull request, in two jobs that run side by side (scripts/verify.mjs groups):
+#   data       format, schema, lint, the generated documents, build and tests, the import tests, the source-to-HTML
+#              audit, the review snapshot, and the check that no record was deleted;
+#   interface  the interface views and 300 random rendered scenarios, in headless Chrome.
+# Publishing (pages.yml) runs after both pass on main and only builds and deploys: the gate runs once per push, not
+# twice. Once a week, and on demand, the trend job runs the scale check (twice today's data, within its time budget)
+# and the reproducible-build check, and 2,000 rendered scenarios run on a new seed. Those watch how the build grows and
+# whether it stays deterministic, which no single push decides, so they left the per-push gate on 2026-10-05 (the
+# owner's decision, D131): a push waits about half as long. Every step still runs locally before a push (npm run
+# verify). A push to another branch is checked locally and here when it is opened as a pull request. Node is the version
 # .nvmrc names, the one local runs use, so a model refit is not a different Node's arithmetic as well (D131).
 
 name: Verify
@@ -16,7 +21,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  verify:
+  data:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
@@ -35,23 +40,78 @@ jobs:
       - name: Install build dependencies
         run: npm ci --prefix build
 
-      # The import tools' own dependencies (pdfjs-dist, which the text reader imports): `verify` runs the import
+      # The import tools' own dependencies (pdfjs-dist, which the text reader imports): verify runs the import
       # pipeline's tests (test:ingest), which failed on every push from 2026-09-21 without them.
       - name: Install the import tools' dependencies
         run: npm ci
 
       # The build cache (.cache/build, build/src/build-cache.js) is never restored in CI: every result this job uses
-      # is built cold once, and the audit and the reproducibility test build again with the cache off.
+      # is built cold once, and the audit builds again with the cache off.
       - name: Start from an empty build cache
         run: rm -rf .cache/build
 
-      # npm run verify includes the interface views (ui-probe --require) and the 300 rendered scenarios.
-      - name: Verify
-        run: CHROME=$(command -v google-chrome || command -v chromium) npm run verify
+      - name: Verify the data, the build and the tests
+        run: node scripts/verify.mjs --group data
 
       - name: No deleted records since the previous commit
         run: |
           if git rev-parse HEAD~1 >/dev/null 2>&1; then node scripts/data/diff.mjs HEAD~1 HEAD --fail-on-removed; fi
+
+  interface:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Install the import tools' dependencies
+        run: npm ci
+
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build
+
+      # The interface views (ui-probe --require) and the 300 rendered scenarios; a Chrome that opens no debugging port
+      # is launched once more (scripts/lib/cdp.mjs) rather than failing the run.
+      - name: Verify the interface
+        run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/verify.mjs --group interface
+
+  trend:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Install the import tools' dependencies
+        run: npm ci
+
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build
+
+      # The scale check at twice today's data, judged against its time budget (CI enforces it), and the build run twice
+      # to show it is reproducible.
+      - name: Scale and reproducibility
+        run: node scripts/verify.mjs --group trend --enforce-budget
 
   fuzz-full:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -70,15 +130,14 @@ jobs:
       - name: Install build dependencies
         run: npm ci --prefix build
 
-      # The import tools' own dependencies (pdfjs-dist, which the text reader imports): `verify` runs the import
-      # pipeline's tests (test:ingest), which failed on every push from 2026-09-21 without them.
+      # The import tools' own dependencies (pdfjs-dist, which the text reader imports).
       - name: Install the import tools' dependencies
         run: npm ci
 
       - name: Build
         run: npm run build
 
-      # A new seed each run, so the nightly runs cover different scenarios; a failure names its seed and link.
+      # A new seed each run, so the weekly runs cover different scenarios; a failure names its seed and link.
       - name: 2,000 random rendered scenarios compared with the engine
         run: CHROME=$(command -v google-chrome || command -v chromium) node scripts/ui-fuzz.mjs --n 2000 --seed ${{ github.run_number }} --require --out fuzz-out
 

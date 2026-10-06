@@ -117,7 +117,7 @@ panel is built with lane 3 (m140; D85, its last part). Phase 5's decisions are D
     know-how in the panel.
 - **Printability per product.** Each product's own profile screens it. A union across a material's products never
   does.
-- **New document imports are paused** until the re-center is built. The documents already fetched are mined first:
+- **New document imports are paused** until the re-center is built (lifted on 2026-10-05: check round 3, item 5, at the end). The documents already fetched are mined first:
   for the record, print recipes and makers' know-how. The owner lifted it for one set on 2026-09-25, for targeted
   fetches in phase 6, and for two held sheets on 2026-09-27 (all below).
 
@@ -571,3 +571,9 @@ re-check the rest cheaply with Claude Sonnet, and find the causes of our own mis
 2. **The documents whose bytes were lost are fetched again** and added to the checks and the OneDrive backup. A page
    that changed since is kept beside the store as a later copy and read as one; it is not registered (D131).
 3. **The round is pushed to main when it is finished** and its documents are up to date.
+4. **GitHub's check is split to wait less.** On every push the data checks and the interface checks run side by side,
+   and the scale and reproducible-build checks move to the weekly run beside the 2,000 scenarios; every step still
+   runs locally before a push. A Chrome that fails to start is launched once more instead of failing the run.
+5. **The import pause is lifted.** The pause of 2026-09-25 (below, "The re-center") ends: a new document may enter
+   through the import pipeline whenever a round needs it, with no exception to ask for. Nothing is imported now; the
+   rules for how a document enters (IMPORTING.md, AGENTS.md) are unchanged.

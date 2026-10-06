@@ -37,8 +37,9 @@ Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md
   will not close these: they need documents that print the values, or the makers.
 - **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test
   prints.
-- **What is limited on purpose.** New documents enter only within exceptions the owner approves; prices were sampled
-  once (30 September 2026); team features (shared searches, an approved list, the team's own test results) come later.
+- **What is limited on purpose.** New documents enter through the import pipeline (open again since 5 October 2026, when
+  the owner lifted the pause of September); prices were sampled once (30 September 2026); team features (shared
+  searches, an approved list, the team's own test results) come later.
 <!-- status:end -->
 
 What is known to be wrong or missing, item by item and with the query that re-counts each, is
@@ -82,7 +83,7 @@ npm run sql -- "select ..."    # ask across records (dist/h2c.sqlite, rewritten 
 ```
 
 Changing data? Read [AGENTS.md](AGENTS.md) first. A new data sheet enters only through the import pipeline
-([docs/IMPORTING.md](docs/IMPORTING.md)), which the owner has paused except within named exceptions;
+([docs/IMPORTING.md](docs/IMPORTING.md)), open since 2026-10-05, when the owner lifted the pause of 2026-09-25;
 [docs/WALKTHROUGH-ADD-A-MATERIAL.md](docs/WALKTHROUGH-ADD-A-MATERIAL.md) shows, as history, how a material's records fit
 together. [docs/README.md](docs/README.md) names the three routes: choosing, correcting a value, importing.
 
@@ -95,9 +96,10 @@ Open the file in `dist/` in any current browser. Nothing else is required.
 
 ## Publishing
 
-`.github/workflows/verify.yml` runs `npm run verify` on every push to `main` and on pull requests; when it passes,
-`.github/workflows/pages.yml` rebuilds the selector from `data/tables` at that commit and publishes it to GitHub Pages.
-A branch is checked locally (`npm run verify`) before it is merged, and 2,000 random scenarios run weekly. The
+`.github/workflows/verify.yml` runs `verify`'s data and interface checks, side by side, on every push to `main` and on
+pull requests; when both pass, `.github/workflows/pages.yml` rebuilds the selector from `data/tables` at that commit and
+publishes it to GitHub Pages. A branch is checked locally (`npm run verify`, every step) before it is merged; the scale
+and reproducible-build checks and 2,000 random scenarios run weekly. The
 distributable HTML is **not committed**, so the published page cannot drift from the source of truth, and a database
 that fails validation stops in CI and never reaches the site.
 

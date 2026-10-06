@@ -1392,7 +1392,7 @@ code could not confirm and could change an answer, and swept every kind of error
   still cite the lost originals; 6 Bambu Lab shop pages would not load (none decides anything). Of the 134 deciding
   records the 30 deciding sources back, 133 hold on their page; 3DXTECH's 3DXSTAT ESD-PETG page (XP-3dxstat-esd-petg-1)
   now prints "Extruder Temp 260-280C" where P0134 holds 230-260 °C, which the lost original may have printed. Registering
-  a later copy as a new revision is an import, and the owner's call.
+  a later copy as a new revision is an import: open since 2026-10-05, and not done in this round.
 - **What the comparison could not confirm and nobody read.** Of the records the text comparison did not confirm, every
   one that can change an answer was read (320). 621 more change only a print state the page shows, and 1,688 change
   nothing (975 of them values); a sample of 80 of each was read, with 3 changes in each and none a number, and the other

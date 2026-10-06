@@ -33,7 +33,7 @@ Three things are useful to know before opening any document here:
 | [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | How is the code put together, how do the tables become the page, and where does a change go? |
 | [../AGENTS.md](../AGENTS.md) | How do I change data safely (for people and AI agents alike)? |
-| [IMPORTING.md](IMPORTING.md) | How does a batch of makers' data sheets enter the database? (paused except within the owner's exceptions) |
+| [IMPORTING.md](IMPORTING.md) | How does a batch of makers' data sheets enter the database? (open since 2026-10-05) |
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
 | [DATA-DICTIONARY.md](DATA-DICTIONARY.md) | What does this column mean, and what may it hold? (generated) |
 | [RULES.md](RULES.md) | What does this error or warning code mean, and how do I fix it? (generated) |
@@ -51,8 +51,8 @@ Three things are useful to know before opening any document here:
   re-read the source page, write a small migration that names the value it replaces (m212 is a short one), then
   `npm run verify:fast`, `npm run snapshot` and `npm run build:diff`, and `npm run trace -- <MeasurementID>` to see what
   it decides (`npm run trace -- --scenario <saved file> --product <GradeID>` for one product's decision).
-- **An authorized import of a new document:** [IMPORTING.md](IMPORTING.md). Imports are paused except within the owner's
-  exceptions ([GOALS.md](GOALS.md)); a document never enters by hand.
+- **An import of a new document:** [IMPORTING.md](IMPORTING.md). Imports are open since 2026-10-05, when the owner lifted
+  the pause of 2026-09-25 ([GOALS.md](GOALS.md)); a document never enters by hand.
 
 ## Tracing why something is the way it is
 

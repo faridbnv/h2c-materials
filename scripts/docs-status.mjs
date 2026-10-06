@@ -126,7 +126,7 @@ export function renderStatus(counts, acc, date) {
     wrap(`- **How accurate it is.** Records are checked by random samples read against their source pages. The latest, of ${acc.latest.sample} records, found ${latest}${earlier}, and each cause was fixed everywhere it occurred.${sealed} Every check so far was done by an AI; a person's spot-check is still to come.`),
     wrap(`- **What is still missing.** Makers rarely publish a heated-chamber temperature (unknown for ${about(u.chamber)} products), drying (${about(u.drying)}), or, for some products, the nozzle or bed temperature (${edge}). Several hundred products publish no strength, stiffness or heat-resistance value. Reading the documents already held again will not close these: they need documents that print the values, or the makers.`),
     wrap('- **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test prints.'),
-    wrap('- **What is limited on purpose.** New documents enter only within exceptions the owner approves; prices were sampled once (30 September 2026); team features (shared searches, an approved list, the team\'s own test results) come later.'),
+    wrap('- **What is limited on purpose.** New documents enter through the import pipeline (open again since 5 October 2026, when the owner lifted the pause of September); prices were sampled once (30 September 2026); team features (shared searches, an approved list, the team\'s own test results) come later.'),
     END,
   ].join('\n');
 }
