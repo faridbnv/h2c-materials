@@ -201,8 +201,8 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `IMPACT-UNIT-STANDARD` | 46 | A sheet that prints an impact unit beside a standard that reports another (kJ/m² beside ASTM D256; BASF's J/m beside ISO 180); kept as printed, compared only in its own unit. |
 | `MEAS-PHYSICS-STRAIN` | 32 | See item 2. |
 | `MEAS-PHYSICS-ORDER` | 31 | See item 2. |
-| `GRADE-VALUES-TWIN` | 33 | Two products whose sheets print one table, accepted as the separate products they are (R166 and its like). |
-| `MEAS-CROSS-SOURCE-TWIN` | 14 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). |
+| `GRADE-VALUES-TWIN` | 31 | Two products whose sheets print one table, accepted as the separate products they are (R166 and its like). |
+| `MEAS-CROSS-SOURCE-TWIN` | 19 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). | Check round 3 added five (D131): four Bambu Lab sheets and their V3.0 revisions, which print one table, and Kingroon's TPU sheet, which reprints Bambu Lab TPU 90A's.
 | `EST-OUTLIER` | 7 | Seven reviewed material/headline findings: ABS-GF, PAHT-CF and PA6 heat deflection at 0.45 MPa, the density of ASA Aero, PA6-GS and PLA-EC, and PBAT's XY modulus (6 MPa, a rubbery polyester). Each acceptance names the original value and why the model differs. Findings near the threshold come and go when the model is refit: PA6-CE's density left the list and PBAT's modulus returned when m368 moved FiberFlex Aero (2026-10-05). |
 | `MEAS-PHYSICS-Z-ABOVE-XY` | 8 | Polymaker prints a Z stiffness 15 to 26 % above XY (two rows), and three sheets a Z strength or impact above their own X-Y one. Unusual at 100 % infill but not impossible; whether a sheet swapped its labels cannot be settled from the table. Three more, accepted on 2026-10-05, are where the sheet itself prints a Z value above XY: Fillamentum OBC 905's Izod impact twice, and a ZX bar a sheet advertises as its highest Z strength. |
 | `EST-FAMILY-ORDER` | 5 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C; Nylon-CF's (M165) modulus once b43 added Markforged's Onyx and Stratasys Nylon-CF10. The per-record reasons preserve the sheets' values and conditions. |
@@ -214,9 +214,9 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `MEAS-LOCATOR-DIRECTION` | 5 | PC-Max's page 2 figures show flat bars with Z through the thickness; the locator names that axis as figure context, not a Z-loaded result, and XY is supported (V011803 to V011807, 2026-10-03). |
 | `MEAS-PHYSICS-HDT-LOADS` | 2 | Heat deflection at the lighter load below the heavier: Prusament rPLA's 1 °C inversion is within ISO 75 repeatability (V013711); the lint paired two different columns of one sheet (V014653). |
 | `CONTEXT-ROW-CONTRADICTS-PAGE` | 1 | SUNLU PCL's bars were printed at 260 °C, far above its recommended 75-85 °C: a printed bar off the product's recipe (D95), a narrower form of the page's printed specimen (V010184, m365). |
-| `GRADE-KEY-PRODUCTS` | 1 | Spectrum's PLA Premium sheet prints one table for five products already keyed together; the table is recorded on the key's carrier grade (R053) and the others read it. |
+| `GRADE-KEY-PRODUCTS` | 2 | Spectrum's PLA Premium sheet prints one table for five products already keyed together; the table is recorded on the key's carrier grade (R053) and the others read it. Spectrum ASA-X CF10 prints FormFutura ApolloX CF10's table, which also prints two Charpy values Spectrum's does not (check round 3). |
 
-Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-05, 402 in all, and
+Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-05 after check round 3, 406 in all, and
 the command below counts them again. `npm run audit:data` refuses stale acceptances in the data; this documentation
 table must also be refreshed when the accepted rows change.
 
@@ -772,12 +772,11 @@ narrower and more honest, and leave these, each with where it is counted:
 - **Not executed:** the team's task trial (GOALS C7), a person's source spot-check (C3), screen-reader and other-browser
   checks, and a print on the H2C. The page and the engine are checked against each other and against the portfolio; none
   of that is a person using it.
-- **124 registered sources have no hash-verified original here, and 12 record no digest.** The formerly mismatched
-  R-KIMYA-PEBA-S-TDS remains an absence after the controlled restore; no wrong bytes are accepted. The current
-  campaign checkout verifies 1710 of 1846 registered originals. The private backup contains 2397 originals including
-  ledger-only documents, and 2800 derivatives; it cannot supply the 124 absent entries. These are the local
-  2026-10-01 custody counts, not a cloud-upload confirmation or a claim about every clone. Original recovery or
-  a separately reviewed revision is still needed; never overwrite the recorded digest to make a cache match.
+- **95 registered sources have no hash-verified original here, and 12 record no digest** (2026-10-05, after check
+  round 3 fetched the lost ones again: 1,894 of 2,002 registered originals verify, §32). 85 of the 95 are pages that
+  changed since they were read; their later copies are kept beside the store, read by checks and not registered. The
+  formerly mismatched R-KIMYA-PEBA-S-TDS remains a mismatch; no wrong bytes are accepted. Original recovery or a
+  separately reviewed revision is still needed; never overwrite the recorded digest to make a cache match.
 - **The full-text index is partial**: the refreshed local SQLite of release 784aaac91d99 indexes 1626 of 1840
   retrieved source rows; 214 lack text, as re-derived by the query below. Cached bytes and indexed text are different
   populations. The source/index receipt in the campaign's documentation reconciliation records this dated checkout.
