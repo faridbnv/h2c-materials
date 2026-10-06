@@ -138,8 +138,7 @@ The 2026-09-28 version 2.1 and targeted gap-closure publication is kept as
 
 | Read this | For |
 |---|---|
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The three layers, the module map, where to add things |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#the-build-stage-by-stage) | What each build stage does, and what it refuses to do |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The three layers, the module map, where to add things, and [what each build stage does and refuses to do](docs/ARCHITECTURE.md#the-build-stage-by-stage) |
 | [AGENTS.md](AGENTS.md) | How to change data, for people and AI agents alike |
 | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) | For an engineer using the tool: where a number comes from, what each kind means, and how far to trust it |
 | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The tables, the registry, the compiled shape, the three kinds of number |
