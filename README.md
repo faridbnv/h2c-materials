@@ -46,19 +46,6 @@ What is known to be wrong or missing, item by item and with the query that re-co
 [docs/OPEN-PROBLEMS.md](docs/OPEN-PROBLEMS.md). What the tool is for and every decision the owner has made are in
 [docs/GOALS.md](docs/GOALS.md).
 
-## Published impact evidence (6 October 2026)
-
-The completed [published-evidence round](docs/audits/2026-10-06-published-evidence/README.md) keeps PLA grouped and
-explains which exact products contribute to its impact median. Mechanical and Products show the test conditions,
-current-state eligibility and exact maker claims, labelled as claims. Twenty-four assigned products were reviewed;
-27 impact readings were confirmed, eleven statements re-topiced and four added. No numerical measurement or selection
-answer changed. Eight source conflicts and eight unpublished chamber setpoints remain held.
-
-The [verification receipt](docs/audits/2026-10-06-published-evidence/VERIFY.md) and
-[handoff](docs/audits/2026-10-06-published-evidence/RESUME.md) retain the source hashes, outcomes and safe resumption steps.
-[Remaining work](docs/audits/2026-10-06-published-evidence/NEXT-WORK.md) separates published-source/code work from
-questions needing a person, a maker or a physical test.
-
 ## How the work is organised
 
 - **The data** lives in CSV tables (`data/tables/`). It changes only through small scripts that name the value they

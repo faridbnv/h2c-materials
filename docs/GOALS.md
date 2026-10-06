@@ -581,7 +581,9 @@ re-check the rest cheaply with Claude Sonnet, and find the causes of our own mis
 
 ## Decided on 2026-10-06, published impact evidence and its explanation
 
-The owner asked to execute the [published-evidence plan](audits/2026-10-06-published-evidence/RESUME.md):
+> **Withdrawn on 2026-10-06** (D132): reverted the same day; see "Decided on 2026-10-06, later" below.
+
+The owner asked to execute the [published-evidence plan](audits/2026-10-06-published-evidence/README.md):
 GOALS steps 2 and 5, and the existing interface in step 4; C3–C10 and C13. The round freezes at most 24 existing
 products, re-reads published impact values and practical blockers, and records every outcome and bounded hold.
 PLA remains grouped: Tough/Pro products keep their own identity and values inside PLA. No taxonomy, median weighting,
@@ -596,6 +598,8 @@ without repeating completed reads. The original plan deferred publication; the o
 
 ## Authorized on 2026-10-06: document and push the completed published-evidence work
 
+> **Withdrawn on 2026-10-06** (D132): the pushed work was reverted; see the section below.
+
 The owner asked to make sure the documents reflect the completed work and push it to main. The implementation is
 commit `f57dffdaf106fa5029d778799d5cc6723214e498`, release `3d10601675b8`: 24 target outcomes, 27 confirmed readings,
 fifteen exact-product claims, existing impact-test/state explanations and median contributors, with zero changed
@@ -606,3 +610,26 @@ passes the repository checks and advances main without overwriting remote work. 
 another research batch, change the selection policy, send maker questions or commission physical tests. The normal
 Verify and Publish to Pages workflows run from main; their success and the live manifest are checked separately from
 the Git push.
+
+## Decided on 2026-10-06, later: revert the impact round, and compare the two impact tests properly
+
+A review of the pushed round found it moved no number but put wrong words on the page (D132, now withdrawn): seven
+products read "Not stated by the maker" beside the statement that states it, 34 impact records read "not stated" for a
+condition their page gives once for the table, and a "+" in a product's name was read as a claim of toughness. The owner
+asked to revert it and to do the job again. In their words: "the main goal is to give the reader in the drawer section a
+better way to make comparison of the two impact measures. And also for cases that there is tough filament (like PLA
+Tough and Pro) bundled with other types pushing the range high, the reader does not make mistake that for all of the
+types." Fetching or re-fetching data is allowed where the gap is large.
+
+- **The revert keeps the verified data.** The later saved Bambu PLA Tough+ page and the four maker statements found on
+  their hashed pages stay, under the topics they belong to; the eleven moved statements go back (m384). Nothing is
+  deleted.
+- **The drawer compares notched Charpy and notched Izod side by side**: one dot per product on a shared kJ/m² scale for
+  each test, and a table of products with both columns. No value is converted (D92, D94).
+- **Products sold as toughened are named.** First the material's median stays over all its products and the drawer shows
+  the split (how many values are from products their makers sell as toughened, and what the rest give). Once the marks
+  pass a check for missed products, toughened products are set apart from the impact medians only, as special
+  formulations already are.
+- **The data round covers every material's impact values**: what cached sheets print and no row holds, the errors found
+  in what is held, and a small fetch of well-known toughened PLAs that are absent. Reading and fetching are done by
+  Claude Sonnet agents; targets, judgements and migrations by Claude Opus.

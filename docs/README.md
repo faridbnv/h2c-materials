@@ -40,7 +40,6 @@ Three things are useful to know before opening any document here:
 | [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) | How do a material's records fit together? (a worked example from 2026-09-16, kept as history) |
 | [audits/](audits/README.md) | What did each review and round of work find, and what was done about it? (history) |
 | [Coverage campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) | How far the research campaign of 2026-09-30 got, and every target still open (current, generated) |
-| [Published impact evidence](audits/2026-10-06-published-evidence/README.md) | What the completed impact review and drawer explanations changed, what remains held, and how another AI resumes |
 | [background/](background/) | What was the tool built from? (history) |
 
 ## Three routes

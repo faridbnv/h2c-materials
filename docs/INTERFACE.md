@@ -486,18 +486,6 @@ part read elsewhere labelled "data sheet shared with …" or "from Bambu Lab's F
 its maker says (each quote with its document and page, and a **limits** mark where a reviewer recorded what the claim
 does not say), its Sources and its product details. A card stays as the reader left it when the drawer is redrawn.
 
-**Impact evidence (D132).** Mechanical has a collapsed **What the maker says about impact and toughness** section,
-with the same evidence IDs as the exact product's maker block. Each statement names its product and maker, retains its
-source and comparator, and separates recorded scope/conditions from the quotation. A name-only Tough/Pro/+ product is
-not labelled as proven tougher; a topic not reviewed is not called maker silence.
-
-Each impact row has **Impact test basis and use**: method, notch, unit, orientation, specimen, moisture, treatment and
-test temperature, with **not stated** for missing conditions. Its used/excluded/eligible-alternative explanation comes
-from the shared measurement assessment and current selected product state. Recorded alternatives remain accessible.
-The material's impact-median explanation names the exact contributing products, distinct makers and sources, shared
-sheets and admitted missing conditions, using the same product population as the build. It includes different
-commercial formulations and changes neither weighting nor comparison policy.
-
 **Record notes.** Nearly every measurement's Notes cell is the record's history ("Added 2026-09-17 (m39): re-read from
 the source document"). It is shown, collapsed, as **Record notes**, never among the test conditions. Every record ID is
 behind a small **ID** mark beside what it names.

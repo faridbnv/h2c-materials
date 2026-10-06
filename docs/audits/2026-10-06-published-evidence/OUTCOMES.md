@@ -1,6 +1,6 @@
 # Assigned product outcomes
 
-> **Historical record**: AI source review for the bounded 6 October 2026 round; not human validation or testing.
+> **Historical record** (2026-10-06): the withdrawn round's outcomes per product; see [README](README.md). Read by an AI agent, not a person.
 
 All 24 assigned products have an outcome. E2 confirmed the held values and captured eligible display claims; E3 retained 8 source conflicts; E4 retained 8 practical setpoint gaps. No deciding fact or numerical answer changed.
 

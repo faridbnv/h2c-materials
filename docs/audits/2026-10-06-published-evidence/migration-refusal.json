@@ -1,8 +1,0 @@
-{
-  "command": "node scripts/migrate/m383-published-impact-claims.mjs (isolated changed-input copy)",
-  "expectedExitCode": 1,
-  "exitCode": 1,
-  "guardMessage": "Error: m383: Q00990 Finding moved",
-  "dataFilesChangedAfterRefusal": [],
-  "repositoryTablesTouched": false
-}

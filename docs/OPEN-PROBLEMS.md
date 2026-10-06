@@ -431,6 +431,10 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
     (m173).
 - **No alias carries a chamber band since m303** (2026-10-02): the five rows left through the removal ledger, and the
   build refuses a band on a family entry or an alias as it does on an excluded material (CHAMBER-BAND).
+- **Eight heated-chamber recommendations with no setpoint** (2026-10-06, the withdrawn round's E4 holds,
+  [OUTCOMES.md](audits/2026-10-06-published-evidence/OUTCOMES.md)): six CarbonX products (CF PC/ABS, CF PA12, CF HTN,
+  CF ABS, CF PC, CF ezPC) recommend a heated chamber in words only; Raise3D Hyper Core ABS CF15 gives coupon settings
+  and no chamber; BASF Ultrafuse PC GF30 prints a dash. None says whether 65 °C will do, so each stays unknown.
 
 ```bash
 npm run sql --silent -- "select profileid, drying from profiles where drying_state = 'stated' and drying_c_state = 'Not published' and drying_hours_state = 'Not published'"
@@ -738,6 +742,11 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Products whose only glass transition is a resin supplier's value** (Specimen type Raw material value, which is
   not the product's): tg_resin_only in the query, 14 on 2026-09-27.
+- **Eight impact rows whose label and standard contradict each other** (2026-10-06, the withdrawn round's E3 holds,
+  [OUTCOMES.md](audits/2026-10-06-published-evidence/OUTCOMES.md)): six Anycubic sheets (PLA High Speed, PLA+, PLA
+  Metal, PETG, ABS, ASA) label their X-Y value Izod while citing ISO 179 and draw both a notched and an unnotched bar;
+  colorFabb PETG Economy's moulded Izod of 107 J/m also cites ISO 179; Fishy Filaments' Porthcurno prints a Charpy of
+  5 kJ/m² to ISO 180. Their words and numbers are held as printed; none is compared, and none is settled by relabelling.
 
 ```bash
 npm run sql --silent -- "with pv as (select m.* from measurements m join grades g on g.gradeid = m.gradeid where g.status = 'active' and g.role = 'procurement' and m.data_status in ('Published value', 'Published value (transcription corrected)')) select (select count(distinct gradeid) from pv where property = 'Charpy strength' and notch = 'Not published' and gradeid not in (select gradeid from pv where property = 'Charpy strength' and notch = 'Notched')) charpy_notch_unstated, (select count(distinct gradeid) from pv where property = 'Izod impact strength' and notch = 'Notched' and gradeid not in (select gradeid from pv where property = 'Charpy strength' and notch = 'Notched')) izod_only, (select count(distinct gradeid) from pv where property like 'Tensile%strength%' and direction in ('XZ', 'ZX', 'Vertical XZ (source label)') and gradeid not in (select gradeid from pv where property like 'Tensile%strength%' and direction = 'Z')) xz_zx_only, (select count(*) from pv where property = 'Charpy strength' and notch = 'Notched' and standard_load like '%1eU%') notched_1eu, (select count(*) from pv where property = 'Glass transition temperature' and standards in ('ASTM D1525', 'ISO 75')) tg_other_standard, (select count(distinct gradeid) from pv where property = 'Glass transition temperature' and specimen_type = 'Raw material value' and gradeid not in (select gradeid from pv where property = 'Glass transition temperature' and specimen_type <> 'Raw material value')) tg_resin_only"
@@ -1443,37 +1452,3 @@ code could not confirm and could change an answer, and swept every kind of error
 node scripts/audit/table-detectors.mjs && node scripts/audit/duplicates.mjs && node scripts/audit/leverage.mjs
 python3 docs/audits/2026-10-05-check-round-3/read/queue.py
 ```
-
-## 33. Published impact comparisons still need product and condition context (6 October 2026)
-
-The bounded [published-evidence round](audits/2026-10-06-published-evidence/RESUME.md) reviewed eight comparison
-products, eight additional impact targets and eight practical chamber blockers. Its 27 numeric impact readings
-confirmed the held values; no numerical correction, new test conversion or toughness estimate was justified.
-The existing Mechanical and Products drawers now show the test basis, current-state use, exact maker claims and
-impact-median contributors. PLA still pools commercial formulations: its median does not describe neat or ordinary
-PLA. Eleven statements were re-topiced and four missing claims were added; claims decide no requirement.
-
-What remains, with exact sources/hashes and dated routes in [outcomes.json](audits/2026-10-06-published-evidence/outcomes.json):
-
-- Six Anycubic sheets label their XY result Izod while citing ISO179; both notched and unnotched drawings appear without
-  assigning the value to one. colorFabb PETG Economy's injection-moulded107 J/m Izod row also cites ISO179; it remains
-  separate from the printed Charpy4.7 kJ/m² row with unstated direction. Porthcurno's Charpy5 kJ/m² row cites ISO180.
-  The round preserves these source contradictions; it does not settle them by relabelling. Older Polymaker sheets
-  also put ASTM D256 beside ISO179 and remain distinct from their later revisions (§19).
-- The eight practical targets still lack a numerical chamber setpoint: six CarbonX products have a qualitative
-  heated-chamber recommendation; Raise3D Hyper Core ABS CF15 supplies coupon settings without that setpoint; BASF
-  Ultrafuse PC GF30 prints a dash. Recent registered pages and prior bounded searches were reused. None establishes
-  suitability at65 °C, and neither testing nor manufacturer contact was part of this round.
-- Published claims do not supply matched control tests, repeated-flexing lifetime or fracture toughness. Tough/Pro/+
-  names alone establish no measured improvement. Preparation, specimen geometry, orientation, test temperature,
-  moisture and treatment remain unstated where their sources leave them open. No universal toughness score follows
-  from an impact number or strength/elongation endpoints.
-- The earlier Bambu Tough+ product-page bytes remain missing. A later saved page was admitted separately as
-  R-BAMBU-PLA-TOUGH-20261005, not used to reconstruct the older digest. The private source inventory still explicitly
-  lists documents whose exact bytes are missing; those are custody gaps, not proof that nothing was published.
-
-Re-derive the assigned population from targets.json and the held numeric confirmations from READINGS.csv plus
-reconcile/confirms.csv. `node scripts/audit/published-evidence.mjs --db <baseline-db.json> --phase validation` regenerates
-the machine inventory without overwriting the baseline; `node scripts/audit/published-evidence-compare.mjs
-<baseline-db.json>` compares impact thresholds5/10/20/40/80 across dry/conditioned, annealing unavailable/available and
-both data-quality settings, plus the six templates. The named unassigned products remain in the pending queues.

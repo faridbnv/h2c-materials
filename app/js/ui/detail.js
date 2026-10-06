@@ -10,8 +10,7 @@ import { renderWhy } from './explain.js';
 import { materialName, describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS, H2C_STATUS, h2cStatusLabel, h2cLimit } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
 import { evidenceSummary } from '../engine/coverage.js';
-import { hardenedShare, hardenedWords, scenarioStates, productHeadline, stateOf } from '../engine/products.js';
-import { assessMeasurement, summaryEntries } from '../engine/published-values.js';
+import { hardenedShare, hardenedWords } from '../engine/products.js';
 
 /** A temperature window, or nothing if none was published. A zero floor is the build's "ambient". */
 const range = (r) => (!r ? null
@@ -232,39 +231,8 @@ function measurementRow(x, c, { shared = new Map(), inSources = false, compact =
     ${cond ? `<div class="cond">${esc(cond)}</div>` : ''}
     ${more.length ? `<dl class="kv small cond-more">${more.map(([k, t]) => `<dt>${esc(k)}</dt><dd>${longText(t)}</dd>`).join('')}</dl>` : ''}
     <div class="cond meas-foot">${foot}${ids(['Measurement', x.id], ['Product', x.gradeId], ['Source', x.sourceId])}</div>
-    ${impactRecordBasis(x, c)}
     ${notes}
   </div>`;
-}
-
-const isImpact = (x) => /Charpy|Izod|impact/i.test(x.property);
-const missingWords = (v) => stated(v) ? v : 'not stated';
-
-/** Conditions from the record, and eligibility from the rule which compiled it, for the state the engine chose. */
-function impactRecordBasis(x, c) {
-  if (!isImpact(x)) return '';
-  const g = c.gradeById.get(x.gradeId);
-  const definitions = REGISTRY.headlines.filter(h => h.valueProperties?.includes(x.property));
-  const judgment = c.evaluation?.products?.find(j => j.gradeId === g?.id);
-  const selectedState = judgment?.state ?? (g && scenarioStates(g, c.engineContext)[0]);
-  const current = selectedState && g ? stateOf(g, selectedState.id) : selectedState;
-  const basis = [['Method', missingWords(x.standardText)], ['Notch', missingWords(x.notch)], ['Unit', missingWords(x.unit)],
-    ['Direction', x.direction === 'unknown' || x.direction === 'not-applicable' ? 'not stated' : missingWords(x.directionText ?? x.direction)],
-    ['Specimen', missingWords(x.specimenType)], ['Moisture', missingWords(x.moisture)],
-    ['Treatment', missingWords(x.postProcessing)], ['Test temperature', missingWords(x.testTemperature)]];
-  const own = c.ms.filter(m => m.gradeId === x.gradeId);
-  const uses = definitions.map(h => {
-    const a = assessMeasurement(x, h, own, current);
-    if (a.excluded) return `${h.labels.plain}: cannot decide — ${a.excluded}.`;
-    const value = g && productHeadline(c.m, g, h.key, c.engineContext, current);
-    if (value?.known && value.measurementId === x.id) return `${h.labels.plain}: used for this state when the requirement is selected.`;
-    if (a.level === 'as-published' && c.engineContext.evidence !== 'as-published') return `${h.labels.plain}: orientation or load not stated; excluded by the current Data quality setting.`;
-    return `${h.labels.plain}: eligible alternative; the product rule chooses another record for this state.`;
-  });
-  if (!uses.length) uses.push('Recorded alternative impact test; no selectable comparison uses this property.');
-  const stateLabel = current?.treatment ? `annealed ${scheduleWords(current.treatment)}` : 'as printed';
-  return `<details class="impact-basis"><summary>Impact test basis and use</summary><dl class="kv small">${basis.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
-    <p class="fine">Current state: ${esc(stateLabel)}, ${current?.moisture === 'conditioned' ? 'moisture-conditioned' : 'dry service'}. ${esc(uses.join(' '))}</p></details>`;
 }
 
 /** Measurements in the order their sources first appear, each source's together. */
@@ -681,7 +649,6 @@ export function renderDrawer(host, state, actions) {
   const guide = (db.printGuide ?? []).find((x) => x.materials.some((y) => y.materialId === m.id)) ?? null;
   const c = {
     m, ms, ev, poly, cov, profiles, grades, prices, evaluation, summary, db, guide,
-    engineContext: ctx, scenario: state.scenario,
     tested: !!evaluation?.results.length,
     highlight: state.highlightMeasurement, highlightSource: state.highlightSource,
     showEstimates: !!ctx.showEstimates, policy: state.scenario.unknownPolicy,
@@ -890,7 +857,7 @@ const TOPIC_WORDS = {
   'Good for': 'applications', Benefits: 'benefits', 'Pitfalls and limitations': 'pitfalls', 'Warping and shrinkage': 'warping',
   'Precision and tolerance': 'dimensional accuracy', 'Surface finish': 'surface finish', 'Adhesion between layers': 'layer adhesion',
   'Moisture sensitivity': 'moisture', 'Nozzle wear': 'nozzle wear', 'Odour and emissions': 'odour', 'Supports and removal': 'supports',
-  'Printing advice': 'printing advice', 'Impact and toughness': 'impact and toughness',
+  'Printing advice': 'printing advice',
 };
 
 /** Where a statement stands, in a few words: a data sheet or the maker's product page, and the page. */
@@ -900,7 +867,7 @@ function knowHowSource(k, c) {
     : s?.sourceClass === 'Manufacturer TDS' ? 'data sheet' : lower(sourceKind(s));
   const page = /^p\. ?\d+/.exec(String(k.locator ?? ''))?.[0];
   const where = `${sourceName(s, k.sourceId)}${stated(k.locator) ? `, ${k.locator}` : ''}.`;
-  return `<span class="maker-src">— ${esc(kind)}${page ? `, ${esc(page)}` : ''}</span> ${explainButton('where', where, { cls: 'id-mark', head: 'Where this is stated' })}${ids(['Statement', k.id], ['Source', k.sourceId])}${k.topic === 'Impact and toughness' ? ` <button type="button" class="link-btn" data-open-source="${esc(k.sourceId)}">source</button>` : ''}`;
+  return `<span class="maker-src">— ${esc(kind)}${page ? `, ${esc(page)}` : ''}</span> ${explainButton('where', where, { cls: 'id-mark', head: 'Where this is stated' })}${ids(['Statement', k.id], ['Source', k.sourceId])}`;
 }
 
 /**
@@ -925,33 +892,6 @@ function knowHowGap(g, missingTopics, c) {
   return all.length ? `Not stated by the maker: ${andList(all)}${site}.` : '';
 }
 
-/** The same evidence IDs appear here and beside Mechanical records; no duplicate statements are stored. */
-function impactMakerSays(g, c) {
-  const own = (knowHowOf(c.db).get(g.id) ?? []).filter(x => x.topic === 'Impact and toughness');
-  const nameOnly = /tough|\bpro\b|\+/.test(String(g.product).toLowerCase());
-  if (!own.length) return nameOnly ? `<p class="fine impact-name-gap">${esc(gradeName(g))}: its name alone is not a measured toughness result. This topic has not been reviewed for it; its other maker statements remain in Products.</p>` : '';
-  return `<div class="maker-says impact-maker-says" data-impact-product="${esc(g.id)}"><div class="shared-head">What the maker says about impact and toughness</div><p class="fine impact-product-name">${esc(gradeName(g))} (${esc(g.manufacturer)})</p>
-    <ul class="maker-quotes">${own.map(x => `<li data-statement="${esc(x.id)}">“${esc(x.text)}” ${knowHowSource(x,c)}${knowHowConditions(x)}</li>`).join('')}</ul>
-    <p class="fine">Maker statements; no measured improvement ratio is derived here. A claimed comparison does not establish matching test conditions or decide a requirement.</p></div>`;
-}
-
-function impactSummary(m, c) {
-  return REGISTRY.headlines.filter(h => ['charpyNotched','izodNotched'].includes(h.key)).map(h => {
-    const { entries } = summaryEntries(m, c.gradeById, h.key);
-    const members = entries.filter(e => !e.variant && e.v.level === 'comparable');
-    const makers = new Set(members.map(e => c.gradeById.get(e.gradeId)?.manufacturer));
-    const items = members.map(e => {
-      const g = c.gradeById.get(e.gradeId), x = c.ms.find(x => x.id === e.v.measurementId) ?? c.db.measurements.find(x => x.id === e.v.measurementId);
-      const admitted = [...(e.v.admitted ?? []), ...(!stated(x?.standardText) ? ['test method'] : []), ...(x?.testTemperatureC == null ? ['test temperature'] : [])];
-      return `<li>${esc(gradeName(g))} (${esc(g.manufacturer)}) — ${esc(fmtBounded(e.v.value,h.unit,e.v.interval))}${e.v.anneal ? `; annealed ${esc(scheduleWords(e.v.anneal))}` : ''}${fromNote(e.v.from)}${admitted.length ? `; admitted with ${esc(admitted.join(', '))} not stated` : ''}
-        ${x ? `<button type="button" class="link-btn" data-open-source="${esc(x.sourceId)}">${esc(sourceName(c.sourceById.get(x.sourceId),x.sourceId))}</button>, ${esc(x.locator)}` : ''}</li>`;
-    });
-    return `<details class="impact-summary" data-impact-summary="${esc(h.key)}"><summary>${esc(h.labels.plain)}: ${plural(members.length,'contributing product')}, ${plural(makers.size,'maker')}</summary>
-      <p class="fine">Median across the products with eligible published values, including different commercial formulations. It describes this product population; it does not describe ordinary or neat ${esc(m.basePolymer ?? m.name)}. One chosen record per product; source copies add no extra weight. Shared-sheet products count separately and say so below. The median may include annealed specimens; current-state decisions use each product's own state.</p>
-      ${items.length ? `<ul class="impact-contributors">${items.join('')}</ul>` : '<p class="fine">No contributing product on this basis.</p>'}</details>`;
-  }).join('');
-}
-
 function makerSays(g, c) {
   const k = g.knowHow;
   const own = knowHowOf(c.db).get(g.id) ?? [];
@@ -962,13 +902,12 @@ function makerSays(g, c) {
   const other = records.length ? `<details class="grade-more"><summary>Its environment statements (${records.length})</summary><dl class="kv small">
     ${records.map((e) => `<dt>${esc(e.categoryLabel ?? e.domain)}</dt><dd>${esc(e.topic)}: ${esc(e.finding)}</dd>`).join('')}</dl></details>` : '';
   if (!k) return other;
-  // The new topic was reviewed for a bounded batch; absence from it is not source silence.
-  const gap = knowHowGap(g, topics.filter((t) => t !== 'Impact and toughness' && !k.topics[t]), c);
-  if (!own.length) return `<div class="fine maker-says-gap">${esc(gap)}</div>${impactMakerSays(g,c)}${other}`;
-  const groups = topics.filter(t => t !== 'Impact and toughness').map((t) => [t, own.filter((x) => x.topic === t)]).filter(([, list]) => list.length);
+  const gap = knowHowGap(g, topics.filter((t) => !k.topics[t]), c);
+  if (!own.length) return `<div class="fine maker-says-gap">${esc(gap)}</div>${other}`;
+  const groups = topics.map((t) => [t, own.filter((x) => x.topic === t)]).filter(([, list]) => list.length);
   return `<div class="maker-says"><div class="shared-head">What the maker says</div><dl class="kv small">
     ${groups.map(([t, list]) => `<dt>${esc(t)}</dt><dd><ul class="maker-quotes">${list.map((x) => `<li>“${esc(x.text)}” ${knowHowSource(x, c)}${knowHowConditions(x)}</li>`).join('')}</ul></dd>`).join('')}
-  </dl>${gap ? `<p class="fine">${esc(gap)}</p>` : ''}</div>${impactMakerSays(g,c)}${other}`;
+  </dl>${gap ? `<p class="fine">${esc(gap)}</p>` : ''}</div>${other}`;
 }
 
 /** Whether the makers' own websites were checked for a material's products: none, some or all of them. */
@@ -1064,7 +1003,7 @@ function spreadTable(m, c) {
       <td class="num">${s.n} of ${s.products}</td>
       <td>${[s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : ''].filter(Boolean).map(esc).join('; ') || '—'}</td></tr>`).join('')}
   </tbody></table>`)}
-  <p class="fine">Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.</p>${impactSummary(m,c)}`;
+  <p class="fine">Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.</p>`;
 }
 
 function tabBody(tab, c) {
@@ -1228,7 +1167,6 @@ function tabBody(tab, c) {
     // The rarely published properties are the list above, said once; the other gaps are this domain's own.
     const gaps = covFor(tab).filter((r) => GAP_STATUS.has(r.status) && r.domain !== 'Sparse properties');
     return `
-      ${tab === 'Mechanical' ? `<p class="fine impact-explanation">Charpy and Izod strike and support the specimen differently; their numbers are separate comparisons. A notch changes the test. Published coupon impact strength is evidence about sudden loading, not a universal toughness score or a prediction of how your part will survive a drop. Formulation, print direction, preparation and temperature matter.</p>${impactSummary(m,c)}<details class="grade-more impact-claims"><summary>What the maker says about impact and toughness</summary>${grades.filter(isProduct).map(g => impactMakerSays(g,c)).filter(Boolean).join('')}</details>` : ''}
       ${rows.length ? blocks.join('') + namedHtml : empty(tab)}
       ${absent.length ? `<h3 class="sec">Not published for this material</h3>
         <div class="gap">${absent.map((p) => esc(propertyName(p))).join(' · ')}. A gap, not a zero or a low value.</div>` : ''}
