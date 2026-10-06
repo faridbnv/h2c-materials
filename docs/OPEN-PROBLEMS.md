@@ -1,6 +1,6 @@
 # Open problems
 
-> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 and 31 are what the two most recent rounds (the reader round and gap round 2, both 2026-10-05) left. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
+> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 to 32 are what the three most recent rounds (the reader round, gap round 2 and check round 3, all 2026-10-04 and 2026-10-05) left. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
 
 What is known to be wrong or missing in this database, reconciled on 2026-10-05. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
@@ -1317,16 +1317,20 @@ re-derives it.
   documents that print them.
 - **What is left of the print recipe.** 20 products have no nozzle and 20 no bed (16 and 15 of the frozen list, and
   the new products of b43 that print none); chamber stays the largest gap (284), and drying 179 after the dry-box
-  answers left the Drying cell (D129). §30's chamber ruling stands.
+  answers left the Drying cell (D129). §30's chamber ruling stands. After check round 3 the counts are 35, 33, 313 and 204
+  (`build/snapshot/print.csv`); the seven products made Variants in that round, which now read no printer guide, are
+  among them (§32).
 - **Second reads.** Of the 1,792 second-read tasks still outstanding (`reconcile/final-3/summary.md`), the 57 whose reading
-  would decide something were run (`readings/second/w4-01.csv`); each was a mis-pairing and nothing was applied. The
-  rest stay held: each would confirm or add a value no answer turns on.
-- **Copies and densities, not worked.** Copies below MEAS-CROSS-SOURCE-TWIN's threshold (§15), other revisions of one
-  sheet filed on two grades (§16) and the 19 products whose density sits outside their polymer's neat range (§17) were
-  in the plan and were not reached; m361 was not used.
+  would decide something were run (`readings/second/w4-01.csv`); each was a mis-pairing and nothing was applied. Check
+  round 3 closed all 1,792 by joining them to what decides (§32): 1,764 name nothing an answer reads, and the 28 that
+  could were read on their pages and 21 values added.
+- **Copies and densities.** Worked in check round 3 (§32): nine products held twice are one grade each, records of six
+  sheets filed under the wrong product moved, and of the 19 densities six are Variants and thirteen are genuine or
+  wait on their maker.
 - **Digits a text layer may misprint.** `digits/compare.py` lists 1,230 numbers on 76 documents (Bambu Lab's sheets and
   the documents the quality flags name) that the text layer prints and the optical reading does not find
-  (`digits/suspects.csv`). Most are the optical reading's own misses; none was read on its page in this round.
+  (`digits/suspects.csv`). Most are the optical reading's own misses; none was read on its page in this round, nor in
+  check round 3, whose independent image reading could not run (§32).
 - **The guide's drying is the type's, not the product's.** Where a product states its own drying beside a guide row,
   the guide's window contains the maker's in 150 of 357 profiles, overlaps it in 43 and misses it in 164 (ABS and ASA
   most: the guide's 80 °C above makers' 50 to 60 °C), and the guide calls drying optional where the maker requires it in
@@ -1342,12 +1346,17 @@ re-derives it.
   sheet conditions its bars "per the respective ASTM standard". These are moisture and treatment states a reviewer must
   type, and are not recorded on the rows that lack them. Spectrum's 2024 portfolio table prints a bed column its twelve
   profiles do not hold, and its Polish sheets answer the closed chamber and the hardened nozzle "niewymagane"; the
-  profiles leave both unknown.
+  profiles leave both unknown. Check round 3 typed them (§32): Bambu TPU for AMS's rows and the other Bambu sheets'
+  (m370, m376), Stratasys's conditioning as a page statement (m370), the Polish answers (m375); Kingroon's rows that lack
+  the sentence are its density, melt-flow and DSC rows, which the specimen sentence does not speak for.
 - **Partial rows of multi-product tables.** Spectrum's 2024 portfolio (47 profiles) and 3DJake's catalogue
   (R-COVERAGE-20261001-28aad1fe7597, 55) hold only some of their row's columns: no nozzle on 73, no bed on 81, no drying
   on all 102; QIDI's filament guide rows hold "Required" or "Optional" and not the schedule beside it. The second draw's
   eight such records were each answered by another profile of the product, so none decided; whether every one is, the
-  products' print gates in `build/snapshot/print.csv` say.
+  products' print gates in `build/snapshot/print.csv` say. Check round 3 read every partial row (§32): QIDI's schedules
+  are held (m375); the catalogue is Spectrum's 2025 portfolio, and the portfolio rows' nozzle, bed and chamber were read
+  and not applied, because every product they belong to has its own sheet's answer; their "Dry box recommended" is a
+  dry-box answer, not drying (D129).
 - **PolySonic PLA Pro and Polymaker PLA Pro.** Polymaker's own store calls Polymaker PLA Pro (G001-30) "Formerly
   PolySonic PLA Pro ... Same great formula, new name", but the database holds both (G001-20 and G001-30) and their two
   current sheets print different values (melt flow 15.5 and 13.4, elongation 23.4 and 16.6 %). They stay two grades
@@ -1366,3 +1375,72 @@ re-derives it.
   (the owner's decision of 2026-10-05) and is backed up with the documents (`npm run data:sources -- --export
   "$H2C_SOURCE_BACKUP" --derived`). In CI it prints "audit:context SKIPPED" and a GitHub Actions warning, and passes, so
   it must pass in a checkout that holds the cache before every push.
+
+## 32. What check round 3 (m369 to m382) leaves open
+
+The round (D131; `docs/audits/2026-10-05-check-round-3/`) checked what the tool's answers rest on: it froze the 9,667
+records that decide (`TARGETS.csv`), confirmed most by code against their page's own text, read on the page image what
+code could not confirm and could change an answer, and swept every kind of error it found. What it leaves:
+
+- **No image-based reading of digits.** Mistral's OCR was to read the deciding pages as a second, independent reading
+  of every number; its account's billing was off, so no page was read. A text layer that prints the wrong digits (Bambu
+  PLA Pure's "55 - 69" for 35-65) is caught only by a reader looking at the image, and readers looked only at the 540
+  records the code queued and the round's samples. The 1,230 digit suspects of `digits/suspects.csv` (§31) stay
+  unread. `ocr/ocr-mistral.mjs` and `ocr/compare.mjs --source mistral` run the check whenever the account allows.
+- **Documents fetched again.** 123 registered sources had lost their bytes (`missing-bytes.csv`). The owner had them
+  fetched again on 2026-10-05 (`refetch/refetched.csv`): 32 returned the same bytes and are back in the store; 85 pages
+  have changed since and are kept as later copies (`.cache/later-copies/`, backed up), not registered, so the records
+  still cite the lost originals; 6 Bambu Lab shop pages would not load (none decides anything). Of the 134 deciding
+  records the 30 deciding sources back, 133 hold on their page; 3DXTECH's 3DXSTAT ESD-PETG page (XP-3dxstat-esd-petg-1)
+  now prints "Extruder Temp 260-280C" where P0134 holds 230-260 °C, which the lost original may have printed. Registering
+  a later copy as a new revision is an import, and the owner's call.
+- **What the comparison could not confirm and nobody read.** Of the records the text comparison did not confirm, every
+  one that can change an answer was read (320). 621 more change only a print state the page shows, and 1,688 change
+  nothing (975 of them values); a sample of 80 of each was read, with 3 changes in each and none a number, and the other
+  2,149 stay unread. `ocr/compare.csv` lists each with its outcome; `read/queue.py` re-derives the tiers.
+- **Products that read no printer guide.** A Variant reads none of the guide's answers (D129). Six products became
+  Variants for a density above their polymer's range (m374), so the guide no longer answers their nozzle, chamber,
+  enclosure, abrasion or drying where their own sheet is silent: AzureFilm ABS Prime and ASA Prime show five gates
+  unknown, Spectrum PET-G MATT its drying, eSUN PETG-Matte three. Whether a Variant whose load is cosmetic should read the
+  guide's temperatures but not its abrasion answer is a rule for the owner.
+- **Densities left as published.** Of §17's 19, six are Variants; the rest are genuine or wait on their maker: Polymaker
+  ASA's 1.13 (three sheets), the three PC/ABS sheets at 1.07-1.08, the two OBC sheets at 0.905 (Dow's own resin value),
+  SUNLU PC's 1.15, PolyDissolve S1's 1.37, BASF HiPS's printed-part density, two ranges (SUNLU PVA, RECIFLEX) the query
+  read by their lower end, Spectrum PET-G HT100 (a high-temperature copolyester filed as PETG, as its maker names it)
+  and SIDDAMENT PA, whose strength and heat deflection look reinforced.
+- **Copies kept as two products.** Pairs whose sheets print one table and that stay two products (§30's ruling):
+  Fiberlogy ABS and ABS PLUS (the 2026 ABS sheet reprints PLUS's table, and G027-53 holds both the old and the new),
+  CPE ANTIBAC and CPE HT, eSUN's Luminous PLA family, Silk Magic and Silk Mystic, AzureFilm PLA and SILK, Spectrum ASA 275
+  and FlameGuard ASA 275 (a flame-retardant package sharing the key), eSUN PLA+HS and "PLA+HS Silver" (its sheet is the
+  2022 ePLA-HS: needs the maker). SUNLU PLA+ and PLA+2.0 print one table; the PLA+ sheet's values are on PLA+2.0's grade
+  since m372, and SUNLU PLA+ as its own product is not held.
+- **Statements read on part of a page.** The sweep fixed what the readers found (m376 to m378). Raise3D's, Fiberon's and
+  Polymaker's sheets with an asterisked "*All specimens were annealed ..." footnote leave 3 to 8 rows each untyped
+  (`sweep/queue.csv` shows how they were found): most are melt flow, density or DSC rows the footnote does not speak
+  for, but nobody read each one. Two FormFutura rows headed "HDT" print the Vicat standard ISO 306 and no load (V007731,
+  V009791); nothing on the page says which is meant, and they still stand as heat deflection.
+- **A Spectrum portfolio is a summary.** The 2024 and 2025 portfolio rows' nozzle, bed and chamber were read and checked
+  and not applied, because every product they belong to has its own sheet's answer; where the two differ, the sheet is
+  the product's own statement. Their "Dry box recommended" stays out of Drying (D129).
+- **What the sealed sample found that decides nothing.** Of its 98 readable records, 13 had a cell wrong that no answer
+  reads: test bars' print settings the sheet states once and the row does not hold (V008122, V010722, V004462; V001290
+  holds the page's recommended settings instead), a plate or nozzle size left out or cut short (P0465, P0551, P1286,
+  P0007), a specimen the sheet's "How to make specimens" block makes printed (V006464), a test temperature of 21.5 °C left
+  unstated (V006933), two standards written with the method's number run into a unit (V003158, V004083; m382 swept the
+  pattern on 134 rows), and Bambu Lab's density typed annealed with its bars (V007555; every Bambu sheet's density is typed
+  so, and density does not change with annealing). Two records could not be read: their documents are lost (P0154 on
+  XP-thermax-psu-1, a later copy now held; P0163 on R-POLYMAKER-WIKI-PANCHROMA-COPE). 15 % of records carry some wrong
+  cell (95 % interval 9 to 24 %); 2 % carried one that decides (0.2 to 7 %), and both kinds are fixed.
+- **Heat deflection under an annealing footnote.** Polymaker's and Fiberon's heat deflection and Vicat rows keep the
+  sheet's "*All specimens were annealed ..." (m378): its words cover every bar. A reader who reads the footnote by
+  where it stands would say otherwise; the sheets do not settle it, and the annealed reading is the cautious one (a
+  value measured annealed decides only for the annealed product).
+- **The negation check is an audit, not a rule.** `scripts/audit/table-detectors.mjs` lists 35 typed print or state cells
+  whose words carry a negation or a condition; after this round each is a reading the words support (Fillamentum's
+  drying scale, "Not mandatory, but it is recommended", a guide's "not" in its schedule note). It is not a lint rule,
+  because a rule would need 35 acceptances; it is run by hand after an import.
+
+```sh
+node scripts/audit/table-detectors.mjs && node scripts/audit/duplicates.mjs && node scripts/audit/leverage.mjs
+python3 docs/audits/2026-10-05-check-round-3/read/queue.py
+```

@@ -2,7 +2,8 @@
 # review snapshot, the interface views and 300 random rendered scenarios. Publishing (pages.yml) runs after this
 # succeeds on main and only builds and deploys: the gate runs once per push, not twice. Once a week, and on demand,
 # 2,000 rendered scenarios run on a new seed. A push to another branch is checked locally (npm run verify) and here
-# when it is merged or opened as a pull request; the owner reduced the load on 2026-10-05 (GOALS).
+# when it is merged or opened as a pull request; the owner reduced the load on 2026-10-05 (GOALS). Node is the version
+# .nvmrc names, the one local runs use, so a model refit is not a different Node's arithmetic as well (D131).
 
 name: Verify
 
@@ -25,7 +26,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: |
             build/package-lock.json
@@ -60,7 +61,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: |
             build/package-lock.json

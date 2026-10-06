@@ -1,0 +1,56 @@
+Item,Table,Record,decision,column,expect,value,quote,reason,cause
+K03777,profiles,P0342,keep,,,,Closure chamber Not needed,Closure chamber row prints Not needed for this product.,
+K03789,profiles,P0336,keep,,,,Closure chamber Not needed,Closure chamber row prints Not needed.,
+K03798,profiles,P0276,keep,,,,it is recommended to use an | enclosure. For large part it is recommended to use a heated chamber.,The NOTE under the printing conditions recommends an enclosure for PolyMax PC; the cell holds that sentence.,
+K03805,profiles,P0317,keep,,,,Closure chamber Not needed,Closure chamber row prints Not needed.,
+K03819,profiles,P1002,keep,,,,"hardened steel and ruby nozzle, is highly recommended to be","Note prints a wear-resistance nozzle (hardened steel, ruby) as highly recommended with PolySupport for PA12; cell is the same words minus the trailing 'to be used with ...'.",
+K08822,measurements,V010117,keep,,,,"Heat deflection temp. ISO 75, 0.45MPa 67°C",0.45 MPa row prints 67 C (1.8 MPa row is 53); image agrees.,
+K03619,profiles,P0303,keep,,,,Recommended environmental temperature 70 – 80 (recommended) (˚C),Recommended environmental temperature row prints 70 - 80 (recommended).,
+K03829,profiles,P1755,keep,,,,Actively Heated Enclosure Required.,"Product page prints 'Actively Heated Enclosure Required.' (and FAQ: needs actively heated chamber of 65 C or higher). HTML document, no image.",
+K08920,measurements,V001378,keep,,,,"Heat Deflection Temperature ISO 75, 0.45 MPa 241 °C",HDT row prints 241 C at 0.45 MPa; image agrees.,
+K03847,profiles,P1284,keep,,,,Enclosure not required,"Printer requirements on the Prusament PP Glass Fiber page print 'Enclosure not required'. HTML document, no image.",
+K08929,measurements,V013564,keep,,,,Heat Deflection Temperature (0.45 MPa) [°C] 138.3 ISO 75,Page 2 prints 138.3 at 0.45 MPa (112.6 at 1.8 MPa).,
+K03861,profiles,P0661,keep,,,,Heatbed Temperature [°C] 40–60,Sheet prints Heatbed Temperature 40-60 (cell carries the [°C] unit label as well; typed min/max agree).,
+K03879,profiles,P0600,keep,,,,Heatbed Temperature [°C] 110 ± 10,Sheet prints Heatbed Temperature 110 +/- 10 (cell carries the [°C] unit label as well).,
+K03889,profiles,P1251,keep,,,,Heatbed Temperature [°C] 110 ± 10,Sheet prints Heatbed Temperature 110 +/- 10.,
+K03873,profiles,P0670,keep,,,,Heatbed Temperature [°C] 110 ± 5,Sheet prints Heatbed Temperature 110 +/- 5 (cell carries the [°C] unit label as well).,
+K08956,measurements,V008403,keep,,,,D648 0.45 MPa °C 70,D648 0.45 MPa row prints 70 C (1.8 MPa row is 64); image agrees.,
+K03961,profiles,P0207,keep,,,,Closed chamber not necessary,Guideline row 'Closed chamber' prints 'not necessary'.,
+K04416,profiles,P1288,keep,,,,does not require a heated chamber,Maker page prose: Spectrum ASA Electrically Conductive does not require a heated chamber (table: Enclosure recommended for larger prints). HTML document.,
+K04421,profiles,P1552,keep,,,,Enclosure | recommended for larger prints,'How to use' table of PA6 GK10 prints Enclosure: recommended for larger prints. HTML document.,
+K09006,measurements,V011280,keep,,,,0.45mn/m2 84°C ISO 75,HDT row at 0.45 MN/m2 prints 84 C.,
+K09046,measurements,V002094,keep,,,,0.45 MPa 170°C ISO 75-1/2,0.45 MPa row prints 170 C (1.8 MPa: 150 C).,
+K09067,measurements,V002732,keep,,,,0.45 MPa 180°C ISO 75 -1/-2,0.45 MPa row prints 180 C (1.8 MPa: 65 C).,
+K09073,measurements,V002721,keep,,,,0.45 MPa 180°C ISO 75 -1/-2,0.45 MPa row prints 180 C (1.8 MPa: 65 C); read on page image too.,
+K09080,measurements,V002884,keep,,,,0.45mn/m2 139°C D 648,0.45 MN/m2 row prints 139 C (1.81: 128 C).,
+K04080,profiles,P0120,fix,Enclosure,recommended for larger prints • Flame-retardant (UL-94 V0),recommended for larger prints,Closed chamber recommended for larger prints,"The Closed chamber row prints only 'recommended for larger prints'; '• Flame-retardant (UL-94 V0)' is a bullet from the Features column beside it, not part of the cell.",column
+K09088,measurements,V002082,keep,,,,0.45mn/m2 140°C D 648,0.45 MN/m2 row prints 140 C (1.81: 129 C).,
+K09102,measurements,V002090,keep,,,,@ 0.455MPa 78°C,0.455 MPa row prints 78 C (1.820 MPa: 68 C).,
+K04173,profiles,P0227,keep,,,,Closed chamber Not necessary,Guideline row 'Closed chamber' prints 'Not necessary'.,
+K09175,measurements,V002780,keep,,,,"0.45 MN/m2, annealed (4h @ 90°C) 116°C ISO 75",HDT 0.45 MN/m2 row is printed for annealed (4h @ 90 C) specimens: 116 C; held post-processing state annealed agrees.,
+K09204,measurements,V002672,keep,,,,"Charpy impact strength, notched (dry) 65 kJ/m2 ISO 179 1eA",Notched dry row prints 65 kJ/m2 (the -30 C row is 10).,
+K04274,profiles,P0092,fix,Chamber °C,Active heated 60-80 °C (Closed chamber row),active heated (60-80°C),Closed chamber active heated (60-80°C),Closed chamber row prints 'active heated (60-80°C)'. The held cell is a paraphrase with the editorial tag '(Closed chamber row)' and a changed layout of the range; raw column keeps the sheet's own words (value and state agree).,other
+K04275,profiles,P0092,keep,,,,Drying (if wet) recommended*** | *** at least 3h at 90°C using hot dry air owen,Guideline row 'Drying (if wet) recommended***' with the footnote '*** at least 3h at 90C'; the cell combines the row and its footnote.,
+K04373,profiles,P0229,fix,Enclosure,for printing not necessary,not necessary,Closed chamber for printing | not necessary,"Row label is 'Closed chamber for printing' and its value cell is 'not necessary'; 'for printing' is part of the label, read as value.",label
+K04378,profiles,P0194,fix,Enclosure,for printing not necessary,not necessary,Closed chamber for printing | not necessary,"Row label is 'Closed chamber for printing' and its value cell is 'not necessary'; 'for printing' is part of the label, read as value.",label
+K04383,profiles,P0188,fix,Enclosure,for printing not necessary,not necessary,Closed chamber for printing | not necessary,"Row label is 'Closed chamber for printing' and its value cell is 'not necessary'; 'for printing' is part of the label, read as value.",label
+K09291,measurements,V001477,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 80 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09297,measurements,V001554,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 126 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09303,measurements,V000389,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 70 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09309,measurements,V000603,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 97 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09314,measurements,V001207,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 142 | MPa (66psi),"HDT row at 0.45 MPa prints 142 C; this sheet states no printed-specimen conditions, so Specimen not published is right.",
+K09320,measurements,V000517,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 75 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09326,measurements,V001170,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 186 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09332,measurements,V001051,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 140 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09338,measurements,V000594,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 76 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09341,measurements,V002519,keep,,,,Tensile Modulus ISO 527 MPa 5355,Tensile Modulus row prints 5355 MPa (flexural modulus is 5210); sheet states XY flat specimens.,
+K09344,measurements,V002524,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 97 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09349,measurements,V000971,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 150 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09355,measurements,V000726,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 135 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09356,measurements,V001502,keep,,,,Density ISO 1183 g/cc 1.1,Density row prints 1.1 g/cc.,
+K09360,measurements,V001508,keep,,,,Deflection Temperature at 0.45 | ISO 75 °C 124 | MPa (66psi),HDT row at 0.45 MPa prints this value (printed specimens XY flat).,
+K09366,measurements,V003196,fix,Standard / load,0.45 °C ISO 75,"ISO 75, 0.45 MPa (66psi)",Deflection Temperature at 0.45 | ISO 75 °C 95 | MPa (66psi),"Value 95 C is right, but the Standard / load cell reads '0.45 °C ISO 75': the label 'Deflection Temperature at 0.45 MPa (66psi)' wraps over three lines and its unit MPa was lost, the C of the unit column taken for the load. Standards (ISO 75) and Test load MPa (0.45) already agree with the fix. The same garbled cell is on 27 measurement rows.",unit
+K09372,measurements,V003294,fix,Standard / load,0.45 °C ISO 75,"ISO 75, 0.45 MPa (66psi)",Deflection Temperature at 0.45 | ISO 75 °C 95 | MPa (66psi),"Value 95 C is right, but the Standard / load cell reads '0.45 °C ISO 75': the label 'Deflection Temperature at 0.45 MPa (66psi)' wraps over three lines and its unit MPa was lost, the C of the unit column taken for the load. Standards (ISO 75) and Test load MPa (0.45) already agree with the fix. The same garbled cell is on 27 measurement rows.",unit
+K09378,measurements,V003269,fix,Standard / load,0.45 °C ISO 75,"ISO 75, 0.45 MPa (66psi)",Deflection Temperature at 0.45 | ISO 75 °C 135 | MPa (66psi),"Value 135 C is right, but the Standard / load cell reads '0.45 °C ISO 75': the label 'Deflection Temperature at 0.45 MPa (66psi)' wraps over three lines and its unit MPa was lost, the C of the unit column taken for the load. Standards (ISO 75) and Test load MPa (0.45) already agree with the fix. The same garbled cell is on 27 measurement rows.",unit
+K09384,measurements,V003245,fix,Standard / load,0.45 °C ISO 75,"ISO 75, 0.45 MPa (66psi)",Deflection Temperature at 0.45 | ISO 75 °C 112 | MPa (66psi),"Value 112 C is right, but the Standard / load cell reads '0.45 °C ISO 75': the label 'Deflection Temperature at 0.45 MPa (66psi)' wraps over three lines and its unit MPa was lost, the C of the unit column taken for the load. Standards (ISO 75) and Test load MPa (0.45) already agree with the fix. The same garbled cell is on 27 measurement rows.",unit
+K09390,measurements,V003344,fix,Standard / load,0.45 °C ISO 75,"ISO 75, 0.45 MPa (66psi)",Deflection Temperature at 0.45 | ISO 75 °C 70 | MPa (66psi),"Value 70 C is right, but the Standard / load cell reads '0.45 °C ISO 75': the label 'Deflection Temperature at 0.45 MPa (66psi)' wraps over three lines and its unit MPa was lost, the C of the unit column taken for the load. Standards (ISO 75) and Test load MPa (0.45) already agree with the fix. The same garbled cell is on 27 measurement rows.",unit

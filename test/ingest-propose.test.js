@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION, standardsOnly, guidanceBeyondLabels } from '../scripts/ingest/propose.mjs';
+import { composition, propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD, RATE_OR_CONDITION, standardsOnly, guidanceBeyondLabels } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -1468,4 +1468,14 @@ test('a web spec grid run onto one line ends a setting where the next label begi
   assert.equal(readSetting({ text: 'Heat bed: ± 50 – 60° C  Fan speed: 80-100%' }).raw, '± 50 – 60° C');
   assert.equal(readSetting({ text: 'Print temp: ± 210 – 250° CFan speed: 50-100%' }).raw, '± 210 – 250° C');
   assert.equal(settingValue('Recommended  Note: keep the filament dry'), 'Recommended');
+});
+
+test('a build plate, a shop card or another product\'s card title is not what a product is made of (m369)', () => {
+  const sheet = (...lines) => ({ pages: [{ page: 1, lines: lines.map((text) => ({ text })) }] });
+  assert.equal(composition(sheet('Build Surface Material Tempered glass, BuildTak, Carbon fiber plate')), null);
+  assert.equal(composition(sheet('- Printing Platform: Tempered Glass, PEI Board, Carbon Fiber Board')), null);
+  assert.equal(composition(sheet('Nanovia PEKK-A CF : Carbon fiber reinforced Starting at : 562,88 € ex. VAT / kg Select options')), null);
+  assert.equal(composition(sheet('Nanovia ABS CF : Carbon fiber reinforced'), { product: 'PLA VX' }), null);
+  assert.match(composition(sheet('Nanovia PP CF : Carbon fiber reinforced'), { product: 'PP CF' }), /^Nanovia PP CF : Carbon fiber reinforced \(p\. 1/);
+  assert.match(composition(sheet('Build Surface Material PEI', 'Reinforced with 15% carbon fibers')), /^Reinforced with 15% carbon fibers/);
 });

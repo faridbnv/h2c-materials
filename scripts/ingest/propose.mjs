@@ -2085,13 +2085,24 @@ export const notchOf = (standardText) => NOTCHED_BY_METHOD.find(([re]) => re.tes
 // "Home / 3D printing filament / Reinforced / Carbon fibre / Nanovia ABS CF : Carbon fiber reinforced" names a
 // carbon load and a reinforcement and is a menu. It is not the product's own statement about itself.
 const A_NAVIGATION_PATH = /^\s*(?:home|accueil|start(?:seite)?|inicio)\s*(?:\/|\u203a|>|\u00bb)/i;
+// A line about the printer's build surface names glass and carbon fibre as plates ("Build Surface Material Tempered
+// glass, BuildTak, Carbon fiber plate", "Printing Platform: Tempered Glass, PEI Board, Carbon Fiber Board"), and a shop's
+// product card names another product's load beside its price ("Nanovia PEKK-A CF : Carbon fiber reinforced Starting at
+// : 562,88 € ex. VAT / kg Select options"). Neither is the product's statement of what it is made of (check round 3:
+// 40 grades held one, m369).
+const A_BUILD_SURFACE = /\b(?:build (?:surface|plate|platform)|printing platform|print(?:ing)? bed|bed adhesion|tempered glass|glass plate|glue stick|3M blue|(?:carbon )?fib(?:re|er) (?:plate|board)|PEI (?:sheet|board|plate))\b/i;
+const A_SHOP_CARD = /\bstarting at\s*:|\bex\.?\s*VAT\b|\bselect options\b|\badd to (?:cart|basket)\b/i;
 const FILLER_NAMED = /\b(carbon|glass|aramid|kevlar|basalt|wood|metal|mineral|graphene|nanotubes?|cnt|ptfe|teflon|ceramic|chalk|calcium|talc|bronze|copper|brass|steel|iron|tungsten|cork|bamboo)\b/i;
 const FILLER_FRACTION = /\d{1,2}(?:[.,]\d)?\s?(?:wt\.?\s?%|%|percent)/i;
 const FILLER_VERB = /\b(reinforced|filled|enriched|loaded|addition of|content|composite)\b/i;
 // A load named in full is a statement of what is in the product even where the sentence around it is not.
 const FILLER_PHRASE = /\b(carbon nanotubes?|(carbon|glass|aramid|basalt) fib(?:re|er)s?|glass (spheres|beads|bubbles)|metal powder)\b/i;
 
-export function composition(text) {
+/** A captured shop page's card title for a product, "Nanovia PEKK-A CF : Carbon fiber reinforced": the name before the colon. */
+const CARD_TITLE = /^\s*([^:]{3,60}?)\s+:\s+\S/;
+const nameWords = (s) => String(s ?? '').toLowerCase().replace(/[®™]/g, '').split(/[^a-z0-9+]+/).filter((w) => w.length > 1);
+
+export function composition(text, { product = null } = {}) {
   // The sheet's own words, with the page's own spacing collapsed: a captured page pads its columns with runs of
   // spaces, and a run of spaces is layout rather than anything the maker wrote (TEXT-SPACING).
   const said = (line, page) => `${String(line.text).replace(/\s+/g, ' ').trim().slice(0, 160)} (p. ${page.page}, as the sheet states it)`;
@@ -2099,7 +2110,11 @@ export function composition(text) {
   for (const page of text.pages) {
     for (const line of page.lines) {
       const words = String(line.text ?? '');
-      if (!FILLER_NAMED.test(words) || A_NAVIGATION_PATH.test(words)) continue;
+      if (!FILLER_NAMED.test(words) || A_NAVIGATION_PATH.test(words) || A_BUILD_SURFACE.test(words) || A_SHOP_CARD.test(words)) continue;
+      // Another product's card on the page ("Nanovia ABS CF : Carbon fiber reinforced" on Nanovia PLA VX's page): its
+      // name lacks a word of this product's name.
+      const card = CARD_TITLE.exec(words)?.[1];
+      if (card && product && !nameWords(product).every((w) => nameWords(card).includes(w))) continue;
       // A glass transition temperature is not a glass load, and a carbon footprint is not a carbon load.
       if (/glass transition|carbon footprint|carbon neutral|carbon dioxide/i.test(words)) continue;
       // A line that states how much is better than one that only says there is some.
@@ -3192,7 +3207,7 @@ export function propose(row, text, world) {
       Manufacturer: maker,
       // The name the sheet prints, unless what it prints there is not a name at all.
       'Product name': named || productName(product, maker),
-      'Shared formulation key': sourceId, 'Composition / filler': composition(text) ?? NP,
+      'Shared formulation key': sourceId, 'Composition / filler': composition(text, { product: named || productName(product, maker) }) ?? NP,
       Variant: NA, 'Colour caveat': 'Properties may vary by colour; use TDS scope',
       Availability: NP, 'Certification claims': certification(text) ?? NP,
       'Selected-grade rationale': 'Documented commercial formulation; traceable manufacturer evidence',

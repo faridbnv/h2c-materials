@@ -59,7 +59,10 @@ const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
 // 3DJake's sheets say a filament "can also be printed without a heated bed. If you have a heated bed the recommended
 // temperature is ± 35-60˚C": a window for a printer that has one, not one the filament needs. Recreus prints "Small parts
 // Room temperature (no heating); Large parts 50–55 °C": a window for large parts only (the control draw of 2026-10-02).
-const RECOMMENDED_IF_RE = /\bif you have a heated bed\b|\brecommended temperature is\b|\bsmall\s+parts\s+room\s+temp\w*\s*\(no\s+heating\)/i;
+// Check round 3 (D131) found the same hedge in other words: "not absolutely necessary, recommended 60-90°C", "Nicht
+// benötigt, 50 °C empfohlen" (not needed, 50 °C recommended), "40–60 °C Heated Bed Optional", and Recreus's "Small
+// parts: No heating (room temperature); Large parts: 50-55°C".
+const RECOMMENDED_IF_RE = /\bif you have a heated bed\b|\brecommended temperature is\b|\bsmall\s+parts:?\s+(?:room\s+temp\w*\s*\(no\s+heating\)|no\s+heating\b)|\bnot\s+absolutely\s+necessary\b|\bnicht\s+(?:benötigt|erforderlich|notwendig)\b[^.]*\bempfohlen\b|\bheated\s+bed\s+optional\b/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
 // BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT. SUNLU
 // prints a lone slash in its bed row (reader round, 2026-10-04).
@@ -100,6 +103,11 @@ export function parseTemperature(raw, opts = {}) {
   if (/^not published$/i.test(s)) {
     return { text, state: PROCESS_STATE.UNKNOWN, requirement: REQUIREMENT.UNKNOWN, min: null, max: null };
   }
+  // A window printed in both scales, "220 - 245°C / 428 - 473°F" or "25-60°C (77-140°F)": the Fahrenheit window is the
+  // same setting, and its numbers are not degrees Celsius. Read whole, the cell gave 220 to 473 °C (DSM's Arnitel guide,
+  // check round 3's sealed draw). It is set aside where a Celsius number stays to read.
+  const celsiusOnly = s.replace(/[(/]?\s*\d+(?:\.\d+)?\s*(?:-\s*\d+(?:\.\d+)?\s*)?F\b\s*\)?/g, ' ').replace(/\s+/g, ' ').trim();
+  if (celsiusOnly !== s && /\d\s*C\b/.test(celsiusOnly)) s = celsiusOnly;
   if (NO_SETPOINT_RE.test(s) || DASH_RE.test(s)) {
     return { text, state: PROCESS_STATE.NO_SETPOINT, requirement: REQUIREMENT.UNKNOWN, min: null, max: null };
   }
@@ -274,7 +282,10 @@ export function parseEnclosure(raw) {
   const answer = text.match(/\b(?:required|recommended|needed|necessary)\s*[:?]?\s*(yes|no)\s*$/i);
   if (answer) return { text, state: /^no$/i.test(answer[1]) ? 'not-needed' : 'recommended' };
   // 3DXTECH's product page: "Ideal for printing without a heated bed, no enclosure required".
-  if (/\bnot\s+(necessary|needed|required)\b|^no\s+(enclosure|needed)\b|\bno\s+enclosure\s+(?:is\s+)?(?:required|needed|necessary)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
+  // "Enclosure is not recommended for PLA" discourages one: it was read as recommending one (check round 3).
+  // eSUN's PLA Clear sheet says it "does not need to close the cavity", and Spectrum's Polish sheets "Komora zamknięta:
+  // niewymagane" (closed chamber: not required; check round 3).
+  if (/\bnot\s+(necessary|needed|required|recommended)\b|\bdoes\s+not\s+need\s+to\s+close\b|\bniewymagan[ea]\b|^no\s+(enclosure|needed)\b|\bno\s+enclosure\s+(?:is\s+)?(?:required|needed|necessary)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
   // Eryone's "Sealed printing" row says whether the filament prints open: "Supports open/closed printing", "Open
   // printing", "enclosed printing/open printing", "supports open printing, and the sealing effect is better if it is
   // sealed". A filament its maker prints open needs no enclosure; that an enclosure improves it is a preference the
@@ -368,10 +379,12 @@ export function parseAbrasion(raw) {
   if (/\bbrass\s+(?:or|and|\/)\s+(?:hardened\s+)?steel\s+(?:nozzles?\s+)?(?:are\s+|is\s+)?(?:compatible|fine|ok|suitable)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   // A German sheet answers "Hardened Nozzle nein" (or "ja"), or "Gehärtete Nozzle ja" in its own words; Extrudr follows the
   // answer with its reason, "Gehärtete Nozzle ja; wird die Verwendung einer gehärteten Düse empfohlen".
-  const answer = /\b(yes|ja|no|nein|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text) ?? /^gehärtete\s+(?:nozzle|düse)\s+(ja|nein)\b/i.exec(text);
-  if (answer && /abrasi|hardened|gehärtet|carbide|diamond|ruby/i.test(text)) {
+  // Spectrum's Polish sheets answer "Dysza rubinowa lub hartowana: niewymagane" (ruby or hardened nozzle: not required) or
+  // "zalecane" (recommended; check round 3).
+  const answer = /\b(yes|ja|no|nein|not necessary|none|required|recommended|niewymagane|zalecane|wymagane)\s*[.:]?$/i.exec(text) ?? /^gehärtete\s+(?:nozzle|düse)\s+(ja|nein)\b/i.exec(text);
+  if (answer && /abrasi|hardened|gehärtet|hartowan|carbide|diamond|ruby|rubinow/i.test(text)) {
     const says = answer[1].toLowerCase();
-    if (says === 'no' || says === 'nein' || says === 'not necessary' || says === 'none') return { text, requiresHardened: false, state: 'stated' };
+    if (says === 'no' || says === 'nein' || says === 'not necessary' || says === 'none' || says === 'niewymagane') return { text, requiresHardened: false, state: 'stated' };
     return { text, requiresHardened: true, state: 'stated' };
   }
   // A sheet that names the nozzles it prints on: IPCON's "Compatible Nozzle Material Any common material" and BASF's "use
@@ -406,6 +419,11 @@ const OPTIONAL_NEED_RE = new RegExp([
   String.raw`\bin\s+case\b`,
   String.raw`\brecommended\s+if\b`,
   String.raw`\bafter\s+(?:prolonged\s+)?exposure\s+to\s+(?:humidity|moisture)`,
+  // Nanovia's "dehydrate ... at 60°c for 4 hours or longer, when the spools has been exposed to moisture for an extended
+  // period" (check round 3: the cell had dropped the condition and read as required).
+  String.raw`\b(?:if|when)\s+the\s+(?:spools?|filament|material)\s+(?:has|have)\s+been\s+exposed\s+to\s+(?:moisture|humidity)`,
+  // colorFabb's "If absorbed moisture levels are too high ... Drying is advised" (check round 3's sealed sample).
+  String.raw`\bif\s+absorbed\s+moisture\b`,
 ].join('|'), 'i');
 // A sentence that says "not necessary" and then asks for drying in some cases: "(not necessary but recommended)",
 // "may require drying before use, although usually it is not necessary".

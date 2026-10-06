@@ -13,7 +13,7 @@ import { normalizedRawValue } from '../build/src/measurement-rules.js';
 import { compileReference } from '../build/src/reference.js';
 import { issue } from '../build/src/rules.js';
 import { releaseIdentity, pageName } from '../build/src/release.js';
-import { REVIEW_CODES, reviewFindings } from './data/review-findings.mjs';
+import { REVIEW_CODES, reviewFindings, acceptedValue, splitStale } from './data/review-findings.mjs';
 import { readBaseline, compareWithBaseline } from './data/lint.mjs';
 
 const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
@@ -31,7 +31,17 @@ const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 {
   const { fresh, stale } = compareWithBaseline(reviewFindings(issues), readBaseline().filter((b) => REVIEW_CODES.includes(b.Code)));
   for (const f of fresh) issues.push(issue('AUDIT-REVIEW-FINDING', `${f.code} ${f.record}`, `${f.message}. Fix it, or: npm run data:lint -- --accept ${f.code} "reason"`));
-  for (const b of stale) issues.push(issue('AUDIT-REVIEW-STALE', `${b.Code} ${b.Record}`, 'No longer occurs; remove it from data/review/accepted-findings.csv'));
+  // An outlier sits near a threshold the model's refit moves: a material whose value has not changed can drop below it
+  // after an unrelated change and come back after the next. Its acceptance names the value it was written for; while
+  // the material's typical value is still that value the acceptance is dormant, a warning, and kept. A changed value is
+  // a stale acceptance, and a new finding needs a new review (D131).
+  const typical = (record) => { const [id, key] = record.split(' '); return db.materials.find((m) => m.id === id)?.headline?.[key]?.typical?.value ?? null; };
+  const split = splitStale(stale, typical);
+  for (const b of split.dormant) issues.push(issue('AUDIT-REVIEW-DORMANT', `${b.Code} ${b.Record}`, `No longer occurs at ${acceptedValue(b.Field)}, the value it was accepted for; kept while the value stands`));
+  for (const b of split.stale) {
+    const value = acceptedValue(b.Field);
+    issues.push(issue('AUDIT-REVIEW-STALE', `${b.Code} ${b.Record}`, value == null ? 'No longer occurs; remove it from data/review/accepted-findings.csv' : `Accepted for ${value}; the value is now ${typical(b.Record) ?? 'none'}: review it again and replace the acceptance`));
+  }
 }
 const htmlPath = `dist/${pageName(db.meta)}`;
 const html = readFileSync(htmlPath, 'utf8');

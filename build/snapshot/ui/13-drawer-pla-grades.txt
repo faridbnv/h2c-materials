@@ -1,31 +1,31 @@
 Across its products: median and range, and what their makers say
 Property Median Range Products Left out of the range
-Density kg/m³ 1,240 1,170–1,329 156 of 178 17 special formulations (800–4,000)
-Tensile modulus (XY) GPa 2.58 0.433–4.24 50 of 178 41 with no stated orientation (0.379–4.78); 11 special formulations (0.715–4.73)
-Tensile strength (XY) MPa 45 26–70.9 66 of 178 55 with no stated orientation (30–71); 12 special formulations (13.7–65)
-Tensile strength (Z) MPa 30.8 8.7–43.5 38 of 178 3 special formulations (14.5–21.7)
-Elongation at break (XY) % 7.62 1.2–65 62 of 178 46 with no stated orientation (2.5–84); 11 special formulations (2.4–36)
-Notched Charpy impact kJ/m² 13.5 4.94–72.3 16 of 178 22 with no stated orientation (1.8–29.8); 6 special formulations (1.8–6.3)
-Notched Izod impact kJ/m² 5 4.5–6.5 6 of 178 8 with no stated orientation (3.5–5); 5 special formulations (5.5–18.1)
-HDT at 0.45 MPa °C 55 50–135 86 of 178 31 with no stated test load (53–108); 8 special formulations (55–89)
-Glass transition (Tg) °C 58.9 54–67.5 73 of 178 7 special formulations (55–62.4)
-Price CAD/kg 33.7 18–80 26 of 178 2 special formulations (23–65)
+Density kg/m³ 1,240 1,170–1,329 155 of 175 17 special formulations (800–4,000)
+Tensile modulus (XY) GPa 2.58 0.433–4.24 51 of 175 41 with no stated orientation (0.379–4.78); 11 special formulations (0.715–4.73)
+Tensile strength (XY) MPa 45 26–70.9 65 of 175 55 with no stated orientation (30–71); 12 special formulations (13.7–65)
+Tensile strength (Z) MPa 31 8.7–43.5 37 of 175 3 special formulations (14.5–21.7)
+Elongation at break (XY) % 8 1.2–65 61 of 175 45 with no stated orientation (2.5–84); 11 special formulations (2.4–36)
+Notched Charpy impact kJ/m² 13.5 4.94–72.3 16 of 175 22 with no stated orientation (1.8–29.8); 6 special formulations (1.8–6.3)
+Notched Izod impact kJ/m² 5 4.5–10 7 of 175 7 with no stated orientation (3.5–5); 5 special formulations (5.5–18.1)
+HDT at 0.45 MPa °C 55 50–135 86 of 175 31 with no stated test load (53–108); 8 special formulations (55–89)
+Glass transition (Tg) °C 59 54–67.5 74 of 175 7 special formulations (55–62.4)
+Price CAD/kg 33.7 18–80 26 of 175 2 special formulations (23–65)
 Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.
 WHAT MAKERS SAY
-193 of 196 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 26 of them so far.
-Good for: 20 of 39 makers (62 products)
-Benefits: 31 of 39 makers (125 products)
-Pitfalls and limitations: 9 of 39 makers (13 products)
-Warping and shrinkage: 19 of 39 makers (36 products)
-Precision and tolerance: 8 of 39 makers (13 products)
-Surface finish: 24 of 39 makers (78 products)
-Adhesion between layers: 9 of 39 makers (17 products)
-Moisture sensitivity: 9 of 39 makers (30 products)
-Nozzle wear: 9 of 39 makers (33 products)
-Odour and emissions: 13 of 39 makers (25 products)
-Supports and removal: 8 of 39 makers (38 products)
-Printing advice: 15 of 39 makers (25 products)
-Not stated by their documents: chamber or enclosure need (93 products), drying schedule (118 products) and annealing schedule (181 products).
+191 of 194 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 25 of them so far.
+Good for: 21 of 40 makers (63 products)
+Benefits: 32 of 40 makers (124 products)
+Pitfalls and limitations: 9 of 40 makers (13 products)
+Warping and shrinkage: 20 of 40 makers (37 products)
+Precision and tolerance: 8 of 40 makers (13 products)
+Surface finish: 25 of 40 makers (79 products)
+Adhesion between layers: 9 of 40 makers (17 products)
+Moisture sensitivity: 9 of 40 makers (30 products)
+Nozzle wear: 9 of 40 makers (33 products)
+Odour and emissions: 13 of 40 makers (25 products)
+Supports and removal: 8 of 40 makers (38 products)
+Printing advice: 15 of 40 makers (24 products)
+Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (179 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 3DXTECH
 3 products
@@ -41,7 +41,7 @@ iSANMATE
 Bambu Lab
 6 products
 eSUN
-23 products
+21 products
 Spectrum
 19 products
 Polymaker
@@ -70,11 +70,11 @@ Yousu
 3 products
 Prusa Research
 5 products
+UltiMaker
+1 product
 Raise3D
 3 products
 3D-Fuel
 1 product
 Nanovia
 3 products
-FormFutura
-13 products

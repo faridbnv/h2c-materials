@@ -1,0 +1,29 @@
+task_id,source_id,page,kind,field,product,label,locator,Class
+S0057,R-COLORFABB-NGEN-TDS-V2,1,value,HDT,G092-02,Heat Deflection Temp. HDT @0.455 MPA,Thermal Properties*,queue: a headline property or gate the product may not yet hold from this source
+S0058,R-COLORFABB-NGEN-TDS-V2,1,value,HDT,G092-02,Heat Deflection Temp. HDT @1.82 MPA,Thermal Properties*,queue: a headline property or gate the product may not yet hold from this source
+S0060,R-COLORFABB-TDS-E-ColorFabb-nGen,1,value,HDT,G092-02,Heat Deflection Temp. HDT,Thermal Properties*,queue: a headline property or gate the product may not yet hold from this source
+S0061,R-COLORFABB-TDS-E-ColorFabb-nGen,1,value,HDT,G092-02,Heat Deflection Temp. HDT,Thermal Properties*,queue: a headline property or gate the product may not yet hold from this source
+S0453,S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,4,value,Charpy strength,G019-01,Notched Charpy impact strength (X-Y),MECHANICAL PROPERTIES (after annealing),"queue: the same source, product and field as a deciding record"
+S0457,S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN,1,value,Charpy strength,G019-01,Notched Charpy impact strength (Z),MECHANICAL PROPERTIES (after annealing),queue: a headline property or gate the product may not yet hold from this source
+S1025,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Tensile modulus,G001-93,"Tensile Modulus, kpsi (MPa) XY Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1026,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Tensile modulus,G001-93,"Tensile Modulus, kpsi (MPa) YX Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1027,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Tensile modulus,G001-93,"Tensile Modulus, kpsi (MPa) ZX Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1034,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Izod impact strength,G001-93,"Notched Izod Impact [amorphous], ft-lb/in (J/m) XY Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1035,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Izod impact strength,G001-93,"Notched Izod Impact [amorphous], ft-lb/in (J/m) YX Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1036,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Izod impact strength,G001-93,"Notched Izod Impact [amorphous], ft-lb/in (J/m) ZX Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1037,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Izod impact strength,G001-93,"Notched Izod Impact [crystalline], ft-lb/in (J/m) XY Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1038,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Izod impact strength,G001-93,"Notched Izod Impact [crystalline], ft-lb/in (J/m) YX Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1039,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,value,Izod impact strength,G001-93,"Notched Izod Impact [crystalline], ft-lb/in (J/m) ZX Axis",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1192,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA,1,value,HDT,G001-59,Heat Deflection Temp.,Mechanical Properties – 3D Printed,queue: a headline property or gate the product may not yet hold from this source
+S1195,R-COLORFABB-TDS-E-ColorFabb-HT,1,value,HDT,G089-04,Heat Deflection Temp. HDT,Thermal Properties*,queue: a headline property or gate the product may not yet hold from this source
+S1196,R-COLORFABB-TDS-E-ColorFabb-HT,1,value,HDT,G089-04,Heat Deflection Temp. HDT,Thermal Properties*,queue: a headline property or gate the product may not yet hold from this source
+S1198,R-COLORFABB-TDS-E-colorFabb-LW-ASA,1,value,Izod impact strength,G032-03,Izod Impact Strength,Mechanical Properties – Injection Molded*,queue: a headline property or gate the product may not yet hold from this source
+S1329,S-PET-formfutura-tds-apolloxcf10,1,value,Charpy strength,G033-12,"Charpy unnotched impact strength, 23°C",Mechanical properties,queue: a headline property or gate the product may not yet hold from this source
+S1330,S-PET-formfutura-tds-apolloxcf10,1,value,Charpy strength,G033-12,"Charpy notched impact strength, 23°C",Mechanical properties,queue: a headline property or gate the product may not yet hold from this source
+S1345,I-PETG-TDS,2,value,Glass transition temperature,G020-03,Glass Transition Temperature,Thermal,"queue: the same source, product and field as a deciding record"
+S1373,R-NINJATEK-NinjaFlex-TDS,1,value,Izod impact strength,G039-32,"Impact Strength (notched Izod, 23C)",Mechanical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1557,R-RECREUS-PETG-CF,1,value,HDT,G024-24,"HDT (0,45MPa)",Thermal Property,queue: a headline property or gate the product may not yet hold from this source
+S1632,R-STRATASYS-mds-fdm-absesd7-0222a,4,value,HDT,G027-44,HDT @ 66 psi,Table 3. ABS-ESD7 Physical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1633,R-STRATASYS-mds-fdm-absesd7-0222a,4,value,HDT,G027-44,HDT @ 264 psi,Table 3. ABS-ESD7 Physical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1634,R-STRATASYS-mds-fdm-absesd7-0222a,4,value,Glass transition temperature,G027-44,Tg,Table 3. ABS-ESD7 Physical Properties,queue: a headline property or gate the product may not yet hold from this source
+S1776,R-ULTIMAKER-MAKERBOT-Tough-One-Sheet,2,value,Izod impact strength,G027-21,"IZOD IMPACT STRENGTH - UNNOTCHED (chart bar, MakerBot Tough)",IZOD IMPACT STRENGTH - UNNOTCHED,queue: a headline property or gate the product may not yet hold from this source

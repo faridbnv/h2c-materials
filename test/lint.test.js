@@ -137,6 +137,23 @@ test('a per-record build finding needs an acceptance, and an acceptance that no 
   assert.deepEqual(stale.map((b) => b.Record), ['M019 hdt045']);
 });
 
+test('an outlier acceptance holds for the value it was written for: dormant while it stands, stale when it moves (D131)', async () => {
+  const { reviewFindings, splitStale } = await import('../scripts/data/review-findings.mjs');
+  const { compareWithBaseline } = await import('../scripts/data/lint.mjs');
+  const findings = reviewFindings([{ level: 'warn', code: 'EST-OUTLIER', where: 'materials', message: '1 outlier', records: ['M028 hdt045'], values: [97] }]);
+  assert.equal(findings[0].field, 'measured 97');
+  const accepted = (record, value) => ({ Code: 'EST-OUTLIER', Table: 'materials', Record: record, Field: `measured ${value}` });
+  // The same value: accepted. Another value: a new finding, and the old acceptance no longer matches.
+  assert.equal(compareWithBaseline(findings, [accepted('M028 hdt045', 97)]).fresh.length, 0);
+  const moved = compareWithBaseline(findings, [accepted('M028 hdt045', 95)]);
+  assert.equal(moved.fresh.length, 1);
+  // Gone below the threshold: dormant while the material's value is still 145, stale once it is not.
+  const gone = compareWithBaseline(findings, [accepted('M028 hdt045', 97), accepted('M048 hdt045', 145), accepted('M049 hdt045', 140)]).stale;
+  const { dormant, stale } = splitStale(gone, (record) => ({ 'M048 hdt045': 145, 'M049 hdt045': 152 })[record] ?? null);
+  assert.deepEqual(dormant.map((b) => b.Record), ['M048 hdt045']);
+  assert.deepEqual(stale.map((b) => b.Record), ['M049 hdt045']);
+});
+
 test('one product has one grade, and one formulation key names one product of one material', () => {
   const grade = (o) => ({ GradeID: 'G1-01', MaterialID: 'M1', Status: 'active', Manufacturer: 'Spectrum', 'Product name': 'PETG CF', 'Shared formulation key': 'S-PETG-CF', ...o });
   const run = (rows) => lintData({ grades: { header: Object.keys(rows[0]), rows } }, { grades: { primaryKey: 'GradeID', fields: [] } }).map((f) => `${f.code} ${f.record}`);

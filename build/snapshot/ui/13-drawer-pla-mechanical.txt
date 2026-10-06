@@ -1,21 +1,21 @@
 Tensile modulus
-209 values
+213 values
 Tensile strength (yield or break not stated)
-226 values
+227 values
 Tensile yield strength
 58 values
 Tensile break strength
 41 values
 Elongation at break
-238 values
+239 values
 Elongation at yield
 28 values
 Tensile strain at strength
 10 values
 Flexural modulus
-185 values
+186 values
 Flexural strength
-183 values
+184 values
 Flexural elongation at break
 3 values
 Flexural stress at conventional deflection
@@ -23,7 +23,7 @@ Flexural stress at conventional deflection
 Charpy strength
 117 values
 Izod impact strength
-111 values
+119 values
 Impact strength
 16 values
 Hardness

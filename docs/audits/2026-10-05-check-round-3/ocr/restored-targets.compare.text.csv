@@ -1,0 +1,15 @@
+TargetID,Kind,Record,SourceID,Page,Outcome,LabelScore,MatchedRow,MatchedColumn,Note
+K02166,gate,P0166,R-FILLAMENTUM-CPE-CF112-GUIDE,1,absent,,,,
+K02167,gate,P0166,R-FILLAMENTUM-CPE-CF112-GUIDE,1,elsewhere,0.80,"In case of moist material, re-dry it in appropriate device. The conditions to achieve optimal level of moisture",,"the value is printed on the page, not in the matched row"
+K02168,gate,P0166,R-FILLAMENTUM-CPE-CF112-GUIDE,1,label-not-found,,,,
+K02169,gate,P0166,R-FILLAMENTUM-CPE-CF112-GUIDE,1,absent,,,,
+K02170,gate,P0165,R-FILLAMENTUM-CPE-HG100-GUIDE,1,elsewhere,0.80,"Printing temperature: 255 – 275 °C | Heated bed surface: PEI, mirror / glass",,"the value is printed on the page, not in the matched row"
+K02171,gate,P0165,R-FILLAMENTUM-CPE-HG100-GUIDE,1,elsewhere,0.80,"Heated bed temperature: 70 – 85 °C | Adhesive: Magigoo, 3DLac, PVA glue",,"the value is printed on the page, not in the matched row"
+K02172,gate,P0165,R-FILLAMENTUM-CPE-HG100-GUIDE,1,absent,,,,
+K02173,gate,P0165,R-FILLAMENTUM-CPE-HG100-GUIDE,1,elsewhere,0.80,"In case of moist material, re-dry it in appropriate device. The conditions to achieve optimal level of moisture",,"the value is printed on the page, not in the matched row"
+K02174,gate,P0165,R-FILLAMENTUM-CPE-HG100-GUIDE,1,label-not-found,,,,
+K06337,value,V002298,R-DSM-ARNITEL-ID2045-TDS,1,pairing-confirmed,1.00,Glass transition temperature (10°C/min) | -35 | °C | ISO 11357-1/-2,Typical Data,single value cell
+K06338,value,V002301,R-DSM-ARNITEL-ID2045-TDS,1,pairing-confirmed,1.00,Density | 1100 | kg/m³ | ISO 1183,Typical Data,single value cell
+K06339,value,V002303,R-DSM-ARNITEL-ID2045-TDS,1,pairing-confirmed,0.69,Maximum tensile stress (3D printed tensile bars) 45°-45° | 7.6,Typical Data,single value cell; 2 rows scored within 0.05
+K06340,value,V002305,R-DSM-ARNITEL-ID2045-TDS,1,pairing-confirmed,0.62,Tensile modulus (3D printed tensile bars) 0°-90° | 29,Typical Data,single value cell; 2 rows scored within 0.05
+K06341,value,V002307,R-DSM-ARNITEL-ID2045-TDS,1,label-not-found,,,,

@@ -559,3 +559,15 @@ be written for a reader who does not hold the project's names and numbers in min
 7. **The documents say where things stand in plain words first** (README, `docs/README.md`, and an opening section on
    each main document), with the details, numbers and citations below; every dated audit says plainly that it is a
    historical record.
+
+## Decided on 2026-10-05, check round 3
+
+The owner asked for the next stage to fill what gap round 2 left, add checks that work, use OCR only where it is needed,
+re-check the rest cheaply with Claude Sonnet, and find the causes of our own mistakes (D131,
+`docs/audits/2026-10-05-check-round-3/`). Along the way the owner decided:
+
+1. **OCR is a one-off check, with Mistral's best model only** (`mistral-ocr-latest`), and its key never enters the
+   repository. The account allowed no requests, so the check did not run; the script waits in the packet.
+2. **The documents whose bytes were lost are fetched again** and added to the checks and the OneDrive backup. A page
+   that changed since is kept beside the store as a later copy and read as one; it is not registered (D131).
+3. **The round is pushed to main when it is finished** and its documents are up to date.

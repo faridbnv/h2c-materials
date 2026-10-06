@@ -31,3 +31,15 @@ temp_Fillaments Docs/
 # Owner archives of maker document libraries, staged into .cache/sources by ingest:fetch --stage (R084).
 _temp FormFutura Filaments/
 _temp iSANMATE/
+
+# Local secrets and scratch: a key or a working note never enters the repository.
+.env*
+/private/
+
+# Local output of `npm run scale`: the 2x timings scripts/scale-budget.mjs judges (D131).
+build/reports/scale.json
+
+# Local output of the check-round-3 audits (scripts/audit/table-detectors.mjs, duplicates.mjs, leverage.mjs); re-derive with the commands in AGENTS.md.
+build/reports/table-detectors/
+build/reports/duplicates/
+build/reports/leverage/

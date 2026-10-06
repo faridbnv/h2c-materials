@@ -186,7 +186,8 @@ time against the budget: about 75 seconds after a change and 25 to 30 when nothi
 run in `verify` (`npm run test:ingest`), not here, while imports are paused.
 `npm run verify` adds the import tests, the scale and reproducible-build checks (`npm run scale`, `npm run
 reproducible`), the audits (`audit:data`, and `audit:context` where the text cache is), review snapshot, interface
-views and 300 rendered scenarios, before a commit. The
+views and 300 rendered scenarios, before a commit. Both scripts run every step even when one fails and list the
+failures at the end (`scripts/lib/run-steps.mjs`), so one run shows everything that is wrong. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, CI runs `verify` on every push to main and on pull requests, and 2,000 rendered scenarios on a new seed every week, and
 `npm run build:diff` shows what a change did to the compiled database. `AGENTS.md` is the editing guide.
@@ -702,7 +703,9 @@ call. `H2C_NO_BUILD_CACHE=1` or `buildDatabase(wb, { cache: false })` bypass it;
 independent rebuild and the reproducibility test do, and CI starts with it empty.
 
 `test/scale.check.js` (`npm run scale`) doubles the data (every material and its records cloned under new IDs) and runs the
-gate, compile and validate. On 2026-09-21 the build was 0.07 s to compile, 13.5 s for the estimate stage and 0.06 s
+gate, compile and validate; it asserts correctness and writes the timings to `build/reports/scale.json`, which
+`scripts/scale-budget.mjs` judges last in `verify` (a miss is re-run once; it fails on CI or with `--enforce-budget`, and
+is a warning on a slower machine). On 2026-09-21 the build was 0.07 s to compile, 13.5 s for the estimate stage and 0.06 s
 to validate at 158 materials and 11,096 measurements; doubled, the estimate stage took about 59 s against a budget of
 150 s (`test/scale.check.js` keeps the history). What the database holds today is in `build/snapshot/counts.md`. The
 estimate model dominates. Its Gaussian process is cubic in the size of each chemical group rather than in all the

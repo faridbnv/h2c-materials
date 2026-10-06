@@ -136,7 +136,7 @@ Nylon / Polyamide
 1 of 2 products
  passing: 1,120
 all products: 1,120
-1,100–1,140 · 7
+1,080–1,140 · 7
  passing: 2.7
 all products: 2.34
 1.98–2.7 · 2
@@ -160,35 +160,34 @@ all products: 1,200
 all products: 3.1
  82.1 — 80* — ☆
 PETG PASS
-1 of 58 products
+1 of 57 products
  passing: 1,250
 all products: 1,270
-1,180–1,350 · 64
+1,180–1,300 · 61
  passing: 2.78
 all products: 1.67
 0.5–3.5 · 20
- 47.3
-31.9–68.4 · 26
- 8.6
-4.1–90 · 25
-annealed median
+ 47
+31.9–68.4 · 25
+ 8.5
+4.1–90 · 24
  70
-63–80 · 42
+63–78.4 · 43
  26
-20–66 · 14
+20–66 · 12
 ↗ ☆
 PLA PASS
 15 of 69 products
  passing: 800–1,240
 all products: 1,240
-1,170–1,329 · 156
+1,170–1,329 · 155
  passing: 2.53–4.16
 all products: 2.58
-0.433–4.24 · 50
+0.433–4.24 · 51
  45
-26–70.9 · 66
- 7.62
-1.2–65 · 62
+26–70.9 · 65
+ 8
+1.2–65 · 61
  55
 50–135 · 86
  33.7

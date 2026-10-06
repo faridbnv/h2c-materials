@@ -1,23 +1,30 @@
 // Scaling by entries. This file is named .check.js rather than .test.js and runs on its own (`npm run scale`,
-// inside `npm run verify`), because it measures a time budget: run beside the rest of the suite it competes with
+// inside `npm run verify`), because it measures times: run beside the rest of the suite it competes with
 // every other test file for the machine and has read 40 seconds one run and 95 the next on the same data. What it
 // is for is the trend in the estimate stage, and that is only readable when it has the machine to itself.
 //
 // Scaling by entries: at twice today's data (every material and everything recorded against it cloned
-// under new IDs, scripts/data/synthesize.mjs) the schema gate, compiler and validator still hold, and
-// the build stays inside a time budget. The one kind of error a doubling legitimately produces is named
-// precisely: a new blend the estimate model has no identity for.
+// under new IDs, scripts/data/synthesize.mjs) the schema gate, compiler and validator still hold. The one kind of
+// error a doubling legitimately produces is named precisely: a new blend the estimate model has no identity for.
+//
+// The times are not asserted here. A slow or syncing machine would fail this check on its clock and hide the
+// correctness result with it, and it once hid a data-audit failure behind it. The timings are written to
+// build/reports/scale.json, and scripts/scale-budget.mjs (`npm run scale:budget`, the last step of `npm run verify`)
+// judges them against the budgets below: it re-runs once on a miss and fails only on CI or with --enforce-budget.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { synthesize } from '../scripts/data/synthesize.mjs';
 import { checkData } from '../build/src/schema.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 
-test('twice the entries pass the gate, compile and validate within budget', () => {
+const reportPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'build', 'reports', 'scale.json');
+
+test('twice the entries pass the gate, compile and validate, and their timings are recorded', () => {
   const dir = mkdtempSync(join(tmpdir(), 'h2c-2x-'));
   try {
     const counts = synthesize(2, dir);
@@ -36,7 +43,7 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     assert.ok(errors.every((e) => /cannot be estimated: its identity ".+ ×2" \(a blend is identified by its name\)/.test(e.message)), errors.map((e) => e.message).join(' | '));
     assert.ok(errors.every((e) => blends.some((b) => e.message.startsWith(b))));
 
-    // Budgets with headroom for slow CI machines, and a record of what they were set against, because the
+    // Budgets (the ones written to scale.json below) with headroom for slow CI machines, and a record of what they were set against, because the
     // number that matters is the trend:
     //
     //   2026-09-18   2,645 measurements   compile+validate ~10 s at 2x   (budget 90 s)
@@ -63,12 +70,26 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     // What the block solve is cubic in is the largest chemical group, not the corpus. A maker's new PLA grades
     // grow that group and a new polymer adds a block, so the corpus can grow a long way before this reads 150 s
     // again — but it is still cubic in something, so this check still has something to say.
-    assert.ok(t1 - t0 < 3000, `schema gate took ${Math.round(t1 - t0)} ms`);
-    assert.ok(t2 - t1 < 150000, `compile and validate took ${Math.round(t2 - t1)} ms`);
     const t3 = performance.now();
     buildDatabase(loadTables(join(dir, 'data')), { snapshot: snapshotDate(wb.Method.rows), build: 'scale', estimates: false, cache: false });
-    assert.ok(performance.now() - t3 < 5000, `compile and validate without estimates took ${Math.round(performance.now() - t3)} ms`);
-    console.log(`2x: ${counts.materials} materials, ${counts.measurements} measurements; gate ${Math.round(t1 - t0)} ms, compile+validate ${Math.round(t2 - t1)} ms, db ${(JSON.stringify(db).length / 1048576).toFixed(1)} MB`);
+    const t4 = performance.now();
+    const dbMB = Number((JSON.stringify(db).length / 1048576).toFixed(1));
+
+    // The timings go to a report for scripts/scale-budget.mjs, with the budgets beside them so the judge and this
+    // history cannot drift apart.
+    const report = {
+      date: new Date().toISOString(),
+      measurements: counts.measurements,
+      materials: counts.materials,
+      gateMs: Math.round(t1 - t0),
+      compileMs: Math.round(t2 - t1),
+      noEstimatesMs: Math.round(t4 - t3),
+      dbMB,
+      budgets: { gateMs: 3000, compileMs: 150000, noEstimatesMs: 5000 },
+    };
+    mkdirSync(dirname(reportPath), { recursive: true });
+    writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    console.log(`2x: ${counts.materials} materials, ${counts.measurements} measurements; gate ${report.gateMs} ms, compile+validate ${report.compileMs} ms, db ${dbMB} MB`);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

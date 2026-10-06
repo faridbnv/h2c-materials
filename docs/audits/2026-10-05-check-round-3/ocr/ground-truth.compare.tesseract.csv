@@ -1,0 +1,154 @@
+TargetID,Kind,Record,SourceID,Page,Outcome,LabelScore,MatchedRow,MatchedColumn,Note,Expected
+F0001,value,V012865,R-EXTRUDR-durapro-asa-cf-TDS-en,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0002,value,V012945,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0003,value,V013370,R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0,2,no-ocr,,,,no reading of this document,pairing-confirmed
+F0004,value,V012363,R-SPECTRUM-PORTFOLIO-2024,4,no-ocr,,,,no reading of page 4,pairing-confirmed
+F0005,value,V012117,R-EXTRUDR-PRINT-20260928-83ec5c0b3125,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0006,value,V013999,D-RAISE3D-Raise3d-Premium-PETG-TDS-V3,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0007,value,V013870,D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0008,value,V012103,R-EXTRUDR-PRINT-20260929-463457967aab,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0009,value,V012186,D-FIBERLOGY-RPP-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0010,value,V012908,R-EXTRUDR-flex-semisoft-TDS-de,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0011,value,V013927,D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0012,value,V012897,R-EXTRUDR-durapro-pc-pbt-TDS-de,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0013,value,V013543,S-PVB-0eaa8597-prusament-rpla-natural-pigments-technical-data-sheet,2,no-ocr,,,,no reading of this document,pairing-confirmed
+F0014,value,V014358,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,1,no-ocr,,,,no reading of page 1,pairing-confirmed
+F0015,gate,P1691,R-FABRU-PUREFIL-2186-Materialdatenblatt-PETG-purefil,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0016,gate,P1691,R-FABRU-PUREFIL-2186-Materialdatenblatt-PETG-purefil,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0017,gate,P1622,D-3D4MAKERS-PLA-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0018,gate,P1622,D-3D4MAKERS-PLA-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0019,gate,P1676,R-EXTRUDR-pla-nx2-matt-TDS-it,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0020,gate,P1676,R-EXTRUDR-pla-nx2-matt-TDS-it,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0021,gate,P1446,D-FABRU-PUREFIL-HDPE-GF20-FILAMENT-169-1313-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0022,gate,P1446,D-FABRU-PUREFIL-HDPE-GF20-FILAMENT-169-1313-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0023,gate,P1405,D-3D4MAKERS-FACILAN-HT-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0024,gate,P1405,D-3D4MAKERS-FACILAN-HT-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0025,gate,P1451,R-FABRU-10204-material-data-sheet-TPS-40D-purefil,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0026,gate,P1451,R-FABRU-10204-material-data-sheet-TPS-40D-purefil,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0027,gate,P1451,R-FABRU-10204-material-data-sheet-TPS-40D-purefil,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0028,value,V013782,R-QIDI-PA12-CF,2,no-ocr,,,,no reading of page 2,pairing-confirmed
+F0029,value,V012066,R-EXTRUDR-PRINT-20260929-3793d04515ce,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0030,value,V012925,R-EXTRUDR-pla-nx2-matt-TDS-it,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0031,value,V012934,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0032,value,V013844,D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0033,value,V012555,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-Metal-V3-0,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0034,value,V014049,S-PCGF-PET-CF-TDS,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0035,value,V012704,D-BIGREP-RPLA-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0036,value,V013901,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0037,value,V014322,R-STRATASYS-mds-fdm-pc-0426a,11,no-ocr,,,,no reading of this document,pairing-confirmed
+F0038,value,V013906,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,2,no-ocr,,,,no reading of this document,pairing-confirmed
+F0039,value,V013990,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V4,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0040,value,V011863,R-3DJAKE-SILK-TDS-4,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0041,value,V012176,D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0042,gate,P1616,R-SUNLU-PRINT-20260928-41d3588b228c,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0043,gate,P1616,R-SUNLU-PRINT-20260928-41d3588b228c,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0044,gate,P1442,R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0045,gate,P1442,R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0046,value,V014677,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,no-ocr,,,,no reading of this document,pairing-confirmed
+F0047,value,V014688,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,no-ocr,,,,no reading of this document,pairing-confirmed
+F0048,value,V014465,R-3D4MAKERS-TDS-PI-Filament-Z2-Zymergen-3D4Makers-ver-02,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0049,value,V014479,R-3D4MAKERS-TDS-PI-Filament-Z2-Zymergen-3D4Makers-ver-02,2,no-ocr,,,,no reading of this document,pairing-confirmed
+F0050,value,V014562,R-STRATASYS-mds-fdm-antero-800na-0825a,4,no-ocr,,,,no reading of this document,pairing-confirmed
+F0051,value,V014674,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,no-ocr,,,,no reading of this document,pairing-confirmed
+F0052,value,V014605,R-STRATASYS-mds-fdm-antero-800na-0825a,7,no-ocr,,,,no reading of this document,pairing-confirmed
+F0053,value,V014727,R-ESSENTIUM-TDS-Essentium-PA-CF,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0054,value,V014676,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,no-ocr,,,,no reading of this document,pairing-confirmed
+F0055,gate,P1903,R-RAISE3D-GAP2-20261005-823e5cec6179,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0056,gate,P1903,R-RAISE3D-GAP2-20261005-823e5cec6179,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0057,gate,P1906,R-FORMFUTURA-GAP2-20261005-8c7a48d70127,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0058,gate,P1906,R-FORMFUTURA-GAP2-20261005-8c7a48d70127,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0059,gate,P1908,R-FIBERLOGY-GAP2-20261005-97507f7e6e3b,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0060,gate,P1908,R-FIBERLOGY-GAP2-20261005-97507f7e6e3b,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0061,gate,P1901,R-RAISE3D-GAP2-20261005-72c685ea2655,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0062,gate,P1901,R-RAISE3D-GAP2-20261005-72c685ea2655,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0063,gate,P1883,D-FLASH-FABRIAL-R-TPE-TDS-JP,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0064,gate,P1883,D-FLASH-FABRIAL-R-TPE-TDS-JP,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0065,gate,P1902,R-RAISE3D-GAP2-20261005-7ca3c63b00c1,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0066,gate,P1902,R-RAISE3D-GAP2-20261005-7ca3c63b00c1,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0067,gate,P1907,R-3DXTECH-GAP2-20261005-8d280b06a860,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0068,gate,P1907,R-3DXTECH-GAP2-20261005-8d280b06a860,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0069,value,V014703,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,no-ocr,,,,no reading of this document,pairing-confirmed
+F0070,value,V014617,R-STRATASYS-mds-fdm-antero-800na-0825a,11,no-ocr,,,,no reading of this document,pairing-confirmed
+F0071,value,V014691,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,no-ocr,,,,no reading of this document,pairing-confirmed
+F0072,value,V000734,I-PC-CF-TDS,1,no-ocr,,,,no reading of this document,not-confirmed
+F0073,value,V000734,I-PC-CF-TDS,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0074,value,V000735,I-PC-CF-TDS,1,no-ocr,,,,no reading of this document,not-confirmed
+F0075,value,V000735,I-PC-CF-TDS,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0076,value,V010229,R-YOUSU-YOUSUPVBTDS-9c2c,1,no-ocr,,,,no reading of this document,not-confirmed
+F0077,value,V010229,R-YOUSU-YOUSUPVBTDS-9c2c,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0078,value,V010302,R-YOUSU-YOUSUPCTDS-535a,1,no-ocr,,,,no reading of this document,not-confirmed
+F0079,value,V010302,R-YOUSU-YOUSUPCTDS-535a,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0080,gate,P1101,B-PC-uVYGQd,1,absent,1.00,Bed Temperature | 55 - 65 °C,,"the numbers are printed, not together in one cell; 4 rows scored within 0.05",not-confirmed
+F0081,gate,P1101,B-PC-uVYGQd,1,absent,1.00,Bed Temperature | 55 - 65 °C,,"the numbers are printed, not together in one cell; 4 rows scored within 0.05",pairing-confirmed
+F0082,gate,P1101,B-PC-uVYGQd,1,absent,1.00,Chamber Temperature | 25- 40°C,,"the numbers are printed, not together in one cell",not-confirmed
+F0083,gate,P1101,B-PC-uVYGQd,1,pairing-confirmed,1.00,Chamber Temperature | 25- 40°C,,single value cell,pairing-confirmed
+F0084,gate,P1406,D-3D4MAKERS-FACILAN-PCL-100-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,not-confirmed
+F0085,gate,P1406,D-3D4MAKERS-FACILAN-PCL-100-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0086,gate,P1407,R-3D4MAKERS-PRINT-20260928-8d7352c2d77f,1,no-ocr,,,,no reading of this document,not-confirmed
+F0087,gate,P1407,R-3D4MAKERS-PRINT-20260928-8d7352c2d77f,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0088,gate,P1494,R-NANOVIA-COVERAGE-20261001-19c4810bdc29,1,no-ocr,,,,no reading of this document,not-confirmed
+F0089,gate,P1494,R-NANOVIA-COVERAGE-20261001-19c4810bdc29,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0090,gate,P1643,XP-carbonx-petg-cf-1,1,no-ocr,,,,no reading of this document,not-confirmed
+F0091,gate,P1643,XP-carbonx-petg-cf-1,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0092,gate,P1101,B-PC-uVYGQd,1,absent,1.00,Bed Temperature | 55 - 65 °C,,"the numbers are printed, not together in one cell; 4 rows scored within 0.05",pairing-confirmed
+F0093,gate,P1650,B-PC-PLA-Pure-TDS,1,absent,1.00,Bed Temperature | 55 - 65 °C,,"the numbers are printed, not together in one cell; 4 rows scored within 0.05",pairing-confirmed
+F0094,value,V012865,R-EXTRUDR-durapro-asa-cf-TDS-en,1,no-ocr,,,,no reading of this document,not-confirmed
+F0095,value,V012945,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,no-ocr,,,,no reading of this document,not-confirmed
+F0096,value,V013370,R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0,2,no-ocr,,,,no reading of this document,not-confirmed
+F0097,value,V012363,R-SPECTRUM-PORTFOLIO-2024,4,no-ocr,,,,no reading of page 4,not-confirmed
+F0098,value,V012117,R-EXTRUDR-PRINT-20260928-83ec5c0b3125,1,no-ocr,,,,no reading of this document,not-confirmed
+F0099,value,V013999,D-RAISE3D-Raise3d-Premium-PETG-TDS-V3,1,no-ocr,,,,no reading of this document,not-confirmed
+F0100,value,V013870,D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,1,no-ocr,,,,no reading of this document,not-confirmed
+F0101,value,V012103,R-EXTRUDR-PRINT-20260929-463457967aab,1,no-ocr,,,,no reading of this document,not-confirmed
+F0102,value,V012186,D-FIBERLOGY-RPP-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,not-confirmed
+F0103,value,V012908,R-EXTRUDR-flex-semisoft-TDS-de,1,no-ocr,,,,no reading of this document,not-confirmed
+F0104,value,V013927,D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,1,no-ocr,,,,no reading of this document,not-confirmed
+F0105,value,V012897,R-EXTRUDR-durapro-pc-pbt-TDS-de,1,no-ocr,,,,no reading of this document,not-confirmed
+F0106,value,V013543,S-PVB-0eaa8597-prusament-rpla-natural-pigments-technical-data-sheet,2,no-ocr,,,,no reading of this document,not-confirmed
+F0107,value,V014358,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,1,no-ocr,,,,no reading of page 1,not-confirmed
+F0108,value,V013782,R-QIDI-PA12-CF,2,no-ocr,,,,no reading of page 2,not-confirmed
+F0109,value,V012066,R-EXTRUDR-PRINT-20260929-3793d04515ce,1,no-ocr,,,,no reading of this document,not-confirmed
+F0110,value,V012925,R-EXTRUDR-pla-nx2-matt-TDS-it,1,no-ocr,,,,no reading of this document,not-confirmed
+F0111,value,V012934,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,no-ocr,,,,no reading of this document,not-confirmed
+F0112,value,V013844,D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,1,no-ocr,,,,no reading of this document,not-confirmed
+F0113,value,V012555,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-Metal-V3-0,1,no-ocr,,,,no reading of this document,not-confirmed
+F0114,value,V014049,S-PCGF-PET-CF-TDS,1,no-ocr,,,,no reading of this document,not-confirmed
+F0115,value,V013901,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,1,no-ocr,,,,no reading of this document,not-confirmed
+F0116,value,V014322,R-STRATASYS-mds-fdm-pc-0426a,11,no-ocr,,,,no reading of this document,not-confirmed
+F0117,value,V013906,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,2,no-ocr,,,,no reading of this document,not-confirmed
+F0118,value,V013990,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V4,1,no-ocr,,,,no reading of this document,not-confirmed
+F0119,value,V011863,R-3DJAKE-SILK-TDS-4,1,no-ocr,,,,no reading of this document,not-confirmed
+F0120,value,V012176,D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE,1,no-ocr,,,,no reading of this document,not-confirmed
+F0121,value,V014677,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,no-ocr,,,,no reading of this document,not-confirmed
+F0122,value,V014688,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,no-ocr,,,,no reading of this document,not-confirmed
+F0123,value,V014465,R-3D4MAKERS-TDS-PI-Filament-Z2-Zymergen-3D4Makers-ver-02,1,no-ocr,,,,no reading of this document,not-confirmed
+F0124,value,V005114,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15,2,no-ocr,,,,no reading of this document,not-confirmed
+F0125,value,V005114,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15,2,no-ocr,,,,no reading of this document,pairing-confirmed
+F0126,value,V007789,B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet,2,elsewhere,0.94,"Breaking Elongation Rate (X-Y) ISO 527, GB/T 1040 | 8.2+ | 1.3%",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0127,value,V007789,B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet,2,row-only,1.00,"Breaking Elongation Rate (X-Y) ISO 527, GB/T 1040 | 8.2+ | 1.3%",,"2 value cells, column not decided",pairing-confirmed
+F0128,value,V001242,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,elsewhere,0.80,Elongation at break (X-Y) | 3.0+ | 0.1%,row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction); 2 rows scored within 0.05,not-confirmed
+F0129,value,V001242,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,row-only,0.86,Elongation at break (X-Y) | 3.0+ | 0.1%,,"2 value cells, column not decided; 2 rows scored within 0.05",pairing-confirmed
+F0130,value,V013961,D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,1,no-ocr,,,,no reading of this document,not-confirmed
+F0131,value,V013961,D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0132,value,V013397,R-3DJAKE-KINGROON-TPU-95A-Technical-Data-Sheet-V1-0,2,no-ocr,,,,no reading of this document,not-confirmed
+F0133,value,V013397,R-3DJAKE-KINGROON-TPU-95A-Technical-Data-Sheet-V1-0,2,no-ocr,,,,no reading of this document,pairing-confirmed
+F0134,value,V000091,B-pla-basic-gradient-TDS,2,elsewhere,0.80,"Young's Modulus (X-Y) ISO 527, GB/T 1040 | 2580 + | 150 MPa",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0135,value,V000091,B-pla-basic-gradient-TDS,2,row-only,0.86,"Young's Modulus (X-Y) ISO 527, GB/T 1040 | 2580 + | 150 MPa",,"2 value cells, column not decided",pairing-confirmed
+F0136,value,V006370,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,1,elsewhere,0.71,Tensile strength (Z) | 52.2 + | 0.8 MPa,,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",not-confirmed
+F0137,value,V006370,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,1,label-not-found,,,,,pairing-confirmed
+F0138,value,V006611,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,1,no-ocr,,,,no reading of this document,not-confirmed
+F0139,value,V006611,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0140,value,V000294,B-pla-glow-TDS,2,absent,0.84,"Breaking Elongation Rate (X-Y) ISO 527, GB/T 1040 | 8.64+ | 1.2%",,,not-confirmed
+F0141,value,V000294,B-pla-glow-TDS,2,absent,0.89,"Breaking Elongation Rate (X-Y) ISO 527, GB/T 1040 | 8.64+ | 1.2%",,,pairing-confirmed
+F0142,value,V007087,S-PEBA-ABS-TDS-EN-docx,2,no-ocr,,,,no reading of this document,not-confirmed
+F0143,value,V007087,S-PEBA-ABS-TDS-EN-docx,2,no-ocr,,,,no reading of this document,pairing-confirmed
+F0144,value,V003410,S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN,1,no-ocr,,,,no reading of this document,not-confirmed
+F0145,value,V003410,S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN,1,no-ocr,,,,no reading of this document,pairing-confirmed
+F0146,value,V000431,B-petg-basic-TDS,2,elsewhere,0.92,"Young's Modulus (X-Y) ISO 527, GB/T 1040 | 2780 + | 65 MPa",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0147,value,V000431,B-petg-basic-TDS,2,row-only,1.00,"Young's Modulus (X-Y) ISO 527, GB/T 1040 | 2780 + | 65 MPa",,"2 value cells, column not decided",pairing-confirmed
+F0148,value,V001059,S-FIBER-PA612,1,elsewhere,0.71,Elongation at break (Z) | 2.14 | 0.2%,,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",not-confirmed
+F0149,value,V001059,S-FIBER-PA612,1,label-not-found,,,,,pairing-confirmed
+F0150,value,V000061,B-pla-basic-filament-TDS,3,elsewhere,0.71,"Impact Strength (X-Y) ISO 179, GB/T 1043 | 7.9 | 41.2 kJ/m?",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0151,value,V000061,B-pla-basic-filament-TDS,3,row-only,0.75,"Impact Strength (X-Y) ISO 179, GB/T 1043 | 7.9 | 41.2 kJ/m?",,"2 value cells, column not decided",pairing-confirmed
+F0152,value,V000528,S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,3,no-ocr,,,,no reading of this document,not-confirmed
+F0153,value,V000528,S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,3,no-ocr,,,,no reading of this document,pairing-confirmed

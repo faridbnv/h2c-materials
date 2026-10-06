@@ -17,7 +17,7 @@
     "baseline": 5306,
     "current": 5756,
     "added": 450,
-    "edited_existing": 220,
+    "edited_existing": 258,
     "removed": 0
   },
   "family_entries": {
@@ -38,7 +38,7 @@
     "baseline": 1163,
     "current": 1175,
     "added": 12,
-    "edited_existing": 83,
+    "edited_existing": 138,
     "removed": 0
   },
   "headline_definitions": {
@@ -71,9 +71,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 14734,
-    "added": 3198,
-    "edited_existing": 2139,
+    "current": 14755,
+    "added": 3219,
+    "edited_existing": 2608,
     "removed": 0
   },
   "method": {
@@ -85,8 +85,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 954,
-    "added": 954,
+    "current": 956,
+    "added": 956,
     "edited_existing": 0,
     "removed": 0
   },
@@ -122,7 +122,7 @@
     "baseline": 1316,
     "current": 1911,
     "added": 595,
-    "edited_existing": 985,
+    "edited_existing": 990,
     "removed": 0
   },
   "properties": {
@@ -136,7 +136,7 @@
     "baseline": 1828,
     "current": 2002,
     "added": 174,
-    "edited_existing": 98,
+    "edited_existing": 109,
     "removed": 0
   }
 }

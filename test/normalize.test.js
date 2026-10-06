@@ -9,6 +9,7 @@ import assert from 'node:assert/strict';
 import { parseTemperature, withinH2C, parseNozzleDiameters, parseDrying, parseAbrasion, parseEnclosure, REQUIREMENT, PROCESS_STATE, H2C_BASELINE }
   from '../build/src/normalize/process.js';
 import { parseHdtStandard } from '../build/src/normalize/thermal.js';
+import { readMoistureState } from '../build/src/normalize/moisture.js';
 import { normalizeDirection, DIRECTION, directionsComparable } from '../build/src/normalize/direction.js';
 import { parseValue, parseBoolean, toInterval, MISSING } from '../build/src/normalize/values.js';
 import { classifyTopic, classifyFinding, VERDICT } from '../build/src/normalize/chemical.js';
@@ -449,4 +450,33 @@ test('the reader round taught the parsers five wordings a profile prints (m346)'
   // A brass nozzle that will do, with hardened steel as the alternative, needs no hardened nozzle (m353).
   assert.equal(parseAbrasion('brass or hardened steel compatible').requiresHardened, false);
   assert.equal(parseAbrasion('Hardened steel nozzle required').requiresHardened, true);
+});
+
+test('check round 3: a Fahrenheit window, a hedge, a negation and a condition are read as the sheet means them (D131)', () => {
+  const t = (raw) => parseTemperature(raw, { plausible: [0, 500] });
+  // A window in both scales is the Celsius one (m381): read whole it ran to 473 °C, past the H2C's nozzle.
+  assert.deepEqual([t('220 - 245°C / 428 - 473°F').min, t('220 - 245°C / 428 - 473°F').max], [220, 245]);
+  assert.deepEqual([t('210-270℃/410-518℉').min, t('210-270℃/410-518℉').max], [210, 270]);
+  assert.deepEqual([t('40-60°C / 104-140°F').min, t('40-60°C / 104-140°F').max], [40, 60]);
+  // A bed the sheet calls optional or not needed is a recommendation (m371).
+  for (const raw of ['Nicht benötigt, 50 °C empfohlen', '40–60 °C Heated Bed Optional', 'not absolutely necessary, recommended 60-90°C', 'Small parts: No heating (room temperature); Large parts: 50-55°C']) {
+    assert.equal(t(raw).requirement, 'recommended', raw);
+  }
+  assert.equal(parseEnclosure('Enclosure is not recommended for PLA').state, 'not-needed');
+  assert.equal(parseEnclosure('does not need to close the cavity').state, 'not-needed');
+  assert.equal(parseEnclosure('Komora zamknięta: niewymagane').state, 'not-needed');
+  assert.equal(parseAbrasion('Dysza rubinowa lub hartowana: niewymagane').requiresHardened, false);
+  assert.equal(parseAbrasion('Dysza rubinowa lub hartowana: zalecane').requiresHardened, true);
+  // Drying advised for a condition is optional; drying before printing, with or without a condition beside it, is not.
+  assert.equal(parseDrying('dehydrate Nanovia Insublend at 60°c for 4 hours or longer, when the spools has been exposed to moisture for an extended period').need, 'optional');
+  assert.equal(parseDrying('If absorbed moisture levels are too high, users will see excessive oozing. Drying is advised using filament dryers, drying temperature set at 70-80C for 4-6 hours.').need, 'optional');
+  assert.equal(parseDrying('We recommend drying ABS Pro at 70°C for 6 hours before printing, or whenever it has absorbed moisture.').need, 'required');
+});
+
+test('check round 3: the moisture reader reads the wordings the tables hold most, so their typed state is checked (m370)', () => {
+  assert.equal(readMoistureState('All the specimens were annealed and dried at 55 °C for 8 h before testing'), 'dry');
+  assert.equal(readMoistureState('Samples were conditioned in standard climate (23°C, 50% RH 72h)'), 'conditioned');
+  assert.equal(readMoistureState('All specimens were conditioned at room temperature for 24h prior to testing'), 'not-stated');
+  assert.equal(readMoistureState('<20% RH during printing/storage'), null);
+  assert.equal(readMoistureState('Kept dry; TDS recommends drying before printing'), null);
 });

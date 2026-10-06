@@ -43,18 +43,18 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 ABS PASS
-17 of 20 products
+18 of 21 products
  1,050
-1,020–1,150 · 48
+1,020–1,100 · 45
 annealed median
  2.2
-1.6–2.38 · 13
+1.77–2.38 · 12
 annealed median
- 34
-15.7–45 · 19
+ 34.9
+15.7–45 · 17
  10
-2.7–40 · 17
- passing: 85–104
+2.7–40 · 16
+ passing: 85–105
 all products: 94
 78.9–118 · 24
  40
@@ -101,18 +101,18 @@ all products: 97
 82–100 · 9
  39↗ ☆
 ASA PASS
-14 of 16 products
+13 of 15 products
  1,070
-1,040–1,150 · 36
- 2.17
-0.943–2.45 · 11
- 38.5
-30.2–45 · 12
+1,040–1,130 · 34
+ 2.2
+0.943–2.45 · 10
+ 38.6
+30.2–45 · 11
  6.6
 1.9–15 · 12
  passing: 82–103
-all products: 95
-82–103 · 19
+all products: 94.5
+82–103 · 18
  39.5
 30.8–70.7 · 5
 ↗ ☆
@@ -275,7 +275,7 @@ Nylon / Polyamide
  PASS
 2 of 2 products
  1,120
-1,100–1,140 · 7
+1,080–1,140 · 7
  2.34
 1.98–2.7 · 2
  61
@@ -350,6 +350,7 @@ Polycarbonate
 5 of 9 products
  1,200
 1,150–1,230 · 18
+annealed median
  2.15
 1.8–2.5 · 10
 annealed median
@@ -442,13 +443,13 @@ annealed median
 PLA PASS
 7 of 84 products
  1,240
-1,170–1,329 · 156
+1,170–1,329 · 155
  2.58
-0.433–4.24 · 50
+0.433–4.24 · 51
  45
-26–70.9 · 66
- 7.62
-1.2–65 · 62
+26–70.9 · 65
+ 8
+1.2–65 · 61
  passing: 80–135
 all products: 55
 50–135 · 86
@@ -556,9 +557,9 @@ all products: 92
 PPA-CF
 High-Performance Engineering
  PASS
-4 of 4 products
- 1,210
-1,150–1,250 · 9
+3 of 3 products
+ 1,220
+1,150–1,250 · 8
  7.65
 7.1–11.8 · 4
  108
@@ -566,8 +567,8 @@ High-Performance Engineering
  3.35
 1.9–3.5 · 4
  passing: 84.5–188
-all products: 197
-84.5–240 · 9
+all products: 209
+84.5–240 · 8
 annealed median
  255↗ ☆
 PPA-GF

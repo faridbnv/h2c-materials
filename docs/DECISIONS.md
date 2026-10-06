@@ -1,6 +1,6 @@
 # Decisions
 
-> **In short.** 130 numbered decisions (D1 to D130), each opening with one line in plain words and a status saying whether a later decision changed it, followed by a table of bugs worth remembering. Read the index below for the list; a decision says what would break if it were reversed.
+> **In short.** 131 numbered decisions (D1 to D131), each opening with one line in plain words and a status saying whether a later decision changed it, followed by a table of bugs worth remembering. Read the index below for the list; a decision says what would break if it were reversed.
 
 The choices that are not obvious, and the bugs that forced several of them. Each says what would
 break if it were reversed, because that is the part that gets lost.
@@ -142,6 +142,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D128 | A page statement can head one table | A heading or footnote recorded once for a page reached every value of its class on that page, so a footnote under the mechanical table also spoke for the physical table beside it. A page statement can now name the table it heads, matched against the values' locators, and a statement that heads one table outranks one that heads the page. | In force; it extends D116 (context the page states) |
 | D129 | What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer | A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 133 profiles read "drying not needed" (34 "required", 2 "optional") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed. | In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads) |
 | D130 | The owner's answers after gap round 2: drying read with the whole page, bars below full infill labelled, three identities judged, CI once per push | Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly. | In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero |
+| D131 | Check round 3: what decides is checked by code first, every check runs to the end, and the errors found were words in the wrong place, not wrong numbers | This round checked the values and print settings the tool's answers rest on, and read on their pages only what the code could not confirm. Of 540 records read, none held a wrong number; 29 held words in the wrong place (a label inside a cell, a note read for rows it does not speak for, a condition dropped), and each kind was swept everywhere it occurred. A sealed sample of 100 deciding records, read at the end, found two errors in what decides: a temperature parser that read a Fahrenheit window as Celsius, so the tool said one printable product could not be printed, and a dropped condition; both were fixed everywhere. Nine products held twice became one each, 43 records filed under the wrong product moved, MakerBot Tough is filed under PLA, the 123 documents whose bytes were lost were fetched again, and a check that once hid a real failure behind a slow timing now runs every step and lists every failure. | In force; it amends D57 (an outlier's acceptance names the value it was accepted for) and applies D89, D99, D106, D116, D120, D123 and D129 |
 
 <!-- end index -->
 
@@ -4244,3 +4245,77 @@ filings, by Claude Opus on the evidence Claude Sonnet researchers gathered from 
   the reading-order view, the text-quality flags and the page readers' images and packets, and writes `index.csv` (one
   row per source: maker, title, products, files) and `README.md` in the backup folder.
 
+
+## D131. Check round 3: what decides is checked by code first, every check runs to the end, and the errors found were words in the wrong place, not wrong numbers
+
+> **In plain words:** This round checked the values and print settings the tool's answers rest on, and read on their pages only what the code could not confirm. Of 540 records read, none held a wrong number; 29 held words in the wrong place (a label inside a cell, a note read for rows it does not speak for, a condition dropped), and each kind was swept everywhere it occurred. A sealed sample of 100 deciding records, read at the end, found two errors in what decides: a temperature parser that read a Fahrenheit window as Celsius, so the tool said one printable product could not be printed, and a dropped condition; both were fixed everywhere. Nine products held twice became one each, 43 records filed under the wrong product moved, MakerBot Tough is filed under PLA, the 123 documents whose bytes were lost were fetched again, and a check that once hid a real failure behind a slow timing now runs every step and lists every failure.
+> **Status:** In force; it amends D57 (an outlier's acceptance names the value it was accepted for) and applies D89, D99, D106, D116, D120, D123 and D129.
+
+*Decided by Claude Opus on 2026-10-05, in the round the owner asked for after gap round 2 ("fill the gaps of the previous
+phase ... OCR only when you judge it is necessary, the rest will be effective efficient token aware re-checks mostly with
+Sonnet"); Claude Sonnet readers read the pages. The packet is `docs/audits/2026-10-05-check-round-3/`.*
+
+- **What decides, frozen first.** `TARGETS.csv` lists the 9,667 records answers rest on: 4,913 measurements that are a
+  product's value (784 of them a material's typical one), 4,659 profile cells that set a product's print gate and 95
+  printer-guide cells. A sealed sample of 100 of them (`draw-b-20261005.csv`, its SHA-256 in the packet README) was drawn
+  before anything was read and read only at the end.
+- **Code before tokens.** `scripts/audit/leverage.mjs` finds the records a plausible misreading would change an answer
+  for (×0.8, ×1.25 or removed for a value; ±10 and ±20 °C, or the opposite reading, for a print cell), by perturbing the
+  compiled database and re-running the engine: 1,020 can change an answer, 1,286 more a print state the page shows.
+  `docs/audits/.../ocr/compare.mjs` checks each record against its page's own text by position (its row label, then its
+  column by direction, state or product): 78 % of values and 55 % of print cells were confirmed. On 153 records whose
+  reading was already settled (`ocr/ground-truth.csv`, 45 of them mis-pairings made on purpose) it confirmed none of the
+  mis-pairings; the two wrong records it confirmed carry a text layer that misprints its digits, which only an image
+  reading catches. Readers then read every unconfirmed record that can change an answer (320) and samples of the rest
+  (220).
+- **What the readers found.** 29 changes on 540 records, none a wrong number: words of the row label in the cell, a
+  wrapped line's last word dropped, a neighbouring column's text, a condition dropped ("when the spools has been
+  exposed to moisture"), and statements read for rows they do not speak for (an annealing footnote under a mechanical
+  table read for the thermal rows; a printed-specimen note read for a density). Each kind was swept by code or read row
+  by row (m376 to m378): 30 enclosures, 14 chambers, 27 standards, 63 values of six Bambu Lab sheets that did not carry
+  their sheet's preparation, 28 annealing footnotes, 33 densities, 22 Stratasys heat deflections without their column.
+- **Detectors that run everywhere** (`scripts/audit/table-detectors.mjs`, `scripts/audit/duplicates.mjs`). They found 40
+  products whose composition was their printer's build plate or another product's shop card (the import's reader now
+  passes over both, m369), 140 values whose sheet says the bars were dried before testing typed as not saying so (the
+  moisture reader now reads those wordings, so the typed column is checked, m370), ten hedged or negated print cells read
+  as requirements (m371), four heat-deflection values filed as Vicat because the row was headed so (m372), and records of
+  six sheets filed under another product than the one the sheet names (m372).
+- **One product, one grade** (m373, D123's shape). Nine products held on two or three grades (a sheet revision, an ISO
+  re-test, a rename, a page and its PDF) are one grade each; a product held twice counted twice in its material's spread.
+- **What the product is** (m374). MakerBot Tough prints a PLA's glass transition (60-65 °C) and nozzle (215 °C): it is
+  filed under PLA as an inferred filing (D106). A glow-in-the-dark ABS is a Variant, "luminescent pigment" (new): its
+  pigment wears brass, so the ABS guide does not answer its nozzle (D129). Six products whose density is above their
+  polymer's neat range are Variants, "undisclosed dense filler", as D57 and R078 filed the others; like every Variant
+  they read no printer-guide row, so gates only the guide answered read unknown for them.
+- **Rows read whole** (m375). QIDI's guide rows hold the oven schedule beside "Required"; Spectrum's Polish sheets answer
+  the chamber and the nozzle in Polish, which the parsers read.
+- **Process.** `npm run verify` (`scripts/verify.mjs`) and `verify:fast` run every step and list every failure
+  (`scripts/lib/run-steps.mjs`); the scale check keeps its correctness assertions and writes its timings to
+  `build/reports/scale.json`, judged last by `scripts/scale-budget.mjs` (best of two; it fails only in CI or with
+  `--enforce-budget`). An accepted estimate outlier names the measured value it was accepted for ("measured 97"): when the
+  outlier drops below the threshold while that value stands it is dormant, a warning, and kept; when the value changes the
+  acceptance is stale. Local runs and CI use one Node version (`.nvmrc`). The README's plain status is counted from the
+  built database (`npm run docs:status`, checked in `verify:fast`), so its numbers cannot go stale.
+- **The sealed sample** (`blind-draw/draw-b-verdicts-20261005.csv`). Of the 98 records the reader could open, 15 had a
+  cell the page contradicts (15 %, 95 % interval 9 to 24 %), and 2 of those were in what decides (2 %, 0.2 to 7 %): DSM
+  Arnitel ID 2045's guide prints "220 - 245°C / 428 - 473°F", and the temperature parser read the window to 473 °C, so
+  the nozzle gate said the H2C cannot print it; colorFabb PA's drying had lost its condition. Both were in records the
+  text comparison had confirmed or had nothing to compare, because the comparison checks the words held, not the
+  parser's reading of them. The parser now sets a Fahrenheit window aside beside a Celsius one (m381, 11 cells on 9
+  profiles), and reads "If absorbed moisture levels are too high" as a condition (m382). The other 13 were cells that
+  decide nothing (a test bar's print settings not recorded, a plate or nozzle size left out, a standard written with a
+  unit before it, which m382 swept on 134 rows); OPEN-PROBLEMS §32 lists what is left of them.
+- **An annealing footnote and the bars it speaks for** (m378). Readers judged Polymaker's "*All specimens were annealed
+  ..." by where it stands, under the mechanical table. Its words say all specimens, and a heat deflection or Vicat value
+  is measured on a bar: on Fiberon PPS-CF10 the 252.5 °C heat deflection stands 155 °C above the sheet's own glass
+  transition, which only a crystallised bar reaches. So heat deflection and Vicat keep the footnote, and the DSC and
+  density rows, measured on no bar, state no treatment.
+- **The lost documents** (`refetch/`). 123 sources registered in September 2026 had no bytes on this machine or in the
+  backup. The owner had them fetched again: 32 returned the same bytes and are back in the store; 85 pages have changed
+  since and are kept beside it as later copies (`.cache/later-copies/`, backed up with the store), not registered; 6
+  shop pages would not load. The 134 deciding records they back were read against them: 133 hold, and 3DXTECH's
+  3DXSTAT ESD-PETG page now prints a 260-280 °C nozzle where its record holds 230-260 °C (OPEN-PROBLEMS §32).
+- **OCR.** Mistral's best model (`mistral-ocr-latest`) was to read the deciding pages as an independent, image-based
+  check of digits; the account's billing was off, so no page was read (`ocr/ocr-mistral.mjs` is ready, and `compare.mjs`
+  takes its output with `--source mistral`). The digit check rests on the readers' page images and the tesseract readings
+  already cached.

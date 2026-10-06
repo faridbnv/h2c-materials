@@ -45,17 +45,17 @@ n/a not applicable
 Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 ABS UNKNOWN
 0 of 17 products
-likely fails: 17 with data miss, 39 publish none
+likely fails: 17 with data miss, 38 publish none
  1,050
-1,020–1,150 · 48
+1,020–1,100 · 45
 annealed median
  2.2
-1.6–2.38 · 13
+1.77–2.38 · 12
 annealed median
- 34
-15.7–45 · 19
+ 34.9
+15.7–45 · 17
  10
-2.7–40 · 17
+2.7–40 · 16
  94
 78.9–118 · 24
  40
@@ -112,17 +112,17 @@ annealed median
  39↗ ☆
 ASA UNKNOWN
 0 of 13 products
-likely fails: 13 with data miss, 28 publish none
+likely fails: 13 with data miss, 27 publish none
  1,070
-1,040–1,150 · 36
- 2.17
-0.943–2.45 · 11
- 38.5
-30.2–45 · 12
+1,040–1,130 · 34
+ 2.2
+0.943–2.45 · 10
+ 38.6
+30.2–45 · 11
  6.6
 1.9–15 · 12
- 95
-82–103 · 19
+ 94.5
+82–103 · 18
  39.5
 30.8–70.7 · 5
 ↗ ☆
@@ -175,13 +175,13 @@ PVB / Specialty Polymers
  UNKNOWN
 none judged
 nothing published to judge
- 1,020 ~0.46–1.45† ~43–87† ~20–500† 160 — ☆
+ 1,020 ~0.4–1.5† ~44–89† ~20–500† 160 — ☆
 CoPE
 Copolyesters
  UNKNOWN
 none judged
 nothing published to judge
- 1,300 2.52 51.6 ~8–72† ~50–70† 21.6↗ ☆
+ 1,300 2.52 51.6 ~7–74† ~50–70† 21.6↗ ☆
 CPE
 Copolyesters
  UNKNOWN
@@ -227,7 +227,7 @@ Copolyesters
  UNKNOWN
 none judged
 nothing published to judge
- 1,130 0.15 19.3 320 ~72–145† 76.3¤ ☆
+ 1,130 0.15 19.3 320 ~75–148† 76.3¤ ☆
 Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
@@ -258,7 +258,7 @@ OBC
 Polyolefins
  PASS
 1 of 1 product
- 905 ~0.01–0.38† 14 passing: 700
+ 905 ~0.01–0.42† 14 passing: 700
 all products: 700
  n/a — ☆
 PA12
@@ -268,7 +268,7 @@ none judged
 nothing published to judge
  1,010
 1,000–1,020 · 6
- ~0.7–2.0† ~32–67† ~200–360† 135
+ ~0.7–2.0† ~33–68† ~200–380† 135
 100–135 · 4
  183
 123–242 · 2
@@ -308,7 +308,7 @@ none judged
 nothing published to judge
  1,150
 1,130–1,200 · 7
- ~1.5–3.9† ~40–83† ~51–98† 140
+ ~1.5–4.0† ~40–82† ~52–107† 140
 60–143 · 3
  163↗ ☆
 PA6-CF
@@ -356,7 +356,7 @@ Nylon / Polyamide
  PASS
 1 of 3 products
  1,120
-1,100–1,140 · 7
+1,080–1,140 · 7
  2.34
 1.98–2.7 · 2
  61
@@ -372,7 +372,7 @@ annealed median
 ↗ ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.1–3.5† ~36–84† ~7–60† ~79–170† — ☆
+ UNKNOWN ~989–1,070† ~1.1–3.7† ~37–84† ~8–72† ~79–172† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN
@@ -404,12 +404,6 @@ annealed median
  3
 annealed median
  157 178↗ ☆
-PA66
-Nylon / Polyamide
- UNKNOWN
-none judged
-nothing published to judge
- ~1,010–1,060† ~1.4–4.1† ~42–96† ~6–48† ~59–99† 246¤ ☆
 PAHT-CF
 Nylon / Polyamide
  UNKNOWN
@@ -436,10 +430,11 @@ all products: 400
 PC
 Polycarbonate
  UNKNOWN
-0 of 15 products
-likely fails: 15 with data miss, 7 publish none
+0 of 14 products
+likely fails: 14 with data miss, 8 publish none
  1,200
 1,150–1,230 · 18
+annealed median
  2.15
 1.8–2.5 · 10
 annealed median
@@ -511,6 +506,12 @@ Polymer Blends
 0 of 1 product
 likely fails: 1 with data misses, 1 publish none
  1,200 1.85 43.2 4.6 107 70↗ ☆
+PC-PBT-CF
+Polymer Blends
+ UNKNOWN
+none judged
+nothing published to judge
+ 1,250 ~3.6–5.1† ~90–100† ~3.6–8.4† ~113–127† 115¤ ☆
 PCL
 PVB / Specialty Polymers
  UNKNOWN
@@ -518,7 +519,7 @@ none judged
 nothing published to judge
  1,100
 1,100–1,130 · 3
- ~0.22–0.66† ~8–45† 800 57 — ☆
+ ~0.21–0.68† ~8–45† 800 57 — ☆
 PCTG
 Copolyesters
  UNKNOWN
@@ -603,20 +604,19 @@ annealed median
 ↗ ☆
 PETG UNKNOWN
 0 of 23 products
-likely fails: 23 with data miss, 51 publish none
+likely fails: 23 with data miss, 50 publish none
  1,270
-1,180–1,350 · 64
+1,180–1,300 · 61
  1.67
 0.5–3.5 · 20
- 47.3
-31.9–68.4 · 26
- 8.6
-4.1–90 · 25
-annealed median
+ 47
+31.9–68.4 · 25
+ 8.5
+4.1–90 · 24
  70
-63–80 · 42
+63–78.4 · 43
  26
-20–66 · 14
+20–66 · 12
 ↗ ☆
 PETG-CF UNKNOWN
 0 of 7 products
@@ -635,18 +635,18 @@ likely fails: 7 with data miss, 17 publish none
 35–56 · 3
 ↗ ☆
 PETG-ESD UNKNOWN
-0 of 6 products
-likely fails: 6 with data miss, 4 publish none
- 1,255
-1,220–1,320 · 10
+0 of 5 products
+likely fails: 5 with data miss, 4 publish none
+ 1,270
+1,220–1,320 · 9
  1.98
-1.4–2.13 · 6
- 36.1
-35–50 · 7
+1.4–2.13 · 5
+ 39.5
+35–50 · 6
  7.3
-5–13 · 6
+5–13 · 5
  75
-65–76 · 7
+65–76 · 6
  139
 94–183 · 2
 ↗ ☆
@@ -665,18 +665,18 @@ likely fails: 1 with data misses, 4 publish none
 PETG-PTFE UNKNOWN
 none judged
 nothing published to judge
- 1,320 ~0.9–2.7† ~25–55† ~104–184† ~49–73† 86↗ ☆
+ 1,320 ~0.9–2.8† ~26–57† ~100–210† ~49–73† 86↗ ☆
 PLA UNKNOWN
-0 of 63 products
-likely fails: 63 with data miss, 133 publish none
+0 of 62 products
+likely fails: 62 with data miss, 132 publish none
  1,240
-1,170–1,329 · 156
+1,170–1,329 · 155
  2.58
-0.433–4.24 · 50
+0.433–4.24 · 51
  45
-26–70.9 · 66
- 7.62
-1.2–65 · 62
+26–70.9 · 65
+ 8
+1.2–65 · 61
  55
 50–135 · 86
  33.7
@@ -781,18 +781,19 @@ annealed median
 58–62 · 2
  32↗ ☆
 PLA Silk UNKNOWN
-0 of 15 products
-likely fails: 15 with data miss, 19 publish none
+0 of 14 products
+likely fails: 14 with data miss, 19 publish none
  1,240
-1,210–1,320 · 30
+1,210–1,320 · 29
  1.78
 0.597–2.4 · 12
- 49.9
-27–62.7 · 18
- 10.5
-1.7–28 · 17
+ 49.8
+27–62.7 · 17
+ 7
+1.7–28 · 16
+annealed median
  53
-50–62 · 19
+50–62 · 18
  31.5
 28.8–48 · 6
 ↗ ☆
@@ -814,9 +815,9 @@ annealed median
  32↗ ☆
 PLA Wood UNKNOWN
 0 of 4 products
-likely fails: 4 with data miss, 17 publish none
+likely fails: 4 with data miss, 16 publish none
  1,200
-970–1,300 · 20
+970–1,300 · 19
  2.2
 1–3.33 · 5
  28
@@ -824,8 +825,8 @@ likely fails: 4 with data miss, 17 publish none
 annealed median
  10
 1.2–15.3 · 5
- 53
-48–60 · 9
+ 53.5
+48–60 · 8
  45
 32–115 · 3
 ↗ ☆
@@ -872,7 +873,7 @@ Polyolefins
 2 of 2 products
  900
 890–960 · 8
- ~0.44–1.10† 19 passing: 850–900
+ ~0.43–1.14† 19 passing: 850–900
 all products: 850
  80
 58.5–85 · 3
@@ -919,17 +920,17 @@ PPA-CF
 High-Performance Engineering
  UNKNOWN
 0 of 4 products
-likely fails: 4 with data miss, 5 publish none
- 1,210
-1,150–1,250 · 9
+likely fails: 4 with data miss, 4 publish none
+ 1,220
+1,150–1,250 · 8
  7.65
 7.1–11.8 · 4
  108
 87–168 · 4
  3.35
 1.9–3.5 · 4
- 197
-84.5–240 · 9
+ 209
+84.5–240 · 8
 annealed median
  255↗ ☆
 PPA-GF
@@ -1021,7 +1022,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–6.9† ~26–53† ~20–370† ~51–76† — ☆
+ ~0.1–7.6† ~26–54† ~20–370† ~51–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN
@@ -1037,7 +1038,7 @@ Styrenics
  UNKNOWN
 none judged
 nothing published to judge
- 1,080 ~2.7–4.5† ~72–92† ~5–49† ~102–113† — ☆
+ 1,080 ~2.7–4.5† ~72–91† ~5–52† ~102–114† — ☆
 SBC
 Styrenics
  UNKNOWN
@@ -1047,8 +1048,8 @@ nothing published to judge
 TPC
 also called TPEE · Flexible Elastomers
  UNKNOWN
-0 of 1 product
-likely fails: 1 with data misses, 11 publish none
+none judged
+nothing published to judge
  1,150
 1,070–1,220 · 10
  0.048
@@ -1139,7 +1140,7 @@ none judged
 nothing published to judge
  1,180
 1,090–1,260 · 15
- ~0.01–0.35† 30
+ ~0.01–0.38† 30
 22.4–39 · 3
  540
 140–650+ · 3
@@ -1151,7 +1152,7 @@ none judged
 nothing published to judge
  1,230
 1,220–1,230 · 3
- ~0.02–0.68† ~22–77† ~19–60† n/a 189
+ ~0.02–0.74† ~21–75† ~21–64† n/a 189
 150–227 · 2
 ¤↗
 out of stock
@@ -1163,7 +1164,7 @@ none judged
 nothing published to judge
  1,255
 1,180–1,330 · 2
- ~0.01–0.33† ~13–47† ~80–280† n/a — ☆
+ ~0.009–0.36† ~13–46† ~80–300† n/a — ☆
 TPU-ESD
 Flexible Elastomers
  UNKNOWN
@@ -1171,14 +1172,14 @@ none judged
 nothing published to judge
  1,190
 1,180–1,200 · 2
- ~0.01–0.34† 12 ~310–640† n/a 174¤ ☆
+ ~0.009–0.37† 12 ~310–630† n/a 174¤ ☆
 TPU-LW
 Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,120
-880–1,200 · 3
+ 1,085
+880–1,200 · 4
  ~0.005–0.19† 10.3 629 n/a 70↗ ☆
 TPV
 Flexible Elastomers

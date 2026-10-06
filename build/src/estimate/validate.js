@@ -99,7 +99,7 @@ export function validateEstimates(db) {
     issues.push(warn('EST-REJECTED', 'measurements', `${model.rejected.length} values are physically impossible for their property and were kept out of the estimate model: ${model.rejected.map((r) => `${r.measurementId} ${r.material} ${r.property} ${r.value} ${r.unit}`).join('; ')}`, { records: model.rejected.map((r) => r.measurementId) }));
   }
   if (model.outliers.length) {
-    issues.push(warn('EST-OUTLIER', 'materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`, { records: model.outliers.map((o) => `${o.materialId} ${o.key}`) }));
+    issues.push(warn('EST-OUTLIER', 'materials', `${model.outliers.length} measured headlines sit far outside what every other observation predicts; check the source and the grade: ${model.outliers.map((o) => `${o.material} ${o.key} ${o.measured} (expected about ${o.expected})`).join('; ')}`, { records: model.outliers.map((o) => `${o.materialId} ${o.key}`), values: model.outliers.map((o) => o.measured) }));
   }
 
   // Evidence the model down-weights as contradicting everything else (fitWithConflicts), one finding per material,

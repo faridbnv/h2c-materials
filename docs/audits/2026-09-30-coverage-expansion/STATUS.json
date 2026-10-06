@@ -1,5 +1,5 @@
 {
-  "dataRelease": "6b383eef0592",
+  "dataRelease": "b460c608eed1",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -8,10 +8,10 @@
     "remaining": 0
   },
   "productPasses": {
-    "total": 1049,
+    "total": 1041,
     "completed": 121,
-    "remaining": 928,
-    "mergedIntoAnother": 28
+    "remaining": 920,
+    "mergedIntoAnother": 36
   },
   "productsAdmittedAfterFreeze": [
     "G167-14",
@@ -45,11 +45,11 @@
     }
   },
   "allCataloguePrintGates": {
-    "products": 1109,
-    "nozzleKnown": 1076,
-    "chamberKnown": 799,
-    "chamberUnknown": 310,
-    "dryingRequired": 630
+    "products": 1100,
+    "nozzleKnown": 1065,
+    "chamberKnown": 787,
+    "chamberUnknown": 313,
+    "dryingRequired": 621
   },
   "databaseCounts": {
     "materials": 175,
@@ -58,14 +58,14 @@
     "retiredDuplicates": {
       "measurements": 331,
       "evidence": 21,
-      "profiles": 79
+      "profiles": 80
     },
     "excluded": 17,
     "grades": 1175,
-    "measurements": 14403,
-    "numericMeasurements": 14214,
+    "measurements": 14424,
+    "numericMeasurements": 14235,
     "quarantined": 32,
-    "profiles": 1832,
+    "profiles": 1831,
     "evidence": 868,
     "prices": 357,
     "sources": 2002,
@@ -94,7 +94,7 @@
       "baseline": 5306,
       "current": 5756,
       "added": 450,
-      "edited_existing": 220,
+      "edited_existing": 258,
       "removed": 0
     },
     "family_entries": {
@@ -115,7 +115,7 @@
       "baseline": 1163,
       "current": 1175,
       "added": 12,
-      "edited_existing": 83,
+      "edited_existing": 138,
       "removed": 0
     },
     "headline_definitions": {
@@ -148,9 +148,9 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 14734,
-      "added": 3198,
-      "edited_existing": 2139,
+      "current": 14755,
+      "added": 3219,
+      "edited_existing": 2608,
       "removed": 0
     },
     "method": {
@@ -162,8 +162,8 @@
     },
     "page_context": {
       "baseline": 0,
-      "current": 954,
-      "added": 954,
+      "current": 956,
+      "added": 956,
       "edited_existing": 0,
       "removed": 0
     },
@@ -199,7 +199,7 @@
       "baseline": 1316,
       "current": 1911,
       "added": 595,
-      "edited_existing": 985,
+      "edited_existing": 990,
       "removed": 0
     },
     "properties": {
@@ -213,7 +213,7 @@
       "baseline": 1828,
       "current": 2002,
       "added": 174,
-      "edited_existing": 98,
+      "edited_existing": 109,
       "removed": 0
     }
   },

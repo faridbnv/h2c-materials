@@ -69,6 +69,8 @@ const CONVERSIONS = new Map(Object.entries({
   'kg/cm2->mpa': 0.0980665, 'kg/cm2->gpa': 0.0000980665, 'kgf/cm2->mpa': 0.0980665, 'kgf/cm2->gpa': 0.0000980665,
   'psi->mpa': 0.00689476, 'psi->gpa': 0.00000689476, 'ksi->mpa': 6.89476, 'ksi->gpa': 0.00689476,
   'kg·cm/cm->j/m': 9.80665, 'kg∙cm/cm->j/m': 9.80665, 'kgf·cm/cm->j/m': 9.80665, 'ft·lbf/in->j/m': 53.3787, 'ft·lb/in->j/m': 53.3787,
+  // 3D-Fuel prints an Izod as "ft-lb/in", and FormFutura its Charpy in "ft.lb/in2" only (check round 3, m379).
+  'ft-lb/in->j/m': 53.3787, 'ft.lb/in2->kj/m2': 2.10154, 'ft·lbf/in2->kj/m2': 2.10154,
 }));
 
 export function normalizedRawValue(row) {

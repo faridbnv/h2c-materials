@@ -1012,6 +1012,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | undisclosed dense filler | The published density or stiffness is beyond what the unfilled base polymer can reach, so the product contains a filler its maker does not name. |
 | flame-retardant ceramic filler | The maker declares a flame-retardant ceramic load in the named polymer but publishes no loading fraction. The product's values remain its own; the estimate model treats it as a declared grade variant without inferring density or qualification. |
 | declared softer grade | The maker declares a flexible or elastomeric grade of the named polymer (an elastomer-modified or low-comonomer grade, R098). Its density, modulus and softening point sit below the rigid polymer’s, it foams nothing, and the estimate model keeps its values from pulling the family. |
+| luminescent pigment | A glow-in-the-dark pigment (strontium aluminate) the maker names in the product. Makers of glow filaments say it wears brass nozzles, so the product is not its polymer's printer-guide type and reads no guide row (D129); its values stay its own, and the estimate model keeps them from pulling the family (D131). |
 
 <a id="vocab-h2c-status"></a>
 ### h2c-status

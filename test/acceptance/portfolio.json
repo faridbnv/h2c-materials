@@ -104,8 +104,8 @@
       ],
       "policy": { "unknownPolicy": "strict" },
       "expect": [
-        { "product": "G026-02", "verdict": "UNKNOWN", "records": ["Q00107", "Q00108"],
-          "because": "PolyMax PETG-ESD's sheet rates weak acids Good and strong acids Fair-Poor (p. 2, re-read 2026-09-27). The Good cannot answer 'acids' while the strong-acid rating limits it." },
+        { "product": "G026-05", "verdict": "UNKNOWN", "records": ["Q00107", "Q00108"],
+          "because": "Polymaker PETG-ESD's PolyMax sheet (V5.3) rates weak acids Good and strong acids Fair-Poor (p. 2, re-read 2026-09-27). The Good cannot answer 'acids' while the strong-acid rating limits it. (The product's PolyMax and Fiberon grades are one since m373; the records moved with it.)" },
         { "product": "G026-01", "verdict": "UNKNOWN",
           "because": "3DXTECH 3DXSTAT ESD PETG has no acid record of its own; Q00107 is Polymaker's product's." }
       ]

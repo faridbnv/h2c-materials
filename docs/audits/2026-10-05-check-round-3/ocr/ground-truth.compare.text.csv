@@ -1,0 +1,154 @@
+TargetID,Kind,Record,SourceID,Page,Outcome,LabelScore,MatchedRow,MatchedColumn,Note,Expected
+F0001,value,V012865,R-EXTRUDR-durapro-asa-cf-TDS-en,1,pairing-confirmed,1.00,Shrinking | ASTM D955 | % | 0.3,VALUE,single value cell,pairing-confirmed
+F0002,value,V012945,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,pairing-confirmed,0.80,"Water absorption (saturation, 23°C)- | 1 % | Outstanding",Value,single value cell,pairing-confirmed
+F0003,value,V013370,R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0,2,pairing-confirmed,0.86,"Impact Strength (Z) | ISO 179, GB/T 1043 | 7.2 ±1.8 kJ/m²",Data,single value cell,pairing-confirmed
+F0004,value,V012363,R-SPECTRUM-PORTFOLIO-2024,4,label-not-found,,,,,pairing-confirmed
+F0005,value,V012117,R-EXTRUDR-PRINT-20260928-83ec5c0b3125,1,pairing-confirmed,0.92,Glass transition temp. (Tg)ISO 11357-1 (DSC) | 145 °C | Outstanding,Value,single value cell,pairing-confirmed
+F0006,value,V013999,D-RAISE3D-Raise3d-Premium-PETG-TDS-V3,1,pairing-confirmed,1.00,"Elongation at break (X-Y) | ASTM D638 (ISO 527, GB/T 1040) | 6.8 ±0.9 (%)",Typical Value,single value cell,pairing-confirmed
+F0007,value,V013870,D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,1,pairing-confirmed,0.73,Elongation at break (%) | ISO 527 | 2.8 ± 0.5 | 0.9 ± 0.1,"Typical Value (ZX, Flat)",column by direction,pairing-confirmed
+F0008,value,V012103,R-EXTRUDR-PRINT-20260929-463457967aab,1,pairing-confirmed,1.00,Density | ISO 1183-1 | 1.33 g/cm³ | -,Value,single value cell,pairing-confirmed
+F0009,value,V012186,D-FIBERLOGY-RPP-FILAMENT-PAGE,1,pairing-confirmed,1.00,Elongation at break | >100% (ISO 527),not required,single value cell,pairing-confirmed
+F0010,value,V012908,R-EXTRUDR-flex-semisoft-TDS-de,1,pairing-confirmed,1.00,Maximale Dehnung | ISO 527-2/5A/500 | % | 550,WERT,single value cell,pairing-confirmed
+F0011,value,V013927,D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,1,pairing-confirmed,0.67,Elongation at break (%) | ISO 527 | 16.0 ±8.0 | 3.0 ±1.5,"Typical Value / (XY, Flat)",column by direction,pairing-confirmed
+F0012,value,V012897,R-EXTRUDR-durapro-pc-pbt-TDS-de,1,elsewhere,1.00,"Zug-Modul | ISO 527-1,-2",,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0013,value,V013543,S-PVB-0eaa8597-prusament-rpla-natural-pigments-technical-data-sheet,2,pairing-confirmed,0.67,Tensile Yield Strength [MPa] | 50.6 ± 1 | 52 ± 1 | ISO 527-1,Horizontal,column by direction,pairing-confirmed
+F0014,value,V014358,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,1,pairing-confirmed,1.00,(X-Y) Elongation at break | ISO 527/2 | 50 mm/min | % | 10±2.5,Typical Values,single value cell,pairing-confirmed
+F0015,gate,P1691,R-FABRU-PUREFIL-2186-Materialdatenblatt-PETG-purefil,1,pairing-confirmed,1.00,Drucktemperatur | 210-260 °C,Verarbeitungsdaten,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0016,gate,P1691,R-FABRU-PUREFIL-2186-Materialdatenblatt-PETG-purefil,1,pairing-confirmed,1.00,Heizbett Temperatur | 50-80 °C,Verarbeitungsdaten,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0017,gate,P1622,D-3D4MAKERS-PLA-FILAMENT-PAGE,1,absent,1.00,Printer nozzle temperature180 - | 220°C,,"the numbers are printed, not together in one cell",pairing-confirmed
+F0018,gate,P1622,D-3D4MAKERS-PLA-FILAMENT-PAGE,1,pairing-confirmed,1.00,Heated bed temperature | 20 - 60°C,Value,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0019,gate,P1676,R-EXTRUDR-pla-nx2-matt-TDS-it,1,pairing-confirmed,1.00,Ugello | 200-230°C,,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0020,gate,P1676,R-EXTRUDR-pla-nx2-matt-TDS-it,1,pairing-confirmed,1.00,Piano riscaldato | 20-60°C,,single value cell,pairing-confirmed
+F0021,gate,P1446,D-FABRU-PUREFIL-HDPE-GF20-FILAMENT-169-1313-PAGE,1,pairing-confirmed,1.00,Nozzle temperature | 240-280 ° C,,single value cell,pairing-confirmed
+F0022,gate,P1446,D-FABRU-PUREFIL-HDPE-GF20-FILAMENT-169-1313-PAGE,1,pairing-confirmed,1.00,Printing table temperature | 80-120 ° C,,single value cell,pairing-confirmed
+F0023,gate,P1405,D-3D4MAKERS-FACILAN-HT-FILAMENT-PAGE,1,pairing-confirmed,1.00,Print Temperature | 240 - 250 °C,PEI sheet / Glass,single value cell; 3 rows scored within 0.05,pairing-confirmed
+F0024,gate,P1405,D-3D4MAKERS-FACILAN-HT-FILAMENT-PAGE,1,pairing-confirmed,1.00,Bed Temperature | 75 - 85 °C,,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0025,gate,P1451,R-FABRU-10204-material-data-sheet-TPS-40D-purefil,1,pairing-confirmed,0.80,Prin3ng temperature | 210-240 °C,Processing data,single value cell,pairing-confirmed
+F0026,gate,P1451,R-FABRU-10204-material-data-sheet-TPS-40D-purefil,1,pairing-confirmed,1.00,Heated bed temperature | 60-80 °C,Processing data,single value cell,pairing-confirmed
+F0027,gate,P1451,R-FABRU-10204-material-data-sheet-TPS-40D-purefil,1,pairing-confirmed,1.00,Build chamber temperature | 60-80 °C,Processing data,single value cell,pairing-confirmed
+F0028,value,V013782,R-QIDI-PA12-CF,2,elsewhere,0.92,Young’s modulus(X-Y),,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0029,value,V012066,R-EXTRUDR-PRINT-20260929-3793d04515ce,1,pairing-confirmed,1.00,Abrasion resistance | - | 25 mm³ | -,Value,single value cell,pairing-confirmed
+F0030,value,V012925,R-EXTRUDR-pla-nx2-matt-TDS-it,1,pairing-confirmed,1.00,Resistenza all'urto con intaglio | ISO 179/1eA | kj/m² | 7 | Ugello rinforzato | no,VALORE,single value cell,pairing-confirmed
+F0031,value,V012934,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,pairing-confirmed,1.00,Charpy notched impact strength (-30°C)ISO 179-1eA | 5 kJ/m² | Typical,Value,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0032,value,V013844,D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,1,pairing-confirmed,0.73,Tensile strength (MPa) | ISO 527 | 105 ±2,"Typical Value (XY, Flat)",single value cell,pairing-confirmed
+F0033,value,V012555,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-Metal-V3-0,1,pairing-confirmed,1.00,Young's Modulus / MPa (X-Y) | 1900±100,Typical Value,single value cell,pairing-confirmed
+F0034,value,V014049,S-PCGF-PET-CF-TDS,1,pairing-confirmed,1.00,Density | ISO 1183 | g/cm3 | 1.3~1.31,,single value cell,pairing-confirmed
+F0035,value,V012704,D-BIGREP-RPLA-PAGE,1,pairing-confirmed,1.00,"Impact Strength, Notched (ISO 179) | 2 kJ/m²",Polylactic Acid,single value cell,pairing-confirmed
+F0036,value,V013901,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,1,pairing-confirmed,0.89,Bending strength (MPa) | ISO 178 | 95 ± 1.3 | 48 ± 2.4,"Typical Value (ZX, Flat)",column by direction,pairing-confirmed
+F0037,value,V014322,R-STRATASYS-mds-fdm-pc-0426a,11,row-only,0.89,Elongation @ Yield | % | 4.8 (0.2) | 1.9 (0.13),ZX Orientation,"2 value cells, column not decided; 2 rows scored within 0.05",pairing-confirmed
+F0038,value,V013906,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,2,elsewhere,1.00,Heat distortion temperature (°C) | ISO 75 @0.45 MPa | 69,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0039,value,V013990,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V4,1,pairing-confirmed,1.00,"Elongation at break (X-Y) | ASTM D638 (ISO 527, GB/T 1040) | 3.2 ±0.4 (%)",Typical Value,single value cell,pairing-confirmed
+F0040,value,V011863,R-3DJAKE-SILK-TDS-4,1,pairing-confirmed,1.00,"Tensile strength [MPa] | 50 mm/min | 59,0",PLA Silk,single value cell,pairing-confirmed
+F0041,value,V012176,D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE,1,pairing-confirmed,1.00,Density | 1.38 g/cm³,Enclosed chamber,single value cell,pairing-confirmed
+F0042,gate,P1616,R-SUNLU-PRINT-20260928-41d3588b228c,1,absent,,,,,pairing-confirmed
+F0043,gate,P1616,R-SUNLU-PRINT-20260928-41d3588b228c,1,pairing-confirmed,1.00,Bed Temperature | 50-60℃,,single value cell,pairing-confirmed
+F0044,gate,P1442,R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a,1,pairing-confirmed,1.00,Nozzle temperature | 220–250 °C,,single value cell; 4 rows scored within 0.05,pairing-confirmed
+F0045,gate,P1442,R-EXTRUDR-PRIORITY-20261003-1d34d7823a2a,1,pairing-confirmed,1.00,Build plate temperature | 50 °C,,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0046,value,V014677,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,row-only,0.67,Strain @ Break | % | 4.61 (0.24) | 3.16 (0.44),,"2 value cells, column not decided",pairing-confirmed
+F0047,value,V014688,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,elsewhere,0.62,Yield Strength,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0048,value,V014465,R-3D4MAKERS-TDS-PI-Filament-Z2-Zymergen-3D4Makers-ver-02,1,pairing-confirmed,0.67,Strain at Break *** | ASTM 1708 | % | N/A | N/A | 4.7,(upright),single value cell; 4 rows scored within 0.05,pairing-confirmed
+F0049,value,V014479,R-3D4MAKERS-TDS-PI-Filament-Z2-Zymergen-3D4Makers-ver-02,2,label-not-found,,,,,pairing-confirmed
+F0050,value,V014562,R-STRATASYS-mds-fdm-antero-800na-0825a,4,elsewhere,0.89,Thermal Conductivity,,"the value is printed on the page, not in the matched row; 4 rows scored within 0.05",pairing-confirmed
+F0051,value,V014674,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,elsewhere,0.62,Modulus (Elastic),,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0052,value,V014605,R-STRATASYS-mds-fdm-antero-800na-0825a,7,label-not-found,,,,,pairing-confirmed
+F0053,value,V014727,R-ESSENTIUM-TDS-Essentium-PA-CF,1,row-only,1.00,"Flexural Modulus, GPa | ISO 178 | 2.39 (0.05) | 1.00 (0.03) | 0.54 (0.02) | 0.56 (0.01)",,"4 value cells, column not decided",pairing-confirmed
+F0054,value,V014676,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,elsewhere,0.67,Strength @ Break,,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",pairing-confirmed
+F0055,gate,P1903,R-RAISE3D-GAP2-20261005-823e5cec6179,1,pairing-confirmed,0.80,Nozzle temperature (°C) | 260-280℃,Raise3D Premium PVA+ Filament,single value cell; 4 rows scored within 0.05,pairing-confirmed
+F0056,gate,P1903,R-RAISE3D-GAP2-20261005-823e5cec6179,1,pairing-confirmed,0.80,Bed temperature (°C) | 70-80℃,Raise3D Premium PVA+ Filament,single value cell; 5 rows scored within 0.05,pairing-confirmed
+F0057,gate,P1906,R-FORMFUTURA-GAP2-20261005-8c7a48d70127,1,elsewhere,0.90,General printing guidelines *,,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",pairing-confirmed
+F0058,gate,P1906,R-FORMFUTURA-GAP2-20261005-8c7a48d70127,1,elsewhere,0.90,General printing guidelines *,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0059,gate,P1908,R-FIBERLOGY-GAP2-20261005-97507f7e6e3b,1,pairing-confirmed,0.80,Printing temperature | 200–220°C,,single value cell; 6 rows scored within 0.05,pairing-confirmed
+F0060,gate,P1908,R-FIBERLOGY-GAP2-20261005-97507f7e6e3b,1,pairing-confirmed,0.80,Bed temperature | 70°C,,single value cell; 5 rows scored within 0.05,pairing-confirmed
+F0061,gate,P1901,R-RAISE3D-GAP2-20261005-72c685ea2655,1,pairing-confirmed,0.80,Nozzle temperature (°C) | 260-290℃,Raise3D E3/ Raise3D E2CF/ Raise3D RMF500,single value cell; 4 rows scored within 0.05,pairing-confirmed
+F0062,gate,P1901,R-RAISE3D-GAP2-20261005-72c685ea2655,1,pairing-confirmed,0.80,Bed temperature (°C) | 60℃,Raise3D E3/ Raise3D E2CF/ Raise3D RMF500,single value cell; 4 rows scored within 0.05,pairing-confirmed
+F0063,gate,P1883,D-FLASH-FABRIAL-R-TPE-TDS-JP,1,label-not-found,,,,,pairing-confirmed
+F0064,gate,P1883,D-FLASH-FABRIAL-R-TPE-TDS-JP,1,label-not-found,,,,,pairing-confirmed
+F0065,gate,P1902,R-RAISE3D-GAP2-20261005-7ca3c63b00c1,1,pairing-confirmed,0.80,Nozzle temperature (°C) | 260℃-300℃,,single value cell; 4 rows scored within 0.05,pairing-confirmed
+F0066,gate,P1902,R-RAISE3D-GAP2-20261005-7ca3c63b00c1,1,pairing-confirmed,0.80,Bed temperature (°C) | 60-80℃,,single value cell; 4 rows scored within 0.05,pairing-confirmed
+F0067,gate,P1907,R-3DXTECH-GAP2-20261005-8d280b06a860,1,pairing-confirmed,0.80,Extruder Temp | 260-275C,,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0068,gate,P1907,R-3DXTECH-GAP2-20261005-8d280b06a860,1,pairing-confirmed,0.80,Bed Temp | 80-95C,,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0069,value,V014703,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,elsewhere,0.67,Peak Strength,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0070,value,V014617,R-STRATASYS-mds-fdm-antero-800na-0825a,11,pairing-confirmed,0.92,Tg | ASTM D7426-08 | 151 °C (303.8 °F),XZ,single value cell,pairing-confirmed
+F0071,value,V014691,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,elsewhere,0.67,Strength @ Break,,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",pairing-confirmed
+F0072,value,V000734,I-PC-CF-TDS,1,elsewhere,1.00,"Melting Point(270℃, 2160g) | ℃",,"the value is printed on the page, not in the matched row",not-confirmed
+F0073,value,V000734,I-PC-CF-TDS,1,elsewhere,1.00,"Melting Point(270℃, 2160g) | ℃",,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0074,value,V000735,I-PC-CF-TDS,1,absent,0.80,Vicat Softening Point A/120 | ℃ | ASTM D-648 | 110,,,not-confirmed
+F0075,value,V000735,I-PC-CF-TDS,1,pairing-confirmed,0.80,Vicat Softening Point A/120 | ℃ | ASTM D-648 | 110,,single value cell,pairing-confirmed
+F0076,value,V010229,R-YOUSU-YOUSUPVBTDS-9c2c,1,elsewhere,1.00,Tensile Strength | MPa,,"the value is printed on the page, not in the matched row",not-confirmed
+F0077,value,V010229,R-YOUSU-YOUSUPVBTDS-9c2c,1,elsewhere,1.00,Tensile Strength | MPa,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0078,value,V010302,R-YOUSU-YOUSUPCTDS-535a,1,elsewhere,1.00,Tensile Strength | MPa,,"the value is printed on the page, not in the matched row",not-confirmed
+F0079,value,V010302,R-YOUSU-YOUSUPCTDS-535a,1,elsewhere,1.00,Tensile Strength | MPa,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0080,gate,P1101,B-PC-uVYGQd,1,pairing-confirmed,1.00,Bed Temperature | 55 - 69°C,Data,single value cell; 3 rows scored within 0.05,not-confirmed
+F0081,gate,P1101,B-PC-uVYGQd,1,absent,1.00,Build Plate Type | Textured PEI Plate / Smooth PEI Plate/Cool Plate Supertack,,3 rows scored within 0.05,pairing-confirmed
+F0082,gate,P1101,B-PC-uVYGQd,1,pairing-confirmed,1.00,Chamber Temperature | 29- 40°C,Turnon,single value cell,not-confirmed
+F0083,gate,P1101,B-PC-uVYGQd,1,absent,1.00,Chamber Temperature | 29- 40°C,,"the numbers are printed, not together in one cell",pairing-confirmed
+F0084,gate,P1406,D-3D4MAKERS-FACILAN-PCL-100-FILAMENT-PAGE,1,elsewhere,0.90,"Adhesion | Ultimaker Adhesion sheets, Avery Mailing labels L7567-25, PEI Sheets",,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",not-confirmed
+F0085,gate,P1406,D-3D4MAKERS-FACILAN-PCL-100-FILAMENT-PAGE,1,pairing-confirmed,1.00,Print Temperature | 130°C (130 to 170°C),,single value cell; 3 rows scored within 0.05,pairing-confirmed
+F0086,gate,P1407,R-3D4MAKERS-PRINT-20260928-8d7352c2d77f,1,elsewhere,0.90,"Adhesion | Ultimaker Adhesion sheets, Avery Mailing labels L7567-25, PEI Sheets",,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",not-confirmed
+F0087,gate,P1407,R-3D4MAKERS-PRINT-20260928-8d7352c2d77f,1,pairing-confirmed,1.00,Print Temperature | 130°C (130 to 170°C),,single value cell; 3 rows scored within 0.05,pairing-confirmed
+F0088,gate,P1494,R-NANOVIA-COVERAGE-20261001-19c4810bdc29,1,elsewhere,0.80,Plate Temp. | 130 - 150 | °C,,"the value is printed on the page, not in the matched row",not-confirmed
+F0089,gate,P1494,R-NANOVIA-COVERAGE-20261001-19c4810bdc29,1,elsewhere,1.00,Plate Temp. | 130 - 150 | °C,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0090,gate,P1643,XP-carbonx-petg-cf-1,1,row-only,0.77,Wide processing range from | 230-270°C,,the label names nothing of this field and neither does the locator: the pairing is not confirmed; 4 rows scored within 0.05,not-confirmed
+F0091,gate,P1643,XP-carbonx-petg-cf-1,1,pairing-confirmed,1.00,Extruder Temp | 230-260C,,single value cell; 3 rows scored within 0.05,pairing-confirmed
+F0092,gate,P1101,B-PC-uVYGQd,1,absent,1.00,Build Plate Type | Textured PEI Plate / Smooth PEI Plate/Cool Plate Supertack,,3 rows scored within 0.05,pairing-confirmed
+F0093,gate,P1650,B-PC-PLA-Pure-TDS,1,absent,1.00,Build Plate Type | Textured PEI Plate / Smooth PEI Plate/Cool Plate Supertack,,3 rows scored within 0.05,pairing-confirmed
+F0094,value,V012865,R-EXTRUDR-durapro-asa-cf-TDS-en,1,elsewhere,1.00,Shrinking | ASTM D955 | % | 0.3,,"the value is printed on the page, not in the matched row",not-confirmed
+F0095,value,V012945,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,elsewhere,0.80,"Water absorption (saturation, 23°C)- | 1 % | Outstanding",,"the value is printed on the page, not in the matched row",not-confirmed
+F0096,value,V013370,R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0,2,elsewhere,0.86,"Impact Strength (Z) | ISO 179, GB/T 1043 | 7.2 ±1.8 kJ/m²",,"the value is printed on the page, not in the matched row",not-confirmed
+F0097,value,V012363,R-SPECTRUM-PORTFOLIO-2024,4,label-not-found,,,,,not-confirmed
+F0098,value,V012117,R-EXTRUDR-PRINT-20260928-83ec5c0b3125,1,elsewhere,0.92,Glass transition temp. (Tg)ISO 11357-1 (DSC) | 145 °C | Outstanding,,"the value is printed on the page, not in the matched row",not-confirmed
+F0099,value,V013999,D-RAISE3D-Raise3d-Premium-PETG-TDS-V3,1,elsewhere,1.00,"Elongation at break (X-Y) | ASTM D638 (ISO 527, GB/T 1040) | 6.8 ±0.9 (%)",,"the value is printed on the page, not in the matched row",not-confirmed
+F0100,value,V013870,D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,1,elsewhere,0.73,Elongation at break (%) | ISO 527 | 2.8 ± 0.5 | 0.9 ± 0.1,,"the value is printed on the page, not in the matched row",not-confirmed
+F0101,value,V012103,R-EXTRUDR-PRINT-20260929-463457967aab,1,elsewhere,1.00,Density | ISO 1183-1 | 1.33 g/cm³ | -,,"the value is printed on the page, not in the matched row",not-confirmed
+F0102,value,V012186,D-FIBERLOGY-RPP-FILAMENT-PAGE,1,elsewhere,1.00,Elongation at break | >100% (ISO 527),,"the value is printed on the page, not in the matched row",not-confirmed
+F0103,value,V012908,R-EXTRUDR-flex-semisoft-TDS-de,1,elsewhere,1.00,Maximale Dehnung | ISO 527-2/5A/500 | % | 550,,"the value is printed on the page, not in the matched row",not-confirmed
+F0104,value,V013927,D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,1,elsewhere,0.67,Elongation at break (%) | ISO 527 | 16.0 ±8.0 | 3.0 ±1.5,,"the value is printed on the page, not in the matched row",not-confirmed
+F0105,value,V012897,R-EXTRUDR-durapro-pc-pbt-TDS-de,1,elsewhere,1.00,"Zug-Modul | ISO 527-1,-2",,"the value is printed on the page, not in the matched row",not-confirmed
+F0106,value,V013543,S-PVB-0eaa8597-prusament-rpla-natural-pigments-technical-data-sheet,2,elsewhere,0.67,Tensile Yield Strength [MPa] | 50.6 ± 1 | 52 ± 1 | ISO 527-1,,"the value is printed on the page, not in the matched row",not-confirmed
+F0107,value,V014358,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,1,elsewhere,1.00,(X-Y) Elongation at break | ISO 527/2 | 50 mm/min | % | 10±2.5,,"the value is printed on the page, not in the matched row",not-confirmed
+F0108,value,V013782,R-QIDI-PA12-CF,2,elsewhere,0.92,Young’s modulus(X-Y),,"the value is printed on the page, not in the matched row",not-confirmed
+F0109,value,V012066,R-EXTRUDR-PRINT-20260929-3793d04515ce,1,elsewhere,1.00,Abrasion resistance | - | 25 mm³ | -,,"the value is printed on the page, not in the matched row",not-confirmed
+F0110,value,V012925,R-EXTRUDR-pla-nx2-matt-TDS-it,1,elsewhere,1.00,Resistenza all'urto con intaglio | ISO 179/1eA | kj/m² | 7 | Ugello rinforzato | no,,"the value is printed on the page, not in the matched row",not-confirmed
+F0111,value,V012934,R-EXTRUDR-PRINT-20260928-526b472f69cc,1,elsewhere,1.00,Charpy notched impact strength (+23°C)ISO 179-1eA | 8 kJ/m² | Good,,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",not-confirmed
+F0112,value,V013844,D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,1,elsewhere,0.73,Tensile strength (MPa) | ISO 527 | 105 ±2,,"the value is printed on the page, not in the matched row",not-confirmed
+F0113,value,V012555,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-Metal-V3-0,1,elsewhere,1.00,Young's Modulus / MPa (X-Y) | 1900±100,,"the value is printed on the page, not in the matched row",not-confirmed
+F0114,value,V014049,S-PCGF-PET-CF-TDS,1,elsewhere,1.00,Density | ISO 1183 | g/cm3 | 1.3~1.31,,"the value is printed on the page, not in the matched row",not-confirmed
+F0115,value,V013901,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,1,elsewhere,0.89,Bending strength (MPa) | ISO 178 | 95 ± 1.3 | 48 ± 2.4,,"the value is printed on the page, not in the matched row",not-confirmed
+F0116,value,V014322,R-STRATASYS-mds-fdm-pc-0426a,11,elsewhere,0.89,Elongation @ Yield | % | 5.3 (0.040) | 2.4 (0.36),,"the value is printed on the page, not in the matched row; 2 rows scored within 0.05",not-confirmed
+F0117,value,V013906,D-RAISE3D-Raise3D-Hyper-Speed-PETG-CF-TDS-V1-0,2,elsewhere,1.00,Heat distortion temperature (°C) | ISO 75 @0.45 MPa | 69,,"the value is printed on the page, not in the matched row",not-confirmed
+F0118,value,V013990,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V4,1,elsewhere,1.00,"Elongation at break (X-Y) | ASTM D638 (ISO 527, GB/T 1040) | 3.2 ±0.4 (%)",,"the value is printed on the page, not in the matched row",not-confirmed
+F0119,value,V011863,R-3DJAKE-SILK-TDS-4,1,elsewhere,1.00,"Tensile strength [MPa] | 50 mm/min | 59,0",,"the value is printed on the page, not in the matched row",not-confirmed
+F0120,value,V012176,D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE,1,elsewhere,1.00,Density | 1.38 g/cm³,,"the value is printed on the page, not in the matched row",not-confirmed
+F0121,value,V014677,R-STRATASYS-fdm-nylon-cf10-material-datasheet,6,elsewhere,0.67,Strain @ Break | % | 4.61 (0.24) | 3.16 (0.44),,"the value is printed on the page, not in the matched row",not-confirmed
+F0122,value,V014688,R-STRATASYS-fdm-nylon-cf10-material-datasheet,7,elsewhere,0.62,Yield Strength,,"the value is printed on the page, not in the matched row",not-confirmed
+F0123,value,V014465,R-3D4MAKERS-TDS-PI-Filament-Z2-Zymergen-3D4Makers-ver-02,1,elsewhere,0.67,Z,,"the value is printed on the page, not in the matched row; 4 rows scored within 0.05",not-confirmed
+F0124,value,V005114,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15,2,elsewhere,0.92,Tensile strength X-Y,,"the value is printed on the page, not in the matched row",not-confirmed
+F0125,value,V005114,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15,2,elsewhere,1.00,Tensile strength X-Y,,"the value is printed on the page, not in the matched row",pairing-confirmed
+F0126,value,V007789,B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet,2,elsewhere,0.94,"Breaking Elongation Rate (X-Y) | ISO 527, GB/T 1040 | 8.2 ± 1.3 %",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0127,value,V007789,B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet,2,pairing-confirmed,1.00,"Breaking Elongation Rate (X-Y) | ISO 527, GB/T 1040 | 8.2 ± 1.3 %",Data,single value cell,pairing-confirmed
+F0128,value,V001242,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,elsewhere,0.80,Elongation at break (X-Y) | 3.0 ± 0.1 %,row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction); 2 rows scored within 0.05,not-confirmed
+F0129,value,V001242,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,pairing-confirmed,0.86,Elongation at break (X-Y) | 3.0 ± 0.1 %,T Y P I C A L V A L U E,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0130,value,V013961,D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,1,row-only,0.73,Tensile strength (MPa) | ISO 527 | 60 ± 1.3 | 32.0 ± 5.0,,"2 value cells, column not decided",not-confirmed
+F0131,value,V013961,D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,1,elsewhere,0.73,Tensile strength (MPa) | ISO 527 | 60 ± 1.3 | 32.0 ± 5.0,,"in another column of the row (); the record's column is Typical Value (ZX, Flat) (by direction)",pairing-confirmed
+F0132,value,V013397,R-3DJAKE-KINGROON-TPU-95A-Technical-Data-Sheet-V1-0,2,elsewhere,0.89,"Breaking Elongation Rate (X-Y) | ISO 527, GB/T 1040 | >650%",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0133,value,V013397,R-3DJAKE-KINGROON-TPU-95A-Technical-Data-Sheet-V1-0,2,pairing-confirmed,0.94,"Breaking Elongation Rate (X-Y) | ISO 527, GB/T 1040 | >650%",Data,single value cell,pairing-confirmed
+F0134,value,V000091,B-pla-basic-gradient-TDS,2,elsewhere,0.80,"Young's Modulus (X-Y) | ISO 527, GB/T 1040 | 2580 ± 150 MPa",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0135,value,V000091,B-pla-basic-gradient-TDS,2,pairing-confirmed,0.86,"Young's Modulus (X-Y) | ISO 527, GB/T 1040 | 2580 ± 150 MPa",Data,single value cell,pairing-confirmed
+F0136,value,V006370,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,1,elsewhere,0.80,Tensile strength (X-Y) | 77.4 ± 1.1 MPa,row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction); 2 rows scored within 0.05,not-confirmed
+F0137,value,V006370,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,1,pairing-confirmed,0.86,Tensile strength (X-Y) | 77.4 ± 1.1 MPa,T Y P I C A L V A L U E,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0138,value,V006611,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,1,elsewhere,0.80,"Young’s modulus (X-Y) | ISO 527, GB/T 1040 | 3320 ± 145 MPa",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0139,value,V006611,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,1,pairing-confirmed,0.86,"Young’s modulus (X-Y) | ISO 527, GB/T 1040 | 3320 ± 145 MPa",Typical value,single value cell,pairing-confirmed
+F0140,value,V000294,B-pla-glow-TDS,2,elsewhere,0.84,"Breaking Elongation Rate (X-Y) | ISO 527, GB/T 1040 | 8.6 ± 1.2 %",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0141,value,V000294,B-pla-glow-TDS,2,pairing-confirmed,0.89,"Breaking Elongation Rate (X-Y) | ISO 527, GB/T 1040 | 8.6 ± 1.2 %",Data,single value cell,pairing-confirmed
+F0142,value,V007087,S-PEBA-ABS-TDS-EN-docx,2,elsewhere,0.92,Tensile Strength (X-Y) | GB/T 1040 | 44.9 MPa,row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0143,value,V007087,S-PEBA-ABS-TDS-EN-docx,2,pairing-confirmed,1.00,Tensile Strength (X-Y) | GB/T 1040 | 44.9 MPa,,single value cell,pairing-confirmed
+F0144,value,V003410,S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN,1,elsewhere,0.92,Elongation at break (X-Y) | 8.4±1.7 %,row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0145,value,V003410,S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN,1,pairing-confirmed,1.00,Elongation at break (X-Y) | 8.4±1.7 %,T Y P I C A L V A L U E,single value cell,pairing-confirmed
+F0146,value,V000431,B-petg-basic-TDS,2,elsewhere,0.92,"Young's Modulus (X-Y) | ISO 527, GB/T 1040 | 2780 ± 65 MPa",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0147,value,V000431,B-petg-basic-TDS,2,pairing-confirmed,1.00,"Young's Modulus (X-Y) | ISO 527, GB/T 1040 | 2780 ± 65 MPa",Data,single value cell,pairing-confirmed
+F0148,value,V001059,S-FIBER-PA612,1,elsewhere,0.80,Elongation at break (X-Y) | 2.6 ± 0.2 %,row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction); 2 rows scored within 0.05,not-confirmed
+F0149,value,V001059,S-FIBER-PA612,1,pairing-confirmed,0.86,Elongation at break (X-Y) | 2.6 ± 0.2 %,T Y P I C A L V A L U E,single value cell; 2 rows scored within 0.05,pairing-confirmed
+F0150,value,V000061,B-pla-basic-filament-TDS,3,elsewhere,0.71,"Impact Strength (X-Y) | ISO 179, GB/T 1043 | 7.9 ± 1.2 kJ/m²",row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0151,value,V000061,B-pla-basic-filament-TDS,3,pairing-confirmed,0.75,"Impact Strength (X-Y) | ISO 179, GB/T 1043 | 7.9 ± 1.2 kJ/m²",,single value cell,pairing-confirmed
+F0152,value,V000528,S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,3,elsewhere,0.92,Tensile strength (X-Y) | 36.1 ± 0.7 MPa,row label dirxy,in another column of the row (row label dirxy); the record's column is direction dirz (by row-label-direction),not-confirmed
+F0153,value,V000528,S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,3,pairing-confirmed,1.00,Tensile strength (X-Y) | 36.1 ± 0.7 MPa,Typical Value,single value cell,pairing-confirmed

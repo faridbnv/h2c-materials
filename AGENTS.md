@@ -24,7 +24,7 @@ generated and never edited, and the retired Excel workbooks are history. Before 
 
 ```bash
 npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about a minute after a change, half that when nothing the build reads changed; budget 90 s)
-npm run verify        # verify:fast, then the import tests, the scale and reproducible-build checks, audit, snapshot, interface views, 300 rendered scenarios: before a commit
+npm run verify        # verify:fast, then the import tests, the scale and reproducible-build checks, audit, snapshot, interface views, 300 rendered scenarios: before a commit; every step runs even if one fails, and the failures are listed at the end
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
@@ -280,7 +280,10 @@ sheet (b38) and the frozen chamber-target maker searches (b39), as bounded in GO
 gap-closure section; on 2026-09-29, the gap-fill tranche's nine saved product pages (b40, GOALS' gap-fill tranche
 section); on 2026-09-30, the price pass (p01 to p04, GOALS' price pass section); on 2026-10-04, the makers' own pages for the
 reader round (b41, b42; GOALS, the reader round section); on 2026-10-05, the thirteen held sheets and the makers' own pages
-for products still without a nozzle or bed (b43, b44; GOALS, gap round 2, item 4). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
+for products still without a nozzle or bed (b43, b44; GOALS, gap round 2, item 4); and on 2026-10-05, fetching again
+the 123 registered documents whose bytes were lost (GOALS, check round 3, item 2): a copy that hashes to the recorded
+digest went back into the store, and a page that changed since is kept as a later copy in `.cache/later-copies/`, read
+by checks and not registered (D131). Those batches are complete. The owner authorized the bounded existing-catalogue coverage campaign on
 2026-09-30 (GOALS, coverage-expansion campaign): isolated campaign batches c01–c14 have admitted 90 sources;
 the selected resumed run has completed all 136 material assessments and 100 additional priority products.
 The unselected full-catalogue backlog remains outside that narrowed run; any further work follows the
@@ -302,6 +305,9 @@ npm run trace -- --scenario saved.json --product G001-06   # one product's decis
 npm run build && open dist/H2C_Material_Selector_*.html
 git diff build/snapshot                  # what the change did to headlines, estimates, gates, templates, warnings
 npm run ui:fuzz -- --n 3000 --seed 7     # the rendered page against the engine, more scenarios or another seed
+node scripts/audit/table-detectors.mjs   # words in the wrong column, a negation read as positive, a rule reaching too far (D131)
+node scripts/audit/duplicates.mjs        # one product held twice, rows on another product's grade, densities out of range
+node scripts/audit/leverage.mjs          # which values and print cells a misreading would turn into another answer
 ```
 
 Estimates and screening (D43, D48, D58): estimates are a stage of their own (`build/src/estimate/`) applied to a

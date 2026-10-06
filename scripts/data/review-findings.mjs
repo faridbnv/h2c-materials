@@ -11,10 +11,26 @@ import { REVIEWED_CODES } from '../../build/src/rules.js';
 /** The codes the catalogue marks reviewed (build/src/rules.js), so a new one needs no list here. */
 export const REVIEW_CODES = REVIEWED_CODES;
 
-/** One finding per record the build names: { code, table, record, field, message }. */
+/**
+ * One finding per record the build names: { code, table, record, field, message }. A finding that carries the measured
+ * value it is about (EST-OUTLIER) names it in field ("measured 97"), so its acceptance holds for that value alone: when
+ * the value changes, the acceptance stops matching and the finding is reviewed again (D131).
+ */
 export function reviewFindings(issues) {
   return issues.filter((i) => REVIEW_CODES.includes(i.code))
-    .flatMap((i) => (i.records ?? []).map((record) => ({ code: i.code, table: 'materials', record, field: '', message: i.message.slice(0, 160) })));
+    .flatMap((i) => (i.records ?? []).map((record, k) => ({ code: i.code, table: 'materials', record, field: i.values?.[k] != null ? `measured ${i.values[k]}` : '', message: i.message.slice(0, 160) })));
+}
+
+/** The measured value an acceptance was written for ("measured 97" -> 97), or null. */
+export const acceptedValue = (field) => { const m = String(field ?? '').match(/^measured (-?[\d.e+-]+)$/); return m ? Number(m[1]) : null; };
+
+/**
+ * Acceptances that no longer occur, split: dormant where the record's value (valueOf(record)) is still the one the
+ * acceptance was written for, so a refit moved the threshold and not the data; stale otherwise (D131).
+ */
+export function splitStale(stale, valueOf) {
+  const dormant = stale.filter((b) => { const v = acceptedValue(b.Field); return v != null && valueOf(b.Record) === v; });
+  return { dormant, stale: stale.filter((b) => !dormant.includes(b)) };
 }
 
 /** Compile the tables as the build does and return its issues. */

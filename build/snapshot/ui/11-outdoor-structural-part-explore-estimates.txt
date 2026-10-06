@@ -52,17 +52,17 @@ n/a not applicable
 Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
 ABS UNKNOWN
 0 of 26 products
-likely fails: 26 with data miss, 30 publish none
+likely fails: 26 with data miss, 29 publish none
  1,050
-1,020–1,150 · 48
+1,020–1,100 · 45
 annealed median
  2.2
-1.6–2.38 · 13
+1.77–2.38 · 12
 annealed median
- 34
-15.7–45 · 19
+ 34.9
+15.7–45 · 17
  10
-2.7–40 · 17
+2.7–40 · 16
  94
 78.9–118 · 24
  40
@@ -73,7 +73,7 @@ ABS-AF UNKNOWN
 likely fails: 2 with data miss, 1 publish none
  1,050
 1,040–1,050 · 3
- 1.89 22 ~2–15† 88 127↗ ☆
+ 1.89 22 ~1–17† 88 127↗ ☆
 ABS-CF UNKNOWN
 0 of 7 products
 likely fails: 7 with data miss, 4 publish none
@@ -124,18 +124,18 @@ annealed median
 82–100 · 9
  39↗ ☆
 ASA UNKNOWN
-0 of 19 products
-likely fails: 19 with data miss, 22 publish none
+0 of 18 products
+likely fails: 18 with data miss, 22 publish none
  1,070
-1,040–1,150 · 36
- 2.17
-0.943–2.45 · 11
- 38.5
-30.2–45 · 12
+1,040–1,130 · 34
+ 2.2
+0.943–2.45 · 10
+ 38.6
+30.2–45 · 11
  6.6
 1.9–15 · 12
- 95
-82–103 · 19
+ 94.5
+82–103 · 18
  39.5
 30.8–70.7 · 5
 ↗ ☆
@@ -156,7 +156,7 @@ likely fails: 3 with data miss, 1 publish none
 ASA-AF UNKNOWN
 none judged
 nothing published to judge
- 1,070 ~1.1–3.2† ~41–64† ~6–23† ~95–104† 115
+ 1,070 ~1.0–3.3† ~41–63† ~6–25† ~95–104† 115
 109–120 · 2
 ↗ ☆
 ASA-CF PASS
@@ -180,7 +180,7 @@ all products: 101
 ASA-EC UNKNOWN
 none judged
 nothing published to judge
- 1,170 ~2.2–3.8† ~30–49† ~1.8–10.0† ~87–105† 125¤ ☆
+ 1,170 ~2.2–3.8† ~30–49† ~1.4–5.4† ~87–105† 125¤ ☆
 ASA-GF UNKNOWN
 0 of 4 products
 likely fails: 4 with data miss, 2 publish none
@@ -272,7 +272,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,140 ~5.0–8.0† ~68–80† ~4.0–8.3† 142 — ☆
+ 1,140 ~4.9–8.1† ~68–83† ~4.0–8.7† 142 — ☆
 PA12-CF
 Nylon / Polyamide
  UNKNOWN
@@ -308,7 +308,7 @@ Nylon / Polyamide
 likely fails: 1 with data misses, 8 publish none
  1,150
 1,130–1,200 · 7
- ~1.5–3.9† ~40–83† ~51–98† 140
+ ~1.5–4.0† ~40–82† ~52–107† 140
 60–143 · 3
  163↗ ☆
 PA6-CE
@@ -316,7 +316,7 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,490 ~4.3–6.9† ~57–87† ~1.9–7.5† ~91–106† 161¤ ☆
+ 1,490 ~4.2–6.9† ~57–87† ~1.8–7.9† ~91–107† 161¤ ☆
 PA6-CF
 Nylon / Polyamide
  PASS
@@ -366,14 +366,14 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,010 ~3.2–5.1† ~88–120† ~3.4–11.9† ~91–106† 180↗ ☆
+ 1,010 ~3.1–5.2† ~88–119† ~3.4–12.5† ~91–107† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  UNKNOWN
 0 of 2 products
 likely fails: 2 with data miss, 5 publish none
  1,120
-1,100–1,140 · 7
+1,080–1,140 · 7
  2.34
 1.98–2.7 · 2
  61
@@ -391,12 +391,12 @@ Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,240 ~4.6–6.3† 84 7.42 ~144–168† 72.4¤↗
+ 1,240 ~4.5–6.4† 84 7.42 ~144–168† 72.4¤↗
 out of stock
  ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.1–3.5† ~36–84† ~7–60† ~79–170† — ☆
+ UNKNOWN ~989–1,070† ~1.1–3.7† ~37–84† ~8–72† ~79–172† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN
@@ -430,22 +430,22 @@ annealed median
  157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,040–1,260† ~2.3–7.9† ~52–132† ~1.3–11.1† ~131–211† — ☆
+ UNKNOWN ~1,040–1,250† ~2.2–8.2† ~56–129† ~1–13† ~130–210† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- ~1,010–1,060† ~1.4–4.1† ~42–96† ~6–48† ~59–99† 246¤ ☆
+ ~1,010–1,060† ~1.4–4.2† ~41–96† ~5–49† ~58–97† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,170† ~3.1–11.1† ~55–140† ~1.2–10.7† ~130–250† — ☆
+ UNKNOWN ~1,050–1,170† ~3.0–11.6† ~58–137† ~1–12† ~120–250† — ☆
 PAHT
 Nylon / Polyamide
  UNKNOWN
 none judged
 nothing published to judge
- 1,200 3.1≈ 82.1 ~4.5–12.6† ~93–186† — ☆
+ 1,200 3.1≈ 82.1 ~4–15† ~91–181† — ☆
 PAHT-CE
 Nylon / Polyamide
  UNKNOWN
@@ -453,7 +453,7 @@ none judged
 nothing published to judge
  1,370
 1,250–1,490 · 2
- ~1.8–5.2† ~39–98† ~2–20† ~60–170† — ☆
+ ~1.7–5.3† ~42–101† ~2–25† ~60–170† — ☆
 PAHT-CF
 Nylon / Polyamide
  UNKNOWN
@@ -479,10 +479,11 @@ nothing published to judge
 PC
 Polycarbonate
  UNKNOWN
-0 of 14 products
-likely fails: 14 with data miss, 8 publish none
+0 of 13 products
+likely fails: 13 with data miss, 9 publish none
  1,200
 1,150–1,230 · 18
+annealed median
  2.15
 1.8–2.5 · 10
 annealed median
@@ -587,7 +588,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,250 ~3.7–5.1† ~90–104† ~3.1–5.8† ~113–127† 115¤ ☆
+ 1,250 ~3.6–5.1† ~90–100† ~3.6–8.4† ~113–127† 115¤ ☆
 PC-PTFE
 Polycarbonate
  UNKNOWN
@@ -595,7 +596,7 @@ Polycarbonate
 likely fails: 1 with data misses, 1 publish none
  1,290
 1,260–1,320 · 2
- ~1.1–3.2† ~34–81† ~5–21† 140
+ ~1.1–3.2† ~35–77† ~5–24† 140
 annealed median
  — ☆
 PCTG
@@ -611,7 +612,7 @@ Copolyesters
  UNKNOWN
 0 of 2 products
 likely fails: 2 with data miss, 1 publish none
- 1,280 ~1.8–5.5† ~44–87† ~5–22† 77
+ 1,280 ~1.7–5.6† ~43–85† ~5–23† 77
 76–78 · 2
  138¤ ☆
 PE
@@ -627,7 +628,7 @@ Polyolefins
 likely fails: 1 with data misses, 1 publish none
  1,050
 1,020–1,080 · 2
- ~1.4–4.3† ~19–41† ~10–39† 85 — ☆
+ ~1.3–4.4† ~20–42† ~10–43† 85 — ☆
 PET
 PET Engineering
  UNKNOWN
@@ -687,21 +688,20 @@ annealed median
 41–98 · 2
 ↗ ☆
 PETG UNKNOWN
-0 of 44 products
-likely fails: 44 with data miss, 30 publish none
+0 of 47 products
+likely fails: 47 with data miss, 26 publish none
  1,270
-1,180–1,350 · 64
+1,180–1,300 · 61
  1.67
 0.5–3.5 · 20
- 47.3
-31.9–68.4 · 26
- 8.6
-4.1–90 · 25
-annealed median
+ 47
+31.9–68.4 · 25
+ 8.5
+4.1–90 · 24
  70
-63–80 · 42
+63–78.4 · 43
  26
-20–66 · 14
+20–66 · 12
 ↗ ☆
 PETG-CF UNKNOWN
 0 of 12 products
@@ -720,18 +720,18 @@ likely fails: 12 with data miss, 12 publish none
 35–56 · 3
 ↗ ☆
 PETG-ESD UNKNOWN
-0 of 9 products
-likely fails: 9 with data miss, 1 publish none
- 1,255
-1,220–1,320 · 10
+0 of 8 products
+likely fails: 8 with data miss, 1 publish none
+ 1,270
+1,220–1,320 · 9
  1.98
-1.4–2.13 · 6
- 36.1
-35–50 · 7
+1.4–2.13 · 5
+ 39.5
+35–50 · 6
  7.3
-5–13 · 6
+5–13 · 5
  75
-65–76 · 7
+65–76 · 6
  139
 94–183 · 2
 ↗ ☆
@@ -749,15 +749,15 @@ likely fails: 3 with data miss, 2 publish none
  37↗ ☆
 PLA UNKNOWN
 0 of 96 products
-likely fails: 96 with data miss, 100 publish none
+likely fails: 96 with data miss, 98 publish none
  1,240
-1,170–1,329 · 156
+1,170–1,329 · 155
  2.58
-0.433–4.24 · 50
+0.433–4.24 · 51
  45
-26–70.9 · 66
- 7.62
-1.2–65 · 62
+26–70.9 · 65
+ 8
+1.2–65 · 61
  55
 50–135 · 86
  33.7
@@ -862,18 +862,19 @@ annealed median
 58–62 · 2
  32↗ ☆
 PLA Silk UNKNOWN
-0 of 18 products
-likely fails: 18 with data miss, 16 publish none
+0 of 17 products
+likely fails: 17 with data miss, 16 publish none
  1,240
-1,210–1,320 · 30
+1,210–1,320 · 29
  1.78
 0.597–2.4 · 12
- 49.9
-27–62.7 · 18
- 10.5
-1.7–28 · 17
+ 49.8
+27–62.7 · 17
+ 7
+1.7–28 · 16
+annealed median
  53
-50–62 · 19
+50–62 · 18
  31.5
 28.8–48 · 6
 ↗ ☆
@@ -894,10 +895,10 @@ annealed median
 50.8–55 · 2
  32↗ ☆
 PLA Wood UNKNOWN
-0 of 9 products
-likely fails: 9 with data miss, 12 publish none
+0 of 8 products
+likely fails: 8 with data miss, 12 publish none
  1,200
-970–1,300 · 20
+970–1,300 · 19
  2.2
 1–3.33 · 5
  28
@@ -905,8 +906,8 @@ likely fails: 9 with data miss, 12 publish none
 annealed median
  10
 1.2–15.3 · 5
- 53
-48–60 · 9
+ 53.5
+48–60 · 8
  45
 32–115 · 3
 ↗ ☆
@@ -932,7 +933,7 @@ none judged
 nothing published to judge
  1,295
 1,240–1,350 · 2
- ~1.1–3.2† ~23–53† ~2–18† ~50–115† 200↗ ☆
+ ~1.0–3.2† ~26–57† ~2–19† ~50–116† 200↗ ☆
 PLA-ESD UNKNOWN
 0 of 1 product
 likely fails: 1 with data misses, 1 publish none
@@ -948,7 +949,7 @@ likely fails: 1 with data misses, 3 publish none
 PLA-GR UNKNOWN
 none judged
 nothing published to judge
- 1,240 ~1.7–4.7† ~59–87† ~4–17† ~50–115† 42.9
+ 1,240 ~1.5–4.4† ~59–83† ~4–19† ~50–116† 42.9
 32.1–53.6 · 2
 ¤ ☆
 PLA-PHA
@@ -1000,18 +1001,18 @@ out of stock
 PPA-CF
 High-Performance Engineering
  UNKNOWN
-0 of 3 products
-likely fails: 3 with data miss, 6 publish none
- 1,210
-1,150–1,250 · 9
+0 of 2 products
+likely fails: 2 with data miss, 6 publish none
+ 1,220
+1,150–1,250 · 8
  7.65
 7.1–11.8 · 4
  108
 87–168 · 4
  3.35
 1.9–3.5 · 4
- 197
-84.5–240 · 9
+ 209
+84.5–240 · 8
 annealed median
  255↗ ☆
 PPA-GF
@@ -1103,7 +1104,7 @@ Styrenics
  UNKNOWN
 none judged
 nothing published to judge
- 1,080 ~2.7–4.5† ~72–92† ~5–49† ~102–113† — ☆
+ 1,080 ~2.7–4.5† ~72–91† ~5–52† ~102–114† — ☆
 SBC
 Styrenics
  UNKNOWN
