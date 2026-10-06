@@ -1,0 +1,956 @@
+{
+  "baseline": "b460c608eed1",
+  "release": "3d10601675b8",
+  "questions": 92,
+  "productQuestionAnswers": 101200,
+  "compiled": [
+    {
+      "table": "materials",
+      "field": "headline",
+      "changed": []
+    },
+    {
+      "table": "materials",
+      "field": "summary",
+      "changed": []
+    },
+    {
+      "table": "grades",
+      "field": "headline",
+      "changed": []
+    },
+    {
+      "table": "grades",
+      "field": "states",
+      "changed": []
+    },
+    {
+      "table": "grades",
+      "field": "print",
+      "changed": []
+    }
+  ],
+  "results": [
+    {
+      "name": "charpyNotched>=5",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "47a1e16c05177ddd354f50231fd13a7ce4ce743e43acee1150709cc066e6b75e",
+      "after": "47a1e16c05177ddd354f50231fd13a7ce4ce743e43acee1150709cc066e6b75e",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=5",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "5b12f6549dfc90b19a5510ef25c7a0818524d193928c7bf63398c1de7305c9eb",
+      "after": "5b12f6549dfc90b19a5510ef25c7a0818524d193928c7bf63398c1de7305c9eb",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=5",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "9d6dcb4d6db460590417b711b8d6bbf8a93b4bcfae8561b207fee00f81760800",
+      "after": "9d6dcb4d6db460590417b711b8d6bbf8a93b4bcfae8561b207fee00f81760800",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=5",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "0246ce9b08f787a6a1cd2fb639e715a9b50b84de936fa526ef15e3ea7aa06d44",
+      "after": "0246ce9b08f787a6a1cd2fb639e715a9b50b84de936fa526ef15e3ea7aa06d44",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=5",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "1a77d660095f4d3cf4a6aed9c0186ebb075f4180a42c7e27dde88ae3f15e3040",
+      "after": "1a77d660095f4d3cf4a6aed9c0186ebb075f4180a42c7e27dde88ae3f15e3040",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=5",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "1a77d660095f4d3cf4a6aed9c0186ebb075f4180a42c7e27dde88ae3f15e3040",
+      "after": "1a77d660095f4d3cf4a6aed9c0186ebb075f4180a42c7e27dde88ae3f15e3040",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=5",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "205830577daf7d151df261714b7bb7dd2bfde46c2bcc9b5db657a6390804762b",
+      "after": "205830577daf7d151df261714b7bb7dd2bfde46c2bcc9b5db657a6390804762b",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=5",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "205830577daf7d151df261714b7bb7dd2bfde46c2bcc9b5db657a6390804762b",
+      "after": "205830577daf7d151df261714b7bb7dd2bfde46c2bcc9b5db657a6390804762b",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "11d5f2d703a842fe21c869e64ef24508b602979a3a59762ac95e3fb31ccc0d0d",
+      "after": "11d5f2d703a842fe21c869e64ef24508b602979a3a59762ac95e3fb31ccc0d0d",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "aee2a0a6135bf1c78eedcee2041ef6e10d8d242cb17180e853140c9e932f44c9",
+      "after": "aee2a0a6135bf1c78eedcee2041ef6e10d8d242cb17180e853140c9e932f44c9",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "5260bea7e1fb216b4818b0413edf1892a9d7ee10d2ce94ab7d2e2f117878016c",
+      "after": "5260bea7e1fb216b4818b0413edf1892a9d7ee10d2ce94ab7d2e2f117878016c",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "97ce1abc7972c0d2d956ad2a3fa74b756f429d9df8ad2620b3054a82422afa5e",
+      "after": "97ce1abc7972c0d2d956ad2a3fa74b756f429d9df8ad2620b3054a82422afa5e",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "145cd03d9144c4039b20f307dfa22a825d8e7f84b4d23f89b9735b9acd24209a",
+      "after": "145cd03d9144c4039b20f307dfa22a825d8e7f84b4d23f89b9735b9acd24209a",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "145cd03d9144c4039b20f307dfa22a825d8e7f84b4d23f89b9735b9acd24209a",
+      "after": "145cd03d9144c4039b20f307dfa22a825d8e7f84b4d23f89b9735b9acd24209a",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "ab3c7f5c8a261bd2969646b8f07d499f9b8b18292101f9404197c49c03be1780",
+      "after": "ab3c7f5c8a261bd2969646b8f07d499f9b8b18292101f9404197c49c03be1780",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=10",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "ab3c7f5c8a261bd2969646b8f07d499f9b8b18292101f9404197c49c03be1780",
+      "after": "ab3c7f5c8a261bd2969646b8f07d499f9b8b18292101f9404197c49c03be1780",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "45fa32e4d371df01ffe29a219b4803e1701c2c4da2bd41bd34843924a04beb89",
+      "after": "45fa32e4d371df01ffe29a219b4803e1701c2c4da2bd41bd34843924a04beb89",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "45a82a19dcad780e97143a6555f205d44bea8105a8d8cf463122f18b023087df",
+      "after": "45a82a19dcad780e97143a6555f205d44bea8105a8d8cf463122f18b023087df",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "8a6d259c67ddbd91937c5c6761a864be244b491daa77cdc895aaf52f1cb4415d",
+      "after": "8a6d259c67ddbd91937c5c6761a864be244b491daa77cdc895aaf52f1cb4415d",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "39887ed17d9cc5ba810b2478ab5b19c137adb1cc0364ad081bf962b64116b815",
+      "after": "39887ed17d9cc5ba810b2478ab5b19c137adb1cc0364ad081bf962b64116b815",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "7ca947021a39ce3c2efdf31f00daf2dec424463d59fe5c29da65dfd28eac1285",
+      "after": "7ca947021a39ce3c2efdf31f00daf2dec424463d59fe5c29da65dfd28eac1285",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "7ca947021a39ce3c2efdf31f00daf2dec424463d59fe5c29da65dfd28eac1285",
+      "after": "7ca947021a39ce3c2efdf31f00daf2dec424463d59fe5c29da65dfd28eac1285",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "9eb9b543bae453f2022fed2f1dfbd62d0751459fffd333272b69a3cca41b3863",
+      "after": "9eb9b543bae453f2022fed2f1dfbd62d0751459fffd333272b69a3cca41b3863",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=20",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "9eb9b543bae453f2022fed2f1dfbd62d0751459fffd333272b69a3cca41b3863",
+      "after": "9eb9b543bae453f2022fed2f1dfbd62d0751459fffd333272b69a3cca41b3863",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "6670d501b27b3a787bdea339a51ebdb20851f8ae0d2933b439b1ee7ba011f71a",
+      "after": "6670d501b27b3a787bdea339a51ebdb20851f8ae0d2933b439b1ee7ba011f71a",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "d415f00a1a565205232cb20e84d569d24e478e22f7cb75f9b3976ae2c0dd9041",
+      "after": "d415f00a1a565205232cb20e84d569d24e478e22f7cb75f9b3976ae2c0dd9041",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "fa0c87d376480e2b929720cc46bfd062dd73f34f503b9f0b50984da5fa0d9a90",
+      "after": "fa0c87d376480e2b929720cc46bfd062dd73f34f503b9f0b50984da5fa0d9a90",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "f97e7bc22ccb7a87d8417eda14b0dd9b43b3391e6360fd99214a6a6173c92c9f",
+      "after": "f97e7bc22ccb7a87d8417eda14b0dd9b43b3391e6360fd99214a6a6173c92c9f",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "b5ee6518fdb9ff76dcc841d44d8fcbabe7a9893d3c61b345822bad8b9a477f33",
+      "after": "b5ee6518fdb9ff76dcc841d44d8fcbabe7a9893d3c61b345822bad8b9a477f33",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "b5ee6518fdb9ff76dcc841d44d8fcbabe7a9893d3c61b345822bad8b9a477f33",
+      "after": "b5ee6518fdb9ff76dcc841d44d8fcbabe7a9893d3c61b345822bad8b9a477f33",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "3bf913489c619aa80aad0537b0e6d9e8db05c21efcf785ba09488fe7484c12cc",
+      "after": "3bf913489c619aa80aad0537b0e6d9e8db05c21efcf785ba09488fe7484c12cc",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=40",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "3bf913489c619aa80aad0537b0e6d9e8db05c21efcf785ba09488fe7484c12cc",
+      "after": "3bf913489c619aa80aad0537b0e6d9e8db05c21efcf785ba09488fe7484c12cc",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "7c7983692e7d8e26232ad95c6c63890049105b9e2f58e55ec25bf40b4d8d71b9",
+      "after": "7c7983692e7d8e26232ad95c6c63890049105b9e2f58e55ec25bf40b4d8d71b9",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "0fbd03a88242868b5ea78dc92a3eec2406d657afdbda845792a981a676c1d91d",
+      "after": "0fbd03a88242868b5ea78dc92a3eec2406d657afdbda845792a981a676c1d91d",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "9688db616864173751592022c05959145e3b5a6bfda2f99121658953d9e4e494",
+      "after": "9688db616864173751592022c05959145e3b5a6bfda2f99121658953d9e4e494",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "537dd55f10b8fb081efa8c9529e8914c7732b924023d41d235408bc46199b830",
+      "after": "537dd55f10b8fb081efa8c9529e8914c7732b924023d41d235408bc46199b830",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "169f9d352453cd39fdd5e54b80eb935a5d91a6abdcec1240f0ff02abad6e0141",
+      "after": "169f9d352453cd39fdd5e54b80eb935a5d91a6abdcec1240f0ff02abad6e0141",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "169f9d352453cd39fdd5e54b80eb935a5d91a6abdcec1240f0ff02abad6e0141",
+      "after": "169f9d352453cd39fdd5e54b80eb935a5d91a6abdcec1240f0ff02abad6e0141",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "f052250a37ecbdd09a278c62d26623dd132748001c93c680c8516abb9ba14c7e",
+      "after": "f052250a37ecbdd09a278c62d26623dd132748001c93c680c8516abb9ba14c7e",
+      "changed": false
+    },
+    {
+      "name": "charpyNotched>=80",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "f052250a37ecbdd09a278c62d26623dd132748001c93c680c8516abb9ba14c7e",
+      "after": "f052250a37ecbdd09a278c62d26623dd132748001c93c680c8516abb9ba14c7e",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "2939b85ff333f29a0207c5c83a0ed1c93c576ff060a17c3e71196cf1bd16c5ce",
+      "after": "2939b85ff333f29a0207c5c83a0ed1c93c576ff060a17c3e71196cf1bd16c5ce",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "a7954f6e702c7835692e784cddade6510c24a85270a7b1790e25829b41de12ee",
+      "after": "a7954f6e702c7835692e784cddade6510c24a85270a7b1790e25829b41de12ee",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "0a7b003043acda8f17f9d05594e8fee7002a05be1159b187ede3302ae568cdcd",
+      "after": "0a7b003043acda8f17f9d05594e8fee7002a05be1159b187ede3302ae568cdcd",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "55466b9b0badd9219b36a35a1c8d5633110eb47b7c6a6588c067b7ec6a1d543b",
+      "after": "55466b9b0badd9219b36a35a1c8d5633110eb47b7c6a6588c067b7ec6a1d543b",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "b742237102ef8e663b305778ddd368aa8753b61c2acbaa75408977dd0bcd583b",
+      "after": "b742237102ef8e663b305778ddd368aa8753b61c2acbaa75408977dd0bcd583b",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "b742237102ef8e663b305778ddd368aa8753b61c2acbaa75408977dd0bcd583b",
+      "after": "b742237102ef8e663b305778ddd368aa8753b61c2acbaa75408977dd0bcd583b",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "faab88904b7de46579b9d96027a284f727f8a39c4f177c9a32461e8f1a825bc5",
+      "after": "faab88904b7de46579b9d96027a284f727f8a39c4f177c9a32461e8f1a825bc5",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=5",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "faab88904b7de46579b9d96027a284f727f8a39c4f177c9a32461e8f1a825bc5",
+      "after": "faab88904b7de46579b9d96027a284f727f8a39c4f177c9a32461e8f1a825bc5",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "6d838eb9fa36b90123766daa1f45421e37aee66fe1ef4f244cfa37a6f9c99a9e",
+      "after": "6d838eb9fa36b90123766daa1f45421e37aee66fe1ef4f244cfa37a6f9c99a9e",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "dff994ff320ea64c0b820200f5254eea5335787e5d9fcb91a8704e0b33a0ab3b",
+      "after": "dff994ff320ea64c0b820200f5254eea5335787e5d9fcb91a8704e0b33a0ab3b",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "6129aa8dd3ae68df9ca6b818d3651a54c3d29fbfb3a7225ed537ab7deaed2f35",
+      "after": "6129aa8dd3ae68df9ca6b818d3651a54c3d29fbfb3a7225ed537ab7deaed2f35",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "e2e63b3ec1fa4f6333e8d0de2b62c651610469587670ad933f102d5dfc143bf7",
+      "after": "e2e63b3ec1fa4f6333e8d0de2b62c651610469587670ad933f102d5dfc143bf7",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "ac72821df07fea5c2b555762c32c5f6ce08b1b6eceba9dcfd63b66c0fb3f09af",
+      "after": "ac72821df07fea5c2b555762c32c5f6ce08b1b6eceba9dcfd63b66c0fb3f09af",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "ac72821df07fea5c2b555762c32c5f6ce08b1b6eceba9dcfd63b66c0fb3f09af",
+      "after": "ac72821df07fea5c2b555762c32c5f6ce08b1b6eceba9dcfd63b66c0fb3f09af",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "1b6f0c6bac9b4a2680348c509a4e9f9f17eb29c398dedfd218551b8f5c711a2a",
+      "after": "1b6f0c6bac9b4a2680348c509a4e9f9f17eb29c398dedfd218551b8f5c711a2a",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=10",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "1b6f0c6bac9b4a2680348c509a4e9f9f17eb29c398dedfd218551b8f5c711a2a",
+      "after": "1b6f0c6bac9b4a2680348c509a4e9f9f17eb29c398dedfd218551b8f5c711a2a",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "34c5d7119cb0c15744c968a235c9cd947292f83505f7faba012ba913cfe704b5",
+      "after": "34c5d7119cb0c15744c968a235c9cd947292f83505f7faba012ba913cfe704b5",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "85d30c94718b200b417002a4d1377737ee850b9b82fa6c7f2a9a83f94a9797bc",
+      "after": "85d30c94718b200b417002a4d1377737ee850b9b82fa6c7f2a9a83f94a9797bc",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "ad66f154a12ac491eda8811ecf936295d445a00cbe3d3aa441c5067ce16b572f",
+      "after": "ad66f154a12ac491eda8811ecf936295d445a00cbe3d3aa441c5067ce16b572f",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "bebd2c44cc740a2f5046f4ffc08d0dd3b425d388389a73a5c3f75a2daf5802f4",
+      "after": "bebd2c44cc740a2f5046f4ffc08d0dd3b425d388389a73a5c3f75a2daf5802f4",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "b70653c372334d87f3dc0916b80df8a173c6bf441a6532f329fffe9fbc3f8175",
+      "after": "b70653c372334d87f3dc0916b80df8a173c6bf441a6532f329fffe9fbc3f8175",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "b70653c372334d87f3dc0916b80df8a173c6bf441a6532f329fffe9fbc3f8175",
+      "after": "b70653c372334d87f3dc0916b80df8a173c6bf441a6532f329fffe9fbc3f8175",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "35f3317c8629529fca79702bbe202d42a37df636a4d0f21a39531ba4cc74dd3c",
+      "after": "35f3317c8629529fca79702bbe202d42a37df636a4d0f21a39531ba4cc74dd3c",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=20",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "35f3317c8629529fca79702bbe202d42a37df636a4d0f21a39531ba4cc74dd3c",
+      "after": "35f3317c8629529fca79702bbe202d42a37df636a4d0f21a39531ba4cc74dd3c",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "0a124db003b86676a7b14c5078fa5f1d5b6d5ce637aac8f34761c80a62910314",
+      "after": "0a124db003b86676a7b14c5078fa5f1d5b6d5ce637aac8f34761c80a62910314",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "286474f2773c56d51117cc5e32965d8ca4ffc2c964436e001498e57824e78968",
+      "after": "286474f2773c56d51117cc5e32965d8ca4ffc2c964436e001498e57824e78968",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "c0f1f7d63123284ea822a9b135cec77eaabf56fea6c5de6fa4d1a21665b911d0",
+      "after": "c0f1f7d63123284ea822a9b135cec77eaabf56fea6c5de6fa4d1a21665b911d0",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "f36d88e18ab2856f8b1c5201cb0d178a87d5db55a64e8e1b57fd46f72d643c71",
+      "after": "f36d88e18ab2856f8b1c5201cb0d178a87d5db55a64e8e1b57fd46f72d643c71",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "c449a58d8e8a16d71c303510d1b3c70015fd19a06765281e79bdbc88828ca6e7",
+      "after": "c449a58d8e8a16d71c303510d1b3c70015fd19a06765281e79bdbc88828ca6e7",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "c449a58d8e8a16d71c303510d1b3c70015fd19a06765281e79bdbc88828ca6e7",
+      "after": "c449a58d8e8a16d71c303510d1b3c70015fd19a06765281e79bdbc88828ca6e7",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "19231f789e168c810ccc9b800787b691734877f95d40a84ea66f3c5b79fc07d0",
+      "after": "19231f789e168c810ccc9b800787b691734877f95d40a84ea66f3c5b79fc07d0",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=40",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "19231f789e168c810ccc9b800787b691734877f95d40a84ea66f3c5b79fc07d0",
+      "after": "19231f789e168c810ccc9b800787b691734877f95d40a84ea66f3c5b79fc07d0",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "88b8e3ec4d6095ad5f15a840fb811857ac0ce02a91937acfd80805643bcd26b4",
+      "after": "88b8e3ec4d6095ad5f15a840fb811857ac0ce02a91937acfd80805643bcd26b4",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "090461c0924d6e22be96d0f8c78867bb061fd8afec308e74eccfccc84e942553",
+      "after": "090461c0924d6e22be96d0f8c78867bb061fd8afec308e74eccfccc84e942553",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "b2fbb8eb31735d112fa6ddf1b2d242c9e00e861217b9133ca1ab9c09455edecd",
+      "after": "b2fbb8eb31735d112fa6ddf1b2d242c9e00e861217b9133ca1ab9c09455edecd",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": true,
+      "moisture": "dry",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "51509e8b9ba41733484792f446de40e45d3ebdfbc365c0cf6710f5f1fda80177",
+      "after": "51509e8b9ba41733484792f446de40e45d3ebdfbc365c0cf6710f5f1fda80177",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "21efc04814440a48d0ceecbcc37d8c08b784f45cb2750da8e590d49de5bed824",
+      "after": "21efc04814440a48d0ceecbcc37d8c08b784f45cb2750da8e590d49de5bed824",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": false,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "21efc04814440a48d0ceecbcc37d8c08b784f45cb2750da8e590d49de5bed824",
+      "after": "21efc04814440a48d0ceecbcc37d8c08b784f45cb2750da8e590d49de5bed824",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "b5b800df30433ed7e2a409d7d8317425f8b11e4bf2853ee08033682d666cbc6d",
+      "after": "b5b800df30433ed7e2a409d7d8317425f8b11e4bf2853ee08033682d666cbc6d",
+      "changed": false
+    },
+    {
+      "name": "izodNotched>=80",
+      "anneal": true,
+      "moisture": "conditioned",
+      "evidence": "as-published",
+      "unknownPolicy": "strict",
+      "before": "b5b800df30433ed7e2a409d7d8317425f8b11e4bf2853ee08033682d666cbc6d",
+      "after": "b5b800df30433ed7e2a409d7d8317425f8b11e4bf2853ee08033682d666cbc6d",
+      "changed": false
+    },
+    {
+      "name": "Outdoor structural part",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "a25a76df98f4042cf874040eebb2066c23e8e6f8a7d50d8f974fff28b121215f",
+      "after": "a25a76df98f4042cf874040eebb2066c23e8e6f8a7d50d8f974fff28b121215f",
+      "changed": false
+    },
+    {
+      "name": "Outdoor structural part",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "exploration",
+      "before": "13cab2cce629497ed9debb23ee281c48f67677a365cef23fc47a6a2f0a1eaa8f",
+      "after": "13cab2cce629497ed9debb23ee281c48f67677a365cef23fc47a6a2f0a1eaa8f",
+      "changed": false
+    },
+    {
+      "name": "Indoor prototype",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "459fabd268047e4dd38a99faea4928bed3b1d7d51f73aa40b26bbd823b318d89",
+      "after": "459fabd268047e4dd38a99faea4928bed3b1d7d51f73aa40b26bbd823b318d89",
+      "changed": false
+    },
+    {
+      "name": "Indoor prototype",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "exploration",
+      "before": "459fabd268047e4dd38a99faea4928bed3b1d7d51f73aa40b26bbd823b318d89",
+      "after": "459fabd268047e4dd38a99faea4928bed3b1d7d51f73aa40b26bbd823b318d89",
+      "changed": false
+    },
+    {
+      "name": "Lightweight structure",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "fd61b2bfde6e9aaf98fb661d95b48c9306a85254b1d46f716aeba90aed1c6983",
+      "after": "fd61b2bfde6e9aaf98fb661d95b48c9306a85254b1d46f716aeba90aed1c6983",
+      "changed": false
+    },
+    {
+      "name": "Lightweight structure",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "exploration",
+      "before": "7171332270e35901df415de5fe9d767199b49e4ad8341428142a8a1729dcda52",
+      "after": "7171332270e35901df415de5fe9d767199b49e4ad8341428142a8a1729dcda52",
+      "changed": false
+    },
+    {
+      "name": "Warm environment",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "36a8dd849f7c65e2870a937b1e8c150dcc7ff9cf6b6731a848624863da7b4479",
+      "after": "36a8dd849f7c65e2870a937b1e8c150dcc7ff9cf6b6731a848624863da7b4479",
+      "changed": false
+    },
+    {
+      "name": "Warm environment",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "exploration",
+      "before": "8be16fbd3d2245c1b13aa1eb0e247e352458932ec6ebabfe4358c81b6ea2eeae",
+      "after": "8be16fbd3d2245c1b13aa1eb0e247e352458932ec6ebabfe4358c81b6ea2eeae",
+      "changed": false
+    },
+    {
+      "name": "High-stiffness fixture",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "fc282ced0369270d35e075f90eb0659a8ce1f9e901431c448f5d35907469fec3",
+      "after": "fc282ced0369270d35e075f90eb0659a8ce1f9e901431c448f5d35907469fec3",
+      "changed": false
+    },
+    {
+      "name": "High-stiffness fixture",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "exploration",
+      "before": "8ab061e3ab1fe5f8637b5b6c2bbd95d098288eef7e42a9c9bcaf0ea206ee5a14",
+      "after": "8ab061e3ab1fe5f8637b5b6c2bbd95d098288eef7e42a9c9bcaf0ea206ee5a14",
+      "changed": false
+    },
+    {
+      "name": "Flexible component",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "strict",
+      "before": "a80d87975cbd5eeb1bb68a70fa8d80abee2977a215b70765b74b0049cfc56f1d",
+      "after": "a80d87975cbd5eeb1bb68a70fa8d80abee2977a215b70765b74b0049cfc56f1d",
+      "changed": false
+    },
+    {
+      "name": "Flexible component",
+      "anneal": false,
+      "moisture": "dry",
+      "evidence": "comparable",
+      "unknownPolicy": "exploration",
+      "before": "038bf1e3a3cd3beb969f2646e1246b1e40b6b12c7eb8aac964fefc3485d25742",
+      "after": "038bf1e3a3cd3beb969f2646e1246b1e40b6b12c7eb8aac964fefc3485d25742",
+      "changed": false
+    }
+  ],
+  "differences": 0
+}

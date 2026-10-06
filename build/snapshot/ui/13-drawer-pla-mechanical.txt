@@ -1,3 +1,7 @@
+Charpy and Izod strike and support the specimen differently; their numbers are separate comparisons. A notch changes the test. Published coupon impact strength is evidence about sudden loading, not a universal toughness score or a prediction of how your part will survive a drop. Formulation, print direction, preparation and temperature matter.
+Notched Charpy impact: 16 contributing products, 4 makers
+Notched Izod impact: 7 contributing products, 1 maker
+What the maker says about impact and toughness
 Tensile modulus
 213 values
 Tensile strength (yield or break not stated)

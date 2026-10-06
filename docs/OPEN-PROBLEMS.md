@@ -1443,3 +1443,37 @@ code could not confirm and could change an answer, and swept every kind of error
 node scripts/audit/table-detectors.mjs && node scripts/audit/duplicates.mjs && node scripts/audit/leverage.mjs
 python3 docs/audits/2026-10-05-check-round-3/read/queue.py
 ```
+
+## 33. Published impact comparisons still need product and condition context (6 October 2026)
+
+The bounded [published-evidence round](audits/2026-10-06-published-evidence/RESUME.md) reviewed eight comparison
+products, eight additional impact targets and eight practical chamber blockers. Its 27 numeric impact readings
+confirmed the held values; no numerical correction, new test conversion or toughness estimate was justified.
+The existing Mechanical and Products drawers now show the test basis, current-state use, exact maker claims and
+impact-median contributors. PLA still pools commercial formulations: its median does not describe neat or ordinary
+PLA. Eleven statements were re-topiced and four missing claims were added; claims decide no requirement.
+
+What remains, with exact sources/hashes and dated routes in [outcomes.json](audits/2026-10-06-published-evidence/outcomes.json):
+
+- Six Anycubic sheets label their XY result Izod while citing ISO179; both notched and unnotched drawings appear without
+  assigning the value to one. colorFabb PETG Economy's injection-moulded107 J/m Izod row also cites ISO179; it remains
+  separate from the printed Charpy4.7 kJ/m² row with unstated direction. Porthcurno's Charpy5 kJ/m² row cites ISO180.
+  The round preserves these source contradictions; it does not settle them by relabelling. Older Polymaker sheets
+  also put ASTM D256 beside ISO179 and remain distinct from their later revisions (§19).
+- The eight practical targets still lack a numerical chamber setpoint: six CarbonX products have a qualitative
+  heated-chamber recommendation; Raise3D Hyper Core ABS CF15 supplies coupon settings without that setpoint; BASF
+  Ultrafuse PC GF30 prints a dash. Recent registered pages and prior bounded searches were reused. None establishes
+  suitability at65 °C, and neither testing nor manufacturer contact was part of this round.
+- Published claims do not supply matched control tests, repeated-flexing lifetime or fracture toughness. Tough/Pro/+
+  names alone establish no measured improvement. Preparation, specimen geometry, orientation, test temperature,
+  moisture and treatment remain unstated where their sources leave them open. No universal toughness score follows
+  from an impact number or strength/elongation endpoints.
+- The earlier Bambu Tough+ product-page bytes remain missing. A later saved page was admitted separately as
+  R-BAMBU-PLA-TOUGH-20261005, not used to reconstruct the older digest. The private source inventory still explicitly
+  lists documents whose exact bytes are missing; those are custody gaps, not proof that nothing was published.
+
+Re-derive the assigned population from targets.json and the held numeric confirmations from READINGS.csv plus
+reconcile/confirms.csv. `node scripts/audit/published-evidence.mjs --db <baseline-db.json> --phase validation` regenerates
+the machine inventory without overwriting the baseline; `node scripts/audit/published-evidence-compare.mjs
+<baseline-db.json>` compares impact thresholds5/10/20/40/80 across dry/conditioned, annealing unavailable/available and
+both data-quality settings, plus the six templates. The named unassigned products remain in the pending queues.

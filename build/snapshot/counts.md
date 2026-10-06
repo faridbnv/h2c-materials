@@ -22,6 +22,6 @@ rather than repeat a number.
 | Material values estimated | 137 | where no product publishes (D43) |
 | Print profiles | 1,831 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
-| Know-how statements | 4,867 | the makers' words, shown in the panel only (D85) |
+| Know-how statements | 4,871 | the makers' words, shown in the panel only (D85) |
 | Price observations | 357 | sampled 2026-09-30 |
-| Sources | 2,002 |  |
+| Sources | 2,003 |  |

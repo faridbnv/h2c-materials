@@ -577,3 +577,19 @@ re-check the rest cheaply with Claude Sonnet, and find the causes of our own mis
 5. **The import pause is lifted.** The pause of 2026-09-25 (below, "The re-center") ends: a new document may enter
    through the import pipeline whenever a round needs it, with no exception to ask for. Nothing is imported now; the
    rules for how a document enters (IMPORTING.md, AGENTS.md) are unchanged.
+
+
+## Decided on 2026-10-06, published impact evidence and its explanation
+
+The owner asked to execute the [published-evidence plan](audits/2026-10-06-published-evidence/RESUME.md):
+GOALS steps 2 and 5, and the existing interface in step 4; C3–C10 and C13. The round freezes at most 24 existing
+products, re-reads published impact values and practical blockers, and records every outcome and bounded hold.
+PLA remains grouped: Tough/Pro products keep their own identity and values inside PLA. No taxonomy, median weighting,
+selection policy, new view, toughness estimate, physical test or manufacturer contact is authorized.
+
+A display-only Impact and toughness topic holds exact maker statements with sources; claims decide no requirement.
+The current drawer explains each impact test and its state eligibility, and identifies the exact products and makers
+contributing to the material median. Registered originals are restored before searching; changed bytes remain separate
+revisions through the import pipeline. Source-first guarded migrations and full verification precede local checkpoint
+commits. Publication and push wait for the owner. The dated execution packet retains assignments, verification and
+the next action so another AI can resume without repeating completed reads.

@@ -380,7 +380,7 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     s.asPublished ? `${s.asPublished.n} with no stated orientation or test load (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
     s.variants ? `${s.variants.n} special formulation${s.variants.n === 1 ? '' : 's'}, such as foamed or metal-filled (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)})` : null,
   ].filter(Boolean);
-  const title = `Median of ${s.n} products that report it on a comparable basis. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+  const title = `Median across ${s.n} products with eligible published values, including different commercial formulations. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, interquartile ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
     // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
     + `${s.twins ? ` ${s.twins === 1 ? 'One of them shares' : `${s.twins} of them share`} a data sheet with another product and ${s.twins === 1 ? 'counts as a product' : 'count as products'} of ${s.twins === 1 ? 'its' : 'their'} own.` : ''}`

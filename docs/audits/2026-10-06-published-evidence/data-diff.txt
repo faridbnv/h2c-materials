@@ -1,0 +1,21 @@
+
+> h2c-fdm-material-selector@1.0.0 data:diff
+> node scripts/data/diff.mjs
+
+table,record,action,field,before,after
+evidence,Q00990,Edited,Topic,Benefits,Impact and toughness
+evidence,Q00992,Edited,Topic,Benefits,Impact and toughness
+evidence,Q00998,Edited,Topic,Good for,Impact and toughness
+evidence,Q00999,Edited,Topic,Benefits,Impact and toughness
+evidence,Q01276,Edited,Topic,Adhesion between layers,Impact and toughness
+evidence,Q01427,Edited,Topic,Good for,Impact and toughness
+evidence,Q01909,Edited,Topic,Benefits,Impact and toughness
+evidence,Q01981,Edited,Topic,Benefits,Impact and toughness
+evidence,Q02267,Edited,Topic,Benefits,Impact and toughness
+evidence,Q02559,Edited,Topic,Good for,Impact and toughness
+evidence,Q05649,Edited,Topic,Good for,Impact and toughness
+evidence,Q05757,Added,,,
+evidence,Q05758,Added,,,
+evidence,Q05759,Added,,,
+evidence,Q05760,Added,,,
+sources,R-BAMBU-PLA-TOUGH-20261005,Added,,,

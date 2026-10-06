@@ -15,9 +15,9 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5756,
-    "added": 450,
-    "edited_existing": 258,
+    "current": 5760,
+    "added": 454,
+    "edited_existing": 268,
     "removed": 0
   },
   "family_entries": {
@@ -134,8 +134,8 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 2002,
-    "added": 174,
+    "current": 2003,
+    "added": 175,
     "edited_existing": 109,
     "removed": 0
   }

@@ -11,20 +11,23 @@ HDT at 0.45 MPa °C 55 50–135 86 of 175 31 with no stated test load (53–108)
 Glass transition (Tg) °C 59 54–67.5 74 of 175 7 special formulations (55–62.4)
 Price CAD/kg 33.7 18–80 26 of 175 2 special formulations (23–65)
 Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.
+Notched Charpy impact: 16 contributing products, 4 makers
+Notched Izod impact: 7 contributing products, 1 maker
 WHAT MAKERS SAY
 191 of 194 products have statements from their makers, quoted under each product. 3 data sheets say nothing beyond their numbers. Makers' websites checked for 25 of them so far.
-Good for: 21 of 40 makers (63 products)
-Benefits: 32 of 40 makers (124 products)
+Good for: 21 of 40 makers (62 products)
+Benefits: 32 of 40 makers (122 products)
 Pitfalls and limitations: 9 of 40 makers (13 products)
 Warping and shrinkage: 20 of 40 makers (37 products)
 Precision and tolerance: 8 of 40 makers (13 products)
 Surface finish: 25 of 40 makers (79 products)
-Adhesion between layers: 9 of 40 makers (17 products)
+Adhesion between layers: 9 of 40 makers (16 products)
 Moisture sensitivity: 9 of 40 makers (30 products)
 Nozzle wear: 9 of 40 makers (33 products)
 Odour and emissions: 13 of 40 makers (25 products)
 Supports and removal: 8 of 40 makers (38 products)
 Printing advice: 15 of 40 makers (24 products)
+Impact and toughness: 3 of 40 makers (6 products)
 Not stated by their documents: chamber or enclosure need (90 products), drying schedule (117 products) and annealing schedule (179 products).
 Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
 3DXTECH
@@ -75,6 +78,3 @@ UltiMaker
 Raise3D
 3 products
 3D-Fuel
-1 product
-Nanovia
-3 products

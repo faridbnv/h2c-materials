@@ -143,6 +143,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D129 | What the round's blind draw named: a dry box is not drying, a guide speaks for its type only, a nozzle line can answer | A blind check of 40 of the round's records, and of 22 print answers it moved, found errors in families. A dry box's "No" or "not necessary" was held as the product's drying, so 133 profiles read "drying not needed" (34 "required", 2 "optional") from a sentence about where the spool is kept. Bambu Lab's PLA guide answered for metal-filled and matte PLAs it does not describe, telling a bronze-filled PLA that a brass nozzle will do. A sheet's "has not been annealed" read as annealed. Sheets that say a hardened nozzle is needed on their nozzle line, or that drying is needed only if the filament is wet, were held without it. Each family was looked for everywhere and fixed. | In force; it amends D88 (which products a guide row answers for), D120 (a dry box is a note, now everywhere) and D127 (what the drying parser reads) |
 | D130 | The owner's answers after gap round 2: drying read with the whole page, bars below full infill labelled, three identities judged, CI once per push | Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly. | In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero |
 | D131 | Check round 3: what decides is checked by code first, every check runs to the end, and the errors found were words in the wrong place, not wrong numbers | This round checked the values and print settings the tool's answers rest on, and read on their pages only what the code could not confirm. Of 540 records read, none held a wrong number; 29 held words in the wrong place (a label inside a cell, a note read for rows it does not speak for, a condition dropped), and each kind was swept everywhere it occurred. A sealed sample of 100 deciding records, read at the end, found two errors in what decides: a temperature parser that read a Fahrenheit window as Celsius, so the tool said one printable product could not be printed, and a dropped condition; both were fixed everywhere. Nine products held twice became one each, 43 records filed under the wrong product moved, MakerBot Tough is filed under PLA, the 123 documents whose bytes were lost were fetched again, and a check that once hid a real failure behind a slow timing now runs every step and lists every failure. | In force; it amends D57 (an outlier's acceptance names the value it was accepted for) and applies D89, D99, D106, D116, D120, D123 and D129 |
+| D132 | Published impact evidence is explained beside the exact product, without changing what decides | Charpy and Izod remain separate tests. The drawer shows a result's conditions and whether it can decide in the current state, quotes exact maker claims as claims, and names the products behind an impact median. Tough/Pro/+ names alone establish no measured superiority; PLA stays grouped. | In force; it extends the explanation of D83, D84, D92, D94 and D99 without changing their comparison or weighting rules |
 
 <!-- end index -->
 
@@ -4328,3 +4329,29 @@ Sonnet"); Claude Sonnet readers read the pages. The packet is `docs/audits/2026-
   check of digits; the account's billing was off, so no page was read (`ocr/ocr-mistral.mjs` is ready, and `compare.mjs`
   takes its output with `--source mistral`). The digit check rests on the readers' page images and the tesseract readings
   already cached.
+
+## D132. Published impact evidence is explained beside the exact product, without changing what decides
+
+> **In plain words:** Charpy and Izod remain separate tests. The drawer shows a result's conditions and whether it can decide in the current state, quotes exact maker claims as claims, and names the products behind an impact median. Tough/Pro/+ names alone establish no measured superiority; PLA stays grouped.
+> **Status:** In force; it extends the explanation of D83, D84, D92, D94 and D99 without changing their comparison or weighting rules.
+
+The owner approved the bounded published-evidence round on 2026-10-06 (GOALS steps 2, 4 and 5). Its 24 assigned products
+were read against held sources; 27 numeric impact readings were confirmed by the readings/reconcile/proposals path,
+with no deciding corrections proposed. Eight additional impact targets retain contradictory method/standard labels,
+and eight practical chamber questions retain missing setpoints or qualitative recommendations. Neither is guessed.
+
+`Impact and toughness` is a display-only topic under `know-how`. Migration m383 re-topics eleven source statements and
+adds four omitted statements. The later saved Bambu Tough+ product page enters by witness digest and a separate source;
+it does not reconstruct the lost older page. The same evidence IDs appear under Products and beside Mechanical records.
+Claims preserve their comparator and establish no screening, ranking, estimate or calculated improvement ratio.
+
+The existing measurement assessment moved to `app/js/engine/published-values.js`, with the build's original vocabulary
+validators supplied as adapters and compiled forms used in the browser. The product population used by the median also
+lives there: declared variants remain separate, permitted twins retain their own product weight, and a material whose
+products are all variants retains that population. The drawer derives counts, names, sources, annealing and admitted
+missing conditions from this exact population. No derived field is stored and no scenario/export format changes.
+
+The execution receipt, bounded holds, source hashes, verification and next action are in
+[the handoff](audits/2026-10-06-published-evidence/RESUME.md). Source-grounded fixtures check the Bambu preparation schedules,
+notched versus unnotched values, PolyLite PETG's 2.6, method contradictions and raw-material J/m values independently of
+the refactored rule; complete numerical/state parity and browser checks establish the explanation-only boundary.

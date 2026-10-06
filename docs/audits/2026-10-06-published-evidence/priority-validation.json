@@ -1,0 +1,1 @@
+{"previous":["G001-132","G001-199","G011-06","G020-27","G020-48","G027-36","G031-30","G049-05"],"corrected":["G001-132","G001-199","G011-06","G020-27","G020-48","G027-36","G031-30","G049-05"],"assignmentsChanged":false,"reason":"Count distinct product/state answers once rather than once per suspect source record; frozen product assignments unchanged."}
