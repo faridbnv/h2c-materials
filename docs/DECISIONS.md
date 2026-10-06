@@ -4423,6 +4423,12 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
   other 9 give 4.94 to 20.3 kJ/m², median 7.9", the median's explanation says "Included: …" beside "Left out: …", and
   each product carries a "sold as toughened" mark whose explanation is the maker's quote and page. A twin reads its
   sibling's claim as it reads its sibling's value (D89).
+- **The reader learns the sheets' own spellings of the two tests** (2026-10-06). Lines the cached sheets print and the
+  import could not read: "Unnotched Charpy Impact", "Notched impact strengh (Charpy)", the Polish, Italian, Spanish and
+  French names (udarność Charpy'ego z karbem, resistenza all'impatto intagliato, resistencia al impacto Charpy notched,
+  résistance au choc Charpy), and the units "kJ/ m2", "(KJ/m^2)", "ft-lb/in", "Jm-1" and "J/cm²". A value in J/cm² is
+  the same quantity as kJ/m², ten times the number: an exact change of unit, not of test, and the only conversion added.
+  A tensile impact (ISO 8256) and a multiaxial test stay unread: they are other tests.
 - **Setting them apart waits for the marks to be complete.** The first 19 rows come from statements already held on
   products that publish an impact value. Once the claims round has judged the rest and a draw of unmarked products finds
   at most one missed claim in 20, the two impact rows may say "set apart", and the median becomes the other products'.

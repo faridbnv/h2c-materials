@@ -1479,3 +1479,21 @@ test('a build plate, a shop card or another product\'s card title is not what a 
   assert.match(composition(sheet('Nanovia PP CF : Carbon fiber reinforced'), { product: 'PP CF' }), /^Nanovia PP CF : Carbon fiber reinforced \(p\. 1/);
   assert.match(composition(sheet('Build Surface Material PEI', 'Reinforced with 15% carbon fibers')), /^Reinforced with 15% carbon fibers/);
 });
+
+test('impact rows in the spellings and languages the cached sheets print are read, never converted between tests (D133)', () => {
+  // Each line is a cached sheet's own (source_facts, 2026-10-06), where the reader had found no property or no unit.
+  const row = (text) => { const r = readRow(text, registry); return r && [r.match.Property, r.match.Notch, r.rawNumber, r.target.unit, r.target.factor]; };
+  assert.deepEqual(row('Notched Izod Impact 142 Jm-1 ASTM D256'), ['Izod impact strength', 'Notched', '142', 'J/m', 1]);
+  assert.deepEqual(row('Notched Izod Impact 0.3 ft-lb/in ASTM D256'), ['Izod impact strength', 'Notched', '0.3', 'J/m', 53.3787]);
+  assert.deepEqual(row('Notched Izod Impact Strength 23 ºC ISO 180/A 19 kJ/ m2'), ['Izod impact strength', 'Notched', '19', 'kJ/m²', 1]);
+  // J/cm² is kJ/m² ten times over: the same quantity in another unit, not another test.
+  assert.deepEqual(row('Charpy impact strength 2,09 J/cm² ISO 179'), ['Charpy strength', 'Not published', '2.09', 'kJ/m²', 10]);
+  for (const [label, notch] of [['Unnotched Charpy Impact', 'Unnotched'], ['Notched impact strengh (Charpy)', 'Notched'], ['Udarność Charpy’ego z karbem, 23°C', 'Notched'],
+    ['Resistenza all\'Impatto Intagliato Charpy (+23°C)', 'Notched'], ['Resistenza all\'Impatto Non Intagliato Charpy (-30°C)', 'Unnotched'],
+    ['Resistencia al impacto Charpy Notched [kJ/m2]', 'Notched'], ['Résistance au choc Charpy (23 °C)', 'Not published']]) {
+    assert.deepEqual([labelFor(label)?.Property, labelFor(label)?.Notch], ['Charpy strength', notch], label);
+  }
+  assert.equal(labelFor('Udarność metodą Izoda').Property, 'Izod impact strength');
+  // A tensile impact or a multiaxial test is another test, and stays unread rather than becoming a Charpy or Izod value.
+  for (const label of ['Tensile Notched Impact', 'Tensile Impact Strength (3.18mm)', 'Multiaxial instrumented impact']) assert.notEqual(labelFor(label)?.Property, 'Charpy strength', label);
+});

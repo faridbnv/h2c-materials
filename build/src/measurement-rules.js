@@ -71,6 +71,9 @@ const CONVERSIONS = new Map(Object.entries({
   'kg·cm/cm->j/m': 9.80665, 'kg∙cm/cm->j/m': 9.80665, 'kgf·cm/cm->j/m': 9.80665, 'ft·lbf/in->j/m': 53.3787, 'ft·lb/in->j/m': 53.3787,
   // 3D-Fuel prints an Izod as "ft-lb/in", and FormFutura its Charpy in "ft.lb/in2" only (check round 3, m379).
   'ft-lb/in->j/m': 53.3787, 'ft.lb/in2->kj/m2': 2.10154, 'ft·lbf/in2->kj/m2': 2.10154,
+  // An impact energy per area printed in J/cm² is the same quantity as kJ/m², ten times the number (Spectrum's PLA Tough
+  // prints 2,09 J/cm²); "Jm-1" is J/m written as a power (MatterHackers). Neither is a change of test (D133).
+  'j/cm2->kj/m2': 10, 'jm-1->j/m': 1,
 }));
 
 export function normalizedRawValue(row) {
