@@ -747,11 +747,17 @@ cover are in the validation report's "Environment evidence" and "Polymer-level b
 What a maker writes about printing and using its product beyond the numbers is recorded in `evidence.csv`, one
 statement per row, in the maker's own words (spaces normalised, full-width punctuation written in ASCII, nothing else
 changed), with its source and page (Locator `p. N`) and the exact product it was printed for. Domain is "Makers'
-know-how"; Topic is one of twelve know-how topics in `schema/vocab/environment-topics.csv` (Good for, Benefits, Pitfalls
+know-how"; Topic is one of thirteen know-how topics in `schema/vocab/environment-topics.csv` (Good for, Benefits, Pitfalls
 and limitations, Warping and shrinkage, Precision and tolerance, Surface finish, Adhesion between layers, Moisture
-sensitivity, Nozzle wear, Odour and emissions, Supports and removal, Printing advice), all mapped to the category
-`know-how`, which is not filterable. A statement from the maker's own product page is labelled by its source's class
+sensitivity, Nozzle wear, Odour and emissions, Supports and removal, Printing advice, Impact and toughness), all mapped
+to the category `know-how`, which is not filterable. A statement from the maker's own product page is labelled by its source's class
 ("Manufacturer product page or guide") as the maker's marketing text, apart from a data sheet's.
+
+`Impact and toughness` holds exact-product source-literal claims, including limitations and claimed comparators
+(D132). The same evidence IDs are shown in Products and Mechanical; there is no duplicate record or performance badge.
+A new topic is not assumed reviewed on every older product, and its absence is not labelled maker silence.
+`app/js/engine/published-values.js` shares measurement assessment and impact-summary product population between build
+and interface. Contributor names/counts and current-state use are derived, not stored in new per-row columns.
 
 The row's `Exposure / conditions` becomes `knowHow[].exposure`. Its recorded scope, missing conditions and
 conflicts are shown beside the quote under “Scope and conditions”, outside the maker's quoted words.

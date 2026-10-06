@@ -12,7 +12,7 @@
     "E3": "complete with 8 explicit source-conflict holds; no guessed method/notch",
     "E4": "complete with 8 missing-setpoint holds; recent sources and dated searches reused",
     "E5": "complete; shared eligibility/population and existing drawers implemented; focused offline browser cases passed",
-    "E6": "complete; full verify passed, source backup exported, documentation and snapshots reconciled; verified local checkpoint identified by currentCommitRef"
+    "E6": "complete; source backup exported, snapshots reconciled and implementation checkpoint verified; owner-authorized documentation/main publication recorded separately"
   },
   "failedAttempts": [
     {
@@ -84,7 +84,7 @@
     "doctor": "passed; hash-verified configured private backup; no private paths retained"
   },
   "tokenUse": "unavailable",
-  "nextAction": "Owner review of the verified local branch; push, merge and publication require owner authorization.",
+  "nextAction": "Confirm publication/deployment for the checkpoint containing this packet. Later research starts only when requested, with the bounded source/revision/digit batch in NEXT-WORK.md.",
   "currentRelease": "3d10601675b8",
   "numericAnswersMoved": 0,
   "measurementsChanged": 0,
@@ -204,14 +204,14 @@
     "privatePaths": "omitted"
   },
   "worktree": "repository root containing this packet",
-  "currentCommitRef": "refs/heads/codex/published-evidence-2026-10-06",
+  "currentCommitRef": "HEAD",
   "baselineArchive": {
     "path": "baseline-db.json.gz",
     "sha256": "7468f232a5db866119cc4866bcda90c074ae6897aa69b26b50352f7f44f474ce",
     "release": "b460c608eed1",
     "purpose": "Durable compiled pre-change evidence; parity can be rerun without temporary files or rebuilding a vanished checkout."
   },
-  "currentCommit": "Resolve currentCommitRef; exact checkpoint SHA is recorded in the external execution receipt and final response.",
+  "currentCommit": "Resolve HEAD in the checkout containing this publication checkpoint; implementationCommit names the completed application/data work.",
   "dependencies": {
     "E0": [],
     "E1": [
@@ -308,12 +308,13 @@
   ],
   "artifactHashes": {
     "DOCS.csv": "90343cb1276533e57cb3e9e687c9bf5e64142deec28e8b61e5a7f315ddad57ab",
+    "NEXT-WORK.md": "85a0a46268b84f541dc3bf1c668746b3a6697096ffe3f51cea781f230b7a311d",
     "OUTCOMES.md": "703f400795e1567b23b360c86bc035d9eaacea36356073695ad1e54755f36265",
     "READINGS.csv": "c1b9a89e0ceade4c146e0342731052ba6f822572dfdfeae2cff9390be6a9bc4e",
-    "README.md": "941df7b89c11edb53627121e29d7e79bc590400af7813e35b0d8587cd3e1006e",
-    "RESUME.md": "ae4c95813cc35ba214c79ed67472f602d69f88d7751001bf5dbb655b12670bfa",
+    "README.md": "c688cb1de23d34a7d1c73c711cfe06d88dc551b5bdc8e2fb738abc3ee65737ed",
+    "RESUME.md": "f664b23e4aa93c2ef3e132c9a25dcef07d25a47e68659f8361cd56769b7ea73f",
     "SCENARIO-GAPS.md": "d0ed77064650fe58176f34c341286d8f99b40f669c5f19639661602eea2c17cd",
-    "VERIFY.md": "e124a42ebcdc3cfee8d6ed9bf95aaaf7165a8690260004ba2b83f53e1c5148c8",
+    "VERIFY.md": "8def13c095bac5b086564c64be20022f295e3cd39a6832bb169c6914af4fd993",
     "answer-parity.json": "6def681eae7c1182baf3c888940de7aacefc1a0fe19768a8d28e13f497285dbf",
     "baseline-db.json.gz": "7468f232a5db866119cc4866bcda90c074ae6897aa69b26b50352f7f44f474ce",
     "browser-checks.json": "60d4301f51b6b077f28d7e1abaa3d29b40a5f6e47ac256e1f9627af296c5ff9f",
@@ -334,6 +335,7 @@
     "proposals/summary.md": "ed67944601ff9bcbeca9d22f5a7a5db3c2a1cb16be2cf3449e5d89768eb82f88",
     "proposals/values-add.csv": "faa1ed4445cc7c3670b2bbcde12b0a2b02bcfaeecf938b5f925cb7885a44a062",
     "proposals/values-set.csv": "40e60b0d9c0cfd39cd9f1adf8afdc7d23665268891860290c42f37d42362aafb",
+    "publication-verify-output.txt": "b8a752aa56a18fa3cb4deee43f724a197fb6fa5fe0e6ee5b72c0e91bb350b171",
     "reconcile/confirms.csv": "cd4aacc22b5d974d30ecddaef3aca06f2556ef44da346a1c86662f2635106060",
     "reconcile/context.csv": "9b95a106c056ccb9965cb29758d28b9940b2be94b9e954d44576ebc132d146a0",
     "reconcile/duplicates.csv": "ac4cef2f6215f093f4e870a17c93ba1b96c702470ac7f37a81ce9122bac09f6e",
@@ -352,5 +354,75 @@
     "targets.json": "d9ce4b8e32837260c42cdfdbd3bff5a29625aa24faa5670dc2ea476bd4b19ee5",
     "verify-output.txt": "adb406e6324aea631e37370bcee7645352246d7a9fc39161f7d39a79d685eb33"
   },
-  "remoteCheck": "git ls-remote --heads origin main immediately before local checkpoint; remote unchanged at base commit"
+  "remoteCheck": "git ls-remote --heads origin main immediately before local checkpoint; remote unchanged at base commit",
+  "implementationCommit": "f57dffdaf106fa5029d778799d5cc6723214e498",
+  "remoteCommitScope": "Main fetched before the owner-authorized publication; remoteBeforePromotion is recorded under publication.",
+  "publication": {
+    "authorizedOn": "2026-10-06",
+    "instruction": "Make sure the docs reflect what you have done. Push what you have already done to main.",
+    "remote": "origin",
+    "target": "refs/heads/main",
+    "remoteBeforePromotion": "bd015f7b183d13bf72bd5b9039c61a9266c82e5d",
+    "implementationCommit": "f57dffdaf106fa5029d778799d5cc6723214e498",
+    "publicationCommitRef": "HEAD",
+    "verification": "Fetch origin, confirm origin/main contains HEAD; check Verify and Publish to Pages for that SHA, then live manifest. Git publication does not by itself prove deployment.",
+    "localGate": "passed; ready for the owner-authorized fast-forward push to main",
+    "checks": [
+      {
+        "command": "npm run verify",
+        "exitCode": 0,
+        "seconds": 418.0,
+        "fastSubsetSeconds": 63.2,
+        "pipelineStepsPassed": 18,
+        "pipelineStepsSkipped": 0,
+        "coreTestsPassed": 550,
+        "importTestsPassed": 287,
+        "testsSkipped": 0,
+        "context": {
+          "accepted": 126,
+          "new": 0,
+          "stale": 0
+        },
+        "interfaceViews": 69,
+        "renderedScenarios": 300,
+        "renderedReadings": 2588,
+        "scalePassed": true,
+        "reproduciblePassed": true,
+        "receipt": "publication-verify-output.txt"
+      },
+      {
+        "command": "npm run build:diff",
+        "exitCode": 0,
+        "differences": 0,
+        "baselineCommit": "f57dffdaf106fa5029d778799d5cc6723214e498",
+        "releaseUnchanged": true
+      },
+      {
+        "command": "npm run data:diff",
+        "exitCode": 0,
+        "recordsChanged": 0
+      },
+      {
+        "command": "npm run doctor",
+        "exitCode": 0,
+        "backupMissingOrDamagedPresentDigests": 0
+      },
+      {
+        "command": "npm run docs:history -- --check",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run docs:status -- --check",
+        "exitCode": 0
+      },
+      {
+        "command": "local documentation links and artifact SHA-256 validation",
+        "exitCode": 0
+      },
+      {
+        "command": "git diff --check",
+        "exitCode": 0
+      }
+    ]
+  }
 }

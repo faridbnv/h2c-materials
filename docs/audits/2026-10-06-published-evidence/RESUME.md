@@ -2,7 +2,7 @@
 
 > **Current**: execution state and safe resumption instructions for this bounded round. Read status.json and VERIFY.md for completion and failed-attempt receipts.
 
-Work branch: `codex/published-evidence-2026-10-06`. Base/remote main:
+Implementation branch: `codex/published-evidence-2026-10-06`. Main at the start of the round:
 `bd015f7b183d13bf72bd5b9039c61a9266c82e5d`. Baseline release: `b460c608eed1`; implementation release:
 `3d10601675b8`. The original external PLAN.md remains a planning document. The user authorized execution, kept PLA
 grouped, and permitted published-source reads and guarded evidence/UI revisions, with no new view or comparison policy.
@@ -15,8 +15,9 @@ On resume:
 
 1. Run `git status --short`, `git log -1 --format='%H %s'`, `git branch --show-current` and
    `git ls-remote --heads origin main`. Compare the branch/base, release, frozen target checksum and artifact hashes in
-   status.json. The checkpoint stores its own commit as a Git ref; resolve the ref to obtain the exact commit. Its full
-   SHA is also in the final chat response and the external execution receipt beside the owner's planning package.
+   status.json. The implementation checkpoint is `f57dffdaf106fa5029d778799d5cc6723214e498`; the documentation/publication
+   checkpoint is the commit containing this packet (resolve HEAD). Check that freshly fetched origin/main contains it
+   with `git merge-base --is-ancestor HEAD origin/main`. Do not rely on the implementation branch existing in a clone.
 2. Preserve unrelated changes. If main advanced, reconcile on a branch and revalidate affected work; do not overwrite
    the owner or repeat completed source reads without a changed digest or a new question.
 3. Restore private sources through `npm run data:sources -- --restore "$H2C_SOURCE_BACKUP"` if the cache is absent,
@@ -42,4 +43,10 @@ The Tough+ later page has its own digest 79e4ff6a276353bf8f45c5ee126b4b7e2383af5
 R-BAMBU-PLA-TOUGH-20261005. The lost B-pla-tough-upgrade page is still missing. Cached-source checks passed with the
 restored originals; no substitute was used to prove what that lost page printed.
 
-Next action: owner review of the verified local branch. Push/merge/publication remain pending owner authorization. Any later AI can choose a bounded next batch from the pending queue without redoing this review.
+The owner authorized documenting and pushing the completed work to main on 6 October 2026. This supersedes the
+original plan's publication hold. Git publication and website deployment are separate: confirm the main commit,
+then the Verify/Publish to Pages workflow result and live manifest before claiming that the website is updated.
+
+Next research action, when requested: the first bounded source/revision/digit batch in NEXT-WORK.md. Its tasks and the
+pending queues remain unassigned; publication is not authorization to execute the wider backlog. Preserve these
+completed reviews and do not repeat source reads without a changed digest or a new question.

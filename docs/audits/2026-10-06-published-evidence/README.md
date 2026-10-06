@@ -40,5 +40,10 @@ original and retained 15,830 derivatives. Private paths and source originals are
 
 Verification commands and results are recorded in status.json and VERIFY.md. The offline focused browser check covers
 PLA/PETG, annealing unavailable/available and laptop/phone widths; the repository's normal check covers 69 views on
-laptop/tablet/phone screens. Full verification passed all 18 steps in 392.1 seconds; the fast subset took 39.9 seconds. The verified local checkpoint is identified by status.json's Git ref and the external execution receipt.
-No push, merge or publication is authorized by this round.
+laptop/tablet/phone screens. Implementation verification passed all 18 steps in 392.1 seconds; the fast subset took
+39.9 seconds. Publication verification passed again in 418.0 seconds, with a 63.2-second fast subset and zero compiled
+differences from the implementation. The verified implementation checkpoint is
+`f57dffdaf106fa5029d778799d5cc6723214e498`. The owner subsequently authorized documenting and pushing this work to main
+on 6 October 2026; GOALS records that instruction. status.json and RESUME.md describe the publication target and how to
+verify it. The original planning package remains unchanged history. NEXT-WORK.md is a prioritized follow-up list,
+not additional completed research.

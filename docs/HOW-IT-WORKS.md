@@ -264,6 +264,26 @@ What it does compute is the selection: which materials meet your requirements. T
 tested on its own, and every week two thousand random sets of requirements are run through the rendered page and
 compared with the same logic run outside the browser, so the screen cannot drift from the rules.
 
+## Reading impact and toughness evidence
+
+The two selectable impact criteria, notched Charpy and notched Izod, are separate tests. Even where both use kJ/m²,
+they are not interchangeable. Unnotched results, J/m, Z-direction results and unspecified conditions remain visible
+as their own records; the page does not turn them into a comparable result by guessing.
+
+In **Mechanical**, open an impact record's **Impact test basis and use**. It names the method, notch, unit, direction,
+specimen, moisture, treatment and test temperature. A condition the source omits says **not stated**. The explanation
+says whether the result can decide for the current selected part state, or why it is excluded. An annealed-only result
+cannot decide for an as-printed part.
+
+A material's impact median is across its products with eligible published values, including different commercial
+formulations. Its existing explanation lists the exact products, makers and sources, shared-sheet reuse and admitted
+missing conditions. PLA therefore includes toughened commercial products; its median is not a value for ordinary PLA.
+
+**What the maker says about impact and toughness** appears in Products and beside the impact records in Mechanical.
+The same source statements keep their exact product, comparator and recorded limits in both places. A Tough/Pro/+
+name, or a maker's claim, is not a measured improvement ratio and never creates a pass or a ranking. An unreviewed
+topic does not mean that the maker published nothing. [D132](DECISIONS.md#d132-published-impact-evidence-is-explained-beside-the-exact-product-without-changing-what-decides) records these boundaries.
+
 ## A material is the spread of its products
 
 A material such as PLA is not one number: its two hundred products differ. Each product's own values are chosen from

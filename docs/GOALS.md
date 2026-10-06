@@ -591,5 +591,18 @@ A display-only Impact and toughness topic holds exact maker statements with sour
 The current drawer explains each impact test and its state eligibility, and identifies the exact products and makers
 contributing to the material median. Registered originals are restored before searching; changed bytes remain separate
 revisions through the import pipeline. Source-first guarded migrations and full verification precede local checkpoint
-commits. Publication and push wait for the owner. The dated execution packet retains assignments, verification and
-the next action so another AI can resume without repeating completed reads.
+commits. The dated execution packet retains assignments, verification and the next action so another AI can resume
+without repeating completed reads. The original plan deferred publication; the owner subsequently authorized it below.
+
+## Authorized on 2026-10-06: document and push the completed published-evidence work
+
+The owner asked to make sure the documents reflect the completed work and push it to main. The implementation is
+commit `f57dffdaf106fa5029d778799d5cc6723214e498`, release `3d10601675b8`: 24 target outcomes, 27 confirmed readings,
+fifteen exact-product claims, existing impact-test/state explanations and median contributors, with zero changed
+numerical answers. Its source custody, eight source-conflict holds and eight chamber holds remain explicit.
+
+The publication checkpoint updates the user guide, interface/data model, documentation map and current handoff, then
+passes the repository checks and advances main without overwriting remote work. This authorization does not start
+another research batch, change the selection policy, send maker questions or commission physical tests. The normal
+Verify and Publish to Pages workflows run from main; their success and the live manifest are checked separately from
+the Git push.

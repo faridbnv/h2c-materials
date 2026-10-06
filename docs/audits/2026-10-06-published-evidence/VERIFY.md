@@ -39,3 +39,18 @@ Additional retained checks:
 - Source export exited 0: 2,572 verified originals, one copied, 2,571 retained, 15,830 derivatives. The 96 missing originals remain explicit gaps. No private originals or backup path are included in this packet.
 
 Earlier failed attempts and their causes are retained in status.json. They are not reported as passes. The complete successful run covered the final application, data, tests and snapshots; final receipt wording and artifact hashes were finished afterwards, then documentation markers/status and whitespace were checked before the local checkpoint. No application or deciding data changed after that successful run.
+
+## Documentation and main-publication checkpoint
+
+On 6 October 2026 the owner authorized updating the documents and pushing the completed implementation to main.
+The documentation update changed no application, table, schema or selection input. `npm run build:diff` exited 0:
+release `3d10601675b8` unchanged, **0 differences** against implementation commit `f57dffda`. `npm run data:diff`
+exited 0 with no changed records. The regenerated validation report changed only its build date to 6 October.
+
+A fresh `npm run verify` exited **0** in **418.0 seconds**, all 18 steps passed and no step skipped. Its fast subset
+was **63.2 seconds**, within 90 seconds. It passed 550 core and 287 import tests (no failures/skips), restored-cache
+context audit (126 accepted, zero new/stale), 69 interface views, 300 rendered scenarios/2,588 readings, the doubled
+327-material/29,391-measurement scale check and reproducible builds. The exact timings and complete sanitized output
+are in publication-verify-output.txt. Documentation history/status checks, local file links, artifact digests and
+whitespace also passed. Git remote publication and the website deployment are verified separately from these local
+checks; RESUME.md records the commands and the exact implementation checkpoint.
