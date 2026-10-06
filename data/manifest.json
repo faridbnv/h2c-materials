@@ -62,8 +62,8 @@
       "sha256": "8f65483ba3fa35a8d070ded15a850ccad463ad75045ce7e4d79e10af735dcbab"
     },
     "method": {
-      "rows": 52,
-      "sha256": "107ca825671810ef79798a3f1c5c0c2ce8b2148269213283db697c0ae0645463"
+      "rows": 53,
+      "sha256": "c144e9781f3a8573aa4de1c87d2e66c43846072f4cd2ddfa47374e55073286df"
     },
     "reference": {
       "rows": 114,
@@ -91,7 +91,7 @@
     },
     "headline_definitions": {
       "rows": 10,
-      "sha256": "abc1554ccba57b67e65645c311625aa8f0e899e5dbabcbd842402f79f9a936fa"
+      "sha256": "069f6b7dd51d2818e96f2c18b4a26c20ef1087de2018cc5ce8cbfefc5e5f21e4"
     },
     "polymers": {
       "rows": 48,

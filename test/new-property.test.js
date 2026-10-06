@@ -36,7 +36,7 @@ function withShoreA({ misfile = false } = {}) {
   t.append('headline_definitions', {
     HeadlineKey: 'shoreA', Kind: 'measurement', Unit: 'Shore A', 'Value properties': 'Shore A hardness', 'Related properties': 'Shore A hardness',
     'Lower bound properties': NA, 'Lower bound load MPa': NA, 'Lower bound excludes': NA, 'Lower bound basis': NA,
-    Direction: NA, 'Unstated direction': NA, 'Load MPa': NA, Notch: NA, 'Test temperature °C': NA, Standard: NA, 'Changes with annealing': 'FALSE', 'Changes with moisture': 'FALSE', 'Evidence group': 'mechanical', 'Endpoint note': 'FALSE', 'Comparison note': NA,
+    Direction: NA, 'Unstated direction': NA, 'Load MPa': NA, Notch: NA, 'Test temperature °C': NA, Standard: NA, 'Changes with annealing': 'FALSE', 'Changes with moisture': 'FALSE', 'Evidence group': 'mechanical', 'Endpoint note': 'FALSE', 'Comparison note': NA, 'Drawer comparison': NA,
     Short: 'Softness', Plain: 'Shore A hardness', Technical: 'Shore A hardness', Hint: 'how soft a flexible part feels; lower is softer',
     'Axis label': 'Shore A hardness', 'Export header': 'Shore A', Better: 'min', 'Filter group': 'Mechanical', 'Filter operator': '<=',
     'Filter example': 'e.g. 90 for a soft grip', 'Non-negative': 'TRUE', 'Table column': 'FALSE', Estimated: 'FALSE', 'Reference property': NA,

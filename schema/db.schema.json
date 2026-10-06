@@ -1625,6 +1625,7 @@
         "evidenceGroup",
         "endpointNote",
         "comparisonNote",
+        "drawerComparison",
         "labels",
         "better",
         "filter",
@@ -1766,6 +1767,13 @@
         },
         "comparisonNote": {
           "description": "What the headline compares and why its related values that are not its own are left out, shown beside them in the drawer (D92), or null.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "drawerComparison": {
+          "description": "The comparison the drawer draws the headline in, beside the headlines naming the same one (D133): a Topic of the method table, whose rule is the caption; or null.",
           "type": [
             "string",
             "null"

@@ -90,6 +90,7 @@ export function compileRegistry(wb, issues) {
     if (!next || next.replacedBy) err('REGISTRY-REPLACED', `properties ${p.name}`, `Replaced by "${p.replacedBy}", which is ${next ? 'itself replaced' : 'not a property'}`);
   }
 
+  const methodTopics = new Set((wb.Method?.rows ?? []).map((r) => r.Topic));
   const headlines = wb['Headline definitions'].rows.map((r) => {
     const where = `headline_definitions ${r.HeadlineKey}`;
     const appliesTo = parseAppliesTo(r['Applies to'], where, issues, materialRows);
@@ -118,12 +119,17 @@ export function compileRegistry(wb, issues) {
       evidenceGroup: orNull(r['Evidence group']),
       endpointNote: bool(r['Endpoint note']),
       comparisonNote: orNull(r['Comparison note']),
+      // The comparison the drawer draws it in, beside the headlines that name the same one (D133): a Topic of method.csv,
+      // whose rule is the caption. Nothing is converted between them.
+      drawerComparison: orNull(r['Drawer comparison']),
       labels: { short: r.Short, plain: r.Plain, technical: r.Technical, hint: r.Hint, axis: r['Axis label'], export: r['Export header'] },
       better: r.Better,
       filter: { group: r['Filter group'], operator: r['Filter operator'], example: r['Filter example'], nonNegative: bool(r['Non-negative']) },
       tableColumn: bool(r['Table column']), estimated: bool(r.Estimated), referenceProperty: orNull(r['Reference property']),
       appliesTo, appliesToText: r['Applies to'] ?? null, notApplicableReason: r['Not applicable reason'] ?? null,
     };
+    if (h.drawerComparison && !methodTopics.has(h.drawerComparison)) err('REGISTRY-HEADLINE', where, `Drawer comparison "${h.drawerComparison}" names no Topic of method.csv, whose rule is its caption`);
+    if (h.drawerComparison && h.kind !== 'measurement') err('REGISTRY-HEADLINE', where, 'Only a measurement headline is drawn product by product in a drawer comparison');
     for (const name of [...h.valueProperties, ...h.relatedProperties, ...(h.lowerBounds?.properties ?? [])]) {
       if (propertyByName.get(name)?.replacedBy) err('REGISTRY-REPLACED', where, `${name} is replaced by ${propertyByName.get(name).replacedBy}; name that instead`);
     }

@@ -284,6 +284,14 @@ Where a sheet prints both the stress at yield and the stress at break, a product
 two from the same test, since the ultimate strength is the maximum stress the bar carried (D126). The value says which
 endpoints it compared. Another sheet's number is another test and is not compared.
 
+**Impact strength is two tests, drawn side by side** (D133). Notched Charpy (ISO 179) and notched Izod (ISO 180) strike
+different bars held in different ways; both report energy per area of the notched section in kJ/m², but a Charpy value
+is not an Izod value, and Izod in J/m (ASTM D256) is energy per metre of notch, which needs a bar thickness no sheet
+gives. The tool never converts one into another. In a material's **Mechanical** tab the two tests are drawn one above
+the other on one scale, a dot per product, with a table of products listing both and every other impact record each
+product has. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 4.9 to 72.3
+kJ/m², but its middle half is 6.6 to 21, and the high end is a handful of products sold as toughened.
+
 **A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
 measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one
 filed under the whole material, is shown as context and never passes it.

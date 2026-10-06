@@ -753,6 +753,12 @@ export function renderDrawer(host, state, actions) {
     gradeOpen.set(b.dataset.gradeToggle, !body.hidden);
   }));
   wireEvidence(host, actions);
+  // A product's dot on one impact row lights its dot on the other, so the two tests are read for the same product.
+  host.querySelectorAll('.imp-dot[data-grade]').forEach((d) => {
+    const pair = (on) => host.querySelectorAll(`.imp-dot[data-grade="${CSS.escape(d.dataset.grade)}"]`).forEach((x) => x.classList.toggle('partner', on));
+    d.addEventListener('mouseenter', () => pair(true));
+    d.addEventListener('mouseleave', () => pair(false));
+  });
   const search = host.querySelector('[data-search]');
   if (search) {
     search.addEventListener('input', () => { drawerQuery = search.value; applySearch(host); });
@@ -991,6 +997,192 @@ function productPrintCounts(grades) {
 }
 
 /** A material's spread across its products, per key property (materials[].summary): median, range, how many. */
+// ------------------------------------------------------------------ headlines drawn side by side (D133)
+
+/**
+ * A material's products as its spread counts them for one headline (build/src/products.js, summarise): each with the
+ * value it publishes and whether it is a special formulation, which the median leaves out. A material whose every
+ * product is a declared variant is its variants; a product that reads a variant sibling's sheet is set apart as the
+ * sibling is (D57, D89).
+ */
+function spreadEntries(m, c, key) {
+  const products = (m.gradeIds ?? []).map((id) => c.gradeById.get(id)).filter((g) => g && !g.retired);
+  const variantOnly = products.length > 0 && products.every((g) => g.variant);
+  return products.filter((g) => g.headline?.[key]).map((g) => {
+    const v = g.headline[key];
+    return { g, v, variant: !variantOnly && (!!g.variant || (v.from?.origin === 'twin' && !!c.gradeById.get(v.from.gradeId)?.variant)) };
+  });
+}
+
+const UNSTATED_DIRECTION = new Set(['unknown', 'not-applicable']);
+// A bar's state in words, from the typed fields the build reads, never the cell's own words: a page that states once,
+// for its whole table, that every bar was annealed has annealed bars, whatever each row's cell says (D116).
+const onPage = (x, field) => (x?.pageContext?.[field] ? ' (stated once on its page)' : '');
+function barState(x, v) {
+  const anneal = v?.anneal ?? (x?.postProcessingState === 'annealed' ? x.anneal ?? {} : null);
+  const treatment = anneal ? `annealed ${scheduleWords(anneal)}` : x?.postProcessingState === 'as-printed' ? 'as printed' : 'treatment not stated';
+  return `${treatment}${onPage(x, 'postProcessingState')}${x?.moistureState === 'conditioned' ? `, after moisture conditioning${onPage(x, 'moistureState')}` : ''}`;
+}
+
+/**
+ * An impact record in a few words, from its typed fields only: the test, the bar, and what sets it apart from the
+ * headline's notched bar at room temperature. It describes; whether the record can be a product's value is the build's.
+ */
+export function impactKind(x) {
+  const test = /charpy/i.test(x.property) ? 'Charpy' : /izod/i.test(x.property) ? 'Izod' : 'impact';
+  const notch = x.notch === 'Notched' ? 'notched' : x.notch === 'Unnotched' ? 'unnotched' : null;
+  const expected = REGISTRY.headlines.find((h) => h.valueProperties?.includes(x.property))?.standard;
+  const apart = [
+    notch ? null : 'notch not stated',
+    UNSTATED_DIRECTION.has(x.direction) ? 'orientation not stated' : x.direction !== 'XY' ? `${x.direction} bar` : null,
+    { moulded: 'moulded bar', film: 'film', filament: 'filament', 'off-recipe': 'printed off its recipe' }[x.specimenForm] ?? null,
+    x.postProcessingState === 'annealed' ? 'annealed' : null,
+    x.moistureState === 'conditioned' ? 'after conditioning' : null,
+    x.testTemperatureC != null && Math.abs(x.testTemperatureC - 23) > 2 ? `struck at ${fmtNumber(x.testTemperatureC)} °C` : null,
+    expected && x.standards?.length && !x.standards.includes(expected) ? x.standards.join(', ') : null,
+    x.implausible ? 'flagged implausible' : null,
+  ].filter(Boolean);
+  return `${cap(notch ? `${notch} ${test}` : test)} ${fmtBounded(x.value, x.unit, x.interval)}${apart.length ? ` (${apart.join(', ')})` : ''}`;
+}
+
+// The dots of one row: a shared scale, linear from zero, logarithmic only past the hundredfold compare.js draws a log
+// track at. Dots closer than DOT_GAP per cent of the track stack upward, up to MAX_ROWS rows; past that they overlap, and
+// the table under the rows lists every product.
+const LOG_RATIO = 100;
+const DOT_GAP = 2.4;
+const MAX_ROWS = 6;
+function stripScale(values) {
+  const hi = Math.max(0, ...values);
+  const positive = values.filter((v) => v > 0);
+  const lo = positive.length ? Math.min(...positive) : 0;
+  const log = positive.length === values.length && lo > 0 && hi / lo > LOG_RATIO;
+  const t = log ? Math.log10 : (v) => v;
+  const from = log ? lo : 0;
+  const span = t(hi) - t(from) || 1;
+  return { log, from, hi, pct: (v) => Math.max(0, Math.min(100, ((t(log ? Math.max(v, lo) : v) - t(from)) / span) * 100)) };
+}
+function stack(entries, pct) {
+  const rows = [];
+  for (const e of [...entries].sort((a, b) => a.v.value - b.v.value)) {
+    e.x = pct(e.v.value);
+    let row = rows.findIndex((last) => e.x - last >= DOT_GAP);
+    if (row < 0) row = rows.length < MAX_ROWS ? rows.length : rows.indexOf(Math.min(...rows));
+    rows[row] = e.x;
+    e.row = row;
+  }
+  return Math.max(1, rows.length);
+}
+
+/** One headline's row of dots: a product each, the middle half of the comparable ones shaded and their median marked. */
+function dotRow(h, entries, s, scale, c, gradeLabel) {
+  const rows = stack(entries, scale.pct);
+  const band = s?.q1 != null ? `<span class="imp-band" style="left:${scale.pct(s.q1)}%;width:${Math.max(scale.pct(s.q3) - scale.pct(s.q1), 0.5)}%"></span>` : '';
+  const median = s?.n > 1 ? `<span class="imp-median" style="left:${scale.pct(s.median)}%" title="${esc(`Median of ${s.n} products on a comparable basis: ${fmtNumber(s.median, h.unit)}`)}"></span>` : '';
+  const dots = entries.map((e) => {
+    const x = c.msById.get(e.v.measurementId);
+    const kind = [e.v.level === 'as-published' ? 'no stated orientation' : null, e.v.anneal || x?.postProcessingState === 'annealed' ? barState(x, e.v) : null,
+      e.variant ? 'special formulation, left out of the median' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
+    const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
+    const cls = [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : ''].filter(Boolean).join(' ');
+    return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" data-measurement="${esc(e.v.measurementId)}" data-grade="${esc(e.g.id)}"
+      style="left:${e.x}%;bottom:${3 + e.row * 9}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
+  }).join('');
+  return `<div class="imp-row"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${plural(entries.length, 'product')}</span></span>
+    <span class="imp-track" style="height:${8 + rows * 9}px">${band}${median}${dots}</span></div>`;
+}
+
+/** What a headline's row holds, in a sentence: the products on a comparable basis and the ones set apart. */
+function rowCounts(h, s) {
+  if (!s) return '';
+  const parts = [s.n ? `${plural(s.n, 'product')} on a comparable basis${s.n > 1 ? `, median ${fmtNumber(s.median)}${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}` : ''}` : 'no product on a comparable basis',
+    s.asPublished ? `${s.asPublished.n} more with no stated orientation` : null,
+    s.variants ? `${plural(s.variants.n, 'special formulation')}, left out of the median` : null].filter(Boolean);
+  return `<li><b>${esc(h.labels.plain)}</b> (${esc(h.unit)}): ${esc(andList(parts))}.</li>`;
+}
+
+/** The product table: each product's value of every headline in the comparison side by side, and its other records. */
+function comparisonTable(hs, byKey, c, records, gradeLabel) {
+  const products = new Map();
+  for (const h of hs) for (const e of byKey.get(h.key)) products.set(e.g.id, { g: e.g, values: { ...(products.get(e.g.id)?.values ?? {}), [h.key]: e } });
+  for (const [gradeId] of records) {
+    const g = c.gradeById.get(gradeId);
+    if (g && !g.retired && isProduct(g) && !products.has(gradeId)) products.set(gradeId, { g, values: {} });
+  }
+  const used = (p) => new Set(Object.values(p.values).map((e) => e.v.measurementId));
+  // A record that repeats a value already in its column (the same bar printed on a second document) is not listed again.
+  const facing = (x) => (UNSTATED_DIRECTION.has(x.direction) ? 'unstated' : x.direction);
+  const same = (x, y) => x.property === y.property && x.value === y.value && x.unit === y.unit && x.notch === y.notch && facing(x) === facing(y);
+  const valueCell = (e, h) => (!e ? '<td class="num">—</td>' : `<td class="num"><button type="button" class="link-btn" data-measurement="${esc(e.v.measurementId)}">${esc(fmtBounded(e.v.value, h.unit, e.v.interval))}</button>${
+    e.v.level === 'as-published' ? '<span class="fine"> no stated orientation</span>' : ''}${e.variant ? '<span class="fine"> special formulation</span>' : ''}${fromNote(e.v.from)}</td>`);
+  const once = (words) => (new Set(words.map(([, w]) => w)).size <= 1 ? words[0]?.[1] ?? '—' : words.map(([k, w]) => `${k}: ${w}`).join('; '));
+  const row = (p) => {
+    const entries = hs.map((h) => [h, p.values[h.key]]).filter(([, e]) => e);
+    const state = once(entries.map(([h, e]) => [h.labels.short, barState(c.msById.get(e.v.measurementId), e.v)]));
+    const orientation = once(entries.map(([h, e]) => [h.labels.short, UNSTATED_DIRECTION.has(e.v.direction) ? 'not stated' : e.v.direction]));
+    const shown = [...used(p)].map((id) => c.msById.get(id)).filter(Boolean);
+    const others = (records.get(p.g.id) ?? []).filter((x) => !used(p).has(x.id) && !shown.some((y) => same(x, y)))
+      .sort((a, b) => a.property.localeCompare(b.property) || b.value - a.value);
+    const otherCell = others.slice(0, 3).map((x) => `<button type="button" class="link-btn" data-measurement="${esc(x.id)}">${esc(impactKind(x))}</button>`).join('; ')
+      + (others.length > 3 ? ` <span class="fine">and ${others.length - 3} more below</span>` : '');
+    return `<tr><td>${esc(gradeLabel(p.g))}</td><td>${esc(p.g.manufacturer ?? '')}</td>${hs.map((h) => valueCell(p.values[h.key], h)).join('')}
+      <td>${esc(entries.length ? state : '—')}</td><td>${esc(entries.length ? orientation : '—')}</td><td>${otherCell || '—'}</td></tr>`;
+  };
+  const all = [...products.values()];
+  const count = (p) => hs.filter((h) => p.values[h.key]).length;
+  const top = (p) => Math.max(...hs.map((h) => p.values[h.key]?.v.value ?? -Infinity));
+  const ranked = all.filter((p) => count(p)).sort((a, b) => count(b) - count(a) || top(b) - top(a) || gradeLabel(a.g).localeCompare(gradeLabel(b.g)));
+  const rest = all.filter((p) => !count(p)).sort((a, b) => gradeLabel(a.g).localeCompare(gradeLabel(b.g)));
+  const head = `<thead><tr><th>Product</th><th>Maker</th>${hs.map((h) => `<th class="num">${esc(h.labels.short)} <span class="u">${esc(h.unit)}</span></th>`).join('')}
+    <th>State</th><th>Orientation</th><th>Other impact records</th></tr></thead>`;
+  const table = (list) => scrollTable(`<table class="grid imp-table">${head}<tbody>${list.map(row).join('')}</tbody></table>`);
+  return `<details class="imp-products"><summary>Products, test by test (${all.length})</summary>
+    ${ranked.length ? table(ranked) : ''}
+    ${rest.length ? `<details class="imp-rest"><summary>${plural(rest.length, 'product')} with other impact records only</summary>${table(rest)}</details>` : ''}</details>`;
+}
+
+/**
+ * The comparisons a tab draws (headline_definitions "Drawer comparison", D133): for each, a row of dots per headline on
+ * one scale, a product each, then a table of products with a column per headline. Nothing is converted between them.
+ * Returns each with the properties whose blocks it goes above.
+ */
+function drawerComparisons(m, c, tab) {
+  const topics = [...new Set(REGISTRY.headlines.filter((h) => h.drawerComparison).map((h) => h.drawerComparison))];
+  const inTab = new Set(tabProperties(tab, m));
+  c.msById ??= new Map(c.ms.map((x) => [x.id, x]));
+  const gradeLabel = (g) => gradeName(g) || g.id;
+  return topics.map((topic) => {
+    const hs = REGISTRY.headlines.filter((h) => h.drawerComparison === topic && !m.headline?.[h.key]?.notApplicable
+      && h.valueProperties.some((p) => inTab.has(p)));
+    const properties = new Set(hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
+    const records = new Map();
+    for (const x of c.ms) {
+      if (!properties.has(x.property) || !x.numeric || x.quarantined) continue;
+      if (!records.has(x.gradeId)) records.set(x.gradeId, []);
+      records.get(x.gradeId).push(x);
+    }
+    const byKey = new Map(hs.map((h) => [h.key, spreadEntries(m, c, h.key)]));
+    if (!hs.length || (!records.size && hs.every((h) => !byKey.get(h.key).length))) return null;
+    const scale = stripScale(hs.flatMap((h) => byKey.get(h.key).map((e) => e.v.value)));
+    const both = [...new Set(hs.flatMap((h) => byKey.get(h.key).map((e) => e.g.id)))].filter((id) => hs.every((h) => byKey.get(h.key).some((e) => e.g.id === id)));
+    const caption = c.db.method?.find((r) => r.topic === topic)?.rule ?? '';
+    const strips = hs.some((h) => byKey.get(h.key).length) ? `<div class="imp-strips">
+        ${hs.map((h) => dotRow(h, byKey.get(h.key), m.summary?.[h.key], scale, c, gradeLabel)).join('')}
+        <div class="imp-row imp-axis"><span></span><span class="cmp-scale${scale.log ? ' log' : ''}"><span>${esc(fmtNumber(scale.from))}</span>${scale.log ? '<span class="cmp-scale-kind">log scale</span>' : ''}<span>${esc(fmtNumber(scale.hi, hs[0].unit))}</span></span></div>
+        <p class="imp-key fine"><span><i class="imp-dot"></i> orientation stated (XY)</span><span><i class="imp-dot open"></i> no stated orientation</span>
+          <span><i class="imp-dot annealed"></i> measured after annealing</span><span><i class="imp-dot variant"></i> special formulation</span>
+          <span><i class="imp-band-key"></i> middle half</span><span><i class="imp-median-key"></i> median</span></p></div>` : '';
+    const bothLine = both.length
+      ? `Both tests: ${plural(both.length, 'product')} (${esc(andList(both.slice(0, 5).map((id) => gradeLabel(c.gradeById.get(id)))))}${both.length > 5 ? ' and others' : ''}).`
+      : 'No product publishes both tests.';
+    const html = `<section class="imp-compare" data-comparison="${esc(topic)}"><h3 class="sec">${esc(topic)}, product by product</h3>
+      ${caption ? `<p class="fine imp-caption">${esc(caption)}</p>` : ''}
+      ${strips}
+      <ul class="imp-counts fine">${hs.map((h) => rowCounts(h, m.summary?.[h.key])).join('')}<li>${bothLine}</li></ul>
+      ${comparisonTable(hs, byKey, c, records, gradeLabel)}</section>`;
+    return { topic, properties, html };
+  }).filter(Boolean);
+}
+
 function spreadTable(m, c) {
   const rows = REGISTRY.headlines.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s);
   if (!rows.length) return '';
@@ -1157,10 +1349,17 @@ function tabBody(tab, c) {
     // pulled along Z), its note says which, and why the rest stay on record but are not compared (D92).
     const notes = (p) => REGISTRY.headlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p))
       .map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
-    const blocks = list.filter((p) => rows.some((x) => x.property === p)).map((p) => {
+    const shown = list.filter((p) => rows.some((x) => x.property === p));
+    const blocks = shown.map((p) => {
       const group = rows.filter((x) => x.property === p).sort(byValue);
       return makerBlock(propertyName(p), group.length, 'value', notes(p) + group.map((x) => measurementRow(x, c, { compact: true })).join(''), { cls: 'prop-block' });
     });
+    // Headlines drawn side by side (D133) come before the first block of their values: notched Charpy beside notched
+    // Izod, product by product, above the Charpy, Izod and impact records they are chosen from.
+    for (const cmp of drawerComparisons(m, c, tab).reverse()) {
+      const at = shown.findIndex((p) => cmp.properties.has(p));
+      if (at >= 0) blocks.splice(at, 0, cmp.html);
+    }
     const namedHtml = named.length
       ? `<div class="np-line">Named on a data sheet without a value: ${named.map((x) => `<span class="np-item${c.highlight === x.id ? ' target' : ''}" data-mid="${esc(x.id)}">${esc(inSentence(x.property))} (${esc(gradeName(c.gradeById.get(x.gradeId)) || 'a product')})</span>`).join(', ')}.</div>`
       : '';

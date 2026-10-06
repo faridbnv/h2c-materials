@@ -20,6 +20,24 @@ Flexural elongation at break
 3 values
 Flexural stress at conventional deflection
 2 values
+IMPACT TESTS, PRODUCT BY PRODUCT
+Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed in the table, not drawn.
+Notched Charpy impact
+44 products
+Notched Izod impact
+19 products
+0
+72.3 kJ/m²
+orientation stated (XY)
+no stated orientation
+measured after annealing
+special formulation
+middle half
+median
+Notched Charpy impact (kJ/m²): 16 products on a comparable basis, median 13.5, middle half 6.55 to 21.2, 22 more with no stated orientation and 6 special formulations, left out of the median.
+Notched Izod impact (kJ/m²): 7 products on a comparable basis, median 5, middle half 4.75 to 6.25, 7 more with no stated orientation and 5 special formulations, left out of the median.
+Both tests: 1 product (colorFabb Copper filled PLA).
+Products, test by test (143)
 Charpy strength
 117 values
 Izod impact strength

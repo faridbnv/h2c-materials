@@ -144,6 +144,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D130 | The owner's answers after gap round 2: drying read with the whole page, bars below full infill labelled, three identities judged, CI once per push | Polymaker's product pages say how to dry in three places that do not always agree, so each product now reads the page as a whole and shows the other statements beside its drying. Three 3DJake sheets tested their bars only 20 % filled; those values stay visible, labelled, and never stand for the product. eSUN's eSilk-PLA is its PLA-Silk under an older name, purefil's two POM records are one product, and Fiberlogy's FiberFlex Aero is a foaming copolyester elastomer, not a CPE. GitHub now runs the full check once per push, not twice, and the long scenario run weekly. | In force; it extends D95 (a bar that is not the product as printed) and D120 (profile notes), and amends how D106's inferred filings were applied to FiberFlex Aero |
 | D131 | Check round 3: what decides is checked by code first, every check runs to the end, and the errors found were words in the wrong place, not wrong numbers | This round checked the values and print settings the tool's answers rest on, and read on their pages only what the code could not confirm. Of 540 records read, none held a wrong number; 29 held words in the wrong place (a label inside a cell, a note read for rows it does not speak for, a condition dropped), and each kind was swept everywhere it occurred. A sealed sample of 100 deciding records, read at the end, found two errors in what decides: a temperature parser that read a Fahrenheit window as Celsius, so the tool said one printable product could not be printed, and a dropped condition; both were fixed everywhere. Nine products held twice became one each, 43 records filed under the wrong product moved, MakerBot Tough is filed under PLA, the 123 documents whose bytes were lost were fetched again, and a check that once hid a real failure behind a slow timing now runs every step and lists every failure. | In force; it amends D57 (an outlier's acceptance names the value it was accepted for) and applies D89, D99, D106, D116, D120, D123 and D129 |
 | D132 | Published impact evidence is explained beside the exact product, without changing what decides (withdrawn) | Withdrawn the day it was made. Its drawer text told readers that makers were silent on things they had said, and called conditions "not stated" that the page states once for its whole table. The code is reverted; the four maker statements and the later Bambu PLA Tough+ page it recorded stay, under the topics they belong to. | Withdrawn on 2026-10-06 (code reverted; its statements re-filed by m384); the impact comparison is redone under GOALS, "Decided on 2026-10-06, later" |
+| D133 | Notched Charpy and notched Izod are drawn side by side in the drawer, a product each | The Mechanical tab now opens its impact records with the two impact tests drawn one above the other on one scale: a dot per product at its published value, the middle half of the comparable products shaded and their median marked, and a table of products with a column per test. The two tests are still never mixed or converted. | In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, and decides nothing |
 
 <!-- end index -->
 
@@ -4362,6 +4363,40 @@ products are all variants retains that population. The drawer derives counts, na
 missing conditions from this exact population. No derived field is stored and no scenario/export format changes.
 
 The execution receipt, bounded holds, source hashes, verification and next action are in
-[the handoff](audits/2026-10-06-published-evidence/RESUME.md). Source-grounded fixtures check the Bambu preparation schedules,
+[the packet](audits/2026-10-06-published-evidence/README.md). Source-grounded fixtures check the Bambu preparation schedules,
 notched versus unnotched values, PolyLite PETG's 2.6, method contradictions and raw-material J/m values independently of
 the refactored rule; complete numerical/state parity and browser checks establish the explanation-only boundary.
+
+## D133. Notched Charpy and notched Izod are drawn side by side in the drawer, a product each
+
+> **In plain words:** The Mechanical tab now opens its impact records with the two impact tests drawn one above the other on one scale: a dot per product at its published value, the middle half of the comparable products shaded and their median marked, and a table of products with a column per test. The two tests are still never mixed or converted.
+> **Status:** In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, and decides nothing.
+
+The owner asked, after D132 was withdrawn, for "a better way to make comparison of the two impact measures" in the
+drawer. Before this, a material's impact records were two long lists, Charpy and Izod, each sorted by value, mixing
+notched and unnotched bars, annealed and as-printed ones, XY and Z, so a reader could not see where the products sit or
+which publish both tests.
+
+- **Which headlines are drawn together is data.** headline_definitions.csv has a column, Drawer comparison, naming a
+  Topic of method.csv whose rule is the caption (m385). charpyNotched and izodNotched name "Impact tests"; the caption says
+  how the tests differ (supports at both ends, or clamped at one), that both are energy per area of the notched section
+  in kJ/m², that a Charpy value is not an Izod value, and that the shared scale only lets a product be found on both.
+  The drawer names no headline key.
+- **A row of dots is the spread, exactly.** Each dot is a product's own value of the headline (`g.headline`), the
+  population the build's `summarise` counts: comparable values filled, values with no stated orientation hollow, values
+  measured after annealing square, special formulations as diamonds, as the Material ranges view draws them (D108). The
+  shading is the comparable products' middle half and the line their median, both the build's. A test asserts the dots
+  equal the spread's counts and each dot its product's measurement.
+- **A bar's state is the build's, a page's statement included.** The table's State and Orientation come from the typed
+  fields the build reads (`postProcessingState`, `anneal`, `moistureState`, `direction`), and say "(stated once on its
+  page)" where a page_context row supplied them (D116). The raw cells are never read for a state: D132's panel did, and
+  called Polymaker's Fiberon bars "not stated" beside the 100 °C for 16 h its page prints.
+- **Everything else stays visible, never drawn.** Each product's other impact records (unnotched, notch not stated, Z,
+  moulded, J/m, ASTM D256, struck cold, flagged implausible) are listed beside it in words from their typed fields, and
+  open in Sources; a record that repeats a value already in its column, from a second document, is not listed again.
+  Izod in J/m is never placed on the kJ/m² scale (D94).
+
+Nothing a filter, a verdict, an estimate, the table or the export reads changes: templates.csv and the build's values
+are as they were. Showing which products are sold as toughened, the second half of the owner's request, follows in this
+decision once its marks are recorded.
+

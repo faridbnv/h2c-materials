@@ -304,6 +304,19 @@ try {
   await click('.drawer [data-tab="Mechanical"]');
   await sleep(200);
   results['13-drawer-pla-mechanical'] = await drawerText();
+  // Notched Charpy beside notched Izod (D133): the rows of dots and their counts, then the product table opened. PLA is
+  // the largest; ABS has products that publish both tests; HIPS has a pair on a comparable basis.
+  const impactText = () => evaluate(`(() => { const s = document.querySelector('.drawer-body .imp-compare'); if (!s) return 'NO COMPARISON';
+    for (const d of s.querySelectorAll('details')) d.open = true;
+    return s.innerText.replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n'); })()`);
+  results['13-drawer-pla-impact'] = await impactText();
+  for (const [id, name] of [['M027', 'abs'], ['M081', 'hips']]) {
+    await click(`#lens tr[data-material="${id}"]`);
+    await until(`!!document.querySelector('.drawer [data-tab="Mechanical"]')`, `the ${name} drawer`);
+    await click('.drawer [data-tab="Mechanical"]');
+    await sleep(200);
+    results[`13-drawer-${name}-impact`] = await impactText();
+  }
 
   // A material answered by its products (D83): the stiff-fixture template ranked by specific stiffness, each row its
   // place and best product; then the first-ranked material's Products tab, where the products that pass come first with

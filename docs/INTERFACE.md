@@ -486,6 +486,17 @@ part read elsewhere labelled "data sheet shared with …" or "from Bambu Lab's F
 its maker says (each quote with its document and page, and a **limits** mark where a reviewer recorded what the claim
 does not say), its Sources and its product details. A card stays as the reader left it when the drawer is redrawn.
 
+**Impact tests, product by product (D133).** Mechanical opens its impact records with the two impact tests drawn one
+above the other on one kJ/m² scale: a dot per product at its published value (filled: orientation stated; hollow: no
+stated orientation; square: measured after annealing; diamond: a special formulation, left out of the median), the
+middle half of the comparable products shaded and their median a line. A caption from method.csv says how Charpy and
+Izod differ and that nothing is converted. Under the rows, a sentence per test gives the counts, the median and the
+middle half, and which products publish both tests. **Products, test by test** opens a table with a column per test,
+each product's state and orientation (from the build's typed fields, "stated once on its page" where a page heading
+supplied them) and its other impact records (unnotched, notch not stated, Z, moulded, J/m, struck cold) in words. A dot
+or a value opens its measurement in Sources; hovering a product's dot on one row lights its dot on the other. Which
+headlines are drawn together is the Drawer comparison column of headline_definitions.csv.
+
 **Record notes.** Nearly every measurement's Notes cell is the record's history ("Added 2026-09-17 (m39): re-read from
 the source document"). It is shown, collapsed, as **Record notes**, never among the test conditions. Every record ID is
 behind a small **ID** mark beside what it names.

@@ -183,6 +183,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Evidence group | canonical | string | yes | Not applicable | mechanical, thermal | Which citation list the headline's evidence joins. |
 | Endpoint note | canonical | boolean | yes |  |  | Whether related evidence of a non-first property is labelled as a different endpoint. |
 | Comparison note | prose | string | yes | Not applicable |  | What the headline compares, and why its related values that are not its own (another test, unit, notch, direction or temperature) are left out, in a reader's words. The drawer shows it beside those values (D92). Not applicable: the per-value reason says enough. |
+| Drawer comparison | canonical | string | yes | Not applicable |  | The comparison the drawer draws this headline in, beside the others that name the same one (D133): each product's value on a shared scale, test by test, and a table of products with a column per headline. It names a Topic of method.csv, whose rule is the caption. Nothing is converted between the headlines it groups. Not applicable: drawn in no such comparison. |
 | Short | prose | string | yes |  |  | Column and pill label. |
 | Plain | prose | string | yes |  |  | Plain-language name. |
 | Technical | prose | string | yes |  |  | Technical name, shown as a subtitle. |

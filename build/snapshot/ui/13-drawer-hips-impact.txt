@@ -1,0 +1,29 @@
+IMPACT TESTS, PRODUCT BY PRODUCT
+Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed in the table, not drawn.
+Notched Charpy impact
+6 products
+Notched Izod impact
+2 products
+0
+15 kJ/m²
+orientation stated (XY)
+no stated orientation
+measured after annealing
+special formulation
+middle half
+median
+Notched Charpy impact (kJ/m²): 1 product on a comparable basis and 5 more with no stated orientation.
+Notched Izod impact (kJ/m²): 1 product on a comparable basis and 1 more with no stated orientation.
+Both tests: 2 products (BASF Forward AM Ultrafuse HiPS and Fiberlogy HIPS).
+Products, test by test (8)
+Product Maker Charpy notched kJ/m² Izod notched kJ/m² State Orientation Other impact records
+Fiberlogy HIPS Fiberlogy 12 kJ/m² no stated orientation 10 kJ/m² no stated orientation treatment not stated not stated —
+BASF Forward AM Ultrafuse HiPS BASF Forward AM 6.5 kJ/m² 6.9 kJ/m² treatment not stated XY Unnotched Charpy 57.6 kJ/m² (XZ bar); Unnotched Charpy 36 kJ/m²; Unnotched Charpy 8.6 kJ/m² (ZX bar) and 7 more below
+FormFutura EasyFil HIPS FormFutura 15 kJ/m² no stated orientation — treatment not stated not stated —
+FormFutura LimoSolve FormFutura 15 kJ/m² no stated orientation data sheet shared with FormFutura EasyFil HIPS — treatment not stated not stated —
+Nanovia HIPS Nanovia 11 kJ/m² no stated orientation — treatment not stated not stated —
+Spectrum hipsx Spectrum 7 kJ/m² no stated orientation — treatment not stated not stated Notched Izod 90 J/m (orientation not stated, ASTM D256)
+2 products with other impact records only
+Product Maker Charpy notched kJ/m² Izod notched kJ/m² State Orientation Other impact records
+eSUN HIPS eSUN — — — — Izod 11 kJ/m² (notch not stated, orientation not stated, moulded bar, GB/T 1843)
+Fillamentum HIPS Extrafill Fillamentum — — — — Unnotched Charpy 130 kJ/m² (orientation not stated, struck at -30 °C); Notched Izod 180 J/m (orientation not stated, ASTM D256)

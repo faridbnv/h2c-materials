@@ -351,6 +351,9 @@ recipe", Form off-recipe: colorFabb's lightweight PETs printed unfoamed, D95). T
 specimen are the same to it; a raw material value is still not the product's, as for every headline. Each of the four
 rows added since D92 carries a Comparison note, which the drawer shows above the values it leaves out (D92, D94); a row
 may also name its test Standard, which a value naming only other standards does not meet (the Izod row's ISO 180, D94).
+A row's Drawer comparison names the comparison the drawer draws it in, beside the rows naming the same one: the two
+impact rows name "Impact tests", a Topic of method.csv whose rule is the caption, and the Mechanical tab draws them one
+above the other, a product each, never converted (D133).
 
 ### A headline value
 
