@@ -4429,6 +4429,12 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
   résistance au choc Charpy), and the units "kJ/ m2", "(KJ/m^2)", "ft-lb/in", "Jm-1" and "J/cm²". A value in J/cm² is
   the same quantity as kJ/m², ten times the number: an exact change of unit, not of test, and the only conversion added.
   A tensile impact (ISO 8256) and a multiaxial test stay unread: they are other tests.
+- **What the sheets print is read** (m387, m388). 345 registered documents print impact results the tables held
+  fewer rows of. Claude Sonnet readers read them from the page images, blind second readers read again what the text
+  did not pair, and Claude Opus reviewed what the proposal tool passed: 86 values entered, and every correction it
+  proposed was held, because each paired a held row with another row of its page. A sheet filed on the wrong product
+  moved (Hyper PLA-CF, a grade of its own), a copy flagged implausible on one document only was unflagged, and BASF's
+  ISO 180 column headed "J/m" was flagged. [The packet](audits/2026-10-06-impact-round/README.md) has the counts.
 - **Setting them apart waits for the marks to be complete.** The first 19 rows come from statements already held on
   products that publish an impact value. Once the claims round has judged the rest and a draw of unmarked products finds
   at most one missed claim in 20, the two impact rows may say "set apart", and the median becomes the other products'.

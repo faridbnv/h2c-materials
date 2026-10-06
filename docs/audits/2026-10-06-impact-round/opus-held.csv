@@ -1,0 +1,264 @@
+file,source,product,value,reason
+values-add,R-BAMBU-PLA-TOUGH-20261005,G006-01,80.6 ± 9.5 kJ/m² MPa,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PLA-TOUGH-20261005,G006-01,26.6 ± 2.8 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PLA-TOUGH-20261005,G006-01,39.3 ± 3.6 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PLA-TOUGH-20261005,G006-01,25.9 ± 3.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PLA-TOUGH-20261005,G006-01,13.8 ± 0.9 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PLA-TOUGH-20261005,G006-01,7.4 ± 1.2 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6,G031-01,41.0 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6,G031-01,39.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6,G031-01,34.8 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6,G031-01,4.9 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6,G031-01,7.4 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-4c2eebbe6cf6,G031-01,9.0 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-6e425b0d7ce7,G021-01,34.2 kJ/m² MPa,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-6e425b0d7ce7,G021-01,31.5 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-6e425b0d7ce7,G021-01,20.6 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,S-POLYCN-Polymaker-PC-Max-TDS-v1-0,G035-09,25.1 ± 1.9,"the row names ASTM D256 (Izod) beside ISO 179 (Charpy): older Polymaker sheets, whose test is not settled; a held test refuses it as a guessed Charpy or Izod value"
+values-add,S-POLYCN-PolyMax-PETG-TDS-V4,G020-16,9.7 ± 2.6 (kJ/m²),"the row names ASTM D256 (Izod) beside ISO 179 (Charpy): older Polymaker sheets, whose test is not settled; a held test refuses it as a guessed Charpy or Izod value"
+values-add,S-POLYCN-PolyMax-PLA-TDS-v1,G001-24,12.15 ± 1.03,"the row names ASTM D256 (Izod) beside ISO 179 (Charpy): older Polymaker sheets, whose test is not settled; a held test refuses it as a guessed Charpy or Izod value"
+values-add,S-PVB-technisches-datenblatt-2,G027-33,10 kJ/m²,"the line prints ""( 30°C)"", a -30 °C row whose sign the text lost; recorded without it, a cold bar would read as a room-temperature one"
+values-add,R-QIDI-PETG-RAPIDO,G020-44,32-39,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-RAPIDO,G020-44,55-63,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-RAPIDO,G020-44,9-11,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-RAPIDO,G020-44,3-5,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-RAPIDO,G020-44,2-4,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-RAPIDO,G020-44,1-3,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-absesd7-0222a,G027-44,36.2 (3.0),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-absesd7-0222a,G027-44,20.5 (1.6),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-absesd7-0222a,G027-44,41.4 (3.0),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-absesd7-0222a,G027-44,18 (2.7),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-asa-0826a,G031-33,43.1 (3.8),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-asa-0826a,G031-33,23.8 (3.8),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-asa-0826a,G031-33,54.4 (3.3),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-asa-0826a,G031-33,29.3 (29),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-asa-0826a,G031-33,60.9 (4.8),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-asa-0826a,G031-33,28.5 (5.7),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,D-3D4MAKERS-R-PEEK-FILAMENT-PAGE,G097-05,7 C kJ/m2,"a Charpy row citing ASTM 256 (an Izod method) with ""7 C"" for a value: the test and the number are not settled"
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,27.2 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,40.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,57.5 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,55.8 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,57.2 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,62.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,4.1 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,15.5 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0419c91c3241,G051-01,13.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,40.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,35.7 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,57.5 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,57.2 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,65.4 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,62.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,15.5 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,11.6 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-0edbf0fe469b,G050-01,13.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-94bc784d0793,G033-01,14.0 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-94bc784d0793,G033-01,41.0 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-94bc784d0793,G033-01,9.4 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-94bc784d0793,G033-01,4.9 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a100c1bb3a92,G048-01,13.3,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a100c1bb3a92,G048-01,5.7,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf,G028-01,39.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf,G028-01,14.5 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf,G028-01,27.2 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf,G028-01,7.4 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf,G028-01,5.3 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-BAMBU-PRIORITY-20261003-a8afbb5aeeaf,G028-01,4.1 kJ/m²,a product page comparing products in columns: each column was given to the page's product
+values-add,R-CELANESE-ZYTEL-101L,G055-R1,5.5 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-DELRIN-100P,G087-R1,350 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,5 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,15 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,5 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,13 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,40 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,7 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,3 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,80 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,115 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,80 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,125 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,18 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,17 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,19 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,18 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,80 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,94 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,60 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,90 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,20 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,20 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,82 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,95 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,95 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,100 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,80 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,73 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,88 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,75 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,14 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,15 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,15 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,17 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,10 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,10 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,13 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,17 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,12 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,15 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,12 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,10 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,10 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,100 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,102 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,105 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,111 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,115 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,101 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,18 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,21 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,21 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,23 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,16 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,24 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,18 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,22 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,12 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,13 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,15 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,14 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,80 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,90 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,88 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,92 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,75 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,66 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,12 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,16 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,13 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,17 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,11 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,10 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,12 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,14 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,15 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,67 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,60 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,70 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,75 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,59 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,54 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,85 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,90 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,8 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,14 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,18 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,20 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,6 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,6 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,10 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,9 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,8 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,9 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,14 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,20 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,6 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,7 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,7 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,80 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,55 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,60 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,70 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,9 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,12 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,14 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,11 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,9 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,44 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,9 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,13 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,8 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,8 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,6 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,20 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,3 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,5 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,"5,6 kJ/m²",a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,"12,6 kJ/m²",a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,"5,5 kJ/m²",a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,12 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,3 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,2 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-DUPONT-ZYTEL-GUIDE,G058-R1,4 kJ/m²,a resin supplier's reference grade read from its guide: moulded data whose specimen the reading did not record
+values-add,R-FILLAMENTUM-READER-20261004-9dd673e2310b,G049-05,7 kJ/m 2 (notched),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-FILLAMENTUM-READER-20261004-9dd673e2310b,G049-05,53.2 kJ/m 2 (unnotched),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-FILLAMENTUM-READER-20261004-9dd673e2310b,G049-05,86.2 kJ/m 2 (unnotched),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-FILLAMENTUM-READER-20261004-9dd673e2310b,G049-05,5 kJ/m 2 (notched),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-FILLAMENTUM-READER-20261004-9dd673e2310b,G049-05,4 kJ/m 2 (notched),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,S-PET-formfutura-tds-athenax,G088-04,93°C KJ/m2,"FormFutura AthenaX's sheet given to 3D-Fuel Pro PCTG, and its cell prints ""93°C KJ/m2"": neither the product nor the unit is settled"
+values-add,D-IPCON-PRINT-20260928-01990cc2eb5c,G071-01,5.4 kJ/m²,"IPCON's page compares products in columns (5.4, 4.8, 4.6 ...), and its first column was given to two products"
+values-add,S-IPCON-PRINT-20260928-2dbb3874b5e9,G069-01,5.4 kJ/m²,"IPCON's page compares products in columns (5.4, 4.8, 4.6 ...), and its first column was given to two products"
+values-add,R-POLYMAKER-PRIORITY-20261003-46df2b78af77,G057-03,27.7 KJ/m²,"the page tells the reader to anneal and moisture-condition after printing, and its table does not say which state its bars were in"
+values-add,R-POLYMAKER-PRIORITY-20261003-540bc284ede5,G059-01,12.6 KJ/m²,"the page tells the reader to anneal and moisture-condition after printing, and its table does not say which state its bars were in"
+values-add,R-POLYMAKER-PRIORITY-20261003-540bc284ede5,G059-01,8.1 KJ/m²,"the page tells the reader to anneal and moisture-condition after printing, and its table does not say which state its bars were in"
+values-add,R-POLYMAKER-PRIORITY-20261003-aa05f44c1437,G050-11,11 KJ/m²,"the page tells the reader to anneal and moisture-condition after printing, and its table does not say which state its bars were in"
+values-add,R-POLYMAKER-PRIORITY-20261003-effcc17a7754,G053-08,9.9 KJ/m²,"the page tells the reader to anneal and moisture-condition after printing, and its table does not say which state its bars were in"
+values-add,S-POLYCN-index-php-controller-attachment-id-attachment-236,G057-03,17.2 ± 1.4 kJ/m²,"the row names ASTM D256 (Izod) beside ISO 179 (Charpy): older Polymaker sheets, whose test is not settled; a held test refuses it as a guessed Charpy or Izod value"
+values-add,R-QIDI-PETG-GF,G025-04,23-35 kJ/m²,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-GF,G025-04,4-6 kJ/m²,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-GF,G025-04,23-37 kJ/m²,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-GF,G025-04,4-5 kJ/m²,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-GF,G025-04,5-15 kJ/m²,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-QIDI-PETG-GF,G025-04,1-2 kJ/m²,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-hips-0823a,G081-07,74.7 (3.7),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-hips-0823a,G081-07,44.6 (5.3),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-hips-0823a,G081-07,67.6 (3.2),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-hips-0823a,G081-07,39.1 (5.2),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,G051-11,74.6 (3.4),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,G051-11,17.2 (2.7),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,G051-11,77.1 (7),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,G051-11,22.1 (4.5),the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-ultem-1010-resin-0626a,G099-08,26.6 (3.5) J/m,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-ultem-1010-resin-0626a,G099-08,21.7 (4.7) J/m,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-ultem-1010-resin-0626a,G099-08,36.3 (4.8) J/m,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-add,R-STRATASYS-mds-fdm-ultem-1010-resin-0626a,G099-08,27.2 (2.4) J/m,the page separates these values by a column the reading did not capture; recorded alike they would contradict
+values-set,B-PC-Bambu-PLA-Matte-Technical-Data-Sheet,V007505,19.2 ± 3.7 kJ/m²,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,B-PC-Bambu-PLA-Matte-Technical-Data-Sheet,V007505,19.2,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,B-PC-Bambu-PLA-Matte-Technical-Data-Sheet,V007505,19.2,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,B-PC-Bambu-PLA-Matte-Technical-Data-Sheet,V007505,3.7,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,B-PC-Bambu-PLA-Matte-Technical-Data-Sheet,V007505,3.7,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,B-PC-Bambu-PLA-Matte-Technical-Data-Sheet,V007505,Published value (transcription corrected),"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-3DJAKE-TDS-3DJAKE-ABS-CF,V009391,7 kJ/m²,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-3DJAKE-TDS-3DJAKE-ABS-CF,V009391,7,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-3DJAKE-TDS-3DJAKE-ABS-CF,V009391,7,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-3DJAKE-TDS-3DJAKE-ABS-CF,V009391,Published value (transcription corrected),"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-colorFabb-PA-NEAT,V011200,90 kJ/m²,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-colorFabb-PA-NEAT,V011200,90,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-colorFabb-PA-NEAT,V011200,90,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-colorFabb-PA-NEAT,V011200,Published value (transcription corrected),"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-PA-Blue-Metal-Detectable,V011253,81 kJ/m²,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-PA-Blue-Metal-Detectable,V011253,81,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-PA-Blue-Metal-Detectable,V011253,81,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-COLORFABB-TDS-E-PA-Blue-Metal-Detectable,V011253,Published value (transcription corrected),"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011921,5 kJ/m²,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011921,5,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011921,5,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011921,Published value (transcription corrected),"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011922,6 kJ/m²,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011922,6,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011922,6,"paired the held row with another row of its page (another direction, notch or temperature)"
+values-set,R-DUPONT-ZYTEL-GUIDE,V011922,Published value (transcription corrected),"paired the held row with another row of its page (another direction, notch or temperature)"
+page-context-add,S-POLYCN-PolyMax-PETG-TDS-V4,,Mechanical Properties,speaks for every property: not this round's
+page-context-add,S-POLYCN-PolyMax-PLA-TDS-v1,,Mechanical Properties,speaks for every property: not this round's
+page-context-add,S-POLYCN-TDS-Polymaker-PolyLite-PETG-V6-0-2026-06-09-EN,,HOW TO MAKE SPECIMENS,speaks for every property: not this round's
+page-context-add,S-SPECTRUM-en-tds-spectrum-pla-tough,,MATERIAL PROPERTIES,speaks for every property: not this round's
+page-context-add,D-FLASH-PET-CF-TDS-EN,,"Note: The above test parameter data are obtained from actual printing, and the printed model has not been annealed.",speaks for every property: not this round's
+page-context-add,R-MARKFORGED-Onyx-GF-Material-Datasheet,,Material Properties,speaks for every property: not this round's

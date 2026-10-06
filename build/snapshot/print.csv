@@ -307,6 +307,7 @@ G018-16,M018,PLAx CF,within,within,within,not-needed,requires-hardened,required,
 G018-17,M018,PLA-CF,within,within,within,not-needed,requires-hardened,required,enclosure: guide PG026
 G018-18,M018,PLA CF,within,within,within,not-needed,requires-hardened,optional,nozzle: guide PG026; bed: guide PG026; chamber: guide PG026; enclosure: guide PG026; hardenedNozzle: guide PG026; drying: guide PG026
 G018-19,M018,ecoPLA CF,within,within,within,not-needed,requires-hardened,optional,chamber: guide PG026; enclosure: guide PG026; hardenedNozzle: guide PG026; drying: guide PG026
+G018-20,M018,Hyper PLA-CF,within,within,within,not-needed,requires-hardened,optional,enclosure: guide PG026; hardenedNozzle: guide PG026; drying: guide PG026
 G019-01,M019,Polymaker HT PLA GF,within,within,within,not-needed,requires-hardened,required,
 G019-02,M019,PLA Glass Fiber,unknown,unknown,unknown,unknown,unknown,unknown,
 G019-03,M019,PLA GF,within,within,unknown,unknown,unknown,unknown,

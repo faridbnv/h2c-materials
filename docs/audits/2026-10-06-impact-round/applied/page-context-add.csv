@@ -1,0 +1,2 @@
+gate,SourceID,Page,Applies to,Statement,Specimen type,Moisture state,Post-processing state,Anneal °C,Anneal h,Standard,Test temperature °C,Locator,quote,moisture_words,post_processing_words,inherits,cause,quote_view,reader,rows
+ready,R-3D4MAKERS-TDS-PEKK-A-Filament-3D4Makers,1,impact,MATERIAL PROPERTIES,Raw material value,not-stated,not-stated,Not applicable,Not applicable,Not published,Not published,p. 1: MATERIAL PROPERTIES,* Data based on injection molded samples,,,V006663(specimen),page-context,line,sonnet-imp1-batch-10,batch-10.csv#19

@@ -55,8 +55,8 @@ ABS-AF
 ABS-CF
 43.3
 27.3–48 · 5
-6.91
-302
+7
+288
 all 152 candidates
 Tensile strength (Z) MPa
 ABS
@@ -75,18 +75,18 @@ ABS
 10
 2.7–40 · 16
 ABS-AF
-~1–17†
+~2–18†
 ABS-CF
 1.9
 1.48–3.08 · 4
-0.585
+0.619
 log scale
 1,050
 all 152 candidates
 Notched Charpy impact kJ/m²
 ABS
-20
-14.5–21.5 · 5
+19
+10.5–21.5 · 6
 ABS-AF
 6.1*
 ABS-CF
@@ -152,7 +152,7 @@ ABS-AF within within within 1 of 3 products need one optional
 ABS-CF within within partly within 9 of 11 products need one published
 DATA ON FILE
 Material Key properties published Estimated Products Measurements
-ABS 10 of 10 — 55 754
+ABS 10 of 10 — 55 767
 ABS-AF 6 of 10 1† 3 34
 ABS-CF 8 of 10 — 11 130
 A † span is an estimate, not a measurement: the likely range (80%), the plausible range behind it and a tick at its centre. It never passes a requirement; select it for what it rests on.

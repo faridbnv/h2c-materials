@@ -742,6 +742,14 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Products whose only glass transition is a resin supplier's value** (Specimen type Raw material value, which is
   not the product's): tg_resin_only in the query, 14 on 2026-09-27.
+- **Impact results the round read and held** (2026-10-06, [the impact round](audits/2026-10-06-impact-round/README.md),
+  `opus-held.csv`): 39 values a page tells apart by a column the readings did not capture (QIDI's three columns,
+  Stratasys' slice heights), 45 values of makers' product pages that compare products in columns (Bambu Lab, IPCON),
+  133 values of DuPont's resin guide (moulded data, reference grades), and 593 readings the proposal tool held for its
+  own reasons (`proposals/held.csv`: no number, a notch label against its method code, a unit missing). Each needs its
+  column or condition read before it can be a row. SUNLU's "Product Information PLA+" sheet (R-SUNLU-SUNLU-PLA-Vivid-Yellow,
+  ASTM table, notched Izod 19.8 kJ/m²) is filed on plain SUNLU PLA; whether it is SUNLU PLA+ or PLA+2.0 (m372 filed the
+  ISO PLA+ sheet on PLA+2.0, whose own sheet prints 10 ± 3) is not settled.
 - **Eight impact rows whose label and standard contradict each other** (2026-10-06, the withdrawn round's E3 holds,
   [OUTCOMES.md](audits/2026-10-06-published-evidence/OUTCOMES.md)): six Anycubic sheets (PLA High Speed, PLA+, PLA
   Metal, PETG, ABS, ASA) label their X-Y value Izod while citing ISO 179 and draw both a notched and an unnotched bar;

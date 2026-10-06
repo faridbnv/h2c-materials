@@ -1,21 +1,21 @@
 Tensile modulus
 213 values
 Tensile strength (yield or break not stated)
-227 values
+226 values
 Tensile yield strength
 58 values
 Tensile break strength
 41 values
 Elongation at break
-239 values
+238 values
 Elongation at yield
 28 values
 Tensile strain at strength
 10 values
 Flexural modulus
-186 values
+185 values
 Flexural strength
-184 values
+183 values
 Flexural elongation at break
 3 values
 Flexural stress at conventional deflection
@@ -23,9 +23,9 @@ Flexural stress at conventional deflection
 IMPACT TESTS, PRODUCT BY PRODUCT
 Notched Charpy (ISO 179) and notched Izod (ISO 180) are two tests. Charpy supports the bar at both ends and strikes it in the middle; Izod clamps the bar upright at one end and strikes its free end. Both report the energy absorbed per area of the notched section, in kJ/m², but the bars, notches and supports differ, so a Charpy value is not an Izod value. Each dot is one product's published value, and the two rows share a scale only so that a product can be found on both; no value is converted. Izod in J/m (ASTM D256) is energy per metre of notch width: it is listed in the table, not drawn.
 Notched Charpy impact
-44 products
+45 products
 Notched Izod impact
-19 products
+22 products
 0
 72.3 kJ/m²
 orientation stated (XY)
@@ -35,17 +35,17 @@ special formulation
 sold as toughened (the maker's statement)
 middle half
 median
-Notched Charpy impact (kJ/m²): 16 products on a comparable basis, median 13.5, middle half 6.55 to 21.2, 22 more with no stated orientation and 6 special formulations, left out of the median. 7 of the 16 are products their makers sell as toughened or impact-modified (5.76 to 72.3 kJ/m²). The other 9 give 4.94 to 20.3 kJ/m², median 7.9.
-Notched Izod impact (kJ/m²): 7 products on a comparable basis, median 5, middle half 4.75 to 6.25, 7 more with no stated orientation and 5 special formulations, left out of the median. 1 of the 7 is a product its maker sells as toughened or impact-modified (10 kJ/m²). The other 6 give 4.5 to 6.5 kJ/m², median 5.
+Notched Charpy impact (kJ/m²): 18 products on a comparable basis, median 8.92, middle half 5.95 to 20.6, 20 more with no stated orientation and 7 special formulations, left out of the median. 7 of the 18 are products their makers sell as toughened or impact-modified (5.76 to 72.3 kJ/m²). The other 11 give 3.97 to 20.3 kJ/m², median 6.7.
+Notched Izod impact (kJ/m²): 7 products on a comparable basis, median 5, middle half 4.75 to 6.25, 10 more with no stated orientation and 5 special formulations, left out of the median. 1 of the 7 is a product its maker sells as toughened or impact-modified (10 kJ/m²). The other 6 give 4.5 to 6.5 kJ/m², median 5.
 Both tests: 1 product (colorFabb Copper filled PLA).
 "Sold as toughened" is the maker's own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.
-Products, test by test (143)
+Products, test by test (149)
 Charpy strength
-117 values
+125 values
 Izod impact strength
-119 values
+129 values
 Impact strength
-16 values
+15 values
 Hardness
 18 values
 Interlayer adhesion strength

@@ -26,7 +26,7 @@ A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limit
 Flexible component
 A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
 152 materials, 135 within H2C capability
-14424 measurements, each traceable to its source
+14509 measurements, each traceable to its source
 148 have a density, 101 a modulus, 100 a price
 Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer
@@ -883,13 +883,13 @@ annealed median
 ↗ ☆
 PLA-CE not tested 1,380 3.5* 45* 23* 55 114¤ ☆
 PLA-CF not tested 1,250
-1,190–1,420 · 18
+1,190–1,420 · 19
  2.8
 1.1–4.95 · 7
- 42.3
-31.2–54.9 · 8
- 9.4
-2–13.2 · 8
+ 41
+31.2–54.9 · 9
+ 8.4
+2–13.2 · 9
 annealed median
  56.3
 54–91 · 10

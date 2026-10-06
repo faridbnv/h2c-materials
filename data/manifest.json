@@ -6,24 +6,24 @@
       "sha256": "412ed7beb8eace90a529dda29c99a548b6c4c9c4f7bdb9e8585a88acf0bad5f8"
     },
     "grades": {
-      "rows": 1175,
-      "sha256": "915ea017aa332d195ed4aced81124fe418cbb91c821a08b9c56e80c54a4b9b93"
+      "rows": 1176,
+      "sha256": "89c61d11d0600a94f8377a7c604271331a9c261a68a76a97aac5952c1da37644"
     },
     "profiles": {
       "rows": 1911,
-      "sha256": "9d8626dd7d2c866925973e4633e504995dda12c06777be5bc5039c81bb058b0c"
+      "sha256": "66fb115e60232dc344f0d637614f1286209d4fe035a809d7dc579504be8da799"
     },
     "profile_notes": {
       "rows": 2493,
       "sha256": "b6d9309b26fe3e796941568911791c77ad712bf92a60ab7e7bafd661996caf49"
     },
     "measurements": {
-      "rows": 14755,
-      "sha256": "1c4fde03685350f90ef89c5dfa5dda90b35b78d833b41fce4b4566209576b85f"
+      "rows": 14841,
+      "sha256": "db597859592ed4d033f1df093e1c19c36165d403918dc258351e0ec37c5aafb5"
     },
     "page_context": {
-      "rows": 956,
-      "sha256": "a2d85ec2d9e5a57937972905c03b7c60a8fb2a5165fbec8faf8707893daa0bf9"
+      "rows": 957,
+      "sha256": "c5219a8f5b29980498221ab29bb809be8781962c709840eb717f6213ae4fb00b"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -31,7 +31,7 @@
     },
     "evidence": {
       "rows": 5760,
-      "sha256": "0507a19358c64ad10bfbf45f9e909f702332d611c1528bdcd84514d0190d80c2"
+      "sha256": "f10ef0a41c409d52161e654bbcfc15fc01ceef5e039ee4b03504a3aee451f6ab"
     },
     "know_how_reads": {
       "rows": 1545,
@@ -55,7 +55,7 @@
     },
     "sources": {
       "rows": 2003,
-      "sha256": "e4242cae59e2fa9b104ee38790c2aadf921eb5da325d60e9e978e52ec6fbb840"
+      "sha256": "1449c16dd7c8cbbd150cd671c6888be11fee22e0a816c423241adb14dea50c1a"
     },
     "coverage": {
       "rows": 951,

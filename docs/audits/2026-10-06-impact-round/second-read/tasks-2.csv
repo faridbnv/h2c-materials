@@ -1,0 +1,74 @@
+task_id,source_id,page,kind,field,product,label,locator
+S0019,B-PC-PLA-Pure-TDS,3,value,Charpy strength,G001-183,Impact Strength (Z),Mechanical Properties
+S0020,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Basic,"Impact Strength (X-Y, un-notched)",Mechanical Properties Comparison
+S0021,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Basic,"Impact Strength (Z, un-notched)",Mechanical Properties Comparison
+S0022,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Matte,"Impact Strength (X-Y, un-notched)",Mechanical Properties Comparison
+S0023,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Matte,"Impact Strength (Z, un-notched)",Mechanical Properties Comparison
+S0024,B-PC-PLA-Pure-TDS,4,value,Impact strength,G001-183,"Impact Strength (X-Y, un-notched)",Mechanical Properties Comparison
+S0025,B-PC-PLA-Pure-TDS,4,value,Impact strength,G001-183,"Impact Strength (Z, un-notched)",Mechanical Properties Comparison
+S0026,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Silk+,"Impact Strength (X-Y, un-notched)",Mechanical Properties Comparison
+S0027,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Silk+,"Impact Strength (Z, un-notched)",Mechanical Properties Comparison
+S0028,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Lite,"Impact Strength (X-Y, un-notched)",Mechanical Properties Comparison
+S0029,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Lite,"Impact Strength (Z, un-notched)",Mechanical Properties Comparison
+S0030,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Tough+,"Impact Strength (X-Y, un-notched)",Mechanical Properties Comparison
+S0031,B-PC-PLA-Pure-TDS,4,value,Impact strength,PLA Tough+,"Impact Strength (Z, un-notched)",Mechanical Properties Comparison
+S0416,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,6,value,Izod impact strength,G051-11,Notched (J/m),Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip
+S0417,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,6,value,Izod impact strength,G051-11,Notched (J/m),Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip
+S0418,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,6,value,Izod impact strength,G051-11,Unnotched (J/m),Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip
+S0419,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,6,value,Izod impact strength,G051-11,Unnotched (J/m),Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip
+S0420,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,7,value,Izod impact strength,G051-11,Notched (J/m),Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip
+S0421,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,7,value,Izod impact strength,G051-11,Notched (J/m),Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip
+S0422,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,7,value,Izod impact strength,G051-11,Unnotched (J/m),Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip
+S0423,R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a,7,value,Izod impact strength,G051-11,Unnotched (J/m),Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip
+S0424,R-STRATASYS-mds-fdm-pc-0426a,8,value,Izod impact strength,G035-23,Notched,"Impact Properties: ASTM D256, ASTM D4812"
+S0425,R-STRATASYS-mds-fdm-pc-0426a,8,value,Izod impact strength,G035-23,Notched,"Impact Properties: ASTM D256, ASTM D4812"
+S0426,R-STRATASYS-mds-fdm-pc-0426a,8,value,Izod impact strength,G035-23,Unnotched,"Impact Properties: ASTM D256, ASTM D4812"
+S0427,R-STRATASYS-mds-fdm-pc-0426a,8,value,Izod impact strength,G035-23,Unnotched,"Impact Properties: ASTM D256, ASTM D4812"
+S0381,S-PVB-Prusament-PC-Space-Grade-Black,2,value,Charpy strength,G037-06,Impact Strength Charpy [kJ/m ](3),Mechanical properties of 3D printed testing specimens(2)
+S0382,S-PVB-Prusament-PC-Space-Grade-Black,2,value,Charpy strength,G037-06,Impact Strength Charpy [kJ/m ](3),Mechanical properties of 3D printed testing specimens(2)
+S0383,S-PVB-Prusament-PC-Space-Grade-Black,2,value,Charpy strength,G037-06,Impact Strength Charpy Notched [kJ/m ](4),Mechanical properties of 3D printed testing specimens(2)
+S0008,R-3DJAKE-3DJAKE-TDS-ASA-Prime-pptx,1,value,Charpy strength,G031-29,Impact Strength,Typical properties (3D printed)
+S0009,R-3DJAKE-3DJAKE-TDS-ASA-Prime-pptx,1,value,Charpy strength,G031-29,Impact Strength,Typical properties (3D printed)
+S0046,R-COLORFABB-TDS-ColorFabb-StoneFill,1,value,Charpy strength,G001-180,Charpy unnotched impact strength,TYPICAL MATERIAL PROPERTIES – 3D Printed
+S0047,R-COLORFABB-TDS-ColorFabb-StoneFill,2,value,Charpy strength,G001-180,Impact Strength (Ch-N 23ºC),TYPICAL MATERIAL PROPERTIES – Injection molded
+S0123,R-STRATASYS-mds-fdm-absm30i-0621a,1,value,Izod impact strength,G027-43,"IZOD Impact, notched (Method A, 23 °C)",Mechanical Properties
+S0124,R-STRATASYS-mds-fdm-absm30i-0621a,1,value,Izod impact strength,G027-43,"IZOD Impact, un-notched (Method A, 23 °C)",Mechanical Properties
+S0140,B-support-for-pa-pet-TDS,2,value,Charpy strength,G080-01,Impact Strength (X-Y),Mechanical Properties (Dry state)
+S0141,B-support-for-pa-pet-TDS,2,value,Charpy strength,G080-01,Impact Strength (Z),Mechanical Properties (Dry state)
+S0323,S-PEBA-TPU-64D-TDS,2,value,Izod impact strength,G039-44,IZOD Impact Strength (X-Y),Mechanical Properties
+S0324,S-PEBA-TPU-64D-TDS,2,value,Izod impact strength,G039-44,IZOD Impact Strength (Z),Mechanical Properties
+S0340,R-EXTRUDR-durapro-pc-pbt-TDS-de,1,value,Charpy strength,G095-02,Charpy-Schlagzähigkeit,3. EIGENSCHAFTEN
+S0341,R-EXTRUDR-durapro-pc-pbt-TDS-de,1,value,Izod impact strength,G095-02,Izod-Schlagzähigkeit,3. EIGENSCHAFTEN
+S0372,R-NINJATEK-NinjaFlex-TDS,1,context,impact,,Impact specimens,Test Specimen Details (by ASTM Test Number)
+S0373,R-NINJATEK-NinjaFlex-TDS,1,value,Izod impact strength,G039-32,"Impact Strength (notched Izod, 23C)",Mechanical Properties
+S0400,S-SPECTRUM-en-tds-spectrum-asax-cf10,1,value,Charpy strength,G033-04,"Charpy impact strength, unnotched*",Mechanical properties
+S0401,S-SPECTRUM-en-tds-spectrum-asax-cf10,1,value,Charpy strength,G033-04,"Charpy impact strength, notched*",Mechanical properties
+S0010,R-3DJAKE-3DJAKE-TDS-ecoPLA-Sparkling-0,1,value,Charpy strength,G001-119,Impact strength,Physical properties
+S0048,R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon,2,value,Charpy strength,G001-70,Charpy unnotched impact strength,TYPICAL MATERIAL PROPERTIES – Injection molded
+S0052,R-FILAMENT2PRINT-CreatBot-ASA,1,value,Charpy strength,G031-35,Impact strength Z,Mechanical Properties
+S0056,S-PEBA-eStars-PLA,2,context,impact,G001-84,Mechanical Properties,Mechanical Properties
+S0062,R-EXTRUDR-pla-nx2-matt-TDS-en,1,value,Charpy strength,G001-33,Unnotched impact strength,3. PROPERTIES
+S0066,D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE,1,value,Charpy strength,G109-02,Charpy impact strength (unnotched) @ 23°C,Technical Specifications
+S0070,R-FIBERLOGY-FIBERLOGY-R-PLA-TDS-0,1,value,Izod impact strength,G001-185,Izod Impact Strength (Notched) @ 23°C,Mechanical Properties
+S0074,R-3DJAKE-KINGROON-ABS-Technical-Data-Sheet-V1-0,2,value,Charpy strength,G027-47,Impact Strength (X-Y),Mechanical Properties
+S0080,S-POLYCN-PolyTerra-PLA-TDS-V5-11,4,value,Charpy strength,G001-23,Charpy impact strength (Z),MECHANICAL PROPERTIES
+S0086,S-PVB-7-PLA-Recycled-Prusament-TDS-2021-V4,2,value,Charpy strength,G001-90,Impact S. Charpy Notch. [kJ/m²],Mechanical properties of 3D printed testing specimens(3)
+S0125,R-SUNLU-High-Speed-ABS-TDS,1,value,Izod impact strength,G027-12,IZOD Impact Notched (Z-X),Mechanical
+S0131,R-3D4MAKERS-TDS-LUVOCOM-3F-PEKK-50082-Filament,1,value,Charpy strength,G098-04,Charpy impact strength,MECHANICAL DATA
+S0137,R-3DJAKE-SILK-TDS-4,1,value,Charpy strength,G008-33,Charpy unnotched [kJ/m²],Property of 3D printed specimens
+S0151,R-COLORFABB-TDS-E-colorFabb-PA-NEAT,1,value,Charpy strength,G164-06,Impact Strength,Mechanical Properties – Injection Molded*
+S0316,R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,2,value,Charpy strength,Hyper Speed Triple Color Silk PLA,Charpy Impact strenght,Part III: Mechanical Properties of Printed Samples
+S0320,S-PEBA-eSUN-TPU-95A-Filament-TDS-V4-0,1,value,Izod impact strength,G039-37,IZOD Impact Strength,Mechanical Properties
+S0326,R-EXTRUDR-durapro-pa12-cf-TDS-en,1,value,Charpy strength,G053-04,Charpy Unnotched Impact Strength (+23°C),3. PROPERTIES
+S0330,R-EXTRUDR-durapro-pa6-cf-TDS-en,1,value,Charpy strength,G050-05,Charpy Unnotched Impact Strength (+23°C),3. PROPERTIES
+S0344,R-EXTRUDR-PRINT-20260928-8ac1c5367674,1,value,Charpy strength,G095-02,Charpy unnotched impact strength (+23°C),Mechanical Properties
+S0348,R-EXTRUDR-PRINT-20260929-ca0239ac2a92,1,value,Charpy strength,G039-17,Charpy notched impact strength (+23°C),Mechanical Properties
+S0354,D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE,1,value,Charpy strength,G129-07,Charpy impact strength (unnotched) @ 23°C,Technical Specifications
+S0358,R-FIBERLOGY-FIBERLOGY-FIBERFLEXCF-TDS,1,value,Charpy strength,G129-07,Charpy Impact Strength (Unnotched) @ 23°C,Mechanical Properties
+S0362,D-FLASH-TPU-TDS-EN,1,value,Izod impact strength,G039-22,Izod Impact Strength（X-Y）,Mechanical Properties
+S0366,S-PET-TDS-FlexiFil-TPC-40D,1,value,Izod impact strength,G046-06,"Izod notched impact strength, 23°C",Mechanical properties
+S0386,R-QIDI-PEBA-95A,2,value,Charpy strength,G045-07,Charpy impact strength at +23°C,MATERIAL PROPERTIES
+S0393,S-PCGF-ASA-TDS,1,value,Izod impact strength,G033-17,Impact Strength,Mechanical Properties
+S0397,S-PCGF-TPU-95A-TDS-Siddament,1,value,Izod impact strength,G039-49,Notched Impact Strength,Mechanical Properties
+S0403,S-SPECTRUM-en-tds-spectrum-pla-conductive,1,value,Charpy strength,G111-01,CHARPY impact strength Unnotched*,Mechanical
+S0445,R-SUNLU-PVB-TDS,1,value,Izod impact strength,G093-03,IZOD Impact Notched (Z-X),Mechanical

@@ -11,11 +11,11 @@ Database snapshot 2026-09-21 · build 2026-10-06
 | materials | 175 |
 | h2cRelevant | 135 |
 | familyEntries | 23 |
-| retiredDuplicates | measurements 331, evidence 21, profiles 80 |
+| retiredDuplicates | measurements 332, evidence 21, profiles 80 |
 | excluded | 17 |
-| grades | 1175 |
-| measurements | 14424 |
-| numericMeasurements | 14235 |
+| grades | 1176 |
+| measurements | 14509 |
+| numericMeasurements | 14320 |
 | quarantined | 32 |
 | profiles | 1831 |
 | evidence | 868 |
@@ -124,11 +124,11 @@ its plausible range wholly fails.
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 905 | 121 | 80% | 95% | ×1.1 | 0.0255 (16263 pairs) |
-| tensileModulusXY | 1317 | 83 | 81% | 95% | ×1.46 | 0.3 (2010 pairs) |
-| tensileStrengthXY | 1359 | 66 | 80% | 96% | ×1.44 | 0.225 (3369 pairs) |
-| elongationXY | 1084 | 85 | 80% | 95% | ×3.71 | 0.688 (2963 pairs) |
-| hdt045 | 1211 | 81 | 80% | 95% | 20.9 °C | 4.19 (5703 pairs) |
+| density | 906 | 121 | 80% | 95% | ×1.1 | 0.0255 (16281 pairs) |
+| tensileModulusXY | 1318 | 83 | 81% | 95% | ×1.46 | 0.3 (2010 pairs) |
+| tensileStrengthXY | 1361 | 66 | 80% | 96% | ×1.42 | 0.227 (3377 pairs) |
+| elongationXY | 1085 | 85 | 80% | 95% | ×3.74 | 0.685 (2971 pairs) |
+| hdt045 | 1212 | 81 | 80% | 95% | 20.9 °C | 4.19 (5703 pairs) |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -151,8 +151,8 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileStrengthXY | this-grade | 56 | 1 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | this-material | 56 | 0 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | family | 66 | 0 | 97.5% point | 2 | 2.5% point |
-| elongationXY | this-grade | 44 | 0 | 97.5% point | 3 | 2.07% point |
-| elongationXY | this-material | 67 | 2 | 97.5% point | 1 | 2.5% point |
+| elongationXY | this-grade | 44 | 0 | 97.5% point | 2 | 2.09% point |
+| elongationXY | this-material | 67 | 2 | 97.5% point | 2 | 2.5% point |
 | elongationXY | family | 85 | 2 | 97.5% point | 2 | 2.5% point |
 | hdt045 | this-grade | 63 | 4 | 99.71% point | 1 | 2.5% point |
 | hdt045 | this-material | 65 | 6 | 99.66% point | 1 | 2.5% point |
@@ -162,26 +162,26 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 
 | Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |
 |---|---|---:|---:|---:|---:|---:|---:|
-| tensileStrengthXY | none | 66 | 0 | 80.3% | 95.5% | ×1.44 | 2 |
-| tensileStrengthXY | printed | 66 | 50 | 56.1% | 69.7% | ×1.41 | 19 |
-| tensileStrengthXY | printedXY | 66 | 12 | 74.2% | 90.9% | ×1.43 | 5 |
+| tensileStrengthXY | none | 66 | 0 | 80.3% | 95.5% | ×1.42 | 2 |
+| tensileStrengthXY | printed | 66 | 50 | 56.1% | 69.7% | ×1.4 | 19 |
+| tensileStrengthXY | printedXY | 66 | 12 | 74.2% | 90.9% | ×1.42 | 5 |
 | tensileStrengthXY | unstated | 66 | 62 | 25.8% | 28.8% | ×1.17 | 47 |
 | tensileStrengthXY | containment | 66 | 13 | 86.4% | 93.9% | ×1.67 | 4 |
-| tensileStrengthXY | sameSource | 66 | 50 | 54.5% | 68.2% | ×1.41 | 20 |
-| tensileStrengthXY | lowestOfProducts | 66 | 62 | 74.2% | 84.8% | ×1.43 | 9 |
-| tensileStrengthXY | formulation | 66 | 41 | 78.8% | 90.9% | ×1.42 | 6 |
-| elongationXY | none | 85 | 0 | 80% | 95.3% | ×3.71 | 3 |
-| elongationXY | printed | 85 | 57 | 55.3% | 67.1% | ×2.94 | 27 |
-| elongationXY | printedXY | 85 | 17 | 74.1% | 89.4% | ×3.7 | 8 |
+| tensileStrengthXY | sameSource | 66 | 50 | 54.5% | 68.2% | ×1.4 | 20 |
+| tensileStrengthXY | lowestOfProducts | 66 | 62 | 74.2% | 84.8% | ×1.41 | 9 |
+| tensileStrengthXY | formulation | 66 | 41 | 78.8% | 90.9% | ×1.41 | 6 |
+| elongationXY | none | 85 | 0 | 80% | 95.3% | ×3.74 | 3 |
+| elongationXY | printed | 85 | 57 | 55.3% | 67.1% | ×2.95 | 27 |
+| elongationXY | printedXY | 85 | 17 | 75.3% | 89.4% | ×3.73 | 8 |
 | elongationXY | unstated | 85 | 71 | 31.8% | 38.8% | ×2.01 | 52 |
-| elongationXY | containment | 85 | 13 | 78.8% | 88.2% | ×6.46 | 9 |
-| elongationXY | sameSource | 85 | 57 | 52.9% | 64.7% | ×2.94 | 29 |
-| elongationXY | lowestOfProducts | 85 | 71 | 65.9% | 81.2% | ×3.55 | 16 |
-| elongationXY | formulation | 85 | 45 | 67.1% | 85.9% | ×3.34 | 11 |
+| elongationXY | containment | 85 | 13 | 78.8% | 88.2% | ×6.5 | 9 |
+| elongationXY | sameSource | 85 | 57 | 52.9% | 64.7% | ×2.95 | 29 |
+| elongationXY | lowestOfProducts | 85 | 71 | 65.9% | 82.4% | ×3.58 | 15 |
+| elongationXY | formulation | 85 | 45 | 68.2% | 83.5% | ×3.37 | 13 |
 | hdt045 | none | 81 | 0 | 75.3% | 92.6% | 17.5 °C | 1 |
 | hdt045 | printed | 81 | 37 | 61.7% | 77.8% | 16.5 °C | 14 |
 | hdt045 | printedXY | 81 | 5 | 72.8% | 88.9% | 17.4 °C | 4 |
-| hdt045 | unstated | 81 | 59 | 53.1% | 69.1% | 11.9 °C | 21 |
+| hdt045 | unstated | 81 | 59 | 53.1% | 69.1% | 12 °C | 21 |
 | hdt045 | containment | 81 | 6 | 77.8% | 92.6% | 20.9 °C | 1 |
 | hdt045 | sameSource | 81 | 44 | 60.5% | 76.5% | 14.3 °C | 15 |
 | hdt045 | lowestOfProducts | 81 | 51 | 72.8% | 90.1% | 17 °C | 3 |
@@ -191,17 +191,17 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 
 | Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
 |---|---:|---:|---:|---:|---:|---|
-| density | 823 | 1.44 | 2 | 0.797 | 0.95 | yes |
+| density | 824 | 1.42 | 2 | 0.797 | 0.95 | yes |
 | tensileModulusXY | 301 | 1.1 | 1.29 | 0.791 | 0.94 | yes |
-| tensileStrengthXY | 324 | 1.19 | 1.2 | 0.796 | 0.935 | yes |
-| elongationXY | 351 | 1.13 | 1.16 | 0.795 | 0.949 | yes |
-| hdt045 | 431 | 2.03 | 3 | 0.789 | 0.912 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
+| tensileStrengthXY | 325 | 1.18 | 1.22 | 0.791 | 0.942 | yes |
+| elongationXY | 352 | 1.13 | 1.18 | 0.795 | 0.949 | yes |
+| hdt045 | 431 | 2.03 | 3 | 0.791 | 0.912 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
-EST-GRADE-OUTLIER, 42 grades: PLA 13, PLA Wood 3, PLA Aero 3, PA12-CF 3, PPA-CF 3, PPA-GF 3, PA6-CF 2, PP-CF 2, PLA Marble 1, TPC / TPEE 1, PA66 1, PP 1, POM / Acetal 1, ABS 1, TPU 85A class and softer 1, PETG 1, PA6 1, PET-GF 1.
+EST-GRADE-OUTLIER, 42 grades: PLA 13, PLA Aero 4, PLA Wood 3, PA12-CF 3, PPA-CF 3, PPA-GF 3, PA6-CF 2, PP-CF 2, PLA Marble 1, TPC / TPEE 1, PA66 1, PP 1, POM / Acetal 1, ABS 1, PETG 1, PA6 1, PET-GF 1.
 
-Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 284 observations):
+Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 283 observations):
 
-By material: PLA 36, TPU 95A class 13, PLA Aero 12, PETG 12, PPA-CF 11, PA12-CF 10, PLA Wood 9, ABS 9, PA6-CF 8, PLA Silk 7, PPA-GF 7, PA6 6, PLA-CF 5, ABS-CF 5, PA6-GF 5, PP-CF 5, PPS-CF 5, TPU harder than 95A 5, PA12-GF 4, CPE-CF 4, PLA-NF 4, nGen FLEX 4, BVOH 4, CPE 4, ABS-GF 4, ASA 4, PC 4, PA12 4, PET-GF 4, PLA Metal 3, ASA-GF 3, TPC / TPEE 3, PP 3, ASA Aero 3, PAHT-CF 3, TPU 85A class and softer 3, nGen / Amphora 3, PA66 2, PLA-EC 2, PC-PBT-CF 2, PLA-PHA 2, PAHT-CE 2, PETG-CF 2, PET-LW 2, OBC 2, TPC-ESD 2, PBAT 2, TPU 90A class 2, ASA-CF 2, PA6/66 2, PA612-CF 2, PPA 2, PPS 2, PVDF 2, COC 2, PLA Marble 1, PLA Sparkle 1, PVA 1, POM / Acetal 1, PA612-ESD 1, PPS-GF 1, PC-CF 1, HIPS 1, PC-ABS 1, PC-PBT 1.
+By material: PLA 36, PETG 13, TPU 95A class 13, PLA Aero 11, PPA-CF 11, PA12-CF 10, PLA Wood 9, ABS 9, PA6-CF 8, PLA Silk 7, PPA-GF 7, PA6 6, PLA-CF 5, ABS-CF 5, PA6-GF 5, PP-CF 5, PPS-CF 5, TPU harder than 95A 5, PA12-GF 4, CPE-CF 4, PLA-NF 4, nGen FLEX 4, BVOH 4, CPE 4, ABS-GF 4, ASA 4, PC 4, PA12 4, PET-GF 4, PLA Metal 3, ASA-GF 3, PP 3, ASA Aero 3, PAHT-CF 3, TPU 85A class and softer 3, nGen / Amphora 3, TPC / TPEE 2, PA66 2, PLA-EC 2, PC-PBT-CF 2, PLA-PHA 2, PAHT-CE 2, PETG-CF 2, PET-LW 2, OBC 2, TPC-ESD 2, PBAT 2, TPU 90A class 2, ASA-CF 2, PA6/66 2, PA612-CF 2, PPA 2, PPS 2, PVDF 2, COC 2, PLA Marble 1, PLA Sparkle 1, PVA 1, POM / Acetal 1, PA612-ESD 1, PPS-GF 1, PC-CF 1, HIPS 1, PC-ABS 1, PC-PBT 1.
 
 - PLA, density: density 1240, 1000 (V007470, V013434)
 - PLA, density: density 1240 (V008736)
@@ -265,7 +265,7 @@ By material: PLA 36, TPU 95A class 13, PLA Aero 12, PETG 12, PPA-CF 11, PA12-CF 
 - PLA, tensileModulusXY: flexural XY 2.493 (V002691)
 - PLA, tensileModulusXY: tensile unk 0.475737 (V008803)
 - PLA, tensileModulusXY: tensile unk 0.39 (V008830)
-- PLA, tensileModulusXY: flexural XY 2.49017, 5.003 (V008923, V009035)
+- PLA, tensileModulusXY: flexural XY 2.49017 (V008923)
 - PLA, tensileModulusXY: tensile unk 0.379426 (V008997)
 - PLA, tensileModulusXY: tensile XY 0.4328 (V011510)
 - PLA, tensileModulusXY: tensile XY 1.14606 (V012520)
@@ -317,7 +317,6 @@ By material: PLA 36, TPU 95A class 13, PLA Aero 12, PETG 12, PPA-CF 11, PA12-CF 
 - PLA Silk, tensileStrengthXY: flexural unk 66.7 (V004861)
 - PLA Wood, tensileStrengthXY: ultimate XY 30.1, 8.9 (V012770, V012773)
 - PLA Wood, tensileStrengthXY: flexural unk 47.9 (V012776)
-- PLA Aero, tensileStrengthXY: yield unk 60 (V005595)
 - PLA Aero, tensileStrengthXY: ultimate XY 10 (V011575)
 - PLA Aero, tensileStrengthXY: ultimate XY 9 (V011581)
 - PETG, tensileStrengthXY: ultimate XY 50, 51.25 (V005874, V006294)
@@ -357,7 +356,7 @@ By material: PLA 36, TPU 95A class 13, PLA Aero 12, PETG 12, PPA-CF 11, PA12-CF 
 - PLA, elongationXY: break Z 0.9 (V003864)
 - PETG, elongationXY: break XY 90, 91.06 (V005875, V006297)
 - PETG, elongationXY: break moulded 83 (V007974)
-- TPC / TPEE, elongationXY: break unk 600 (V011174)
+- PETG, elongationXY: break unk 280, 280 (V008990, V009134)
 - BVOH, elongationXY: break XY 14.8, 14.8 (V002264, V011883)
 - BVOH, elongationXY: break Z 0.6, 0.6 (V002265, V011884)
 - CPE, elongationXY: break XY 6.2 (V010008)
@@ -502,7 +501,7 @@ Every one of the 175 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (4922 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (4936 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

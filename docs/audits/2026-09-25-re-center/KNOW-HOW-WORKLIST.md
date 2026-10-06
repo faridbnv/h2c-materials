@@ -14,7 +14,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1013 | 46 | 1 | 40 | 1100 |
+| Products | 1014 | 46 | 1 | 40 | 1101 |
 | Materials | 135 | 10 | 0 | 7 | 152 |
 
 4871 statements; 1329 sources read for know-how; 216 makers' sites searched.
@@ -39,7 +39,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PAHT-CF (M048) | High-stiffness fixture; Indoor prototype; Warm environment | collected | 0 of 5 | 4 / 1 / 3 | — |
 | PBAT (M133) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PET-CF (M067) | Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 2 / 4 | — |
-| PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 18 | 6 / 6 / 14 | — |
+| PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 19 | 6 / 7 / 15 | — |
 | PLA-NF (M152) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 0 / 2 | — |
 | PP (M082) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 5 / 7 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |

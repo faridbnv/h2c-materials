@@ -17,7 +17,7 @@
     "baseline": 5306,
     "current": 5760,
     "added": 454,
-    "edited_existing": 258,
+    "edited_existing": 261,
     "removed": 0
   },
   "family_entries": {
@@ -36,8 +36,8 @@
   },
   "grades": {
     "baseline": 1163,
-    "current": 1175,
-    "added": 12,
+    "current": 1176,
+    "added": 13,
     "edited_existing": 138,
     "removed": 0
   },
@@ -71,9 +71,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 14755,
-    "added": 3219,
-    "edited_existing": 2608,
+    "current": 14841,
+    "added": 3305,
+    "edited_existing": 2625,
     "removed": 0
   },
   "method": {
@@ -85,8 +85,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 956,
-    "added": 956,
+    "current": 957,
+    "added": 957,
     "edited_existing": 0,
     "removed": 0
   },
@@ -143,7 +143,7 @@
     "baseline": 1828,
     "current": 2003,
     "added": 175,
-    "edited_existing": 109,
+    "edited_existing": 113,
     "removed": 0
   }
 }

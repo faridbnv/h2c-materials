@@ -1,0 +1,157 @@
+task_id,source_id,page,kind,field,product,label,locator
+S0160,R-DUPONT-ZYTEL-GUIDE,6,context,impact,,,Properties of ZYTEL nylon resins
+S0161,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101L,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0162,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101F,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0163,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101L,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0164,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101L,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0165,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101F,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0166,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101F,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0167,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101L,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0168,R-DUPONT-ZYTEL-GUIDE,6,value,Charpy strength,ZYTEL 101F,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0169,R-DUPONT-ZYTEL-GUIDE,6,value,Izod impact strength,ZYTEL 101L,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0170,R-DUPONT-ZYTEL-GUIDE,6,value,Izod impact strength,ZYTEL 101L,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0171,R-DUPONT-ZYTEL-GUIDE,6,value,Izod impact strength,ZYTEL 101F,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0172,R-DUPONT-ZYTEL-GUIDE,6,value,Izod impact strength,ZYTEL 101F,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0173,R-DUPONT-ZYTEL-GUIDE,6,value,Izod impact strength,ZYTEL 101L,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0174,R-DUPONT-ZYTEL-GUIDE,6,value,Izod impact strength,ZYTEL 101F,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA66
+S0175,R-DUPONT-ZYTEL-GUIDE,8,context,impact,,,Properties of ZYTEL nylon resins
+S0176,R-DUPONT-ZYTEL-GUIDE,8,value,Charpy strength,G058-R1,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0177,R-DUPONT-ZYTEL-GUIDE,8,value,Charpy strength,ZYTEL 153HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0178,R-DUPONT-ZYTEL-GUIDE,8,value,Charpy strength,G058-R1,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0179,R-DUPONT-ZYTEL-GUIDE,8,value,Charpy strength,ZYTEL 153HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0180,R-DUPONT-ZYTEL-GUIDE,8,value,Charpy strength,G058-R1,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0181,R-DUPONT-ZYTEL-GUIDE,8,value,Charpy strength,ZYTEL 153HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0182,R-DUPONT-ZYTEL-GUIDE,8,value,Izod impact strength,G058-R1,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0183,R-DUPONT-ZYTEL-GUIDE,8,value,Izod impact strength,ZYTEL 153HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0184,R-DUPONT-ZYTEL-GUIDE,8,value,Izod impact strength,ZYTEL 153HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0185,R-DUPONT-ZYTEL-GUIDE,8,value,Izod impact strength,G058-R1,Izod impact strength (notched),Properties of ZYTEL nylon resins: Unreinforced PA612
+S0186,R-DUPONT-ZYTEL-GUIDE,10,context,impact,,,Properties of ZYTEL nylon resins
+S0187,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST801,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Supertough PA66
+S0188,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST7301,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Supertough PA6
+S0189,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST801,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA66
+S0190,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST801,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA66
+S0191,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST7301,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA6
+S0192,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST7301,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA6
+S0193,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST801,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA66
+S0194,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST801,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA66
+S0195,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST7301,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA6
+S0196,R-DUPONT-ZYTEL-GUIDE,10,value,Charpy strength,ZYTEL ST7301,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA6
+S0197,R-DUPONT-ZYTEL-GUIDE,10,value,Izod impact strength,ZYTEL ST801,Izod impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA66
+S0198,R-DUPONT-ZYTEL-GUIDE,10,value,Izod impact strength,ZYTEL ST801,Izod impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA66
+S0199,R-DUPONT-ZYTEL-GUIDE,10,value,Izod impact strength,ZYTEL ST7301,Izod impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA6
+S0200,R-DUPONT-ZYTEL-GUIDE,10,value,Izod impact strength,ZYTEL ST7301,Izod impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA6
+S0201,R-DUPONT-ZYTEL-GUIDE,10,value,Izod impact strength,ZYTEL ST801,Izod impact strength (notched),Properties of ZYTEL nylon resins: Supertough PA66
+S0202,R-DUPONT-ZYTEL-GUIDE,12,context,impact,,,Properties of ZYTEL nylon resins
+S0203,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G30HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0204,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G30HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0205,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G35HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0206,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G35HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0207,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G30HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0208,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G30HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0209,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G35HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0210,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G35HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0211,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G30HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0212,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G30HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0213,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G35HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0214,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G35HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0215,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G30HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0216,R-DUPONT-ZYTEL-GUIDE,12,value,Charpy strength,ZYTEL 70G35HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0217,R-DUPONT-ZYTEL-GUIDE,12,value,Izod impact strength,ZYTEL 70G30HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0218,R-DUPONT-ZYTEL-GUIDE,12,value,Izod impact strength,ZYTEL 70G30HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0219,R-DUPONT-ZYTEL-GUIDE,12,value,Izod impact strength,ZYTEL 70G35HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0220,R-DUPONT-ZYTEL-GUIDE,12,value,Izod impact strength,ZYTEL 70G35HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0221,R-DUPONT-ZYTEL-GUIDE,12,value,Izod impact strength,ZYTEL 70G30HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0222,R-DUPONT-ZYTEL-GUIDE,12,value,Izod impact strength,ZYTEL 70G30HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0223,R-DUPONT-ZYTEL-GUIDE,12,value,Izod impact strength,ZYTEL 70G35HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA66
+S0224,R-DUPONT-ZYTEL-GUIDE,14,context,impact,,,Properties of ZYTEL nylon resins
+S0225,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G35L/HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0226,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G35L/HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0227,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G45L/HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0228,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G45L/HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0229,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G45L/HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0230,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G45L/HSL,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0231,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G35L/HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0232,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G35L/HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0233,R-DUPONT-ZYTEL-GUIDE,14,value,Charpy strength,ZYTEL 73G45L/HSL,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0234,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G35L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0235,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G35L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0236,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G45L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0237,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G45L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0238,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G35L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0239,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G35L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0240,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G45L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0241,R-DUPONT-ZYTEL-GUIDE,14,value,Izod impact strength,ZYTEL 73G45L/HSL,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced PA6
+S0242,R-DUPONT-ZYTEL-GUIDE,16,context,impact,,,Properties of ZYTEL nylon resins
+S0243,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G33GRA,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0244,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G33GRA,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0245,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0246,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0247,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0248,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0249,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G33GRA,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0250,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G33GRA,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0251,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0252,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0253,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0254,R-DUPONT-ZYTEL-GUIDE,16,value,Charpy strength,ZYTEL 70G35HSLX,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0255,R-DUPONT-ZYTEL-GUIDE,16,value,Izod impact strength,ZYTEL 70G33GRA,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0256,R-DUPONT-ZYTEL-GUIDE,16,value,Izod impact strength,ZYTEL 70G33GRA,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0257,R-DUPONT-ZYTEL-GUIDE,16,value,Izod impact strength,ZYTEL 70G35HSLX,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0258,R-DUPONT-ZYTEL-GUIDE,16,value,Izod impact strength,ZYTEL 70G35HSLX,Izod impact strength (notched),Properties of ZYTEL nylon resins: Glass reinforced (specialty) PA66
+S0259,R-DUPONT-ZYTEL-GUIDE,18,context,impact,,,Properties of ZYTEL nylon resins
+S0260,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 79G13L,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0261,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 79G13L,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0262,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0263,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0264,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 79G13L,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0265,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 79G13L,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0266,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0267,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0268,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 79G13L,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0269,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 79G13L,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0270,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0271,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0272,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 79G13L,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0273,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0274,R-DUPONT-ZYTEL-GUIDE,18,value,Charpy strength,ZYTEL 80G14,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0275,R-DUPONT-ZYTEL-GUIDE,18,value,Izod impact strength,ZYTEL 79G13L,Izod impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0276,R-DUPONT-ZYTEL-GUIDE,18,value,Izod impact strength,ZYTEL 79G13L,Izod impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0277,R-DUPONT-ZYTEL-GUIDE,18,value,Izod impact strength,ZYTEL 80G14,Izod impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0278,R-DUPONT-ZYTEL-GUIDE,18,value,Izod impact strength,ZYTEL 80G14,Izod impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0279,R-DUPONT-ZYTEL-GUIDE,18,value,Izod impact strength,ZYTEL 79G13L,Izod impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0280,R-DUPONT-ZYTEL-GUIDE,18,value,Izod impact strength,ZYTEL 79G13L,Izod impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0281,R-DUPONT-ZYTEL-GUIDE,18,value,Izod impact strength,ZYTEL 80G14,Izod impact strength (notched),Properties of ZYTEL nylon resins: Toughened glass reinforced PA66
+S0282,R-DUPONT-ZYTEL-GUIDE,20,context,impact,,,Properties of ZYTEL nylon resins
+S0283,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR7026V0F,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Flame retardant PA66 Polymer
+S0284,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR72G25V0,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0285,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR72G25V0,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0286,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR72G25V0,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0287,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR7026V0F,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66 Polymer
+S0288,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR7026V0F,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66 Polymer
+S0289,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR72G25V0,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0290,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR72G25V0,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0291,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR72G25V0,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0292,R-DUPONT-ZYTEL-GUIDE,20,value,Charpy strength,ZYTEL FR72G25V0,Charpy impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0293,R-DUPONT-ZYTEL-GUIDE,20,value,Izod impact strength,ZYTEL FR7026V0F,Izod impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66 Polymer
+S0294,R-DUPONT-ZYTEL-GUIDE,20,value,Izod impact strength,ZYTEL FR72G25V0,Izod impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0295,R-DUPONT-ZYTEL-GUIDE,20,value,Izod impact strength,ZYTEL FR72G25V0,Izod impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0296,R-DUPONT-ZYTEL-GUIDE,20,value,Izod impact strength,ZYTEL FR72G25V0,Izod impact strength (notched),Properties of ZYTEL nylon resins: Flame retardant PA66/6 Copolymer
+S0297,R-DUPONT-ZYTEL-GUIDE,22,context,impact,,,Properties of ZYTEL nylon resins
+S0298,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E40,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0299,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E42A,Charpy impact strength (unnotched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0300,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E40,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0301,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E40,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0302,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E42A,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0303,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E42A,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0304,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E40,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0305,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E40,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0306,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E42A,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0307,R-DUPONT-ZYTEL-GUIDE,22,value,Charpy strength,ZYTEL E42A,Charpy impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0308,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E40,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0309,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E40,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0310,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E42A,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0311,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E42A,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0312,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E40,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0313,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E40,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0314,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E42A,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66
+S0315,R-DUPONT-ZYTEL-GUIDE,22,value,Izod impact strength,ZYTEL E42A,Izod impact strength (notched),Properties of ZYTEL nylon resins: High viscosity/Extrusion PA66

@@ -1,0 +1,17 @@
+RowID,KeptRowID,SourceID,Page,Grade,Field,Raw,Reader
+batch-02.csv#33,batch-02.csv#32,S-PEBA-59754c44,2,G001-89,impact,,sonnet-imp1-batch-02
+batch-02.csv#36,batch-02.csv#35,S-PEBA-a2d5f9c0,2,G001-81,impact,,sonnet-imp1-batch-02
+batch-02.csv#40,batch-02.csv#39,S-PEBA-ABS-TDS-EN-docx,4,G027-22,impact,,sonnet-imp1-batch-02
+batch-02.csv#55,batch-02.csv#54,S-PEBA-eSUN-ABS-Filament-TDS-V4-0,2,G027-22,impact,,sonnet-imp1-batch-02
+batch-02.csv#61,batch-02.csv#60,S-PEBA-eSUN-eMarble-Filament-TDS-V4-0,2,G001-104,impact,,sonnet-imp1-batch-02
+batch-12.csv#3,batch-12.csv#2,R-COLORFABB-TDS-E-colorFabb-LW-ASA,1,,impact,,sonnet-imp1-batch-12
+batch-12.csv#7,batch-12.csv#6,R-COLORFABB-TDS-E-colorFabb-PA-NEAT,1,,impact,,sonnet-imp1-batch-12
+batch-12.csv#11,batch-12.csv#10,R-COLORFABB-TDS-E-PA-Blue-Metal-Detectable,1,,impact,,sonnet-imp1-batch-12
+batch-13.csv#3,batch-13.csv#2,R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,2,,all,,sonnet-imp1-batch-13
+batch-13.csv#6,batch-13.csv#5,R-ERYONE-PRINT-20260928-9e82297a5891,1,,all,,sonnet-imp1-batch-13
+batch-02.csv#42,batch-02.csv#43,S-PEBA-eABS-HS-TDS,2,G027-20,impact,,sonnet-imp1-batch-02
+batch-02.csv#45,batch-02.csv#46,S-PEBA-ePLA-HS,2,G001-91,impact,,sonnet-imp1-batch-02
+batch-02.csv#48,batch-02.csv#49,S-PEBA-ePLA-HS-Filament-TDS,2,G001-85,impact,,sonnet-imp1-batch-02
+batch-02.csv#51,batch-02.csv#52,S-PEBA-eStars-PLA,2,G001-84,impact,,sonnet-imp1-batch-02
+batch-02.csv#57,batch-02.csv#58,S-PEBA-eSUN-eABS-Max-Filament-TDS-V4-0,2,G027-27,impact,,sonnet-imp1-batch-02
+batch-12.csv#21,batch-12.csv#22,R-DUPONT-DELRIN-100P,1,,impact,,sonnet-imp1-batch-12
