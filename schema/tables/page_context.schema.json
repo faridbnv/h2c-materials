@@ -1,7 +1,7 @@
 {
   "$comment": "Contract for data/tables/page_context.csv. Checked by build/src/schema.js; applied by build/src/compile.js (D116).",
   "title": "Page context",
-  "description": "What a source page states once for the values printed on it: a heading such as \"Mechanical properties (dry state)\" or \"printed, non-injection moulded specimens\", a footnote such as \"all specimens annealed at 80 °C for 12 h\", a block standard or a test temperature. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page, scope and table; a page no row names states nothing (D116, D128).",
+  "description": "What a source page states once for the values printed on it: a heading such as \"Mechanical properties (dry state)\" or \"printed, non-injection moulded specimens\", a footnote such as \"all specimens annealed at 80 °C for 12 h\", a block standard, a test temperature or the orientation the bars were printed in. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page, scope and table; a page no row names states nothing (D116, D128).",
   "primaryKey": "PageContextID",
   "fields": [
     { "name": "PageContextID", "type": "string", "role": "canonical", "description": "Stable ID, PC#####.", "constraints": { "required": true, "unique": true, "pattern": "^PC\\d{5}$" } },
@@ -17,6 +17,7 @@
     { "name": "Anneal h", "type": "number", "role": "canonical", "description": "The annealing time in hours the page states, with the same missing states as Anneal °C.", "missing": ["Not published", "Not applicable"], "constraints": { "required": true } },
     { "name": "Standard", "type": "string", "role": "canonical", "description": "The standard the page prints once for these rows, at family level (ISO 527, ASTM D638), or Not published.", "missing": ["Not published"], "constraints": { "required": true } },
     { "name": "Test temperature °C", "type": "number", "role": "canonical", "description": "The test temperature the page states for these rows, or Not published.", "missing": ["Not published"], "constraints": { "required": true } },
+    { "name": "Direction", "type": "string", "role": "canonical", "description": "The build orientation the page states once for its printed bars (\"the specimens have been printed in XY plane\"), or Not published. Only tensile, flexural and impact values inherit it, and only where their own row states none (D135).", "vocabulary": "directions", "missing": ["Not published"], "constraints": { "required": true } },
     { "name": "Locator", "type": "string", "role": "canonical", "description": "Where on the page: the heading, footnote or line quoted.", "constraints": { "required": true } },
     { "name": "Reviewed by", "type": "string", "role": "editorial", "description": "Who read the page, and when: a person, or an agent named as one.", "constraints": { "required": true } }
   ]

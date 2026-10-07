@@ -19,7 +19,9 @@ G001-143,M001,,Toughened or impact-modified,SUNLU PLA+2.0: Q00780
 G145-01,M145,,Toughened or impact-modified,colorFabb PLA/PHA: Q04888
 G027-45,M027,,Toughened or impact-modified,FormFutura ABSpro: Q02290
 G001-161,M001,,Toughened or impact-modified,FormFutura Tough PLA: Q00860
-M001,PLA,charpyNotched,Toughened or impact-modified,"7 of 11: 5.76-72.3 (G001-20 G001-23 G001-24 G001-29 G001-30 G001-62 G006-01); others 11: 3.97-20.3, median 6.7"
+M001,PLA,charpyNotched,Toughened or impact-modified,"7 of 14: 5.76-72.3 (G001-20 G001-23 G001-24 G001-29 G001-30 G001-62 G006-01); others 14: 2.16-20.3, median 6"
 M001,PLA,izodNotched,Toughened or impact-modified,"1 of 6: 10-10 (G001-143); others 6: 4.5-6.5, median 5"
 M026,PETG-ESD,charpyNotched,Toughened or impact-modified,1 of 1: 5.7-5.7 (G026-05); others none
 M027,ABS,charpyNotched,Toughened or impact-modified,"1 of 5: 14.48-14.48 (G027-08); others 5: 10.51-21.5, median 20.03"
+M066,PET,charpyNotched,Toughened or impact-modified,1 of 1: 1.2-1.2 (G066-03); others none
+M145,PLA-PHA,charpyNotched,Toughened or impact-modified,1 of 1: 2.6-2.6 (G145-01); others none

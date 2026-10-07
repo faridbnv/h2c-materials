@@ -1,0 +1,5 @@
+viewport 390x844
+document width 390
+spill: none
+clipped cells: no table
+hidden controls: 0

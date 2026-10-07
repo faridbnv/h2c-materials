@@ -1,0 +1,5 @@
+Tab: Mechanical
+List open: true
+Bambu Lab PLA Tough+ — 72.3 ± 6.1 kJ/m²
+On the graph: not in the median (sold as toughened); annealed at 50 °C for 8 h.
+XY · printed specimen · ISO 179, GB/T 1043 · Dried before testing (see preparation) · notched

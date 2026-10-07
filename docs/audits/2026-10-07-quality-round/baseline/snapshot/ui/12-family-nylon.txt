@@ -1,0 +1,322 @@
+COUNT 24 shown PASS
+STATUS ☑ PASS 24 | ☐ UNKNOWN 0 | ☐ FAIL 128
+24 of the 152 materials meet this requirement
+Why the rest were excluded
+Clear requirements
+Family: Nylon / Polyamide
+×
+Values judged: as printed, dry.
+H2C printability not checked: a pass here says nothing about whether the H2C can print the product. Check nozzle, bed and chamber
+What this database cannot answer
+Properties
+Printing
+Key properties of each material
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
+Compare against
+no reference
+PLA
+PETG
+ABS
+ASA
+PC
+— not published
+2.3 1.0–3.0 · 27 median and range
+1.2 one measurement
+* published, not comparable
+≈ close to the limit
+¤ converted
+n/a not applicable
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
+Nylon-CF, maker-undisclosed polyamide
+Nylon / Polyamide
+ PASS
+5 of 5 products
+ 1,200
+1,141–1,400 · 4
+ 2.16 55.9 18 145
+58–178 · 4
+ 167¤ ☆
+Nylon-GF, maker-undisclosed polyamide
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,210 3.1 60.4 5.5 138* — ☆
+Nylon, maker-undisclosed polyamide
+Nylon / Polyamide
+ PASS
+7 of 7 products
+ 1,140
+1,100–1,210 · 3
+ 3
+1.95–3.33 · 3
+ 63
+49–69.2 · 3
+ 9.13
+8.5–9.77 · 2
+ 79
+41–91 · 3
+ 107¤ ☆
+PA-ESD
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,140 6.9* 68* 3.8* 142 — ☆
+PA12
+Nylon / Polyamide
+ PASS
+8 of 8 products
+ 1,010
+1,000–1,020 · 6
+ 1.44* 43* > 50* 135
+100–135 · 4
+ 183
+123–242 · 2
+¤ ☆
+PA12-AF
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 990 0.51* 50.4* 5.8* — — ☆
+PA12-CF
+Nylon / Polyamide
+ PASS
+15 of 15 products
+ 1,070
+1,010–1,230 · 13
+ 3.32
+3.3–8 · 4
+annealed median
+ 72
+50–86 · 7
+ 3.6
+2.1–14.8 · 7
+annealed median
+ 150
+48–185 · 11
+ 300↗ ☆
+PA12-GF
+Nylon / Polyamide
+ PASS
+3 of 3 products
+ 1,130
+1,000–1,230 · 3
+ 7.8 82 4.5 163
+150–175 · 2
+ 247¤ ☆
+PA6
+Nylon / Polyamide
+ PASS
+9 of 9 products
+ 1,150
+1,130–1,200 · 7
+ 3.59* 27* 1.9* 140
+60–143 · 3
+ 163↗ ☆
+PA6-CE
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,490 6* 55* — 90* 161¤ ☆
+PA6-CF
+Nylon / Polyamide
+ PASS
+14 of 14 products
+ 1,175
+1,090–1,250 · 14
+ 4.37
+3.8–8.64 · 6
+annealed median
+ 77
+53–112 · 7
+ 7.35
+2.1–16.5 · 6
+annealed median
+ 183
+140–215 · 10
+ 130
+110–204 · 4
+↗ ☆
+PA6-GF
+Nylon / Polyamide
+ PASS
+11 of 11 products
+ 1,310
+1,140–1,370 · 9
+ 4.35
+2.85–5.36 · 4
+ 82.3
+62.8–98.9 · 6
+annealed median
+ 4.95
+2.4–12.5 · 6
+ 184
+161–210 · 10
+annealed median
+ 84
+77–146 · 3
+↗ ☆
+PA6-GS
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,010 4.2* 87* — 90* 180↗ ☆
+PA6/66
+Nylon / Polyamide
+ PASS
+7 of 7 products
+ 1,120
+1,080–1,140 · 7
+ 2.34
+1.98–2.7 · 2
+ 61
+55–78 · 3
+ 15
+12.7–100 · 3
+ 111
+102–140 · 5
+annealed median
+ 40
+39–90.7 · 3
+↗ ☆
+PA6/66-CF
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,240 — 84 7.42 155* 72.4¤↗
+out of stock
+ ☆
+PA612
+Nylon / Polyamide
+ PASS 1,060* 2.4* 62* 100* 135* — ☆
+PA612-CF
+Nylon / Polyamide
+ PASS
+3 of 3 products
+ 1,030
+1,030–1,090 · 3
+ 5.01
+4.88–5.14 · 2
+ 84.4
+77–91.9 · 2
+ 3.11
+2.6–3.62 · 2
+annealed median
+ 138
+110–175 · 3
+ 170
+98–242 · 2
+↗ ☆
+PA612-ESD
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,100 4.29
+annealed median
+ 84.3
+annealed median
+ 3
+annealed median
+ 157 178↗ ☆
+PA612-GF
+Nylon / Polyamide
+ PASS — — — — — — ☆
+PA66
+Nylon / Polyamide
+ PASS
+2 of 2 products
+ 1,140* 3.1* 55* 3.4* 190* 246¤ ☆
+PA66-CF
+Nylon / Polyamide
+ PASS — — — — — — ☆
+PAHT
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,200 3.1 82.1 — 80* — ☆
+PAHT-CE
+Nylon / Polyamide
+ PASS
+2 of 2 products
+ 1,370
+1,250–1,490 · 2
+ 3.4* 78* — 90* — ☆
+PAHT-CF
+Nylon / Polyamide
+ PASS
+5 of 5 products
+ 1,240
+1,060–1,250 · 3
+ 8.39
+3.86–8.62 · 3
+ 103
+92–123 · 3
+ 1.98
+1.8–8.4 · 3
+ 170
+145–194 · 2
+ 124↗ ☆
+RAIL
+Each count is how many of that family your other requirements leave. Tick a family to list its polymers.
+Nylon / Polyamide
+24
+PA6
+5
+PA
+4
+PA12
+4
+PA612
+4
+PAHT
+3
+PA6/66
+2
+PA66
+2
+PLA
+18
+Flexible Elastomers
+15
+Industrial High-Temperature
+14
+Polymer Blends
+10
+Copolyesters
+9
+High-Performance Engineering
+8
+Polyolefins
+7
+ASA
+6
+PETG
+6
+Polycarbonate
+6
+ABS
+5
+PVB / Specialty Polymers
+5
+PET Engineering
+4
+Support / Interface
+4
+Metal and Ceramic Sintering
+3
+Styrenics
+3
+Fluoropolymers
+2
+Support / Soluble
+2
+Acetals
+1

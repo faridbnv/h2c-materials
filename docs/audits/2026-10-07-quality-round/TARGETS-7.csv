@@ -1,0 +1,6 @@
+SourceID,page,line,values
+S-SPECTRUM-en-tds-spectrum-pla-tough,1,"*3D printed horizontal (XY axis), at 100% infill",1
+R-FILAMENT2PRINT-PEEK-EV-Nat,1,"5mm/min, Orientation XY DIN EN ISO 527-2 1) (1) (*5) , (*6)",1
+R-FILAMENT2PRINT-PEEK-EV-Nat,1,"5mm/min, Orientation XY DIN EN ISO 527-2 4)",1
+R-FILAMENT2PRINT-PEEK-EV-Nat,1,"5mm/min, Orientation XY DIN EN ISO 527-2 7)",1
+R-FILAMENT2PRINT-PEEK-EV-Nat,1,"5mm/min, Orientation XY DIN EN ISO 527-2 10)",1

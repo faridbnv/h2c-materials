@@ -57,7 +57,8 @@ export function readPostProcessingState(text) {
   // not been annealed", which read as annealing (gap round 2's blind draw).
   if (/not (?:been |be )?annealed|unannealed|non-?annealed|before anneal\w*|without anneal\w*|no anneal\w*/i.test(s)) return 'as-printed';
   if (s === 'As printed') return 'as-printed';
-  if (/anneal/i.test(s)) return 'annealed';
+  // Polish sheets print "wyżarzone" (annealed) in the row label (quality round 2026-10-07).
+  if (/anneal|wyżarz/i.test(s)) return 'annealed';
   return null;
 }
 

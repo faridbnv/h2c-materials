@@ -408,6 +408,11 @@ test('drying says whether it is needed, optional or not needed, and whether its 
     ['In case the filament has become wet, it should be dried. Using a hot dry air oven at 80°C for at least 12h is recommended.', 'optional', 80, 12, true],
     ['Drying (if wet) recommended: at least 6h at 75°C using a hot dry air oven', 'optional', 75, 6, true],
     ['Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.', 'optional', 60, 4, false],
+    // QIDI's and DuPont's conditions (quality round 2026-10-07): drying asked for only when the filament has gone bad.
+    ['If the filament has been opened for a long time and problems such as air bubbles and stringing appear during the printing process, please dry the filament at 60-70°C for 4-6 hours.', 'optional', 70, 6, false],
+    ['After the material is damp, there will be more printing ozzing, bubbles extruded and rough printing surface. Please dry the filament in an oven at 70-80℃ for 4-6h to restore the printing quality of QIDI TPU95A-HF.', 'optional', 80, 6, false],
+    ['If you find the printing quality decreases after ASA has been exposed in the air for a long time, please dry the filament at 70-80°C for 4-6h.', 'optional', 80, 6, false],
+    ['If excessive moisture absorption has occurred, then the resin must be dried at 80° C to less than 0,2% moisture content before processing', 'optional', 80, null, null],
     ['80°C-90°C (not necessary but recommended)', 'optional', 90, null, null],
     ['may require drying before use, although usually it is not necessary', 'optional', null, null, null],
     // a time that starts at nothing, and a condition stated before the step (gap round 2's blind-draw sweep)

@@ -9,17 +9,17 @@ rather than repeat a number.
 | … in scope for the H2C | 135 | candidates the templates judge |
 | … family entries and aliases | 23 | names that own no product (D44, D86) |
 | … out of scope | 17 | recorded, never a candidate |
-| Products | 1,101 | active procurement grades |
-| … with a comparable value for at least one property | 1,058 | D84 |
-| … with a print profile of their own | 1,065 |  |
-| … reading values from a twin's sheet | 71 | the same table, recorded once (D89) |
-| … reading part of the print gate from a printer maker's guide | 470 | where their own sheet is silent (D88); 33 guide rows |
-| … with a maker's know-how statement | 1,014 | lane 3 |
-| Measurements | 14,489 | active rows |
-| … with a usable number | 14,300 |  |
-| Product values | 5,140 | one per product and headline, chosen by rule (D83) |
-| Material values from products | 698 | headline cells of in-scope materials |
-| Material values estimated | 137 | where no product publishes (D43) |
+| Products | 1,102 | active procurement grades |
+| … with a comparable value for at least one property | 1,053 | D84 |
+| … with a print profile of their own | 1,066 |  |
+| … reading values from a twin's sheet | 70 | the same table, recorded once (D89) |
+| … reading part of the print gate from a printer maker's guide | 471 | where their own sheet is silent (D88); 33 guide rows |
+| … with a maker's know-how statement | 1,015 | lane 3 |
+| Measurements | 14,455 | active rows |
+| … with a usable number | 14,265 |  |
+| Product values | 5,108 | one per product and headline, chosen by rule (D83) |
+| Material values from products | 705 | headline cells of in-scope materials |
+| Material values estimated | 139 | where no product publishes (D43) |
 | Print profiles | 1,831 |  |
 | Evidence records | 868 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 4,872 | the makers' words, shown in the panel only (D85) |

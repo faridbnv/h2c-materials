@@ -17,7 +17,7 @@
     "baseline": 5306,
     "current": 5761,
     "added": 455,
-    "edited_existing": 261,
+    "edited_existing": 262,
     "removed": 0
   },
   "family_entries": {
@@ -36,9 +36,9 @@
   },
   "grades": {
     "baseline": 1163,
-    "current": 1176,
-    "added": 13,
-    "edited_existing": 138,
+    "current": 1177,
+    "added": 14,
+    "edited_existing": 139,
     "removed": 0
   },
   "headline_definitions": {
@@ -80,7 +80,7 @@
     "baseline": 11536,
     "current": 14841,
     "added": 3305,
-    "edited_existing": 2643,
+    "edited_existing": 2710,
     "removed": 0
   },
   "method": {
@@ -92,8 +92,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 957,
-    "added": 957,
+    "current": 985,
+    "added": 985,
     "edited_existing": 0,
     "removed": 0
   },
@@ -136,7 +136,7 @@
     "baseline": 1316,
     "current": 1911,
     "added": 595,
-    "edited_existing": 990,
+    "edited_existing": 991,
     "removed": 0
   },
   "properties": {
@@ -150,7 +150,7 @@
     "baseline": 1828,
     "current": 2003,
     "added": 175,
-    "edited_existing": 113,
+    "edited_existing": 114,
     "removed": 0
   }
 }

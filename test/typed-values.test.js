@@ -121,6 +121,7 @@ test('the annealing schedule is a typed pair the wording checks: three spellings
     assert.equal(readPostProcessingState(text), 'as-printed', text);
   }
   assert.equal(readPostProcessingState('All specimens were annealed at 100 ºC for 8h'), 'annealed');
+  assert.equal(readPostProcessingState('HDT 1,81 MN/m2, wyżarzone'), 'annealed');
   const annealed = base.Properties.rows.find((r) => r['Anneal °C'] === '55').MeasurementID;
   const { mismatches } = run((wb) => { wb.Properties.rows.find((r) => r.MeasurementID === annealed)['Anneal °C'] = '65'; });
   assert.ok(mismatches.some((m) => m.startsWith(`measurements ${annealed}: Anneal °C is 65`)), mismatches.join('\n'));

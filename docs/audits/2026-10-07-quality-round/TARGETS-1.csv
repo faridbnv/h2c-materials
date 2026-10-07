@@ -1,0 +1,62 @@
+headline,product,copy,stay,rawCopy,rawStay,sameRaw,sameGrade,copySource,staySource
+hdt045,G072-02,V012397,V002086,129°C,129°C,yes,yes,R-SPECTRUM-PORTFOLIO-2024,S-SPECTRUM-en-tds-spectrum-pps-am230
+tensileModulusXY,G020-05,V010486,V002682,2350 MPa,2350 MPa,yes,twin,R-FIBERLOGY-FIBERLOGY-PETGV0-TDS,S-SPECTRUM-en-tds-petg-frv0
+tensileStrengthXY,G020-05,V010484,V002680,40 MPa,40 MPa,yes,twin,R-FIBERLOGY-FIBERLOGY-PETGV0-TDS,S-SPECTRUM-en-tds-petg-frv0
+elongationXY,G020-05,V010488,V002679,40 %,"40,00 %",no,twin,R-FIBERLOGY-FIBERLOGY-PETGV0-TDS,S-SPECTRUM-en-tds-petg-frv0
+elongationXY,G033-04,V007687,V002824,"1,8 %","1,80 %",no,twin,S-PET-formfutura-tds-apolloxcf10,S-SPECTRUM-en-tds-spectrum-asax-cf10
+hdt045,G033-04,V012376,V002829,95°C,95 °C,no,yes,R-SPECTRUM-PORTFOLIO-2024,S-SPECTRUM-en-tds-spectrum-asax-cf10
+tensileModulusXY,G113-01,V011490,V003123,2200 MPa,2200 Mpa,no,twin,S-PET-TDS-ApolloX-Kevlar,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+tensileStrengthXY,G113-01,V007519,V003121,40 MPa,40 MPa,yes,twin,S-PET-TDS-ApolloX-Kevlar,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+elongationXY,G113-01,V007522,V003120,6 %,"6,00 %",no,twin,S-PET-TDS-ApolloX-Kevlar,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+hdt045,G113-01,V012395,V003125,89°C,89 °C,no,yes,R-SPECTRUM-PORTFOLIO-2024,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+density,G088-03,V006274,V004110,"1,23 g/cm3","1,23 g/cm3",yes,yes,R-EXTRUDR-pctg-TDS-de,R-EXTRUDR-pctg-TDS-en
+density,G129-02,V006143,V004130,1.22 g/cm³,1.22 g/cm³,yes,yes,R-EXTRUDR-flex-hard-cf-TDS-de,R-EXTRUDR-flex-hard-cf-TDS-en
+density,G039-15,V006176,V004138,1.18 g/cm³,1.18 g/cm³,yes,yes,R-EXTRUDR-flex-semisoft-TDS-de,R-EXTRUDR-flex-semisoft-TDS-en
+glassTransition,G039-15,V008711,V004140,-34 °C,-34 °C,yes,yes,R-EXTRUDR-flex-semisoft-TDS-en-f4e958,R-EXTRUDR-flex-semisoft-TDS-en
+density,G020-17,V006445,V004184,"1,29 g/cm³","1,29 g/cm³",yes,yes,R-EXTRUDR-petg-TDS-en,R-EXTRUDR-petg-bundle-TDS-en
+hdt045,G052-02,V012130,V004193,135 °C,135 °C,yes,yes,R-EXTRUDR-PRIORITY-20261003-cafa71249318,R-EXTRUDR-durapro-pa12-TDS-en
+density,G039-16,V008571,V004200,1.2 g/cm³,1.2 g/cm³,yes,yes,R-EXTRUDR-flex-hard-TDS-en-cbd667,R-EXTRUDR-flex-hard-TDS-en
+glassTransition,G039-16,V008575,V004202,-24 °C,-24 °C,yes,yes,R-EXTRUDR-flex-hard-TDS-en-cbd667,R-EXTRUDR-flex-hard-TDS-en
+density,G001-33,V008566,V004254,1.3 g/cm³,1.3 g/cm³,yes,yes,R-EXTRUDR-pla-nx2-TDS-en,R-EXTRUDR-pla-nx2-matt-TDS-en
+density,G001-34,V006417,V004263,"1,24 g/cm³","1,24 g/cm³",yes,yes,R-EXTRUDR-pla-basic-cmyk-TDS-en,R-EXTRUDR-pla-basic-TDS-en
+hdt045,G027-11,V008754,V004274,85 °C,85 °C,yes,twin,R-3DJAKE-3DJAKE-3DJake-ABS,R-EXTRUDR-durapro-abs-TDS-en
+density,G001-35,V006418,V004291,1.24 g/cm3,1.24 g/cm3,yes,yes,R-EXTRUDR-pla-high-speed-TDS-en,R-EXTRUDR-pla-hs-TDS-en
+glassTransition,G001-35,V006421,V004294,60 °C,60 °C,yes,yes,R-EXTRUDR-pla-high-speed-TDS-en,R-EXTRUDR-pla-hs-TDS-en
+density,G039-17,V008604,V004314,1.19 g/cm³,1.19 g/cm³,yes,yes,R-EXTRUDR-flex-medium-TDS-en-d2c5e4,R-EXTRUDR-flex-medium-TDS-en
+density,G126-02,V008680,V004317,"1,20 g/cm³","1,20 g/cm³",yes,yes,R-EXTRUDR-flex-medium-esd-TDS-en-eb4012,R-EXTRUDR-flex-medium-esd-TDS-en
+hdt045,G050-05,V013090,V004329,170 °C,170 °C,yes,yes,R-EXTRUDR-PRIORITY-20261003-e49b91234afa,R-EXTRUDR-durapro-pa6-cf-TDS-en
+density,G053-04,V006201,V004333,1.03 g/cm³,1.03 g/cm³,yes,yes,R-EXTRUDR-durapro-pa12-cf-TDS-it,R-EXTRUDR-durapro-pa12-cf-TDS-en
+glassTransition,G017-09,V005938,V005771,55-60 °C,55-60 °C,yes,yes,R-COLORFABB-colorFabb-LW-PLA-TDS,R-COLORFABB-TDS-E-ColorFabb-LW-PLA
+glassTransition,G039-25,V005819,V005781,-20 °C,-20 °C,yes,yes,R-COLORFABB-colorFabb-VarioShore-TPU-TDS,R-COLORFABB-TDS-varioShore-TPU-95A
+density,G001-59,V005958,V005800,"1,2-1,3 g/cm3","1,2 g/cm3",no,yes,R-COLORFABB-colorFabb-Economy-PLA-TDS,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA
+glassTransition,G001-59,V005959,V005801,55-60 °C,55-60 °C,yes,yes,R-COLORFABB-colorFabb-Economy-PLA-TDS,R-COLORFABB-TDS-E-ColorFabb-Economy-PLA
+density,G031-13,V005823,V005936,"1,07 g/cm3",1.07 g/cm3,no,yes,R-COLORFABB-colorFabb-ASA-TDS,R-COLORFABB-TDS-E-ColorFabb-ASA
+density,G020-27,V005964,V005880,1.28 g/cm3,1.28 g/cm3,yes,yes,R-COLORFABB-colorFabb-PETG-Economy-TDS,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy
+glassTransition,G020-27,V005965,V005881,70 °C,70 °C,yes,yes,R-COLORFABB-colorFabb-PETG-Economy-TDS,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy
+density,G092-02,V005917,V001964,"1,20 g/cm3",1.2 g/cm3,no,yes,R-COLORFABB-colorFabb-nGen-Filament-TDS,R-COLORFABB-NGEN-TDS-V2
+hdt045,G092-02,V005927,V001965,71 °C,71 °C,yes,yes,R-COLORFABB-colorFabb-nGen-Filament-TDS,R-COLORFABB-NGEN-TDS-V2
+hdt045,G033-12,V007689,V002828,100.5 °C,"100,5 °C",no,twin,S-PET-formfutura-tds-apolloxcf10,S-SPECTRUM-en-tds-spectrum-asax-cf10
+density,G001-136,V009231,V009254,"3,9 g/cm3",3.9 g/cm3,no,yes,R-COLORFABB-colorFabb-BronzeFill-TDS,R-COLORFABB-TDS-E-ColorFabb-BronzeFill
+density,G001-137,V009275,V009245,"3,13 g/cm3",3.13 g/cm3,no,yes,R-COLORFABB-colorFabb-SteelFill-TDS,R-COLORFABB-TDS-E-ColorFabb-SteelFill
+density,G147-01,V011438,V009643,1.20 g/cm³,"1,20 g/cm³",no,yes,R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen
+hdt045,G156-01,V011933,V010365,155,155 ℃,no,yes,S-ESUN-PRINT-20260928-333834d1b9db,S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0
+m393,G031-13,V005832,V005935,140 J/m,140 J/m,yes,yes,R-COLORFABB-colorFabb-ASA-TDS,R-COLORFABB-TDS-E-ColorFabb-ASA
+m393,G092-02,V005925,V001963,70 J/m,70 J/m,yes,yes,R-COLORFABB-colorFabb-nGen-Filament-TDS,R-COLORFABB-NGEN-TDS-V2
+m393,G143-01,V006008,V005865,40 J/m,40 J/m,yes,yes,R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX
+m393,G113-02,V007523,V003117,25 KJ/m2,25 kJ/m2,no,twin,S-PET-TDS-ApolloX-Kevlar,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+m393,G113-02,V007524,V003118,"7,5 KJ/m2","7,5 kJ/m2",no,twin,S-PET-TDS-ApolloX-Kevlar,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+m393,G145-01,V009453,V009462,"2,8 kJ/m²",2.8 kJ/m2,no,yes,R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS,R-COLORFABB-TDS-PLA-PHA
+m393,G020-67,V010489,V002677,3 kJ/m2,3 kJ/m2,yes,twin,R-FIBERLOGY-FIBERLOGY-PETGV0-TDS,S-SPECTRUM-en-tds-petg-frv0
+m393,G008-12,V011931,V007109,4.58,4.58 kJ/m2,no,yes,D-ESUN-EPLA-SILK-RAINBOW-PRODUCT-PAGE,S-PEBA-79f73c22-1
+m393,G169-01,V012095,V011212,4.6 kJ/m²,4.6 kj/m²,no,yes,R-EXTRUDR-PRINT-20260929-463457967aab,R-EXTRUDR-greentec-pro-cf-TDS-en
+m393,G169-01,V012097,V011213,82 kJ/m²,82 kj/m²,no,yes,R-EXTRUDR-PRINT-20260929-463457967aab,R-EXTRUDR-greentec-pro-cf-TDS-en
+m393,G052-02,V012128,V004191,11 kJ/m²,11 kJ/m²,yes,yes,R-EXTRUDR-PRIORITY-20261003-cafa71249318,R-EXTRUDR-durapro-pa12-TDS-en
+m393,G052-02,V012129,V004192,6 kJ/m²,6.0 kJ/m²,no,yes,R-EXTRUDR-PRIORITY-20261003-cafa71249318,R-EXTRUDR-durapro-pa12-TDS-en
+m393,G113-01,V012187,V003117,25 kJ/m²,25 kJ/m2,no,yes,R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+m393,G113-01,V012188,V003118,7.5 kJ/m²,"7,5 kJ/m2",no,yes,R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS,S-SPECTRUM-en-tds-spectrum-asa-kevlar
+m393,G095-02,V012947,V004225,60 kJ/m²,60 kJ/m²,yes,yes,R-EXTRUDR-PRINT-20260928-8ac1c5367674,R-EXTRUDR-durapro-pc-pbt-TDS-en
+m393,G020-05,V013170,V002677,3 kJ/m²,3 kJ/m2,no,yes,D-FIBERLOGY-PETG-FR-V0-FILAMENT-PAGE,S-SPECTRUM-en-tds-petg-frv0
+m393,G168-03,V014769,V011223,4 kJ/m²,4 kJ/m2,no,yes,R-EXTRUDR-GAP2-20261005-8a59c7615526,R-EXTRUDR-greentec-pro-TDS-en
+m393,G168-03,V014771,V011224,71 kJ/m²,71 kJ/m2,no,yes,R-EXTRUDR-GAP2-20261005-8a59c7615526,R-EXTRUDR-greentec-pro-TDS-en
+m393,G057-04,V014803,V006802,18.4 kJ/m²,18.4 kJ/㎡,no,yes,S-PEBA-eSUN-ePA-Filament-TDS-V4-0,S-PEBA-eSUN-ePA-Filament-TDS-V4-02
+m393,G034-05,V014807,V004118,8 kJ/m²,8-10 kJ/m2,no,yes,R-EXTRUDR-PRIORITY-20261003-8f1f07e586ce,R-EXTRUDR-durapro-asa-gf-TDS-en

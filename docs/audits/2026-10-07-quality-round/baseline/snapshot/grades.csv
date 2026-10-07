@@ -1,0 +1,2098 @@
+GradeID,MaterialID,Product,Headline,Strength,Precision,Centre,Likely,Plausible,Unit,Own
+G001-03,M001,PLA,tensileModulusXY,this-material,fair,2.53,1.62-3.95,1.14-5.6,GPa,0
+G001-03,M001,PLA,tensileStrengthXY,this-material,fair,44.8,31.5-63.7,25.7-78.1,MPa,0
+G001-03,M001,PLA,elongationXY,this-material,poor,9.25,3.34-25.7,1.81-47.2,%,0
+G001-04,M001,PLA Tough,tensileStrengthXY,this-grade,good,57.3,53.5-65.3,53.2-72.1,MPa,0.63
+G001-05,M001,PLA High Speed,tensileModulusXY,this-grade,good,3.37,2.7-4.21,2.27-5,GPa,0.74
+G001-05,M001,PLA High Speed,tensileStrengthXY,this-grade,good,58,52.1-70.9,51-81.3,MPa,0.4
+G001-05,M001,PLA High Speed,elongationXY,this-grade,good,7.01,5.36-11,5.06-14.9,%,0.71
+G001-06,M001,PLA Matt,tensileModulusXY,this-grade,good,2.8,2.24-3.49,1.88-4.15,GPa,0.74
+G001-06,M001,PLA Matt,tensileStrengthXY,this-grade,fair,46.1,35.1-62.2,31.7-73.8,MPa,0.24
+G001-06,M001,PLA Matt,elongationXY,this-grade,good,4.44,3.17-7.16,2.98-9.81,%,0.71
+G001-07,M001,Huracan PLA,tensileModulusXY,this-grade,good,2.94,2.36-3.67,1.98-4.37,GPa,0.74
+G001-07,M001,Huracan PLA,tensileStrengthXY,this-grade,good,50.6,43.9-61.2,42.3-68.8,MPa,0.63
+G001-07,M001,Huracan PLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-08,M001,THE FILAMENT PLA Matte,tensileModulusXY,this-grade,fair,2.38,1.7-3.34,1.3-4.36,GPa,0.39
+G001-08,M001,THE FILAMENT PLA Matte,tensileStrengthXY,this-grade,good,45.3,38.9-55.2,37.3-62.5,MPa,0.61
+G001-08,M001,THE FILAMENT PLA Matte,elongationXY,this-grade,good,12.2,9.62-18.8,9.19-26.1,%,0.65
+G001-09,M001,THE FILAMENT HT-PLA,tensileModulusXY,this-grade,good,2.7,2.16-3.37,1.82-4,GPa,0.74
+G001-09,M001,THE FILAMENT HT-PLA,tensileStrengthXY,this-grade,good,50.1,44.9-60.4,44-68.6,MPa,0.49
+G001-09,M001,THE FILAMENT HT-PLA,elongationXY,this-grade,good,15.3,12.5-22.5,12-29.9,%,0.71
+G001-10,M001,rPLA,tensileModulusXY,this-grade,good,3.28,2.63-4.09,2.21-4.87,GPa,0.74
+G001-10,M001,rPLA,tensileStrengthXY,this-grade,good,56.4,53.5-62,53.5-66.8,MPa,0.77
+G001-10,M001,rPLA,elongationXY,this-grade,fair,9.89,6.32-18.8,5.69-28.4,%,0.5
+G001-11,M001,THE FILAMENT PLA HS,tensileModulusXY,this-material,fair,2.93,1.9-4.5,1.35-6.32,GPa,0
+G001-11,M001,THE FILAMENT PLA HS,tensileStrengthXY,this-material,fair,49.5,34.9-70.1,28.5-85.6,MPa,0
+G001-11,M001,THE FILAMENT PLA HS,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-12,M001,THE FILAMENT PLA Lite,tensileModulusXY,this-material,fair,2.93,1.9-4.5,1.35-6.32,GPa,0
+G001-12,M001,THE FILAMENT PLA Lite,tensileStrengthXY,this-material,fair,49.5,34.9-70.1,28.5-85.6,MPa,0
+G001-12,M001,THE FILAMENT PLA Lite,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-13,M001,THE FILAMENT PLA,tensileModulusXY,this-material,fair,2.93,1.9-4.5,1.35-6.32,GPa,0
+G001-13,M001,THE FILAMENT PLA,tensileStrengthXY,this-material,fair,49.5,34.9-70.1,28.5-85.6,MPa,0
+G001-13,M001,THE FILAMENT PLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-14,M001,FlameGuard PLA,tensileModulusXY,this-grade,good,2.68,2.15-3.35,1.81-3.98,GPa,0.74
+G001-14,M001,FlameGuard PLA,tensileStrengthXY,this-grade,good,45.1,38.7-55.1,37.2-62.1,MPa,0.61
+G001-14,M001,FlameGuard PLA,elongationXY,this-grade,good,12.9,10.5-19.2,10-25.7,%,0.71
+G001-15,M001,PLA Crystal,tensileModulusXY,this-grade,good,3.34,2.67-4.16,2.25-4.95,GPa,0.74
+G001-15,M001,PLA Crystal,tensileStrengthXY,this-grade,good,57.2,51.1-69.8,50-80.3,MPa,0.4
+G001-15,M001,PLA Crystal,elongationXY,this-grade,good,7.01,5.36-11,5.06-14.9,%,0.71
+G001-16,M001,PLA Pro,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-17,M001,Pastello PLA,tensileModulusXY,this-grade,fair,2.44,1.74-3.43,1.33-4.47,GPa,0.39
+G001-17,M001,Pastello PLA,tensileStrengthXY,this-grade,good,46.1,39.8-56.3,38.3-63.5,MPa,0.61
+G001-17,M001,Pastello PLA,elongationXY,this-grade,good,13.4,10.6-20.5,10.1-28.1,%,0.65
+G001-22,M001,Polymaker PolyLite PLA PRO Army Beige,elongationXY,this-grade,fair,10,6.68-18.4,6.16-28,%,0.48
+G001-31,M001,PLA,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-31,M001,PLA,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-31,M001,PLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-32,M001,PLA TOUGH,density,this-grade,good,1200,1180-1230,1160-1250,kg/m³,0.88
+G001-32,M001,PLA TOUGH,tensileModulusXY,this-grade,good,2.81,2.34-3.38,2.03-3.9,GPa,0.83
+G001-32,M001,PLA TOUGH,tensileStrengthXY,this-grade,fair,45.7,35.3-59.2,30.4-68.7,MPa,0.46
+G001-32,M001,PLA TOUGH,elongationXY,this-grade,fair,8.22,4.31-15.7,2.93-23,%,0.6
+G001-33,M001,PLA NX2 MATT,tensileModulusXY,this-grade,good,2.35,1.95-2.82,1.69-3.26,GPa,0.83
+G001-33,M001,PLA NX2 MATT,tensileStrengthXY,this-grade,fair,33.6,25.4-44.5,21.7-52.2,MPa,0.38
+G001-33,M001,PLA NX2 MATT,elongationXY,this-grade,fair,9.83,5.16-18.7,3.51-27.5,%,0.6
+G001-34,M001,PLA BASIC,tensileModulusXY,this-material,fair,2.53,1.63-3.92,1.16-5.53,GPa,0
+G001-34,M001,PLA BASIC,tensileStrengthXY,this-material,fair,46.9,32.9-66.7,26.9-81.7,MPa,0
+G001-34,M001,PLA BASIC,elongationXY,this-grade,fair,5,2.62-9.51,1.78-14,%,0.6
+G001-35,M001,PLA HIGH-SPEED,tensileModulusXY,this-grade,fair,2.87,2.26-3.65,1.87-4.39,GPa,0.7
+G001-35,M001,PLA HIGH-SPEED,tensileStrengthXY,this-grade,fair,45.4,33-62.5,27.4-75.1,MPa,0.18
+G001-35,M001,PLA HIGH-SPEED,elongationXY,this-grade,fair,4.69,2.38-9.22,1.59-13.9,%,0.56
+G001-36,M001,PLA Lite,tensileModulusXY,this-grade,good,3.25,2.59-4.08,2.16-4.88,GPa,0.74
+G001-37,M001,PLA,tensileModulusXY,this-grade,good,2.81,2.36-3.34,2.06-3.82,GPa,0.84
+G001-38,M001,High Speed PLA,tensileModulusXY,this-grade,good,3.19,2.69-3.79,2.35-4.33,GPa,0.85
+G001-39,M001,PLA-METALLIC PLA,tensileModulusXY,this-grade,fair,2.69,2.05-3.52,1.66-4.34,GPa,0.62
+G001-40,M001,PLA Matte Dual-Color,tensileModulusXY,this-grade,good,3.45,2.77-4.3,2.33-5.1,GPa,0.75
+G001-41,M001,PLA Rainbow,tensileModulusXY,this-grade,good,2.88,2.32-3.58,1.96-4.24,GPa,0.75
+G001-42,M001,High Speed PLA+2.0,tensileModulusXY,this-grade,good,3.17,2.57-3.92,2.18-4.61,GPa,0.77
+G001-52,M001,PLA Crystal,tensileModulusXY,this-grade,good,2.45,2.04-2.95,1.76-3.41,GPa,0.82
+G001-53,M001,FiberWORKS PLA,tensileModulusXY,this-grade,good,3.85,3.09-4.81,2.59-5.72,GPa,0.74
+G001-53,M001,FiberWORKS PLA,tensileStrengthXY,this-grade,good,60.7,55.2-69.8,54-76.5,MPa,0.77
+G001-53,M001,FiberWORKS PLA,elongationXY,this-grade,good,7.69,6.29-11.4,6.04-15.1,%,0.71
+G001-54,M001,VELVET PLA,tensileModulusXY,this-grade,good,3.09,2.47-3.85,2.08-4.59,GPa,0.74
+G001-54,M001,VELVET PLA,tensileStrengthXY,this-grade,good,62.7,57-74.1,56-83,MPa,0.61
+G001-54,M001,VELVET PLA,elongationXY,this-grade,good,7.36,5.41-11.7,5.09-16.1,%,0.71
+G001-55,M001,IMPACT PLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-56,M001,Polylactid+ (PLA+),tensileModulusXY,this-grade,good,2.91,2.32-3.63,1.95-4.33,GPa,0.75
+G001-56,M001,Polylactid+ (PLA+),tensileStrengthXY,this-grade,good,61.7,55.4-73.6,54-82.9,MPa,0.62
+G001-56,M001,Polylactid+ (PLA+),elongationXY,this-grade,good,97.9,86.1-130,84-165,%,0.72
+G001-58,M001,PLA-HP,density,this-material,good,1240,1180-1300,1130-1340,kg/m³,0
+G001-59,M001,PLA Economy,tensileModulusXY,this-grade,good,3.24,2.59-4.04,2.18-4.81,GPa,0.74
+G001-59,M001,PLA Economy,tensileStrengthXY,this-grade,good,64.6,60.1-74,59.6-82,MPa,0.64
+G001-59,M001,PLA Economy,elongationXY,this-grade,good,7.58,6.25-11.1,6.02-14.7,%,0.71
+G001-60,M001,PLA Color On Demand (COD),density,this-grade,good,1200,1180-1230,1160-1250,kg/m³,0.89
+G001-60,M001,PLA Color On Demand (COD),tensileModulusXY,this-grade,good,3.26,2.61-4.07,2.19-4.84,GPa,0.74
+G001-60,M001,PLA Color On Demand (COD),tensileStrengthXY,this-grade,good,60.9,56.3-70.4,55.7-78.2,MPa,0.64
+G001-60,M001,PLA Color On Demand (COD),elongationXY,this-grade,good,5,3.77-7.88,3.55-10.7,%,0.71
+G001-61,M001,PLA Regrind,density,this-grade,good,1200,1180-1230,1160-1250,kg/m³,0.89
+G001-62,M001,PLA High Speed PRO,density,this-grade,good,1240,1210-1260,1190-1290,kg/m³,0.89
+G001-63,M001,Vibers PLA,density,this-material,good,1240,1180-1300,1130-1340,kg/m³,0
+G001-64,M001,PLA Extrafill,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-64,M001,PLA Extrafill,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-64,M001,PLA Extrafill,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-65,M001,PLA Crystal Clear,tensileModulusXY,this-grade,good,3.19,2.55-3.98,2.14-4.74,GPa,0.75
+G001-65,M001,PLA Crystal Clear,tensileStrengthXY,this-grade,good,56.6,51-68.5,50-78.7,MPa,0.4
+G001-65,M001,PLA Crystal Clear,elongationXY,this-grade,fair,6.28,3.44-11.5,2.4-16.4,%,0.65
+G001-68,M001,Polylactide (PLA),tensileModulusXY,this-material,fair,2.87,1.81-4.54,1.26-6.5,GPa,0
+G001-68,M001,Polylactide (PLA),tensileStrengthXY,this-material,fair,50.2,35-71.7,28.5-88.2,MPa,0
+G001-68,M001,Polylactide (PLA),elongationXY,this-material,poor,11.1,3.84-32.3,2.03-61,%,0
+G001-69,M001,PLA Premium,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-69,M001,PLA Premium,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-69,M001,PLA Premium,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-70,M001,PLA Chameleon,density,this-grade,good,1230,1180-1290,1130-1320,kg/m³,0.3
+G001-71,M001,PLA-Matte,tensileModulusXY,this-grade,good,2.26,1.88-2.72,1.63-3.13,GPa,0.82
+G001-72,M001,PLA,tensileModulusXY,this-grade,good,3.25,2.59-4.07,2.17-4.85,GPa,0.76
+G001-72,M001,PLA,tensileStrengthXY,this-grade,good,66.7,60.9-78.2,60-87.6,MPa,0.62
+G001-72,M001,PLA,elongationXY,this-grade,good,8.28,6.36-12.9,6.06-17.5,%,0.72
+G001-73,M001,PLLA,density,this-material,good,1230,1170-1290,1120-1330,kg/m³,0
+G001-73,M001,PLLA,tensileModulusXY,this-grade,good,3.22,2.57-4.02,2.16-4.8,GPa,0.76
+G001-73,M001,PLLA,tensileStrengthXY,this-grade,good,58.7,51.5-74,50-86.9,MPa,0.25
+G001-73,M001,PLLA,elongationXY,this-grade,fair,5.55,3.02-10.3,2.09-14.7,%,0.67
+G001-74,M001,PLA+CMYK,tensileModulusXY,this-grade,fair,1.92,1.51-2.43,1.25-2.93,GPa,0.7
+G001-74,M001,PLA+CMYK,tensileStrengthXY,this-grade,fair,46.5,33.8-63.8,28.2-76.6,MPa,0.18
+G001-74,M001,PLA+CMYK,elongationXY,this-grade,fair,8.68,4.57-16.5,3.11-24.2,%,0.59
+G001-75,M001,PLA Matte Dual,tensileModulusXY,this-grade,fair,2.44,1.92-3.09,1.59-3.72,GPa,0.7
+G001-75,M001,PLA Matte Dual,tensileStrengthXY,this-grade,fair,35.6,25.9-48.9,21.6-58.7,MPa,0.18
+G001-75,M001,PLA Matte Dual,elongationXY,this-grade,fair,12.9,6.77-24.4,4.61-35.9,%,0.59
+G001-77,M001,Prusament rPLA Natural Pigments by Prusa Polymers,tensileModulusXY,this-grade,good,2.36,1.88-2.96,1.57-3.54,GPa,0.74
+G001-77,M001,Prusament rPLA Natural Pigments by Prusa Polymers,tensileStrengthXY,this-grade,good,56.8,52.7-64.6,52-70.4,MPa,0.77
+G001-77,M001,Prusament rPLA Natural Pigments by Prusa Polymers,elongationXY,this-grade,fair,7.67,4.21-15.6,3.47-24,%,0.52
+G001-78,M001,PLA+,tensileModulusXY,this-grade,good,2.61,2.23-3.04,1.98-3.43,GPa,0.87
+G001-79,M001,PLA-Rock,tensileModulusXY,this-grade,fair,2.39,1.88-3.03,1.56-3.65,GPa,0.7
+G001-79,M001,PLA-Rock,tensileStrengthXY,this-grade,fair,37.4,27.2-51.4,22.7-61.7,MPa,0.18
+G001-79,M001,PLA-Rock,elongationXY,this-grade,fair,2.28,1.2-4.33,0.818-6.36,%,0.59
+G001-80,M001,PLA HF,tensileModulusXY,this-grade,good,3.17,2.64-3.81,2.29-4.4,GPa,0.82
+G001-81,M001,ePLA-Magic,tensileModulusXY,this-grade,fair,2.83,2.23-3.59,1.85-4.32,GPa,0.7
+G001-81,M001,ePLA-Magic,tensileStrengthXY,this-grade,fair,41.8,30.4-57.4,25.3-68.9,MPa,0.18
+G001-81,M001,ePLA-Magic,elongationXY,this-grade,fair,3.5,1.84-6.64,1.25-9.75,%,0.59
+G001-83,M001,PLA Basic EN,tensileModulusXY,this-grade,good,3.06,2.62-3.57,2.32-4.02,GPa,0.87
+G001-84,M001,eStars-PLA,tensileModulusXY,this-grade,fair,1.88,1.48-2.38,1.23-2.87,GPa,0.7
+G001-84,M001,eStars-PLA,tensileStrengthXY,this-grade,fair,47.5,34.6-65.3,28.8-78.3,MPa,0.18
+G001-84,M001,eStars-PLA,elongationXY,this-grade,fair,6.37,3.35-12.1,2.28-17.8,%,0.59
+G001-85,M001,ePLA HS,tensileModulusXY,this-grade,fair,2.38,1.87-3.02,1.55-3.64,GPa,0.7
+G001-85,M001,ePLA HS,tensileStrengthXY,this-grade,fair,45.9,33.4-63.1,27.9-75.7,MPa,0.18
+G001-85,M001,ePLA HS,elongationXY,this-grade,fair,8.03,4.23-15.3,2.88-22.4,%,0.59
+G001-86,M001,PLA Cast EN,tensileModulusXY,this-grade,good,2.92,2.43-3.5,2.1-4.04,GPa,0.82
+G001-87,M001,Prusament PLA High Speed by Prusa Polymers,tensileModulusXY,this-grade,good,2.36,1.88-2.96,1.57-3.54,GPa,0.74
+G001-87,M001,Prusament PLA High Speed by Prusa Polymers,tensileStrengthXY,this-grade,good,74.3,68.9-86,68-95.6,MPa,0.62
+G001-87,M001,Prusament PLA High Speed by Prusa Polymers,elongationXY,this-grade,fair,8.75,4.9-17.6,4.18-27.1,%,0.52
+G001-88,M001,PLA+HS,tensileModulusXY,this-grade,good,2.78,2.32-3.34,2.01-3.86,GPa,0.82
+G001-89,M001,ePLA-Chameleon,tensileModulusXY,this-grade,fair,2.74,2.16-3.47,1.79-4.18,GPa,0.7
+G001-89,M001,ePLA-Chameleon,tensileStrengthXY,this-grade,fair,39.9,29-54.8,24.2-65.7,MPa,0.18
+G001-89,M001,ePLA-Chameleon,elongationXY,this-grade,fair,3.33,1.75-6.32,1.19-9.27,%,0.59
+G001-90,M001,Prusament PLA Recycled by Prusa Polymers,density,this-material,good,1220,1160-1290,1120-1330,kg/m³,0
+G001-90,M001,Prusament PLA Recycled by Prusa Polymers,tensileModulusXY,this-grade,good,2.22,1.76-2.79,1.47-3.33,GPa,0.74
+G001-90,M001,Prusament PLA Recycled by Prusa Polymers,tensileStrengthXY,this-grade,good,61.5,55.9-72.7,55-81.9,MPa,0.57
+G001-90,M001,Prusament PLA Recycled by Prusa Polymers,elongationXY,this-material,poor,9.81,3.42-28.2,1.82-52.9,%,0
+G001-91,M001,PLA+HS Silver,tensileModulusXY,this-grade,fair,2.38,1.88-3.02,1.56-3.64,GPa,0.7
+G001-91,M001,PLA+HS Silver,tensileStrengthXY,this-grade,fair,45.9,33.4-63.1,27.9-75.7,MPa,0.18
+G001-91,M001,PLA+HS Silver,elongationXY,this-grade,fair,7.34,3.86-14,2.63-20.5,%,0.59
+G001-92,M001,PLA UV Color Change,tensileModulusXY,this-grade,fair,2.5,1.97-3.17,1.63-3.82,GPa,0.7
+G001-92,M001,PLA UV Color Change,tensileStrengthXY,this-grade,fair,40.3,29.3-55.3,24.4-66.4,MPa,0.18
+G001-92,M001,PLA UV Color Change,elongationXY,this-grade,fair,2.78,1.46-5.29,0.999-7.76,%,0.59
+G001-93,M001,Pro PLA,tensileStrengthXY,this-material,fair,46.4,32.3-66.5,26.2-81.9,MPa,0
+G001-93,M001,Pro PLA,elongationXY,this-material,poor,12.4,4.19-36.6,2.19-70.1,%,0
+G001-95,M001,PLA,tensileModulusXY,this-grade,good,2.89,2.31-3.62,1.94-4.31,GPa,0.76
+G001-95,M001,PLA,tensileStrengthXY,this-grade,good,72.3,66.8-83.7,66-93,MPa,0.62
+G001-95,M001,PLA,elongationXY,this-material,poor,6.7,2.33-19.3,1.23-36.3,%,0
+G001-96,M001,ePLA Matte,tensileModulusXY,this-grade,fair,1.3,1.02-1.65,0.849-1.98,GPa,0.7
+G001-96,M001,ePLA Matte,tensileStrengthXY,this-grade,fair,41.9,30.5-57.5,25.4-69,MPa,0.18
+G001-96,M001,ePLA Matte,elongationXY,this-grade,fair,15.9,8.38-30.2,5.71-44.4,%,0.59
+G001-98,M001,PLA EF 3D850,elongationXY,this-grade,fair,6.09,3.54-11.4,2.93-16.7,%,0.61
+G001-99,M001,PLA VX,tensileModulusXY,this-grade,good,2.41,1.92-3.01,1.62-3.58,GPa,0.74
+G001-99,M001,PLA VX,tensileStrengthXY,this-grade,good,57.1,51-70.4,50-82,MPa,0.24
+G001-99,M001,PLA VX,elongationXY,this-grade,good,4.8,3.56-7.64,3.35-10.5,%,0.72
+G001-100,M001,Bulk PLA,tensileModulusXY,this-material,fair,2.79,1.8-4.31,1.28-6.06,GPa,0
+G001-100,M001,Bulk PLA,tensileStrengthXY,this-material,fair,51.1,36-72.5,29.4-88.8,MPa,0
+G001-100,M001,Bulk PLA,elongationXY,this-material,poor,8.49,3.09-23.4,1.68-42.8,%,0
+G001-101,M001,Volcano PLA 150C,tensileModulusXY,this-grade,good,2.57,2.06-3.21,1.73-3.82,GPa,0.74
+G001-101,M001,Volcano PLA 150C,tensileStrengthXY,this-grade,good,51.1,44.7-61.8,43.2-69.8,MPa,0.61
+G001-101,M001,Volcano PLA 150C,elongationXY,this-grade,good,14.2,11.5-21.2,11-28.3,%,0.71
+G001-102,M001,Matt PLA,tensileModulusXY,this-grade,good,3.71,2.97-4.64,2.49-5.52,GPa,0.75
+G001-102,M001,Matt PLA,tensileStrengthXY,this-grade,good,52.2,47.1-62.2,46-69.9,MPa,0.63
+G001-102,M001,Matt PLA,elongationXY,this-material,poor,8.26,2.91-23.5,1.56-43.8,%,0
+G001-103,M001,PLA,tensileModulusXY,this-grade,fair,1.79,1.27-2.53,0.969-3.31,GPa,0.4
+G001-103,M001,PLA,tensileStrengthXY,this-grade,good,64.8,61.1-72.6,61-79.6,MPa,0.64
+G001-103,M001,PLA,elongationXY,this-grade,good,4.84,3.43-7.88,3.19-10.9,%,0.71
+G001-104,M001,eMarble,tensileModulusXY,this-material,fair,2.32,1.5-3.57,1.07-5.01,GPa,0
+G001-104,M001,eMarble,tensileStrengthXY,this-grade,fair,45.1,32.8-61.9,27.3-74.3,MPa,0.18
+G001-104,M001,eMarble,elongationXY,this-material,poor,5.67,2.07-15.5,1.13-28.3,%,0
+G001-105,M001,ePLA ST,tensileModulusXY,this-grade,fair,1.57,1.23-1.99,1.02-2.4,GPa,0.7
+G001-105,M001,ePLA ST,tensileStrengthXY,this-grade,fair,41.8,30.4-57.4,25.4-68.9,MPa,0.18
+G001-105,M001,ePLA ST,elongationXY,this-grade,fair,21,11-39.9,7.53-58.5,%,0.59
+G001-106,M001,PLA Matte,tensileModulusXY,this-grade,fair,1.79,1.26-2.53,0.968-3.31,GPa,0.4
+G001-106,M001,PLA Matte,tensileStrengthXY,this-grade,good,53.6,50.6-60.1,50.5-65.7,MPa,0.64
+G001-106,M001,PLA Matte,elongationXY,this-grade,good,12.8,10.1-19.3,9.71-26,%,0.71
+G001-107,M001,PLA Matte,tensileModulusXY,this-grade,good,4.16,3.33-5.19,2.8-6.17,GPa,0.74
+G001-107,M001,PLA Matte,tensileStrengthXY,this-grade,good,53.6,50.5-60,50.5-65.8,MPa,0.63
+G001-107,M001,PLA Matte,elongationXY,this-grade,good,13.4,10.2-20.8,9.72-28.1,%,0.71
+G001-108,M001,Buddy3D PLA,density,this-material,good,1220,1160-1290,1120-1330,kg/m³,0
+G001-108,M001,Buddy3D PLA,tensileModulusXY,this-grade,fair,2.51,1.78-3.53,1.35-4.62,GPa,0.4
+G001-108,M001,Buddy3D PLA,tensileStrengthXY,this-grade,good,58.9,53.8-68.9,53-76.7,MPa,0.64
+G001-108,M001,Buddy3D PLA,elongationXY,this-material,poor,9.81,3.42-28.2,1.82-52.9,%,0
+G001-109,M001,APLA,tensileModulusXY,this-grade,good,4.1,3.28-5.11,2.76-6.08,GPa,0.74
+G001-109,M001,APLA,tensileStrengthXY,this-grade,good,54.5,51.4-61,51.3-66.9,MPa,0.63
+G001-109,M001,APLA,elongationXY,this-grade,good,12.9,9.84-20,9.36-27.3,%,0.71
+G001-111,M001,PLA Classic,tensileModulusXY,this-grade,good,3.69,3.07-4.44,2.66-5.12,GPa,0.83
+G001-112,M001,PLA Meta,tensileModulusXY,this-grade,good,2.2,1.76-2.74,1.48-3.26,GPa,0.74
+G001-112,M001,PLA Meta,tensileStrengthXY,this-grade,good,54.4,50.4-62.3,50-68.9,MPa,0.63
+G001-112,M001,PLA Meta,elongationXY,this-grade,good,22.1,17.8-32.9,17-44.2,%,0.71
+G001-113,M001,Translucent / Sparkly (HTPLA),tensileModulusXY,this-material,poor,2.52,1.53-4.16,1.03-6.15,GPa,0
+G001-113,M001,Translucent / Sparkly (HTPLA),tensileStrengthXY,this-material,fair,46,31.9-66.1,25.9-81.5,MPa,0
+G001-113,M001,Translucent / Sparkly (HTPLA),elongationXY,this-material,poor,7.8,2.52-24.1,1.28-47.4,%,0
+G001-114,M001,PLA,tensileModulusXY,this-material,fair,2.69,1.73-4.2,1.22-5.95,GPa,0
+G001-114,M001,PLA,tensileStrengthXY,this-grade,good,64.8,61.1-72.2,60-78.2,MPa,0.77
+G001-114,M001,PLA,elongationXY,this-grade,good,8.21,6.41-12.5,6.12-17,%,0.72
+G001-115,M001,Tough PLA,tensileModulusXY,this-grade,good,2.87,2.86-2.88,2.86-2.88,GPa,1
+G001-115,M001,Tough PLA,tensileStrengthXY,this-grade,good,40,40-40.1,40-40.1,MPa,1
+G001-115,M001,Tough PLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-118,M001,PLA Matte (HS),elongationXY,this-grade,good,5.76,4.34-9.74,4.15-14.3,%,0.58
+G001-119,M001,ecoPLA Sparkling,tensileModulusXY,this-grade,fair,1.99,1.3-3.04,0.94-4.23,GPa,0.11
+G001-119,M001,ecoPLA Sparkling,tensileStrengthXY,this-grade,good,57.8,52-69,50.8-77.4,MPa,0.62
+G001-119,M001,ecoPLA Sparkling,elongationXY,this-grade,good,15.5,12.3-23.4,11.8-31.5,%,0.71
+G001-120,M001,magicPLA,tensileModulusXY,this-grade,fair,1.95,1.28-2.98,0.922-4.14,GPa,0.11
+G001-120,M001,magicPLA,tensileStrengthXY,this-grade,good,53.2,47.2-63.8,45.8-72.1,MPa,0.62
+G001-120,M001,magicPLA,elongationXY,this-grade,good,25.7,21.1-37.1,20.5-49.4,%,0.71
+G001-121,M001,PLA Basic,tensileModulusXY,this-material,poor,2.52,1.53-4.16,1.03-6.15,GPa,0
+G001-121,M001,PLA Basic,tensileStrengthXY,this-material,fair,46,31.9-66.1,25.9-81.5,MPa,0
+G001-121,M001,PLA Basic,elongationXY,this-material,poor,7.8,2.52-24.1,1.28-47.4,%,0
+G001-124,M001,PLA+,tensileModulusXY,this-grade,fair,1.99,1.37-2.87,1.03-3.83,GPa,0.46
+G001-124,M001,PLA+,tensileStrengthXY,this-grade,good,66.1,62.1-75.1,62-83.3,MPa,0.54
+G001-124,M001,PLA+,elongationXY,this-grade,good,28.1,22.5-44.3,21.6-63.3,%,0.57
+G001-125,M001,mysteryPLA,density,this-grade,good,1230,1210-1260,1180-1280,kg/m³,0.88
+G001-125,M001,mysteryPLA,tensileModulusXY,this-grade,fair,1.95,1.28-2.97,0.919-4.13,GPa,0.11
+G001-125,M001,mysteryPLA,tensileStrengthXY,this-grade,good,52.3,46.2-62.9,44.7-70.9,MPa,0.62
+G001-125,M001,mysteryPLA,elongationXY,this-grade,good,25.1,20.8-36.5,20-48.3,%,0.71
+G001-126,M001,PLAx,tensileModulusXY,this-grade,fair,2.93,2.3-3.72,1.91-4.49,GPa,0.71
+G001-126,M001,PLAx,tensileStrengthXY,this-grade,good,49.6,44.1-61,43-70.4,MPa,0.41
+G001-126,M001,PLAx,elongationXY,this-grade,good,13,11.2-17.1,11-21.5,%,0.8
+G001-127,M001,Quantum Dots (HTPLA),tensileModulusXY,this-material,poor,2.52,1.53-4.16,1.03-6.15,GPa,0
+G001-127,M001,Quantum Dots (HTPLA),tensileStrengthXY,this-material,fair,46,31.9-66.1,25.9-81.5,MPa,0
+G001-127,M001,Quantum Dots (HTPLA),elongationXY,this-material,poor,7.8,2.52-24.1,1.28-47.4,%,0
+G001-128,M001,ecoPLA,tensileModulusXY,this-grade,good,3.14,2.51-3.92,2.11-4.67,GPa,0.75
+G001-128,M001,ecoPLA,tensileStrengthXY,this-grade,good,52.7,46.3-65.4,45-75.6,MPa,0.4
+G001-128,M001,ecoPLA,elongationXY,this-grade,fair,6.61,3.62-12.1,2.52-17.3,%,0.66
+G001-129,M001,PLA,tensileModulusXY,this-material,poor,2.52,1.53-4.16,1.03-6.15,GPa,0
+G001-129,M001,PLA,tensileStrengthXY,this-material,fair,46,31.9-66.1,25.9-81.5,MPa,0
+G001-129,M001,PLA,elongationXY,this-material,poor,7.8,2.52-24.1,1.28-47.4,%,0
+G001-130,M001,MH Build Series PLA,tensileModulusXY,this-grade,fair,2.73,1.94-3.85,1.48-5.05,GPa,0.4
+G001-130,M001,MH Build Series PLA,tensileStrengthXY,this-grade,good,56.6,45.7-70.1,40.5-79.2,MPa,0.64
+G001-130,M001,MH Build Series PLA,elongationXY,this-grade,good,10.6,8.51-15.9,8.16-21.3,%,0.72
+G001-131,M001,Opaque HTPLA (v3),tensileModulusXY,this-material,poor,2.52,1.53-4.16,1.03-6.15,GPa,0
+G001-131,M001,Opaque HTPLA (v3),tensileStrengthXY,this-material,fair,46,31.9-66.1,25.9-81.5,MPa,0
+G001-131,M001,Opaque HTPLA (v3),elongationXY,this-material,poor,7.8,2.52-24.1,1.28-47.4,%,0
+G001-133,M001,Stainless Steel PLA,tensileModulusXY,this-material,poor,2.78,1.67-4.63,1.12-6.9,GPa,0
+G001-133,M001,Stainless Steel PLA,tensileStrengthXY,this-material,fair,39.3,27-57.1,21.8-70.8,MPa,0
+G001-133,M001,Stainless Steel PLA,elongationXY,this-material,poor,7.59,2.39-24.1,1.19-48.2,%,0
+G001-135,M001,PLA XRS,tensileModulusXY,this-grade,good,3.34,2.67-4.18,2.24-4.98,GPa,0.75
+G001-135,M001,PLA XRS,tensileStrengthXY,this-material,fair,36.4,25.3-52.3,20.5-64.5,MPa,0
+G001-135,M001,PLA XRS,elongationXY,this-grade,good,5.05,3.76-8.01,3.56-11,%,0.73
+G001-136,M001,BronzeFill,tensileModulusXY,this-grade,good,4.2,3.35-5.24,2.81-6.25,GPa,0.75
+G001-136,M001,BronzeFill,tensileStrengthXY,this-grade,good,33.3,30.5-39,30-43.5,MPa,0.65
+G001-136,M001,BronzeFill,elongationXY,this-grade,good,8.34,6.46-13.3,6.15-18.9,%,0.62
+G001-137,M001,steelFill,tensileModulusXY,this-grade,good,3.23,2.58-4.04,2.17-4.81,GPa,0.75
+G001-137,M001,steelFill,tensileStrengthXY,this-grade,good,26.9,23.8-32.4,23-36.5,MPa,0.65
+G001-137,M001,steelFill,elongationXY,this-grade,fair,3.92,2.65-7.27,2.45-11,%,0.51
+G001-138,M001,Magnetic Iron PLA,tensileModulusXY,this-material,poor,2.78,1.67-4.63,1.12-6.9,GPa,0
+G001-138,M001,Magnetic Iron PLA,tensileStrengthXY,this-material,fair,39.3,27-57.1,21.8-70.8,MPa,0
+G001-138,M001,Magnetic Iron PLA,elongationXY,this-material,poor,7.59,2.39-24.1,1.19-48.2,%,0
+G001-139,M001,"Brass Fill, Bronze Fill, Copper Fill HTPLA",tensileModulusXY,this-material,poor,2.78,1.67-4.63,1.12-6.9,GPa,0
+G001-139,M001,"Brass Fill, Bronze Fill, Copper Fill HTPLA",tensileStrengthXY,this-material,fair,39.3,27-57.1,21.8-70.8,MPa,0
+G001-139,M001,"Brass Fill, Bronze Fill, Copper Fill HTPLA",elongationXY,this-material,poor,7.59,2.39-24.1,1.19-48.2,%,0
+G001-141,M001,PLA Nature,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-141,M001,PLA Nature,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-141,M001,PLA Nature,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-143,M001,PLA+2.0,tensileModulusXY,this-grade,good,2.77,2.26-3.39,1.93-3.96,GPa,0.79
+G001-144,M001,Prusament PLA by Prusa Polymers,density,this-material,good,1220,1160-1290,1120-1330,kg/m³,0
+G001-144,M001,Prusament PLA by Prusa Polymers,tensileModulusXY,this-grade,good,2.33,1.85-2.92,1.55-3.49,GPa,0.74
+G001-144,M001,Prusament PLA by Prusa Polymers,tensileStrengthXY,this-grade,good,65,59.8-76.1,59-85,MPa,0.59
+G001-144,M001,Prusament PLA by Prusa Polymers,elongationXY,this-grade,fair,8.02,4.28-16.9,3.5-26.5,%,0.47
+G001-145,M001,High Speed Matte PLA,tensileModulusXY,this-grade,good,3.25,2.59-4.08,2.16-4.88,GPa,0.74
+G001-146,M001,PLA Clear,tensileModulusXY,this-grade,fair,1.88,1.48-2.38,1.23-2.87,GPa,0.7
+G001-146,M001,PLA Clear,tensileStrengthXY,this-grade,fair,47.5,34.6-65.3,28.8-78.3,MPa,0.18
+G001-146,M001,PLA Clear,elongationXY,this-grade,fair,6.37,3.35-12.1,2.28-17.8,%,0.59
+G001-147,M001,PLA Thermoactive,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-147,M001,PLA Thermoactive,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-147,M001,PLA Thermoactive,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-149,M001,PLA Vertigo,density,this-grade,good,1230,1180-1290,1130-1320,kg/m³,0.3
+G001-150,M001,SafeGuard PLA,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-150,M001,SafeGuard PLA,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-150,M001,SafeGuard PLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-152,M001,Hyper Speed PLA Pro,tensileModulusXY,this-grade,good,3.08,2.94-3.22,2.84-3.34,GPa,0.99
+G001-152,M001,Hyper Speed PLA Pro,tensileStrengthXY,this-grade,good,40.6,38-44.7,37.5-47.4,MPa,0.9
+G001-152,M001,Hyper Speed PLA Pro,elongationXY,this-grade,fair,9.33,5.38-16.2,3.87-22.6,%,0.71
+G001-153,M001,PLA,density,this-material,good,1170,1120-1230,1100-1290,kg/m³,0
+G001-153,M001,PLA,tensileModulusXY,this-material,fair,2.54,1.61-4.01,1.13-5.73,GPa,0
+G001-153,M001,PLA,tensileStrengthXY,this-material,fair,47.2,33-67.4,26.8-82.8,MPa,0
+G001-153,M001,PLA,elongationXY,this-material,poor,5.69,1.95-16.6,1.02-31.6,%,0
+G001-154,M001,Precise PLA,density,this-material,fair,1230,1160-1310,1110-1340,kg/m³,0
+G001-154,M001,Precise PLA,tensileModulusXY,this-grade,good,2.35,1.86-2.95,1.56-3.53,GPa,0.79
+G001-154,M001,Precise PLA,tensileStrengthXY,this-grade,good,35,31.8-40.4,31-44.4,MPa,0.78
+G001-154,M001,Precise PLA,elongationXY,this-grade,good,33.1,27.9-47.1,27-62.3,%,0.75
+G001-156,M001,Copper filled PLA,tensileModulusXY,this-grade,good,2.83,2.24-3.57,1.87-4.28,GPa,0.81
+G001-156,M001,Copper filled PLA,tensileStrengthXY,this-grade,good,27.6,25.4-32.2,25-36.1,MPa,0.7
+G001-156,M001,Copper filled PLA,elongationXY,this-grade,good,8.25,6.27-14.2,5.95-21.2,%,0.54
+G001-157,M001,High Gloss PLA,tensileModulusXY,this-grade,good,3.08,2.47-3.85,2.07-4.58,GPa,0.74
+G001-157,M001,High Gloss PLA,tensileStrengthXY,this-grade,good,77.7,71.8-89.9,71-99.8,MPa,0.61
+G001-157,M001,High Gloss PLA,elongationXY,this-grade,good,5.4,3.92-8.64,3.68-11.9,%,0.71
+G001-158,M001,High Precision PLA,tensileModulusXY,this-grade,good,2.92,2.34-3.65,1.96-4.34,GPa,0.74
+G001-158,M001,High Precision PLA,tensileStrengthXY,this-grade,good,74.1,68.8-84.2,68-91.8,MPa,0.77
+G001-158,M001,High Precision PLA,elongationXY,this-grade,good,6.66,4.97-10.5,4.69-14.3,%,0.71
+G001-159,M001,EasyFil PLA,tensileModulusXY,this-grade,fair,2.39,1.7-3.35,1.3-4.38,GPa,0.39
+G001-159,M001,EasyFil PLA,tensileStrengthXY,this-grade,good,40.6,32.8-50.2,29.1-56.7,MPa,0.64
+G001-159,M001,EasyFil PLA,elongationXY,this-material,poor,8.49,3.09-23.4,1.68-42.8,%,0
+G001-160,M001,Premium PLA,tensileModulusXY,this-grade,fair,2.38,1.69-3.34,1.29-4.36,GPa,0.39
+G001-160,M001,Premium PLA,tensileStrengthXY,this-grade,good,40.2,32.5-49.8,28.8-56.2,MPa,0.64
+G001-160,M001,Premium PLA,elongationXY,this-material,poor,8.49,3.09-23.4,1.68-42.8,%,0
+G001-161,M001,Tough PLA,tensileModulusXY,this-grade,good,2.76,2.21-3.45,1.86-4.1,GPa,0.74
+G001-161,M001,Tough PLA,tensileStrengthXY,this-grade,good,53.9,47.5-64.8,46.1-72.9,MPa,0.61
+G001-161,M001,Tough PLA,elongationXY,this-material,poor,8.49,3.09-23.4,1.68-42.8,%,0
+G001-162,M001,EasyFil ePLA,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-162,M001,EasyFil ePLA,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-162,M001,EasyFil ePLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-163,M001,PLACTIVE,tensileModulusXY,this-grade,good,3.16,2.62-3.81,2.27-4.41,GPa,0.86
+G001-163,M001,PLACTIVE,tensileStrengthXY,this-grade,good,45.6,36.3-57.2,31.8-65.2,MPa,0.61
+G001-163,M001,PLACTIVE,elongationXY,this-material,poor,8.34,2.81-24.8,1.46-47.5,%,0
+G001-164,M001,Volcano PLA,tensileModulusXY,this-grade,good,3.56,2.85-4.45,2.4-5.29,GPa,0.74
+G001-164,M001,Volcano PLA,tensileStrengthXY,this-grade,good,48.3,40.8-61.5,39.3-71.5,MPa,0.4
+G001-164,M001,Volcano PLA,elongationXY,this-grade,good,67.2,59.2-89.9,58-115,%,0.71
+G001-165,M001,ReFill PLA,tensileModulusXY,this-grade,fair,3.13,2.22-4.42,1.69-5.79,GPa,0.37
+G001-165,M001,ReFill PLA,tensileStrengthXY,this-grade,good,53.8,43.1-67.1,37.9-76.2,MPa,0.61
+G001-165,M001,ReFill PLA,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G001-166,M001,PDS,tensileModulusXY,this-material,fair,2.53,1.62-3.95,1.14-5.6,GPa,0
+G001-166,M001,PDS,tensileStrengthXY,this-grade,good,60.9,58-67.6,58-73.4,MPa,0.64
+G001-166,M001,PDS,elongationXY,this-grade,good,23.6,19.7-34.1,19-45.1,%,0.71
+G001-167,M001,PLA i5+,density,this-material,good,1240,1180-1300,1130-1330,kg/m³,0
+G001-167,M001,PLA i5+,tensileModulusXY,this-material,fair,2.53,1.62-3.95,1.14-5.6,GPa,0
+G001-167,M001,PLA i5+,tensileStrengthXY,this-grade,good,54.8,49.4-66.3,48.5-76.2,MPa,0.4
+G001-167,M001,PLA i5+,elongationXY,this-grade,good,4.08,2.82-6.73,2.58-9.23,%,0.71
+G001-168,M001,HS PLA Matte,tensileModulusXY,this-material,fair,2.53,1.62-3.95,1.14-5.6,GPa,0
+G001-168,M001,HS PLA Matte,tensileStrengthXY,this-grade,good,60.9,58-67.6,58-73.4,MPa,0.64
+G001-168,M001,HS PLA Matte,elongationXY,this-grade,good,21.4,17.7-31.1,17-41,%,0.71
+G001-169,M001,PLA+ i6,tensileModulusXY,this-grade,good,1.67,1.34-2.09,1.12-2.49,GPa,0.75
+G001-169,M001,PLA+ i6,tensileStrengthXY,this-grade,good,58,53.1-67.8,52.2-75.7,MPa,0.64
+G001-169,M001,PLA+ i6,elongationXY,this-grade,good,8.23,6.24-12.9,5.89-17.5,%,0.71
+G001-170,M001,HS - PLA,tensileModulusXY,this-material,fair,2.53,1.62-3.95,1.14-5.6,GPa,0
+G001-170,M001,HS - PLA,tensileStrengthXY,this-grade,good,55,51.6-62.4,51.3-68.7,MPa,0.64
+G001-170,M001,HS - PLA,elongationXY,this-grade,good,7.66,5.77-12.1,5.44-16.4,%,0.71
+G001-171,M001,FiberSilk,tensileModulusXY,this-material,fair,3.05,1.97-4.72,1.4-6.65,GPa,0
+G001-171,M001,FiberSilk,tensileStrengthXY,this-material,fair,49.4,34.8-70.1,28.4-85.8,MPa,0
+G001-171,M001,FiberSilk,elongationXY,this-material,poor,10.5,3.81-28.9,2.08-53.1,%,0
+G001-172,M001,BIOFUSION,tensileModulusXY,this-grade,fair,2.13,1.67-2.7,1.39-3.25,GPa,0.7
+G001-172,M001,BIOFUSION,tensileStrengthXY,this-material,fair,46.9,32.9-66.7,26.9-81.7,MPa,0
+G001-172,M001,BIOFUSION,elongationXY,this-material,poor,8.22,2.98-22.7,1.62-41.6,%,0
+G001-173,M001,PEARL,tensileModulusXY,this-grade,fair,2.07,1.63-2.63,1.35-3.17,GPa,0.7
+G001-173,M001,PEARL,tensileStrengthXY,this-grade,fair,42.5,30.8-58.5,25.7-70.3,MPa,0.18
+G001-173,M001,PEARL,elongationXY,this-grade,fair,5.42,2.85-10.4,1.93-15.2,%,0.6
+G001-174,M001,mattePLA,density,this-material,good,1240,1180-1300,1130-1330,kg/m³,0
+G001-174,M001,mattePLA,tensileModulusXY,this-grade,good,2.53,2.02-3.16,1.69-3.76,GPa,0.75
+G001-174,M001,mattePLA,tensileStrengthXY,this-grade,good,54.6,48.2-67.3,47-77.5,MPa,0.4
+G001-174,M001,mattePLA,elongationXY,this-grade,good,24.1,19.8-35,19-46.6,%,0.71
+G001-175,M001,FiberSatin,tensileModulusXY,this-material,fair,3.05,1.97-4.72,1.4-6.65,GPa,0
+G001-175,M001,FiberSatin,tensileStrengthXY,this-material,fair,49.4,34.8-70.1,28.4-85.8,MPa,0
+G001-175,M001,FiberSatin,elongationXY,this-material,poor,10.5,3.81-28.9,2.08-53.1,%,0
+G001-177,M001,Facilan C8,tensileModulusXY,this-grade,good,2.95,2.35-3.7,1.97-4.41,GPa,0.77
+G001-177,M001,Facilan C8,tensileStrengthXY,this-grade,good,49.1,45.5-56.7,45-63.1,MPa,0.66
+G001-177,M001,Facilan C8,elongationXY,this-grade,fair,7.65,4.66-15.1,4.17-23.1,%,0.54
+G001-179,M001,PLX,tensileModulusXY,this-grade,good,2.92,2.33-3.65,1.95-4.35,GPa,0.76
+G001-179,M001,PLX,tensileStrengthXY,this-grade,good,55.7,49.6-67,48-75.2,MPa,0.64
+G001-179,M001,PLX,elongationXY,this-grade,good,24.8,20.7-35.5,20.1-46.8,%,0.74
+G001-180,M001,stoneFill,density,this-material,good,1240,1180-1300,1130-1340,kg/m³,0
+G001-182,M001,EASY PLA,tensileModulusXY,this-grade,good,3.37,2.7-4.21,2.27-5.01,GPa,0.74
+G001-182,M001,EASY PLA,tensileStrengthXY,this-grade,good,64.3,61-71.2,60-77.1,MPa,0.77
+G001-182,M001,EASY PLA,elongationXY,this-grade,fair,11.7,7.2-22.6,6.39-34.5,%,0.5
+G001-183,M001,PLA Pure,tensileModulusXY,this-grade,good,2.76,2.29-3.33,1.98-3.86,GPa,0.81
+G001-183,M001,PLA Pure,elongationXY,this-material,poor,8.42,3.07-23.1,1.68-42.1,%,0
+G001-184,M001,PLA Purifier,tensileModulusXY,this-grade,good,3.13,2.49-3.93,2.08-4.7,GPa,0.78
+G001-184,M001,PLA Purifier,tensileStrengthXY,this-material,fair,41.5,28.6-60,23.1-74.3,MPa,0
+G001-184,M001,PLA Purifier,elongationXY,this-grade,good,43.3,37.1-60,36-78.1,%,0.73
+G001-185,M001,R PLA,tensileModulusXY,this-grade,good,3.37,2.7-4.21,2.27-5.01,GPa,0.74
+G001-185,M001,R PLA,tensileStrengthXY,this-grade,good,64.3,61-71.2,60-77.1,MPa,0.77
+G001-185,M001,R PLA,elongationXY,this-grade,fair,11.7,7.2-22.6,6.39-34.5,%,0.5
+G001-186,M001,HS PLA CLEAR,tensileModulusXY,this-grade,good,3.37,2.7-4.21,2.27-5.01,GPa,0.74
+G001-186,M001,HS PLA CLEAR,tensileStrengthXY,this-grade,good,57.6,51.8-69.4,50.4-79,MPa,0.5
+G001-186,M001,HS PLA CLEAR,elongationXY,this-grade,fair,6.53,3.58-11.9,2.5-17.1,%,0.65
+G001-187,M001,MATTE PLA,tensileModulusXY,this-material,fair,3.05,1.97-4.72,1.4-6.65,GPa,0
+G001-187,M001,MATTE PLA,tensileStrengthXY,this-grade,good,44.2,41.3-49.7,41-54.2,MPa,0.77
+G001-187,M001,MATTE PLA,elongationXY,this-grade,fair,9.06,5.09-18,4.31-27.4,%,0.5
+G001-188,M001,PLA,density,this-material,fair,1440,1360-1520,1280-1610,kg/m³,0
+G001-188,M001,PLA,tensileModulusXY,this-material,poor,3.33,2.07-5.34,1.42-7.75,GPa,0
+G001-188,M001,PLA,tensileStrengthXY,this-material,fair,41.5,28.6-60,23.1-74.3,MPa,0
+G001-188,M001,PLA,elongationXY,this-material,poor,9.24,3.18-26.9,1.68-50.8,%,0
+G001-189,M001,rPLA,tensileModulusXY,this-grade,good,3.12,2.49-3.9,2.09-4.65,GPa,0.76
+G001-189,M001,rPLA,tensileStrengthXY,this-grade,good,55.9,53-62.1,53-67.6,MPa,0.64
+G001-189,M001,rPLA,elongationXY,this-material,poor,8.23,2.79-24.3,1.45-46.5,%,0
+G001-190,M001,MagicFil Thermo PLA,tensileModulusXY,this-grade,fair,2.39,1.7-3.35,1.3-4.38,GPa,0.39
+G001-190,M001,MagicFil Thermo PLA,tensileStrengthXY,this-grade,good,40.6,32.8-50.2,29.1-56.7,MPa,0.64
+G001-190,M001,MagicFil Thermo PLA,elongationXY,this-material,poor,8.49,3.09-23.4,1.68-42.8,%,0
+G001-191,M001,Standard PLA,density,this-material,good,1250,1180-1300,1130-1340,kg/m³,0
+G001-193,M001,eTwinkling,density,this-grade,good,1410,1380-1440,1360-1470,kg/m³,0.88
+G001-193,M001,eTwinkling,tensileModulusXY,this-grade,fair,2.06,1.62-2.62,1.34-3.17,GPa,0.71
+G001-193,M001,eTwinkling,tensileStrengthXY,this-grade,fair,40.2,29.1-55.7,24.1-67.1,MPa,0.19
+G001-193,M001,eTwinkling,elongationXY,this-material,poor,5.51,1.95-15.6,1.05-28.9,%,0
+G001-194,M001,ReForm - rPLA,tensileModulusXY,this-grade,fair,2.39,1.7-3.35,1.3-4.38,GPa,0.39
+G001-194,M001,ReForm - rPLA,tensileStrengthXY,this-grade,good,40.6,32.8-50.2,29.1-56.7,MPa,0.64
+G001-194,M001,ReForm - rPLA,elongationXY,this-material,poor,8.49,3.09-23.4,1.68-42.8,%,0
+G001-195,M001,Modified PLA,tensileModulusXY,this-grade,fair,2.52,1.78-3.58,1.35-4.71,GPa,0.42
+G001-195,M001,Modified PLA,tensileStrengthXY,this-grade,good,65.2,60.6-74.8,60-82.9,MPa,0.64
+G001-195,M001,Modified PLA,elongationXY,this-grade,good,8.28,6.36-12.9,6.06-17.5,%,0.72
+G001-196,M001,HT-PLA,tensileModulusXY,this-grade,good,2.7,2.16-3.37,1.82-4,GPa,0.74
+G001-196,M001,HT-PLA,tensileStrengthXY,this-grade,good,50.1,44.9-60.4,44-68.6,MPa,0.49
+G001-196,M001,HT-PLA,elongationXY,this-grade,good,15.3,12.5-22.5,12-29.9,%,0.71
+G001-197,M001,PLA Matte,tensileModulusXY,this-grade,fair,2.38,1.7-3.34,1.3-4.36,GPa,0.39
+G001-197,M001,PLA Matte,tensileStrengthXY,this-grade,good,45.3,38.9-55.2,37.3-62.5,MPa,0.61
+G001-197,M001,PLA Matte,elongationXY,this-grade,good,12.2,9.62-18.8,9.19-26.1,%,0.65
+G001-198,M001,PLA Lite,tensileModulusXY,this-material,fair,2.93,1.9-4.5,1.35-6.32,GPa,0
+G001-198,M001,PLA Lite,tensileStrengthXY,this-material,fair,49.5,34.9-70.1,28.5-85.6,MPa,0
+G001-198,M001,PLA Lite,elongationXY,this-material,poor,7.72,2.82-21.1,1.54-38.6,%,0
+G004-01,M001,PLA-Lite,tensileModulusXY,this-grade,good,2.95,2.46-3.54,2.13-4.09,GPa,0.82
+G008-01,M008,Panchroma Silk PLA,elongationXY,this-material,poor,5.23,1.87-14.6,1.01-27,%,0
+G008-02,M008,PLA-Silk,tensileModulusXY,this-grade,good,1.7,1.46-1.99,1.29-2.25,GPa,0.88
+G008-03,M008,PLA Magic SILK,tensileModulusXY,this-grade,good,2.61,2.08-3.26,1.75-3.88,GPa,0.75
+G008-03,M008,PLA Magic SILK,tensileStrengthXY,this-grade,good,62.3,59-68.8,59-74.2,MPa,0.78
+G008-03,M008,PLA Magic SILK,elongationXY,this-grade,good,12.9,10.4-18.9,10-25.3,%,0.72
+G008-04,M008,Silk PLA+ Four-Color,tensileModulusXY,this-grade,good,2.56,2.05-3.21,1.71-3.83,GPa,0.75
+G008-10,M008,Polylactide Silk (PLA Silk),tensileModulusXY,this-material,fair,2.5,1.58-3.94,1.11-5.64,GPa,0
+G008-10,M008,Polylactide Silk (PLA Silk),tensileStrengthXY,this-material,fair,50,34.8-71.8,28.2-88.5,MPa,0
+G008-10,M008,Polylactide Silk (PLA Silk),elongationXY,this-material,poor,10.3,3.62-29.5,1.93-55.3,%,0
+G008-12,M008,ePLA-Silk Rainbow,tensileModulusXY,this-grade,good,1.94,1.66-2.26,1.47-2.55,GPa,0.88
+G008-12,M008,ePLA-Silk Rainbow,tensileStrengthXY,this-grade,good,44.6,37.4-53.2,33.8-58.9,MPa,0.76
+G008-12,M008,ePLA-Silk Rainbow,elongationXY,this-grade,good,4.27,3.27-6.53,3.1-8.72,%,0.75
+G008-13,M008,Silk PLA,tensileModulusXY,this-grade,fair,2.21,1.55-3.16,1.17-4.17,GPa,0.43
+G008-13,M008,Silk PLA,tensileStrengthXY,this-grade,good,53.6,44.4-66.2,41.3-74.8,MPa,0.65
+G008-13,M008,Silk PLA,elongationXY,this-grade,good,6.97,5.34-10.9,5.05-14.9,%,0.73
+G008-14,M008,PLA Silk,tensileModulusXY,this-grade,fair,1.47,1.04-2.09,0.79-2.75,GPa,0.42
+G008-14,M008,PLA Silk,tensileStrengthXY,this-grade,good,63.1,60.6-68.9,60.6-74.3,MPa,0.65
+G008-14,M008,PLA Silk,elongationXY,this-grade,good,8.65,6.69-13.4,6.38-18.2,%,0.72
+G008-15,M008,PLA+ (Silk PLA+),tensileModulusXY,this-grade,good,2.63,2.1-3.28,1.76-3.91,GPa,0.75
+G008-15,M008,PLA+ (Silk PLA+),tensileStrengthXY,this-grade,good,63,60.6-68.9,60.6-74.4,MPa,0.64
+G008-15,M008,PLA+ (Silk PLA+),elongationXY,this-grade,good,9.16,6.78-14.5,6.44-19.9,%,0.72
+G008-16,M008,ecoPLA Silk,density,this-grade,good,1230,1200-1250,1180-1270,kg/m³,0.89
+G008-16,M008,ecoPLA Silk,tensileModulusXY,this-grade,fair,1.62,1.05-2.5,0.753-3.5,GPa,0.11
+G008-16,M008,ecoPLA Silk,tensileStrengthXY,this-grade,good,47.1,41.3-57,40-64.4,MPa,0.63
+G008-16,M008,ecoPLA Silk,elongationXY,this-grade,good,52.9,45.8-72,44.5-93,%,0.72
+G008-18,M008,ecoPLA Silk Rainbow,tensileModulusXY,this-grade,fair,1.62,1.05-2.49,0.751-3.49,GPa,0.11
+G008-18,M008,ecoPLA Silk Rainbow,tensileStrengthXY,this-grade,good,54.3,48.7-64.7,47.6-72.8,MPa,0.63
+G008-18,M008,ecoPLA Silk Rainbow,elongationXY,this-grade,good,56,48.5-76.2,47.3-98.4,%,0.72
+G008-21,M008,PLA SILK,tensileModulusXY,this-grade,good,2.61,2.08-3.26,1.75-3.88,GPa,0.75
+G008-21,M008,PLA SILK,tensileStrengthXY,this-grade,good,62.3,59-68.8,59-74.2,MPa,0.78
+G008-21,M008,PLA SILK,elongationXY,this-grade,good,12.9,10.4-18.9,10-25.3,%,0.72
+G008-24,M008,PLA SILK Rainbow,tensileModulusXY,this-grade,good,2.61,2.08-3.26,1.75-3.88,GPa,0.75
+G008-24,M008,PLA SILK Rainbow,tensileStrengthXY,this-grade,good,62.3,59-68.8,59-74.2,MPa,0.78
+G008-24,M008,PLA SILK Rainbow,elongationXY,this-grade,good,12.9,10.4-18.9,10-25.3,%,0.72
+G008-25,M008,Silk PLA+ Dual-Color,tensileModulusXY,this-grade,good,2.56,2.05-3.21,1.71-3.83,GPa,0.75
+G008-26,M008,Silk PLA+ Rainbow,tensileModulusXY,this-grade,good,2.56,2.05-3.21,1.71-3.83,GPa,0.75
+G008-27,M008,Silk PLA+ Tri-Color,tensileModulusXY,this-grade,good,2.56,2.05-3.21,1.71-3.83,GPa,0.75
+G008-28,M008,Silk Gloss PLA,tensileModulusXY,this-grade,good,2.49,1.99-3.11,1.67-3.71,GPa,0.75
+G008-28,M008,Silk Gloss PLA,tensileStrengthXY,this-grade,good,70.3,64.8-81.7,64-91.1,MPa,0.62
+G008-28,M008,Silk Gloss PLA,elongationXY,this-material,poor,7.47,2.66-21,1.43-39,%,0
+G008-29,M008,PLA Silk Dual Color,tensileModulusXY,this-material,fair,2.05,1.3-3.23,0.911-4.62,GPa,0
+G008-29,M008,PLA Silk Dual Color,tensileStrengthXY,this-material,fair,41.9,29.2-60.1,23.7-74,MPa,0
+G008-29,M008,PLA Silk Dual Color,elongationXY,this-grade,good,24,20-34.2,19.3-44.9,%,0.72
+G008-30,M008,ePLA-Silk Magic,density,this-grade,good,1250,1230-1280,1200-1300,kg/m³,0.88
+G008-30,M008,ePLA-Silk Magic,tensileModulusXY,this-grade,fair,1.45,1.14-1.84,0.946-2.22,GPa,0.71
+G008-30,M008,ePLA-Silk Magic,tensileStrengthXY,this-grade,fair,42.5,30.8-58.7,25.5-70.7,MPa,0.18
+G008-30,M008,ePLA-Silk Magic,elongationXY,this-grade,fair,6.79,3.56-13,2.41-19.1,%,0.6
+G008-31,M008,ePLA-Silk Mystic,density,this-grade,good,1230,1200-1250,1180-1280,kg/m³,0.88
+G008-31,M008,ePLA-Silk Mystic,tensileModulusXY,this-grade,fair,1.45,1.14-1.84,0.946-2.22,GPa,0.71
+G008-31,M008,ePLA-Silk Mystic,tensileStrengthXY,this-grade,fair,42.5,30.8-58.7,25.5-70.7,MPa,0.18
+G008-31,M008,ePLA-Silk Mystic,elongationXY,this-grade,fair,6.79,3.56-13,2.41-19.1,%,0.6
+G008-32,M008,PLA Silk,tensileModulusXY,this-material,fair,2.05,1.3-3.23,0.911-4.62,GPa,0
+G008-32,M008,PLA Silk,tensileStrengthXY,this-material,fair,41.9,29.2-60.1,23.7-74,MPa,0
+G008-32,M008,PLA Silk,elongationXY,this-grade,good,24,20-34.2,19.3-44.9,%,0.72
+G008-33,M008,SILK,density,this-material,good,1180,1130-1240,1100-1300,kg/m³,0
+G008-33,M008,SILK,tensileModulusXY,this-grade,fair,2.1,1.47-2.99,1.11-3.95,GPa,0.43
+G008-33,M008,SILK,tensileStrengthXY,this-grade,good,62.4,59-69.4,59-75.8,MPa,0.66
+G008-33,M008,SILK,elongationXY,this-grade,good,5.74,4.46-8.86,4.25-12.1,%,0.74
+G011-02,M011,PLA Metal Copper,tensileModulusXY,this-material,poor,4.03,2.43-6.66,1.64-9.89,GPa,0
+G011-02,M011,PLA Metal Copper,tensileStrengthXY,this-grade,good,39.2,35.9-46.1,35.2-51.6,MPa,0.66
+G011-02,M011,PLA Metal Copper,elongationXY,this-material,poor,5.9,1.84-19,0.916-38,%,0
+G011-03,M011,PLA Metal Brass,tensileModulusXY,this-material,poor,4.03,2.43-6.66,1.64-9.89,GPa,0
+G011-03,M011,PLA Metal Brass,tensileStrengthXY,this-grade,good,34.3,31-40.9,30.3-46.1,MPa,0.66
+G011-03,M011,PLA Metal Brass,elongationXY,this-material,poor,5.9,1.84-19,0.916-38,%,0
+G011-04,M011,PLA Metal Bronze,tensileModulusXY,this-material,poor,4.03,2.43-6.66,1.64-9.89,GPa,0
+G011-04,M011,PLA Metal Bronze,tensileStrengthXY,this-grade,good,35.4,32-41.9,31.2-47.2,MPa,0.66
+G011-04,M011,PLA Metal Bronze,elongationXY,this-material,poor,5.9,1.84-19,0.916-38,%,0
+G011-05,M011,ePLA Metal,tensileModulusXY,this-grade,fair,2.68,2.09-3.42,1.73-4.15,GPa,0.74
+G011-05,M011,ePLA Metal,tensileStrengthXY,this-grade,fair,41.8,29.8-58.7,24.5-71.3,MPa,0.2
+G011-05,M011,ePLA Metal,elongationXY,this-grade,fair,6.17,3.18-12,2.14-17.8,%,0.63
+G011-07,M011,MetalFil Brass,tensileModulusXY,this-material,poor,3.84,2.33-6.31,1.58-9.33,GPa,0
+G011-07,M011,MetalFil Brass,tensileStrengthXY,this-material,fair,29,19.7-42.6,15.8-53.2,MPa,0
+G011-07,M011,MetalFil Brass,elongationXY,this-material,poor,6.5,2.04-20.7,1.02-41.2,%,0
+G011-08,M011,MetalFil - Classic Copper,tensileModulusXY,this-grade,good,4.11,3.26-5.17,2.72-6.2,GPa,0.81
+G011-08,M011,MetalFil - Classic Copper,tensileStrengthXY,this-grade,good,23.6,19.7-29.3,18.6-33.4,MPa,0.66
+G011-08,M011,MetalFil - Classic Copper,elongationXY,this-grade,good,6.35,4.83-10.1,4.55-13.8,%,0.78
+G011-09,M011,MetalFil - Ancient Bronze,tensileModulusXY,this-grade,good,3.95,3.13-4.97,2.61-5.96,GPa,0.81
+G011-09,M011,MetalFil - Ancient Bronze,tensileStrengthXY,this-grade,good,24.2,20.3-30,19.3-34.1,MPa,0.66
+G011-09,M011,MetalFil - Ancient Bronze,elongationXY,this-grade,good,10.6,8.38-16.1,8.08-21.9,%,0.78
+G012-02,M012,High Speed Marble PLA,tensileModulusXY,this-grade,fair,3.18,2.51-4.03,2.08-4.84,GPa,0.75
+G012-04,M012,PLA Marble,tensileModulusXY,this-grade,fair,1.79,1.25-2.57,0.943-3.41,GPa,0.44
+G012-04,M012,PLA Marble,tensileStrengthXY,this-grade,good,36,30.7-44.2,29.4-50,MPa,0.67
+G012-04,M012,PLA Marble,elongationXY,this-grade,good,5.97,4.37-9.64,4.07-13.3,%,0.74
+G012-06,M012,StoneFil,tensileModulusXY,this-grade,good,4.63,3.67-5.85,3.06-7.02,GPa,0.82
+G012-06,M012,StoneFil,tensileStrengthXY,this-grade,good,42.8,38.7-50.7,38-57.2,MPa,0.69
+G012-06,M012,StoneFil,elongationXY,this-grade,good,39.4,33.9-54,33-70.5,%,0.78
+G012-07,M012,PLA Stone Age,tensileModulusXY,this-grade,good,3.39,2.7-4.25,2.26-5.08,GPa,0.77
+G012-07,M012,PLA Stone Age,tensileStrengthXY,this-grade,good,64.2,60.3-72,60-78.2,MPa,0.79
+G012-07,M012,PLA Stone Age,elongationXY,this-grade,good,8.23,6.36-12.8,6.06-17.4,%,0.73
+G013-02,M013,PLA Glitter,tensileModulusXY,this-material,poor,2.75,1.69-4.47,1.15-6.54,GPa,0
+G013-02,M013,PLA Glitter,tensileStrengthXY,this-grade,good,51.7,41.5-64.3,36.6-72.8,MPa,0.67
+G013-02,M013,PLA Glitter,elongationXY,this-material,poor,7.17,2.39-21.5,1.23-41.5,%,0
+G013-03,M013,PLA Twinkling,tensileModulusXY,this-grade,good,2.99,2.42-3.7,2.05-4.36,GPa,0.83
+G013-04,M013,Twinkling,tensileModulusXY,this-grade,fair,1.96,1.53-2.52,1.26-3.05,GPa,0.76
+G013-04,M013,Twinkling,tensileStrengthXY,this-grade,fair,45.6,32.5-64,26.7-77.8,MPa,0.2
+G013-04,M013,Twinkling,elongationXY,this-material,poor,5.26,1.75-15.8,0.909-30.5,%,0
+G014-02,M014,WOOD,tensileModulusXY,this-grade,good,2.84,2.27-3.55,1.9-4.23,GPa,0.75
+G014-02,M014,WOOD,tensileStrengthXY,this-grade,good,51.2,47.4-59.6,47-66.9,MPa,0.51
+G014-02,M014,WOOD,elongationXY,this-grade,good,8.44,6.79-12.6,6.56-16.9,%,0.72
+G014-03,M014,WOOD,tensileModulusXY,this-grade,good,3.05,2.6-3.57,2.3-4.04,GPa,0.88
+G014-05,M014,PLA with Cork Fibers (Cork Filament),tensileModulusXY,this-grade,good,2.32,1.85-2.9,1.55-3.46,GPa,0.76
+G014-05,M014,PLA with Cork Fibers (Cork Filament),tensileStrengthXY,this-grade,good,44.7,39.9-54.9,39-63.2,MPa,0.42
+G014-05,M014,PLA with Cork Fibers (Cork Filament),elongationXY,this-grade,good,7.52,5.77-11.7,5.46-16,%,0.73
+G014-06,M014,PLA with wood fibers (wood filament),tensileModulusXY,this-grade,good,2.88,2.3-3.61,1.93-4.3,GPa,0.76
+G014-06,M014,PLA with wood fibers (wood filament),tensileStrengthXY,this-grade,good,52.2,47.8-61.3,47-68.5,MPa,0.63
+G014-06,M014,PLA with wood fibers (wood filament),elongationXY,this-grade,good,8.83,6.88-13.6,6.57-18.4,%,0.73
+G014-07,M014,WOOD,tensileModulusXY,this-grade,fair,2.41,1.68-3.44,1.27-4.54,GPa,0.43
+G014-07,M014,WOOD,tensileStrengthXY,this-grade,good,43,38-51.8,36.8-58.3,MPa,0.66
+G014-07,M014,WOOD,elongationXY,this-grade,good,7.88,6.32-11.9,6.05-16,%,0.73
+G014-08,M014,PLA Wood,tensileModulusXY,this-material,fair,2.45,1.56-3.85,1.09-5.5,GPa,0
+G014-08,M014,PLA Wood,tensileStrengthXY,this-material,fair,30.4,21.1-43.8,17.1-53.9,MPa,0
+G014-08,M014,PLA Wood,elongationXY,this-material,poor,4.14,1.44-11.9,0.769-22.4,%,0
+G014-09,M014,PLA Wood,tensileModulusXY,this-grade,fair,1.93,1.36-2.75,1.03-3.62,GPa,0.42
+G014-09,M014,PLA Wood,tensileStrengthXY,this-grade,good,43.5,38.3-52.5,37.1-58.9,MPa,0.65
+G014-09,M014,PLA Wood,elongationXY,this-grade,good,4.4,3.25-6.96,3.06-9.52,%,0.72
+G014-11,M014,ecoPLA Wood,tensileModulusXY,this-grade,fair,1.8,1.16-2.77,0.831-3.9,GPa,0.11
+G014-11,M014,ecoPLA Wood,tensileStrengthXY,this-grade,good,30.7,26-37.7,24.9-42.8,MPa,0.63
+G014-11,M014,ecoPLA Wood,elongationXY,this-grade,good,28.8,24.5-40.1,23.8-52.5,%,0.73
+G014-12,M014,Wood,tensileModulusXY,this-material,poor,1.89,1.1-3.24,0.728-4.93,GPa,0
+G014-12,M014,Wood,tensileStrengthXY,this-material,fair,26.8,17.4-41.3,13.5-53,MPa,0
+G014-12,M014,Wood,elongationXY,this-material,poor,2.43,0.82-7.21,0.427-13.9,%,0
+G014-13,M014,EasyCork,tensileModulusXY,this-grade,good,1.33,1.06-1.67,0.895-1.99,GPa,0.75
+G014-13,M014,EasyCork,tensileStrengthXY,this-grade,good,26.5,21.7-32.9,20.1-37.3,MPa,0.63
+G014-13,M014,EasyCork,elongationXY,this-grade,good,18.3,15.4-25.9,15-34,%,0.72
+G014-14,M014,EasyWood,tensileModulusXY,this-grade,fair,2.33,1.65-3.3,1.25-4.32,GPa,0.41
+G014-14,M014,EasyWood,tensileStrengthXY,this-grade,good,37.6,30.3-46.6,26.8-52.7,MPa,0.65
+G014-14,M014,EasyWood,elongationXY,this-material,poor,5.41,1.91-15.3,1.02-28.5,%,0
+G014-15,M014,PLA Wood,tensileModulusXY,this-material,fair,2.33,1.47-3.67,1.02-5.26,GPa,0
+G014-15,M014,PLA Wood,tensileStrengthXY,this-material,fair,32.1,22.3-46.1,18.1-56.8,MPa,0
+G014-15,M014,PLA Wood,elongationXY,this-material,poor,5.89,2.06-16.8,1.1-31.5,%,0
+G014-17,M014,LumberLay,elongationXY,this-grade,good,6.81,5.66-10.1,5.5-13.9,%,0.58
+G014-18,M014,WOOD,tensileModulusXY,this-grade,good,2.91,2.44-3.47,2.12-3.98,GPa,0.85
+G014-18,M014,WOOD,tensileStrengthXY,this-grade,good,37.7,35.6-42,35-45.6,MPa,0.78
+G014-18,M014,WOOD,elongationXY,this-grade,good,3.05,2.19-4.95,2.04-6.8,%,0.72
+G014-20,M014,FiberWood,tensileModulusXY,this-grade,good,3.37,2.69-4.21,2.26-5.02,GPa,0.76
+G014-20,M014,FiberWood,tensileStrengthXY,this-grade,good,32.9,28.3-40.2,27.3-45.5,MPa,0.63
+G014-20,M014,FiberWood,elongationXY,this-grade,fair,1.72,1.1-2.91,0.961-4.02,%,0.72
+G014-21,M014,Timberfill,tensileModulusXY,this-grade,good,2.92,2.33-3.65,1.95-4.35,GPa,0.76
+G014-21,M014,Timberfill,tensileStrengthXY,this-grade,good,44.7,39.8-55.7,39-65,MPa,0.26
+G014-21,M014,Timberfill,elongationXY,this-grade,good,3.13,2.21-5.11,2.05-7.04,%,0.72
+G015-02,M015,PLA Galaxy,tensileModulusXY,this-grade,good,3.18,2.56-3.94,2.16-4.66,GPa,0.8
+G015-04,M015,Galaxy PLA,tensileModulusXY,this-grade,good,3.04,2.42-3.82,2.03-4.57,GPa,0.78
+G015-04,M015,Galaxy PLA,tensileStrengthXY,this-grade,good,76.9,70.7-89.3,70-99.8,MPa,0.65
+G015-04,M015,Galaxy PLA,elongationXY,this-material,poor,7.07,2.38-21.1,1.24-40.4,%,0
+G016-03,M016,PLA Glow in the Dark,tensileModulusXY,this-grade,fair,1.69,1.18-2.42,0.89-3.21,GPa,0.44
+G016-03,M016,PLA Glow in the Dark,tensileStrengthXY,this-grade,good,54.5,49.9-64,49-71.7,MPa,0.67
+G016-03,M016,PLA Glow in the Dark,elongationXY,this-grade,good,25.9,21.7-37,21-49.2,%,0.73
+G016-04,M016,PLA Glow In The Dark,tensileModulusXY,this-grade,fair,2.22,1.56-3.17,1.18-4.18,GPa,0.43
+G016-04,M016,PLA Glow In The Dark,tensileStrengthXY,this-grade,good,54.7,49.9-64.2,49-71.8,MPa,0.66
+G016-04,M016,PLA Glow In The Dark,elongationXY,this-grade,good,26.8,21.8-39.1,21.1-52.6,%,0.73
+G016-05,M016,PLA Glow in the Dark,tensileModulusXY,this-grade,good,3.27,2.61-4.1,2.19-4.9,GPa,0.77
+G016-05,M016,PLA Glow in the Dark,tensileStrengthXY,this-grade,good,64.3,60.3-72.1,60-78.3,MPa,0.79
+G016-05,M016,PLA Glow in the Dark,elongationXY,this-grade,good,8.18,6.37-12.6,6.08-17.2,%,0.73
+G016-06,M016,Luminous PLA,density,this-grade,good,1200,1180-1230,1150-1250,kg/m³,0.89
+G016-06,M016,Luminous PLA,tensileModulusXY,this-grade,fair,1.84,1.44-2.35,1.19-2.84,GPa,0.73
+G016-06,M016,Luminous PLA,tensileStrengthXY,this-grade,fair,47.5,34-66.3,28-80.4,MPa,0.2
+G016-06,M016,Luminous PLA,elongationXY,this-grade,fair,6.18,3.2-11.9,2.16-17.7,%,0.62
+G016-07,M016,Luminous PLA Rainbow,density,this-grade,good,1200,1180-1230,1150-1250,kg/m³,0.89
+G016-07,M016,Luminous PLA Rainbow,tensileModulusXY,this-grade,fair,1.84,1.44-2.35,1.19-2.84,GPa,0.73
+G016-07,M016,Luminous PLA Rainbow,tensileStrengthXY,this-grade,fair,47.5,34-66.3,28-80.4,MPa,0.2
+G016-07,M016,Luminous PLA Rainbow,elongationXY,this-grade,fair,6.18,3.2-11.9,2.16-17.7,%,0.62
+G017-02,M017,LW-PLA UltraFoam,tensileModulusXY,this-grade,good,2.79,2.23-3.49,1.87-4.16,GPa,0.76
+G017-02,M017,LW-PLA UltraFoam,tensileStrengthXY,this-grade,good,49.8,47-55.7,47-61,MPa,0.65
+G017-02,M017,LW-PLA UltraFoam,elongationXY,this-grade,good,10.7,8.47-16.4,8.1-22.1,%,0.72
+G017-06,M017,Light Weight PLA,elongationXY,this-grade,fair,3.11,1.72-5.9,1.36-8.73,%,0.62
+G017-07,M017,PLA LW,tensileModulusXY,this-grade,good,1.81,1.46-2.25,1.23-2.66,GPa,0.78
+G017-08,M017,Lightweight Polylactide (LW-PLA),tensileModulusXY,this-material,poor,1.94,1.21-3.08,0.846-4.43,GPa,0
+G017-08,M017,Lightweight Polylactide (LW-PLA),tensileStrengthXY,this-grade,good,63.1,60-70.2,60-76.5,MPa,0.64
+G017-08,M017,Lightweight Polylactide (LW-PLA),elongationXY,this-grade,good,8.87,6.5-14.2,6.11-19.5,%,0.73
+G017-11,M017,Light Weight PLA-HT (LW-PLA-HT),density,this-material,good,1140,1100-1190,1090-1260,kg/m³,0
+G017-12,M017,ePLA LW,tensileModulusXY,this-grade,fair,1.5,1.17-1.91,0.975-2.3,GPa,0.72
+G017-12,M017,ePLA LW,tensileStrengthXY,this-grade,fair,22,15.8-30.5,13-36.9,MPa,0.19
+G017-12,M017,ePLA LW,elongationXY,this-grade,fair,18.3,9.56-35.3,6.47-52.1,%,0.61
+G017-13,M017,Light Weight PLA,density,this-material,good,1140,1100-1190,1090-1260,kg/m³,0
+G017-14,M017,PLA-LW,density,this-material,good,1140,1100-1190,1090-1260,kg/m³,0
+G017-14,M017,PLA-LW,tensileModulusXY,this-material,poor,1.89,1.16-3.07,0.795-4.49,GPa,0
+G017-14,M017,PLA-LW,tensileStrengthXY,this-material,fair,22.6,15.5-32.8,12.5-40.7,MPa,0
+G017-14,M017,PLA-LW,elongationXY,this-material,poor,10,3.4-29.4,1.78-56.1,%,0
+G018-02,M018,THE FILAMENT PLA CF,tensileModulusXY,this-material,fair,4.86,3.11-7.58,2.19-10.8,GPa,0
+G018-02,M018,THE FILAMENT PLA CF,tensileStrengthXY,this-grade,good,64.7,58.5-76.3,57.5-85.8,MPa,0.63
+G018-02,M018,THE FILAMENT PLA CF,elongationXY,this-material,poor,3.77,1.34-10.6,0.723-19.7,%,0
+G018-03,M018,PLA Carbon,tensileModulusXY,this-grade,good,9.71,7.77-12.2,6.52-14.5,GPa,0.75
+G018-03,M018,PLA Carbon,tensileStrengthXY,this-grade,good,73.1,66-89.3,65-104,MPa,0.25
+G018-03,M018,PLA Carbon,elongationXY,this-grade,fair,0.958,0.61-1.62,0.528-2.24,%,0.72
+G018-07,M018,PLA BASIC CF,tensileModulusXY,this-grade,good,5.19,4.15-6.49,3.48-7.73,GPa,0.76
+G018-07,M018,PLA BASIC CF,tensileStrengthXY,this-grade,good,62.1,56.8-71.6,55.6-78.3,MPa,0.78
+G018-07,M018,PLA BASIC CF,elongationXY,this-grade,good,3.99,3.18-5.81,3.03-7.5,%,0.81
+G018-08,M018,PLA Carbon Fiber,tensileModulusXY,this-grade,good,3.5,2.99-4.1,2.65-4.63,GPa,0.88
+G018-11,M018,ePLA CF,tensileModulusXY,this-grade,fair,4.27,3.36-5.42,2.78-6.55,GPa,0.71
+G018-11,M018,ePLA CF,tensileStrengthXY,this-grade,fair,43.9,31.7-60.8,26.3-73.4,MPa,0.19
+G018-11,M018,ePLA CF,elongationXY,this-grade,fair,2.61,1.36-5,0.926-7.37,%,0.61
+G018-12,M018,PLA Carbon Fiber,tensileModulusXY,this-grade,fair,2.53,1.78-3.59,1.35-4.72,GPa,0.42
+G018-12,M018,PLA Carbon Fiber,tensileStrengthXY,this-grade,good,49.3,45.4-57.5,44.8-63.9,MPa,0.65
+G018-12,M018,PLA Carbon Fiber,elongationXY,this-grade,good,5.53,4.34-8.5,4.15-11.5,%,0.72
+G018-14,M018,Carbon Fiber Composite HTPLA,tensileModulusXY,this-material,poor,4.19,2.52-6.98,1.68-10.5,GPa,0
+G018-14,M018,Carbon Fiber Composite HTPLA,tensileStrengthXY,this-material,fair,47.5,32.7-69,26.3-85.6,MPa,0
+G018-14,M018,Carbon Fiber Composite HTPLA,elongationXY,this-material,poor,3.81,1.2-12.1,0.605-24.1,%,0
+G018-15,M018,Original Carbon Fiber Composite PLA,tensileModulusXY,this-material,poor,4.19,2.52-6.98,1.68-10.5,GPa,0
+G018-15,M018,Original Carbon Fiber Composite PLA,tensileStrengthXY,this-material,fair,47.5,32.7-69,26.3-85.6,MPa,0
+G018-15,M018,Original Carbon Fiber Composite PLA,elongationXY,this-material,poor,3.81,1.2-12.1,0.605-24.1,%,0
+G018-16,M018,PLAx CF,tensileModulusXY,this-grade,fair,3.81,2.99-4.85,2.47-5.87,GPa,0.72
+G018-16,M018,PLAx CF,tensileStrengthXY,this-grade,good,51.9,46-64,45-74,MPa,0.42
+G018-16,M018,PLAx CF,elongationXY,this-grade,good,8.41,7.22-11.3,7.02-14.3,%,0.81
+G018-18,M018,PLA CF,tensileModulusXY,this-grade,good,16.3,13.5-19.6,11.7-22.6,GPa,0.84
+G018-18,M018,PLA CF,tensileStrengthXY,this-material,fair,46.3,32.2-66.6,26.1-82,MPa,0
+G018-18,M018,PLA CF,elongationXY,this-grade,fair,1.01,0.526-1.94,0.356-2.87,%,0.61
+G018-19,M018,ecoPLA CF,tensileModulusXY,this-grade,good,4.18,3.34-5.23,2.8-6.24,GPa,0.76
+G018-19,M018,ecoPLA CF,tensileStrengthXY,this-grade,good,62.3,56-75.7,55-87.1,MPa,0.42
+G018-19,M018,ecoPLA CF,elongationXY,this-grade,good,4.94,3.73-7.71,3.55-10.6,%,0.73
+G018-20,M018,Hyper PLA-CF,tensileModulusXY,this-grade,good,4.81,4-5.79,3.46-6.69,GPa,0.85
+G019-02,M019,PLA Glass Fiber,tensileModulusXY,this-grade,fair,2.75,1.9-3.98,1.42-5.31,GPa,0.45
+G019-02,M019,PLA Glass Fiber,tensileStrengthXY,this-grade,good,48.7,46-55,46-60.6,MPa,0.62
+G019-02,M019,PLA Glass Fiber,elongationXY,this-grade,fair,3.67,2.28-7.19,2.06-11.2,%,0.54
+G019-03,M019,PLA GF,tensileModulusXY,this-grade,fair,3.72,2.9-4.76,2.39-5.77,GPa,0.75
+G019-03,M019,PLA GF,tensileStrengthXY,this-grade,fair,45.8,32.4-64.7,26.6-78.9,MPa,0.21
+G019-03,M019,PLA GF,elongationXY,this-grade,fair,3.81,1.95-7.4,1.31-11.1,%,0.64
+G019-04,M019,PLAx GF,tensileModulusXY,this-grade,fair,3.25,2.54-4.17,2.09-5.06,GPa,0.76
+G019-04,M019,PLAx GF,tensileStrengthXY,this-grade,good,47.4,41.2-59.5,40-69.5,MPa,0.46
+G019-04,M019,PLAx GF,elongationXY,this-grade,good,14.1,12.3-18.7,12-23.5,%,0.83
+G020-03,M020,PETG,tensileModulusXY,this-grade,good,2.42,1.93-3.03,1.62-3.6,GPa,0.75
+G020-03,M020,PETG,tensileStrengthXY,this-grade,good,59.2,54.7-69.3,53.7-77.6,MPa,0.58
+G020-03,M020,PETG,elongationXY,this-grade,good,39.8,32.7-58.4,31.5-77.7,%,0.72
+G020-04,M020,PET-G Premium,tensileModulusXY,this-grade,good,2.02,1.61-2.52,1.36-3,GPa,0.74
+G020-04,M020,PET-G Premium,tensileStrengthXY,this-grade,good,52.1,48.4-59.9,48-66.3,MPa,0.63
+G020-04,M020,PET-G Premium,elongationXY,this-grade,good,69.8,59.7-96.2,58-126,%,0.71
+G020-05,M020,PET-G FR V0,tensileModulusXY,this-grade,good,2.16,1.8-2.6,1.56-3,GPa,0.83
+G020-05,M020,PET-G FR V0,tensileStrengthXY,this-grade,good,45,40.9-52.5,40-58.2,MPa,0.7
+G020-05,M020,PET-G FR V0,elongationXY,this-grade,good,45.6,40.6-58.4,40-71.9,%,0.79
+G020-06,M020,THE FILAMENT PETG Lite,tensileModulusXY,this-material,fair,2.22,1.44-3.43,1.02-4.82,GPa,0
+G020-06,M020,THE FILAMENT PETG Lite,tensileStrengthXY,this-grade,good,44.9,36.3-55.5,32.1-62.7,MPa,0.63
+G020-06,M020,THE FILAMENT PETG Lite,elongationXY,this-grade,good,183,162-240,160-302,%,0.71
+G020-07,M020,PET-G Premium High Speed,tensileModulusXY,this-grade,good,2.76,2.21-3.45,1.86-4.1,GPa,0.74
+G020-07,M020,PET-G Premium High Speed,tensileStrengthXY,this-grade,good,44.6,37.8-54.6,36-61.6,MPa,0.63
+G020-07,M020,PET-G Premium High Speed,elongationXY,this-grade,good,14.3,10.8-22.3,10.2-30.4,%,0.71
+G020-08,M020,PET-G HT100,tensileModulusXY,this-grade,fair,1.77,1.26-2.49,0.967-3.24,GPa,0.39
+G020-08,M020,PET-G HT100,tensileStrengthXY,this-grade,good,54.6,52-60,52-64.5,MPa,0.77
+G020-08,M020,PET-G HT100,elongationXY,this-grade,good,239,213-308,210-385,%,0.71
+G020-09,M020,PET-G MATT,tensileModulusXY,this-grade,fair,2.64,2.08-3.36,1.72-4.06,GPa,0.71
+G020-09,M020,PET-G MATT,tensileStrengthXY,this-grade,good,34.6,27.5-43.4,24.1-49.5,MPa,0.61
+G020-09,M020,PET-G MATT,elongationXY,this-grade,fair,20.2,10.5-38.7,7.12-57.1,%,0.61
+G020-10,M020,THE FILAMENT PETG,tensileModulusXY,this-grade,good,1.96,1.57-2.45,1.32-2.91,GPa,0.74
+G020-10,M020,THE FILAMENT PETG,tensileStrengthXY,this-grade,good,56.6,48.7-72.3,47-85,MPa,0.24
+G020-10,M020,THE FILAMENT PETG,elongationXY,this-grade,fair,11.7,6.19-23.6,4.91-35.9,%,0.5
+G020-11,M020,rPETG,tensileModulusXY,this-grade,fair,1.94,1.38-2.72,1.05-3.55,GPa,0.39
+G020-11,M020,rPETG,tensileStrengthXY,this-grade,good,45.4,36.7-56.1,32.5-63.4,MPa,0.63
+G020-11,M020,rPETG,elongationXY,this-material,poor,16.7,6.07-45.9,3.31-84,%,0
+G020-17,M020,PETG,tensileModulusXY,this-grade,good,2.42,2.08-2.81,1.85-3.16,GPa,0.89
+G020-17,M020,PETG,tensileStrengthXY,this-grade,good,53.9,51.1-59.4,51-63.7,MPa,0.81
+G020-17,M020,PETG,elongationXY,this-grade,good,34.2,29.7-45.3,29-56.6,%,0.8
+G020-19,M020,PETG,tensileModulusXY,this-grade,good,2.48,2.08-2.96,1.81-3.4,GPa,0.84
+G020-20,M020,High Speed Matte PETG,tensileModulusXY,this-grade,good,2.55,2.08-3.12,1.77-3.66,GPa,0.79
+G020-25,M020,FiberWORKS PETG,tensileModulusXY,this-grade,good,2.42,1.93-3.02,1.62-3.59,GPa,0.74
+G020-25,M020,FiberWORKS PETG,tensileStrengthXY,this-grade,good,54.2,50.5-61.2,50-66.7,MPa,0.77
+G020-25,M020,FiberWORKS PETG,elongationXY,this-grade,good,8.47,5.74-14.1,5.2-19.5,%,0.71
+G020-28,M020,PETG,tensileModulusXY,this-grade,good,1.89,1.51-2.37,1.27-2.82,GPa,0.75
+G020-28,M020,PETG,tensileStrengthXY,this-grade,good,54,50.5-61.1,50-66.6,MPa,0.77
+G020-28,M020,PETG,elongationXY,this-grade,good,141,124-190,121-243,%,0.71
+G020-29,M020,Prusament PETG by Prusa Polymers,tensileModulusXY,this-grade,good,1.6,1.26-2.02,1.05-2.43,GPa,0.73
+G020-29,M020,Prusament PETG by Prusa Polymers,tensileStrengthXY,this-grade,good,56.5,51-66.8,50-75.3,MPa,0.6
+G020-29,M020,Prusament PETG by Prusa Polymers,elongationXY,this-material,poor,21.2,7.37-61.1,3.9-116,%,0
+G020-30,M020,rPETG,tensileModulusXY,this-grade,good,1.82,1.45-2.28,1.22-2.72,GPa,0.76
+G020-30,M020,rPETG,tensileStrengthXY,this-grade,good,57.3,54-64.2,54-70.3,MPa,0.65
+G020-30,M020,rPETG,elongationXY,this-material,poor,17.8,5.99-52.9,3.12-102,%,0
+G020-31,M020,PETG,density,this-material,good,1240,1180-1290,1150-1320,kg/m³,0
+G020-31,M020,PETG,tensileModulusXY,this-grade,fair,1.86,1.3-2.65,0.986-3.5,GPa,0.43
+G020-31,M020,PETG,tensileStrengthXY,this-grade,good,47.1,38-58.4,33.6-66.1,MPa,0.65
+G020-31,M020,PETG,elongationXY,this-grade,good,39.6,31.5-60.3,30.1-81.1,%,0.74
+G020-32,M020,PETG,tensileModulusXY,this-grade,good,1.2,1.02-1.4,0.91-1.58,GPa,0.88
+G020-33,M020,PETG HS,tensileModulusXY,this-grade,fair,1.59,1.25-2.03,1.04-2.44,GPa,0.7
+G020-33,M020,PETG HS,tensileStrengthXY,this-grade,fair,40.1,29.1-55.1,24.3-66.2,MPa,0.18
+G020-33,M020,PETG HS,elongationXY,this-grade,fair,4.78,2.51-9.08,1.71-13.4,%,0.6
+G020-34,M020,PETG,tensileModulusXY,this-grade,good,2.42,1.93-3.03,1.62-3.6,GPa,0.75
+G020-34,M020,PETG,tensileStrengthXY,this-grade,good,59.2,54.7-69.3,53.7-77.6,MPa,0.58
+G020-34,M020,PETG,elongationXY,this-grade,good,39.8,32.7-58.4,31.5-77.7,%,0.72
+G020-35,M020,PETG+,tensileModulusXY,this-grade,good,1.95,1.62-2.34,1.4-2.7,GPa,0.82
+G020-36,M020,Pro PETG,density,this-material,good,1240,1180-1290,1150-1320,kg/m³,0
+G020-36,M020,Pro PETG,tensileModulusXY,this-grade,fair,1.78,1.24-2.54,0.945-3.36,GPa,0.43
+G020-36,M020,Pro PETG,tensileStrengthXY,this-grade,good,52.8,49.3-59.3,49-64.7,MPa,0.78
+G020-36,M020,Pro PETG,elongationXY,this-grade,good,288,254-379,250-482,%,0.74
+G020-37,M020,PETG Basic,tensileModulusXY,this-grade,good,2.45,2.04-2.94,1.76-3.4,GPa,0.82
+G020-38,M020,PETG-Matte,tensileModulusXY,this-grade,good,2.31,1.92-2.78,1.66-3.21,GPa,0.83
+G020-39,M020,PETG,tensileModulusXY,this-grade,good,2.2,1.76-2.75,1.47-3.27,GPa,0.75
+G020-39,M020,PETG,tensileStrengthXY,this-material,fair,41.8,29.3-59.6,23.9-73.1,MPa,0
+G020-39,M020,PETG,elongationXY,this-material,poor,14.1,5.02-39.5,2.7-73.3,%,0
+G020-40,M020,Bulk PETG,tensileModulusXY,this-material,fair,2.12,1.36-3.28,0.97-4.62,GPa,0
+G020-40,M020,Bulk PETG,tensileStrengthXY,this-grade,good,54.3,50.6-61.2,50.2-66.6,MPa,0.77
+G020-40,M020,Bulk PETG,elongationXY,this-grade,good,185,163-242,160-306,%,0.71
+G020-41,M020,HDglass,tensileModulusXY,this-grade,good,1.99,1.59-2.48,1.33-2.95,GPa,0.74
+G020-41,M020,HDglass,tensileStrengthXY,this-grade,good,54.9,51.2-62,50.1-67.7,MPa,0.77
+G020-41,M020,HDglass,elongationXY,this-grade,good,141,124-188,120-239,%,0.71
+G020-42,M020,PETG,tensileModulusXY,this-grade,fair,1.51,1.06-2.13,0.814-2.79,GPa,0.41
+G020-42,M020,PETG,tensileStrengthXY,this-grade,good,58.9,55.2-66.7,55-73.6,MPa,0.64
+G020-42,M020,PETG,elongationXY,this-grade,good,23.5,18.3-36,17.5-48.4,%,0.71
+G020-43,M020,PETG Matte,tensileModulusXY,this-grade,fair,1.51,1.07-2.13,0.815-2.8,GPa,0.41
+G020-43,M020,PETG Matte,tensileStrengthXY,this-grade,good,47.9,38.7-59.2,34.2-66.9,MPa,0.64
+G020-43,M020,PETG Matte,elongationXY,this-grade,good,25.4,20-38.7,19.1-52.5,%,0.71
+G020-44,M020,PETG RAPIDO,tensileModulusXY,this-grade,good,2.07,1.72-2.49,1.49-2.88,GPa,0.83
+G020-44,M020,PETG RAPIDO,tensileStrengthXY,this-grade,good,44.9,38.3-53.4,36.1-58.9,MPa,0.76
+G020-44,M020,PETG RAPIDO,elongationXY,this-material,poor,15.5,5.57-43.3,3.01-80,%,0
+G020-46,M020,Buddy3D PET-G,density,this-material,good,1240,1190-1290,1150-1320,kg/m³,0
+G020-46,M020,Buddy3D PET-G,tensileModulusXY,this-grade,fair,1.69,1.19-2.38,0.912-3.12,GPa,0.4
+G020-46,M020,Buddy3D PET-G,tensileStrengthXY,this-grade,good,58.2,52.2-70.9,51-81.5,MPa,0.41
+G020-46,M020,Buddy3D PET-G,elongationXY,this-grade,good,162,141-216,138-277,%,0.73
+G020-47,M020,Prusament PETG V0 by Prusa Polymers,tensileModulusXY,this-grade,good,1.74,1.38-2.2,1.15-2.63,GPa,0.73
+G020-47,M020,Prusament PETG V0 by Prusa Polymers,tensileStrengthXY,this-grade,good,49.3,43.4-59.6,42-67.5,MPa,0.6
+G020-47,M020,Prusament PETG V0 by Prusa Polymers,elongationXY,this-material,poor,21.2,7.37-61.1,3.9-116,%,0
+G020-49,M020,RYNO,density,this-material,good,1230,1180-1280,1150-1310,kg/m³,0
+G020-49,M020,RYNO,tensileModulusXY,this-material,fair,2.05,1.31-3.2,0.923-4.54,GPa,0
+G020-49,M020,RYNO,tensileStrengthXY,this-grade,good,61.7,56.2-72.8,55.2-81.6,MPa,0.62
+G020-49,M020,RYNO,elongationXY,this-grade,good,14,10.7-21.9,10.1-29.9,%,0.72
+G020-51,M020,PETG,tensileModulusXY,this-grade,fair,1.88,1.48-2.4,1.22-2.89,GPa,0.72
+G020-51,M020,PETG,tensileStrengthXY,this-grade,good,54,48.8-65.2,48-74.8,MPa,0.41
+G020-51,M020,PETG,elongationXY,this-grade,good,9.75,8.28-13.5,8.02-17.1,%,0.81
+G020-52,M020,PETG,density,this-material,good,1230,1180-1280,1150-1310,kg/m³,0
+G020-52,M020,PETG,tensileModulusXY,this-material,fair,2.05,1.31-3.2,0.923-4.54,GPa,0
+G020-52,M020,PETG,tensileStrengthXY,this-material,fair,47.6,33.3-68,27.1-83.4,MPa,0
+G020-52,M020,PETG,elongationXY,this-grade,good,7.84,5.55-12.8,5.12-17.6,%,0.72
+G020-54,M020,PETG,elongationXY,this-grade,good,33.1,29.5-42.1,29-52.1,%,0.81
+G020-55,M020,MH Build Series PETG,tensileModulusXY,this-material,fair,2.05,1.31-3.2,0.923-4.54,GPa,0
+G020-55,M020,MH Build Series PETG,tensileStrengthXY,this-grade,good,56.2,50.7-66.9,49.5-75,MPa,0.62
+G020-55,M020,MH Build Series PETG,elongationXY,this-grade,good,326,289-438,284-590,%,0.09
+G020-56,M020,XPETG MATT,tensileModulusXY,this-grade,good,2.76,2.31-3.29,2.01-3.78,GPa,0.85
+G020-56,M020,XPETG MATT,tensileStrengthXY,this-grade,good,56.3,53.7-61.7,53-66.1,MPa,0.82
+G020-56,M020,XPETG MATT,elongationXY,this-grade,good,9.84,7.99-14.3,7.68-18.5,%,0.8
+G020-57,M020,Type G polyethylene terephthalate (PETG),tensileModulusXY,this-grade,good,2.11,1.68-2.64,1.4-3.15,GPa,0.77
+G020-57,M020,Type G polyethylene terephthalate (PETG),tensileStrengthXY,this-grade,good,57.2,51.3-68.4,50-76.8,MPa,0.63
+G020-57,M020,Type G polyethylene terephthalate (PETG),elongationXY,this-grade,good,192,168-258,165-330,%,0.73
+G020-58,M020,Premium PETG,density,this-material,good,1240,1190-1290,1160-1320,kg/m³,0
+G020-59,M020,Prusament PETG Recycled by Prusa Polymers,tensileModulusXY,this-grade,good,1.6,1.26-2.02,1.05-2.43,GPa,0.73
+G020-59,M020,Prusament PETG Recycled by Prusa Polymers,tensileStrengthXY,this-grade,good,56.5,51-66.8,50-75.3,MPa,0.6
+G020-59,M020,Prusament PETG Recycled by Prusa Polymers,elongationXY,this-material,poor,21.2,7.37-61.1,3.9-116,%,0
+G020-60,M020,MakerBot PETG,density,this-material,good,1240,1180-1300,1150-1320,kg/m³,0
+G020-60,M020,MakerBot PETG,tensileModulusXY,this-grade,good,1.9,1.51-2.39,1.27-2.85,GPa,0.78
+G020-60,M020,MakerBot PETG,tensileStrengthXY,this-grade,good,51.1,45.2-62.9,44-72.9,MPa,0.42
+G020-60,M020,MakerBot PETG,elongationXY,this-material,poor,13.3,4.4-40.1,2.27-77.8,%,0
+G020-61,M020,EasyFil ePETG,tensileModulusXY,this-grade,good,2.72,2.18-3.4,1.83-4.04,GPa,0.74
+G020-61,M020,EasyFil ePETG,tensileStrengthXY,this-material,fair,50.2,35.3-71.4,28.8-87.5,MPa,0
+G020-61,M020,EasyFil ePETG,elongationXY,this-grade,fair,12.1,6.29-24.3,4.88-37.4,%,0.5
+G020-62,M020,ReForm - rPET,tensileModulusXY,this-grade,good,1.99,1.59-2.48,1.33-2.95,GPa,0.74
+G020-62,M020,ReForm - rPET,tensileStrengthXY,this-grade,good,54.9,51.2-62,50.1-67.7,MPa,0.77
+G020-62,M020,ReForm - rPET,elongationXY,this-grade,good,141,124-188,120-239,%,0.71
+G020-63,M020,PETG,tensileModulusXY,this-grade,fair,1.65,1.15-2.35,0.873-3.1,GPa,0.43
+G020-63,M020,PETG,tensileStrengthXY,this-grade,good,56.9,53.3-63.9,52.9-69.5,MPa,0.78
+G020-63,M020,PETG,elongationXY,this-grade,good,24.5,19.3-37.6,18.5-51.2,%,0.74
+G020-64,M020,ReFill PETG,tensileModulusXY,this-grade,good,2.72,2.18-3.4,1.83-4.04,GPa,0.74
+G020-64,M020,ReFill PETG,tensileStrengthXY,this-grade,fair,41.9,30.9-56.9,26-67.9,MPa,0.24
+G020-64,M020,ReFill PETG,elongationXY,this-material,poor,18.4,6.64-50.8,3.61-93.3,%,0
+G020-65,M020,PETG,tensileModulusXY,this-grade,fair,1.87,1.32-2.66,1-3.51,GPa,0.42
+G020-65,M020,PETG,tensileStrengthXY,this-grade,good,57.8,53.6-65.7,53-71.7,MPa,0.78
+G020-65,M020,PETG,elongationXY,this-grade,good,83.8,72-116,70.1-150,%,0.73
+G020-66,M020,easyPETG,density,this-material,good,1250,1200-1300,1160-1320,kg/m³,0
+G020-66,M020,easyPETG,tensileModulusXY,this-grade,fair,1.74,1.23-2.47,0.941-3.23,GPa,0.41
+G020-66,M020,easyPETG,tensileStrengthXY,this-grade,good,57.1,53.4-65,53-71.8,MPa,0.64
+G020-66,M020,easyPETG,elongationXY,this-grade,good,40.3,32.4-60,31.1-80.4,%,0.72
+G020-67,M020,PET-G VO,tensileModulusXY,this-grade,good,2.16,1.8-2.6,1.56-3,GPa,0.83
+G020-67,M020,PET-G VO,tensileStrengthXY,this-grade,good,45,40.9-52.5,40-58.2,MPa,0.7
+G020-67,M020,PET-G VO,elongationXY,this-grade,good,45.6,40.6-58.4,40-71.9,%,0.79
+G020-68,M020,EASY PET-G,tensileModulusXY,this-grade,good,2.66,2.13-3.33,1.79-3.96,GPa,0.74
+G020-68,M020,EASY PET-G,tensileStrengthXY,this-grade,good,56.3,53-63,52.2-68.4,MPa,0.77
+G020-68,M020,EASY PET-G,elongationXY,this-grade,good,38.3,31-56.5,30-75.6,%,0.71
+G020-69,M020,MATTE PET-G,tensileModulusXY,this-material,fair,2.32,1.49-3.6,1.06-5.07,GPa,0
+G020-69,M020,MATTE PET-G,tensileStrengthXY,this-grade,good,46.5,44-51.5,44-55.7,MPa,0.77
+G020-69,M020,MATTE PET-G,elongationXY,this-grade,fair,17.5,9.44-34.7,7.73-53.5,%,0.5
+G020-70,M020,PET-G,tensileModulusXY,this-grade,good,2.81,2.23-3.52,1.87-4.2,GPa,0.77
+G020-70,M020,PET-G,tensileStrengthXY,this-grade,good,54.4,51.1-61.3,50.1-66.6,MPa,0.78
+G020-70,M020,PET-G,elongationXY,this-grade,good,39.6,32.3-58.6,31-78.1,%,0.72
+G020-71,M020,R PET-G,tensileModulusXY,this-grade,good,2.66,2.13-3.33,1.79-3.96,GPa,0.74
+G020-71,M020,R PET-G,tensileStrengthXY,this-grade,good,56.3,53-63,52.2-68.4,MPa,0.77
+G020-71,M020,R PET-G,elongationXY,this-grade,good,38.3,31-56.5,30-75.6,%,0.71
+G020-73,M020,PETG Lite,tensileModulusXY,this-material,fair,2.22,1.44-3.43,1.02-4.82,GPa,0
+G020-73,M020,PETG Lite,tensileStrengthXY,this-grade,good,44.9,36.3-55.5,32.1-62.7,MPa,0.63
+G020-73,M020,PETG Lite,elongationXY,this-grade,good,183,162-240,160-302,%,0.71
+G020-74,M020,PET-G FX120,tensileModulusXY,this-grade,fair,0.177,0.119-0.263,0.0879-0.358,GPa,0.53
+G020-74,M020,PET-G FX120,tensileStrengthXY,this-grade,good,23.7,22.1-27.2,22-30.3,MPa,0.72
+G020-74,M020,PET-G FX120,elongationXY,this-grade,good,490,413-695,400-915,%,0.76
+G024-03,M024,PET-G Carbon,tensileModulusXY,this-grade,good,4.23,3.38-5.28,2.84-6.29,GPa,0.75
+G024-03,M024,PET-G Carbon,tensileStrengthXY,this-grade,fair,58.5,48-77.3,45.7-92.1,MPa,0.25
+G024-03,M024,PET-G Carbon,elongationXY,this-grade,good,6.67,5.21-10.3,4.97-13.9,%,0.72
+G024-04,M024,THE FILAMENT PETG CF,tensileModulusXY,this-material,fair,4.16,2.68-6.47,1.89-9.15,GPa,0
+G024-04,M024,THE FILAMENT PETG CF,tensileStrengthXY,this-grade,good,65.8,59-78.3,57.6-87.9,MPa,0.62
+G024-04,M024,THE FILAMENT PETG CF,elongationXY,this-material,poor,5.87,2.1-16.4,1.13-30.3,%,0
+G024-06,M024,PETG Carbon Fiber,tensileModulusXY,this-grade,good,2.35,1.89-2.93,1.6-3.47,GPa,0.76
+G024-09,M024,XPETG CF,tensileModulusXY,this-grade,good,3.86,3.24-4.61,2.82-5.29,GPa,0.85
+G024-09,M024,XPETG CF,tensileStrengthXY,this-grade,good,65.6,62-72.8,62-78.9,MPa,0.73
+G024-09,M024,XPETG CF,elongationXY,this-grade,good,4.53,3.32-6.93,3.07-9.06,%,0.8
+G024-10,M024,PETGCarbon,tensileModulusXY,this-grade,good,3.91,3.12-4.9,2.61-5.84,GPa,0.76
+G024-10,M024,PETGCarbon,tensileStrengthXY,this-grade,good,60.1,54.1-72.4,52.9-82.6,MPa,0.52
+G024-10,M024,PETGCarbon,elongationXY,this-grade,good,4.78,3.63-7.49,3.46-10.3,%,0.74
+G024-11,M024,PETG CF,elongationXY,this-grade,fair,5.38,3.28-9.88,2.86-14.5,%,0.62
+G024-12,M024,PETG CF V2s,tensileModulusXY,this-grade,fair,2.36,1.51-3.69,1.06-5.25,GPa,0.03
+G024-12,M024,PETG CF V2s,tensileStrengthXY,this-grade,good,65.8,59.9-78.9,59-90.5,MPa,0.41
+G024-12,M024,PETG CF V2s,elongationXY,this-material,poor,7.03,2.48-19.9,1.33-37,%,0
+G024-13,M024,CarbonFil CF03,tensileModulusXY,this-grade,good,3.63,2.9-4.54,2.44-5.4,GPa,0.75
+G024-13,M024,CarbonFil CF03,tensileStrengthXY,this-grade,fair,58.9,47.5-78.6,44.8-93.4,MPa,0.25
+G024-13,M024,CarbonFil CF03,elongationXY,this-grade,good,7.5,5.81-11.6,5.55-15.5,%,0.72
+G024-14,M024,PETG Carbon Fiber,tensileModulusXY,this-grade,fair,2.39,1.69-3.39,1.28-4.46,GPa,0.41
+G024-14,M024,PETG Carbon Fiber,tensileStrengthXY,this-grade,good,42.1,36.5-50.9,35.2-57.4,MPa,0.65
+G024-14,M024,PETG Carbon Fiber,elongationXY,this-grade,good,35.7,30.9-49,30-63.7,%,0.72
+G024-15,M024,PETG CF,tensileModulusXY,this-grade,fair,2.82,2.22-3.59,1.84-4.33,GPa,0.71
+G024-15,M024,PETG CF,tensileStrengthXY,this-grade,fair,43.7,31.6-60.4,26.2-72.8,MPa,0.19
+G024-15,M024,PETG CF,elongationXY,this-grade,fair,3.32,1.73-6.33,1.17-9.33,%,0.6
+G024-16,M024,PETG CF,tensileModulusXY,this-grade,good,3.34,2.76-4.03,2.39-4.66,GPa,0.83
+G024-16,M024,PETG CF,tensileStrengthXY,this-grade,good,52.9,43.7-63.8,39.2-71.2,MPa,0.73
+G024-16,M024,PETG CF,elongationXY,this-material,poor,5.47,1.93-15.5,1.03-28.9,%,0
+G024-17,M024,easyPETG CF,tensileModulusXY,this-grade,fair,2.85,2.01-4.04,1.52-5.31,GPa,0.42
+G024-17,M024,easyPETG CF,tensileStrengthXY,this-grade,good,75.8,72.1-83.3,72-89.7,MPa,0.78
+G024-17,M024,easyPETG CF,elongationXY,this-grade,good,11.9,9.46-18,9.05-24.3,%,0.72
+G024-18,M024,PETG CF,tensileModulusXY,this-grade,fair,3.07,2.41-3.91,2-4.73,GPa,0.72
+G024-18,M024,PETG CF,tensileStrengthXY,this-grade,good,62,56-75.3,55-86.5,MPa,0.42
+G024-18,M024,PETG CF,elongationXY,this-grade,good,14.1,12-19.4,11.6-24.7,%,0.81
+G024-21,M024,CarbonFil,tensileModulusXY,this-grade,good,7.52,6.02-9.39,5.05-11.2,GPa,0.75
+G024-21,M024,CarbonFil,tensileStrengthXY,this-grade,good,100,92.6-118,92-135,MPa,0.25
+G024-21,M024,CarbonFil,elongationXY,this-grade,good,4.93,3.68-7.8,3.46-10.8,%,0.72
+G024-22,M024,PETG CF,tensileModulusXY,this-grade,fair,2.75,1.94-3.9,1.47-5.12,GPa,0.41
+G024-22,M024,PETG CF,tensileStrengthXY,this-grade,good,55.4,46.8-67.9,44.6-76.7,MPa,0.65
+G024-22,M024,PETG CF,elongationXY,this-grade,good,18.3,15.1-26.3,14.6-34.8,%,0.72
+G024-23,M024,PETG+CF,tensileModulusXY,this-grade,good,7.41,5.93-9.25,4.98-11.1,GPa,0.75
+G024-23,M024,PETG+CF,tensileStrengthXY,this-grade,good,113,105-130,105-147,MPa,0.25
+G024-23,M024,PETG+CF,elongationXY,this-grade,good,5.85,4.33-9.31,4.07-12.8,%,0.72
+G024-24,M024,PET-G CF,density,this-material,fair,1280,1210-1350,1170-1410,kg/m³,0
+G024-24,M024,PET-G CF,tensileModulusXY,this-grade,good,7.38,5.89-9.26,4.92-11.1,GPa,0.78
+G024-24,M024,PET-G CF,tensileStrengthXY,this-grade,good,112,105-127,105-141,MPa,0.42
+G024-24,M024,PET-G CF,elongationXY,this-grade,good,5.77,4.32-9.15,4.07-12.6,%,0.73
+G025-01,M025,PETG Glass Fiber,tensileModulusXY,this-grade,fair,2.22,1.54-3.19,1.16-4.24,GPa,0.45
+G025-01,M025,PETG Glass Fiber,tensileStrengthXY,this-grade,good,59.5,54-72.1,53-83.1,MPa,0.44
+G025-01,M025,PETG Glass Fiber,elongationXY,this-material,poor,7.21,2.36-22,1.21-42.9,%,0
+G025-03,M025,PETG GF UV,elongationXY,this-grade,fair,5.36,3.19-10.1,2.76-15,%,0.66
+G025-04,M025,PETG GF,tensileModulusXY,this-grade,good,2.51,2.08-3.03,1.8-3.5,GPa,0.86
+G025-04,M025,PETG GF,tensileStrengthXY,this-grade,good,46.4,38.8-55.5,35-61.5,MPa,0.79
+G025-04,M025,PETG GF,elongationXY,this-material,poor,5.6,1.83-17.1,0.941-33.3,%,0
+G025-05,M025,PETG GF,tensileModulusXY,this-grade,fair,2.89,2.26-3.7,1.86-4.49,GPa,0.75
+G025-05,M025,PETG GF,tensileStrengthXY,this-grade,good,62.2,56.8-74.9,56-85.7,MPa,0.45
+G025-05,M025,PETG GF,elongationXY,this-grade,good,10.3,8.4-14.8,8.08-19,%,0.83
+G026-03,M026,petg esd,tensileModulusXY,this-grade,good,2.03,1.62-2.54,1.35-3.03,GPa,0.76
+G026-03,M026,petg esd,tensileStrengthXY,this-grade,good,50.2,48.2-54,48-57.5,MPa,0.79
+G026-03,M026,petg esd,elongationXY,this-grade,good,68.7,60.3-92.9,58.6-120,%,0.73
+G026-07,M026,PETG-ESD,tensileModulusXY,this-grade,good,2.09,1.73-2.52,1.49-2.92,GPa,0.83
+G026-08,M026,PETG ESD,elongationXY,this-grade,fair,7.85,4.48-14.8,3.69-21.9,%,0.64
+G026-09,M026,ESD-Safe PETG,tensileModulusXY,this-grade,good,1.8,1.79-1.81,1.79-1.81,GPa,1
+G026-09,M026,ESD-Safe PETG,tensileStrengthXY,this-grade,good,52.9,50.6-57.1,50-60.4,MPa,0.9
+G026-09,M026,ESD-Safe PETG,elongationXY,this-grade,good,13,13-13.1,13-13.1,%,1
+G026-10,M026,ESD PET-G,tensileModulusXY,this-grade,good,2.39,1.9-2.99,1.59-3.57,GPa,0.76
+G026-10,M026,ESD PET-G,tensileStrengthXY,this-grade,good,53.8,50.3-60.4,50-65.8,MPa,0.79
+G026-10,M026,ESD PET-G,elongationXY,this-grade,good,7.79,5.54-12.8,5.15-17.6,%,0.73
+G027-03,M027,ABS GP450,tensileModulusXY,this-grade,good,2.13,1.7-2.66,1.43-3.17,GPa,0.74
+G027-03,M027,ABS GP450,tensileStrengthXY,this-grade,good,44.9,40.1-53.7,39-60.5,MPa,0.61
+G027-03,M027,ABS GP450,elongationXY,this-grade,good,16.8,13.6-25.1,13.1-33.5,%,0.71
+G027-04,M027,ABS Medical,tensileModulusXY,this-grade,good,2.38,1.91-2.98,1.6-3.54,GPa,0.74
+G027-04,M027,ABS Medical,tensileStrengthXY,this-grade,good,52.4,47.9-61.7,47-68.9,MPa,0.61
+G027-04,M027,ABS Medical,elongationXY,this-grade,good,20.4,16.6-29.9,16-39.7,%,0.71
+G027-05,M027,Smart ABS,tensileModulusXY,this-grade,poor,1.93,1.15-3.24,0.767-4.86,GPa,0.91
+G027-05,M027,Smart ABS,tensileStrengthXY,this-grade,good,51.1,46.1-59.8,45.1-66.3,MPa,0.99
+G027-05,M027,Smart ABS,elongationXY,this-grade,good,14.6,10.9-24.7,10.3-36.1,%,0.88
+G027-11,M027,DURAPRO ABS,tensileModulusXY,this-grade,good,2.24,1.91-2.63,1.68-2.98,GPa,0.88
+G027-11,M027,DURAPRO ABS,tensileStrengthXY,this-grade,good,52.4,49.3-58.7,49-64,MPa,0.77
+G027-11,M027,DURAPRO ABS,elongationXY,this-grade,good,11.9,10.3-16.2,10-20.6,%,0.79
+G027-12,M027,High Speed ABS,tensileModulusXY,this-grade,good,2.07,1.67-2.57,1.41-3.04,GPa,0.76
+G027-13,M027,ABS,tensileModulusXY,this-grade,good,2.18,1.79-2.66,1.54-3.1,GPa,0.8
+G027-14,M027,ABS-FR,tensileModulusXY,this-grade,good,2.05,1.63-2.57,1.37-3.06,GPa,0.75
+G027-15,M027,Hyper -Speed ABS,tensileModulusXY,this-grade,fair,1.06,0.7-1.61,0.505-2.23,GPa,0.1
+G027-16,M027,ABS Matte,tensileModulusXY,this-grade,good,1.56,1.28-1.9,1.1-2.21,GPa,0.81
+G027-17,M027,Acrylnitrilbutadienstyrol (ABS),tensileModulusXY,this-grade,good,2.6,2.08-3.25,1.74-3.87,GPa,0.75
+G027-17,M027,Acrylnitrilbutadienstyrol (ABS),tensileStrengthXY,this-grade,good,53.1,47.9-63,47-70.6,MPa,0.62
+G027-17,M027,Acrylnitrilbutadienstyrol (ABS),elongationXY,this-grade,good,31.9,26-46.5,25-61.9,%,0.72
+G027-18,M027,Methylmethacrylat-Acrylnitrilbutadienstyrol (MABS),tensileModulusXY,this-grade,good,2.49,1.99-3.11,1.67-3.7,GPa,0.75
+G027-18,M027,Methylmethacrylat-Acrylnitrilbutadienstyrol (MABS),tensileStrengthXY,this-grade,good,59.9,54.8-70,54-78.2,MPa,0.62
+G027-18,M027,Methylmethacrylat-Acrylnitrilbutadienstyrol (MABS),elongationXY,this-grade,good,25.9,20.9-38.6,20.1-51.7,%,0.72
+G027-19,M027,ABS Extrafill,tensileModulusXY,this-grade,fair,1.71,1.2-2.41,0.922-3.16,GPa,0.41
+G027-19,M027,ABS Extrafill,tensileStrengthXY,this-grade,good,42.9,39.6-49,39-53.6,MPa,0.78
+G027-19,M027,ABS Extrafill,elongationXY,this-grade,good,25.5,20.8-37.1,20-49.4,%,0.72
+G027-20,M027,eABS HS,tensileModulusXY,this-grade,fair,1.72,1.35-2.18,1.12-2.63,GPa,0.7
+G027-20,M027,eABS HS,tensileStrengthXY,this-grade,fair,35.9,26-49.4,21.7-59.4,MPa,0.18
+G027-20,M027,eABS HS,elongationXY,this-grade,fair,9.98,5.24-19,3.56-28,%,0.6
+G027-21,M001,TOUGH,density,this-material,fair,1230,1160-1310,1110-1340,kg/m³,0
+G027-21,M001,TOUGH,tensileModulusXY,this-grade,good,2.28,1.89-2.75,1.64-3.18,GPa,0.85
+G027-21,M001,TOUGH,tensileStrengthXY,this-grade,fair,43.1,31.1-59.7,25.7-72,MPa,0.19
+G027-21,M001,TOUGH,elongationXY,this-grade,fair,2.39,1.22-4.65,0.821-6.93,%,0.64
+G027-22,M027,ABS+,tensileModulusXY,this-grade,good,1.71,1.47-2,1.3-2.26,GPa,0.88
+G027-23,M027,ABS,tensileModulusXY,this-grade,good,1.51,1.2-1.9,1.01-2.26,GPa,0.76
+G027-23,M027,ABS,tensileStrengthXY,this-grade,good,39,36.2-44.9,36-49.7,MPa,0.65
+G027-23,M027,ABS,elongationXY,this-grade,good,13.5,10.6-20.8,10.1-28.2,%,0.74
+G027-25,M027,ABS HT,tensileModulusXY,this-grade,fair,2,1.57-2.54,1.3-3.06,GPa,0.7
+G027-25,M027,ABS HT,tensileStrengthXY,this-grade,fair,32.8,23.8-45.1,19.8-54.2,MPa,0.18
+G027-25,M027,ABS HT,elongationXY,this-grade,fair,3.65,1.91-6.94,1.3-10.2,%,0.6
+G027-26,M027,Modified ABS,tensileModulusXY,this-material,poor,2,1.26-3.18,0.882-4.56,GPa,0
+G027-26,M027,Modified ABS,tensileStrengthXY,this-material,fair,40,27.9-57.3,22.7-70.5,MPa,0
+G027-26,M027,Modified ABS,elongationXY,this-material,poor,10.3,3.58-29.5,1.9-55.4,%,0
+G027-27,M027,eABS Max,tensileModulusXY,this-grade,fair,2.02,1.58-2.56,1.31-3.08,GPa,0.7
+G027-27,M027,eABS Max,tensileStrengthXY,this-grade,fair,36.8,26.7-50.6,22.2-60.8,MPa,0.18
+G027-27,M027,eABS Max,elongationXY,this-grade,fair,12.3,6.46-23.4,4.39-34.5,%,0.6
+G027-28,M027,ABS,tensileModulusXY,this-grade,good,2.18,1.74-2.73,1.46-3.26,GPa,0.76
+G027-28,M027,ABS,tensileStrengthXY,this-grade,good,48.8,45.4-55.2,45-60.3,MPa,0.78
+G027-28,M027,ABS,elongationXY,this-grade,fair,6.43,3.42-13.1,2.76-20.4,%,0.53
+G027-29,M027,Workday ABS,density,this-material,fair,1040,986-1090,953-1120,kg/m³,0
+G027-29,M027,Workday ABS,tensileModulusXY,this-grade,good,2.13,1.77-2.56,1.53-2.96,GPa,0.85
+G027-29,M027,Workday ABS,tensileStrengthXY,this-grade,fair,38.5,29.6-50.1,25.4-58.2,MPa,0.48
+G027-29,M027,Workday ABS,elongationXY,this-grade,fair,17,8.75-33,5.88-49.1,%,0.64
+G027-30,M027,ABS EF,elongationXY,this-grade,fair,6.15,3.38-11.6,2.64-17.1,%,0.62
+G027-31,M027,ABS,tensileModulusXY,this-grade,fair,1.4,0.988-1.97,0.753-2.59,GPa,0.41
+G027-31,M027,ABS,tensileStrengthXY,this-grade,good,44.9,42.2-50.7,42-55.8,MPa,0.64
+G027-31,M027,ABS,elongationXY,this-grade,good,11,8.36-17.2,7.9-23.3,%,0.72
+G027-33,M027,Buddy3D ABS,density,this-material,good,1040,990-1090,957-1120,kg/m³,0
+G027-33,M027,Buddy3D ABS,tensileModulusXY,this-material,fair,1.71,1.09-2.68,0.771-3.81,GPa,0
+G027-33,M027,Buddy3D ABS,tensileStrengthXY,this-grade,good,46.9,42-56,41-63,MPa,0.62
+G027-33,M027,Buddy3D ABS,elongationXY,this-grade,good,60,51.5-83.1,50-109,%,0.73
+G027-34,M027,ABS,tensileModulusXY,this-grade,good,2.24,1.91-2.63,1.68-2.98,GPa,0.88
+G027-34,M027,ABS,tensileStrengthXY,this-grade,good,52.4,49.3-58.7,49-64,MPa,0.77
+G027-34,M027,ABS,elongationXY,this-grade,good,11.9,10.3-16.2,10-20.6,%,0.79
+G027-35,M027,ABSx,tensileModulusXY,this-grade,fair,1.69,1.32-2.15,1.1-2.6,GPa,0.72
+G027-35,M027,ABSx,tensileStrengthXY,this-grade,good,43.2,38.8-52.3,38-60.2,MPa,0.41
+G027-35,M027,ABSx,elongationXY,this-grade,good,16.4,12.1-24.8,11.2-32.4,%,0.81
+G027-37,M027,ABS,tensileModulusXY,this-grade,fair,1.77,1.25-2.5,0.954-3.27,GPa,0.41
+G027-37,M027,ABS,tensileStrengthXY,this-grade,good,48.1,45.6-53.5,44.9-57.8,MPa,0.78
+G027-37,M027,ABS,elongationXY,this-grade,good,4.2,2.95-6.89,2.71-9.54,%,0.72
+G027-39,M027,ABS Prime,elongationXY,this-material,poor,7.23,2.41-21.8,1.24-42,%,0
+G027-40,M027,Premium ABS,density,this-material,good,1040,992-1090,958-1120,kg/m³,0
+G027-41,M027,ABS,density,this-material,good,993,957-1040,940-1090,kg/m³,0
+G027-41,M027,ABS,tensileModulusXY,this-material,fair,1.93,1.22-3.04,0.851-4.36,GPa,0
+G027-41,M027,ABS,tensileStrengthXY,this-material,fair,38.2,26.6-54.7,21.6-67.3,MPa,0
+G027-41,M027,ABS,elongationXY,this-material,poor,7.43,2.52-21.9,1.32-41.8,%,0
+G027-42,M027,ABS-M30,density,this-material,fair,1040,991-1100,955-1120,kg/m³,0
+G027-42,M027,ABS-M30,tensileModulusXY,this-grade,good,2.4,2.39-2.41,2.39-2.41,GPa,1
+G027-42,M027,ABS-M30,tensileStrengthXY,this-grade,good,32.8,30.9-36.2,30.8-38.9,MPa,0.85
+G027-42,M027,ABS-M30,elongationXY,this-grade,good,8.1,8.1-8.1,8.1-8.1,%,1
+G027-43,M027,ABS-M30i,density,this-material,fair,1040,991-1100,955-1120,kg/m³,0
+G027-43,M027,ABS-M30i,tensileModulusXY,this-grade,good,2.4,2.39-2.41,2.39-2.41,GPa,1
+G027-43,M027,ABS-M30i,tensileStrengthXY,this-grade,good,36,36-36.1,36-36.1,MPa,1
+G027-43,M027,ABS-M30i,elongationXY,this-material,poor,6.49,2.28-18.5,1.21-34.7,%,0
+G027-44,M027,ABS-ESD7,density,this-material,fair,1040,991-1100,955-1120,kg/m³,0
+G027-44,M027,ABS-ESD7,tensileModulusXY,this-grade,good,2.39,2.38-2.39,2.38-2.39,GPa,1
+G027-44,M027,ABS-ESD7,tensileStrengthXY,this-grade,good,37.4,35.5-40.6,35.4-43,MPa,0.9
+G027-44,M027,ABS-ESD7,elongationXY,this-grade,good,3.4,3.4-3.4,3.4-3.4,%,1
+G027-45,M027,ABSpro,tensileModulusXY,this-grade,good,2.1,1.68-2.63,1.41-3.13,GPa,0.74
+G027-45,M027,ABSpro,tensileStrengthXY,this-grade,good,45.8,41.1-53.2,39.9-58.4,MPa,0.77
+G027-45,M027,ABSpro,elongationXY,this-grade,good,14.6,11.6-22.3,11.1-30,%,0.71
+G027-46,M027,EasyFil ABS,tensileModulusXY,this-grade,good,1.95,1.56-2.44,1.31-2.91,GPa,0.74
+G027-46,M027,EasyFil ABS,tensileStrengthXY,this-grade,good,43.9,39.2-51,38.1-56.1,MPa,0.77
+G027-46,M027,EasyFil ABS,elongationXY,this-grade,good,12.3,9.57-18.9,9.14-25.7,%,0.71
+G027-48,M027,ClearScent ABS,tensileModulusXY,this-grade,good,1.95,1.56-2.44,1.31-2.91,GPa,0.74
+G027-48,M027,ClearScent ABS,tensileStrengthXY,this-grade,good,43.6,40-50,39.2-54.7,MPa,0.77
+G027-48,M027,ClearScent ABS,elongationXY,this-grade,good,42.5,36-59,35-77,%,0.71
+G027-49,M027,Premium ABS,tensileModulusXY,this-grade,good,1.92,1.54-2.4,1.29-2.86,GPa,0.74
+G027-49,M027,Premium ABS,tensileStrengthXY,this-grade,good,42,37.4-49,36.1-53.9,MPa,0.77
+G027-49,M027,Premium ABS,elongationXY,this-grade,good,12.3,9.57-18.9,9.14-25.7,%,0.71
+G027-50,M027,ABS,tensileModulusXY,this-grade,good,2.17,1.73-2.72,1.45-3.23,GPa,0.75
+G027-50,M027,ABS,tensileStrengthXY,this-grade,good,49.6,46.3-55.8,46-60.7,MPa,0.77
+G027-50,M027,ABS,elongationXY,this-grade,fair,7.43,3.8-15.1,2.88-23.3,%,0.51
+G027-51,M027,ReForm - rTitan,tensileModulusXY,this-grade,good,2.11,1.68-2.64,1.41-3.14,GPa,0.76
+G027-51,M027,ReForm - rTitan,tensileStrengthXY,this-grade,good,48.5,44.2-56.7,43.6-63.5,MPa,0.63
+G027-51,M027,ReForm - rTitan,elongationXY,this-grade,good,41.2,35.1-57.9,34.1-75.7,%,0.73
+G027-52,M027,R ABS,tensileModulusXY,this-grade,good,2.04,1.63-2.55,1.37-3.04,GPa,0.75
+G027-52,M027,R ABS,tensileStrengthXY,this-grade,good,48.6,45.9-54.5,45-59.1,MPa,0.77
+G027-52,M027,R ABS,elongationXY,this-grade,good,40.5,36.2-52.3,35.5-65.4,%,0.71
+G027-53,M027,ABS,tensileModulusXY,this-grade,good,2.04,1.63-2.55,1.37-3.04,GPa,0.75
+G027-53,M027,ABS,tensileStrengthXY,this-grade,good,48.6,45.9-54.5,45-59.1,MPa,0.77
+G027-53,M027,ABS,elongationXY,this-grade,good,40.5,36.2-52.3,35.5-65.4,%,0.71
+G027-54,M027,ABS PLUS,tensileModulusXY,this-grade,good,2.07,1.65-2.59,1.39-3.08,GPa,0.75
+G027-54,M027,ABS PLUS,tensileStrengthXY,this-grade,good,48.1,45.2-53.9,45-58.6,MPa,0.77
+G027-54,M027,ABS PLUS,elongationXY,this-grade,good,43.4,40.3-52.4,40-62.8,%,0.71
+G027-55,M027,EASY ABS,tensileModulusXY,this-grade,fair,1.99,1.41-2.8,1.08-3.66,GPa,0.4
+G027-55,M027,EASY ABS,tensileStrengthXY,this-grade,good,47.7,44.5-54.1,44-58.9,MPa,0.77
+G027-55,M027,EASY ABS,elongationXY,this-grade,good,54.4,46.4-75.6,45.1-98.7,%,0.71
+G027-56,M027,TitanX,tensileModulusXY,this-material,fair,2.11,1.36-3.27,0.966-4.61,GPa,0
+G027-56,M027,TitanX,tensileStrengthXY,this-grade,good,44.5,36-55.1,31.8-62.2,MPa,0.64
+G027-56,M027,TitanX,elongationXY,this-grade,good,13.5,10.5-20.5,10-27.8,%,0.71
+G027-57,M027,Triton ABS Model Material,tensileModulusXY,this-grade,good,1.96,1.63-2.35,1.41-2.71,GPa,0.83
+G027-57,M027,Triton ABS Model Material,tensileStrengthXY,this-grade,good,33.9,28.5-40.5,25.7-44.7,MPa,0.75
+G027-57,M027,Triton ABS Model Material,elongationXY,this-material,poor,8.8,3.18-24.4,1.73-44.8,%,0
+G027-58,M027,EasyFil ABS - Glow in the Dark,tensileModulusXY,this-grade,poor,1.93,1.15-3.24,0.767-4.86,GPa,0.91
+G027-58,M027,EasyFil ABS - Glow in the Dark,tensileStrengthXY,this-grade,good,51.1,46.1-59.8,45.1-66.3,MPa,0.99
+G027-58,M027,EasyFil ABS - Glow in the Dark,elongationXY,this-grade,good,14.6,10.9-24.7,10.3-36.1,%,0.88
+G028-02,M028,Fibreheart ABS-GF,tensileModulusXY,this-grade,good,2.44,1.94-3.06,1.62-3.66,GPa,0.78
+G028-06,M028,ABSGF10,tensileModulusXY,this-grade,good,2.33,1.9-2.85,1.62-3.34,GPa,0.81
+G028-07,M028,ABS GF,tensileModulusXY,this-grade,good,3.53,2.82-4.42,2.36-5.27,GPa,0.76
+G028-07,M028,ABS GF,tensileStrengthXY,this-grade,good,54.5,50.4-63,50-70,MPa,0.66
+G028-07,M028,ABS GF,elongationXY,this-grade,good,4.75,3.7-7.31,3.53-9.86,%,0.72
+G028-09,M028,eABS-GF,tensileModulusXY,this-grade,fair,2.17,1.7-2.76,1.41-3.33,GPa,0.72
+G028-09,M028,eABS-GF,tensileStrengthXY,this-grade,fair,37.3,26.8-51.8,22.2-62.6,MPa,0.19
+G028-09,M028,eABS-GF,elongationXY,this-grade,fair,2.21,1.15-4.25,0.781-6.27,%,0.61
+G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),tensileModulusXY,this-grade,good,3.97,3.16-4.98,2.64-5.95,GPa,0.78
+G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),tensileStrengthXY,this-grade,good,87.4,81.5-100,81-111,MPa,0.64
+G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),elongationXY,this-grade,good,4.22,3.23-6.63,3.07-9.05,%,0.74
+G028-12,M028,ABS Glass Fiber,tensileModulusXY,this-material,poor,3,1.88-4.76,1.31-6.85,GPa,0
+G028-12,M028,ABS Glass Fiber,tensileStrengthXY,this-grade,good,57.5,52.5-69.1,51.3-79.1,MPa,0.42
+G028-12,M028,ABS Glass Fiber,elongationXY,this-grade,good,14.7,12.5-20.4,12.1-26.6,%,0.73
+G029-02,M029,CF ABS,tensileModulusXY,this-grade,good,4.68,3.73-5.86,3.13-6.99,GPa,0.77
+G029-02,M029,CF ABS,tensileStrengthXY,this-grade,good,53.3,48.7-62.3,48-69.7,MPa,0.66
+G029-02,M029,CF ABS,elongationXY,this-grade,good,4.09,3.18-6.3,3.04-8.58,%,0.73
+G029-03,M029,DURAPRO ABS CF,tensileModulusXY,this-grade,good,3.2,2.75-3.72,2.45-4.18,GPa,0.89
+G029-03,M029,DURAPRO ABS CF,tensileStrengthXY,this-grade,good,62.5,58.6-70.6,58-76.8,MPa,0.79
+G029-03,M029,DURAPRO ABS CF,elongationXY,this-grade,good,3.55,2.71-5.32,2.55-6.95,%,0.81
+G029-04,M029,ABS-CF,tensileModulusXY,this-grade,fair,2.06,1.45-2.92,1.1-3.84,GPa,0.42
+G029-04,M029,ABS-CF,elongationXY,this-material,poor,1.75,0.611-5.03,0.325-9.44,%,0
+G029-05,M029,ABS CF,elongationXY,this-grade,fair,2.99,1.82-5.53,1.58-8.11,%,0.63
+G029-06,M029,ABS CF,tensileModulusXY,this-grade,good,2.56,2.19-3,1.94-3.38,GPa,0.89
+G029-07,M029,ABS Carbon Fiber,tensileModulusXY,this-grade,fair,2.09,1.46-2.98,1.11-3.93,GPa,0.43
+G029-07,M029,ABS Carbon Fiber,tensileStrengthXY,this-grade,good,58.4,56-63.8,56-68.9,MPa,0.66
+G029-07,M029,ABS Carbon Fiber,elongationXY,this-grade,good,8.81,7.29-12.8,7.03-17,%,0.73
+G029-08,M029,Fibreheart ABS CF Core,tensileModulusXY,this-material,poor,3.15,1.96-5.08,1.34-7.39,GPa,0
+G029-08,M029,Fibreheart ABS CF Core,tensileStrengthXY,this-material,fair,42,29-60.9,23.4-75.4,MPa,0
+G029-08,M029,Fibreheart ABS CF Core,elongationXY,this-material,poor,2.87,0.988-8.33,0.521-15.8,%,0
+G029-10,M029,ABS CF,tensileModulusXY,this-grade,good,3.06,2.44-3.83,2.04-4.58,GPa,0.77
+G029-10,M029,ABS CF,tensileStrengthXY,this-grade,good,63.5,59.3-72.3,59-79.8,MPa,0.66
+G029-10,M029,ABS CF,elongationXY,this-grade,good,8.91,7.32-13.2,7.04-17.6,%,0.73
+G029-11,M029,TriMax Carbon Fiber ABS Model Material,tensileStrengthXY,this-grade,good,45,37.7-53.7,34-59.4,MPa,0.77
+G030-04,M030,ABSESD,tensileModulusXY,this-grade,good,1.31,1.04-1.65,0.875-1.96,GPa,0.77
+G030-04,M030,ABSESD,tensileStrengthXY,this-grade,good,30.9,25.8-39.1,24.6-45.2,MPa,0.53
+G030-04,M030,ABSESD,elongationXY,this-grade,good,8.26,6.67-12.2,6.45-16.4,%,0.75
+G030-05,M030,ABS-ESD,tensileModulusXY,this-grade,good,2.17,1.79-2.63,1.54-3.05,GPa,0.82
+G030-06,M030,ABS ESD,elongationXY,this-grade,fair,5.53,2.98-12.2,2.55-20.2,%,0.37
+G030-07,M030,ESD ABS,tensileModulusXY,this-grade,good,2.18,1.74-2.73,1.45-3.25,GPa,0.76
+G030-07,M030,ESD ABS,tensileStrengthXY,this-grade,good,60.8,55.7-73.3,55-84.8,MPa,0.26
+G030-07,M030,ESD ABS,elongationXY,this-grade,good,6.91,5.3-10.8,5.05-14.6,%,0.73
+G030-08,M030,Buddy3D ABS-ESD VE,density,this-material,good,1040,988-1090,956-1120,kg/m³,0
+G030-08,M030,Buddy3D ABS-ESD VE,tensileModulusXY,this-grade,good,2.68,2.13-3.35,1.79-4,GPa,0.77
+G030-08,M030,Buddy3D ABS-ESD VE,tensileStrengthXY,this-grade,good,46.5,40.9-56,39.7-62.9,MPa,0.66
+G030-08,M030,Buddy3D ABS-ESD VE,elongationXY,this-grade,good,5.47,4.12-8.66,3.88-11.9,%,0.74
+G030-09,M030,ABSx ESD,tensileModulusXY,this-grade,fair,1.68,1.31-2.14,1.08-2.59,GPa,0.73
+G030-09,M030,ABSx ESD,tensileStrengthXY,this-grade,good,34.1,29.2-43.3,28.1-50.5,MPa,0.43
+G030-09,M030,ABSx ESD,elongationXY,this-grade,good,13.9,9.52-21.8,8.43-28.7,%,0.82
+G030-10,M030,ESD-Safe ABS,tensileModulusXY,this-grade,good,2.13,2.12-2.14,2.12-2.14,GPa,1
+G030-10,M030,ESD-Safe ABS,tensileStrengthXY,this-grade,good,60.6,58.4-64.6,58-67.9,MPa,0.9
+G030-10,M030,ESD-Safe ABS,elongationXY,this-grade,good,4,4-4.01,4-4.01,%,1
+G030-11,M030,TriStat ESD-ABS Model Material,tensileModulusXY,this-grade,good,2.4,1.99-2.89,1.72-3.33,GPa,0.84
+G030-11,M030,TriStat ESD-ABS Model Material,tensileStrengthXY,this-grade,good,37.3,31.2-44.5,28.2-49.3,MPa,0.77
+G031-03,M031,ASA 275,tensileModulusXY,this-grade,good,1.95,1.56-2.43,1.31-2.89,GPa,0.74
+G031-03,M031,ASA 275,tensileStrengthXY,this-grade,good,50.7,47.7-56.7,47.5-61.5,MPa,0.77
+G031-03,M031,ASA 275,elongationXY,this-grade,good,42.7,36.8-59.3,35.9-78.4,%,0.65
+G031-04,M031,THE FILAMENT ASA,tensileModulusXY,this-grade,good,1.97,1.57-2.46,1.32-2.93,GPa,0.74
+G031-04,M031,THE FILAMENT ASA,tensileStrengthXY,this-grade,good,49.8,46.4-56.2,46-61.2,MPa,0.77
+G031-04,M031,THE FILAMENT ASA,elongationXY,this-grade,good,41,35-57.4,34-74.9,%,0.71
+G031-07,M031,DURAPRO ASA,density,this-grade,good,1050,1030-1070,1010-1090,kg/m³,0.88
+G031-07,M031,DURAPRO ASA,tensileModulusXY,this-grade,good,2.33,1.93-2.8,1.67-3.24,GPa,0.82
+G031-07,M031,DURAPRO ASA,tensileStrengthXY,this-grade,fair,43.3,31.3-59.8,26-72.1,MPa,0.18
+G031-07,M031,DURAPRO ASA,elongationXY,this-grade,fair,11.6,6.1-22.3,4.14-32.8,%,0.6
+G031-08,M031,ASA,tensileModulusXY,this-grade,good,2.25,1.89-2.67,1.65-3.06,GPa,0.85
+G031-09,M031,Hyper-Speed ASA,tensileModulusXY,this-grade,good,1.43,1.14-1.78,0.96-2.12,GPa,0.75
+G031-10,M031,ASA,elongationXY,this-grade,fair,4.94,2.81-9.23,2.3-13.5,%,0.6
+G031-14,M031,ASA Extrafill,tensileModulusXY,this-grade,good,1.77,1.41-2.22,1.19-2.64,GPa,0.75
+G031-14,M031,ASA Extrafill,tensileStrengthXY,this-grade,good,44.9,40.8-53.1,40-59.4,MPa,0.65
+G031-14,M031,ASA Extrafill,elongationXY,this-grade,good,42.9,36-60.5,35-79.6,%,0.72
+G031-15,M031,FlameGuard ASA 275,tensileModulusXY,this-grade,good,1.95,1.56-2.43,1.31-2.89,GPa,0.74
+G031-15,M031,FlameGuard ASA 275,tensileStrengthXY,this-grade,good,50.7,47.7-56.7,47.5-61.5,MPa,0.77
+G031-15,M031,FlameGuard ASA 275,elongationXY,this-grade,good,42.7,36.8-59.3,35.9-78.4,%,0.65
+G031-16,M031,Premium ASA,tensileStrengthXY,this-material,fair,40.5,28.3-57.8,23.1-71,MPa,0
+G031-17,M031,ASA V1 1,tensileModulusXY,this-grade,fair,2.01,1.58-2.55,1.31-3.08,GPa,0.71
+G031-17,M031,ASA V1 1,tensileStrengthXY,this-grade,fair,38.7,28-53.3,23.3-64.2,MPa,0.18
+G031-17,M031,ASA V1 1,elongationXY,this-grade,fair,9.38,4.92-17.9,3.34-26.4,%,0.6
+G031-18,M031,ASA,tensileModulusXY,this-grade,good,1.83,1.46-2.29,1.22-2.73,GPa,0.76
+G031-18,M031,ASA,tensileStrengthXY,this-grade,good,44.4,40.6-51.8,40-57.9,MPa,0.65
+G031-18,M031,ASA,elongationXY,this-material,poor,11.5,3.86-34.5,2-66.4,%,0
+G031-19,M031,ASA,tensileModulusXY,this-grade,good,2.05,1.64-2.57,1.37-3.06,GPa,0.76
+G031-19,M031,ASA,tensileStrengthXY,this-grade,good,51.9,47.8-59.3,47.1-64.9,MPa,0.78
+G031-19,M031,ASA,elongationXY,this-grade,good,30.7,25.8-43.6,25-57.5,%,0.73
+G031-20,M031,Prusament ASA by Prusa Polymers,tensileModulusXY,this-grade,good,1.68,1.33-2.12,1.1-2.55,GPa,0.73
+G031-20,M031,Prusament ASA by Prusa Polymers,tensileStrengthXY,this-grade,good,51.3,46.1-61.1,45-68.8,MPa,0.61
+G031-20,M031,Prusament ASA by Prusa Polymers,elongationXY,this-material,poor,13.8,4.73-40,2.5-75.7,%,0
+G031-21,M031,Precision ASA,density,this-material,good,1060,1000-1110,975-1130,kg/m³,0
+G031-21,M031,Precision ASA,tensileModulusXY,this-grade,good,2.09,1.67-2.63,1.39-3.14,GPa,0.78
+G031-21,M031,Precision ASA,tensileStrengthXY,this-grade,good,53.8,50.1-60.9,49.2-66.3,MPa,0.79
+G031-21,M031,Precision ASA,elongationXY,this-grade,fair,11.2,6.9-22.1,6.23-35,%,0.52
+G031-22,M031,ASA,tensileModulusXY,this-grade,fair,1.89,1.34-2.67,1.02-3.49,GPa,0.4
+G031-22,M031,ASA,tensileStrengthXY,this-grade,good,50.3,47.2-56.4,47-61.2,MPa,0.78
+G031-22,M031,ASA,elongationXY,this-grade,good,24.8,20.7-35.6,20-47.2,%,0.72
+G031-23,M031,Ultrafuse ASA,density,this-material,good,1050,1000-1090,976-1120,kg/m³,0
+G031-23,M031,Ultrafuse ASA,tensileModulusXY,this-grade,good,2.12,2.11-2.13,2.11-2.13,GPa,1
+G031-23,M031,Ultrafuse ASA,tensileStrengthXY,this-grade,good,37,37-37.1,37-37.1,MPa,1
+G031-23,M031,Ultrafuse ASA,elongationXY,this-grade,good,5.2,5.19-5.21,5.19-5.21,%,1
+G031-24,M031,ASA,tensileModulusXY,this-grade,fair,1.5,1.06-2.13,0.81-2.79,GPa,0.41
+G031-24,M031,ASA,tensileStrengthXY,this-grade,good,55.7,52.2-62.9,52-69.2,MPa,0.64
+G031-24,M031,ASA,elongationXY,this-grade,good,25.5,20.8-37.5,20-50.2,%,0.72
+G031-26,M031,Acrylnitril-Styrol-Acrylester (ASA),tensileModulusXY,this-grade,good,2.18,1.73-2.73,1.45-3.26,GPa,0.77
+G031-26,M031,Acrylnitril-Styrol-Acrylester (ASA),tensileStrengthXY,this-grade,good,51.9,46.7-62.1,45.5-69.8,MPa,0.63
+G031-26,M031,Acrylnitril-Styrol-Acrylester (ASA),elongationXY,this-grade,good,44,36.6-62.9,35.7-83.5,%,0.74
+G031-28,M031,ASA,tensileModulusXY,this-grade,good,2.14,1.71-2.68,1.43-3.19,GPa,0.75
+G031-28,M031,ASA,tensileStrengthXY,this-grade,good,54.3,49.7-63.6,49-70.9,MPa,0.65
+G031-28,M031,ASA,elongationXY,this-grade,good,30.7,25.8-43.4,25-57.6,%,0.72
+G031-29,M031,ASA Prime,elongationXY,this-grade,fair,3.78,1.85-7.72,1.21-11.9,%,0.59
+G031-31,M031,ASA,density,this-material,good,1020,981-1060,965-1110,kg/m³,0
+G031-31,M031,ASA,tensileModulusXY,this-material,fair,1.97,1.24-3.11,0.869-4.46,GPa,0
+G031-31,M031,ASA,tensileStrengthXY,this-material,fair,42.6,29.7-61.1,24.1-75.2,MPa,0
+G031-31,M031,ASA,elongationXY,this-material,poor,7.98,2.71-23.5,1.41-44.9,%,0
+G031-32,M031,ASA,tensileModulusXY,this-grade,fair,1.93,1.51-2.45,1.25-2.96,GPa,0.72
+G031-32,M031,ASA,tensileStrengthXY,this-grade,good,42.4,37.1-52.8,36-61.2,MPa,0.41
+G031-32,M031,ASA,elongationXY,this-grade,good,18.5,15.5-25.6,15-32.7,%,0.81
+G031-33,M031,ASA,density,this-material,good,1060,1010-1110,979-1130,kg/m³,0
+G031-33,M031,ASA,tensileModulusXY,this-grade,good,1.9,1.9-1.91,1.9-1.91,GPa,1
+G031-33,M031,ASA,tensileStrengthXY,this-grade,good,39,37.2-42.2,37.2-44.6,MPa,0.9
+G031-33,M031,ASA,elongationXY,this-grade,good,12,12-12,12-12,%,1
+G031-34,M031,ASA,tensileModulusXY,this-grade,fair,1.63,1.13-2.32,0.861-3.07,GPa,0.43
+G031-34,M031,ASA,tensileStrengthXY,this-grade,good,39.1,35.4-45.3,34.4-49.8,MPa,0.78
+G031-34,M031,ASA,elongationXY,this-grade,good,19.3,15.3-29.1,14.7-39.1,%,0.74
+G031-36,M031,ApolloX,tensileModulusXY,this-grade,good,1.95,1.56-2.43,1.31-2.89,GPa,0.74
+G031-36,M031,ApolloX,tensileStrengthXY,this-grade,good,50.7,47.7-56.7,47.5-61.5,MPa,0.77
+G031-36,M031,ApolloX,elongationXY,this-grade,good,42.7,36.8-59.3,35.9-78.4,%,0.65
+G031-37,M031,ASA,tensileModulusXY,this-grade,good,2.06,1.65-2.58,1.38-3.08,GPa,0.76
+G031-37,M031,ASA,tensileStrengthXY,this-material,fair,44.2,30.9-63.3,25.1-77.9,MPa,0
+G031-37,M031,ASA,elongationXY,this-material,poor,15.2,5.4-43.1,2.89-80.2,%,0
+G031-38,M031,ASA,tensileModulusXY,this-grade,fair,1.8,1.27-2.55,0.973-3.35,GPa,0.41
+G031-38,M031,ASA,tensileStrengthXY,this-grade,good,48.5,44-57.3,43.2-64,MPa,0.65
+G031-38,M031,ASA,elongationXY,this-grade,good,7.24,5.2-11.8,4.84-16.3,%,0.72
+G031-39,M031,Triton ASA Model Material,tensileModulusXY,this-grade,good,1.87,1.56-2.25,1.35-2.6,GPa,0.83
+G031-39,M031,Triton ASA Model Material,tensileStrengthXY,this-grade,good,34.9,29.3-41.6,26.4-46,MPa,0.76
+G031-40,M031,ASA,tensileModulusXY,this-grade,good,2.35,1.88-2.94,1.58-3.5,GPa,0.75
+G031-40,M031,ASA,tensileStrengthXY,this-grade,good,51.1,46.6-58.9,45.4-64.5,MPa,0.77
+G031-40,M031,ASA,elongationXY,this-grade,good,37,31.1-52.2,30.1-68.6,%,0.71
+G031-41,M031,MATTE ASA,tensileModulusXY,this-grade,good,2.32,1.85-2.9,1.55-3.45,GPa,0.75
+G031-41,M031,MATTE ASA,tensileStrengthXY,this-grade,good,49.6,44.2-59.5,43-66.9,MPa,0.62
+G031-41,M031,MATTE ASA,elongationXY,this-grade,good,24.6,19.9-36.7,19.1-49.1,%,0.71
+G031-42,M031,ReForm - rApollo,tensileModulusXY,this-grade,good,1.95,1.56-2.43,1.31-2.89,GPa,0.74
+G031-42,M031,ReForm - rApollo,tensileStrengthXY,this-grade,good,50.7,47.7-56.7,47.5-61.5,MPa,0.77
+G031-42,M031,ReForm - rApollo,elongationXY,this-grade,good,42.7,36.8-59.3,35.9-78.4,%,0.65
+G031-43,M031,ASA,tensileModulusXY,this-grade,good,1.97,1.57-2.46,1.32-2.93,GPa,0.74
+G031-43,M031,ASA,tensileStrengthXY,this-grade,good,49.8,46.4-56.2,46-61.2,MPa,0.77
+G031-43,M031,ASA,elongationXY,this-grade,good,41,35-57.4,34-74.9,%,0.71
+G031-R1,M031,355-02141 (ASA),density,this-material,good,1060,1010-1110,979-1130,kg/m³,0
+G031-R1,M031,355-02141 (ASA),tensileModulusXY,this-material,fair,2.27,1.44-3.56,1.01-5.08,GPa,0
+G031-R1,M031,355-02141 (ASA),tensileStrengthXY,this-material,fair,40,27.9-57.3,22.7-70.5,MPa,0
+G031-R1,M031,355-02141 (ASA),elongationXY,this-material,poor,6.97,2.43-20,1.29-37.6,%,0
+G032-01,M032,ASA Aero,tensileModulusXY,this-material,poor,0.82,0.502-1.34,0.341-1.97,GPa,0
+G032-01,M032,ASA Aero,tensileStrengthXY,this-grade,fair,17.4,12.5-24.4,10.3-29.6,MPa,0.26
+G032-01,M032,ASA Aero,elongationXY,this-material,poor,11.8,3.89-36.1,1.99-70.3,%,0
+G032-02,M032,LW-ASA UltraFoam,tensileModulusXY,this-grade,good,1.42,1.13-1.79,0.946-2.15,GPa,0.79
+G032-02,M032,LW-ASA UltraFoam,tensileStrengthXY,this-grade,good,41,39-45,39-48.6,MPa,0.81
+G032-02,M032,LW-ASA UltraFoam,elongationXY,this-grade,good,39.9,33.4-58.5,32.6-79.1,%,0.7
+G033-03,M033,THE FILAMENT ASA CF,tensileModulusXY,this-material,fair,3.92,2.5-6.13,1.76-8.71,GPa,0
+G033-03,M033,THE FILAMENT ASA CF,tensileStrengthXY,this-grade,good,73,66.8-85.1,66-95.2,MPa,0.63
+G033-03,M033,THE FILAMENT ASA CF,elongationXY,this-grade,good,2.98,2.17-4.79,2.04-6.54,%,0.72
+G033-04,M033,ASA-X CF10,tensileModulusXY,this-grade,fair,5.61,4.41-7.13,3.65-8.6,GPa,0.72
+G033-04,M033,ASA-X CF10,tensileStrengthXY,this-grade,good,84.2,79.1-95,79-105,MPa,0.57
+G033-04,M033,ASA-X CF10,elongationXY,this-grade,good,2.3,1.87-3.29,1.8-4.25,%,0.8
+G033-05,M033,DURAPRO ASA CF,density,this-grade,good,1130,1110-1160,1090-1180,kg/m³,0.89
+G033-05,M033,DURAPRO ASA CF,tensileModulusXY,this-grade,good,3.03,2.52-3.64,2.18-4.2,GPa,0.84
+G033-05,M033,DURAPRO ASA CF,tensileStrengthXY,this-grade,fair,46.9,33.8-65.1,28-78.6,MPa,0.19
+G033-05,M033,DURAPRO ASA CF,elongationXY,this-material,poor,4.77,1.68-13.6,0.898-25.4,%,0
+G033-06,M033,ASA-CF,elongationXY,this-grade,fair,3.34,2.11-6.05,1.87-8.88,%,0.61
+G033-08,M033,ASA CF10,tensileModulusXY,this-grade,good,5.72,4.56-7.16,3.83-8.54,GPa,0.76
+G033-08,M033,ASA CF10,tensileStrengthXY,this-grade,good,91.2,84.8-106,84-117,MPa,0.64
+G033-08,M033,ASA CF10,elongationXY,this-grade,good,12,9.7-17.9,9.38-23.9,%,0.73
+G033-09,M033,ASA CF10 Carbon,tensileModulusXY,this-grade,good,2.93,2.33-3.66,1.96-4.37,GPa,0.76
+G033-09,M033,ASA CF10 Carbon,tensileStrengthXY,this-grade,good,52.5,46.5-63.1,45-71.2,MPa,0.63
+G033-09,M033,ASA CF10 Carbon,elongationXY,this-grade,good,12.6,10.3-18.4,10-24.4,%,0.72
+G033-12,M033,ApolloX CF10,tensileModulusXY,this-grade,fair,5.61,4.41-7.13,3.65-8.6,GPa,0.72
+G033-12,M033,ApolloX CF10,tensileStrengthXY,this-grade,good,84.2,79.1-95,79-105,MPa,0.57
+G033-12,M033,ApolloX CF10,elongationXY,this-grade,good,2.3,1.87-3.29,1.8-4.25,%,0.8
+G033-13,M033,ASA Carbon Fiber,tensileModulusXY,this-grade,fair,2.08,1.46-2.95,1.1-3.89,GPa,0.42
+G033-13,M033,ASA Carbon Fiber,tensileStrengthXY,this-grade,good,56.9,53.3-64.7,53-71.4,MPa,0.65
+G033-13,M033,ASA Carbon Fiber,elongationXY,this-grade,good,21.7,18.5-30.3,18-39.6,%,0.72
+G033-15,M033,ASAx CF,tensileModulusXY,this-grade,fair,2.76,2.16-3.52,1.79-4.25,GPa,0.73
+G033-15,M033,ASAx CF,tensileStrengthXY,this-grade,fair,36.9,29.1-48.2,26.9-56.8,MPa,0.42
+G033-15,M033,ASAx CF,elongationXY,this-grade,good,11.3,9.34-15.8,9.01-20.3,%,0.81
+G033-16,M033,ASA CF,tensileModulusXY,this-grade,fair,2.83,1.99-4.02,1.5-5.3,GPa,0.42
+G033-16,M033,ASA CF,tensileStrengthXY,this-grade,good,67.3,62.5-77.6,62-86,MPa,0.66
+G033-16,M033,ASA CF,elongationXY,this-grade,good,10.5,8.4-15.7,8.06-21,%,0.73
+G033-17,M033,ASA CF,tensileModulusXY,this-material,poor,2.44,1.54-3.86,1.07-5.55,GPa,0
+G033-17,M033,ASA CF,tensileStrengthXY,this-grade,good,50.2,42.1-61.7,39.9-69.7,MPa,0.65
+G033-17,M033,ASA CF,elongationXY,this-grade,good,18.9,16-26.7,15.5-35.2,%,0.72
+G033-18,M033,ASA CF,tensileModulusXY,this-material,fair,3.92,2.5-6.13,1.76-8.71,GPa,0
+G033-18,M033,ASA CF,tensileStrengthXY,this-grade,good,73,66.8-85.1,66-95.2,MPa,0.63
+G033-18,M033,ASA CF,elongationXY,this-grade,good,2.98,2.17-4.79,2.04-6.54,%,0.72
+G034-01,M034,asax x gf10,tensileModulusXY,this-grade,fair,2.54,1.99-3.24,1.64-3.92,GPa,0.74
+G034-01,M034,asax x gf10,tensileStrengthXY,this-grade,fair,46,34.5-61.4,29.2-72.5,MPa,0.4
+G034-01,M034,asax x gf10,elongationXY,this-material,poor,4.44,1.51-13.1,0.793-24.9,%,0
+G034-02,M034,ASA Glass Fiber,tensileModulusXY,this-grade,fair,2.64,1.84-3.78,1.38-5.02,GPa,0.44
+G034-02,M034,ASA Glass Fiber,tensileStrengthXY,this-grade,good,59.4,55.4-67.9,55-75.2,MPa,0.67
+G034-02,M034,ASA Glass Fiber,elongationXY,this-grade,good,12.6,10.4-18.5,10-24.5,%,0.74
+G034-04,M034,ASAGF10,tensileModulusXY,this-grade,good,3.03,2.52-3.65,2.17-4.22,GPa,0.85
+G034-05,M034,DURAPRO ASA GF,tensileModulusXY,this-grade,good,2.96,2.47-3.54,2.14-4.08,GPa,0.86
+G034-05,M034,DURAPRO ASA GF,tensileStrengthXY,this-grade,good,57.6,54.2-64,54-69.1,MPa,0.83
+G034-05,M034,DURAPRO ASA GF,elongationXY,this-grade,good,4.25,3.24-6.38,3.05-8.35,%,0.82
+G034-06,M034,ASA - GF,elongationXY,this-grade,fair,3.76,2.41-6.81,2.18-9.96,%,0.63
+G035-03,M035,PC 275,tensileModulusXY,this-grade,fair,2.16,1.53-3.05,1.17-3.99,GPa,0.4
+G035-03,M035,PC 275,tensileStrengthXY,this-grade,good,67.8,62.6-77.1,61.7-84.2,MPa,0.77
+G035-03,M035,PC 275,elongationXY,this-grade,good,117,103-158,101-203,%,0.66
+G035-11,M035,DURAPRO PC FR V0,density,this-grade,good,1190,1160-1210,1140-1230,kg/m³,0.89
+G035-11,M035,DURAPRO PC FR V0,tensileModulusXY,this-grade,fair,2.23,1.75-2.83,1.45-3.42,GPa,0.71
+G035-11,M035,DURAPRO PC FR V0,tensileStrengthXY,this-grade,good,53.2,42.4-66.7,37.2-76,MPa,0.61
+G035-11,M035,DURAPRO PC FR V0,elongationXY,this-grade,fair,20.5,10.3-40.6,6.87-61.1,%,0.57
+G035-12,M035,PC,tensileModulusXY,this-grade,good,2.11,1.7-2.62,1.44-3.1,GPa,0.77
+G035-14,M035,Polycarbonat (PC),tensileModulusXY,this-grade,good,2.36,1.88-2.96,1.58-3.52,GPa,0.76
+G035-14,M035,Polycarbonat (PC),tensileStrengthXY,this-grade,good,70.5,62.1-85.3,60.1-96.1,MPa,0.63
+G035-14,M035,Polycarbonat (PC),elongationXY,this-grade,good,173,153-231,150-293,%,0.72
+G035-15,M035,Prusament PC Blend by Prusa Polymers,density,this-material,good,1180,1130-1220,1110-1250,kg/m³,0
+G035-15,M035,Prusament PC Blend by Prusa Polymers,tensileModulusXY,this-grade,good,1.92,1.52-2.42,1.27-2.9,GPa,0.74
+G035-15,M035,Prusament PC Blend by Prusa Polymers,tensileStrengthXY,this-grade,good,69.8,64.6-79.5,63.4-86.9,MPa,0.78
+G035-15,M035,Prusament PC Blend by Prusa Polymers,elongationXY,this-grade,fair,13.5,7.44-27.3,6.26-42.1,%,0.53
+G035-17,M035,PC-HT,tensileModulusXY,this-grade,good,2.26,1.88-2.72,1.63-3.14,GPa,0.83
+G035-19,M035,PC V0,tensileModulusXY,this-grade,good,2.17,1.73-2.72,1.45-3.24,GPa,0.75
+G035-19,M035,PC V0,tensileStrengthXY,this-grade,good,96.7,90.5-111,90-123,MPa,0.63
+G035-19,M035,PC V0,elongationXY,this-material,poor,10.6,3.7-30.2,1.97-56.5,%,0
+G035-20,M035,PC,tensileModulusXY,this-grade,fair,1.6,1.13-2.27,0.86-2.99,GPa,0.41
+G035-20,M035,PC,tensileStrengthXY,this-grade,good,66.5,57.6-80.8,55.5-91,MPa,0.65
+G035-20,M035,PC,elongationXY,this-grade,good,6.27,4.3-10.4,3.92-14.4,%,0.72
+G035-21,M035,Kratos PC,tensileModulusXY,this-grade,fair,2.16,1.53-3.05,1.17-3.99,GPa,0.4
+G035-21,M035,Kratos PC,tensileStrengthXY,this-grade,good,67.8,62.6-77.1,61.7-84.2,MPa,0.77
+G035-21,M035,Kratos PC,elongationXY,this-grade,good,117,103-158,101-203,%,0.66
+G035-23,M035,PC,density,this-material,good,1180,1130-1230,1110-1250,kg/m³,0
+G035-23,M035,PC,tensileModulusXY,this-material,fair,2.4,1.52-3.79,1.06-5.42,GPa,0
+G035-23,M035,PC,tensileStrengthXY,this-material,fair,56.1,39-80.5,31.7-99.2,MPa,0
+G035-23,M035,PC,elongationXY,this-grade,good,12,12-12,12-12,%,1
+G035-24,M035,PC-ISO,density,this-material,good,1180,1130-1230,1110-1250,kg/m³,0
+G035-24,M035,PC-ISO,tensileModulusXY,this-grade,good,2,1.99-2.01,1.99-2.01,GPa,1
+G035-24,M035,PC-ISO,tensileStrengthXY,this-grade,good,57,57-57.1,57-57.1,MPa,1
+G035-24,M035,PC-ISO,elongationXY,this-material,poor,8.08,2.79-23.4,1.48-44,%,0
+G035-25,M035,PC,tensileModulusXY,this-grade,good,2.34,1.87-2.94,1.56-3.51,GPa,0.77
+G035-25,M035,PC,tensileStrengthXY,this-grade,good,75.1,71-83.2,71-89.7,MPa,0.78
+G035-25,M035,PC,elongationXY,this-grade,good,171,153-224,150-281,%,0.73
+G035-26,M035,Trilan PC Model Material,elongationXY,this-material,poor,10.9,3.91-30.6,2.11-56.7,%,0
+G035-R1,M035,355-02210 (PC),density,this-material,good,1180,1130-1230,1110-1250,kg/m³,0
+G035-R1,M035,355-02210 (PC),tensileModulusXY,this-material,fair,2.4,1.52-3.79,1.06-5.42,GPa,0
+G035-R1,M035,355-02210 (PC),tensileStrengthXY,this-material,fair,56.1,39-80.5,31.7-99.2,MPa,0
+G035-R1,M035,355-02210 (PC),elongationXY,this-material,poor,8.08,2.79-23.4,1.48-44,%,0
+G037-02,M037,pc cf,tensileModulusXY,this-grade,fair,3.19,2.25-4.53,1.7-5.96,GPa,0.42
+G037-02,M037,pc cf,tensileStrengthXY,this-grade,good,81.2,77.1-89.8,76-96.9,MPa,0.79
+G037-02,M037,pc cf,elongationXY,this-material,poor,3.83,1.32-11.1,0.7-21,%,0
+G037-03,M037,PC CF,tensileModulusXY,this-grade,fair,3.06,2.14-4.36,1.62-5.76,GPa,0.43
+G037-03,M037,PC CF,tensileStrengthXY,this-grade,good,67.2,59.6-83,58-96,MPa,0.43
+G037-03,M037,PC CF,elongationXY,this-grade,good,18.2,15.5-25.4,15-33.3,%,0.74
+G037-05,M037,PCCF10,tensileModulusXY,this-grade,good,2.12,1.73-2.59,1.48-3.03,GPa,0.81
+G037-06,M037,Prusament PC Space Grade Black by Prusa Polymers,density,this-material,fair,1230,1160-1300,1130-1360,kg/m³,0
+G037-06,M037,Prusament PC Space Grade Black by Prusa Polymers,tensileModulusXY,this-grade,good,3.41,2.71-4.29,2.27-5.13,GPa,0.76
+G037-06,M037,Prusament PC Space Grade Black by Prusa Polymers,tensileStrengthXY,this-grade,good,84.1,76.5-99.3,75-112,MPa,0.64
+G037-06,M037,Prusament PC Space Grade Black by Prusa Polymers,elongationXY,this-material,poor,4.88,1.62-14.7,0.837-28.4,%,0
+G037-07,M037,PC CF,tensileModulusXY,this-grade,good,5.68,4.53-7.11,3.8-8.49,GPa,0.77
+G037-07,M037,PC CF,tensileStrengthXY,this-material,fair,56.1,38.7-81.3,31.2-101,MPa,0
+G037-07,M037,PC CF,elongationXY,this-material,poor,3.23,1.09-9.53,0.574-18.3,%,0
+G037-08,M037,PC Carbon Fiber,tensileModulusXY,this-grade,fair,2.35,1.65-3.36,1.24-4.44,GPa,0.43
+G037-08,M037,PC Carbon Fiber,tensileStrengthXY,this-grade,good,66.9,58.9-80.6,57.2-90.9,MPa,0.66
+G037-08,M037,PC Carbon Fiber,elongationXY,this-grade,good,4.84,3.73-7.52,3.56-10.3,%,0.74
+G037-09,M037,PCx CF,tensileModulusXY,this-grade,fair,3.28,2.57-4.19,2.12-5.07,GPa,0.74
+G037-09,M037,PCx CF,tensileStrengthXY,this-grade,good,65.2,57.5-80.9,56-93.7,MPa,0.43
+G037-09,M037,PCx CF,elongationXY,this-grade,good,10.7,9.26-14.5,9.01-18.2,%,0.82
+G037-10,M037,Prusament PC Blend Carbon Fiber by Prusa Polymers,tensileModulusXY,this-grade,good,3.04,2.41-3.82,2.02-4.58,GPa,0.76
+G037-10,M037,Prusament PC Blend Carbon Fiber by Prusa Polymers,tensileStrengthXY,this-grade,good,76.7,70.9-87.7,70-96.2,MPa,0.78
+G037-10,M037,Prusament PC Blend Carbon Fiber by Prusa Polymers,elongationXY,this-grade,fair,7.58,5.12-14.3,4.72-21.9,%,0.54
+G038-01,M038,V2 PC-GF,density,this-material,fair,1240,1170-1320,1130-1410,kg/m³,0
+G038-01,M038,V2 PC-GF,tensileModulusXY,this-grade,good,2.11,1.72-2.57,1.48-3,GPa,0.85
+G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),tensileModulusXY,this-grade,good,3.53,2.8-4.45,2.34-5.33,GPa,0.8
+G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),tensileStrengthXY,this-grade,good,69,61.6-82.8,60-93.7,MPa,0.67
+G038-03,M038,Polycarbonate glass fibers 10% (PC GF10),elongationXY,this-grade,good,8.14,6.41-12.6,6.12-17.1,%,0.76
+G039-02,M161,TPU,tensileModulusXY,this-grade,fair,0.0262,0.0203-0.0338,0.0166-0.0413,GPa,0.98
+G039-02,M161,TPU,tensileStrengthXY,this-grade,good,46.5,40.1-61.4,39-75.5,MPa,0.45
+G039-02,M161,TPU,elongationXY,this-grade,good,732,607-987,583-1220,%,0.33
+G039-04,M160,S-Flex 90A,tensileModulusXY,this-grade,poor,0.0307,0.0084-0.113,0.00302-0.313,GPa,0.44
+G039-04,M160,S-Flex 90A,tensileStrengthXY,this-grade,good,40.7,36.1-50.9,35.3-60.1,MPa,0.63
+G039-04,M160,S-Flex 90A,elongationXY,this-grade,good,659,531-900,507-1110,%,0.3
+G039-05,M161,THE FILAMENT TPU 95A,tensileModulusXY,this-grade,poor,0.0428,0.0117-0.156,0.00425-0.431,GPa,0.44
+G039-05,M161,THE FILAMENT TPU 95A,tensileStrengthXY,this-grade,good,37.7,32.9-48,32-57.1,MPa,0.63
+G039-05,M161,THE FILAMENT TPU 95A,elongationXY,this-grade,good,506,387-703,359-863,%,0.29
+G039-06,M159,THE FILAMENT TPU 87A,tensileModulusXY,this-material,poor,0.0374,0.00667-0.21,0.00184-0.825,GPa,0
+G039-06,M159,THE FILAMENT TPU 87A,tensileStrengthXY,this-grade,good,34.5,30.2-44.2,29.5-52.3,MPa,0.63
+G039-06,M159,THE FILAMENT TPU 87A,elongationXY,this-grade,good,532,398-747,362-920,%,0.3
+G039-07,M159,S-Flex 85A,tensileModulusXY,this-grade,poor,0.0234,0.00643-0.0849,0.00235-0.237,GPa,0.44
+G039-07,M159,S-Flex 85A,tensileStrengthXY,this-grade,good,45.5,40.8-56.4,40-66.2,MPa,0.63
+G039-07,M159,S-Flex 85A,elongationXY,this-grade,good,762,668-980,650-1180,%,0.3
+G039-08,M162,S-Flex 98A,tensileModulusXY,this-grade,poor,0.0872,0.0239-0.318,0.00863-0.881,GPa,0.44
+G039-08,M162,S-Flex 98A,tensileStrengthXY,this-grade,good,62.6,56.7-76.9,55.2-90,MPa,0.64
+G039-08,M162,S-Flex 98A,elongationXY,this-grade,good,575,518-709,510-841,%,0.3
+G039-09,M159,THE FILAMENT TPU 82A,tensileModulusXY,this-material,poor,0.0374,0.00667-0.21,0.00184-0.825,GPa,0
+G039-09,M159,THE FILAMENT TPU 82A,tensileStrengthXY,this-grade,good,32.9,28.7-42.4,28-50.4,MPa,0.63
+G039-09,M159,THE FILAMENT TPU 82A,elongationXY,this-grade,good,532,398-747,362-920,%,0.3
+G039-11,M160,Polymaker PolyFlex TPU90,tensileModulusXY,this-grade,poor,0.0289,0.0079-0.106,0.00284-0.294,GPa,0.44
+G039-12,M161,Polymaker PolyFlex TPU95 HF,tensileModulusXY,this-grade,poor,0.0403,0.011-0.147,0.004-0.406,GPa,0.44
+G039-14,M162,FLEX MEDIUM MATT,tensileModulusXY,this-grade,fair,0.118,0.0918-0.153,0.0752-0.187,GPa,0.98
+G039-14,M162,FLEX MEDIUM MATT,tensileStrengthXY,this-grade,good,42.3,35.8-54.6,34.5-64.6,MPa,0.71
+G039-14,M162,FLEX MEDIUM MATT,elongationXY,this-grade,good,498,433-644,420-781,%,0.31
+G039-15,M159,FLEX SEMISOFT,tensileModulusXY,this-grade,good,0.0477,0.0394-0.0576,0.034-0.0669,GPa,0.99
+G039-15,M159,FLEX SEMISOFT,tensileStrengthXY,this-grade,good,43.2,37.4-57.2,36.3-70.3,MPa,0.45
+G039-15,M159,FLEX SEMISOFT,elongationXY,this-grade,good,623,525-822,507-991,%,0.43
+G039-16,M162,FLEX HARD,tensileModulusXY,this-grade,poor,0.112,0.0486-0.258,0.0252-0.496,GPa,0.77
+G039-16,M162,FLEX HARD,tensileStrengthXY,this-grade,fair,42.9,35.9-59.1,34.7-73.9,MPa,0.46
+G039-16,M162,FLEX HARD,elongationXY,this-grade,good,493,440-617,430-731,%,0.42
+G039-17,M162,FLEX MEDIUM,tensileModulusXY,this-grade,poor,0.0676,0.0294-0.156,0.0152-0.3,GPa,0.77
+G039-17,M162,FLEX MEDIUM,tensileStrengthXY,this-grade,fair,42.9,35.9-59.1,34.7-73.9,MPa,0.46
+G039-17,M162,FLEX MEDIUM,elongationXY,this-grade,good,488,435-610,425-726,%,0.42
+G039-18,M160,TPU 90A,tensileModulusXY,this-grade,poor,0.0302,0.00825-0.111,0.00296-0.307,GPa,0.44
+G039-23,M162,TPU 64D,tensileModulusXY,this-grade,poor,0.0924,0.0557-0.154,0.0374-0.229,GPa,0.91
+G039-24,M162,Thermoplastic polyurethane (TPU),tensileModulusXY,this-grade,fair,0.0131,0.0101-0.017,0.00834-0.0207,GPa,0.98
+G039-24,M162,Thermoplastic polyurethane (TPU),tensileStrengthXY,this-material,fair,50.1,39.9-76.3,38.2-102,MPa,0
+G039-24,M162,Thermoplastic polyurethane (TPU),elongationXY,this-grade,good,607,496-839,473-1050,%,0.36
+G039-26,M159,TPU85A,density,this-grade,good,1190,1160-1210,1140-1240,kg/m³,0.96
+G039-27,M161,TPU95A,density,this-grade,good,1210,1180-1230,1160-1260,kg/m³,0.96
+G039-28,M159,varioShore 85A,density,this-grade,good,1140,1110-1160,1090-1190,kg/m³,0.96
+G039-28,M159,varioShore 85A,tensileModulusXY,this-grade,good,0.0431,0.0353-0.0527,0.0302-0.0616,GPa,0.99
+G039-29,M162,Flexfill TPU 98A,tensileModulusXY,this-grade,poor,0.0791,0.0216-0.289,0.00781-0.801,GPa,0.44
+G039-29,M162,Flexfill TPU 98A,tensileStrengthXY,this-grade,good,62.3,54.9-81.1,53.7-98.9,MPa,0.46
+G039-29,M162,Flexfill TPU 98A,elongationXY,this-grade,good,439,343-615,324-767,%,0.33
+G039-30,M160,Flexfill TPU 92A,tensileModulusXY,this-grade,poor,0.0293,0.008-0.108,0.00287-0.299,GPa,0.44
+G039-30,M160,Flexfill TPU 92A,tensileStrengthXY,this-grade,good,56.2,50.1-71.9,49-86.7,MPa,0.46
+G039-30,M160,Flexfill TPU 92A,elongationXY,this-grade,good,803,642-1120,608-1390,%,0.33
+G039-31,M161,Cheetah,tensileModulusXY,this-grade,fair,0.0265,0.0205-0.0341,0.0168-0.0417,GPa,0.98
+G039-31,M161,Cheetah,tensileStrengthXY,this-grade,good,44.7,39.7-55.9,38.9-66,MPa,0.64
+G039-31,M161,Cheetah,elongationXY,this-grade,good,655,590-826,580-996,%,0.39
+G039-32,M159,NinjaFlex,tensileModulusXY,this-grade,fair,0.0127,0.00985-0.0164,0.00807-0.02,GPa,0.98
+G039-32,M159,NinjaFlex,tensileStrengthXY,this-grade,good,30.3,26.3-39.2,25.5-46.7,MPa,0.64
+G039-32,M159,NinjaFlex,elongationXY,this-grade,good,742,671-927,660-1130,%,0.4
+G039-33,M159,70A,tensileModulusXY,this-grade,poor,0.0164,0.00449-0.0596,0.00167-0.167,GPa,0.44
+G039-33,M159,70A,tensileStrengthXY,this-grade,good,37,32.8-46.8,32-55.5,MPa,0.64
+G039-33,M159,70A,elongationXY,this-grade,good,1060,921-1380,900-1700,%,0.3
+G039-34,M162,TPU 98A,tensileModulusXY,this-grade,poor,0.0792,0.0216-0.29,0.0078-0.803,GPa,0.44
+G039-34,M162,TPU 98A,tensileStrengthXY,this-material,poor,29.7,16.7-52.7,12-73.3,MPa,0
+G039-34,M162,TPU 98A,elongationXY,this-material,fair,387,215-696,152-987,%,0
+G039-35,M161,Prusament TPU 95A by Prusa Polymers,tensileModulusXY,this-grade,poor,0.0298,0.0082-0.109,0.00296-0.301,GPa,0.44
+G039-35,M161,Prusament TPU 95A by Prusa Polymers,tensileStrengthXY,this-grade,good,47.4,42.3-59.4,41.4-70,MPa,0.63
+G039-35,M161,Prusament TPU 95A by Prusa Polymers,elongationXY,this-material,fair,689,411-1160,301-1580,%,0
+G039-36,M161,Premium TPU-95A,elongationXY,this-grade,good,546,476-710,462-861,%,0.32
+G039-37,M161,TPU 95A,tensileModulusXY,this-material,poor,0.0347,0.00622-0.193,0.00172-0.755,GPa,0
+G039-37,M161,TPU 95A,tensileStrengthXY,this-grade,fair,27.5,17.6-43.2,13.5-55.9,MPa,0.36
+G039-37,M161,TPU 95A,elongationXY,this-grade,good,407,279-594,223-744,%,0.17
+G039-38,M159,TPU 80A-Z,density,this-material,fair,1210,1100-1290,1020-1310,kg/m³,0
+G039-38,M159,TPU 80A-Z,tensileModulusXY,this-grade,poor,0.0181,0.00496-0.0662,0.00181-0.186,GPa,0.44
+G039-39,M162,Armadillo,tensileModulusXY,this-grade,fair,0.381,0.295-0.492,0.242-0.6,GPa,0.98
+G039-39,M162,Armadillo,tensileStrengthXY,this-grade,good,54.2,48.4-67.4,47.5-79.6,MPa,0.64
+G039-39,M162,Armadillo,elongationXY,this-grade,good,352,304-463,295-572,%,0.4
+G039-40,M161,95A,tensileModulusXY,this-grade,poor,0.0436,0.0119-0.159,0.0043-0.441,GPa,0.44
+G039-40,M161,95A,tensileStrengthXY,this-grade,good,38.5,33.9-49.1,33-58.4,MPa,0.63
+G039-40,M161,95A,elongationXY,this-material,fair,667,412-1080,308-1450,%,0
+G039-41,M159,60A,tensileModulusXY,this-grade,poor,0.0144,0.00394-0.0523,0.00147-0.146,GPa,0.44
+G039-41,M159,60A,tensileStrengthXY,this-grade,good,31,26.7-39.9,26-47.7,MPa,0.64
+G039-41,M159,60A,elongationXY,this-grade,good,1100,971-1410,950-1720,%,0.37
+G039-42,M161,RECIFLEX,tensileModulusXY,this-grade,poor,0.0352,0.00963-0.129,0.00347-0.356,GPa,0.44
+G039-42,M161,RECIFLEX,tensileStrengthXY,this-grade,good,46.4,41.3-58.5,40.3-69.5,MPa,0.6
+G039-42,M161,RECIFLEX,elongationXY,this-grade,good,631,459-931,423-1190,%,0.31
+G039-43,M159,82A,tensileModulusXY,this-grade,fair,0.0223,0.0172-0.0288,0.0141-0.0351,GPa,0.98
+G039-43,M159,82A,tensileStrengthXY,this-grade,good,50.4,45.7-62,45-72.5,MPa,0.64
+G039-43,M159,82A,elongationXY,this-grade,good,826,680-1140,653-1420,%,0.37
+G039-44,M162,TPU-64D,tensileModulusXY,this-material,poor,0.0592,0.0105-0.332,0.00276-1.31,GPa,0
+G039-45,M162,TPU 70D,tensileModulusXY,this-grade,poor,0.151,0.0706-0.324,0.0387-0.589,GPa,0.81
+G039-45,M162,TPU 70D,tensileStrengthXY,this-grade,good,33.4,28.8-43.1,28-51.4,MPa,0.64
+G039-45,M162,TPU 70D,elongationXY,this-grade,good,388,331-514,320-634,%,0.35
+G039-46,M161,ReForm rTPU 95A,tensileModulusXY,this-grade,poor,0.0417,0.0114-0.152,0.00413-0.42,GPa,0.44
+G039-46,M161,ReForm rTPU 95A,tensileStrengthXY,this-grade,good,37.8,32.8-48.4,32-57.8,MPa,0.63
+G039-46,M161,ReForm rTPU 95A,elongationXY,this-grade,good,541,404-761,367-939,%,0.3
+G039-47,M162,Python Flex,tensileModulusXY,this-grade,fair,0.148,0.114-0.191,0.0937-0.233,GPa,0.98
+G039-47,M162,Python Flex,tensileStrengthXY,this-material,fair,60.8,51.6-85.6,50-111,MPa,0
+G039-47,M162,Python Flex,elongationXY,this-grade,good,528,463-685,450-829,%,0.32
+G039-48,M159,eFlex,tensileModulusXY,this-material,poor,0.0296,0.00528-0.167,0.0015-0.654,GPa,0
+G039-48,M159,eFlex,tensileStrengthXY,this-grade,fair,29.3,18.7-46,14.4-59.6,MPa,0.36
+G039-48,M159,eFlex,elongationXY,this-grade,good,404,276-592,219-743,%,0.21
+G039-49,M161,TPU 95A,tensileModulusXY,this-grade,poor,0.0625,0.0373-0.105,0.0249-0.158,GPa,0.91
+G039-49,M161,TPU 95A,tensileStrengthXY,this-grade,good,39.4,34.9-51.2,34.4-63.4,MPa,0.15
+G039-49,M161,TPU 95A,elongationXY,this-grade,good,1180,1070-1440,1060-1700,%,0.32
+G039-50,M161,TPU95A-HF,tensileModulusXY,this-material,poor,0.0384,0.00688-0.215,0.0019-0.841,GPa,0
+G039-52,M161,Build Series TPU,tensileModulusXY,this-material,poor,0.0403,0.00721-0.225,0.002-0.881,GPa,0
+G039-52,M161,Build Series TPU,tensileStrengthXY,this-material,good,60.9,53.4-81.6,52-104,MPa,0
+G039-52,M161,Build Series TPU,elongationXY,this-grade,good,606,517-800,501-982,%,0.34
+G039-53,M161,TPU 95A,tensileModulusXY,this-grade,poor,0.039,0.0106-0.143,0.00382-0.397,GPa,0.44
+G039-53,M161,TPU 95A,tensileStrengthXY,this-grade,good,37.3,32.8-47.6,32-56.4,MPa,0.64
+G039-53,M161,TPU 95A,elongationXY,this-grade,good,457,368-643,354-815,%,0.41
+G039-54,M159,TPU 87A,tensileModulusXY,this-grade,poor,0.0228,0.00624-0.0835,0.00227-0.234,GPa,0.45
+G039-54,M159,TPU 87A,tensileStrengthXY,this-grade,good,34.3,30.2-43.6,29.5-51.7,MPa,0.64
+G039-54,M159,TPU 87A,elongationXY,this-grade,good,471,373-670,354-852,%,0.41
+G039-56,M159,TPU 82A,tensileModulusXY,this-grade,poor,0.0194,0.0053-0.071,0.00193-0.199,GPa,0.45
+G039-56,M159,TPU 82A,tensileStrengthXY,this-grade,good,32.8,28.7-41.8,28-49.8,MPa,0.64
+G039-56,M159,TPU 82A,elongationXY,this-grade,good,471,373-670,354-852,%,0.41
+G039-57,M161,TPU,tensileModulusXY,this-grade,fair,0.023,0.0178-0.0297,0.0146-0.0363,GPa,0.98
+G039-57,M161,TPU,tensileStrengthXY,this-grade,fair,22.4,18.2-30.2,17.4-36.5,MPa,0.63
+G039-57,M161,TPU,elongationXY,this-grade,good,650,565-845,550-1040,%,0.34
+G039-58,M161,TPU HS,tensileModulusXY,this-material,poor,0.0347,0.00622-0.193,0.00172-0.755,GPa,0
+G039-58,M161,TPU HS,tensileStrengthXY,this-grade,fair,27.5,17.6-43.2,13.5-55.9,MPa,0.36
+G039-58,M161,TPU HS,elongationXY,this-grade,good,407,279-594,223-744,%,0.17
+G039-59,M161,TPU 95A-Z,density,this-material,fair,1230,1140-1300,1030-1320,kg/m³,0
+G039-59,M161,TPU 95A-Z,tensileModulusXY,this-grade,poor,0.0385,0.0105-0.141,0.00378-0.391,GPa,0.44
+G039-62,M160,ReForm rTPU 90A,density,this-material,fair,1180,1080-1270,1010-1310,kg/m³,0
+G039-62,M160,ReForm rTPU 90A,tensileModulusXY,this-material,poor,0.0408,0.00722-0.23,0.00198-0.909,GPa,0
+G039-62,M160,ReForm rTPU 90A,tensileStrengthXY,this-grade,good,34.7,30.3-44.5,29.5-53,MPa,0.64
+G039-62,M160,ReForm rTPU 90A,elongationXY,this-grade,good,602,433-863,380-1080,%,0.32
+G039-63,M160,Python Flex TPU 90A,tensileModulusXY,this-material,poor,0.0408,0.00722-0.23,0.00198-0.909,GPa,0
+G039-63,M160,Python Flex TPU 90A,tensileStrengthXY,this-material,poor,27.7,15.7-48.8,11.3-67.7,MPa,0
+G039-63,M160,Python Flex TPU 90A,elongationXY,this-material,good,706,456-1100,351-1420,%,0
+G039-64,M159,ReForm rTPU 85A,density,this-material,fair,1140,1050-1240,1000-1290,kg/m³,0
+G039-64,M159,ReForm rTPU 85A,tensileModulusXY,this-material,poor,0.0356,0.00635-0.2,0.00175-0.787,GPa,0
+G039-64,M159,ReForm rTPU 85A,tensileStrengthXY,this-grade,good,33.2,28.8-42.7,28-50.8,MPa,0.63
+G039-64,M159,ReForm rTPU 85A,elongationXY,this-grade,good,569,415-810,373-1010,%,0.32
+G039-65,M161,TPU A95,tensileModulusXY,this-material,poor,0.0348,0.00623-0.195,0.00172-0.763,GPa,0
+G039-65,M161,TPU A95,tensileStrengthXY,this-grade,good,61.5,55.7-74.8,55-87.1,MPa,0.63
+G039-65,M161,TPU A95,elongationXY,this-grade,good,662,476-960,424-1200,%,0.34
+G039-66,M161,Flex TPU 95A,tensileModulusXY,this-grade,fair,0.0202,0.0157-0.0261,0.0128-0.0319,GPa,0.98
+G039-66,M161,Flex TPU 95A,elongationXY,this-material,good,521,332-815,254-1070,%,0
+G039-67,M159,Flex TPU 85A,tensileModulusXY,this-grade,fair,0.0132,0.0102-0.0171,0.00841-0.0209,GPa,0.98
+G039-67,M159,Flex TPU 85A,elongationXY,this-material,good,563,356-891,270-1180,%,0
+G039-68,M162,Flex TPU 64D,tensileModulusXY,this-grade,fair,0.376,0.291-0.484,0.238-0.591,GPa,0.98
+G039-68,M162,Flex TPU 64D,tensileStrengthXY,this-grade,good,47.4,40.3-63.9,39-79,MPa,0.46
+G039-68,M162,Flex TPU 64D,elongationXY,this-grade,good,468,407-611,395-744,%,0.34
+G039-69,M150,Flex TPU Air,tensileModulusXY,this-grade,poor,0.0162,0.0044-0.06,0.00162-0.169,GPa,0.45
+G040-01,M162,TPU for AMS,tensileModulusXY,this-grade,poor,0.129,0.0605-0.277,0.0332-0.504,GPa,0.81
+G045-01,M045,PEBA90A,tensileModulusXY,this-grade,poor,0.0616,0.0368-0.104,0.0245-0.156,GPa,0.91
+G045-02,M045,peba,tensileModulusXY,this-grade,good,0.0833,0.0683-0.102,0.0584-0.119,GPa,0.99
+G045-02,M045,peba,tensileStrengthXY,this-grade,fair,22.7,14.3-35.8,11-46.6,MPa,0.37
+G045-02,M045,peba,elongationXY,this-grade,good,720,487-1070,385-1350,%,0.19
+G045-03,M045,Kimya PEBA-S,tensileModulusXY,this-grade,fair,0.063,0.0488-0.0812,0.04-0.0991,GPa,0.98
+G045-03,M045,Kimya PEBA-S,tensileStrengthXY,this-grade,good,37.5,33.6-45.9,32.8-53.3,MPa,0.73
+G045-03,M045,Kimya PEBA-S,elongationXY,this-grade,good,852,622-1290,577-1680,%,0.37
+G045-04,M045,Flexfill PEBA 90A,tensileModulusXY,this-grade,poor,0.0513,0.0306-0.086,0.0204-0.13,GPa,0.91
+G045-04,M045,Flexfill PEBA 90A,tensileStrengthXY,this-grade,good,42.6,37-55.9,36-68.5,MPa,0.47
+G045-04,M045,Flexfill PEBA 90A,elongationXY,this-grade,good,1240,1050-1670,1010-2060,%,0.28
+G045-05,M045,PEBA 45D,density,this-grade,good,1020,1000-1040,986-1060,kg/m³,0.97
+G045-05,M045,PEBA 45D,tensileModulusXY,this-grade,good,0.0775,0.0635-0.0946,0.0543-0.111,GPa,0.99
+G045-06,M045,PEBA 40D,density,this-grade,good,1020,1000-1040,986-1060,kg/m³,0.97
+G045-06,M045,PEBA 40D,tensileModulusXY,this-grade,good,0.0781,0.064-0.0953,0.0547-0.112,GPa,0.99
+G045-07,M045,PEBA 95A,tensileModulusXY,this-material,poor,0.0629,0.0109-0.361,0.00282-1.45,GPa,0
+G045-08,M045,Rebound PEBA 95A,tensileModulusXY,this-grade,fair,0.0842,0.0653-0.109,0.0535-0.133,GPa,0.98
+G045-08,M045,Rebound PEBA 95A,tensileStrengthXY,this-grade,fair,28.3,23.1-39.6,22.1-49.8,MPa,0.47
+G045-08,M045,Rebound PEBA 95A,elongationXY,this-grade,good,952,808-1260,784-1540,%,0.31
+G045-09,M045,Rebound PEBA Air 70A–95A,tensileModulusXY,this-grade,poor,0.0244,0.00657-0.0903,0.00237-0.256,GPa,0.45
+G046-01,M046,Ultrafuse TPC 45D,tensileModulusXY,this-grade,poor,0.0398,0.0185-0.0854,0.0101-0.156,GPa,0.81
+G046-01,M046,Ultrafuse TPC 45D,tensileStrengthXY,this-material,poor,19.5,10.7-35.4,7.6-49.9,MPa,0
+G046-01,M046,Ultrafuse TPC 45D,elongationXY,this-material,fair,255,145-446,103-624,%,0
+G046-04,M046,Thermoplastic polyester elastomer (TPC),tensileModulusXY,this-grade,fair,0.196,0.152-0.253,0.124-0.309,GPa,0.98
+G046-04,M046,Thermoplastic polyester elastomer (TPC),tensileStrengthXY,this-material,good,51.2,44.2-70.3,43-91.2,MPa,0
+G046-04,M046,Thermoplastic polyester elastomer (TPC),elongationXY,this-material,fair,602,360-1010,265-1370,%,0
+G046-05,M046,FlexiFil TPC 30D,tensileModulusXY,this-grade,poor,0.0199,0.0093-0.0427,0.0051-0.0779,GPa,0.81
+G046-05,M046,FlexiFil TPC 30D,tensileStrengthXY,this-grade,poor,15.2,8.86-26.2,6.48-35.8,MPa,0.17
+G046-05,M046,FlexiFil TPC 30D,elongationXY,this-grade,good,512,422-702,408-878,%,0.3
+G046-06,M046,FlexiFil TPC 40D,tensileModulusXY,this-grade,poor,0.0199,0.0093-0.0427,0.0051-0.0779,GPa,0.81
+G046-06,M046,FlexiFil TPC 40D,tensileStrengthXY,this-grade,poor,15.2,8.86-26.2,6.48-35.8,MPa,0.17
+G046-06,M046,FlexiFil TPC 40D,elongationXY,this-grade,good,512,422-702,408-878,%,0.3
+G046-07,M046,FlexiFil,tensileModulusXY,this-grade,fair,0.0944,0.0732-0.122,0.0599-0.149,GPa,0.98
+G046-07,M046,FlexiFil,tensileStrengthXY,this-grade,fair,30.7,25.1-42.9,24.2-53.9,MPa,0.48
+G046-07,M046,FlexiFil,elongationXY,this-grade,good,620,543-804,530-979,%,0.36
+G048-02,M048,Ultrafuse PAHT CF15,density,this-material,fair,1100,1030-1170,975-1260,kg/m³,0
+G048-03,M048,LUVOCOM 3F PA CF 9742 BK,tensileModulusXY,this-grade,good,13,10.3-16.3,8.65-19.5,GPa,0.79
+G048-03,M048,LUVOCOM 3F PA CF 9742 BK,tensileStrengthXY,this-grade,good,184,171-213,170-241,MPa,0.45
+G048-03,M048,LUVOCOM 3F PA CF 9742 BK,elongationXY,this-grade,good,1.52,1.1-2.48,1.03-3.42,%,0.77
+G048-04,M048,LUVOCOM 3F PAHT CF 9891 BK,tensileModulusXY,this-grade,fair,9,7.04-11.5,5.8-14,GPa,0.75
+G048-04,M048,LUVOCOM 3F PAHT CF 9891 BK,tensileStrengthXY,this-grade,fair,102,72.3-144,59.2-176,MPa,0.21
+G048-04,M048,LUVOCOM 3F PAHT CF 9891 BK,elongationXY,this-material,poor,2.34,0.744-7.35,0.374-14.6,%,0
+G048-05,M048,PAHT CF,density,this-material,fair,1120,1060-1190,998-1270,kg/m³,0
+G049-01,M049,pa6 neat bk,tensileModulusXY,this-grade,good,3.34,2.66-4.19,2.22-5.01,GPa,0.78
+G049-01,M049,pa6 neat bk,tensileStrengthXY,this-grade,good,85,78.8-99.5,78-113,MPa,0.45
+G049-01,M049,pa6 neat bk,elongationXY,this-grade,fair,11.2,5.94-23,4.83-36,%,0.55
+G049-02,M049,STYX PA6,tensileModulusXY,this-grade,good,2.86,2.28-3.58,1.91-4.28,GPa,0.77
+G049-02,M049,STYX PA6,tensileStrengthXY,this-grade,good,69,56.7-85.2,52.5-96.7,MPa,0.67
+G049-02,M049,STYX PA6,elongationXY,this-grade,fair,3.8,2.39-6.51,2.04-9.04,%,0.74
+G049-03,M049,PA6 Low Warp,tensileModulusXY,this-grade,good,2.86,2.28-3.58,1.91-4.28,GPa,0.77
+G049-03,M049,PA6 Low Warp,tensileStrengthXY,this-grade,good,69,56.7-85.2,52.5-96.7,MPa,0.67
+G049-03,M049,PA6 Low Warp,elongationXY,this-grade,fair,3.8,2.39-6.51,2.04-9.04,%,0.74
+G049-04,M049,PA6 Neat NT,tensileModulusXY,this-grade,good,3.18,2.54-3.99,2.12-4.76,GPa,0.77
+G049-04,M049,PA6 Neat NT,tensileStrengthXY,this-grade,good,88.3,81-105,80-120,MPa,0.43
+G049-04,M049,PA6 Neat NT,elongationXY,this-grade,fair,10.7,5.63-22,4.44-33.9,%,0.53
+G049-05,M049,Fishy Filaments’ Porthcurno,tensileModulusXY,this-grade,good,2.26,1.8-2.84,1.5-3.39,GPa,0.78
+G049-05,M049,Fishy Filaments’ Porthcurno,tensileStrengthXY,this-grade,good,62.9,59.2-70.3,59-76.2,MPa,0.8
+G049-05,M049,Fishy Filaments’ Porthcurno,elongationXY,this-grade,good,62.4,52.8-88.6,51.1-117,%,0.74
+G049-06,M049,PA-6,tensileModulusXY,this-grade,good,2.23,1.78-2.8,1.49-3.34,GPa,0.77
+G049-06,M049,PA-6,tensileStrengthXY,this-grade,good,57.4,52.2-66.4,51-72.8,MPa,0.8
+G049-06,M049,PA-6,elongationXY,this-grade,good,61.2,52.2-87.1,50.7-116,%,0.68
+G049-07,M049,PA,tensileModulusXY,this-grade,fair,2.12,1.47-3.03,1.11-4.02,GPa,0.44
+G049-07,M049,PA,tensileStrengthXY,this-material,fair,54.7,37.4-79.9,30-99.4,MPa,0
+G049-07,M049,PA,elongationXY,this-grade,good,14.5,10.7-23.1,10.1-31.7,%,0.74
+G049-08,M049,PA Rail,elongationXY,this-grade,fair,4.18,2.18-8.69,1.76-13.9,%,0.86
+G049-09,M049,WearX Wear Resistant PA6 Copolymer,tensileModulusXY,this-grade,good,2.55,2.04-3.2,1.7-3.82,GPa,0.77
+G049-09,M049,WearX Wear Resistant PA6 Copolymer,tensileStrengthXY,this-grade,good,65.8,62.1-73.9,62-81,MPa,0.67
+G049-09,M049,WearX Wear Resistant PA6 Copolymer,elongationXY,this-grade,good,23.4,18.9-35,18.1-47,%,0.73
+G050-02,M050,PA6 CF,tensileModulusXY,this-material,poor,5.96,3.76-9.45,2.61-13.6,GPa,0
+G050-02,M050,PA6 CF,tensileStrengthXY,this-grade,good,82.3,76-95.4,75-107,MPa,0.66
+G050-02,M050,PA6 CF,elongationXY,this-material,poor,6.31,2.19-18.2,1.16-34.1,%,0
+G050-03,M050,PA6 Low Warp CF15S,tensileModulusXY,this-grade,good,8.38,6.7-10.5,5.62-12.5,GPa,0.76
+G050-03,M050,PA6 Low Warp CF15S,tensileStrengthXY,this-grade,good,130,120-149,120-165,MPa,0.65
+G050-03,M050,PA6 Low Warp CF15S,elongationXY,this-grade,good,5.52,4.24-8.54,4.04-11.6,%,0.72
+G050-04,M050,PA6 CF15,tensileModulusXY,this-grade,good,12.2,9.74-15.3,8.17-18.2,GPa,0.76
+G050-04,M050,PA6 CF15,tensileStrengthXY,this-grade,good,181,170-207,170-231,MPa,0.41
+G050-04,M050,PA6 CF15,elongationXY,this-grade,fair,4.54,2.55-9.07,2.13-14.1,%,0.52
+G050-05,M050,DURAPRO PA6 CF,tensileModulusXY,this-grade,fair,5.2,3.45-7.84,2.49-10.9,GPa,0.19
+G050-05,M050,DURAPRO PA6 CF,tensileStrengthXY,this-grade,good,124,120-133,120-141,MPa,0.82
+G050-05,M050,DURAPRO PA6 CF,elongationXY,this-grade,good,3.91,3.15-5.63,3.03-7.27,%,0.81
+G050-06,M050,PA6-CF,tensileModulusXY,this-grade,good,9.03,7.45-11,6.41-12.7,GPa,0.82
+G050-09,M050,Fishy Filaments’ 0rCA,tensileModulusXY,this-grade,good,4.09,3.26-5.12,2.73-6.11,GPa,0.76
+G050-09,M050,Fishy Filaments’ 0rCA,tensileStrengthXY,this-grade,fair,93.4,76.6-125,73-148,MPa,0.26
+G050-09,M050,Fishy Filaments’ 0rCA,elongationXY,this-grade,good,19.7,16.5-28.2,16-37.1,%,0.73
+G050-12,M050,PA-6 CF,elongationXY,this-grade,fair,6.74,3.82-14.5,3.36-23.6,%,0.37
+G050-13,M050,STYX PA6-CF15,tensileModulusXY,this-grade,good,8.38,6.7-10.5,5.62-12.5,GPa,0.76
+G050-13,M050,STYX PA6-CF15,tensileStrengthXY,this-grade,good,130,120-149,120-165,MPa,0.65
+G050-13,M050,STYX PA6-CF15,elongationXY,this-grade,good,5.52,4.24-8.54,4.04-11.6,%,0.72
+G050-14,M050,PA6-CF,tensileModulusXY,this-grade,fair,4.1,2.88-5.83,2.18-7.68,GPa,0.42
+G050-14,M050,PA6-CF,tensileStrengthXY,this-grade,good,76.8,63.7-99.2,60.7-116,MPa,0.41
+G050-14,M050,PA6-CF,elongationXY,this-grade,good,8.05,6.32-12.4,6.08-16.8,%,0.73
+G051-04,M051,PA6 Low Warp GF30,tensileModulusXY,this-grade,good,5.33,4.25-6.66,3.57-7.94,GPa,0.76
+G051-04,M051,PA6 Low Warp GF30,tensileStrengthXY,this-grade,good,91.4,81.9-109,80-122,MPa,0.65
+G051-04,M051,PA6 Low Warp GF30,elongationXY,this-grade,good,4.33,3.24-7.06,3.07-9.89,%,0.67
+G051-05,M051,DURAPRO PA6 GF,density,this-grade,good,1210,1190-1240,1170-1260,kg/m³,0.89
+G051-05,M051,DURAPRO PA6 GF,tensileModulusXY,this-grade,fair,2.59,2.03-3.3,1.68-3.99,GPa,0.73
+G051-05,M051,DURAPRO PA6 GF,tensileStrengthXY,this-grade,fair,62.5,48-81.4,41.2-94.8,MPa,0.49
+G051-05,M051,DURAPRO PA6 GF,elongationXY,this-grade,fair,2.94,1.52-5.65,1.03-8.36,%,0.62
+G051-06,M051,PA6-GF,tensileModulusXY,this-grade,good,5.86,4.83-7.11,4.15-8.27,GPa,0.82
+G051-07,M051,PA6-GF20,tensileModulusXY,this-grade,fair,1.66,1.09-2.52,0.79-3.5,GPa,0.17
+G051-08,M051,Polyamid 6 glass fiber 10% (PA6 GF10),tensileModulusXY,this-grade,good,6.11,4.88-7.65,4.08-9.13,GPa,0.77
+G051-08,M051,Polyamid 6 glass fiber 10% (PA6 GF10),tensileStrengthXY,this-grade,good,112,99.6-134,97-151,MPa,0.64
+G051-08,M051,Polyamid 6 glass fiber 10% (PA6 GF10),elongationXY,this-grade,good,6.91,5.37-10.7,5.13-14.5,%,0.73
+G051-10,M051,STYX PA6-GF30,tensileModulusXY,this-grade,good,5.33,4.25-6.66,3.57-7.94,GPa,0.76
+G051-10,M051,STYX PA6-GF30,tensileStrengthXY,this-grade,good,91.4,81.9-109,80-122,MPa,0.65
+G051-10,M051,STYX PA6-GF30,elongationXY,this-grade,good,4.33,3.24-7.06,3.07-9.89,%,0.67
+G051-11,M051,PA6/66-GF30-FR,density,this-material,fair,1260,1180-1350,1110-1420,kg/m³,0
+G051-11,M051,PA6/66-GF30-FR,tensileModulusXY,this-grade,fair,7.77,5.93-10.2,4.8-12.6,GPa,0.68
+G051-11,M051,PA6/66-GF30-FR,tensileStrengthXY,this-grade,good,101,84.1-121,76-134,MPa,0.77
+G051-11,M051,PA6/66-GF30-FR,elongationXY,this-grade,fair,2.08,0.975-4.44,0.619-6.98,%,0.52
+G052-01,M052,AMIDEX Nylon 12,density,this-material,good,1010,973-1050,942-1060,kg/m³,0
+G052-01,M052,AMIDEX Nylon 12,tensileModulusXY,this-material,poor,1.41,0.891-2.25,0.619-3.23,GPa,0
+G052-01,M052,AMIDEX Nylon 12,tensileStrengthXY,this-material,fair,48.9,33.6-71.1,27.1-88.1,MPa,0
+G052-01,M052,AMIDEX Nylon 12,elongationXY,this-material,poor,32.4,11.1-94.2,5.85-179,%,0
+G052-02,M052,DURAPRO PA12,density,this-grade,good,1010,991-1030,972-1040,kg/m³,0.9
+G052-02,M052,DURAPRO PA12,tensileModulusXY,this-grade,good,1.36,1.13-1.62,0.99-1.86,GPa,0.86
+G052-02,M052,DURAPRO PA12,tensileStrengthXY,this-grade,good,52.2,50-57,50-61,MPa,0.8
+G052-02,M052,DURAPRO PA12,elongationXY,this-grade,good,61.7,52.2-85.4,50.6-111,%,0.78
+G052-03,M052,Polyamide 12 (PA12),tensileModulusXY,this-grade,good,1.5,1.2-1.89,1-2.26,GPa,0.78
+G052-03,M052,Polyamide 12 (PA12),tensileStrengthXY,this-grade,good,67.8,61.2-80.6,60-90.8,MPa,0.65
+G052-03,M052,Polyamide 12 (PA12),elongationXY,this-grade,good,68.2,53-105,50.6-143,%,0.74
+G052-04,M052,ePA12,tensileModulusXY,this-grade,fair,0.721,0.566-0.919,0.468-1.12,GPa,0.73
+G052-04,M052,ePA12,tensileStrengthXY,this-grade,fair,45.5,32.4-63.6,26.7-77.2,MPa,0.2
+G052-04,M052,ePA12,elongationXY,this-grade,fair,57.4,29.7-111,20-165,%,0.63
+G052-05,M052,STYX-12,tensileModulusXY,this-grade,good,1.39,1.11-1.75,0.93-2.08,GPa,0.77
+G052-05,M052,STYX-12,tensileStrengthXY,this-grade,good,67.4,61.1-79.8,60-89.6,MPa,0.65
+G052-05,M052,STYX-12,elongationXY,this-grade,good,185,156-263,151-352,%,0.68
+G052-06,M052,Nylon PA12,tensileModulusXY,this-grade,good,1.43,1.13-1.79,0.953-2.14,GPa,0.77
+G052-06,M052,Nylon PA12,tensileStrengthXY,this-grade,good,56.8,51.7-66.8,51-74.8,MPa,0.65
+G052-06,M052,Nylon PA12,elongationXY,this-grade,good,228,206-291,200-367,%,0.68
+G052-07,M052,R Nylon,tensileModulusXY,this-grade,good,1.43,1.13-1.79,0.953-2.14,GPa,0.77
+G052-07,M052,R Nylon,tensileStrengthXY,this-grade,good,56.8,51.7-66.8,51-74.8,MPa,0.65
+G052-07,M052,R Nylon,elongationXY,this-grade,good,228,206-291,200-367,%,0.68
+G052-R1,M052,310-21800 (PA12),tensileModulusXY,this-grade,good,1.48,1.37-1.6,1.3-1.7,GPa,0.98
+G052-R1,M052,310-21800 (PA12),tensileStrengthXY,this-grade,good,50.5,49.3-53.6,49.3-56.6,MPa,0.84
+G052-R1,M052,310-21800 (PA12),elongationXY,this-grade,good,34.6,30.5-45.5,30-57.2,%,0.79
+G053-03,M053,pa12 cf15,tensileModulusXY,this-grade,good,6.88,5.51-8.6,4.62-10.3,GPa,0.75
+G053-03,M053,pa12 cf15,tensileStrengthXY,this-grade,good,137,127-163,125-185,MPa,0.25
+G053-03,M053,pa12 cf15,elongationXY,this-grade,good,6.83,5.37-10.5,5.12-14.3,%,0.72
+G053-04,M053,DURAPRO PA12 CF,tensileModulusXY,this-grade,fair,2.84,2.23-3.61,1.84-4.36,GPa,0.72
+G053-04,M053,DURAPRO PA12 CF,tensileStrengthXY,this-grade,fair,69,49.7-95.8,41.1-116,MPa,0.19
+G053-04,M053,DURAPRO PA12 CF,elongationXY,this-grade,fair,12,6.03-23.8,3.99-35.8,%,0.57
+G053-05,M053,PA12-CF,tensileModulusXY,this-grade,good,5.56,4.58-6.75,3.94-7.86,GPa,0.82
+G053-06,M053,PA12-CF,tensileModulusXY,this-grade,good,3.05,2.52-3.7,2.17-4.29,GPa,0.82
+G053-09,M053,Industrial PA12 CF,density,this-material,fair,1070,1010-1120,967-1180,kg/m³,0
+G053-10,M053,PA12-CF,tensileModulusXY,this-grade,good,1.54,1.26-1.89,1.07-2.22,GPa,0.81
+G053-11,M053,PA12 CF,tensileModulusXY,this-grade,good,2.72,2.17-3.41,1.82-4.07,GPa,0.77
+G053-11,M053,PA12 CF,tensileStrengthXY,this-grade,good,58.8,53.1-69.5,52-78,MPa,0.66
+G053-11,M053,PA12 CF,elongationXY,this-material,poor,6.28,2.06-19.1,1.06-37.2,%,0
+G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),tensileModulusXY,this-grade,good,7.77,6.19-9.74,5.18-11.7,GPa,0.78
+G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),tensileStrengthXY,this-grade,good,120,111-141,110-157,MPa,0.64
+G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),elongationXY,this-grade,good,6.58,4.92-10.5,4.63-14.4,%,0.74
+G053-13,M053,PA12CF,density,this-grade,good,1120,1100-1150,1080-1170,kg/m³,0.89
+G053-13,M053,PA12CF,tensileModulusXY,this-grade,good,4.85,4.23-5.55,3.8-6.18,GPa,0.91
+G053-13,M053,PA12CF,tensileStrengthXY,this-grade,good,80.6,67.5-96.1,61-107,MPa,0.77
+G053-13,M053,PA12CF,elongationXY,this-grade,fair,4.46,2.32-8.56,1.57-12.7,%,0.62
+G053-14,M053,Nylon CF15 Carbon,tensileModulusXY,this-grade,fair,3.14,2.04-4.83,1.45-6.78,GPa,0.11
+G053-14,M053,Nylon CF15 Carbon,tensileStrengthXY,this-grade,good,68.7,57.4-88.3,55-103,MPa,0.42
+G053-14,M053,Nylon CF15 Carbon,elongationXY,this-grade,good,116,104-151,103-188,%,0.72
+G053-15,M053,Carbon Fiber Nylon,tensileModulusXY,this-grade,fair,3.2,2.25-4.54,1.71-5.98,GPa,0.42
+G053-15,M053,Carbon Fiber Nylon,tensileStrengthXY,this-grade,good,72.3,67.2-82.2,66.3-89.5,MPa,0.79
+G053-15,M053,Carbon Fiber Nylon,elongationXY,this-grade,good,10.4,8.48-15.3,8.15-20.6,%,0.73
+G053-16,M053,Nylon PA12+CF15,tensileModulusXY,this-grade,good,6.51,5.21-8.14,4.37-9.7,GPa,0.76
+G053-16,M053,Nylon PA12+CF15,tensileStrengthXY,this-grade,good,133,122-158,120-180,MPa,0.26
+G053-16,M053,Nylon PA12+CF15,elongationXY,this-grade,good,7.11,5.42-11.2,5.15-15.2,%,0.72
+G054-02,M054,NylonG,tensileModulusXY,this-grade,good,4.01,3.18-5.05,2.66-6.05,GPa,0.8
+G054-02,M054,NylonG,tensileStrengthXY,this-grade,good,106,96.6-130,95-149,MPa,0.47
+G054-02,M054,NylonG,elongationXY,this-material,poor,4.28,1.37-13.4,0.698-26.3,%,0
+G054-03,M054,Nylon PA12+GF15,tensileModulusXY,this-grade,good,3.44,2.73-4.33,2.28-5.18,GPa,0.8
+G054-03,M054,Nylon PA12+GF15,tensileStrengthXY,this-grade,good,90.7,75.5-120,72.5-144,MPa,0.29
+G054-03,M054,Nylon PA12+GF15,elongationXY,this-grade,good,10.6,8.49-16,8.2-21.6,%,0.76
+G055-R1,M055,Zytel 101L NC010 (PA66 resin),density,this-grade,good,1070,1030-1110,1030-1160,kg/m³,0.52
+G055-R1,M055,Zytel 101L NC010 (PA66 resin),tensileModulusXY,this-grade,good,2.57,2.12-3.12,1.83-3.62,GPa,0.9
+G055-R1,M055,Zytel 101L NC010 (PA66 resin),tensileStrengthXY,this-grade,fair,61.8,46.5-82,39.5-96.6,MPa,0.56
+G055-R1,M055,Zytel 101L NC010 (PA66 resin),elongationXY,this-grade,fair,22.6,11.2-45.3,7.45-68.6,%,0.7
+G057-04,M057,PA Nylon Filament (1kg) Natural,tensileModulusXY,this-grade,fair,1.37,1.07-1.75,0.885-2.12,GPa,0.74
+G057-04,M057,PA Nylon Filament (1kg) Natural,tensileStrengthXY,this-grade,fair,52,37.1-72.9,30.5-88.5,MPa,0.2
+G057-04,M057,PA Nylon Filament (1kg) Natural,elongationXY,this-grade,fair,53.2,27.5-103,18.5-153,%,0.63
+G057-05,M057,PA6/66,tensileModulusXY,this-grade,good,2.11,1.67-2.65,1.4-3.17,GPa,0.79
+G057-05,M057,PA6/66,tensileStrengthXY,this-grade,good,70.7,66.3-80.4,66-88.6,MPa,0.68
+G057-05,M057,PA6/66,elongationXY,this-material,poor,30.2,9.62-95.1,4.84-189,%,0
+G057-06,M057,Easy PA,tensileModulusXY,this-grade,good,2.06,1.73-2.44,1.52-2.78,GPa,0.88
+G057-07,M057,ePA,tensileModulusXY,this-grade,fair,1.37,1.07-1.75,0.885-2.12,GPa,0.74
+G057-07,M057,ePA,tensileStrengthXY,this-grade,fair,52,37.1-72.9,30.5-88.5,MPa,0.2
+G057-07,M057,ePA,elongationXY,this-grade,fair,53.2,27.5-103,18.5-153,%,0.63
+G058-R1,M058,Zytel 151L NC010 (PA612 resin),density,this-grade,good,1060,1030-1080,1010-1090,kg/m³,0.98
+G058-R1,M058,Zytel 151L NC010 (PA612 resin),tensileModulusXY,this-grade,fair,2.12,1.63-2.76,1.33-3.39,GPa,0.85
+G058-R1,M058,Zytel 151L NC010 (PA612 resin),tensileStrengthXY,this-grade,fair,51.8,38.8-69,32.9-81.4,MPa,0.58
+G058-R1,M058,Zytel 151L NC010 (PA612 resin),elongationXY,this-grade,fair,44,21.9-88.2,14.4-134,%,0.7
+G059-03,M059,Industrial PA12 CF+,tensileModulusXY,this-grade,good,3.78,3.04-4.68,2.57-5.54,GPa,0.82
+G059-03,M059,Industrial PA12 CF+,tensileStrengthXY,this-grade,good,78.4,69.9-93.6,68-106,MPa,0.71
+G059-03,M059,Industrial PA12 CF+,elongationXY,this-grade,fair,2.85,1.33-6.08,0.846-9.58,%,0.54
+G064-01,M064,3DXSTAT ESD PA12,tensileModulusXY,this-grade,fair,6.3,4.95-8.03,4.09-9.71,GPa,0.89
+G064-01,M064,3DXSTAT ESD PA12,tensileStrengthXY,this-grade,good,72.9,68.3-82.8,68-91.7,MPa,0.78
+G064-01,M064,3DXSTAT ESD PA12,elongationXY,this-grade,good,5.56,4.12-8.98,3.87-12.5,%,0.79
+G066-01,M066,High Precision PET,tensileModulusXY,this-grade,good,2.58,2.06-3.24,1.72-3.86,GPa,0.77
+G066-01,M066,High Precision PET,tensileStrengthXY,this-grade,good,65,60.1-74.1,59.4-81,MPa,0.79
+G066-01,M066,High Precision PET,elongationXY,this-grade,good,8.06,5.73-13.1,5.32-18.1,%,0.73
+G066-02,M066,ecoPET 9021,tensileModulusXY,this-grade,good,2.93,2.34-3.68,1.96-4.39,GPa,0.77
+G066-02,M066,ecoPET 9021,tensileStrengthXY,this-grade,good,60.1,55.6-69.4,55-77.3,MPa,0.66
+G066-02,M066,ecoPET 9021,elongationXY,this-grade,fair,7.16,3.58-14.9,2.64-23.2,%,0.53
+G066-03,M066,PET HIGH SPEED PRO,density,this-material,good,1340,1270-1400,1230-1430,kg/m³,0
+G066-04,M066,PET ULTRA HIGH SPEED,density,this-material,good,1340,1270-1400,1230-1430,kg/m³,0
+G066-05,M066,PET Flex Max,density,this-material,fair,1210,1130-1300,1050-1400,kg/m³,0
+G066-06,M066,Facilan HT,tensileModulusXY,this-grade,good,2.18,1.73-2.74,1.45-3.27,GPa,0.78
+G066-06,M066,Facilan HT,tensileStrengthXY,this-grade,good,67,62.5-76.4,62-84.6,MPa,0.67
+G066-06,M066,Facilan HT,elongationXY,this-grade,fair,13.5,8.14-26.5,7.27-40.9,%,0.55
+G066-07,M066,EasyFil PET,tensileModulusXY,this-grade,good,2.53,2.02-3.18,1.69-3.79,GPa,0.77
+G066-07,M066,EasyFil PET,tensileStrengthXY,this-grade,good,82.5,75.9-96.4,74.4-108,MPa,0.64
+G066-07,M066,EasyFil PET,elongationXY,this-grade,good,6.51,4.52-10.8,4.16-15,%,0.73
+G067-03,M067,PET CF15,tensileModulusXY,this-grade,good,8.25,6.6-10.4,5.53-12.4,GPa,0.76
+G067-03,M067,PET CF15,tensileStrengthXY,this-grade,good,89.5,81.4-106,80-118,MPa,0.66
+G067-03,M067,PET CF15,elongationXY,this-grade,fair,4.6,2.87-8.89,2.6-13.6,%,0.53
+G067-05,M067,Industrial PET CF,tensileModulusXY,this-grade,good,5.59,5.26-5.93,5.02-6.22,GPa,0.98
+G067-05,M067,Industrial PET CF,tensileStrengthXY,this-grade,good,74.3,73-76.8,73-78.4,MPa,0.99
+G067-05,M067,Industrial PET CF,elongationXY,this-grade,good,2.49,2.19-2.83,2.03-3.05,%,0.99
+G067-06,M067,Ultrafuse PET CF15,density,this-material,fair,1320,1260-1400,1230-1480,kg/m³,0
+G067-06,M067,Ultrafuse PET CF15,tensileModulusXY,this-grade,good,6.18,6.17-6.18,6.17-6.18,GPa,1
+G067-06,M067,Ultrafuse PET CF15,tensileStrengthXY,this-grade,good,63.2,63.2-63.3,63.2-63.3,MPa,1
+G067-06,M067,Ultrafuse PET CF15,elongationXY,this-grade,good,3.7,3.69-3.71,3.69-3.71,%,1
+G067-07,M067,Hyper Speed PET CF,tensileModulusXY,this-grade,good,4.91,4.69-5.15,4.52-5.34,GPa,0.99
+G067-07,M067,Hyper Speed PET CF,tensileStrengthXY,this-grade,good,55.1,55-55.6,55-55.9,MPa,1
+G067-07,M067,Hyper Speed PET CF,elongationXY,this-grade,good,3.91,3.28-4.67,2.95-5.2,%,0.97
+G067-08,M067,PET CF,tensileModulusXY,this-grade,good,4.41,3.62-5.36,3.11-6.24,GPa,0.83
+G068-01,M068,PET-GF,tensileModulusXY,this-grade,good,2.87,2.36-3.49,2.02-4.06,GPa,0.84
+G068-04,M068,Industrial PET GF,density,this-material,fair,1390,1310-1470,1250-1560,kg/m³,0
+G068-05,M068,PET-GF,tensileModulusXY,this-grade,good,3.83,3.29-4.47,2.92-5.03,GPa,0.91
+G069-02,M069,Fibreheart PPA,tensileModulusXY,this-grade,good,3.5,2.77-4.42,2.3-5.31,GPa,0.83
+G069-02,M069,Fibreheart PPA,tensileStrengthXY,this-grade,good,81.9,74.3-97.2,72.7-110,MPa,0.71
+G069-02,M069,Fibreheart PPA,elongationXY,this-grade,good,14.1,11.1-21.4,10.7-29,%,0.77
+G070-02,M070,Fibreheart PPA-CF,tensileModulusXY,this-grade,good,8.23,6.56-10.4,5.49-12.4,GPa,0.78
+G070-02,M070,Fibreheart PPA-CF,tensileStrengthXY,this-grade,good,110,98.5-131,96-148,MPa,0.67
+G070-02,M070,Fibreheart PPA-CF,elongationXY,this-grade,good,2.74,2.14-4.2,2.04-5.68,%,0.74
+G070-03,M070,Fibreheart PPA-CF Core,tensileModulusXY,this-grade,good,9.36,7.47-11.8,6.25-14.1,GPa,0.78
+G070-03,M070,Fibreheart PPA-CF Core,tensileStrengthXY,this-grade,good,127,114-151,112-169,MPa,0.67
+G070-03,M070,Fibreheart PPA-CF Core,elongationXY,this-grade,good,3.02,2.38-4.59,2.27-6.22,%,0.74
+G070-04,M070,Industrial PPA CF,tensileModulusXY,this-grade,fair,13.8,10.1-18.7,7.98-23.8,GPa,0.58
+G070-04,M070,Industrial PPA CF,tensileStrengthXY,this-grade,good,143,125-176,122-202,MPa,0.51
+G070-04,M070,Industrial PPA CF,elongationXY,this-material,poor,1.77,0.596-5.27,0.313-10.2,%,0
+G070-08,M070,Hyper Core PPA CF25,tensileModulusXY,this-grade,fair,13.5,10.2-17.7,8.32-21.8,GPa,0.67
+G070-08,M070,Hyper Core PPA CF25,tensileStrengthXY,this-grade,good,146,119-187,112-216,MPa,0.53
+G070-08,M070,Hyper Core PPA CF25,elongationXY,this-grade,poor,1.63,0.675-3.96,0.397-6.73,%,0.35
+G071-04,M071,Industrial PPA GF,density,this-material,fair,1280,1210-1360,1140-1430,kg/m³,0
+G071-04,M071,Industrial PPA GF,tensileModulusXY,this-grade,fair,8.75,6.42-12,5.03-15.2,GPa,0.59
+G071-04,M071,Industrial PPA GF,tensileStrengthXY,this-grade,fair,127,99.8-169,92.1-200,MPa,0.43
+G071-04,M071,Industrial PPA GF,elongationXY,this-material,poor,1.84,0.601-5.61,0.311-11.1,%,0
+G071-05,M071,Hyper Core PPA GF25,tensileModulusXY,this-grade,fair,9.71,7.4-12.8,5.98-15.8,GPa,0.69
+G071-05,M071,Hyper Core PPA GF25,tensileStrengthXY,this-grade,fair,138,109-178,101-206,MPa,0.55
+G071-05,M071,Hyper Core PPA GF25,elongationXY,this-grade,poor,1.75,0.711-4.32,0.414-7.42,%,0.36
+G072-02,M072,pps am230,tensileModulusXY,this-grade,fair,3.05,2.37-3.92,1.95-4.77,GPa,0.78
+G072-02,M072,pps am230,tensileStrengthXY,this-grade,fair,49.2,36.3-66.7,30.5-79.4,MPa,0.45
+G072-02,M072,pps am230,elongationXY,this-grade,fair,2.85,1.44-5.6,0.963-8.41,%,0.66
+G073-02,M073,Essentium PPS-CF,density,this-grade,good,1480,1450-1510,1420-1530,kg/m³,0.95
+G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,tensileModulusXY,this-grade,good,8.64,7.17-10.4,6.19-12.1,GPa,0.86
+G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,tensileStrengthXY,this-grade,fair,75.3,53.4-107,43.8-130,MPa,0.21
+G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,elongationXY,this-material,poor,1.45,0.451-4.64,0.234-9.38,%,0
+G073-07,M073,Industrial PPS CF,tensileModulusXY,this-grade,good,4.59,4.26-4.95,4.02-5.24,GPa,0.98
+G073-07,M073,Industrial PPS CF,tensileStrengthXY,this-grade,good,51.7,50-54.2,50-56,MPa,0.98
+G073-07,M073,Industrial PPS CF,elongationXY,this-grade,fair,1.48,0.931-2.36,0.706-3.11,%,0.82
+G075-01,M075,PVA,tensileModulusXY,this-material,poor,2.82,1.72-4.6,1.17-6.77,GPa,0
+G075-01,M075,PVA,tensileStrengthXY,this-material,fair,34.5,23.5-50.6,18.8-63.1,MPa,0
+G075-01,M075,PVA,elongationXY,this-material,poor,19.8,6.61-59.4,3.42-115,%,0
+G075-02,M075,PVA,tensileModulusXY,this-material,poor,3.44,2.11-5.62,1.43-8.27,GPa,0
+G075-03,M075,PVA,tensileModulusXY,this-material,poor,3.22,1.93-5.36,1.29-8.01,GPa,0
+G075-03,M075,PVA,tensileStrengthXY,this-grade,good,33.1,26.8-41.1,24.6-46.7,MPa,0.69
+G075-03,M075,PVA,elongationXY,this-grade,fair,3.88,2.4-6.7,2.03-9.42,%,0.76
+G075-04,M075,AquaSolve - PVA,tensileModulusXY,this-grade,good,3.73,2.96-4.69,2.47-5.61,GPa,0.79
+G075-04,M075,AquaSolve - PVA,tensileStrengthXY,this-grade,good,83.4,78.3-94.6,78-105,MPa,0.66
+G075-04,M075,AquaSolve - PVA,elongationXY,this-grade,good,14.6,10.7-23.5,10-32.2,%,0.75
+G075-05,M075,PVA,tensileModulusXY,this-material,poor,2.82,1.72-4.6,1.17-6.75,GPa,0
+G075-05,M075,PVA,tensileStrengthXY,this-grade,fair,32.7,23.2-46,19-56,MPa,0.21
+G075-05,M075,PVA,elongationXY,this-grade,fair,67.5,34.7-132,23.2-196,%,0.64
+G075-06,M075,Helios Support,tensileModulusXY,this-material,poor,3.39,2.08-5.5,1.42-8.06,GPa,0
+G075-06,M075,Helios Support,tensileStrengthXY,this-material,fair,41.6,28.3-61,22.7-76,MPa,0
+G075-06,M075,Helios Support,elongationXY,this-material,poor,20,6.67-60,3.45-116,%,0
+G075-08,M075,Polyvinyl alcohol (PVA),tensileModulusXY,this-material,poor,3.48,2.08-5.81,1.39-8.7,GPa,0
+G075-08,M075,Polyvinyl alcohol (PVA),tensileStrengthXY,this-grade,good,35.7,30.2-44.1,28.8-50.1,MPa,0.67
+G075-08,M075,Polyvinyl alcohol (PVA),elongationXY,this-material,poor,26.2,8.3-82.6,4.17-165,%,0
+G075-09,M075,Premium PVA+,tensileModulusXY,this-grade,good,3.4,2.7-4.28,2.25-5.12,GPa,0.8
+G075-09,M075,Premium PVA+,tensileStrengthXY,this-material,fair,36.5,24.8-53.6,19.9-67,MPa,0
+G075-09,M075,Premium PVA+,elongationXY,this-material,poor,13.9,4.59-42.2,2.36-82,%,0
+G075-10,M075,Atlas Support,tensileModulusXY,this-grade,good,3.47,2.76-4.36,2.3-5.22,GPa,0.79
+G075-10,M075,Atlas Support,tensileStrengthXY,this-material,fair,41.6,28.3-61,22.7-76,MPa,0
+G075-10,M075,Atlas Support,elongationXY,this-material,poor,20,6.67-60,3.45-116,%,0
+G075-11,M075,PolyDissolve S1,tensileModulusXY,this-material,poor,3.2,1.96-5.21,1.33-7.65,GPa,0
+G075-11,M075,PolyDissolve S1,tensileStrengthXY,this-material,fair,35.6,24.3-52.2,19.5-65.1,MPa,0
+G075-11,M075,PolyDissolve S1,elongationXY,this-material,poor,14,4.68-41.9,2.42-80.6,%,0
+G076-01,M076,BVOH,tensileModulusXY,this-grade,good,2.37,1.87-3,1.56-3.6,GPa,0.83
+G076-01,M076,BVOH,tensileStrengthXY,this-grade,good,38,34.5-44.9,34-50.5,MPa,0.71
+G076-01,M076,BVOH,elongationXY,this-grade,good,13.1,9.69-20.9,9.19-29,%,0.78
+G076-03,M076,BVOH,tensileModulusXY,this-material,poor,2.59,1.54-4.35,1.03-6.52,GPa,0
+G076-03,M076,BVOH,tensileStrengthXY,this-material,fair,41.4,27.7-61.9,22-78,MPa,0
+G076-03,M076,BVOH,elongationXY,this-material,poor,15.9,5.08-49.5,2.57-97.9,%,0
+G076-04,M076,BVOH,tensileModulusXY,this-grade,fair,2.6,1.78-3.8,1.32-5.13,GPa,0.49
+G076-04,M076,BVOH,tensileStrengthXY,this-grade,good,49.9,45.6-58.7,45-65.7,MPa,0.71
+G076-04,M076,BVOH,elongationXY,this-grade,good,13.5,9.81-21.8,9.2-30.3,%,0.77
+G077-01,M077,Support for PLA (New Version),tensileModulusXY,family,poor,1.25,0.195-7.87,0.0442-22.6,GPa,0
+G077-01,M077,Support for PLA (New Version),tensileStrengthXY,family,poor,37.3,18.2-76.5,12-116,MPa,0
+G077-01,M077,Support for PLA (New Version),elongationXY,family,poor,14.2,1.68-119,0.496-418,%,0
+G077-02,M077,PolySupport,tensileModulusXY,family,poor,1.42,0.221-8.69,0.0502-24.1,GPa,0
+G077-02,M077,PolySupport,tensileStrengthXY,family,poor,38.6,18.8-79,12.4-120,MPa,0
+G077-02,M077,PolySupport,elongationXY,family,poor,10,1.22-84,0.372-304,%,0
+G078-01,M078,Support for PLA/PETG,tensileModulusXY,family,poor,1.25,0.195-7.87,0.0442-22.6,GPa,0
+G078-01,M078,Support for PLA/PETG,tensileStrengthXY,family,poor,37.3,18.2-76.5,12-116,MPa,0
+G078-01,M078,Support for PLA/PETG,elongationXY,family,poor,14.2,1.68-119,0.496-418,%,0
+G079-01,M079,Support for ABS,tensileModulusXY,family,poor,1.25,0.195-7.87,0.0442-22.6,GPa,0
+G079-01,M079,Support for ABS,tensileStrengthXY,family,poor,37.3,18.2-76.5,12-116,MPa,0
+G079-01,M079,Support for ABS,elongationXY,family,poor,14.2,1.68-119,0.496-418,%,0
+G079-02,M079,S-White,tensileModulusXY,family,poor,1.39,0.215-8.51,0.0488-23.6,GPa,0
+G079-02,M079,S-White,tensileStrengthXY,family,poor,39.6,19.3-81.3,12.7-124,MPa,0
+G079-02,M079,S-White,elongationXY,family,poor,12.1,1.43-103,0.432-361,%,0
+G080-01,M080,Support for PA/PET,tensileModulusXY,family,poor,1.25,0.195-7.87,0.0442-22.6,GPa,0
+G080-01,M080,Support for PA/PET,tensileStrengthXY,family,poor,37.3,18.2-76.5,12-116,MPa,0
+G080-01,M080,Support for PA/PET,elongationXY,family,poor,14.2,1.68-119,0.496-418,%,0
+G080-02,M080,PolySupport for PA12,tensileModulusXY,family,poor,1.42,0.221-8.69,0.0502-24.1,GPa,0
+G080-02,M080,PolySupport for PA12,tensileStrengthXY,family,poor,38.6,18.8-79,12.4-120,MPa,0
+G080-02,M080,PolySupport for PA12,elongationXY,family,poor,10,1.22-84,0.372-304,%,0
+G080-03,M080,Industrial PET Support,density,this-material,fair,1230,1150-1300,1080-1390,kg/m³,0
+G080-03,M080,Industrial PET Support,tensileModulusXY,family,poor,1.4,0.217-8.56,0.0493-23.7,GPa,0
+G080-03,M080,Industrial PET Support,tensileStrengthXY,family,poor,39.5,19.2-81,12.7-123,MPa,0
+G080-03,M080,Industrial PET Support,elongationXY,family,poor,9.96,1.21-84.2,0.366-306,%,0
+G081-02,M081,hipsx,tensileModulusXY,this-grade,fair,1.76,1.24-2.49,0.942-3.28,GPa,0.42
+G081-02,M081,hipsx,tensileStrengthXY,this-grade,good,24.6,20.8-29.2,18.8-32.3,MPa,0.79
+G081-02,M081,hipsx,elongationXY,this-grade,good,60.7,51.4-84.6,50-111,%,0.73
+G081-03,M081,High impact Polystyrol (HIPS),tensileModulusXY,this-grade,good,2,1.59-2.51,1.33-3,GPa,0.77
+G081-03,M081,High impact Polystyrol (HIPS),tensileStrengthXY,this-grade,good,21.6,17.7-26.9,16.5-30.5,MPa,0.64
+G081-03,M081,High impact Polystyrol (HIPS),elongationXY,this-grade,good,62.6,51.7-90.1,50.3-120,%,0.73
+G081-04,M081,HIPS Extrafill,tensileModulusXY,this-grade,good,1.88,1.5-2.36,1.26-2.82,GPa,0.77
+G081-04,M081,HIPS Extrafill,tensileStrengthXY,this-grade,good,28.9,26.4-34,26-38,MPa,0.66
+G081-04,M081,HIPS Extrafill,elongationXY,this-grade,good,50,41.4-71.9,40.2-95.4,%,0.73
+G081-05,M081,HIPS,tensileModulusXY,this-grade,fair,1.85,1.45-2.36,1.2-2.85,GPa,0.72
+G081-05,M081,HIPS,tensileStrengthXY,this-grade,fair,24.3,17.4-33.9,14.4-41,MPa,0.19
+G081-05,M081,HIPS,elongationXY,this-grade,fair,21,10.9-40.4,7.4-59.8,%,0.62
+G081-06,M130,Insublend,tensileModulusXY,this-grade,fair,1.95,1.3-2.92,0.95-4.01,GPa,0.55
+G081-06,M130,Insublend,tensileStrengthXY,this-material,poor,49.8,31.1-79.9,23.6-105,MPa,0
+G081-06,M130,Insublend,elongationXY,this-grade,good,26.5,21-40.6,20.1-55.4,%,0.81
+G081-07,M081,FDM HIPS,density,this-material,good,1040,995-1080,971-1110,kg/m³,0
+G081-07,M081,FDM HIPS,tensileModulusXY,this-grade,good,1.98,1.98-1.99,1.98-1.99,GPa,1
+G081-07,M081,FDM HIPS,tensileStrengthXY,this-grade,good,27,26-28.8,26-30.2,MPa,0.91
+G081-07,M081,FDM HIPS,elongationXY,this-grade,good,10,10-10,10-10,%,1
+G081-08,M081,EasyFil HIPS,tensileModulusXY,this-grade,good,1.61,1.29-2.02,1.08-2.41,GPa,0.76
+G081-08,M081,EasyFil HIPS,tensileStrengthXY,this-grade,good,28.3,24.2-33.5,22.7-37,MPa,0.79
+G081-08,M081,EasyFil HIPS,elongationXY,this-grade,good,61.1,51.7-85.9,50.1-114,%,0.73
+G081-10,M081,HIPS,elongationXY,this-grade,fair,4.39,2.29-8.4,1.59-12.5,%,0.63
+G081-11,M081,HIPS,tensileModulusXY,this-grade,good,1.88,1.5-2.36,1.26-2.82,GPa,0.76
+G081-11,M081,HIPS,tensileStrengthXY,this-grade,good,29.3,26-35.2,25.3-39.7,MPa,0.64
+G081-11,M081,HIPS,elongationXY,this-grade,good,40.1,32.6-59.4,31.6-79.1,%,0.73
+G081-12,M081,LimoSolve,tensileModulusXY,this-grade,good,1.61,1.29-2.02,1.08-2.41,GPa,0.76
+G081-12,M081,LimoSolve,tensileStrengthXY,this-grade,good,28.3,24.2-33.5,22.7-37,MPa,0.79
+G081-12,M081,LimoSolve,elongationXY,this-grade,good,61.1,51.7-85.9,50.1-114,%,0.73
+G082-02,M082,PP,tensileModulusXY,this-grade,fair,0.512,0.357-0.733,0.269-0.973,GPa,0.44
+G082-02,M082,PP,tensileStrengthXY,this-grade,good,14.8,13.9-16.7,13.9-18.3,MPa,0.67
+G082-02,M082,PP,elongationXY,this-grade,good,550,472-763,460-993,%,0.73
+G082-03,M082,PP,tensileModulusXY,this-grade,fair,0.666,0.467-0.95,0.353-1.26,GPa,0.43
+G082-03,M082,PP,tensileStrengthXY,this-grade,good,27.1,26-29.8,26-32.4,MPa,0.64
+G082-03,M082,PP,elongationXY,this-grade,good,732,648-961,637-1220,%,0.73
+G082-04,M082,PP2.0,tensileModulusXY,this-grade,fair,0.626,0.472-0.831,0.378-1.04,GPa,0.65
+G082-05,M082,PP,tensileModulusXY,this-material,poor,0.792,0.496-1.27,0.343-1.83,GPa,0
+G082-06,M082,Polypropylene (PP),tensileModulusXY,this-grade,good,1.1,0.876-1.38,0.733-1.65,GPa,0.78
+G082-06,M082,Polypropylene (PP),tensileStrengthXY,this-grade,good,30.7,28.3-35.8,28-39.9,MPa,0.65
+G082-06,M082,Polypropylene (PP),elongationXY,this-grade,fair,25.8,15.9-44.7,13.1-62,%,0.73
+G082-07,M082,PP 2320,tensileModulusXY,this-grade,good,1.16,0.923-1.46,0.772-1.74,GPa,0.78
+G082-07,M082,PP 2320,tensileStrengthXY,this-grade,good,25.4,23.2-30.2,23-34.5,MPa,0.43
+G082-07,M082,PP 2320,elongationXY,this-grade,fair,35.9,23.5-60.6,21-84,%,0.73
+G082-08,M082,PP,tensileModulusXY,this-material,poor,0.74,0.454-1.21,0.309-1.78,GPa,0
+G082-08,M082,PP,tensileStrengthXY,this-grade,good,25.3,23.3-29.8,23-33.5,MPa,0.57
+G082-08,M082,PP,elongationXY,this-grade,good,114,86.3-184,81.9-259,%,0.69
+G082-09,M082,P,tensileModulusXY,this-material,poor,0.722,0.451-1.16,0.311-1.68,GPa,0
+G082-09,M082,P,tensileStrengthXY,this-material,fair,17.1,11.7-24.8,9.51-30.8,MPa,0
+G082-09,M082,P,elongationXY,this-material,poor,72.5,24.9-211,13.1-400,%,0
+G082-10,M082,PP,tensileModulusXY,this-grade,good,0.758,0.604-0.95,0.506-1.14,GPa,0.78
+G082-10,M082,PP,tensileStrengthXY,this-grade,good,16.7,14.5-21.2,14-24.6,MPa,0.44
+G082-10,M082,PP,elongationXY,this-grade,good,143,108-233,102-327,%,0.68
+G082-11,M082,Centaur PP,tensileModulusXY,this-grade,fair,0.549,0.385-0.784,0.291-1.04,GPa,0.43
+G082-11,M082,Centaur PP,tensileStrengthXY,this-grade,good,15.6,12.9-19.3,12.2-21.9,MPa,0.64
+G082-11,M082,Centaur PP,elongationXY,this-grade,good,716,621-982,608-1300,%,0.67
+G082-12,M082,Pegasus PP,tensileModulusXY,this-grade,good,0.627,0.496-0.793,0.412-0.954,GPa,0.84
+G082-12,M082,Pegasus PP,tensileStrengthXY,this-grade,good,14.8,12.6-18.3,12.1-20.9,MPa,0.73
+G082-12,M082,Pegasus PP,elongationXY,this-grade,good,38.8,27.7-63.8,25.7-88.2,%,0.75
+G082-13,M082,R PP,tensileModulusXY,this-grade,good,0.894,0.713-1.13,0.597-1.34,GPa,0.78
+G082-13,M082,R PP,tensileStrengthXY,this-grade,good,21.7,21-23.6,21-25.2,MPa,0.67
+G082-13,M082,R PP,elongationXY,this-grade,good,301,256-421,250-560,%,0.68
+G083-03,M083,Prusament PP Carbon Fiber by Prusa Polymers,tensileModulusXY,this-grade,good,2.66,2.1-3.36,1.75-4.04,GPa,0.77
+G083-03,M083,Prusament PP Carbon Fiber by Prusa Polymers,tensileStrengthXY,this-grade,good,36.6,31.8-44.8,30.8-50.8,MPa,0.67
+G083-03,M083,Prusament PP Carbon Fiber by Prusa Polymers,elongationXY,this-material,poor,6.14,1.92-19.6,0.962-39.2,%,0
+G083-04,M083,PP CF,tensileModulusXY,this-grade,good,5.17,4.11-6.48,3.44-7.75,GPa,0.78
+G083-04,M083,PP CF,tensileStrengthXY,this-material,fair,33.6,22.6-49.9,18-62.7,MPa,0
+G083-04,M083,PP CF,elongationXY,this-grade,fair,5.85,3.74-11.4,3.4-17.6,%,0.57
+G083-05,M083,LUVOCOM 3F PP CF 9928 BK,tensileModulusXY,this-grade,good,5.64,4.68-6.8,4.04-7.88,GPa,0.87
+G083-05,M083,LUVOCOM 3F PP CF 9928 BK,tensileStrengthXY,this-grade,fair,37.9,26.5-54.2,21.6-66.6,MPa,0.23
+G083-05,M083,LUVOCOM 3F PP CF 9928 BK,elongationXY,this-material,poor,3.46,1.04-11.5,0.507-23.6,%,0
+G084-02,M084,Prusament PP Glass Fiber by Prusa Polymers,tensileModulusXY,this-grade,fair,2.47,1.95-3.14,1.61-3.79,GPa,0.81
+G084-02,M084,Prusament PP Glass Fiber by Prusa Polymers,tensileStrengthXY,this-grade,good,52.6,49.2-59.4,48.8-65,MPa,0.8
+G084-02,M084,Prusament PP Glass Fiber by Prusa Polymers,elongationXY,this-material,poor,8.14,2.45-27,1.19-55.4,%,0
+G085-01,M085,hdpe,tensileModulusXY,this-grade,good,2.86,2.26-3.62,1.88-4.35,GPa,0.83
+G085-01,M085,hdpe,tensileStrengthXY,this-grade,good,32.7,29.8-39.8,29.1-46.4,MPa,0.32
+G085-01,M085,hdpe,elongationXY,this-grade,good,28.8,20.1-47.8,18.6-66.4,%,0.77
+G086-01,M086,EVOLV3D OBC,tensileModulusXY,this-grade,fair,0.245,0.173-0.347,0.132-0.454,GPa,0.98
+G086-01,M086,EVOLV3D OBC,tensileStrengthXY,this-grade,fair,18.7,15-26.8,14.4-34.2,MPa,0.51
+G086-01,M086,EVOLV3D OBC,elongationXY,this-grade,good,860,737-1170,715-1480,%,0.95
+G086-02,M086,OBC 905,tensileModulusXY,this-grade,fair,0.245,0.173-0.347,0.132-0.454,GPa,0.98
+G087-03,M087,POM,tensileModulusXY,this-grade,fair,1.75,1.19-2.56,0.883-3.46,GPa,0.5
+G087-03,M087,POM,tensileStrengthXY,this-grade,good,69.9,66.1-78,65-84.7,MPa,0.83
+G087-03,M087,POM,elongationXY,this-grade,good,45.4,36.7-67.8,35.2-91.4,%,0.78
+G087-04,M087,Polyoxymethylen (POM),tensileModulusXY,this-grade,good,1.24,0.981-1.56,0.817-1.88,GPa,0.82
+G087-04,M087,Polyoxymethylen (POM),tensileStrengthXY,this-grade,good,53.1,45.3-65.5,43.4-74.7,MPa,0.69
+G087-04,M087,Polyoxymethylen (POM),elongationXY,this-grade,good,64.7,52.3-97.2,50.2-132,%,0.78
+G087-R1,M087,Delrin 100P NC010 (POM homopolymer resin),density,this-grade,good,1410,1380-1430,1350-1450,kg/m³,0.95
+G087-R1,M087,Delrin 100P NC010 (POM homopolymer resin),tensileModulusXY,this-grade,good,2.27,1.88-2.75,1.62-3.19,GPa,0.89
+G087-R1,M087,Delrin 100P NC010 (POM homopolymer resin),tensileStrengthXY,this-grade,fair,51.9,39.1-68.8,33.3-80.9,MPa,0.55
+G087-R1,M087,Delrin 100P NC010 (POM homopolymer resin),elongationXY,this-grade,fair,32.8,16.3-66,10.7-101,%,0.7
+G088-02,M088,pctg,tensileModulusXY,this-grade,fair,1.53,1.07-2.2,0.807-2.92,GPa,0.44
+G088-02,M088,pctg,tensileStrengthXY,this-grade,good,55.4,52.9-60.6,52.9-65.2,MPa,0.8
+G088-02,M088,pctg,elongationXY,this-grade,good,384,345-494,340-616,%,0.74
+G088-03,M088,PCTG,tensileModulusXY,this-grade,good,1.58,1.32-1.89,1.14-2.17,GPa,0.87
+G088-03,M088,PCTG,tensileStrengthXY,this-grade,good,48.5,46-53.2,46-57.2,MPa,0.84
+G088-03,M088,PCTG,elongationXY,this-grade,good,251,223-319,220-394,%,0.82
+G088-04,M088,Pro PCTG,tensileModulusXY,this-grade,fair,1.53,1.07-2.2,0.807-2.92,GPa,0.44
+G088-04,M088,Pro PCTG,tensileStrengthXY,this-grade,good,55.4,52.9-60.6,52.9-65.2,MPa,0.8
+G088-04,M088,Pro PCTG,elongationXY,this-grade,good,384,345-494,340-616,%,0.74
+G088-05,M088,AthenaX,tensileModulusXY,this-grade,fair,1.53,1.07-2.2,0.807-2.92,GPa,0.44
+G088-05,M088,AthenaX,tensileStrengthXY,this-grade,good,55.4,52.9-60.6,52.9-65.2,MPa,0.8
+G088-05,M088,AthenaX,elongationXY,this-grade,good,384,345-494,340-616,%,0.74
+G088-06,M088,PCTG,tensileModulusXY,this-grade,fair,1.48,1.15-1.9,0.954-2.3,GPa,0.75
+G088-06,M088,PCTG,tensileStrengthXY,this-grade,good,55.8,50.8-67.5,50-77.5,MPa,0.45
+G088-06,M088,PCTG,elongationXY,this-grade,good,27.1,17.8-42.8,15.1-56.3,%,0.82
+G088-07,M088,PCTG,tensileModulusXY,this-grade,good,1.94,1.54-2.44,1.29-2.92,GPa,0.78
+G088-07,M088,PCTG,tensileStrengthXY,this-grade,good,49,45.9-55.1,45.1-60,MPa,0.8
+G088-07,M088,PCTG,elongationXY,this-grade,good,269,229-374,222-490,%,0.74
+G088-08,M088,PCTG,tensileModulusXY,this-grade,fair,1.53,1.07-2.2,0.807-2.92,GPa,0.44
+G088-08,M088,PCTG,tensileStrengthXY,this-grade,good,55.4,52.9-60.6,52.9-65.2,MPa,0.8
+G088-08,M088,PCTG,elongationXY,this-grade,good,384,345-494,340-616,%,0.74
+G089-01,M089,CPE HG100,tensileModulusXY,this-grade,fair,1.4,0.975-2.02,0.733-2.68,GPa,0.45
+G089-01,M089,CPE HG100,tensileStrengthXY,this-grade,good,52.7,48.9-60.2,48-65.8,MPa,0.8
+G089-01,M089,CPE HG100,elongationXY,this-grade,good,182,154-255,150-335,%,0.74
+G089-02,M089,CPE ANTIBAC,tensileModulusXY,this-grade,good,1.59,1.26-2,1.05-2.39,GPa,0.78
+G089-02,M089,CPE ANTIBAC,tensileStrengthXY,this-grade,good,59.9,58-64.6,58-68.8,MPa,0.8
+G089-02,M089,CPE ANTIBAC,elongationXY,this-grade,good,223,190-312,185-406,%,0.74
+G089-04,M089,HT,density,this-grade,good,1200,1170-1220,1150-1250,kg/m³,0.9
+G089-05,M089,CPE HT,tensileModulusXY,this-grade,good,1.57,1.25-1.97,1.04-2.36,GPa,0.78
+G089-05,M089,CPE HT,tensileStrengthXY,this-grade,good,60.1,58-64.8,58-69.1,MPa,0.8
+G089-05,M089,CPE HT,elongationXY,this-grade,good,238,206-331,200-428,%,0.74
+G090-01,M090,CPE CF112 Carbon,tensileModulusXY,this-grade,good,2.45,1.94-3.1,1.61-3.72,GPa,0.82
+G090-01,M090,CPE CF112 Carbon,tensileStrengthXY,this-grade,good,62,54.2-75.5,52.5-85.4,MPa,0.67
+G090-01,M090,CPE CF112 Carbon,elongationXY,this-grade,good,10.5,8.43-16,8.07-21.7,%,0.75
+G090-02,M090,pctg cf10,tensileModulusXY,this-material,poor,3.92,2.35-6.52,1.57-9.74,GPa,0
+G090-02,M090,pctg cf10,tensileStrengthXY,this-grade,good,79.2,71.5-94.3,70-107,MPa,0.67
+G090-02,M090,pctg cf10,elongationXY,this-grade,good,6.81,5.29-10.5,5.05-14.3,%,0.75
+G090-03,M090,XT-CF20,density,this-grade,fair,1270,1200-1340,1140-1410,kg/m³,0.31
+G091-02,M091,Panchroma CoPE,elongationXY,family,poor,22.4,6.93-72.3,3.43-146,%,0
+G093-01,M093,PVB Prusament,tensileModulusXY,this-grade,fair,1.74,1.37-2.21,1.14-2.66,GPa,0.77
+G093-01,M093,PVB Prusament,tensileStrengthXY,this-grade,good,55.1,50.9-63.3,50-69.6,MPa,0.78
+G093-01,M093,PVB Prusament,elongationXY,this-grade,fair,11.6,6.13-24.6,5-38.8,%,0.56
+G093-03,M093,PVB,tensileModulusXY,this-grade,good,2.23,1.8-2.77,1.52-3.27,GPa,0.81
+G093-05,M093,PVB,tensileModulusXY,this-grade,good,2.27,1.8-2.86,1.51-3.42,GPa,0.79
+G093-05,M093,PVB,tensileStrengthXY,this-grade,good,49,42.4-59.7,40.8-67.4,MPa,0.68
+G093-05,M093,PVB,elongationXY,this-grade,good,6.33,4.43-10.5,4.11-14.5,%,0.76
+G093-06,M093,FiberSmooth,tensileModulusXY,this-grade,good,2.89,2.3-3.63,1.93-4.34,GPa,0.78
+G093-06,M093,FiberSmooth,tensileStrengthXY,this-grade,good,56.8,51.9-66.5,51-74.5,MPa,0.68
+G093-06,M093,FiberSmooth,elongationXY,this-grade,good,104,90.1-142,88-185,%,0.75
+G094-03,M094,pc abs fr v0,tensileModulusXY,this-grade,good,2.67,2.13-3.35,1.79-3.99,GPa,0.76
+G094-03,M094,pc abs fr v0,tensileStrengthXY,this-grade,good,67.3,61.4-77.7,60-85.3,MPa,0.79
+G094-03,M094,pc abs fr v0,elongationXY,this-grade,good,60.9,52-85.5,50.6-115,%,0.67
+G094-04,M094,PC/ABS,tensileModulusXY,this-grade,good,2.27,1.84-2.8,1.56-3.3,GPa,0.79
+G094-06,M094,PC/ABS,tensileModulusXY,this-grade,good,1.97,1.57-2.47,1.31-2.95,GPa,0.77
+G094-06,M094,PC/ABS,tensileStrengthXY,this-grade,good,48,43.7-55.5,42.7-60.9,MPa,0.79
+G094-06,M094,PC/ABS,elongationXY,this-grade,good,10.5,7.71-16.8,7.25-23,%,0.73
+G094-07,M094,PC-ABS Rail,tensileModulusXY,this-grade,good,2.45,1.96-3.07,1.64-3.66,GPa,0.76
+G094-07,M094,PC-ABS Rail,tensileStrengthXY,this-material,fair,44.4,30.6-64.2,24.7-79.5,MPa,0
+G094-07,M094,PC-ABS Rail,elongationXY,this-material,poor,10.5,3.63-30.6,1.91-57.9,%,0
+G094-08,M094,PC-ABS V0,tensileModulusXY,this-grade,good,2.38,1.9-2.98,1.59-3.55,GPa,0.76
+G094-08,M094,PC-ABS V0,tensileStrengthXY,this-material,fair,44.4,30.6-64.2,24.7-79.5,MPa,0
+G094-08,M094,PC-ABS V0,elongationXY,this-material,poor,10.5,3.63-30.6,1.91-57.9,%,0
+G094-09,M094,PC-ABS,density,this-material,fair,1130,1070-1200,1040-1230,kg/m³,0
+G094-09,M094,PC-ABS,tensileModulusXY,this-material,poor,2.25,1.4-3.59,0.973-5.19,GPa,0
+G094-09,M094,PC-ABS,tensileStrengthXY,this-material,fair,46.2,31.8-67.1,25.7-83.2,MPa,0
+G094-09,M094,PC-ABS,elongationXY,this-grade,good,6,6-6,6-6,%,1
+G094-10,M094,ABSpro - Flame Retardant,tensileModulusXY,this-grade,good,2.35,1.88-2.95,1.57-3.52,GPa,0.76
+G094-10,M094,ABSpro - Flame Retardant,tensileStrengthXY,this-grade,good,72.5,66.2-85.2,65.1-95.3,MPa,0.64
+G094-10,M094,ABSpro - Flame Retardant,elongationXY,this-grade,good,9.7,7.17-15.7,6.74-21.4,%,0.73
+G094-11,M094,PC/ABS,tensileModulusXY,this-grade,good,1.97,1.57-2.47,1.31-2.95,GPa,0.77
+G094-11,M094,PC/ABS,tensileStrengthXY,this-grade,good,48,43.7-55.5,42.7-60.9,MPa,0.79
+G094-11,M094,PC/ABS,elongationXY,this-grade,good,10.5,7.71-16.8,7.25-23,%,0.73
+G094-13,M094,PC ABS,tensileModulusXY,this-material,poor,1.4,0.877-2.23,0.608-3.21,GPa,0
+G094-13,M094,PC ABS,tensileStrengthXY,this-grade,good,50,44.6-59.5,43.5-67,MPa,0.66
+G094-13,M094,PC ABS,elongationXY,this-grade,good,30.6,25.1-45.1,24.1-60.2,%,0.73
+G094-R1,M094,310-20500 (PC-ABS),density,this-material,fair,1130,1070-1200,1040-1230,kg/m³,0
+G094-R1,M094,310-20500 (PC-ABS),tensileModulusXY,this-material,poor,2.25,1.4-3.59,0.973-5.19,GPa,0
+G094-R1,M094,310-20500 (PC-ABS),tensileStrengthXY,this-material,fair,46.2,31.8-67.1,25.7-83.2,MPa,0
+G094-R1,M094,310-20500 (PC-ABS),elongationXY,this-material,poor,8.05,2.75-23.6,1.44-44.8,%,0
+G095-02,M095,DURAPRO PC-PBT,density,this-grade,good,1200,1170-1220,1150-1250,kg/m³,0.93
+G095-02,M095,DURAPRO PC-PBT,tensileModulusXY,this-grade,good,1.9,1.57-2.3,1.36-2.67,GPa,0.88
+G095-02,M095,DURAPRO PC-PBT,tensileStrengthXY,this-grade,good,65.2,60.6-74.6,60-82.2,MPa,0.77
+G095-02,M095,DURAPRO PC-PBT,elongationXY,this-grade,fair,20.4,10-41.6,6.55-63.6,%,0.61
+G096-02,M096,Fluorodur,tensileModulusXY,this-grade,good,1.84,1.45-2.32,1.21-2.78,GPa,0.81
+G096-02,M096,Fluorodur,tensileStrengthXY,this-grade,good,38.3,34.8-44.3,34-48.7,MPa,0.83
+G096-02,M096,Fluorodur,elongationXY,this-grade,good,13,8.99-21.7,8.25-30.2,%,0.78
+G096-03,M096,KOLTRON,tensileModulusXY,this-grade,good,0.709,0.562-0.895,0.468-1.08,GPa,0.82
+G096-03,M096,KOLTRON,tensileStrengthXY,this-grade,good,57.1,51.9-67.6,51-75.8,MPa,0.72
+G096-03,M096,KOLTRON,elongationXY,this-grade,good,65.1,52.8-99.8,51.1-139,%,0.74
+G104-01,M104,PA6 CS20 FR V0,tensileModulusXY,this-grade,fair,5.4,4.26-6.85,3.54-8.25,GPa,0.85
+G104-01,M104,PA6 CS20 FR V0,tensileStrengthXY,this-grade,good,68.1,57.3-88.5,55.2-106,MPa,0.54
+G104-01,M104,PA6 CS20 FR V0,elongationXY,this-grade,fair,3.84,1.87-8.31,1.4-13.4,%,0.61
+G105-01,M105,ASA Conductive,tensileModulusXY,this-grade,fair,2.89,2.23-3.74,1.83-4.57,GPa,0.82
+G105-01,M105,ASA Conductive,tensileStrengthXY,this-grade,fair,38.7,30.5-49.2,26.6-56.4,MPa,0.67
+G105-01,M105,ASA Conductive,elongationXY,this-grade,fair,2.77,1.4-5.48,0.936-8.23,%,0.67
+G106-01,M106,ABS Kevlar,tensileModulusXY,this-grade,good,2.31,1.83-2.91,1.53-3.49,GPa,0.81
+G106-01,M106,ABS Kevlar,tensileStrengthXY,this-grade,good,40.4,36-48.6,35-55,MPa,0.66
+G106-01,M106,ABS Kevlar,elongationXY,this-grade,good,8.02,6.31-12.4,6.08-16.7,%,0.76
+G106-02,M106,ABSKevlar,tensileModulusXY,this-material,poor,1.92,1.14-3.23,0.761-4.85,GPa,0
+G106-02,M106,ABSKevlar,tensileStrengthXY,this-grade,good,40.4,36.3-48.4,35.4-54.6,MPa,0.67
+G106-02,M106,ABSKevlar,elongationXY,this-material,poor,5.02,1.56-16.2,0.775-32.6,%,0
+G106-03,M106,ABS AF,elongationXY,this-grade,fair,4.7,2.86-8.82,2.53-13.1,%,0.67
+G107-01,M107,PLA ESD,tensileModulusXY,this-material,poor,2.89,1.7-4.9,1.12-7.42,GPa,0
+G107-01,M107,PLA ESD,tensileStrengthXY,this-grade,good,52,41.6-64.9,36.6-73.8,MPa,0.7
+G107-01,M107,PLA ESD,elongationXY,this-material,poor,6.53,2.06-20.7,1.03-41.2,%,0
+G108-01,M108,PA6 GK10,tensileModulusXY,this-grade,fair,4.03,3.17-5.1,2.63-6.15,GPa,0.85
+G108-01,M108,PA6 GK10,tensileStrengthXY,this-grade,good,98.1,88.4-121,87-141,MPa,0.54
+G108-01,M108,PA6 GK10,elongationXY,this-grade,fair,6.34,3.44-13.5,2.9-21.4,%,0.61
+G109-01,M109,PETG/PTFE,tensileModulusXY,this-grade,fair,1.68,1.3-2.16,1.07-2.63,GPa,0.78
+G109-01,M109,PETG/PTFE,tensileStrengthXY,this-grade,fair,32,25.2-40.5,22-46.4,MPa,0.66
+G109-01,M109,PETG/PTFE,elongationXY,this-grade,fair,35.3,17.3-71.9,11.3-111,%,0.61
+G109-02,M109,PETG+PTFE,tensileModulusXY,this-grade,good,1.87,1.48-2.37,1.23-2.84,GPa,0.82
+G109-02,M109,PETG+PTFE,tensileStrengthXY,this-grade,good,46.5,41.1-56.2,40-63.6,MPa,0.68
+G109-02,M109,PETG+PTFE,elongationXY,this-grade,good,124,105-178,102-238,%,0.71
+G110-01,M110,PCTG GF10,tensileModulusXY,this-material,poor,3.12,1.79-5.43,1.16-8.38,GPa,0
+G110-01,M110,PCTG GF10,tensileStrengthXY,this-grade,good,63.6,56.5-76.6,55-86.9,MPa,0.69
+G110-01,M110,PCTG GF10,elongationXY,this-grade,good,10.7,8.45-16.5,8.08-22.4,%,0.76
+G110-02,M110,AthenaX GF10,tensileModulusXY,this-material,poor,3.12,1.79-5.43,1.16-8.38,GPa,0
+G110-02,M110,AthenaX GF10,tensileStrengthXY,this-grade,good,63.6,56.5-76.6,55-86.9,MPa,0.69
+G110-02,M110,AthenaX GF10,elongationXY,this-grade,good,10.7,8.45-16.5,8.08-22.4,%,0.76
+G110-03,M110,PCTG+GF10,tensileModulusXY,this-grade,fair,3.36,2.65-4.27,2.19-5.15,GPa,0.86
+G110-03,M110,PCTG+GF10,tensileStrengthXY,this-grade,good,63.9,57-76.8,55.5-86.8,MPa,0.69
+G110-03,M110,PCTG+GF10,elongationXY,this-grade,good,11.2,8.58-17.5,8.24-24,%,0.76
+G111-01,M111,PLA Conductive,tensileModulusXY,this-grade,fair,1.51,1.16-1.95,0.956-2.38,GPa,0.81
+G111-01,M111,PLA Conductive,tensileStrengthXY,this-grade,fair,29.1,22.9-36.8,20-42.2,MPa,0.66
+G111-01,M111,PLA Conductive,elongationXY,this-grade,fair,6.68,3.4-13.2,2.27-19.7,%,0.66
+G111-02,M111,Conductive PLA,tensileModulusXY,this-material,poor,1.86,1.03-3.34,0.654-5.29,GPa,0
+G111-02,M111,Conductive PLA,tensileStrengthXY,this-material,fair,38.5,25.6-58,20.2-73.5,MPa,0
+G111-02,M111,Conductive PLA,elongationXY,this-material,poor,6.41,1.85-22.2,0.884-46.6,%,0
+G112-01,M112,PC/PTFE,tensileModulusXY,this-grade,good,2.2,1.74-2.78,1.45-3.33,GPa,0.81
+G112-01,M112,PC/PTFE,tensileStrengthXY,this-grade,good,67.3,57-88.1,55.1-106,MPa,0.31
+G112-01,M112,PC/PTFE,elongationXY,this-grade,good,10.6,8.45-16.1,8.08-21.9,%,0.76
+G112-02,M112,PC-PTFE,tensileModulusXY,this-grade,good,1.84,1.45-2.32,1.21-2.78,GPa,0.82
+G112-02,M112,PC-PTFE,tensileStrengthXY,this-material,fair,48,31.7-72.6,25-92.1,MPa,0
+G112-02,M112,PC-PTFE,elongationXY,this-grade,fair,7.99,5-15.6,4.57-24.2,%,0.57
+G113-01,M113,ASA Kevlar,tensileModulusXY,this-grade,good,2.13,1.76-2.58,1.51-2.99,GPa,0.9
+G113-01,M113,ASA Kevlar,tensileStrengthXY,this-grade,good,43.9,40.5-50.7,40-56.2,MPa,0.77
+G113-01,M113,ASA Kevlar,elongationXY,this-grade,good,7.26,6.19-9.98,6-12.8,%,0.84
+G113-02,M113,ApolloX Kevlar,tensileModulusXY,this-grade,good,2.13,1.76-2.58,1.51-2.99,GPa,0.9
+G113-02,M113,ApolloX Kevlar,tensileStrengthXY,this-grade,good,43.9,40.5-50.7,40-56.2,MPa,0.77
+G113-02,M113,ApolloX Kevlar,elongationXY,this-grade,good,7.26,6.19-9.98,6-12.8,%,0.84
+G113-03,M113,ASA+AF,tensileModulusXY,this-grade,good,2.13,1.76-2.58,1.51-2.99,GPa,0.9
+G113-03,M113,ASA+AF,tensileStrengthXY,this-grade,good,43.9,40.5-50.7,40-56.2,MPa,0.77
+G113-03,M113,ASA+AF,elongationXY,this-grade,good,7.26,6.19-9.98,6-12.8,%,0.84
+G116-02,M116,TriStat ESD-PC Model Material,tensileModulusXY,this-grade,good,2.43,2.01-2.94,1.74-3.41,GPa,0.87
+G116-02,M116,TriStat ESD-PC Model Material,tensileStrengthXY,this-grade,good,51.9,43.3-62.2,39-68.9,MPa,0.8
+G126-01,M126,3DXSTAT ESD-TPU (90A),tensileModulusXY,this-grade,poor,0.0405,0.0109-0.15,0.0039-0.42,GPa,0.45
+G126-01,M126,3DXSTAT ESD-TPU (90A),elongationXY,this-material,good,399,314-618,302-856,%,0
+G126-02,M126,FLEX MEDIUM ESD,tensileModulusXY,this-grade,poor,0.0518,0.0139-0.192,0.00499-0.537,GPa,0.45
+G126-02,M126,FLEX MEDIUM ESD,tensileStrengthXY,this-grade,fair,33.6,27.6-46.2,26.6-57,MPa,0.66
+G126-02,M126,FLEX MEDIUM ESD,elongationXY,this-grade,good,521,461-678,450-836,%,0.74
+G129-01,M129,S-Flex Carbon,tensileModulusXY,this-grade,fair,1.78,1.34-2.36,1.07-2.93,GPa,0.97
+G129-01,M129,S-Flex Carbon,tensileStrengthXY,this-grade,fair,48.3,33-70.7,26.5-88.1,MPa,0.7
+G129-01,M129,S-Flex Carbon,elongationXY,this-grade,fair,28.5,17.2-47.1,12.7-63.6,%,0.36
+G129-02,M129,FLEX HARD CF,tensileModulusXY,this-grade,fair,0.0315,0.0238-0.0417,0.0191-0.052,GPa,0.97
+G129-02,M129,FLEX HARD CF,tensileStrengthXY,this-material,poor,43.6,22.4-84.6,15.3-125,MPa,0
+G129-02,M129,FLEX HARD CF,elongationXY,this-grade,fair,51.1,30.8-84.9,22.7-115,%,0.37
+G129-07,M129,FiberFlex CF,tensileModulusXY,this-grade,fair,0.199,0.154-0.256,0.126-0.313,GPa,0.98
+G129-07,M129,FiberFlex CF,tensileStrengthXY,this-grade,fair,75,62.8-104,61.1-131,MPa,0.55
+G129-07,M129,FiberFlex CF,elongationXY,this-grade,good,36.8,23.3-58.2,18.3-77,%,0.51
+G131-01,M131,DURAPRO PC-PBT CF,tensileModulusXY,this-grade,good,4.29,3.68-5.01,3.26-5.65,GPa,0.95
+G131-01,M131,DURAPRO PC-PBT CF,tensileStrengthXY,this-grade,good,93.2,90-101,90-107,MPa,0.87
+G131-01,M131,DURAPRO PC-PBT CF,elongationXY,this-grade,good,5.39,3.6-8.61,3.17-11.5,%,0.84
+G134-01,M046,FiberFlex Aero,tensileModulusXY,this-grade,poor,0.0535,0.0319-0.0896,0.0212-0.135,GPa,0.92
+G134-01,M046,FiberFlex Aero,tensileStrengthXY,this-grade,good,33.5,28.9-45.2,28-56,MPa,0.52
+G134-01,M046,FiberFlex Aero,elongationXY,this-grade,good,785,709-979,700-1190,%,0.45
+G135-01,M135,Polyvinylchlorid weich 94A (PVC-P),tensileModulusXY,family,poor,1.41,0.219-8.58,0.0499-23.7,GPa,0
+G135-01,M135,Polyvinylchlorid weich 94A (PVC-P),tensileStrengthXY,this-grade,good,31.8,26.5-40.2,25.2-46.3,MPa,0.82
+G135-01,M135,Polyvinylchlorid weich 94A (PVC-P),elongationXY,this-grade,good,438,375-615,366-809,%,0.83
+G135-02,M135,Vinyl 303,tensileModulusXY,family,poor,1.12,0.179-7.01,0.0409-21.3,GPa,0
+G135-02,M135,Vinyl 303,tensileStrengthXY,this-grade,good,53,47.1-67.4,46.1-81.1,MPa,0.4
+G135-02,M135,Vinyl 303,elongationXY,this-grade,fair,22.4,14.9-38.2,13.5-54.2,%,0.83
+G136-02,M136,Styrol-Acrylnitril (SAN),tensileModulusXY,this-grade,fair,3.48,2.73-4.44,2.26-5.37,GPa,0.89
+G136-02,M136,Styrol-Acrylnitril (SAN),tensileStrengthXY,this-grade,good,78.6,72.9-91.5,72-103,MPa,0.73
+G136-02,M136,Styrol-Acrylnitril (SAN),elongationXY,family,poor,18.7,5.51-63.2,2.65-132,%,0
+G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),tensileModulusXY,this-grade,fair,1.6,1.25-2.05,1.04-2.48,GPa,0.89
+G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),tensileStrengthXY,this-grade,good,51.1,42.6-64.3,40.7-74,MPa,0.79
+G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),elongationXY,this-grade,good,29.6,21.7-48.6,20.3-68.2,%,0.84
+G137-03,M137,Cyclo-Olefin-Copolymer flexibel (COC flex),tensileModulusXY,this-grade,fair,0.0597,0.0468-0.0761,0.0386-0.0922,GPa,0.9
+G137-03,M137,Cyclo-Olefin-Copolymer flexibel (COC flex),tensileStrengthXY,this-grade,good,44.4,40.5-52.5,40-59.2,MPa,0.81
+G137-03,M137,Cyclo-Olefin-Copolymer flexibel (COC flex),elongationXY,this-grade,good,646,522-973,505-1330,%,0.85
+G138-02,M138,Polyethylen high density glass fiber 20% (HDPE GF20),tensileModulusXY,this-grade,fair,2.65,2.08-3.37,1.72-4.08,GPa,0.88
+G138-02,M138,Polyethylen high density glass fiber 20% (HDPE GF20),tensileStrengthXY,this-grade,good,23.1,18.9-29,17.7-33.3,MPa,0.72
+G138-02,M138,Polyethylen high density glass fiber 20% (HDPE GF20),elongationXY,this-grade,good,13.1,9.82-20.9,9.33-29,%,0.78
+G138-03,M138,HDPE Glass Fiber,tensileModulusXY,this-material,poor,2.46,1.38-4.4,0.876-6.93,GPa,0
+G138-03,M138,HDPE Glass Fiber,tensileStrengthXY,this-grade,good,34.9,30.7-43.9,30-51.5,MPa,0.45
+G138-03,M138,HDPE Glass Fiber,elongationXY,this-grade,good,43.2,36.1-61.9,35-82.2,%,0.77
+G139-01,M139,Liquid Crystal Polymer (LCP),tensileModulusXY,this-grade,fair,11.2,8.71-14.5,7.13-17.7,GPa,0.98
+G139-01,M139,Liquid Crystal Polymer (LCP),tensileStrengthXY,this-grade,good,220,202-261,200-296,MPa,0.87
+G139-01,M139,Liquid Crystal Polymer (LCP),elongationXY,this-grade,good,4.78,3.4-8.02,3.21-11.5,%,0.92
+G140-01,M140,Polybutylenterephthalat (PBT),tensileModulusXY,this-grade,fair,2.64,2.07-3.37,1.71-4.07,GPa,0.88
+G140-01,M140,Polybutylenterephthalat (PBT),tensileStrengthXY,this-grade,good,67.7,60.5-81.8,59-92.5,MPa,0.74
+G140-01,M140,Polybutylenterephthalat (PBT),elongationXY,this-grade,good,40.1,31.7-61.3,30.3-83.7,%,0.78
+G144-01,M144,AthenaX CF10,tensileModulusXY,this-material,poor,3.5,2-6.11,1.29-9.48,GPa,0
+G144-01,M144,AthenaX CF10,tensileStrengthXY,this-grade,good,79.2,71.6-94.4,70-107,MPa,0.68
+G144-01,M144,AthenaX CF10,elongationXY,this-grade,good,6.93,5.33-10.9,5.08-14.8,%,0.75
+G144-02,M144,PCTG CF,tensileModulusXY,this-grade,fair,2.83,2.18-3.68,1.78-4.51,GPa,0.84
+G144-02,M144,PCTG CF,tensileStrengthXY,this-grade,good,49.9,41.3-64.9,39.4-76.5,MPa,0.47
+G144-02,M144,PCTG CF,elongationXY,this-grade,good,10.6,9.24-14.2,9-17.9,%,0.83
+G144-03,M144,PCTG+CF10,tensileModulusXY,this-material,poor,3.84,2.2-6.69,1.42-10.4,GPa,0
+G144-03,M144,PCTG+CF10,tensileStrengthXY,this-grade,good,78.8,71.3-93.7,70-106,MPa,0.68
+G144-03,M144,PCTG+CF10,elongationXY,this-grade,good,7.16,5.43-11.4,5.16-15.5,%,0.75
+G146-01,M146,NonOilen,tensileModulusXY,this-grade,fair,1.92,1.5-2.46,1.24-2.97,GPa,0.9
+G146-01,M146,NonOilen,tensileStrengthXY,this-grade,good,46,40.1-56.6,38.7-64.7,MPa,0.74
+G146-01,M146,NonOilen,elongationXY,this-grade,good,11.2,8.28-17.9,7.85-24.8,%,0.77
+G147-01,M147,LUVOCOM 3F PAHT 9825 NT,elongationXY,this-grade,fair,7.56,4.46-15.2,3.92-24,%,0.62
+G148-01,M148,LUVOCOM 3F PAHT 9936 BK,tensileModulusXY,this-grade,fair,3.18,2.47-4.1,2.02-4.99,GPa,0.79
+G148-01,M148,LUVOCOM 3F PAHT 9936 BK,tensileStrengthXY,this-grade,fair,67,45.1-99.4,35.9-125,MPa,0.28
+G148-01,M148,LUVOCOM 3F PAHT 9936 BK,elongationXY,family,poor,5.55,1.48-20.7,0.676-45.6,%,0
+G148-02,M148,LUVOCOM 3F PAHT KK 50056 BK,tensileModulusXY,this-grade,fair,4.71,3.66-6.06,3-7.39,GPa,0.79
+G148-02,M148,LUVOCOM 3F PAHT KK 50056 BK,tensileStrengthXY,this-grade,fair,63.1,42.5-93.6,33.8-118,MPa,0.28
+G148-02,M148,LUVOCOM 3F PAHT KK 50056 BK,elongationXY,family,poor,5.55,1.48-20.7,0.676-45.6,%,0
+G149-01,M149,Capa 6500 Polycaprolactone,density,this-material,fair,1130,1060-1200,1000-1280,kg/m³,0
+G149-01,M149,Capa 6500 Polycaprolactone,tensileModulusXY,this-material,poor,0.385,0.217-0.681,0.138-1.07,GPa,0
+G149-01,M149,Capa 6500 Polycaprolactone,tensileStrengthXY,this-material,fair,14.6,9.3-22.9,7.18-29.6,MPa,0
+G149-01,M149,Capa 6500 Polycaprolactone,elongationXY,this-grade,good,955,823-1330,801-1750,%,0.78
+G149-02,M149,Facilan PCL100,tensileModulusXY,this-grade,fair,0.36,0.283-0.458,0.234-0.553,GPa,0.88
+G149-02,M149,Facilan PCL100,tensileStrengthXY,this-grade,good,45,45-46.1,45-48,MPa,0.78
+G149-02,M149,Facilan PCL100,elongationXY,this-grade,fair,58.6,27.4-128,19.2-202,%,0.6
+G149-03,M149,PCL,tensileModulusXY,this-material,poor,0.43,0.245-0.756,0.157-1.18,GPa,0
+G149-03,M149,PCL,tensileStrengthXY,this-material,fair,14.5,9.31-22.7,7.2-29.4,MPa,0
+G149-04,M149,BioFil - PCL,tensileModulusXY,this-grade,fair,0.349,0.274-0.444,0.227-0.536,GPa,0.88
+G149-04,M149,BioFil - PCL,tensileStrengthXY,this-grade,good,45,45-45.3,45-47.2,MPa,0.79
+G149-04,M149,BioFil - PCL,elongationXY,this-grade,fair,67.5,31.2-146,20.8-234,%,0.6
+G150-01,M150,FILAFLEX FOAMY,tensileModulusXY,this-grade,poor,0.019,0.00516-0.0704,0.00186-0.199,GPa,0.45
+G150-01,M150,FILAFLEX FOAMY,tensileStrengthXY,this-material,poor,10.6,5.47-20.5,3.73-30,MPa,0
+G150-01,M150,FILAFLEX FOAMY,elongationXY,this-material,fair,703,380-1300,262-1840,%,0
+G150-02,M150,TPU LW,tensileModulusXY,this-grade,fair,0.0975,0.0737-0.129,0.0591-0.161,GPa,0.98
+G150-02,M150,TPU LW,tensileStrengthXY,this-grade,poor,12.5,7.59-20.7,5.68-27.6,MPa,0.45
+G150-02,M150,TPU LW,elongationXY,this-material,fair,419,239-734,171-1030,%,0
+G150-03,M150,FILAFLEX 95 FOAMY,tensileModulusXY,this-grade,poor,0.0389,0.0105-0.145,0.00373-0.406,GPa,0.45
+G150-03,M150,FILAFLEX 95 FOAMY,tensileStrengthXY,this-material,poor,10.6,5.47-20.5,3.73-30,MPa,0
+G150-03,M150,FILAFLEX 95 FOAMY,elongationXY,this-material,fair,703,380-1300,262-1840,%,0
+G152-01,M152,FLAX,tensileModulusXY,this-grade,good,3.31,2.76-3.96,2.4-4.55,GPa,0.88
+G152-01,M152,FLAX,tensileStrengthXY,this-grade,good,49.3,44.5-58.7,43.4-65.9,MPa,0.68
+G152-01,M152,FLAX,elongationXY,this-grade,good,25.9,22.7-33.6,22.3-42,%,0.83
+G152-02,M152,PLA Flax,elongationXY,this-grade,fair,5.79,3.26-11,2.71-16.4,%,0.66
+G153-01,M153,PROGRAFEN PET-G GRAPHENE STRONG,tensileModulusXY,this-grade,good,1.49,1.17-1.89,0.978-2.27,GPa,0.81
+G153-01,M153,PROGRAFEN PET-G GRAPHENE STRONG,tensileStrengthXY,this-grade,good,62,56-75.3,55.1-86.9,MPa,0.47
+G153-01,M153,PROGRAFEN PET-G GRAPHENE STRONG,elongationXY,this-grade,good,8.56,6.14-14.1,5.75-19.5,%,0.75
+G153-02,M153,PET-G PROGRAFEN GRAPHENE LIGHT,tensileModulusXY,this-grade,good,2.2,1.74-2.78,1.45-3.33,GPa,0.81
+G153-02,M153,PET-G PROGRAFEN GRAPHENE LIGHT,tensileStrengthXY,this-grade,good,59.8,54-73.3,53-84.8,MPa,0.47
+G153-02,M153,PET-G PROGRAFEN GRAPHENE LIGHT,elongationXY,this-grade,good,7.13,5.04-11.7,4.68-16.3,%,0.76
+G154-01,M154,Nylon AF80 Aramid,tensileModulusXY,this-grade,fair,0.631,0.497-0.8,0.412-0.965,GPa,0.86
+G154-01,M154,Nylon AF80 Aramid,tensileStrengthXY,this-grade,good,60.8,52.6-76.4,51.1-89.1,MPa,0.64
+G154-01,M154,Nylon AF80 Aramid,elongationXY,this-grade,good,8.42,6.29-13.6,5.96-18.7,%,0.79
+G155-01,M155,PLA PROGRAFEN GRAPHENE LIGHT,tensileModulusXY,this-grade,good,3.22,2.55-4.06,2.13-4.87,GPa,0.81
+G155-01,M155,PLA PROGRAFEN GRAPHENE LIGHT,tensileStrengthXY,this-grade,good,71.5,65.7-85.3,65-97.6,MPa,0.47
+G155-01,M155,PLA PROGRAFEN GRAPHENE LIGHT,elongationXY,this-grade,good,6.02,4.49-9.62,4.26-13.3,%,0.75
+G155-02,M155,PLA PROGRAFEN GRAPHENE STRONG,tensileModulusXY,this-grade,good,1.9,1.51-2.41,1.25-2.89,GPa,0.81
+G155-02,M155,PLA PROGRAFEN GRAPHENE STRONG,tensileStrengthXY,this-grade,good,65.4,59.4-79,58.4-91,MPa,0.47
+G155-02,M155,PLA PROGRAFEN GRAPHENE STRONG,elongationXY,this-grade,good,6.29,4.72-10,4.44-13.8,%,0.75
+G156-01,M156,ePA CF,tensileModulusXY,this-grade,good,5.41,4.61-6.34,4.07-7.18,GPa,0.94
+G157-01,M157,CONDUCTIVE FILAFLEX,tensileModulusXY,this-grade,fair,0.0992,0.077-0.128,0.063-0.157,GPa,0.98
+G157-01,M157,CONDUCTIVE FILAFLEX,tensileStrengthXY,this-material,poor,24.9,13-47.4,9.03-68.7,MPa,0
+G157-01,M157,CONDUCTIVE FILAFLEX,elongationXY,this-material,fair,209,101-434,65.4-670,%,0
+G157-02,M157,Eel,tensileModulusXY,this-grade,fair,0.291,0.225-0.376,0.185-0.459,GPa,0.98
+G157-02,M157,Eel,tensileStrengthXY,this-grade,fair,36.3,30.1-50.9,29.1-64,MPa,0.53
+G157-02,M157,Eel,elongationXY,this-grade,fair,102,63.5-175,54.3-245,%,0.57
+G158-01,M158,PLA MINERAL,tensileModulusXY,this-grade,good,3.39,2.68-4.29,2.22-5.16,GPa,0.84
+G158-01,M158,PLA MINERAL,tensileStrengthXY,this-grade,good,52.4,46.8-63.1,45.5-71.5,MPa,0.68
+G158-01,M158,PLA MINERAL,elongationXY,this-grade,good,28.9,24.2-41.6,23.4-55.6,%,0.76
+G159-01,M159,Smartfil FLEX 77A,tensileModulusXY,this-grade,poor,0.0171,0.00466-0.0624,0.00169-0.175,GPa,0.45
+G159-01,M159,Smartfil FLEX 77A,elongationXY,this-material,good,1010,813-1550,779-2110,%,0
+G162-01,M162,MD Flex,tensileModulusXY,this-grade,fair,0.147,0.114-0.19,0.0937-0.232,GPa,0.98
+G162-01,M162,MD Flex,tensileStrengthXY,this-material,fair,59.5,51.2-82.8,50-107,MPa,0
+G162-01,M162,MD Flex,elongationXY,this-grade,good,561,472-775,457-986,%,0.51
+G164-01,M052,Nylon FX256,tensileModulusXY,this-grade,good,1.35,1.07-1.69,0.899-2.02,GPa,0.78
+G164-01,M052,Nylon FX256,tensileStrengthXY,this-grade,good,52.5,46.8-63.1,45.6-71.3,MPa,0.65
+G164-01,M052,Nylon FX256,elongationXY,this-grade,good,69.1,53.7-109,51.7-151,%,0.68
+G164-03,M055,ThermaTech PA,tensileModulusXY,this-grade,fair,5.01,3.87-6.49,3.16-7.94,GPa,0.82
+G164-03,M055,ThermaTech PA,tensileStrengthXY,this-grade,fair,41.9,32.7-53.6,28.4-61.7,MPa,0.71
+G164-03,M055,ThermaTech PA,elongationXY,this-grade,fair,4.31,2.13-8.71,1.4-13.3,%,0.71
+G164-04,M057,PRO Series Nylon,tensileModulusXY,this-material,poor,2.04,1.26-3.31,0.865-4.83,GPa,0
+G164-04,M057,PRO Series Nylon,tensileStrengthXY,this-grade,good,46.8,39-58,37-66.1,MPa,0.66
+G164-04,M057,PRO Series Nylon,elongationXY,this-grade,good,44.3,35.5-66.4,34.3-89.4,%,0.74
+G164-08,M055,Nylon,density,this-material,good,1050,1020-1080,1020-1140,kg/m³,0
+G164-08,M055,Nylon,tensileModulusXY,this-grade,fair,2.23,1.51-3.29,1.11-4.46,GPa,0.51
+G164-08,M055,Nylon,tensileStrengthXY,this-grade,good,105,96.9-125,96-142,MPa,0.49
+G164-08,M055,Nylon,elongationXY,this-material,poor,17.2,5.37-55.3,2.67-111,%,0
+G167-03,M046,FiberFlex 30D,tensileModulusXY,this-grade,poor,0.024,0.0143-0.0403,0.00956-0.0605,GPa,0.91
+G167-03,M046,FiberFlex 30D,tensileStrengthXY,this-grade,fair,28.5,23.1-40,22.2-50.2,MPa,0.48
+G167-03,M046,FiberFlex 30D,elongationXY,this-grade,good,1000,916-1220,900-1450,%,0.34
+G167-04,M046,MattFlex 40D,tensileModulusXY,this-grade,poor,0.048,0.013-0.177,0.00469-0.492,GPa,0.45
+G167-04,M046,MattFlex 40D,tensileStrengthXY,this-grade,good,36.4,31-49.1,30.1-61.1,MPa,0.48
+G167-04,M046,MattFlex 40D,elongationXY,this-grade,good,719,624-936,608-1140,%,0.34
+G167-05,M046,Chinchilla,tensileModulusXY,this-grade,fair,0.0333,0.0258-0.0429,0.0211-0.0524,GPa,0.98
+G167-05,M046,Chinchilla,tensileStrengthXY,this-grade,good,24.5,22.3-30.2,21.9-35.3,MPa,0.7
+G167-05,M046,Chinchilla,elongationXY,this-grade,fair,1500,926-2340,719-2830,%,0.64
+G167-06,M046,FiberFlex 40D,tensileModulusXY,this-grade,poor,0.054,0.0322-0.0905,0.0214-0.136,GPa,0.91
+G167-06,M046,FiberFlex 40D,tensileStrengthXY,this-grade,fair,34.3,28.9-46.8,28-58.2,MPa,0.48
+G167-06,M046,FiberFlex 40D,elongationXY,this-grade,good,811,723-1030,707-1250,%,0.34
+G167-09,M160,Flex,tensileModulusXY,this-grade,poor,0.0292,0.00797-0.107,0.00287-0.297,GPa,0.44
+G167-09,M160,Flex,tensileStrengthXY,this-grade,good,31.4,27.6-40.1,27-47.5,MPa,0.64
+G167-09,M160,Flex,elongationXY,this-grade,good,649,545-871,525-1080,%,0.35

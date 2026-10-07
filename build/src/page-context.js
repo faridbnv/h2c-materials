@@ -2,13 +2,14 @@
 //
 // A data sheet often says a thing once: "Mechanical properties (dry state)" over its table, "printed, non-injection
 // moulded specimens" in a heading, "all specimens were annealed at 80 °C for 12 h" in a footnote, ISO 527 above the
-// tensile rows. The import read each row on its own and lost those statements, so an annealed value was "treatment not
+// tensile rows, "the specimens have been printed in XY plane" below them. The import read each row on its own and lost those statements, so an annealed value was "treatment not
 // stated", admitted as printed, and a printed bar was filed as raw material (the data audit of 2026-10-01, RC3). A
 // measurement now inherits what its page states wherever its own row states nothing; a row that states the opposite
 // keeps its own words and is flagged (CONTEXT-ROW-CONTRADICTS-PAGE, lint-rules.js).
 
 import { specimenForm, postProcessingState } from './normalize/specimen.js';
 import { moistureState } from './normalize/moisture.js';
+import { normalizeDirection } from './normalize/direction.js';
 
 const NP = 'Not published';
 const NA = 'Not applicable';
@@ -43,6 +44,15 @@ export const tableCovers = (c, r) => !tableScoped(c) || normTable(r.Locator).inc
 /** How specific a page_context row is: a table's own statement before a scope's before the page's (D128). */
 const specificity = (c) => (tableScoped(c) ? 0 : c['Applies to'] === 'all' ? 2 : 1);
 
+/**
+ * Whether a page's orientation statement speaks for a property: a bar's build orientation matters for what is pulled,
+ * bent or struck, not for a density, a heat deflection or a melt flow (D135).
+ */
+export const directionApplies = (property) => ['tensile', 'flexural', 'impact'].includes(scopeOf(property));
+// A row's direction cell that states nothing: never read, read and found silent, or filled with Not applicable by an
+// import that took orientation for a property without one.
+const SILENT_DIRECTION = new Set(['Not published', 'Unstated', 'Not applicable']);
+
 /** An index of page_context rows by source and page. */
 export function indexPageContext(rows) {
   const byPage = new Map();
@@ -71,6 +81,7 @@ export function rowStates(r) {
     treatment: r['Post-processing state'] === 'not-stated' ? null : r['Post-processing state'],
     standard: known(r.Standards) ? r.Standards : null,
     testTemperature: numberOr(r['Test temperature °C']),
+    direction: SILENT_DIRECTION.has(r.Direction ?? NP) ? null : r.Direction,
   };
 }
 
@@ -83,6 +94,7 @@ export function pageStates(c) {
     standard: known(c.Standard) ? c.Standard : null,
     testTemperature: numberOr(c['Test temperature °C']),
     anneal: c['Post-processing state'] === 'annealed' ? { tempC: numberOr(c['Anneal °C']), hours: numberOr(c['Anneal h']) } : null,
+    direction: known(c.Direction) ? c.Direction : null,
   };
 }
 
@@ -111,6 +123,11 @@ export function inheritPageContext(m, r, contexts) {
     }
     if (own.testTemperature == null && page.testTemperature != null && !inherited.testTemperatureC) {
       m.testTemperatureC = page.testTemperature; inherited.testTemperatureC = c.PageContextID;
+    }
+    // A moulded bar has no build orientation: a page's "printed in XY plane" speaks for its printed bars only.
+    if (!own.direction && page.direction && !inherited.direction && directionApplies(r.Property) && ['printed', 'not-stated'].includes(m.specimenForm ?? specimenForm(r['Specimen type']))) {
+      const d = normalizeDirection(page.direction);
+      m.direction = d.canonical; m.directionText = d.text; inherited.direction = c.PageContextID;
     }
   }
   if (!Object.keys(inherited).length) return null;

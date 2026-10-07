@@ -5,7 +5,7 @@
 // A finding has the one shape rules.js issue() builds: { level, code, table, record, field, where, message }. The
 // acceptance baseline is keyed on code + table + record + field.
 
-import { indexPageContext, contextFor, rowStates, pageStates, specimenApplies } from './page-context.js';
+import { indexPageContext, contextFor, rowStates, pageStates, specimenApplies, directionApplies } from './page-context.js';
 import { DATA_STATUS } from './normalize/values.js';
 import { parseAppliesTo, applies, NOT_MODELLED } from './registry.js';
 import { compileRelations, relationFindings, specimenForm } from './physical-relations.js';
@@ -24,7 +24,7 @@ export const LINT_RULES = {
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
   'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round (the pairs, margins and what a pair must share are data/tables/physical_relations.csv). A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. A Vicat whose own words name the heavy load (50 N, method B) is not ordered against the glass transition, because that needle sinks into a glassy bar once it yields. Re-read the rows and correct whichever is on the wrong line.',
   'MEAS-PHYSICS-WINDOW': 'A value outside what its polymer can do (data/tables/plausibility_windows.csv). Beyond a hard bound it is impossible and the row is a defect: re-read the sheet, and if the sheet really prints it, flag it Published value (physically implausible) with the reason (D55). Beyond a soft bound it is surprising: check it, and accept it with what makes it credible.',
-  'CONTEXT-ROW-CONTRADICTS-PAGE': 'A measurement states a specimen form, moisture state or treatment its page states the opposite of (page_context.csv, D116). The row keeps its own words and the build reads them; re-read the page and correct the row, or accept with why this row differs from its page.',
+  'CONTEXT-ROW-CONTRADICTS-PAGE': 'A measurement states a specimen form, moisture state, treatment or bar orientation its page states the opposite of (page_context.csv, D116, D135). The row keeps its own words and the build reads them; re-read the page and correct the row, or accept with why this row differs from its page.',
   'MEAS-PHYSICS-NOTCH': 'One grade, source, direction and state publish a notched impact above the unnotched one; a notch only concentrates stress, so the labels, the units or the sheet are wrong (data audit 2026-10-01, RC6). Re-read the sheet; if it really prints this, flag the pair Published value (physically implausible).',
   'MEAS-PHYSICS-FLEX-STRAIN': 'A flexural strength above 8 % of its flexural modulus, for a rigid polymer: the outer fibre would have strained past where ISO 178 and ASTM D790 stop, so one of the two is another quantity or a misprint (data audit 2026-10-01, RC6).',
   'IMPACT-UNIT-STANDARD': 'An impact value whose unit is not the one its standard reports: ASTM D256 gives J/m (energy per width), ISO 179 and ISO 180 give kJ/m² (energy per area). Re-read which the sheet means; the two cannot be converted without the specimen geometry (data audit 2026-10-01, RC7).',
@@ -499,8 +499,9 @@ export function lintData(tables, schemas) {
     for (const r of active) {
       for (const c of contextFor(pageIndex, r)) {
         const own = rowStates(r), page = pageStates(c);
-        for (const [field, label] of [['specimen', 'Specimen type'], ['moisture', 'Moisture state'], ['treatment', 'Post-processing state']]) {
+        for (const [field, label] of [['specimen', 'Specimen type'], ['moisture', 'Moisture state'], ['treatment', 'Post-processing state'], ['direction', 'Direction']]) {
           if (field === 'specimen' && !specimenApplies(r.Property)) continue;
+          if (field === 'direction' && !directionApplies(r.Property)) continue;
           if (own[field] && page[field] && own[field] !== page[field]) add('CONTEXT-ROW-CONTRADICTS-PAGE', 'measurements', r.MeasurementID, label, `the row says ${own[field]}; p. ${c.Page} of ${c.SourceID} says ${page[field]} (${c.PageContextID}: "${String(c.Statement).slice(0, 80)}")`);
         }
       }

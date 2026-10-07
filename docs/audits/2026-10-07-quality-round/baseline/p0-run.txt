@@ -1,0 +1,9 @@
+manifest -> dist/manifest.json
+  S05                                              value   26  gate/guide    0
+runtime 19.3 s; wrote build/reports/leverage/leverage.csv
+source-pairs.csv    138 pairs without the cap (19 with the cap of 10; 119 only found without it; 19 accepted already; 0 identical files)
+densities.csv       69 rows, 14 in the OPEN-PROBLEMS section 17 population; suggestions: 4 needs the sheet re-read, 12 genuine, 2 unit/transcription, 43 declared variant, 8 foamed or filled variant to declare
+split-sources.csv   11 sources with rows on more than one active grade
+        3  Locator | p. 4: Tensile strength (X-Y)
+        3  Locator | p. 4: Tensile strength (Z)
+        3  Locator | p. 4: Elongation at break (X-Y)

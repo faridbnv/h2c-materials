@@ -56,7 +56,7 @@ M054,PA12-GF,within,within,within,within,requires-hardened,required
 M055,PA66,within,within,within,unknown,no-special-concern,optional
 M056,PA66-CF,within,unknown,unknown,unknown,unknown,unknown
 M057,PA6/66,within,within,within,within,requires-hardened,required
-M058,PA612,within,unknown,unknown,unknown,unknown,required
+M058,PA612,within,unknown,unknown,unknown,unknown,optional
 M059,PA612-CF,within,within,within,within,requires-hardened,required
 M060,PA612-GF,within,unknown,unknown,unknown,unknown,unknown
 M061,CoPA,family,unknown,unknown,unknown,unknown,unknown

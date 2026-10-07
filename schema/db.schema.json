@@ -685,7 +685,8 @@
               "moistureState": { "type": "string", "pattern": "^PC\\d{5}$" },
               "postProcessingState": { "type": "string", "pattern": "^PC\\d{5}$" },
               "standards": { "type": "string", "pattern": "^PC\\d{5}$" },
-              "testTemperatureC": { "type": "string", "pattern": "^PC\\d{5}$" }
+              "testTemperatureC": { "type": "string", "pattern": "^PC\\d{5}$" },
+              "direction": { "type": "string", "pattern": "^PC\\d{5}$" }
             }
           }
         }

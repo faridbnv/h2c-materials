@@ -1,0 +1,39 @@
+Meet all your requirements
+1 product
+3DXTECH FIBREX GF PP
+PASS
+Modulus XY 6.75 GPa · HDT 0.45 139 °C
+Choose this product
+PRINT SETTINGS
+Nozzle
+240–270 °C within
+Bed
+80–110 °C within
+Chamber
+not required within
+Enclosure
+not published
+Hardened nozzle
+required
+Drying
+not needed
+VALUES
+Density
+1,120 kg/m³
+Tensile modulus (XY)
+6.75 GPa
+Tensile strength (XY)
+65 MPa
+Elongation at break (XY)
+1.7 %
+HDT at 0.45 MPa
+139 °C
+Not stated by the maker: anything beyond its numbers and annealing schedule.
+SOURCES 3DXTECH, Technical Data Sheet: FibreX™ PP+GF30 3D Printing Filament; Bambu Lab, H2C Filamant Printing Guide | Bambu Lab Wiki; 3DXTECH, FibreX™ PP+GF30 Polypropylene
+Product details
+Across its products: median and range, and what their makers say
+Colours are not tracked here. Pigment can change strength and stiffness, and a data sheet's values are for the colour it tested.
+3DXTECH
+1 product
+Prusa Research
+1 product

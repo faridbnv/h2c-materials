@@ -188,6 +188,7 @@ G001-196,M001,HT-PLA,within,within,within,not-needed,no-special-concern,optional
 G001-197,M001,PLA Matte,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
 G001-198,M001,PLA Lite,within,within,within,not-needed,no-special-concern,optional,drying: guide PG016
 G001-199,M001,PLA+,within,within,within,not-needed,no-special-concern,required,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016
+G001-200,M001,PLA+,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G002-01,M001,PLA Basic,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G003-01,M001,PLA Matte,within,within,within,not-needed,no-special-concern,required,enclosure: guide PG016; hardenedNozzle: guide PG016
 G004-01,M001,PLA-Lite,within,within,within,not-needed,no-special-concern,optional,hardenedNozzle: guide PG016; drying: guide PG016
@@ -534,7 +535,7 @@ G031-21,M031,Precision ASA,within,within,exceeds,recommended,no-special-concern,
 G031-22,M031,ASA,within,within,exceeds,recommended,no-special-concern,optional,enclosure: guide PG020; hardenedNozzle: guide PG020
 G031-23,M031,Ultrafuse ASA,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG020
 G031-24,M031,ASA,within,within,within,recommended,no-special-concern,optional,hardenedNozzle: guide PG020
-G031-25,M031,ASA,within,within,partial,recommended,no-special-concern,required,
+G031-25,M031,ASA,within,within,partial,recommended,no-special-concern,optional,
 G031-26,M031,Acrylnitril-Styrol-Acrylester (ASA),within,within,within,recommended,no-special-concern,required,chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
 G031-28,M031,ASA,within,within,within,recommended,no-special-concern,optional,chamber: guide PG020; enclosure: guide PG020; hardenedNozzle: guide PG020
 G031-29,M031,ASA Prime,unknown,within,unknown,unknown,unknown,unknown,
@@ -842,7 +843,7 @@ G077-01,M077,Support for PLA (New Version),within,within,within,unknown,unknown,
 G077-02,M077,PolySupport,within,within,within,not-needed,unknown,required,
 G078-01,M078,Support for PLA/PETG,within,within,within,unknown,unknown,required,
 G079-01,M079,Support for ABS,within,within,within,unknown,unknown,required,
-G079-02,M079,S-White,within,within,unknown,unknown,requires-hardened,required,
+G079-02,M079,S-White,within,within,unknown,unknown,requires-hardened,optional,
 G080-01,M080,Support for PA/PET,within,within,within,unknown,unknown,required,
 G080-02,M080,PolySupport for PA12,within,within,within,recommended,requires-hardened,required,
 G080-03,M080,Industrial PET Support,within,within,unknown,unknown,requires-hardened,required,

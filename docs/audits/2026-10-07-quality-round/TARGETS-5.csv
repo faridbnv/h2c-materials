@@ -1,0 +1,41 @@
+Strength,SourceA,GradesA,SourceB,GradesB,SharedValues,PublisherA,PublisherB
+1.00,S-PET-formfutura-tds-titanx,G027-56 TitanX [active],S-SPECTRUM-en-tds-spectrum-smart-abs,G027-05 Smart ABS [active],5,FormFutura,Spectrum
+1.00,S-PET-TDS-ePLA,G001-162 EasyFil ePLA [active],S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],11,FormFutura,Spectrum
+1.00,S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],S-SPECTRUM-en-tds-spectrum-pla-premium,G001-69 PLA Premium [active],11,Spectrum,Spectrum
+1.00,S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,G016-05 PLA Glow in the Dark [active],S-SPECTRUM-de-tds-spectrum-pla-stone-age,G012-07 PLA Stone Age [active],9,Spectrum,Spectrum
+0.90,S-PET-TDS-ePLA,G001-162 EasyFil ePLA [active],S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD,G107-01 PLA ESD [active],9,FormFutura,Spectrum
+0.90,S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD,G107-01 PLA ESD [active],S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],9,Spectrum,Spectrum
+0.90,S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD,G107-01 PLA ESD [active],S-SPECTRUM-en-tds-spectrum-pla-premium,G001-69 PLA Premium [active],9,Spectrum,Spectrum
+0.89,R-EXTRUDR-pla-basic-TDS-en,G001-34 PLA BASIC [active],R-EXTRUDR-pla-basic-cf-TDS-de-3,G018-07 PLA BASIC CF [active],8,Extrudr,Extrudr
+0.89,R-FIBERLOGY-FIBERLOGY-FIBERFLEX-40D-TDS,G167-06 FiberFlex 40D [active],R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1,G134-01 FiberFlex Aero [active],8,Fiberlogy,Fiberlogy
+0.89,R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1,G134-01 FiberFlex Aero [active],R-FIBERLOGY-FIBERLOGY-FIBERFLEX40D-TDS,G167-06 FiberFlex 40D [active],8,Fiberlogy,Fiberlogy
+0.89,R-FIBERLOGY-FIBERLOGY-FIBERFLEXCF-TDS,G129-07 FiberFlex CF [active],S-SPECTRUM-en-tds-spectrum-sflex-carbon,G129-01 S-Flex Carbon [active],8,Fiberlogy,Spectrum
+0.89,S-PET-TDS-ePLA,G001-162 EasyFil ePLA [active],S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,G016-05 PLA Glow in the Dark [active],8,FormFutura,Spectrum
+0.89,S-PET-TDS-ePLA,G001-162 EasyFil ePLA [active],S-SPECTRUM-de-tds-spectrum-pla-stone-age,G012-07 PLA Stone Age [active],8,FormFutura,Spectrum
+0.89,S-PET-TDS-ePLA,G001-162 EasyFil ePLA [active],S-SPECTRUM-en-tds-spectrum-pla-esd,G107-01 PLA ESD [active],8,FormFutura,Spectrum
+0.89,S-SPECTRUM-de-tds-spectrum-pla-stone-age,G012-07 PLA Stone Age [active],S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],8,Spectrum,Spectrum
+0.89,S-SPECTRUM-de-tds-spectrum-pla-stone-age,G012-07 PLA Stone Age [active],S-SPECTRUM-en-tds-spectrum-pla-premium,G001-69 PLA Premium [active],8,Spectrum,Spectrum
+0.89,S-SPECTRUM-en-tds-spectrum-pla-esd,G107-01 PLA ESD [active],S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],8,Spectrum,Spectrum
+0.89,S-SPECTRUM-en-tds-spectrum-pla-esd,G107-01 PLA ESD [active],S-SPECTRUM-en-tds-spectrum-pla-premium,G001-69 PLA Premium [active],8,Spectrum,Spectrum
+0.89,S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,G016-05 PLA Glow in the Dark [active],S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],8,Spectrum,Spectrum
+0.89,S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,G016-05 PLA Glow in the Dark [active],S-SPECTRUM-en-tds-spectrum-pla-premium,G001-69 PLA Premium [active],8,Spectrum,Spectrum
+0.88,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,G148-02 LUVOCOM 3F PAHT KK 50056 BK [active],S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0,G104-01 PA6 CS20 FR V0 [active],7,LEHVOSS,Spectrum
+0.86,D-3D4MAKERS-FACILAN-PCL-100-FILAMENT-PAGE,G149-02 Facilan PCL100 [active],R-FILAMENT2PRINT-BioFil-PCL,G149-04 BioFil - PCL [active],6,3D4Makers,Filament2Print
+0.86,R-3DJAKE-Technical-Data-Sheet-PCTG-V2,G088-08 PCTG [active],R-EXTRUDR-PRIORITY-20261003-ce91065b0c8a,G088-03 PCTG [active],6,3DJake,Extrudr / FD3D GmbH
+0.86,S-PET-TDS-MDflex,G162-01 MD Flex [active],S-PET-formfutura-tds-pythonflex,G039-47 Python Flex [active],6,Copper3D,FormFutura
+0.83,R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon,G001-70 PLA Chameleon [active],R-COLORFABB-colorFabb-Economy-PLA-TDS,G001-59 PLA Economy [active],5,colorFabb,colorFabb
+0.83,R-FABRU-4691-material-data-sheet-PLA-purefil,G001-68 Polylactide (PLA) [active],R-FABRU-PUREFIL-82-material-data-sheet-LW-PLA-purefil,G017-08 Lightweight Polylactide (LW-PLA) [active],5,Fabru / purefil,Fabru / purefil
+0.83,R-YOUSU-YOUSUPLATDS-081b,G001-72 PLA [active],S-PET-TDS-ReFill-PLA,G001-165 ReFill PLA [active],5,Guangzhou Yousu 3D Technology,FormFutura
+0.83,S-PET-TDS-ReFill-PLA,G001-165 ReFill PLA [active],S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],5,FormFutura,Spectrum
+0.83,S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD,G107-01 PLA ESD [active],S-SPECTRUM-PLA-Special-Glow-in-the-Dark,G001-31 PLA [active],5,Spectrum,Spectrum
+0.83,S-SPECTRUM-PLA-Special-Glow-in-the-Dark,G001-31 PLA [active],S-SPECTRUM-en-tds-spectrum-pla-glitter,G013-02 PLA Glitter [active],5,Spectrum,Spectrum
+0.80,I-PLA-PLA-Silk-Dual-Color-TDS,G008-29 PLA Silk Dual Color [active],R-3D4MAKERS-TDS-PLA-Filament,G001-95 PLA [active],4,iSANMATE,3D4Makers
+0.80,R-3D4MAKERS-TDS-ABS-Kevlar-filament-3D4Makers-V1,G106-02 ABSKevlar [active],S-SPECTRUM-en-tds-spectrum-abs-kevlar,G106-01 ABS Kevlar [active],4,3D4Makers,Spectrum
+0.80,R-3DJAKE-3DJAKE-EN-TDS-The-Filament-TPU-95A,G039-53 TPU 95A [active],S-SPECTRUM-en-tds-the-filament-tpu-95a,G039-05 THE FILAMENT TPU 95A [active],4,3DJake / 3DJAKE,Spectrum
+0.80,R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0,G001-121 PLA Basic [active],R-EXTRUDR-pla-basic-cmyk-TDS-en,G001-34 PLA BASIC [active],8,3DJake / 3DJAKE,Extrudr
+0.80,R-COLORFABB-TDS-E-ColorFabb-LW-PLA,G017-09 Light Weight PLA (LW-PLA) [active],R-FIBERLOGY-FIBERLOGY-HS-PLA-CLEAR-TDS,G001-186 HS PLA CLEAR [active],4,colorFabb,Fiberlogy
+0.80,R-FIBERLOGY-FIBERLOGY-HS-PLA-CLEAR-TDS,G001-186 HS PLA CLEAR [active],S-SPECTRUM-en-tds-spectrum-pla-crystal,G001-15 PLA Crystal [active],4,Fiberlogy,Spectrum
+0.80,R-FIBERLOGY-FIBERLOGY-HSPLACLEAR-TDS,G001-186 HS PLA CLEAR [active],R-FILLAMENTUM-Technical-Data-Sheet-PLA-Crystal-Clear-03012019,G001-65 PLA Crystal Clear [active],4,Fiberlogy,Fillamentum
+0.80,R-FIBERLOGY-FIBERLOGY-HSPLACLEAR-TDS,G001-186 HS PLA CLEAR [active],S-SPECTRUM-en-tds-spectrum-pla-crystal,G001-15 PLA Crystal [active],4,Fiberlogy,Spectrum
+0.80,S-PET-TDS-Bulk-PLA,G001-100 Bulk PLA [active],S-SPECTRUM-en-tds-the-filament-pla-lite,G001-12 THE FILAMENT PLA Lite [active],4,FormFutura,Spectrum
+0.80,X-ECOMAX-THERMAX-PEI-9085-TDS-v4,G099-03 ThermaX PEI [active],X-ECOMAX-Ultem-9095-TDS-v1,G099-09 Ultem 9085 Model Material [active],4,3DXTECH,3DXTECH

@@ -1,0 +1,5 @@
+viewport 820x1100
+document width 820
+spill: none
+clipped cells: no table
+hidden controls: 0

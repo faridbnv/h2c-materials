@@ -112,3 +112,27 @@ test('a statement scoped to one table contradicts only the rows of that table', 
   assert.equal(flagged('Not applicable'), true);
   assert.equal(flagged('a table this row does not belong to'), false);
 });
+
+test('a page that states its bars\' orientation once gives it to the tensile, flexural and impact rows that state none (D135)', () => {
+  const c = { PageContextID: 'PC09999', SourceID: 'S', Page: '1', 'Applies to': 'all', Table: 'Not applicable', Statement: 'The specimens have been printed in XY plane',
+    'Specimen type': 'Printed specimen', 'Moisture state': 'not-stated', 'Post-processing state': 'not-stated', 'Anneal °C': 'Not applicable', 'Anneal h': 'Not applicable',
+    Standard: 'Not published', 'Test temperature °C': 'Not published', Direction: 'XY', Locator: 'p. 2', 'Reviewed by': 'test' };
+  const row = (Property, Direction) => ({ Property, Direction, Locator: 'p. 1', 'Specimen type': 'Not published', 'Moisture state': 'not-stated', 'Post-processing state': 'not-stated', Standards: 'Not published', 'Test temperature °C': 'Not published' });
+  for (const [property, own] of [['Charpy strength', 'Not applicable'], ['Tensile modulus', 'Not published'], ['Flexural strength', 'Unstated']]) {
+    const m = { direction: 'unknown' };
+    inheritPageContext(m, row(property, own), [c]);
+    assert.equal(m.direction, 'XY', property);
+    assert.equal(m.pageContext.direction, 'PC09999');
+  }
+  // A density, a heat deflection: orientation says nothing of them. A row that states its own direction keeps it.
+  for (const [property, own, want] of [['Density', 'Not published', 'unknown'], ['HDT', 'Not published', 'unknown'], ['Charpy strength', 'Z', 'Z']]) {
+    const m = { direction: want };
+    inheritPageContext(m, row(property, own), [c]);
+    assert.equal(m.direction, want, property);
+    assert.ok(!m.pageContext?.direction, property);
+  }
+  // A moulded bar beside the printed ones has no build orientation to inherit.
+  const moulded = { direction: 'unknown', specimenForm: 'moulded' };
+  inheritPageContext(moulded, { ...row('Izod impact strength', 'Not applicable'), 'Specimen type': 'Raw material value' }, [c]);
+  assert.equal(moulded.direction, 'unknown');
+});

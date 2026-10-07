@@ -1,0 +1,19 @@
+Notched Charpy impact
+6 products
+Notched Izod impact
+2 products
+kJ/m²
+0
+5
+10
+15
+orientation stated (XY)
+no stated orientation
+Select a dot to open its result below; hover to find the same product in the other row.
+Test, kJ/m² n Median Middle half Range
+Notched Charpy impact 1 6.5 — 6.5
+Also drawn, not in the median: 5 with no stated orientation (7⁠–⁠15).
+Notched Izod impact 1 6.9 — 6.9
+Also drawn, not in the median: 1 with no stated orientation (10).
+n counts the products compared: the products whose sheet states the bar's orientation (XY), except special formulations. The median, middle half and range are of these alone.
+Both tests: 2 products (BASF Forward AM Ultrafuse HiPS and Fiberlogy HIPS).

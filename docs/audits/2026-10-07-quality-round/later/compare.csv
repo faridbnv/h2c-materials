@@ -1,0 +1,154 @@
+SourceID,Record,Table,Field,Held,status,copy,deciding
+D-FLASH-PETGF,P0087,profiles,Nozzle °C,260-290°C,confirmed,d4c324e901f84ffa6372477adf4bf0e702d1d0c56ee9c5b82639bf9a20c10094,3
+D-FLASH-PETGF,P0087,profiles,Bed °C,70-100°C,confirmed,d4c324e901f84ffa6372477adf4bf0e702d1d0c56ee9c5b82639bf9a20c10094,3
+D-FLASH-PETGF,P0087,profiles,Drying,100°C for5h in convection oven,confirmed,d4c324e901f84ffa6372477adf4bf0e702d1d0c56ee9c5b82639bf9a20c10094,3
+P-FATIGUE,V001765,measurements,Fatigue life,308,unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001766,measurements,Fatigue life,1519,unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001767,measurements,Fatigue life,"123,460",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001768,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001769,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001770,measurements,Fatigue life,"29,658",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001771,measurements,Fatigue life,"320,571",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001772,measurements,Fatigue life,"47,978",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001773,measurements,Fatigue life,"192,376",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001774,measurements,Fatigue life,"90,640",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001775,measurements,Fatigue life,3368,unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001776,measurements,Fatigue life,"11,269",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001777,measurements,Fatigue life,"182,224",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001778,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001779,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001780,measurements,Fatigue life,"220,112",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001781,measurements,Fatigue life,"834,070",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001782,measurements,Fatigue life,"520,942",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001783,measurements,Fatigue life,"299,132",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001784,measurements,Fatigue life,"600,516",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001785,measurements,Fatigue life,1121,unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001786,measurements,Fatigue life,"29,657",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001787,measurements,Fatigue life,"429,098",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001788,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001789,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001790,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001791,measurements,Fatigue life,"658,938",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001792,measurements,Fatigue life,"951,076",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001793,measurements,Fatigue life,"647,745",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001794,measurements,Fatigue life,"395,066",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001795,measurements,Fatigue life,"73,546",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001796,measurements,Fatigue life,2551,unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001797,measurements,Fatigue life,455,unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001798,measurements,Fatigue life,"13,927",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001799,measurements,Fatigue life,"1,000,000",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001800,measurements,Fatigue life,"256,682",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001801,measurements,Fatigue life,"688,867",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001802,measurements,Fatigue life,"964,381",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001803,measurements,Fatigue life,"583,107",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001804,measurements,Fatigue life,"441,289",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001805,measurements,Fatigue life,"83,566",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+P-FATIGUE,V001806,measurements,Fatigue life,"35,769",unconfirmed,e1ca1c0a67103d9ecd966f297158e53eb47ed71e60eff342dd3d62a33cb39ab6,0
+R-ESUN-PLA-LITE-PAGE,V001900,measurements,Density,1.23 g/cm3 (unit to be confirmed),confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001901,measurements,Melt mass-flow rate,5.7 g/10 min,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001902,measurements,HDT,53 °C,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001903,measurements,Tensile strength (endpoint unspecified),53.05 MPa,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001904,measurements,Tensile strength (endpoint unspecified),26.88 MPa,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001905,measurements,Elongation at break,3.89 %,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001906,measurements,Elongation at break,2.39 %,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001907,measurements,Flexural strength,90.57 MPa,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001908,measurements,Flexural strength,62.2 MPa,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001909,measurements,Flexural modulus,3114.92 MPa,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001910,measurements,Flexural modulus,2832.91 MPa,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001911,measurements,Izod impact strength,4.53 kJ/m²,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,V001912,measurements,Izod impact strength,2.33 kJ/m²,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,P0161,profiles,Nozzle °C,190-230 °C,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-ESUN-PLA-LITE-PAGE,P0161,profiles,Bed °C,45-60 °C,confirmed,4c5b2e234cde9a292399aa489b8bdd75c3bf42ed2b2ff58dbfb9f6ce80fa7aeb,9
+R-POLYMAKER-SILK-PLA-PAGE,P0162,profiles,Nozzle °C,190-230 °C,confirmed,cb07f729e9176778df31ce8a1d53d24a2ba1708cbd55b89bf6d715e063d5135c,5
+R-POLYMAKER-SILK-PLA-PAGE,P0162,profiles,Bed °C,25-60 °C,confirmed,cb07f729e9176778df31ce8a1d53d24a2ba1708cbd55b89bf6d715e063d5135c,5
+R-POLYMAKER-SILK-PLA-PAGE,P0162,profiles,Drying,55 °C for 6 h,confirmed,cb07f729e9176778df31ce8a1d53d24a2ba1708cbd55b89bf6d715e063d5135c,5
+R-POLYMAKER-WIKI-PANCHROMA-COPE,P0163,profiles,Nozzle °C,190-230 °C,confirmed,1082d493a261687a68958812b62075fedb9c238f94612ef2cf08f7bfa494616e,5
+R-POLYMAKER-WIKI-PANCHROMA-COPE,P0163,profiles,Bed °C,25-60 °C,confirmed,1082d493a261687a68958812b62075fedb9c238f94612ef2cf08f7bfa494616e,5
+R-POLYMAKER-WIKI-PANCHROMA-COPE,P0163,profiles,Drying,55 °C for 6 h (only if moisture absorbed),confirmed,1082d493a261687a68958812b62075fedb9c238f94612ef2cf08f7bfa494616e,5
+R-TRINITY3DS-HYPERLITE-PP,V002233,measurements,Density,0.75g/cc,confirmed,da65250f5966c5ac2a9133bf4f084f9ea03718192d3cbc57f6be25d3a247ed00,0
+S-PA12,P0139,profiles,Nozzle °C,275-300°C,confirmed,132f4ae5685dc7459b7003ecef4bda26b5cd536baefd30e98519526fa6da0574,5
+S-PA12,P0139,profiles,Bed °C,60-100°C,confirmed,132f4ae5685dc7459b7003ecef4bda26b5cd536baefd30e98519526fa6da0574,5
+S-PA12,P0139,profiles,Drying,80°C for 4 h,confirmed,132f4ae5685dc7459b7003ecef4bda26b5cd536baefd30e98519526fa6da0574,5
+S-PES,P0155,profiles,Nozzle °C,340-390C,confirmed,2754be76b8bb4a853f001f94470a893f4eadeee67f3a5a072086db6ab689d7a2,4
+S-PES,P0155,profiles,Bed °C,140-160C,confirmed,2754be76b8bb4a853f001f94470a893f4eadeee67f3a5a072086db6ab689d7a2,4
+S-PES,P0155,profiles,Chamber °C,Recommended,confirmed,2754be76b8bb4a853f001f94470a893f4eadeee67f3a5a072086db6ab689d7a2,4
+S-PES,P0155,profiles,Drying,120C for 4 hours,confirmed,2754be76b8bb4a853f001f94470a893f4eadeee67f3a5a072086db6ab689d7a2,4
+S-POM,P0109,profiles,Nozzle °C,190-210°C,confirmed,acc7422b8d08c4af4d0d6b128bc97a43d52bf9920871be64b1a6ca1f68304907,3
+S-POM,P0109,profiles,Bed °C,120-150°C,confirmed,acc7422b8d08c4af4d0d6b128bc97a43d52bf9920871be64b1a6ca1f68304907,3
+XP-3dxmax-hips,P0146,profiles,Nozzle °C,220-235C,confirmed,06286aea0f6382f6562e0972551df67ccfe62d50db4cd48a2f8c7f47f44437a9,4
+XP-3dxmax-hips,P0146,profiles,Bed °C,100-110C,confirmed,06286aea0f6382f6562e0972551df67ccfe62d50db4cd48a2f8c7f47f44437a9,4
+XP-3dxmaxa-r-pc-abs,P0149,profiles,Nozzle °C,280-310C,confirmed,839c2913bcc842c23824ad285d4ebd9296865933dbb32ff178cf6755f651b7c3,5
+XP-3dxmaxa-r-pc-abs,P0149,profiles,Bed °C,110-120C,confirmed,839c2913bcc842c23824ad285d4ebd9296865933dbb32ff178cf6755f651b7c3,5
+XP-3dxmaxa-r-pc-abs,P0149,profiles,Drying,120C for 4+ hours,confirmed,839c2913bcc842c23824ad285d4ebd9296865933dbb32ff178cf6755f651b7c3,5
+XP-3dxstat-esd-abs-1,P0136,profiles,Nozzle °C,220-240°C,confirmed,715af7e79b1eef52610e1d33a33089626581700ae1cbfcab63c2bd990c74069d,4
+XP-3dxstat-esd-abs-1,P0136,profiles,Bed °C,100-110°C,confirmed,715af7e79b1eef52610e1d33a33089626581700ae1cbfcab63c2bd990c74069d,4
+XP-3dxstat-esd-abs-1,P0136,profiles,Chamber °C,Recommended,confirmed,715af7e79b1eef52610e1d33a33089626581700ae1cbfcab63c2bd990c74069d,4
+XP-3dxstat-esd-abs-1,P0136,profiles,Drying,80°C for 4 hours,confirmed,715af7e79b1eef52610e1d33a33089626581700ae1cbfcab63c2bd990c74069d,4
+XP-3dxstat-esd-petg-1,P0134,profiles,Nozzle °C,230-260C,unconfirmed,59a8f36bd88d4ca91e56feac9f79528c24fa5d2e4c99190f1643018b5a50c113,5
+XP-3dxstat-esd-petg-1,P0134,profiles,Bed °C,60-90C,confirmed,59a8f36bd88d4ca91e56feac9f79528c24fa5d2e4c99190f1643018b5a50c113,5
+XP-3dxstat-esd-petg-1,P0134,profiles,Drying,65C for 4 hours,confirmed,59a8f36bd88d4ca91e56feac9f79528c24fa5d2e4c99190f1643018b5a50c113,5
+XP-amidex-nylon-6-67,P0138,profiles,Nozzle °C,255-275C,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0138,profiles,Bed °C,60-70C,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0138,profiles,Drying,90C for 4 hours,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0142,profiles,Nozzle °C,255-275C,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0142,profiles,Bed °C,60-70C,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0142,profiles,Drying,90C for 4 hours,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0143,profiles,Nozzle °C,255-275C,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0143,profiles,Bed °C,60-70C,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-amidex-nylon-6-67,P0143,profiles,Drying,90C for 4 hours,confirmed,0d3e143fbcc30e1b6d0e114d66338546bc21132456b7b5d360613e3c0336a8c6,5
+XP-carbonx-abs-cf-1,P0135,profiles,Nozzle °C,220-240C,confirmed,80de99ec78f2ab3103c6307002a637a40f72a657c9a1df34b9c692316f3d1656,4
+XP-carbonx-abs-cf-1,P0135,profiles,Bed °C,100-110C,confirmed,80de99ec78f2ab3103c6307002a637a40f72a657c9a1df34b9c692316f3d1656,4
+XP-carbonx-abs-cf-1,P0135,profiles,Chamber °C,Recommended,confirmed,80de99ec78f2ab3103c6307002a637a40f72a657c9a1df34b9c692316f3d1656,4
+XP-carbonx-abs-cf-1,P0135,profiles,Drying,80C for 4 hours,confirmed,80de99ec78f2ab3103c6307002a637a40f72a657c9a1df34b9c692316f3d1656,4
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Nozzle °C,265-285C,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Bed °C,90-110C,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Chamber °C,Recommended,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-nylon-12-cf-1,P0140,profiles,Drying,90C for 4 hours,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Nozzle °C,265-285C,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Bed °C,90-110C,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Chamber °C,Recommended,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-nylon-12-cf-1,P0144,profiles,Drying,90C for 4 hours,confirmed,3e569de3c131eed759382760b428a17d7b79ded354ce31a1824c7a0ec4477bf2,3
+XP-carbonx-pc-cf-1,P0137,profiles,Nozzle °C,280-310C,confirmed,3d0c5ffea449914127079d69a6d35fd3788bf7f34af1359d9389451a6bbe5e33,4
+XP-carbonx-pc-cf-1,P0137,profiles,Bed °C,110-120C,confirmed,3d0c5ffea449914127079d69a6d35fd3788bf7f34af1359d9389451a6bbe5e33,4
+XP-carbonx-pc-cf-1,P0137,profiles,Chamber °C,Recommended,confirmed,3d0c5ffea449914127079d69a6d35fd3788bf7f34af1359d9389451a6bbe5e33,4
+XP-carbonx-pc-cf-1,P0137,profiles,Drying,120C for 4 hours,confirmed,3d0c5ffea449914127079d69a6d35fd3788bf7f34af1359d9389451a6bbe5e33,4
+XP-carbonx-pp-cf-1,P0147,profiles,Nozzle °C,240-270C,confirmed,652727b4c57e36b7281db2db0bb83e9fe3396fc95c21a477c0bf8ac2b9258112,5
+XP-carbonx-pp-cf-1,P0147,profiles,Bed °C,45-65C,confirmed,652727b4c57e36b7281db2db0bb83e9fe3396fc95c21a477c0bf8ac2b9258112,5
+XP-carbonx-pp-cf-1,P0147,profiles,Drying,65C for 4 hours,confirmed,652727b4c57e36b7281db2db0bb83e9fe3396fc95c21a477c0bf8ac2b9258112,5
+XP-ecomax-r-pla,P0133,profiles,Nozzle °C,190-220C,confirmed,6eaf04d1457732ac433e3ba4c7d475f5605d724a5b8d3bf36794b631ccc3ef36,5
+XP-ecomax-r-pla,P0133,profiles,Bed °C,23-60C,confirmed,6eaf04d1457732ac433e3ba4c7d475f5605d724a5b8d3bf36794b631ccc3ef36,5
+XP-ecomax-r-pla,P0133,profiles,Drying,45C for 4 hours,confirmed,6eaf04d1457732ac433e3ba4c7d475f5605d724a5b8d3bf36794b631ccc3ef36,5
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Nozzle °C,265-285C,confirmed,45595dd774444e79846287b03820ad1174492496a684bb6b92425b9eb6e55d74,5
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Bed °C,90-110C,confirmed,45595dd774444e79846287b03820ad1174492496a684bb6b92425b9eb6e55d74,5
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Chamber °C,Up to 120C,confirmed,45595dd774444e79846287b03820ad1174492496a684bb6b92425b9eb6e55d74,5
+XP-fibrex-nylon-12-gf30-1,P0141,profiles,Drying,90C for 4 hours,confirmed,45595dd774444e79846287b03820ad1174492496a684bb6b92425b9eb6e55d74,5
+XP-fluorx-pvdf-1,P0150,profiles,Nozzle °C,245-265C,confirmed,781df3de3a6d1d61d824c46249ba396fba4a7d3323007413ba57fa2aea2d1379,4
+XP-fluorx-pvdf-1,P0150,profiles,Bed °C,90-110C,confirmed,781df3de3a6d1d61d824c46249ba396fba4a7d3323007413ba57fa2aea2d1379,4
+XP-fluorx-pvdf-1,P0150,profiles,Chamber °C,Recommended,confirmed,781df3de3a6d1d61d824c46249ba396fba4a7d3323007413ba57fa2aea2d1379,4
+XP-max-g-pctg-1,P0148,profiles,Nozzle °C,250-270C,confirmed,17a4f0b28c08b4cd3706332ab31e6ce755a281c183aa14ac3fdf4183c3a42e21,5
+XP-max-g-pctg-1,P0148,profiles,Bed °C,70-90C,confirmed,17a4f0b28c08b4cd3706332ab31e6ce755a281c183aa14ac3fdf4183c3a42e21,5
+XP-max-g-pctg-1,P0148,profiles,Drying,65C for 4 hours,confirmed,17a4f0b28c08b4cd3706332ab31e6ce755a281c183aa14ac3fdf4183c3a42e21,5
+XP-pekk-a,P0152,profiles,Nozzle °C,345-375C,confirmed,cb498f5b05d5f9d18a03a37e2c88de2c39ed425d7fe6292e7377ffb6052febf6,5
+XP-pekk-a,P0152,profiles,Bed °C,120-140C,confirmed,cb498f5b05d5f9d18a03a37e2c88de2c39ed425d7fe6292e7377ffb6052febf6,5
+XP-pekk-a,P0152,profiles,Chamber °C,Recommended 70-150C if possible,confirmed,cb498f5b05d5f9d18a03a37e2c88de2c39ed425d7fe6292e7377ffb6052febf6,5
+XP-pekk-a,P0152,profiles,Drying,120C for 4 hours,confirmed,cb498f5b05d5f9d18a03a37e2c88de2c39ed425d7fe6292e7377ffb6052febf6,5
+XP-thermax-peek-1,P0151,profiles,Nozzle °C,400-480C,confirmed,f11012ed3d10932e7c75e52f30b64dc276906f404687e5e161e7d7bbcc68e296,5
+XP-thermax-peek-1,P0151,profiles,Bed °C,140-180C,confirmed,f11012ed3d10932e7c75e52f30b64dc276906f404687e5e161e7d7bbcc68e296,5
+XP-thermax-peek-1,P0151,profiles,Chamber °C,Recommended 70-140C if possible,confirmed,f11012ed3d10932e7c75e52f30b64dc276906f404687e5e161e7d7bbcc68e296,5
+XP-thermax-peek-1,P0151,profiles,Drying,120C for 4 hours,confirmed,f11012ed3d10932e7c75e52f30b64dc276906f404687e5e161e7d7bbcc68e296,5
+XP-thermax-pei-1010,P0153,profiles,Nozzle °C,370-390C,confirmed,5156f46263594cc246505941bb28d6a0540ce9a021acf7d485bbf3aeb68ccd53,4
+XP-thermax-pei-1010,P0153,profiles,Bed °C,120-160C,confirmed,5156f46263594cc246505941bb28d6a0540ce9a021acf7d485bbf3aeb68ccd53,4
+XP-thermax-pei-1010,P0153,profiles,Chamber °C,Recommended,confirmed,5156f46263594cc246505941bb28d6a0540ce9a021acf7d485bbf3aeb68ccd53,4
+XP-thermax-pei-1010,P0153,profiles,Drying,150C for 4 hours,confirmed,5156f46263594cc246505941bb28d6a0540ce9a021acf7d485bbf3aeb68ccd53,4
+XP-thermax-pps,P0145,profiles,Nozzle °C,315-345°C,confirmed,b241ec4d17e3d4ba59af8042837274cae2c6fa6e92b6ad56b2c58044a4206408,5
+XP-thermax-pps,P0145,profiles,Bed °C,120-160°C,confirmed,b241ec4d17e3d4ba59af8042837274cae2c6fa6e92b6ad56b2c58044a4206408,5
+XP-thermax-pps,P0145,profiles,Chamber °C,"Recommended, up to 50-90°C if available on your printer",confirmed,b241ec4d17e3d4ba59af8042837274cae2c6fa6e92b6ad56b2c58044a4206408,5
+XP-thermax-pps,P0145,profiles,Drying,110°C for 4 hours.,confirmed,b241ec4d17e3d4ba59af8042837274cae2c6fa6e92b6ad56b2c58044a4206408,5
+XP-thermax-ppsu-1,P0156,profiles,Nozzle °C,360-390C,confirmed,7e2e0c05a1787a798cb86a45a68faf1ced9dd45b8766ae94c293357ab5b2ae8b,4
+XP-thermax-ppsu-1,P0156,profiles,Bed °C,140-160C,confirmed,7e2e0c05a1787a798cb86a45a68faf1ced9dd45b8766ae94c293357ab5b2ae8b,4
+XP-thermax-ppsu-1,P0156,profiles,Chamber °C,Recommended,confirmed,7e2e0c05a1787a798cb86a45a68faf1ced9dd45b8766ae94c293357ab5b2ae8b,4
+XP-thermax-ppsu-1,P0156,profiles,Drying,120C for 4 hours,confirmed,7e2e0c05a1787a798cb86a45a68faf1ced9dd45b8766ae94c293357ab5b2ae8b,4
+XP-thermax-psu-1,P0154,profiles,Nozzle °C,350-380C,confirmed,28f5fc210f4a75c3672a91e962129a852b92a55686f40b088914334d0b251af3,4
+XP-thermax-psu-1,P0154,profiles,Bed °C,140-160C,confirmed,28f5fc210f4a75c3672a91e962129a852b92a55686f40b088914334d0b251af3,4
+XP-thermax-psu-1,P0154,profiles,Chamber °C,Recommended,confirmed,28f5fc210f4a75c3672a91e962129a852b92a55686f40b088914334d0b251af3,4
+XP-thermax-psu-1,P0154,profiles,Drying,120C for 4 hours,confirmed,28f5fc210f4a75c3672a91e962129a852b92a55686f40b088914334d0b251af3,4

@@ -1,0 +1,1035 @@
+record,table,SourceID,SHA256,page,fields,numbers,decides,tier
+V000717,measurements,B-pc-fr-TDS,9270695083ba583121736306b8e60fda24402a156a1883771aecd5ddc612be8f,2,Charpy strength,8.4,value,1b
+V002042,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Density,1060,no,3-unsampled
+V002043,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Tensile yield strength,62,no,3-unsampled
+V002044,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Tensile modulus,2400,no,3-unsampled
+V002045,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Elongation at break,100,no,3-unsampled
+V002046,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,HDT,135,no,3
+V002047,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,HDT,62,no,3-unsampled
+V002048,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Melting temperature,218,no,3-unsampled
+V002049,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Vicat softening temperature,181,no,3-unsampled
+V002070,measurements,S-FIBER-PPSGF-TDS-2,2a2f32e737ecae8509160bcadd33ab263c26cd8e7d6334f38e935890136b0c66,1,Vicat softening temperature,272.5,no,3-unsampled
+V002417,measurements,R-FIBERON-PETCF17-TDS,640a5ed487a8475805af3ecf387e942805182e263fdef5ebe0e5587a3e60a254,1,Glass transition temperature,79.3,value,1b
+V004344,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Tensile strength (endpoint unspecified),50,value,1b
+V004345,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Elongation at break,11,value,1b
+V004346,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Flexural strength,78,no,3-unsampled
+V004347,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Flexural modulus,2600; 300,no,3-unsampled
+V004348,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Izod impact strength,1.5; 3.5,value,1b
+V004349,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Izod impact strength,1.5,no,3-unsampled
+V004350,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Hardness,79.6,no,3-unsampled
+V004351,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,HDT,57,value,1b
+V004352,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Glass transition temperature,60.9,value,1b
+V004353,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Melting temperature,164,no,3-unsampled
+V004354,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Vicat softening temperature,54,no,3-unsampled
+V004355,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Melt mass-flow rate,2.5; 10,no,3-unsampled
+V004356,measurements,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de,1,Density,1.23,value,1b
+V004357,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Tensile strength (endpoint unspecified),27,value,1b
+V004358,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Elongation at break,20,value,1b
+V004359,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Flexural strength,50,no,3-unsampled
+V004360,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Flexural modulus,400; 3300,no,3
+V004363,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Hardness,80.5,no,3-unsampled
+V004364,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,HDT,55,value,1b
+V004365,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Glass transition temperature,56,value,1b
+V004366,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Melting temperature,158,no,3-unsampled
+V004367,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Melt mass-flow rate,10,no,3-unsampled
+V004368,measurements,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5,1,Density,1.36,value,1b
+V004369,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Tensile modulus,597; 50,value,1b
+V004370,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Tensile modulus,363; 30,no,3-unsampled
+V004371,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Tensile strength (endpoint unspecified),51,value,1b
+V004372,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Tensile strength (endpoint unspecified),18,no,3
+V004373,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Elongation at break,11,value,1b
+V004374,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Elongation at break,1.5,no,3-unsampled
+V004375,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Flexural modulus,2473; 300,no,3-unsampled
+V004376,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Flexural modulus,1719; 200,no,3-unsampled
+V004377,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Flexural strength,77,no,3-unsampled
+V004378,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Flexural strength,27,no,3-unsampled
+V004379,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Izod impact strength,1.5; 15.5,no,3-unsampled
+V004380,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Izod impact strength,6.5; 1.5,no,3-unsampled
+V004381,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Izod impact strength,4.29; 1.5,value,1b
+V004382,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Hardness,82.5,no,3-unsampled
+V004383,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,HDT,57,value,1b
+V004384,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Glass transition temperature,60.9,value,1b
+V004385,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Melting temperature,164,no,3-unsampled
+V004386,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Vicat softening temperature,54,no,3-unsampled
+V004387,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Melt mass-flow rate,10,no,3-unsampled
+V004388,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Density,1.25,value,1b
+V004389,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Tensile modulus,500; 50,value,1b
+V004390,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Tensile modulus,50; 300,no,3-unsampled
+V004391,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Tensile strength (endpoint unspecified),43; 10,value,1b
+V004392,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Tensile strength (endpoint unspecified),20,no,3-unsampled
+V004393,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Elongation at break,12,value,1b
+V004395,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Flexural modulus,1900; 300,no,3-unsampled
+V004396,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Flexural modulus,1650; 300,no,3-unsampled
+V004397,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Flexural strength,10; 70,no,3-unsampled
+V004398,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Flexural strength,10; 35,no,3-unsampled
+V004399,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Izod impact strength,38,no,3
+V004400,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Izod impact strength,2.5; 4.5,no,3
+V004402,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Hardness,80,no,3-unsampled
+V004403,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,HDT,71,yes,1
+V004404,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Glass transition temperature,83,value,1b
+V004405,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Melt mass-flow rate,3.42; 10,no,3-unsampled
+V004406,measurements,R-SUNLU-30522971789539747056,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7,1,Density,1.22,value,1b
+V004407,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Tensile strength (endpoint unspecified),10; 48,value,1b
+V004408,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Elongation at break,11,value,1b
+V004409,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Flexural strength,10; 70,no,3-unsampled
+V004410,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Flexural modulus,300; 2100,no,3
+V004413,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Hardness,80,no,3-unsampled
+V004414,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,HDT,70,yes,1
+V004415,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Glass transition temperature,79.4,value,1b
+V004416,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Melting temperature,195,no,3
+V004417,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Melt mass-flow rate,10; 5.7,no,3
+V004418,measurements,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056,1,Density,1.27,value,1b
+V004419,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Tensile strength (endpoint unspecified),15,value,1b
+V004420,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Elongation at break,900; 300,yes,1
+V004421,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Flexural strength,18,no,3-unsampled
+V004422,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Flexural modulus,500; 100,no,3
+V004423,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Izod impact strength,23,value,1b
+V004424,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Hardness,60,no,3-unsampled
+V004425,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,HDT,10; 65,yes,1
+V004426,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Melting temperature,156,no,3-unsampled
+V004427,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Melt mass-flow rate,4.4; 10,no,3-unsampled
+V004428,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Density,1.01,value,1b
+V004429,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Tensile strength (endpoint unspecified),40,value,1b
+V004430,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Elongation at break,10,value,1b
+V004431,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Flexural strength,65,no,3-unsampled
+V004432,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Flexural modulus,2300; 300,no,3-unsampled
+V004434,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Izod impact strength,1.5; 4.5,no,3-unsampled
+V004435,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Hardness,80,no,3-unsampled
+V004436,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,HDT,55,value,1b
+V004437,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Glass transition temperature,63,value,1b
+V004438,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Melting temperature,164,no,3-unsampled
+V004439,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Vicat softening temperature,54,no,3-unsampled
+V004440,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Melt mass-flow rate,10; 6.9,no,3
+V004441,measurements,R-SUNLU-73632671781747576290,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930,1,Density,1.23,value,1b
+V004442,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Tensile strength (endpoint unspecified),46,no,3-unsampled
+V004443,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Elongation at break,2.5; 10,no,3
+V004444,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Flexural strength,83,no,3-unsampled
+V004445,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Flexural modulus,200; 2750,no,3-unsampled
+V004446,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Izod impact strength,10,value,1b
+V004448,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Hardness,81,no,3-unsampled
+V004449,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,HDT,56,no,3-unsampled
+V004450,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Glass transition temperature,61,no,3-unsampled
+V004451,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Melting temperature,164,no,3-unsampled
+V004452,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Vicat softening temperature,54,no,3-unsampled
+V004453,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Melt mass-flow rate,10; 8.3,no,3-unsampled
+V004454,measurements,R-SUNLU-65301701781747847057,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b,1,Density,1.21,value,1b
+V004455,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Tensile strength (endpoint unspecified),55,value,1b
+V004456,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Elongation at break,10,value,1b
+V004457,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Flexural strength,85,no,3-unsampled
+V004458,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Flexural modulus,500; 3300,no,3-unsampled
+V004461,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Hardness,80,no,3-unsampled
+V004462,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,HDT,100,yes,1
+V004463,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Glass transition temperature,135,value,1b
+V004464,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Melting temperature,148,no,3-unsampled
+V004465,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Vicat softening temperature,95,no,3-unsampled
+V004466,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Melt mass-flow rate,10,no,3-unsampled
+V004467,measurements,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7,1,Density,0.01; 1.016,value,1b
+V004468,measurements,R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9,1,Tensile strength (endpoint unspecified),30,value,1b
+V004469,measurements,R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9,1,Elongation at break,1000,yes,1
+V004470,measurements,R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9,1,Hardness,90,no,3-unsampled
+V004471,measurements,R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9,1,HDT,36,no,3-unsampled
+V004472,measurements,R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9,1,Melt mass-flow rate,10; 32,no,3-unsampled
+V004473,measurements,R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9,1,Density,0.02; 1.17,value,1b
+V004474,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Tensile strength (endpoint unspecified),38,value,1b
+V004476,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Flexural strength,70,no,3-unsampled
+V004477,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Flexural modulus,2300; 200,no,3-unsampled
+V004478,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Izod impact strength,15,value,1b
+V004479,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Hardness,80,no,3-unsampled
+V004480,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,HDT,102,yes,1
+V004481,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Glass transition temperature,106,value,1b
+V004482,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Melt mass-flow rate,10; 22,no,3-unsampled
+V004483,measurements,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b,1,Density,1.081,value,1b
+V004484,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Tensile strength (endpoint unspecified),39,value,1b
+V004485,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Elongation at break,12,value,1b
+V004486,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Flexural strength,70,no,3-unsampled
+V004487,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Flexural modulus,400; 3200,no,3-unsampled
+V004488,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Izod impact strength,4.5,value,1b
+V004490,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Hardness,81.4,no,3
+V004491,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,HDT,57,value,1b
+V004492,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Glass transition temperature,67.2,value,1b
+V004493,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Melting temperature,165.3,no,3-unsampled
+V004494,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Vicat softening temperature,54,no,3-unsampled
+V004495,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Melt mass-flow rate,2.5; 10,no,3
+V004496,measurements,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce,1,Density,1.28,value,1b
+V004497,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Tensile strength (endpoint unspecified),86,value,1b
+V004498,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Elongation at break,13.7; 2.5,value,1b
+V004499,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Flexural strength,160; 30,no,3-unsampled
+V004500,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Flexural modulus,5800; 300,no,3-unsampled
+V004501,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Izod impact strength,11.3; 2.5,value,1b
+V004502,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Izod impact strength,1.5; 4.8,no,3-unsampled
+V004503,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Hardness,82,no,3-unsampled
+V004504,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,HDT,175,yes,1
+V004505,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Glass transition temperature,99,value,1b
+V004506,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Melting temperature,190,no,3
+V004507,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Melt mass-flow rate,10; 14.4,no,3-unsampled
+V004508,measurements,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280,1,Density,1.08,value,1b
+V004509,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Tensile strength (endpoint unspecified),20,value,1b
+V004510,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Tensile modulus,3100,yes,1
+V004511,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Elongation at break,15,value,1b
+V004512,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Flexural strength,40,no,3-unsampled
+V004513,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Flexural modulus,3550,no,3-unsampled
+V004514,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Izod impact strength,2.5,value,1b
+V004515,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Izod impact strength,17,no,3-unsampled
+V004516,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Hardness,75,no,3-unsampled
+V004517,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,HDT,52,value,1b
+V004518,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Glass transition temperature,63,value,1b
+V004519,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Melting temperature,164,no,3-unsampled
+V004520,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Vicat softening temperature,55,no,3-unsampled
+V004521,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Melt mass-flow rate,10; 3.8,no,3-unsampled
+V004522,measurements,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58,1,Density,0.84,yes,1
+V004523,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Tensile strength (endpoint unspecified),10; 112,value,1b
+V004524,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Elongation at break,12,value,1b
+V004525,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Flexural strength,20; 192,no,3-unsampled
+V004526,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Flexural modulus,8600; 400,no,3-unsampled
+V004527,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Izod impact strength,6.5,value,1b
+V004528,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Izod impact strength,3.6; 1.2,no,3-unsampled
+V004529,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Hardness,80,no,3-unsampled
+V004530,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,HDT,203,yes,1
+V004531,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Glass transition temperature,65,value,1b
+V004532,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Melting temperature,225,no,3-unsampled
+V004533,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Melt mass-flow rate,16.5; 10,no,3-unsampled
+V004534,measurements,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5,1,Density,1.12,value,1b
+V004535,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Tensile strength (endpoint unspecified),77,value,1b
+V004536,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Elongation at break,21,value,1b
+V004537,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Flexural strength,122,no,3-unsampled
+V004538,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Flexural modulus,3163,no,3-unsampled
+V004539,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Izod impact strength,138,no,3-unsampled
+V004540,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Hardness,83,no,3-unsampled
+V004541,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,HDT,147,value,1b
+V004542,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Glass transition temperature,143,value,1b
+V004543,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Melting temperature,343,no,3-unsampled
+V004544,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Melt mass-flow rate,10; 17,no,3
+V004545,measurements,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd,1,Density,1.1965,value,1b
+V004546,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Tensile strength (endpoint unspecified),35,value,1b
+V004547,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Elongation at break,10,value,1b
+V004548,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Flexural strength,55,no,3-unsampled
+V004549,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Flexural modulus,200; 2000,no,3-unsampled
+V004550,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Izod impact strength,10,value,1b
+V004551,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Izod impact strength,18,no,3-unsampled
+V004552,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Hardness,80,no,3-unsampled
+V004553,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,HDT,93,yes,1
+V004554,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Glass transition temperature,105,value,1b
+V004555,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Melting temperature,128,no,3-unsampled
+V004556,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Vicat softening temperature,80,no,3-unsampled
+V004557,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Melt mass-flow rate,10; 38,no,3-unsampled
+V004558,measurements,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7,1,Density,0.01; 1.046,value,1b
+V004559,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Tensile strength (endpoint unspecified),35,value,1b
+V004560,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Elongation at break,10,value,1b
+V004561,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Flexural strength,60; 10,no,3-unsampled
+V004562,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Flexural modulus,500; 2000,no,3-unsampled
+V004563,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Izod impact strength,15,value,1b
+V004565,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Hardness,85,no,3-unsampled
+V004566,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,HDT,95,yes,1
+V004567,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Glass transition temperature,109,value,1b
+V004568,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Melting temperature,132,no,3-unsampled
+V004569,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Vicat softening temperature,86,no,3-unsampled
+V004570,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Melt mass-flow rate,20; 10,no,3-unsampled
+V004571,measurements,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3,1,Density,1.02,value,1b
+V004572,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Tensile strength (endpoint unspecified),33,value,1b
+V004573,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Elongation at break,10,value,1b
+V004574,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Flexural strength,55,no,3-unsampled
+V004575,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Flexural modulus,3040; 200,no,3-unsampled
+V004577,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Izod impact strength,2.8,no,3-unsampled
+V004578,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Hardness,77,no,3-unsampled
+V004579,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,HDT,55,value,1b
+V004580,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Glass transition temperature,60,value,1b
+V004581,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Melting temperature,164,no,3-unsampled
+V004582,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Vicat softening temperature,54,no,3-unsampled
+V004583,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Melt mass-flow rate,1.5; 10; 3.8,no,3
+V004584,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Density,1.17,value,1b
+V004585,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Tensile strength (endpoint unspecified),89,value,1b
+V004586,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Elongation at break,12.5,value,1b
+V004587,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Flexural strength,176,no,3-unsampled
+V004588,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Flexural modulus,6130; 300,no,3-unsampled
+V004589,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Izod impact strength,2.5; 10.5,value,1b
+V004590,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Izod impact strength,2.9,no,3-unsampled
+V004591,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Hardness,82.5,no,3-unsampled
+V004592,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,HDT,205.2,yes,1
+V004593,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Glass transition temperature,65,value,1b
+V004594,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Melting temperature,225,no,3-unsampled
+V004595,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Melt mass-flow rate,10; 12.2,no,3-unsampled
+V004596,measurements,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419,1,Density,1.269,value,1b
+V004597,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Tensile strength (endpoint unspecified),45,value,1b
+V004598,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Elongation at break,11,value,1b
+V004599,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Flexural strength,76,no,3-unsampled
+V004600,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Flexural modulus,500; 2600,no,3-unsampled
+V004603,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Hardness,82,no,3-unsampled
+V004604,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,HDT,56,value,1b
+V004605,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Glass transition temperature,60,value,1b
+V004606,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Melting temperature,165,no,3-unsampled
+V004607,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Melt mass-flow rate,5.1; 10,no,3-unsampled
+V004608,measurements,R-SUNLU-19364171789540194308,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560,1,Density,0.02; 1.21,value,1b
+V004609,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Tensile strength (endpoint unspecified),39,value,1b
+V004610,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Elongation at break,15,value,1b
+V004611,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Flexural strength,72,no,3-unsampled
+V004612,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Flexural modulus,400; 3700,no,3-unsampled
+V004614,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Izod impact strength,4.5,no,3-unsampled
+V004615,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Hardness,83,no,3-unsampled
+V004616,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,HDT,55,value,1b
+V004617,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Glass transition temperature,58.8,value,1b
+V004618,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Melting temperature,162.6,no,3-unsampled
+V004619,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Vicat softening temperature,54,no,3
+V004620,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Melt mass-flow rate,1.5; 5.5; 10,no,3-unsampled
+V004621,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Density,1.31,value,1b
+V004622,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,Tensile strength (endpoint unspecified),23,value,1b
+V004623,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,Elongation at break,215,value,1b
+V004624,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,HDT,55,value,1b
+V004625,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,Melting temperature,160; 215,no,3-unsampled
+V004626,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,Vicat softening temperature,65,no,3-unsampled
+V004627,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,Melt mass-flow rate,10,no,3-unsampled
+V004628,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,Density,1.28; 1.01,value,1b
+V004629,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Tensile strength (endpoint unspecified),44,value,1b
+V004630,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Elongation at break,10.4,value,1b
+V004631,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Flexural strength,79,no,3-unsampled
+V004632,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Flexural modulus,3221; 200,no,3-unsampled
+V004633,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Izod impact strength,1.5; 3.5,value,1b
+V004634,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Izod impact strength,5.5,no,3
+V004635,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Hardness,84,no,3-unsampled
+V004636,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,HDT,55.5,value,1b
+V004637,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Glass transition temperature,59,value,1b
+V004638,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Melting temperature,168.6,no,3-unsampled
+V004639,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Vicat softening temperature,54,no,3-unsampled
+V004640,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Melt mass-flow rate,10; 20.4,no,3-unsampled
+V004641,measurements,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f,1,Density,1.23,value,1b
+V004642,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Tensile strength (endpoint unspecified),41,value,1b
+V004643,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Elongation at break,25,value,1b
+V004644,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Flexural strength,72,no,3
+V004645,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Flexural modulus,400; 3100,no,3-unsampled
+V004646,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Izod impact strength,11,value,1b
+V004648,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Hardness,82,no,3-unsampled
+V004649,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,HDT,55,value,1b
+V004650,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Glass transition temperature,63,value,1b
+V004651,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Melting temperature,164,no,3-unsampled
+V004652,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Vicat softening temperature,54,no,3-unsampled
+V004653,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Melt mass-flow rate,10; 8.3,no,3-unsampled
+V004654,measurements,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa,1,Density,1.26,value,1b
+V004655,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Tensile strength (endpoint unspecified),38,no,3-unsampled
+V004656,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Elongation at break,10,no,3-unsampled
+V004657,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Flexural strength,72,no,3-unsampled
+V004658,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Flexural modulus,200; 3300,no,3-unsampled
+V004661,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Hardness,82,no,3-unsampled
+V004662,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,HDT,56,no,3
+V004663,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Glass transition temperature,64.2,no,3-unsampled
+V004664,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Melting temperature,167,no,3-unsampled
+V004665,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Melt mass-flow rate,10; 7.3,no,3-unsampled
+V004666,measurements,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776,1,Density,1.27,no,3-unsampled
+V004667,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Tensile strength (endpoint unspecified),39,value,1b
+V004668,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Elongation at break,11,value,1b
+V004669,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Flexural strength,68,no,3
+V004670,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Flexural modulus,2300; 300,no,3-unsampled
+V004672,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Izod impact strength,3.3; 1.5,no,3-unsampled
+V004673,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Hardness,81.5,no,3-unsampled
+V004674,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,HDT,101,yes,1
+V004675,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Glass transition temperature,108,value,1b
+V004676,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Melting temperature,120,no,3-unsampled
+V004677,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Vicat softening temperature,105,no,3-unsampled
+V004678,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Melt mass-flow rate,10; 30.5,no,3
+V004679,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Density,1.04,value,1b
+V004680,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Tensile strength (endpoint unspecified),19,value,1b
+V004681,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Elongation at break,850; 150,yes,1
+V004682,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Flexural strength,19,no,3-unsampled
+V004683,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Izod impact strength,1.5; 5.3,value,1b
+V004684,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Izod impact strength,2.5; 16.1,no,3-unsampled
+V004685,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Hardness,54.5,no,3
+V004686,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,HDT,58.5,value,1b
+V004687,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Melting temperature,156,no,3-unsampled
+V004688,measurements,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5,1,Melt mass-flow rate,9.75; 10,no,3-unsampled
+V004689,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Tensile strength (endpoint unspecified),31.4,value,1b
+V004690,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Elongation at break,11.6,value,1b
+V004691,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Flexural strength,55,no,3-unsampled
+V004692,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Flexural modulus,200; 1750,no,3-unsampled
+V004693,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Izod impact strength,13.7,value,1b
+V004694,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Izod impact strength,3.9; 1.5,no,3-unsampled
+V004695,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Hardness,79,no,3
+V004696,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,HDT,90.5,yes,1
+V004697,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Melting temperature,132,no,3-unsampled
+V004698,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Melt mass-flow rate,28.6; 10,no,3-unsampled
+V004699,measurements,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331,1,Density,1.15,value,1b
+V004700,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Tensile strength (endpoint unspecified),50,value,1b
+V004701,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Elongation at break,25,value,1b
+V004702,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Flexural strength,75,no,3
+V004703,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Flexural modulus,2050; 200,no,3-unsampled
+V004704,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Izod impact strength,35,value,1b
+V004705,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Izod impact strength,70,no,3-unsampled
+V004706,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Hardness,80,no,3-unsampled
+V004707,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,HDT,101,yes,1
+V004708,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Melt mass-flow rate,15; 10,no,3-unsampled
+V004709,measurements,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26,1,Density,1.15,value,1b
+V004710,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Tensile strength (endpoint unspecified),50,value,1b
+V004711,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Elongation at break,10,value,1b
+V004712,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Flexural strength,85,no,3-unsampled
+V004713,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Flexural modulus,2900; 300,no,3-unsampled
+V004714,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Izod impact strength,6.5; 2.5,value,1b
+V004716,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Hardness,83.5,no,3-unsampled
+V004717,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,HDT,57,value,1b
+V004718,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Glass transition temperature,63,value,1b
+V004719,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Melting temperature,164,no,3-unsampled
+V004720,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Vicat softening temperature,54,no,3-unsampled
+V004721,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Melt mass-flow rate,10,no,3-unsampled
+V004722,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Density,1.21,value,1b
+V004723,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Tensile strength (endpoint unspecified),40,value,1b
+V004724,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Elongation at break,14,value,1b
+V004725,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Flexural strength,73,no,3-unsampled
+V004726,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Flexural modulus,3290; 300,no,3-unsampled
+V004727,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Izod impact strength,1.5; 4.5,value,1b
+V004728,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Izod impact strength,1.5,no,3-unsampled
+V004729,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Hardness,86.5,no,3-unsampled
+V004730,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,HDT,56.5,value,1b
+V004731,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Glass transition temperature,67.5,value,1b
+V004732,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Melting temperature,168.3,no,3-unsampled
+V004733,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Melt mass-flow rate,10.2; 10,no,3-unsampled
+V004734,measurements,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da,1,Density,1.27,value,1b
+V004735,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Tensile strength (endpoint unspecified),46,value,1b
+V004736,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Elongation at break,14,value,1b
+V004737,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Flexural strength,75,no,3-unsampled
+V004738,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Flexural modulus,2650; 200,no,3-unsampled
+V004739,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Izod impact strength,1.5,value,1b
+V004740,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Izod impact strength,4.5,no,3-unsampled
+V004741,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Hardness,79,no,3
+V004742,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,HDT,70,yes,1
+V004743,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Glass transition temperature,65.5,value,1b
+V004744,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Melting temperature,128,no,3-unsampled
+V004745,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Melt mass-flow rate,4.4; 10,no,3-unsampled
+V004746,measurements,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035,1,Density,1.28,value,1b
+V004747,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Tensile strength (endpoint unspecified),43.3,value,1b
+V004748,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Elongation at break,16.3,value,1b
+V004749,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Flexural strength,80.3; 10,no,3
+V004750,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Flexural modulus,300; 3273,no,3-unsampled
+V004751,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Izod impact strength,3.8,value,1b
+V004752,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Izod impact strength,15,no,3
+V004753,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Hardness,82,no,3-unsampled
+V004754,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,HDT,54.6,value,1b
+V004755,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Glass transition temperature,60.9,value,1b
+V004756,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Melting temperature,167,no,3-unsampled
+V004757,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Melt mass-flow rate,2.5; 10; 5.46,no,3
+V004758,measurements,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc,1,Density,1.22,value,1b
+V004759,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Tensile strength (endpoint unspecified),32,value,1b
+V004760,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Elongation at break,14,value,1b
+V004761,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Flexural strength,55.5,no,3
+V004762,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Flexural modulus,1960; 200,no,3-unsampled
+V004764,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Izod impact strength,1.5; 5.5,no,3-unsampled
+V004765,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Hardness,71,no,3-unsampled
+V004766,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,HDT,71,yes,1
+V004767,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Glass transition temperature,65,value,1b
+V004768,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Melt mass-flow rate,1.5; 10; 5.7,no,3-unsampled
+V004769,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Density,1.23,value,1b
+V004770,measurements,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0,1,Tensile strength (endpoint unspecified),31,value,1b
+V004771,measurements,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0,1,Elongation at break,900,yes,1
+V004772,measurements,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0,1,Izod impact strength,47,value,1b
+V004773,measurements,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0,1,Izod impact strength,38,no,3-unsampled
+V004774,measurements,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0,1,Hardness,95,no,3-unsampled
+V004775,measurements,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0,1,Melt mass-flow rate,10; 28,no,3
+V004776,measurements,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0,1,Density,1.21,value,1b
+V004777,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Tensile strength (endpoint unspecified),59,value,1b
+V004778,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Elongation at break,12.5,value,1b
+V004779,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Flexural strength,97,no,3
+V004780,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Flexural modulus,250; 3100,no,3-unsampled
+V004781,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Izod impact strength,1.2; 3.1,value,1b
+V004782,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Izod impact strength,8.7,no,3-unsampled
+V004783,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Hardness,78.5,no,3-unsampled
+V004784,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,HDT,50.8,value,1b
+V004785,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Glass transition temperature,63,value,1b
+V004786,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Melting temperature,164,no,3-unsampled
+V004787,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Vicat softening temperature,54,no,3-unsampled
+V004788,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Melt mass-flow rate,8.6; 10,no,3-unsampled
+V004789,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Density,1.25,value,1b
+V004790,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Tensile strength (endpoint unspecified),48,value,1b
+V004791,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Elongation at break,14,value,1b
+V004792,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Flexural strength,78,no,3
+V004793,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Flexural modulus,2250; 200,no,3-unsampled
+V004794,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Izod impact strength,6.5,value,1b
+V004796,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Hardness,82.5,no,3-unsampled
+V004797,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,HDT,55.8,value,1b
+V004798,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Glass transition temperature,70,value,1b
+V004799,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Vicat softening temperature,60,no,3-unsampled
+V004800,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Melt mass-flow rate,10; 14.3,no,3
+V004801,measurements,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589,1,Density,1.08,value,1b
+V006146,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,058a8c3270f4fec4f190273d689add4ff16245000621c365b7dd3b6caab1c4fb,1,Glass transition temperature,77,value,1b
+V008030,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,3,Density,1.15,yes,1
+V008031,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,3,Glass transition temperature,103,value,1b
+V008032,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,3,Melt mass-flow rate,10; 4.2,no,3-unsampled
+V008033,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,3,HDT,81,no,3-unsampled
+V008034,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,3,HDT,87,yes,1
+V008035,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Tensile break strength,0.61; 48.48,value,1b
+V008036,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Elongation at break,2.1; 0.1,value,1b
+V008037,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Tensile modulus,68.39; 3752.13,yes,1
+V008038,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Tensile break strength,30.48; 0.47,value,1b
+V008039,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Tensile modulus,2843.56; 69.9,no,3-unsampled
+V008040,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Elongation at break,0.44; 2.2,no,3-unsampled
+V008041,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Flexural strength,1.26; 78.8,no,3-unsampled
+V008042,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Flexural modulus,3531.71; 75.79,no,3
+V008043,measurements,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,4,Charpy strength,8.91; 0.63,value,1b
+V008047,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,Density,1.05,value,1b
+V008048,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,Glass transition temperature,101,value,1b
+V008049,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,Melt mass-flow rate,7.8; 10,no,3-unsampled
+V008050,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,Vicat softening temperature,103,no,3
+V008051,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,HDT,86,no,3
+V008052,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,HDT,92,yes,1
+V008053,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,Tensile yield strength,0.33; 38.96,value,1b
+V008054,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,2,Tensile modulus,20; 2384.22,value,1b
+V008055,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Tensile break strength,0.53; 33.36,no,3-unsampled
+V008056,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Elongation at break,0.84; 5.77,value,1b
+V008057,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Tensile break strength,1.73; 26.16,value,1b
+V008058,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Tensile modulus,1967.57; 119.93,no,3
+V008059,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Elongation at break,0.14; 1.62,no,3
+V008060,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Tensile modulus,2201.74; 74.91,no,3-unsampled
+V008061,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Flexural strength,67.81; 0.54,no,3-unsampled
+V008062,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Flexural modulus,79.69; 2400,no,3-unsampled
+V008063,measurements,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,3,Charpy strength,1.32; 20.03,value,1b
+V008064,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,Density,1.03,value,1b
+V008065,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,HDT,55,no,3-unsampled
+V008066,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,HDT,70,value,1b
+V008067,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,Tensile break strength,0.15; 8.25,value,1b
+V008068,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,Elongation at break,11.52; 0.58,value,1b
+V008069,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,Tensile modulus,24.34; 593.99,value,1b
+V008070,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,Tensile break strength,7.86; 0.14,value,1b
+V008071,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,Elongation at break,5.54; 0.28,no,3-unsampled
+V008072,measurements,R-QIDI-ASA-AERO,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c,2,Flexural strength,1.66; 14.31,no,3-unsampled
+V008075,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Density,1.06,yes,1
+V008076,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Melt mass-flow rate,4.3; 10,no,3-unsampled
+V008077,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,HDT,95.8,no,3-unsampled
+V008078,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,HDT,101.1,yes,1
+V008079,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Tensile strength (endpoint unspecified),50.06,value,1b
+V008080,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Tensile modulus,4502.58; 103.44,yes,1
+V008081,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Elongation at break,0.11; 1.64,value,1b
+V008082,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Flexural strength,84.3; 1.37,no,3-unsampled
+V008083,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Flexural modulus,264.85; 4537.67,no,3-unsampled
+V008084,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Charpy strength,5.76; 0.17,value,1b
+V008085,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Tensile strength (endpoint unspecified),2.18; 31.03,value,1b
+V008086,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Tensile modulus,2570.8; 130.85,no,3-unsampled
+V008087,measurements,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,3,Elongation at break,1.5; 0.14,no,3-unsampled
+V008091,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,2,Density,1.07,value,1b
+V008092,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,2,Glass transition temperature,98,value,1b
+V008093,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,2,Melt mass-flow rate,5.6; 10,no,3-unsampled
+V008094,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,2,Vicat softening temperature,101,no,3
+V008095,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,2,HDT,83,no,3-unsampled
+V008096,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,2,HDT,93,yes,1
+V008097,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Tensile yield strength,38.5; 1.6,value,1b
+V008098,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Elongation at yield,0.23; 2.38,no,3-unsampled
+V008099,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Tensile modulus,246; 2317,value,1b
+V008100,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Tensile break strength,32.23; 1.13,no,3
+V008101,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Elongation at break,5.2; 1.4,value,1b
+V008102,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Tensile break strength,0.42; 27.87,value,1b
+V008103,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Tensile modulus,2037; 64,no,3-unsampled
+V008104,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Elongation at break,2.43; 0.27,no,3-unsampled
+V008105,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Flexural strength,1.3; 64.49,no,3-unsampled
+V008106,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Flexural modulus,2399; 147,no,3-unsampled
+V008107,measurements,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,3,Charpy strength,0.9; 12.9,value,1b
+V008108,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Density,1.15,value,1b
+V008109,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Melt mass-flow rate,30; 10,no,3-unsampled
+V008110,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Vicat softening temperature,99,no,3-unsampled
+V008111,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Tensile break strength,3.26; 31.81,value,1b
+V008112,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Elongation at break,471; 81,yes,1
+V008126,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Density,1.27,value,1b
+V008127,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Glass transition temperature,80,value,1b
+V008128,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Melt mass-flow rate,10,no,3-unsampled
+V008129,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,HDT,65,no,3-unsampled
+V008130,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,HDT,70,yes,1
+V008131,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Tensile yield strength,0.64; 44.23,value,1b
+V008132,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Elongation at yield,0.06; 4.19,no,3-unsampled
+V008133,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Tensile modulus,49.41; 1821.82,value,1b
+V008134,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Elongation at break,7.77; 14.04,value,1b
+V008135,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Tensile modulus,179.3; 1955.67,no,3-unsampled
+V008136,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Tensile break strength,0.51; 42.7,value,1b
+V008137,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,2,Elongation at break,4.51; 0.82,no,3-unsampled
+V008138,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,3,Flexural strength,0.74; 71.4,no,3-unsampled
+V008139,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,3,Flexural modulus,1895.07; 36.19,no,3-unsampled
+V008150,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,2,Density,1.38,value,1b
+V008151,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,2,Melting temperature,251,no,3-unsampled
+V008152,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,2,Melt mass-flow rate,5.3; 10,no,3-unsampled
+V008153,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,2,HDT,99.1,no,3-unsampled
+V008154,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,HDT,120.3,yes,1
+V008155,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Tensile strength (endpoint unspecified),70.86; 2.86,value,1b
+V008156,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Elongation at break,0.3; 2.56,value,1b
+V008157,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Flexural strength,114.87,no,3
+V008158,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Flexural modulus,3650.32; 65.81,no,3-unsampled
+V008159,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Charpy strength,0.68; 6.56,value,1b
+V008160,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Tensile strength (endpoint unspecified),2.38; 33.95,value,1b
+V008161,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Tensile modulus,3322.37; 94.04,no,3-unsampled
+V008162,measurements,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,3,Elongation at break,0.11; 1.14,no,3-unsampled
+V008191,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Tensile strength (endpoint unspecified),100,no,3-unsampled
+V008192,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Elongation at break,12,no,3-unsampled
+V008193,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Flexural strength,163,no,3-unsampled
+V008194,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Flexural modulus,5996,no,3-unsampled
+V008195,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Izod impact strength,13,no,3-unsampled
+V008196,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Izod impact strength,10,no,3-unsampled
+V008197,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,HDT,176,no,3
+V008198,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Glass transition temperature,99,no,3-unsampled
+V008199,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Melting temperature,190,no,3-unsampled
+V008200,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Decomposition temperature,330,no,3-unsampled
+V008201,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Melt mass-flow rate,15; 10,no,3-unsampled
+V008202,measurements,R-SUNLU-PA12-CF-TDS,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68,1,Density,1.2,no,3-unsampled
+V008229,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Tensile strength (endpoint unspecified),120,no,3-unsampled
+V008230,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Elongation at break,16,no,3-unsampled
+V008231,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Flexural strength,183,no,3-unsampled
+V008232,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Flexural modulus,6238,no,3-unsampled
+V008233,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Izod impact strength,7.7,no,3-unsampled
+V008235,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,HDT,205,no,3-unsampled
+V008236,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Glass transition temperature,65,no,3
+V008237,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Melting temperature,225,no,3-unsampled
+V008238,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Decomposition temperature,330,no,3
+V008239,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Melt mass-flow rate,10.86; 10,no,3-unsampled
+V008240,measurements,R-SUNLU-PA6-GF-TDS,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d,1,Density,1.269,no,3-unsampled
+V008298,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Tensile strength (endpoint unspecified),41,no,3-unsampled
+V008299,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Elongation at break,80,no,3-unsampled
+V008300,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Flexural strength,70,no,3-unsampled
+V008301,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Flexural modulus,3400,no,3
+V008302,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Izod impact strength,11,no,3-unsampled
+V008303,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Izod impact strength,7.2,no,3-unsampled
+V008304,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Hardness,82,no,3-unsampled
+V008305,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,HDT,54.8,no,3-unsampled
+V008306,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Glass transition temperature,63,no,3-unsampled
+V008307,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Melting temperature,164,no,3-unsampled
+V008308,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Decomposition temperature,374,no,3-unsampled
+V008309,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Vicat softening temperature,54,no,3-unsampled
+V008310,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+V008311,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Melt mass-flow rate,10; 10.7,no,3-unsampled
+V008312,measurements,R-SUNLU-TDS-High-speed-PLA-marble,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400,1,Density,1.25,no,3-unsampled
+V008313,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Tensile strength (endpoint unspecified),43.3,no,3-unsampled
+V008314,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Elongation at break,16,no,3-unsampled
+V008315,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Flexural strength,80.3,no,3-unsampled
+V008316,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Flexural modulus,3273,no,3-unsampled
+V008317,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Izod impact strength,3.8,no,3-unsampled
+V008318,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Izod impact strength,18.5,no,3-unsampled
+V008319,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,HDT,54.6,no,3-unsampled
+V008320,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Glass transition temperature,60.9,no,3-unsampled
+V008321,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Melting temperature,167,no,3-unsampled
+V008322,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Melt mass-flow rate,10; 5.46,no,3-unsampled
+V008323,measurements,R-SUNLU-PLA-Galaxy-TDS,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd,1,Density,1.2225,no,3
+V008361,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Tensile strength (endpoint unspecified),56,no,3-unsampled
+V008362,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Elongation at break,25,no,3-unsampled
+V008363,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Flexural strength,66,no,3-unsampled
+V008364,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Flexural modulus,2164,no,3-unsampled
+V008365,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Izod impact strength,3.7,no,3
+V008366,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,HDT,54.5,no,3-unsampled
+V008367,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Glass transition temperature,70,no,3-unsampled
+V008368,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Decomposition temperature,230,no,3-unsampled
+V008369,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Vicat softening temperature,60,no,3-unsampled
+V008370,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Mould shrinkage,0.5,no,3-unsampled
+V008371,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Melt mass-flow rate,10; 15.6,no,3-unsampled
+V008372,measurements,R-SUNLU-PVB-TDS,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8,1,Density,1.08,no,3
+V008388,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Tensile strength (endpoint unspecified),40,no,3
+V008390,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Flexural strength,70,no,3-unsampled
+V008391,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Flexural modulus,2300,no,3-unsampled
+V008392,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Izod impact strength,70,no,3-unsampled
+V008393,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Hardness,80,no,3-unsampled
+V008394,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,HDT,102,no,3-unsampled
+V008395,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Glass transition temperature,106,no,3-unsampled
+V008396,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Melt mass-flow rate,10; 22,no,3-unsampled
+V008397,measurements,R-SUNLU-PC-ABS-TDS,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e,1,Density,1.081,no,3-unsampled
+V008439,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Tensile strength (endpoint unspecified),48,no,3-unsampled
+V008440,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Elongation at break,33,no,3-unsampled
+V008441,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Flexural strength,78,no,3
+V008442,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Flexural modulus,2700,no,3-unsampled
+V008443,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Izod impact strength,4.1,no,3-unsampled
+V008444,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Izod impact strength,4.8,no,3-unsampled
+V008445,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Hardness,80,no,3-unsampled
+V008446,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,HDT,70,no,3-unsampled
+V008447,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Glass transition temperature,65.5,no,3-unsampled
+V008448,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Melting temperature,128,no,3-unsampled
+V008449,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Decomposition temperature,423,no,3
+V008450,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Melt mass-flow rate,4.4; 10,no,3-unsampled
+V008451,measurements,R-SUNLU-High-Speed-Matte-PETG-TDS,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143,1,Density,1.26,no,3-unsampled
+V008516,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Tensile strength (endpoint unspecified),22.7,no,3-unsampled
+V008517,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Elongation at break,900,no,3-unsampled
+V008518,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Flexural strength,24,no,3-unsampled
+V008519,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Izod impact strength,40,no,3-unsampled
+V008520,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,HDT,61,no,3-unsampled
+V008521,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Melting temperature,156,no,3-unsampled
+V008522,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Decomposition temperature,395,no,3-unsampled
+V008523,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Mould shrinkage,1.5,no,3-unsampled
+V008524,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Melt mass-flow rate,10,no,3
+V008525,measurements,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31,1,Density,0.9,value,1b
+V008577,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Tensile strength (endpoint unspecified),33,no,3-unsampled
+V008578,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Elongation at break,10,no,3-unsampled
+V008579,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Flexural strength,54,no,3-unsampled
+V008580,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Flexural modulus,2154,no,3-unsampled
+V008581,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Izod impact strength,13,no,3
+V008582,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Izod impact strength,20,no,3-unsampled
+V008583,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,HDT,84,no,3-unsampled
+V008584,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Melting temperature,132,no,3-unsampled
+V008585,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Decomposition temperature,375,no,3
+V008586,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Mould shrinkage,0.9; 0.4,no,3-unsampled
+V008587,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Melt mass-flow rate,1.7; 10,no,3-unsampled
+V008588,measurements,R-SUNLU-ABS-FR-TDS-0,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0,1,Density,1.1,no,3-unsampled
+V008589,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Tensile strength (endpoint unspecified),28.004,value,1b
+V008590,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Elongation at break,27.5,value,1b
+V008591,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Flexural strength,85.809,no,3-unsampled
+V008592,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Flexural modulus,3832.202,no,3-unsampled
+V008593,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Izod impact strength,18.0952,value,1b
+V008594,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Izod impact strength,5.7311,no,3-unsampled
+V008595,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,HDT,55,value,1b
+V008596,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Glass transition temperature,56,value,1b
+V008597,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Melting temperature,158,no,3
+V008598,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Melt mass-flow rate,5.1599; 10,no,3-unsampled
+V008599,measurements,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,1,Density,1.365,value,1b
+V008613,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Tensile strength (endpoint unspecified),170,no,3-unsampled
+V008614,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Elongation at break,10,no,3-unsampled
+V008615,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Flexural strength,245,no,3-unsampled
+V008616,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Flexural modulus,11000,no,3
+V008617,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Izod impact strength,9.7,no,3-unsampled
+V008618,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Izod impact strength,3.8,no,3
+V008619,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,HDT,209,no,3-unsampled
+V008620,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Glass transition temperature,65,no,3-unsampled
+V008621,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Melting temperature,225,no,3-unsampled
+V008622,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Decomposition temperature,330,no,3-unsampled
+V008623,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Melt mass-flow rate,15; 10,no,3-unsampled
+V008624,measurements,R-SUNLU-PA6-CF-TDS,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d,1,Density,1.2,no,3
+V008625,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Tensile strength (endpoint unspecified),47.7,no,3-unsampled
+V008626,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Elongation at break,11.4,no,3-unsampled
+V008627,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Flexural strength,80.7,no,3-unsampled
+V008628,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Flexural modulus,2745,no,3-unsampled
+V008629,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Izod impact strength,3.3,no,3
+V008630,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,HDT,53,no,3-unsampled
+V008631,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Glass transition temperature,60.9,no,3-unsampled
+V008632,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Melting temperature,164,no,3-unsampled
+V008633,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Decomposition temperature,364,no,3-unsampled
+V008634,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Vicat softening temperature,54,no,3-unsampled
+V008635,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+V008636,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Melt mass-flow rate,10,no,3-unsampled
+V008637,measurements,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10,1,Density,1.25,no,3-unsampled
+V008689,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Tensile strength (endpoint unspecified),35,no,3-unsampled
+V008690,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Elongation at break,12,no,3-unsampled
+V008691,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Flexural strength,55,no,3
+V008692,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Flexural modulus,2100,no,3-unsampled
+V008693,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Izod impact strength,10,no,3
+V008694,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Hardness,80,no,3-unsampled
+V008695,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,HDT,91,no,3-unsampled
+V008696,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Glass transition temperature,105,no,3
+V008697,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Melting temperature,128,no,3-unsampled
+V008698,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Decomposition temperature,398,no,3-unsampled
+V008699,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Vicat softening temperature,80,no,3-unsampled
+V008700,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Mould shrinkage,0.8,no,3-unsampled
+V008701,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Melt mass-flow rate,10; 38,no,3-unsampled
+V008702,measurements,R-SUNLU-High-Speed-ABS-TDS,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be,1,Density,1.046,no,3-unsampled
+V009283,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Tensile strength (endpoint unspecified),61,value,1b
+V009284,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Elongation at break,15,value,1b
+V009285,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Flexural strength,91,no,3-unsampled
+V009286,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Flexural modulus,2314; 250,no,3-unsampled
+V009287,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Izod impact strength,11,value,1b
+V009288,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Izod impact strength,5.1; 1.5,no,3-unsampled
+V009289,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,HDT,119,yes,1
+V009290,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Glass transition temperature,65,value,1b
+V009291,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Melting temperature,198,no,3-unsampled
+V009292,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Decomposition temperature,300,no,3
+V009293,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Vicat softening temperature,135,no,3-unsampled
+V009294,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Mould shrinkage,1.3; 1.6,no,3-unsampled
+V009295,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Melt mass-flow rate,19; 10,no,3-unsampled
+V009296,measurements,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988,1,Density,1.1,value,1b
+V009348,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Density,1.09,value,1b
+V009349,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Water absorption,2.46,no,3
+V009350,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Melting temperature,167,no,3-unsampled
+V009351,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Melt mass-flow rate,5.1; 10,no,3-unsampled
+V009352,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,HDT,78.4,no,3
+V009353,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Tensile strength (endpoint unspecified),0.3; 83.34,value,1b
+V009354,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Tensile modulus,199.19; 4884.83,yes,1
+V009355,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Elongation at break,0.13; 3.16,value,1b
+V009356,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Flexural strength,124.07; 2.36,no,3
+V009357,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Flexural modulus,4305.11; 129.44,no,3-unsampled
+V009358,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,3,Tensile strength (endpoint unspecified),2.19; 38.61,value,1b
+V009359,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,3,Tensile modulus,46.6; 2892.15,no,3-unsampled
+V009360,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,3,Elongation at break,0.1; 1.63,no,3-unsampled
+V010184,measurements,R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b,1,Elongation at break,800,no,3
+V010185,measurements,R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b,1,Melting temperature,60; 58,no,3-unsampled
+V010186,measurements,R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b,1,Decomposition temperature,300,no,3-unsampled
+V010187,measurements,R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b,1,Mould shrinkage,1.3; 1.6,no,3
+V010188,measurements,R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b,1,Melt mass-flow rate,30; 10,no,3-unsampled
+V010189,measurements,R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b,1,Density,1.13,value,1b
+V010505,measurements,B-PC-uVYGQd,2324f61a8aba9b0c02b216a84d03559adba51776284fa75e4545a32650113320,3,Flexural modulus,2599,no,3-unsampled
+V011541,measurements,R-SUNLU-COVERAGE-20261001-816dc4c0cc18,816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec,1,Elongation at break,800,value,1b
+V011542,measurements,R-SUNLU-COVERAGE-20261001-816dc4c0cc18,816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec,1,Melt mass-flow rate,30; 10,no,3-unsampled
+V011882,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Tensile strength (endpoint unspecified),33.7,value,1b
+V011883,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Elongation at break,14.8,value,1b
+V011884,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Elongation at break,0.6,no,3-unsampled
+V011885,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Tensile modulus,2339,value,1b
+V011886,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Tensile modulus,1426,no,3-unsampled
+V011887,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural strength,53.8,no,3-unsampled
+V011888,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural strength,50.3,no,3-unsampled
+V011889,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural strength,11.4,no,3-unsampled
+V011890,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural modulus,2236,no,3
+V011891,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural modulus,1807,no,3-unsampled
+V011892,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural modulus,1081,no,3-unsampled
+V011893,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural elongation at break,4.8,no,3-unsampled
+V011894,measurements,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,4,Flexural elongation at break,4.4,no,3-unsampled
+V011917,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Elongation at yield,4.5,no,3-unsampled
+V011918,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Elongation at break,100,no,3-unsampled
+V011919,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Tensile modulus,1700,no,3
+V011921,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Charpy strength,3.5,no,3-unsampled
+V011922,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Izod impact strength,4.5,no,3-unsampled
+V011923,measurements,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,8,Izod impact strength,4.5,no,3-unsampled
+V012359,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,60,no,3-unsampled
+V012360,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,59,no,3-unsampled
+V012361,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,85,no,3-unsampled
+V012362,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,116,value,1b
+V012363,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,85,value,1b
+V012364,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Density,1.24,value,1b
+V012365,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,55,value,1b
+V012366,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Density,1.24,value,1b
+V012367,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,55,value,1b
+V012368,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Density,1.25,no,3-unsampled
+V012369,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,60,no,3-unsampled
+V012370,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Density,1.15,value,1b
+V012371,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,55,value,1b
+V012372,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,87,no,3-unsampled
+V012373,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,55,value,1b
+V012374,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,70,no,3-unsampled
+V012375,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,85,value,1b
+V012376,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,95,value,1b
+V012377,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,78,no,3-unsampled
+V012378,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,72,value,1b
+V012379,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Vicat softening temperature,85,no,3-unsampled
+V012380,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,63,no,3-unsampled
+V012381,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,78,no,3-unsampled
+V012382,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Vicat softening temperature,89,no,3-unsampled
+V012383,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,78,no,3-unsampled
+V012384,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Vicat softening temperature,89,no,3-unsampled
+V012385,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,72,no,3-unsampled
+V012386,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,74,no,3-unsampled
+V012387,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,180,no,3-unsampled
+V012388,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,180,no,3-unsampled
+V012389,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,HDT,139,no,3-unsampled
+V012390,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,200,value,1b
+V012391,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,94,no,3-unsampled
+V012392,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Density,1.13,value,1b
+V012393,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Vicat softening temperature,170,no,3-unsampled
+V012394,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,88,no,3-unsampled
+V012395,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,89,value,1b
+V012396,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,140,value,1b
+V012397,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,129,value,1b
+V012398,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,90,value,1b
+V012399,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,HDT,90,value,1b
+V012400,measurements,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,3,Hardness,95,no,3
+V012423,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,21,Elongation at break,500,no,3-unsampled
+V012424,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,23,HDT,90,no,3-unsampled
+V012425,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,23,HDT,86,value,1b
+V012426,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,23,HDT,78,no,3-unsampled
+V012427,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,23,HDT,80,value,1b
+V012428,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,23,HDT,75,no,3-unsampled
+V012429,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,23,HDT,134,no,3-unsampled
+V012430,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,23,HDT,170,no,3
+V012431,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,25,HDT,139,no,3-unsampled
+V012432,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,25,HDT,90,value,1b
+V012433,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,25,HDT,90,value,1b
+V012434,measurements,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,25,HDT,80,no,3
+V012435,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Decomposition temperature,395,no,3-unsampled
+V012436,measurements,R-SUNLU-25182761789529093884,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879,1,Mould shrinkage,1.36,no,3-unsampled
+V012437,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Decomposition temperature,364,no,3-unsampled
+V012438,measurements,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+V013753,measurements,S-PVB-technisches-datenblatt-2,e7abf8ceb8be6c2d920d4dcde15ee9107a63fb8e395446ffcd965bebff756904,1,Continuous service temperature,75,no,3-unsampled
+V013757,measurements,S-PVB-technisches-datenblatt-2,e7abf8ceb8be6c2d920d4dcde15ee9107a63fb8e395446ffcd965bebff756904,3,Decomposition temperature,300,no,3-unsampled
+V013781,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Tensile strength (endpoint unspecified),76.95; 1.17,value,1b
+V013782,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Tensile modulus,5206.35; 210.18,value,1b
+V013783,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Elongation at break,3.62; 0.29,value,1b
+V013784,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Flexural strength,114.12; 1.93,no,3-unsampled
+V013785,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Flexural modulus,195.3; 3915.93,no,3-unsampled
+V013786,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Charpy strength,10.01; 0.83,value,1b
+V013787,measurements,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,2,Charpy strength,1.35; 7.2,value,1b
+V013803,measurements,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,3,Charpy strength,16.39; 2.16,no,3-unsampled
+V013809,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Tensile stress at 100 % elongation,9.75; 0.16,no,3-unsampled
+V013810,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Tensile stress at 200 % elongation,12.2; 0.27,no,3-unsampled
+V013811,measurements,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,2,Tensile stress at 300 % elongation,17; 0.49,no,3-unsampled
+V014344,measurements,D-SUNLU-TPU-TDS-2024-06,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc,1,Tensile strength (endpoint unspecified),34.4,no,3-unsampled
+V014345,measurements,D-SUNLU-TPU-TDS-2024-06,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc,1,Tensile modulus,50.2,value,1b
+V014346,measurements,D-SUNLU-TPU-TDS-2024-06,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc,1,Elongation at break,1063,no,3-unsampled
+V014347,measurements,D-SUNLU-TPU-TDS-2024-06,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc,1,Flexural strength,4.26,no,3-unsampled
+V014348,measurements,D-SUNLU-TPU-TDS-2024-06,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc,1,Flexural modulus,87.6,no,3
+V014349,measurements,D-SUNLU-TPU-TDS-2024-06,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc,1,HDT,52,no,3-unsampled
+V014350,measurements,D-SUNLU-TPU-TDS-2024-06,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc,1,Melt mass-flow rate,23.5,no,3-unsampled
+V014351,measurements,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c,1,Decomposition temperature,425,no,3-unsampled
+V014352,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Decomposition temperature,374,no,3-unsampled
+V014353,measurements,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+V014354,measurements,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452,1,Decomposition temperature,300,no,3-unsampled
+V014355,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Decomposition temperature,392,no,3-unsampled
+V014356,measurements,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033,1,Mould shrinkage,0.9; 0.4,no,3
+V014357,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Tensile strength (endpoint unspecified),46,value,1b
+V014358,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Elongation at break,2.5; 10,value,1b
+V014359,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Flexural strength,83,no,3
+V014360,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Flexural modulus,200; 2750,no,3
+V014361,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,HDT,56,value,1b
+V014362,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Glass transition temperature,61,value,1b
+V014363,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Melting temperature,164,no,3-unsampled
+V014364,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Decomposition temperature,375,no,3-unsampled
+V014365,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Vicat softening temperature,54,no,3
+V014366,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+V014367,measurements,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1,1,Melt mass-flow rate,10; 8.3,no,3-unsampled
+V014368,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Decomposition temperature,355,no,3-unsampled
+V014369,measurements,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+V014370,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Decomposition temperature,374,no,3-unsampled
+V014371,measurements,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+V014372,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Decomposition temperature,374,no,3-unsampled
+V014373,measurements,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d,1,Mould shrinkage,0.1; 0.3,no,3-unsampled
+P0760,profiles,R-QIDI-ASA-CF20-CORE,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320,4,Nozzle °C; Bed °C; Drying,280; 250; 100; 110; 60; 70,value,1b
+P0799,profiles,R-SUNLU-PLA-Classic-TDS,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53,2,Nozzle °C,190,value,1b
+P0806,profiles,S-PVB-technisches-datenblatt-2,e7abf8ceb8be6c2d920d4dcde15ee9107a63fb8e395446ffcd965bebff756904,3,Nozzle °C; Bed °C,265; 240; 105; 90,yes,1
+P0922,profiles,R-QIDI-PA12-CF,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35,3,Nozzle °C; Bed °C; Drying,280; 300; 70; 40; 100; 80,value,1b
+P0946,profiles,S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen,5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497,2,Nozzle °C; Bed °C; Drying,290; 270; 50; 130,value,1b
+P1105,profiles,R-SUNLU-56889371789540318047,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62,2,Nozzle °C,205,yes,1
+P1122,profiles,R-QIDI-ODORLESS-ABS,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633,5,Chamber °C; Drying,60; 80; 70; 80,yes,1
+P1126,profiles,R-QIDI-ABS-GF25,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d,6,Drying,70,value,1b
+P1138,profiles,R-QIDI-TPU95A-HF,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196,4,Drying,70; 80,value,1b
+P1145,profiles,R-QIDI-PET-GF,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a,4,Bed °C; Drying,60; 80; 100; 120,yes,1
+P1236,profiles,R-QIDI-PETG-TOUGH,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61,3,Nozzle °C; Bed °C,260; 230; 70; 80,value,1b
+P1246,profiles,R-QIDI-ASA,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4,4,Nozzle °C; Bed °C; Chamber °C; Drying,260; 240; 100; 110; 60; 80; 70; 80,yes,1
+P1422,profiles,R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda,3,Nozzle °C; Bed °C,190; 210; 100; 60,no,3
+P1436,profiles,R-DUPONT-ZYTEL-GUIDE,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092,3,Drying,0.2; 80,yes,1
+P1502,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,215; 185; 45,yes,1
+P1503,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,215; 185; 45,yes,1
+P1504,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,215; 185; 60,yes,1
+P1505,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,230; 185; 45,yes,1
+P1506,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,215; 185; 45,yes,1
+P1507,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,230; 190; 45,yes,1
+P1508,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,230; 190; 45,yes,1
+P1509,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,230; 185,yes,1
+P1510,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,240; 210,yes,1
+P1511,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,185; 225,value,1b
+P1512,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,220; 190,value,1b
+P1513,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,185; 225,yes,1
+P1514,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,220; 190; 45,yes,1
+P1515,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,220; 190; 45,value,1b
+P1516,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,215; 190,yes,1
+P1517,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,230; 255,yes,1
+P1518,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,230; 255,yes,1
+P1521,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Bed °C,60; 80,yes,1
+P1522,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Bed °C,60; 80,value,1b
+P1527,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Bed °C,50; 70,yes,1
+P1528,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Bed °C,50; 70,yes,1
+P1532,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C,280; 250,value,1b
+P1533,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,4,Nozzle °C; Bed °C,290; 250; 130; 90,yes,1
+P1534,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C,290; 260,value,1b
+P1535,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C,290; 260,value,1b
+P1536,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C,290; 260,value,1b
+P1537,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C; Bed °C,280; 250; 100; 110,yes,1
+P1538,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C; Bed °C,260; 240; 80,yes,1
+P1539,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Bed °C,50; 70,value,1b
+P1540,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C,250; 275,yes,1
+P1542,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Bed °C,100,yes,1
+P1543,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C; Bed °C,250; 270; 100,value,1b
+P1544,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Nozzle °C,240; 270,value,1b
+P1548,profiles,R-SPECTRUM-PORTFOLIO-2024,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74,5,Bed °C,100; 120,yes,1
+P1578,profiles,R-COVERAGE-20261001-28aad1fe7597,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7,22,Nozzle °C,245; 270,yes,1
+V001052,measurements,S-FIBER-PA612,,1,,,yes,garbled
+V001054,measurements,S-FIBER-PA612,,1,,,yes,garbled
+V001055,measurements,S-FIBER-PA612,,1,,,yes,garbled
+V001057,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001058,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001059,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001065,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001068,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001070,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001071,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001072,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001078,measurements,S-FIBER-PA612,,1,,,value,garbled
+V001236,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,yes,garbled
+V001238,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,yes,garbled
+V001240,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001241,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001242,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001248,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001251,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001253,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001254,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001255,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001261,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,value,garbled
+V001393,measurements,S-FIBER-PPSGF-TDS-2,,1,,,yes,garbled
+V001395,measurements,S-FIBER-PPSGF-TDS-2,,1,,,value,garbled
+V001396,measurements,S-FIBER-PPSGF-TDS-2,,1,,,value,garbled
+V001397,measurements,S-FIBER-PPSGF-TDS-2,,1,,,value,garbled
+V001403,measurements,S-FIBER-PPSGF-TDS-2,,1,,,value,garbled
+V001683,measurements,X-EVOLV3D-OBC-TDS,,1,,,value,garbled
+V001685,measurements,X-EVOLV3D-OBC-TDS,,1,,,value,garbled
+V001688,measurements,X-EVOLV3D-OBC-TDS,,1,,,value,garbled
+V001753,measurements,S-PET-TDS,,1,,,value,garbled
+V001755,measurements,S-PET-TDS,,1,,,value,garbled
+V001757,measurements,S-PET-TDS,,1,,,value,garbled
+V001759,measurements,S-PET-TDS,,1,,,value,garbled
+V001764,measurements,S-PET-TDS,,1,,,value,garbled
+V001862,measurements,R-ESSENTIUM-PPSCF-TDS,,1,,,value,garbled
+V001864,measurements,R-ESSENTIUM-PPSCF-TDS,,1,,,value,garbled
+V001868,measurements,R-ESSENTIUM-PPSCF-TDS,,1,,,value,garbled
+V001877,measurements,R-ESSENTIUM-PPSCF-TDS,,1,,,value,garbled
+V001882,measurements,R-ESSENTIUM-PPSCF-TDS,,1,,,value,garbled
+V002018,measurements,R-GRUPA-AZOTY-TARFUSE-POM-TDS,,1,,,value,garbled
+V002021,measurements,R-GRUPA-AZOTY-TARFUSE-POM-TDS,,1,,,value,garbled
+V002022,measurements,R-GRUPA-AZOTY-TARFUSE-POM-TDS,,1,,,value,garbled
+V002023,measurements,R-GRUPA-AZOTY-TARFUSE-POM-TDS,,1,,,value,garbled
+V002065,measurements,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,yes,garbled
+V002067,measurements,S-FIBER-PPSGF-TDS-2,,1,,,value,garbled
+V002071,measurements,S-FIBER-PPSGF-TDS-2,,1,,,value,garbled
+V002414,measurements,R-FIBERON-PETCF17-TDS,,1,,,yes,garbled
+V002422,measurements,R-FIBERON-PETCF17-TDS,,1,,,yes,garbled
+V002423,measurements,R-FIBERON-PETCF17-TDS,,1,,,yes,garbled
+V002425,measurements,R-FIBERON-PETCF17-TDS,,1,,,value,garbled
+V002426,measurements,R-FIBERON-PETCF17-TDS,,1,,,value,garbled
+V002427,measurements,R-FIBERON-PETCF17-TDS,,1,,,value,garbled
+V002433,measurements,R-FIBERON-PETCF17-TDS,,1,,,value,garbled
+V006144,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+V006150,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+V006151,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+V006153,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+V006154,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+V006155,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+V006161,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+V006359,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,yes,garbled
+V006362,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,value,garbled
+V006368,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,yes,garbled
+V006370,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,value,garbled
+V006371,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,value,garbled
+V006372,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,value,garbled
+V006378,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,value,garbled
+V006454,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,yes,garbled
+V006457,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,value,garbled
+V006461,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,yes,garbled
+V006462,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,yes,garbled
+V006464,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,value,garbled
+V006465,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,value,garbled
+V006466,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,value,garbled
+V006472,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,value,garbled
+V006536,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,yes,garbled
+V006539,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,value,garbled
+V006543,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,yes,garbled
+V006544,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,yes,garbled
+V006546,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,value,garbled
+V006547,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,value,garbled
+V006548,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,value,garbled
+V006554,measurements,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,value,garbled
+V008074,measurements,R-QIDI-ASA-AERO,,3,,,value,garbled
+V008677,measurements,S-PVB-technisches-datenblatt-2,,2,,,value,garbled
+V013755,measurements,S-PVB-technisches-datenblatt-2,,2,,,value,garbled
+V014017,measurements,R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0,,1,,,value,garbled
+V014019,measurements,R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0,,1,,,value,garbled
+V014788,measurements,S-PVB-technisches-datenblatt-2,,2,,,value,garbled
+P0022,profiles,S-POLYCN-PolyLite-PETG-TDS-V5-3,,1,,,value,garbled
+P0074,profiles,S-FIBER-PA612,,1,,,yes,garbled
+P0084,profiles,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,,1,,,yes,garbled
+P0085,profiles,S-PET-TDS,,1,,,yes,garbled
+P0108,profiles,X-EVOLV3D-OBC-TDS,,1,,,value,garbled
+P0119,profiles,S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,,1,,,yes,garbled
+P0121,profiles,S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,,1,,,value,garbled
+P0160,profiles,R-ESSENTIUM-PPSCF-TDS,,2,,,yes,garbled
+P0171,profiles,R-GRUPA-AZOTY-TARFUSE-POM-TDS,,2,,,yes,garbled
+P0396,profiles,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,,2,,,value,garbled
+P0398,profiles,R-SUNLU-73632671781747576290,,2,,,value,garbled
+P0400,profiles,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,,2,,,value,garbled
+P0402,profiles,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,,2,,,yes,garbled
+P0403,profiles,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,,2,,,value,garbled
+P0404,profiles,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,,2,,,value,garbled
+P0406,profiles,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,,2,,,value,garbled
+P0407,profiles,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,,2,,,yes,garbled
+P0408,profiles,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,,2,,,value,garbled
+P0409,profiles,R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,,2,,,value,garbled
+P0413,profiles,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,,2,,,value,garbled
+P0414,profiles,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,,2,,,value,garbled
+P0415,profiles,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,,2,,,value,garbled
+P0423,profiles,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,,2,,,value,garbled
+P0425,profiles,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,,2,,,value,garbled
+P0427,profiles,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,,2,,,value,garbled
+P0543,profiles,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,,1,,,value,garbled
+P0558,profiles,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,,1,,,value,garbled
+P0567,profiles,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,,1,,,yes,garbled
+P0575,profiles,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,,1,,,yes,garbled
+P0798,profiles,R-SUNLU-ABS-FR-TDS-0,,2,,,value,garbled
+P1143,profiles,R-FIBERON-PETCF17-TDS,,1,,,yes,garbled
+P1239,profiles,R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0,,1,,,value,garbled
+P1355,profiles,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,,1,,,yes,garbled
+P1612,profiles,R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,,2,,,value,garbled
+P1742,profiles,I-PLA-PA12-CF-TDS,,1,,,value,garbled

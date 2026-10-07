@@ -1,0 +1,138 @@
+COUNT 7 shown PASS
+STATUS ☑ PASS 7 | ☐ UNKNOWN 104 | ☐ FAIL 41
+7 of the 152 materials meet these requirements
+Flexible component template · 104 more could not be checked, left out under Confirmed only
+Why the rest were excluded
+Clear requirements
+Within H2C temperature limits
+×
+Within H2C capability
+×
+Build material (not a support)
+×
+Elongation at break (XY) at least 100 %
+×
+Values judged: as printed, dry. Allow annealing: 1 more pass
+Not checked by this template: Recovery, softness and sealing
+Properties
+Printing
+Key properties of each material
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
+Compare against
+no reference
+PLA
+PETG
+ABS
+ASA
+PC
+— not published
+2.3 1.0–3.0 · 27 median and range
+1.2 one measurement
+* published, not comparable
+≈ close to the limit
+¤ converted
+n/a not applicable
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
+OBC
+Polyolefins
+ PASS
+1 of 1 product
+ 905 — 14 passing: 700
+all products: 700
+ n/a — ☆
+PA6/66
+Nylon / Polyamide
+ PASS
+1 of 3 products
+ 1,120
+1,080–1,140 · 7
+ 2.34
+1.98–2.7 · 2
+ 61
+55–78 · 3
+ passing: 100
+all products: 15
+12.7–100 · 3
+ 111
+102–140 · 5
+annealed median
+ 40
+39–90.7 · 3
+↗ ☆
+PBAT
+PVB / Specialty Polymers
+ PASS
+1 of 1 product
+ 1,250 0.006 27 passing: 400
+all products: 400
+ 90 — ☆
+PP
+Polyolefins
+ PASS
+2 of 2 products
+ 900
+890–960 · 8
+ 1.2* 19 passing: 850–900
+all products: 850
+ 80
+58.5–85 · 3
+ 77.5
+62.5–92.5 · 2
+¤ ☆
+TPU 85A class and softer
+Flexible Elastomers
+ PASS
+1 of 1 product
+ 1,170
+1,070–1,210 · 14
+ 0.0159
+0.0068–0.025 · 2
+ 22
+6.2–30 · 6
+ passing: 700
+all products: 643
+560–729 · 4
+ n/a 58
+50–158 · 3
+↗ ☆
+TPU 90A class
+Flexible Elastomers
+ PASS
+5 of 5 products
+ 1,220
+1,120–1,240 · 11
+ 0.027
+0.0053–0.05 · 5
+ 24
+12.5–30 · 7
+ passing: 574–1,000
+all products: 587
+465–1,000+ · 7
+ n/a 75
+54–96 · 2
+↗ ☆
+TPU 95A class
+Flexible Elastomers
+ PASS
+10 of 10 products
+ 1,210
+1,000–1,250 · 25
+ 0.027
+0.006–0.065 · 9
+ 27.3
+17–34.4 · 13
+ passing: 265–900
+all products: 501
+265–900+ · 11
+ n/a 83
+54–112 · 2
+↗ ☆

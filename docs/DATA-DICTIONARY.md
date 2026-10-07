@@ -27,7 +27,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
 | [method](#method) | Topic | Method rules in words. The Scope / Snapshot row sets the database snapshot date. |
-| [page_context](#page_context) | PageContextID | What a source page states once for the values printed on it: a heading such as "Mechanical properties (dry state)" or "printed, non-injection moulded specimens", a footnote such as "all specimens annealed at 80 °C for 12 h", a block standard or a test temperature. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page, scope and table; a page no row names states nothing (D116, D128). |
+| [page_context](#page_context) | PageContextID | What a source page states once for the values printed on it: a heading such as "Mechanical properties (dry state)" or "printed, non-injection moulded specimens", a footnote such as "all specimens annealed at 80 °C for 12 h", a block standard, a test temperature or the orientation the bars were printed in. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page, scope and table; a page no row names states nothing (D116, D128). |
 | [physical_relations](#physical_relations) | RelationID | One row per ordering that physics fixes between two properties: the lower one cannot exceed the higher one when both are measured in the same test. The rows are the one list the data lint (MEAS-PHYSICS-ORDER, MEAS-PHYSICS-HDT-LOADS) reads for published measurements, and the headline definitions' lower bounds (headline_definitions.csv) are their projection onto a material's headline: the build refuses a headline bound that no relation with Scope headline or both covers (RELATIONS-HEADLINE-DRIFT). A relation judges the values a sheet prints for one product; the estimate model's bounds are separate and looser. |
 | [plausibility_windows](#plausibility_windows) | WindowID | One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser. |
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
@@ -323,7 +323,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 ### page_context
 
-`data/tables/page_context.csv` (Page context). What a source page states once for the values printed on it: a heading such as "Mechanical properties (dry state)" or "printed, non-injection moulded specimens", a footnote such as "all specimens annealed at 80 °C for 12 h", a block standard or a test temperature. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page, scope and table; a page no row names states nothing (D116, D128).
+`data/tables/page_context.csv` (Page context). What a source page states once for the values printed on it: a heading such as "Mechanical properties (dry state)" or "printed, non-injection moulded specimens", a footnote such as "all specimens annealed at 80 °C for 12 h", a block standard, a test temperature or the orientation the bars were printed in. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page, scope and table; a page no row names states nothing (D116, D128).
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
@@ -340,6 +340,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Anneal h | canonical | number | yes | Not published, Not applicable |  | The annealing time in hours the page states, with the same missing states as Anneal °C. |
 | Standard | canonical | string | yes | Not published |  | The standard the page prints once for these rows, at family level (ISO 527, ASTM D638), or Not published. |
 | Test temperature °C | canonical | number | yes | Not published |  | The test temperature the page states for these rows, or Not published. |
+| Direction | canonical | string | yes | Not published | [directions](#vocab-directions) | The build orientation the page states once for its printed bars ("the specimens have been printed in XY plane"), or Not published. Only tensile, flexural and impact values inherit it, and only where their own row states none (D135). |
 | Locator | canonical | string | yes |  |  | Where on the page: the heading, footnote or line quoted. |
 | Reviewed by | editorial | string | yes |  |  | Who read the page, and when: a person, or an agent named as one. |
 
@@ -739,7 +740,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-directions"></a>
 ### directions
 
-`schema/vocab/directions.csv`, used by headline_definitions.Direction, measurements.Direction.
+`schema/vocab/directions.csv`, used by headline_definitions.Direction, measurements.Direction, page_context.Direction.
 
 | Value | Meaning |
 |---|---|

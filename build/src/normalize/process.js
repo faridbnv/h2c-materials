@@ -424,6 +424,14 @@ const OPTIONAL_NEED_RE = new RegExp([
   String.raw`\b(?:if|when)\s+the\s+(?:spools?|filament|material)\s+(?:has|have)\s+been\s+exposed\s+to\s+(?:moisture|humidity)`,
   // colorFabb's "If absorbed moisture levels are too high ... Drying is advised" (check round 3's sealed sample).
   String.raw`\bif\s+absorbed\s+moisture\b`,
+  // QIDI's "If the filament has been opened for a long time and problems such as air bubbles ... appear, please dry",
+  // "If you find the printing quality decreases after ASA has been exposed in the air", "After the material is damp,
+  // ... Please dry the filament in an oven", and DuPont's "If excessive moisture absorption has occurred, then the resin
+  // must be dried" (quality round 2026-10-07: the cells had dropped the condition and read as required).
+  String.raw`\bif\s+the\s+(?:filament|material)\s+has\s+been\s+(?:opened|exposed)\b`,
+  String.raw`\bif\s+you\s+find\s+the\s+print(?:ing)?\s+quality\s+(?:decreases|drops|declines)\b`,
+  String.raw`\bafter\s+the\s+(?:filament|material)\s+is\s+(?:damp|wet|moist)`,
+  String.raw`\bif\s+excessive\s+moisture\b`,
 ].join('|'), 'i');
 // A sentence that says "not necessary" and then asks for drying in some cases: "(not necessary but recommended)",
 // "may require drying before use, although usually it is not necessary".
