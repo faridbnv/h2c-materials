@@ -26,7 +26,7 @@ A jig or a fixture. Tensile modulus at least 5 GPa, within H2C temperature limit
 Flexible component
 A gasket, a strap or a phone case. Elongation at break at least 100 %, within H2C temperature limits.
 152 materials, 135 within H2C capability
-14662 measurements, each traceable to its source
+14664 measurements, each traceable to its source
 147 have a density, 101 a modulus, 108 a price
 Where a property was never published, the tool shows the gap rather than a guess, so no material is ranked on a number nobody measured.
 What this database cannot answer

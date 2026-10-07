@@ -15,8 +15,8 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5768,
-    "added": 462,
+    "current": 5786,
+    "added": 480,
     "edited_existing": 262,
     "removed": 0
   },
@@ -78,9 +78,9 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 15063,
-    "added": 3527,
-    "edited_existing": 2719,
+    "current": 15067,
+    "added": 3531,
+    "edited_existing": 2757,
     "removed": 0
   },
   "method": {
@@ -120,8 +120,8 @@
   },
   "product_claims": {
     "baseline": 0,
-    "current": 28,
-    "added": 28,
+    "current": 56,
+    "added": 56,
     "edited_existing": 0,
     "removed": 0
   },
@@ -141,8 +141,8 @@
   },
   "properties": {
     "baseline": 44,
-    "current": 49,
-    "added": 5,
+    "current": 50,
+    "added": 6,
     "edited_existing": 1,
     "removed": 0
   },

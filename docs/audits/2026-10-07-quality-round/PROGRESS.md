@@ -22,3 +22,18 @@
 | 14 | unreachable sources | 2 + 15 | web |
 
 The reading queue: 978 tasks on 387 documents in 22 chunks (read/chunk-NN.csv), each document read once.
+
+## The run, in order (2026-10-07)
+
+| Step | What | Commit |
+|---|---|---|
+| Reading wave | 22 Sonnet chunks read the 978 tasks; `judge.py` sorted the verdicts into `decisions/` | — |
+| Part 1 | m394–m398: page orientation (D135), SUNLU PLA+ and a lone key, moulded copies held once, cells the readers found wrong; `verify:fast` passed | 0c1904b7 |
+| Item 8 | `read8/`: the impact round's held columns read again, reconciled, a blind second read, proposed, curated (`read8/curate.py`) | — |
+| read9 | six sheets' tables found held in part, read whole and read again blind | — |
+| Part 2 | m399–m403; two pipeline fixes (notch by method, notch in pairing) and one lint fix; `verify:fast` passed | 58fec31a |
+| Imports | b45 (five documents, `ingest/`) and p05 (eight prices, `web/review-p05.mjs`); `audit:context` clean | aa5b92d1 |
+| Closing check | blind draw of 40 changed records and two missed-claim draws (`blind-draw/`); m407 (units, stray-digit standards, a misfiled page) and m408 (25 claims) | part 4 |
+
+Answers moved against `baseline/` (`answers.py`): PETG-GF leaves "Lightweight structure", CoPE leaves "Flexible
+component", nGen / Amphora enters "Warm environment" as unknown (each in Explore and Explore with estimates).

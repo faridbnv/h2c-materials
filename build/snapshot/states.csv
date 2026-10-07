@@ -10,7 +10,7 @@ G001-07,M001,Huracan PLA,annealed:x:x,tensileModulusXY,2.95,V002785,2.95,
 G001-07,M001,Huracan PLA,annealed:x:x,tensileStrengthXY,42,V002784,42,
 G001-14,M001,FlameGuard PLA,annealed:x:x,hdt045,90,V003031,55,
 G001-16,M001,PLA Pro,as-printed,hdt045,,,75,
-G001-16,M001,PLA Pro,as-printed,tensileModulusXY,2.87,V013176,2.865,
+G001-16,M001,PLA Pro,as-printed,tensileModulusXY,2.865,V008744,2.865,twin G001-115
 G001-16,M001,PLA Pro,as-printed,tensileStrengthXY,40,V008745,40,twin G001-115
 G001-16,M001,PLA Pro,annealed:110:0.3333,hdt045,75,V003114,75,
 G001-16,M001,PLA Pro,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.865,

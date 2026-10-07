@@ -633,3 +633,21 @@ types." Fetching or re-fetching data is allowed where the gap is large.
 - **The data round covers every material's impact values**: what cached sheets print and no row holds, the errors found
   in what is held, and a small fetch of well-known toughened PLAs that are absent. Reading and fetching are done by
   Claude Sonnet agents; targets, judgements and migrations by Claude Opus.
+
+## Decided on 2026-10-07, the quality round
+
+The owner asked which open problems are left that need no person's test or opinion, sorted by priority, and then to
+"plan number 1 - 14 in an efficient way. Sonnet for labour and Opus for brain. Report during the run. Make sure
+everything in the data and tool is coherent and non conflicting with your changes. Push in the end." The fourteen items
+are the open-problems list of that day (OPEN-PROBLEMS §8, §17, §18, §22, §30 to §32): copies of moulded values, digit
+suspects and garbled pages, the later copies of refetched documents, outliers, hidden duplicates, a small batch of named
+records, a page's statement of print orientation, the impact readings the impact round held, thin materials, unpriced
+materials, unmarked toughened products, purefil GreenTEC, PA612-GF's heat deflection estimate, and unreachable sources.
+
+- **Who did what.** Claude Sonnet agents read pages (978 tasks on 387 documents, then the held impact columns, six
+  sheets' mechanical tables, five documents for import and a blind draw), searched the web and fetched documents.
+  Claude Opus froze the targets, judged every reading, wrote the code and the migrations (m394 to m408), and checked
+  each part with `verify:fast` before its local commit.
+- **Imports through the pipeline**, as open since 2026-10-05: one batch of documents (b45) and one of prices (p05).
+- **What a person or a maker must still decide** is in OPEN-PROBLEMS §33, with the round's record in
+  [docs/audits/2026-10-07-quality-round/](audits/2026-10-07-quality-round/README.md) (D134, D135).

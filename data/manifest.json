@@ -18,8 +18,8 @@
       "sha256": "4425e7bfd9260213e9bf6e298b4a03b730f04943076a2cfdac0677550e5ca0b2"
     },
     "measurements": {
-      "rows": 15063,
-      "sha256": "156fba2484d1df76a6a22a88588504d699f55751a3d07f3eb1a49c2e23396692"
+      "rows": 15067,
+      "sha256": "fdc14519aa74c6958aa03751f2977ee79410d7cbda8affa814cf3118e5088d99"
     },
     "page_context": {
       "rows": 985,
@@ -34,8 +34,8 @@
       "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
     },
     "evidence": {
-      "rows": 5768,
-      "sha256": "29f3de219136ad62274b47670a8fbc8c184d8872e45d034d71c2ab4ed573f7e3"
+      "rows": 5786,
+      "sha256": "0e29406ca3df00e0501a6f7969d5bf28795bc828791f9724746f3666d20f1c8b"
     },
     "know_how_reads": {
       "rows": 1545,
@@ -59,7 +59,7 @@
     },
     "sources": {
       "rows": 2016,
-      "sha256": "1d6d7ee6aa6d0068be48b5ae3d2358ff3d38eb3c1378047095c26f30fda8f1a8"
+      "sha256": "c6369c955e9df22b26901e4167a4687ae42fb34d78ef6d91565a3f8a29f5de37"
     },
     "coverage": {
       "rows": 951,
@@ -82,8 +82,8 @@
       "sha256": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b"
     },
     "product_claims": {
-      "rows": 28,
-      "sha256": "b8a9cbd7c888a8f8a509130c21d0e526cdd2e86d6645748c1cab11339d55a648"
+      "rows": 56,
+      "sha256": "e1e48f121c473f589eaeb036e6a75b957883963c23030db8da745993e0c10b86"
     },
     "material_links": {
       "rows": 830,
@@ -94,8 +94,8 @@
       "sha256": "57098444745f30c043a85818375165c17f607b3479ba27d0404f9e066b2c6464"
     },
     "properties": {
-      "rows": 49,
-      "sha256": "7a177f858a3384b7bf39227cbbc02ff14703260bfe237ac1d62b7425608a3234"
+      "rows": 50,
+      "sha256": "e6ed4997f37929f64a7df2a7ec4f3bdbcf9bf0d94aed7b39986dae4b7d18d9f1"
     },
     "headline_definitions": {
       "rows": 10,

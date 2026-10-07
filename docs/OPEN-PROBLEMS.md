@@ -1,8 +1,8 @@
 # Open problems
 
-> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 to 32 are what the three most recent rounds (the reader round, gap round 2 and check round 3, all 2026-10-04 and 2026-10-05) left. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
+> **In short.** Everything known to be wrong or missing, so nobody rediscovers it. Sections 1 to 29 are standing issues found by earlier rounds; sections 30 to 33 are what the four most recent rounds (the reader round, gap round 2 and check round 3, 2026-10-04 and 2026-10-05, and the quality round of 2026-10-07) left. Each item gives the query that counts it again. The largest gaps are values makers rarely publish (heated-chamber temperature, drying, strength and heat resistance for several hundred products), source documents that contradict themselves, and checks that need a person rather than an AI.
 
-What is known to be wrong or missing in this database, reconciled on 2026-10-05. What it holds is counted in
+What is known to be wrong or missing in this database, reconciled on 2026-10-07. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
 
@@ -246,8 +246,10 @@ npm run sql --silent -- "select status, count(*) from coverage where domain = 'P
 ## 8. Sources that cannot be reached
 
 - **Two are recorded `not-retrieved`**: a Polymaker CoPE sheet (HTTP 404) and the Fiberon PET-GF15 page (HTTP 403),
-  both on 2026-09-13. Nothing was entered from either, and nothing may cite them. The second is what C01136 above
-  is blocked on.
+  both on 2026-09-13. Nothing was entered from either, and nothing may cite them. The CoPE sheet (V5.4) was found in the
+  Internet Archive on 2026-10-07 and entered as a source of its own (R-POLYMAKER-QR-20261007-8106f1c5c75e, m406); the
+  not-retrieved row stays, and its Access note names the copy. The Fiberon page is replaced by
+  S-FIBERON-TM-PET-GF15-PAGE.
 - **Twenty are `retrieved-copy`**: the bytes were staged by hand because the host serves them through a viewer
   or refuses an automated fetch. The document is still identified by the SHA-256 of what was read.
 - **Four have no public URL and are `read-only`** (`LOCAL-CANON`, `LOCAL-CREEP`, `LOCAL-FATIGUE`, `LOCAL-XLSM`):
@@ -259,7 +261,14 @@ npm run sql --silent -- "select status, count(*) from coverage where domain = 'P
 On 2026-09-27, 26 sources are in one of the first three states, and every other source
 ([counts.md](../build/snapshot/counts.md) has the total) was fetched, hashed and read; the query below lists the 26.
 Beside them, and not in `sources.csv` at all, the import ledger holds 33 documents behind a login (`gated`,
-INTAMSYS) and 15 `unreachable` after a Wayback retry (`docs/audits/2026-09-18-v2-import/STATUS.md`).
+INTAMSYS) and 15 `unreachable` after a Wayback retry (`docs/audits/2026-09-18-v2-import/STATUS.md`). The quality round
+tried the 15 once more on 2026-10-07 (`docs/audits/2026-10-07-quality-round/web/refetch.csv`): ten returned (three BASF
+Forward AM hub pages, Eryone's 2023 ABS+ sheet, Polymaker's PolyCast V5.2 and Panchroma CoPE V5.4 from the Internet
+Archive; BASF's 316L page and iSANMATE's three 2023-2024 sheets from the makers) and five did not (Extrudr's DuraPro
+PC-PBT sheet is gone, purefil's two ABS sheets answer 403, Eryone's ABS-GF sheet and NinjaTek's Armadillo SDS have no
+capture). The CoPE sheet entered (above). The other nine did not: they are products the catalogue does not hold (17-4
+PH, PPSU, Support Layer, ABS+), a page whose settings its product's profiles already hold, or earlier editions of sheets
+entered in a later one (b45's packet, NotAdmitted). Their ledger notes stand.
 
 ```bash
 npm run sql --silent -- "select sourceid, access_state, access_note from sources where access_state <> 'retrieved'"
@@ -685,8 +694,6 @@ today, so they are recorded here rather than asserted (RESPONSE.md, phase 5, par
   PolyDissolve S1 1,370 (neat PVA 1,180 to 1,340), Recreus RECIFLEX 1,000, and the rest. PolyLite ABS left the list when
   its V5.3 sheet's 1,120 joined Polymaker ABS's grade (m302), whose value is V6.0's 1,040. Some neat
   ranges are narrow (ABS, ASA), so each needs its sheet re-read before it is declared, not a bulk Variant.
-- **A heat deflection estimate reaches past its polymer's melting point** at the upper end, with its centre below it:
-  PA612-GF (plausible to 220 °C, melting 218). PCL's was the other; it now shows its product's own 57 °C.
 - **A study grade carries product values**: G052-R1 (Stratasys, PA12) has a density and a heat deflection of its own.
   It is in no material's list and backs nothing, so nothing reads them.
 
@@ -742,16 +749,15 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
 - **Impact values whose sheet states no print orientation** (2026-10-07): drawn hollow and never in a median (D84). In
   15 materials every value drawn is such (ABS-CF, PC-CF, PA6, PA12, PET, PVA, CPE, PEEK, PEI, ABS-AF, PC-PTFE, PCTG-CF,
   PCL, Nylon of an undisclosed polyamide, PLA blend), so their heading has no median; in 56 more, no product or only
-  one has a value of either test, and nothing is drawn. page_context.csv cannot carry a direction a page states once
-  for its table; a sheet that says "all bars printed flat" would decide these, and none is recorded.
-- **Copies of a moulded value that say nothing of the bar, on other properties** (2026-10-07): m393 retired the twenty
-  impact records that repeat, for the same product or its twin, a number another record says was measured on a moulded
-  bar. The same pattern backs 55 product values of other headlines (density 18, heat deflection at 0.45 MPa 12, glass
-  transition 8, elongation 7, tensile modulus 5, tensile strength 5): a product page or a twin's sheet repeats a data
-  sheet's resin value without its footnote, and the copy is chosen because it says nothing. Retiring them moves
-  answers (density and heat deflection are filters), so each needs its pair checked on the page first. Found by
-  comparing each product value whose specimen is not stated with the product's and its twins' records of the same
-  property, unit, notch, direction and value whose Specimen type is "Raw material value".
+  one has a value of either test, and nothing is drawn. Since D135 (m394, m395) a page that states once how its bars
+  were printed ("specimens have been printed in XY plane", 28 sheets: colorFabb's 17 and others) gives that direction
+  to its tensile, flexural and impact rows that state none, never to a moulded bar's: 25 values of 22 products. The
+  rest of the sheets state nothing, and stay counted apart.
+- **Copies of a moulded value that say nothing of the bar** (closed 2026-10-07, m397): m393 retired twenty impact
+  copies, and the quality round read each of 61 such pairs on both pages. 36 copies are retired, each naming the record
+  that stays; two of m393's retirements were wrong (V014807, a point beside a range; V006008, a notched Izod struck at
+  -40 °C) and are restored; the copies whose page prints another table, or where the moulded footnote does not reach
+  the row, stay.
 - **Four glass transition rows cite a Vicat or heat deflection standard** (ASTM D1525, ISO 75), as their sheets print
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Products whose only glass transition is a resin supplier's value** (Specimen type Raw material value, which is
@@ -761,14 +767,15 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
   cannot tell, 1 another test). Where a maker confirms its test, the record can move under it; until then it is never
   compared. Query: `select m.measurementid, g.likely_test from measurements m join impact_test_guesses g using (measurementid)`
   (column names as `npm run sql` exposes them).
-- **Impact results the round read and held** (2026-10-06, [the impact round](audits/2026-10-06-impact-round/README.md),
-  `opus-held.csv`): 39 values a page tells apart by a column the readings did not capture (QIDI's three columns,
-  Stratasys' slice heights), 45 values of makers' product pages that compare products in columns (Bambu Lab, IPCON),
-  133 values of DuPont's resin guide (moulded data, reference grades), and 593 readings the proposal tool held for its
-  own reasons (`proposals/held.csv`: no number, a notch label against its method code, a unit missing). Each needs its
-  column or condition read before it can be a row. SUNLU's "Product Information PLA+" sheet (R-SUNLU-SUNLU-PLA-Vivid-Yellow,
-  ASTM table, notched Izod 19.8 kJ/m²) is filed on plain SUNLU PLA; whether it is SUNLU PLA+ or PLA+2.0 (m372 filed the
-  ISO PLA+ sheet on PLA+2.0, whose own sheet prints 10 ± 3) is not settled.
+- **Impact results the impact round held** (2026-10-06, [the impact round](audits/2026-10-06-impact-round/README.md)):
+  the quality round read the column of each again (m399): Stratasys's Izod tables, notched and unnotched, and Bambu Lab's
+  wet-state column entered (40 values); the comparison columns the round had given to the wrong product ("Normal
+  PA6-CF" twice, IPCON PPA for PPA GF) and the ones the products' own sheets already hold did not. What stays held:
+  QIDI's impact columns, headed by drawings of a bar and not by words (its tensile table, headed X-Y, X-Z and Z-X,
+  entered in m401); DuPont's resin guide (133 moulded values on reference grades, which back nothing); and the
+  proposal tool's own holds (`proposals/held.csv`), of which the 22 Stratasys "notch contradicts its method" holds were
+  the tool's mistake (a heading naming both ASTM D256 and D4812) and are fixed. SUNLU's "Product Information PLA+" sheet
+  is SUNLU PLA+'s own (G001-200, m396).
 - **Eight impact rows whose label and standard contradict each other** (2026-10-06, the withdrawn round's E3 holds,
   [OUTCOMES.md](audits/2026-10-06-published-evidence/OUTCOMES.md)): six Anycubic sheets (PLA High Speed, PLA+, PLA
   Metal, PETG, ABS, ASA) label their X-Y value Izod while citing ISO 179 and draw both a notched and an unnotched bar;
@@ -866,13 +873,12 @@ and counts exact product states. It leaves these, each with where it is counted:
   D638 (Spectrum PLA Tough, 0.43 GPa, 100 % infill), beside solid PLA's usual 3 to 4 GPa. The engine compares them as
   "comparable" (printed, stated direction, dry or unstated); telling a sheet's method apart from its material is a data
   and rules question, not the chart's. The second query lists a material's products by stiffness with their standards.
-- **Toughened grades sit beside plain ones** (2026-10-06, D133). The impact medians now set apart the products their
-  makers sell as toughened or impact-modified (product_claims.csv: 20 products, m386 and m389; set apart by m390): PLA's
-  notched Charpy is 6.7 over 11 products, with 7 toughened ones (5.76 to 72.3) listed apart. The marks rest on the
-  statements held: 345 held statements speak of toughness or impact, and only those on products with an impact value were
-  judged; a draw of 20 unmarked products found one missed (1 in 20), so roughly one product in twenty that publishes an
-  impact value may still be missing its mark. Stiffness and strength are not split: no headline but the two impact rows
-  names them.
+- **Toughened grades sit beside plain ones** (2026-10-06, D133). The impact medians set apart the products their
+  makers sell as toughened or impact-modified (product_claims.csv: 56 products since the quality round, m386, m389,
+  m400, m408; set apart by m390): PLA's notched Charpy is 6 over 14 products, with 7 toughened ones (5.76 to 72.3) listed
+  apart. The marks rest on the products' own documents: the quality round searched every unmarked product with an impact
+  value, and its last draw of 20 found one missed, so roughly one product in twenty may still be missing its mark.
+  Stiffness and strength are not split: no headline but the two impact rows names them.
 - **Cost reaches 214 products.** The cost goal uses each product's own CAD/kg price, converted from USD or EUR where the
   product has no Canadian listing (D113); since the price pass 214 products and 101 materials have one, and the rest are
   listed as unpriced (§22). The first query counts the products with a listing, by currency.
@@ -947,7 +953,12 @@ npm run sql --silent -- "select status, count(*) from coverage group by 1 order 
 The price pass of 2026-09-30 (GOALS; [the record](audits/2026-09-30-price-pass/README.md)) priced 101 of the 136
 materials in scope, 30 of them converted from USD or EUR, and 214 products. What it leaves:
 
-- **35 materials have no price**, each with its reason in the record's [OUTCOMES.csv](audits/2026-09-30-price-pass/OUTCOMES.csv).
+- **27 materials have no price** (35 at the pass's end; the quality round's batch p05 priced eight on 2026-10-07: LEHVOSS's
+  two LUVOCOM 3F PAHT grades, Facilan PCL 100, Tarfuse POM, NonOilen, Vinyl 303 and Conductive FilaFlex from
+  filamentworld.de, which prints "inkl. 19 % MwSt." beside every price, and GREENTEC PRO CF's 800 g spool from 3DJake).
+  Each other has its reason in the record's [OUTCOMES.csv](audits/2026-09-30-price-pass/OUTCOMES.csv) and the round's
+  `docs/audits/2026-10-07-quality-round/web/price-leads.csv`: Nanovia's own shop states its prices before VAT, but gives
+  the 1.75 mm price only in variation data the price reader does not read.
   Three have no procurement product (M056, M058, M060). Seven are 3DXTECH products its catalogue no longer lists
   (3DXSTAT ESD-PA12, ESD-TPC, ESD-PVDF, ESD-PPS, 3DXMAX PC/ASA, CarbonX PC/ABS, Hyperlite PP): whether they are
   discontinued is 3DXTECH's to say. Fabru (purefil), Fillamentum, and the shops selling LEHVOSS and 3D4Makers print VAT
@@ -1326,7 +1337,9 @@ counts what is left by field, and `node docs/audits/2026-10-04-reader-round/targ
   `reader-recall/candidates.csv`; gap round 2's verifiers read each on its page (m359), and the ones a page prints for a
   product the database holds were added.
 - **Thin materials.** 18 materials had two sources or fewer at the round's end, and 17 after gap round 2 (b44 gave one
-  a data sheet); b41 searched ten makers' sites for them.
+  a data sheet); b41 searched ten makers' sites for them. The quality round searched each again (2026-10-07,
+  `web/thin-leads.csv`): TPC-ESD and PBT-GF gained a second product (Kimya TPC-ESD, DREMC PBT GF; b45), and the rest
+  are recorded as searched, with the queries and sites.
 - **Twin sheets.** Pairs of documents that print the same numbers (language editions of an Extrudr sheet; Raise3D's
   Premium PETG and PC beside Polymaker's PolyLite sheets) are accepted as MEAS-CROSS-SOURCE-TWIN with a reason, not
   retired, as the owner confirmed on 2026-10-05: whether a maker's sheet is a rebranded copy of another's is not shown
@@ -1424,18 +1437,20 @@ The round (D131; `docs/audits/2026-10-05-check-round-3/`) checked what the tool'
 records that decide (`TARGETS.csv`), confirmed most by code against their page's own text, read on the page image what
 code could not confirm and could change an answer, and swept every kind of error it found. What it leaves:
 
-- **No image-based reading of digits.** Mistral's OCR was to read the deciding pages as a second, independent reading
-  of every number; its account's billing was off, so no page was read. A text layer that prints the wrong digits (Bambu
-  PLA Pure's "55 - 69" for 35-65) is caught only by a reader looking at the image, and readers looked only at the 540
-  records the code queued and the round's samples. The 1,230 digit suspects of `digits/suspects.csv` (§31) stay
-  unread. `ocr/ocr-mistral.mjs` and `ocr/compare.mjs --source mistral` run the check whenever the account allows.
+- **No machine reading of digits.** Mistral's OCR was to read the deciding pages as a second, independent reading
+  of every number; its account's billing was off, so no page was read. The quality round read on the page image every
+  digit suspect that could change an answer or backs a product value, a seeded 80 of the rest, and the deciding records
+  on garbled pages (563 records, 2026-10-07): no digit was misread (§33). The other suspects stay unread.
+  `ocr/ocr-mistral.mjs` and `ocr/compare.mjs --source mistral` run the check whenever the account allows.
 - **Documents fetched again.** 123 registered sources had lost their bytes (`missing-bytes.csv`). The owner had them
   fetched again on 2026-10-05 (`refetch/refetched.csv`): 32 returned the same bytes and are back in the store; 85 pages
   have changed since and are kept as later copies (`.cache/later-copies/`, backed up), not registered, so the records
   still cite the lost originals; 6 Bambu Lab shop pages would not load (none decides anything). Of the 134 deciding
   records the 30 deciding sources back, 133 hold on their page; 3DXTECH's 3DXSTAT ESD-PETG page (XP-3dxstat-esd-petg-1)
-  now prints "Extruder Temp 260-280C" where P0134 holds 230-260 °C, which the lost original may have printed. Registering
-  a later copy as a new revision is an import: open since 2026-10-05, and not done in this round.
+  now prints "Extruder Temp 260-280C" where P0134 holds 230-260 °C, which the lost original may have printed. The quality
+  round compared every record that cites one of the 85 later copies with it (`later/compare.csv`): all hold but P0134
+  and the 42 fatigue values of P-FATIGUE, whose later copy is a two-line stub. P0134's later copy is not registered: a
+  second profile beside the first is joined "within" and moves no gate, and the copy may be a later edition.
 - **What the comparison could not confirm and nobody read.** Of the records the text comparison did not confirm, every
   one that can change an answer was read (320). 621 more change only a print state the page shows, and 1,688 change
   nothing (975 of them values); a sample of 80 of each was read, with 3 changes in each and none a number, and the other
@@ -1454,8 +1469,8 @@ code could not confirm and could change an answer, and swept every kind of error
   Fiberlogy ABS and ABS PLUS (the 2026 ABS sheet reprints PLUS's table, and G027-53 holds both the old and the new),
   CPE ANTIBAC and CPE HT, eSUN's Luminous PLA family, Silk Magic and Silk Mystic, AzureFilm PLA and SILK, Spectrum ASA 275
   and FlameGuard ASA 275 (a flame-retardant package sharing the key), eSUN PLA+HS and "PLA+HS Silver" (its sheet is the
-  2022 ePLA-HS: needs the maker). SUNLU PLA+ and PLA+2.0 print one table; the PLA+ sheet's values are on PLA+2.0's grade
-  since m372, and SUNLU PLA+ as its own product is not held.
+  2022 ePLA-HS: needs the maker). SUNLU PLA+ and PLA+2.0 print one table; the ISO PLA+ sheet's values are on PLA+2.0's
+  grade since m372, and SUNLU's ASTM "Product Information PLA+" sheet is SUNLU PLA+'s own (G001-200) since m396.
 - **Statements read on part of a page.** The sweep fixed what the readers found (m376 to m378). Raise3D's, Fiberon's and
   Polymaker's sheets with an asterisked "*All specimens were annealed ..." footnote leave 3 to 8 rows each untyped
   (`sweep/queue.csv` shows how they were found): most are melt flow, density or DSC rows the footnote does not speak
@@ -1485,4 +1500,48 @@ code could not confirm and could change an answer, and swept every kind of error
 ```sh
 node scripts/audit/table-detectors.mjs && node scripts/audit/duplicates.mjs && node scripts/audit/leverage.mjs
 python3 docs/audits/2026-10-05-check-round-3/read/queue.py
+```
+
+## 33. What the quality round (m394 to m408) leaves open
+
+The round (D134, D135; [its record](audits/2026-10-07-quality-round/README.md)) worked through the fourteen problems an
+agent could close. What it leaves needs a maker, the owner, or a reading it did not do:
+
+- **QIDI's impact columns are drawings.** QIDI's PETG Rapido and PETG-GF sheets head their impact table's three columns
+  with pictures of a bar, not words (12 values held: unnotched and notched Charpy). The tensile table above is headed
+  X-Y, X-Z and Z-X, and the pictures probably follow it, but the page does not say so; QIDI can.
+- **Stratasys PC-ABS's UV-exposure table** (p. 7, Table 5: eight values before and after exposure) is held: the reading
+  names its column "PC", and which product and orientation each column is needs that table read alone.
+- **Four Stratasys elongations disagree with a reading of their row** (PC-ABS p. 8: 3.2 and 6.0 % held, 3.3 and 9.8 %
+  read; PC p. 11: 5.3 and 6.4 % held, 4.8 and 4.9 % read). Each held number is printed elsewhere on its page, in
+  another colour's or printer's table, so which table each row was read from needs its locator checked
+  (`read9/proposals/held.csv`, "held-number-also-on-page").
+- **Pages that contradict their product.** DREMC's Support for PLA/PETG page prints a bed of 100-110 °C and a 60-80 °C
+  enclosure, which is not how a support printed beside PLA is used, and its SKU (DR-SUPPORT-PP) names another polymer
+  than its title; it is not entered. Bambu Lab's PETG Basic page prints PLA Basic's X-Y impact as 20.6 kJ/m² where PLA
+  Basic's own sheet prints 26.6; the sheet's value stands.
+- **An identity no document gives.** Z-Polymers' Tullomer sheet names no polymer, and neither does the maker's page as
+  served; only press reports call it an LCP (R205 admits none). Not entered.
+- **A comparison page's settings.** Fillamentum's Fishy Filaments page prints a working temperature for each product
+  column; 0rCA (G050-09) holds no print profile, and the column was not read for one.
+- **Registered copies filed under another product's source.** 3DJake's copy of SUNLU's "PLA PLUS" sheet (doc
+  adcfee9d9ec6fcc2) is registered under SUNLU PLA's source, and Shop3D's copy of Bambu Lab's earlier PLA Silk sheet (doc
+  12f113ec91d367ae) under PLA Silk+'s. Neither is applied, so no value rests on them, but the full-text search
+  (`documents_fts`) shows their words under those sources: "10 times higher toughness" is SUNLU PLA+'s, and "was
+  toughened" PLA Silk's, not PLA Silk+'s. Re-keying a ledger row is an import step.
+- **One maker's table under products of several materials.** Spectrum prints one base-PLA table under PLA Glow in the
+  Dark, Glitter, Stone Age, ESD and Premium; both languages of Extrudr's PLA BASIC CF sheet print PLA BASIC's table;
+  Fabru prints one table for PLA and LW-PLA. A formulation key cannot span two materials (R166), so each keeps its own
+  sheet's values; whether a variant's sheet reports its own test is the maker's to say. The 19 cross-maker reprints the
+  round read stay two products (§30).
+- **A heat-resistant PETG.** Spectrum PET-G HT100 publishes a heat deflection of 94 °C, beyond PETG's; it is sold as a
+  heat-resistant copolyester, and no Variant class describes that. Whether one should is the owner's call.
+- **What was sampled, not read in full.** Of the 908 digit suspects, the 563 records that could decide were read; the
+  rest are not (the sample of 80 found nothing). Of the 538 outliers beyond three standard deviations, the 196 that
+  decide and a seeded 80 were read. DuPont's resin guide (133 moulded values on reference grades) was not read again:
+  reference grades back nothing.
+
+```sh
+python3 docs/audits/2026-10-07-quality-round/judge.py         # the readers' verdicts, sorted (the targets stay frozen)
+python3 docs/audits/2026-10-07-quality-round/answers.py
 ```

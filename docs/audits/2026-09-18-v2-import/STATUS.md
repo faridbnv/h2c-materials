@@ -9,27 +9,27 @@ can go stale without the command that made it saying so.
 
 | Table | Rows |
 |---|---:|
-| materials | 174 |
-| grades | 1,163 |
-| measurements | 11,509 |
-| sources | 1,640 |
-| profiles | 1,281 |
-| profile notes | 2,061 |
+| materials | 175 |
+| grades | 1,180 |
+| measurements | 15,067 |
+| sources | 2,016 |
+| profiles | 1,915 |
+| profile notes | 2,500 |
 | headlines | 0 |
 
 ## The corpus
 
-2,260 documents in the ledger.
+2,364 documents in the ledger.
 
 | Status | Documents |
 |---|---:|
-| applied | 1,313 |
-| duplicate-of | 472 |
+| applied | 1,402 |
+| duplicate-of | 499 |
 | registered | 179 |
-| deferred | 122 |
+| deferred | 111 |
 | safety-data-sheet | 49 |
-| held | 38 |
 | not-a-data-sheet | 37 |
+| held | 37 |
 | gated | 33 |
 | unreachable | 15 |
 | skipped | 2 |
@@ -41,7 +41,7 @@ and each says what would free it (`scripts/ingest/batch.mjs`).
 
 | Reason | Documents | Where |
 |---|---:|---|
-| `ruling` | 31 | 3DJake / 3DJAKE 5, Filament2Print 4, Prusa Research / Prusament 3, SIDDAMENT 3, Fabru / purefil 2 |
+| `ruling` | 30 | 3DJake / 3DJAKE 5, Filament2Print 4, Prusa Research / Prusament 3, SIDDAMENT 3, Spectrum 2 |
 | `twin` | 7 | 3D4Makers 2, 3DJake / 3DJAKE 2, Spectrum 2, Prusa Research / Prusament 1 |
 
 ## The research inventory, reconciled
@@ -51,11 +51,11 @@ staged documents the pipeline added. Where each of the inventory's ended:
 
 | Where | Documents |
 |---|---:|
-| applied | 1,304 |
+| applied | 1,316 |
 | settled: a copy, a product already recorded, or not a data sheet | 448 |
-| deferred past V2, the gap named | 98 |
+| deferred past V2, the gap named | 87 |
 | open: gated (the owner) | 33 |
-| open: an identity question for the owner | 31 |
+| open: an identity question for the owner | 30 |
 | open: unreachable, retried at the Wayback Machine | 15 |
 | open: held (twin) | 7 |
 
@@ -70,47 +70,47 @@ Independent parity over all makers: **87.1%**, 1,759 of 2,020 values on 141 shee
 
 | Maker | Sheets | Reproduced | Parity | Independent |
 |---|---:|---|---:|---|
-| 3DJake / 3DJAKE | 314 | 2327 of 2340 | 99% | 19 of 24 (79%) |
-| Spectrum | 93 | 665 of 665 | 100% | 113 of 113 (100%) |
-| 3DXTECH | 68 | 511 of 512 | 100% | 214 of 214 (100%) |
+| 3DJake / 3DJAKE | 325 | 2325 of 2355 | 99% | 19 of 24 (79%) |
+| Spectrum | 95 | 679 of 680 | 100% | 113 of 113 (100%) |
+| 3DXTECH | 69 | 520 of 521 | 100% | 214 of 214 (100%) |
 | Polymaker / Fiberon | 60 | 926 of 963 | 96% | 397 of 430 (92%) |
-| FormFutura | 48 | 283 of 318 | 89% | 12 of 26 (46%) |
+| FormFutura | 50 | 295 of 331 | 89% | 12 of 26 (46%) |
+| Extrudr | 48 | 383 of 384 | 100% | 0 of 0 (null%) |
 | SUNLU | 46 | 477 of 477 | 100% | 0 of 0 (null%) |
-| Extrudr | 45 | 370 of 371 | 100% | 0 of 0 (null%) |
+| Fabru / purefil | 44 | 238 of 245 | 97% | 0 of 0 (null%) |
 | Bambu Lab | 42 | 686 of 741 | 93% | 684 of 739 (93%) |
-| Fabru / purefil | 41 | 233 of 233 | 100% | 0 of 0 (null%) |
-| Fiberlogy | 39 | 339 of 339 | 100% | 0 of 0 (null%) |
+| Fiberlogy | 41 | 352 of 352 | 100% | 0 of 0 (null%) |
+| colorFabb | 39 | 310 of 351 | 88% | 8 of 11 (73%) |
+| Nanovia | 37 | 144 of 180 | 80% | 0 of 0 (null%) |
 | Eryone | 36 | 353 of 353 | 100% | 0 of 0 (null%) |
-| colorFabb | 36 | 282 of 288 | 98% | 8 of 11 (73%) |
 | Flashforge | 35 | 358 of 364 | 98% | 7 of 13 (54%) |
 | iSANMATE | 34 | 215 of 271 | 79% | 86 of 142 (61%) |
-| Nanovia | 29 | 126 of 127 | 99% | 0 of 0 (null%) |
 | SIDDAMENT | 27 | 185 of 187 | 99% | 11 of 13 (85%) |
+| Fillamentum | 26 | 207 of 209 | 99% | 22 of 23 (96%) |
 | Raise3D | 26 | 151 of 157 | 96% | 7 of 13 (54%) |
 | 3D4Makers | 23 | 158 of 161 | 98% | 0 of 0 (null%) |
-| Fillamentum | 22 | 178 of 180 | 99% | 22 of 23 (96%) |
-| MatterHackers / PRO Series | 21 | 110 of 110 | 100% | 0 of 0 (null%) |
-| eSUN | 17 | 145 of 147 | 99% | 21 of 23 (91%) |
-| Filament2Print | 16 | 158 of 158 | 100% | 0 of 0 (null%) |
-| NinjaTek | 15 | 112 of 113 | 99% | 0 of 0 (null%) |
+| MatterHackers / PRO Series | 22 | 112 of 112 | 100% | 0 of 0 (null%) |
+| NinjaTek | 18 | 129 of 132 | 98% | 0 of 0 (null%) |
+| eSUN | 18 | 148 of 150 | 99% | 21 of 23 (91%) |
+| Filament2Print | 17 | 168 of 168 | 100% | 0 of 0 (null%) |
 | Prusa Research / Prusament | 14 | 15 of 34 | 44% | 3 of 22 (14%) |
 | QIDI | 14 | 149 of 149 | 100% | 0 of 0 (null%) |
+| BigRep | 12 | 96 of 99 | 97% | 6 of 9 (67%) |
 | Recreus / Filaflex | 12 | 53 of 53 | 100% | 0 of 0 (null%) |
-| Shop3D Canada | 11 | 96 of 96 | 100% | 0 of 0 (null%) |
+| Shop3D Canada | 12 | 96 of 96 | 100% | 0 of 0 (null%) |
+| Yousu | 12 | 59 of 62 | 95% | 5 of 8 (63%) |
 | Siraya Tech | 11 | 67 of 67 | 100% | 0 of 0 (null%) |
 | Stratasys | 11 | 69 of 83 | 83% | 2 of 16 (13%) |
-| Yousu | 11 | 55 of 58 | 95% | 5 of 8 (63%) |
-| BigRep | 10 | 80 of 83 | 96% | 6 of 9 (67%) |
+| BASF Forward AM / Ultrafuse | 6 | 83 of 84 | 99% | 56 of 57 (98%) |
 | 3D-Fuel | 5 | 56 of 57 | 98% | 0 of 0 (null%) |
-| BASF Forward AM / Ultrafuse | 5 | 71 of 72 | 99% | 56 of 57 (98%) |
 | IPCON | 4 | 68 of 76 | 89% | 68 of 76 (89%) |
+| UltiMaker / MakerBot | 4 | 19 of 19 | 100% | 0 of 0 (null%) |
 | Essentium / Nexa3D | 3 | 1 of 24 | 4% | 0 of 23 (0%) |
 | Trinity3DS | 3 | 23 of 23 | 100% | 0 of 0 (null%) |
-| UltiMaker / MakerBot | 3 | 14 of 14 | 100% | 0 of 0 (null%) |
 | Braskem | 2 | 14 of 15 | 93% | 7 of 8 (88%) |
+| Markforged | 2 | 19 of 34 | 56% | 0 of 0 (null%) |
 | Grupa Azoty / Tarfuse | 1 | 4 of 6 | 67% | 4 of 6 (67%) |
 | Kimya / Airtech | 1 | 7 of 11 | 64% | 7 of 11 (64%) |
-| Markforged | 1 | 5 of 5 | 100% | 0 of 0 (null%) |
 
 ```bash
 npm run ingest:propose -- --compare --all
@@ -149,51 +149,62 @@ npm run ingest:propose -- --compare --all
 | [b33](batches/b33/README.md) | b33: the optical readings a reader could still sign | m125-batch-b33, 2026-09-21 |
 | [b34](batches/b34/README.md) | b34: the held sheets get a home | m143-batch-b34, 2026-09-25 |
 | [b35](batches/b35/README.md) | b35: the owner's answers to what b34 left | m145-batch-b35, 2026-09-25 |
+| [b37](batches/b37/README.md) | b37: two held sheets the makers' own pages identify | m207-batch-b37, 2026-09-27 |
+| [b39](batches/b39/README.md) | b39: exact-product chamber search | not recorded |
+| [b40](batches/b40/README.md) | b40: the gap-fill tranche's product pages | m226-batch-b40, 2026-09-29 |
 
 ## By provider
 
 | Provider | Documents | applied | deferred | duplicate-of | gated | held | not-a-data-sheet | registered | safety-data-sheet | skipped | unreachable |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 3DJake / 3DJAKE | 532 | 319 | 9 | 109 |  | 7 | 1 | 79 | 7 |  | 1 |
-| Spectrum | 154 | 95 | 1 | 21 |  | 4 |  | 33 |  |  |  |
-| Extrudr | 151 | 48 |  | 80 |  |  |  | 21 |  | 2 |  |
-| 3DXTECH | 113 | 69 |  | 43 |  | 1 |  |  |  |  |  |
-| Fabru / purefil | 80 | 44 | 2 | 30 |  | 2 |  |  |  |  | 2 |
+| 3DJake / 3DJAKE | 537 | 320 | 9 | 114 |  | 7 | 1 | 78 | 7 |  | 1 |
+| Extrudr | 169 | 59 |  | 87 |  |  |  | 21 |  | 2 |  |
+| Spectrum | 163 | 100 | 1 | 25 |  | 4 |  | 33 |  |  |  |
+| 3DXTECH | 118 | 74 |  | 43 |  | 1 |  |  |  |  |  |
+| Fiberlogy | 82 | 47 |  | 33 |  |  |  | 2 |  |  |  |
+| Fabru / purefil | 81 | 44 | 2 | 31 |  | 1 |  | 1 |  |  | 2 |
 | Polymaker / Fiberon | 77 | 65 |  | 8 |  | 1 |  | 2 |  |  | 1 |
-| Fiberlogy | 73 | 41 |  | 30 |  |  |  | 2 |  |  |  |
-| Nanovia | 73 | 37 |  | 33 |  |  |  | 3 |  |  |  |
+| Nanovia | 74 | 37 |  | 34 |  |  |  | 3 |  |  |  |
 | BASF Forward AM / Ultrafuse | 71 | 6 | 24 | 4 |  | 1 | 27 | 5 |  |  | 4 |
 | FormFutura | 70 | 50 | 1 | 8 |  | 1 |  | 10 |  |  |  |
-| colorFabb | 53 | 42 | 1 | 10 |  |  |  |  |  |  |  |
-| SUNLU | 53 | 46 |  |  |  | 2 |  | 5 |  |  |  |
-| Filament2Print | 47 | 17 | 12 | 9 |  | 4 | 2 | 3 |  |  |  |
-| 3D4Makers | 42 | 23 | 1 | 15 |  | 2 |  | 1 |  |  |  |
-| Bambu Lab | 42 | 42 |  |  |  |  |  |  |  |  |  |
-| Flashforge | 42 | 35 | 5 | 1 |  | 1 |  |  |  |  |  |
-| QIDI | 40 | 14 | 21 | 4 |  | 1 |  |  |  |  |  |
-| Eryone | 39 | 36 |  |  |  |  |  | 1 |  |  | 2 |
+| colorFabb | 66 | 55 | 1 | 10 |  |  |  |  |  |  |  |
+| SUNLU | 56 | 49 |  |  |  | 2 |  | 5 |  |  |  |
+| Filament2Print | 47 | 18 | 11 | 9 |  | 4 | 2 | 3 |  |  |  |
+| Flashforge | 44 | 38 | 4 | 1 |  | 1 |  |  |  |  |  |
+| 3D4Makers | 43 | 25 |  | 15 |  | 2 |  | 1 |  |  |  |
+| Bambu Lab | 43 | 42 |  | 1 |  |  |  |  |  |  |  |
+| QIDI | 42 | 17 | 20 | 4 |  | 1 |  |  |  |  |  |
+| Eryone | 41 | 38 |  |  |  |  |  | 1 |  |  | 2 |
+| Fillamentum | 41 | 27 |  | 14 |  |  |  |  |  |  |  |
 | iSANMATE | 39 | 34 |  | 2 |  |  |  |  |  |  | 3 |
-| Fillamentum | 38 | 26 |  | 12 |  |  |  |  |  |  |  |
 | MatterHackers / PRO Series | 37 | 22 |  | 11 |  |  |  | 1 | 3 |  |  |
+| SIDDAMENT | 34 | 29 |  |  |  | 3 |  | 2 |  |  |  |
 | INTAMSYS | 33 |  |  |  | 33 |  |  |  |  |  |  |
-| SIDDAMENT | 32 | 27 |  |  |  | 3 |  | 2 |  |  |  |
-| Stratasys | 31 | 11 | 11 | 6 |  | 2 |  | 1 |  |  |  |
-| IPCON | 30 | 4 |  | 1 |  |  |  |  | 25 |  |  |
+| IPCON | 33 | 7 |  | 1 |  |  |  |  | 25 |  |  |
+| Stratasys | 31 | 13 | 9 | 6 |  | 2 |  | 1 |  |  |  |
 | Raise3D | 29 | 26 | 2 |  |  |  |  | 1 |  |  |  |
 | Shop3D Canada | 29 | 12 | 2 | 1 |  |  |  | 3 | 11 |  |  |
-| NinjaTek | 27 | 19 |  | 6 |  |  |  | 1 |  |  | 1 |
+| NinjaTek | 28 | 19 |  | 7 |  |  |  | 1 |  |  | 1 |
+| eSUN | 26 | 23 |  | 3 |  |  |  |  |  |  |  |
 | Prusa Research / Prusament | 26 | 14 | 2 | 6 |  | 4 |  |  |  |  |  |
-| BigRep | 21 | 13 | 1 | 6 |  |  |  | 1 |  |  |  |
-| eSUN | 21 | 18 |  | 3 |  |  |  |  |  |  |  |
-| Siraya Tech | 20 | 11 | 6 |  |  |  |  | 3 |  |  |  |
-| Essentium / Nexa3D | 19 | 4 | 12 | 2 |  |  | 1 |  |  |  |  |
-| Yousu | 17 | 12 |  | 4 |  |  |  |  |  |  | 1 |
-| Recreus / Filaflex | 16 | 12 | 3 |  |  |  |  |  | 1 |  |  |
+| Siraya Tech | 24 | 15 | 6 |  |  |  |  | 3 |  |  |  |
+| BigRep | 22 | 14 |  | 7 |  |  |  | 1 |  |  |  |
+| Essentium / Nexa3D | 19 | 6 | 10 | 2 |  |  | 1 |  |  |  |  |
+| Yousu | 19 | 13 |  | 5 |  |  |  |  |  |  | 1 |
+| Recreus / Filaflex | 16 | 13 | 2 |  |  |  |  |  | 1 |  |  |
 | UltiMaker / MakerBot | 16 | 4 | 2 | 1 |  | 1 | 5 | 1 | 2 |  |  |
 | 3D-Fuel | 9 | 5 | 3 |  |  |  | 1 |  |  |  |  |
-| Markforged | 6 | 2 | 1 | 2 |  | 1 |  |  |  |  |  |
+| Markforged | 6 | 3 |  | 2 |  | 1 |  |  |  |  |  |
 | Kimya / Airtech | 4 | 2 |  | 2 |  |  |  |  |  |  |  |
 | Trinity3DS | 4 | 3 |  | 1 |  |  |  |  |  |  |  |
+| BASF Forward AM | 3 | 3 |  |  |  |  |  |  |  |  |  |
 | Braskem | 2 | 2 |  |  |  |  |  |  |  |  |  |
+| MatterHackers | 2 | 2 |  |  |  |  |  |  |  |  |  |
 | Grupa Azoty / Tarfuse | 1 | 1 |  |  |  |  |  |  |  |  |  |
 | DSM | 1 |  |  | 1 |  |  |  |  |  |  |  |
+| 3DJake | 1 | 1 |  |  |  |  |  |  |  |  |  |
+| CreatBot | 1 | 1 |  |  |  |  |  |  |  |  |  |
+| Nobufil | 1 | 1 |  |  |  |  |  |  |  |  |  |
+| Prusa Research | 1 | 1 |  |  |  |  |  |  |  |  |  |
+| Dow | 1 | 1 |  |  |  |  |  |  |  |  |  |
+| Recreus | 1 | 1 |  |  |  |  |  |  |  |  |  |

@@ -48,3 +48,4 @@ Tensile stress at 10 % elongation,mechanical,MPa,,,The stress a tensile bar carr
 Tensile stress at 100 % elongation,mechanical,MPa,,,"The stress a tensile bar carries at 100 % elongation: an elastomer's ""100 % modulus"" (ISO 37, ASTM D412, or ISO 527 on an elastomer). Not a strength: no headline reads it (D122).",
 Tensile stress at 200 % elongation,mechanical,MPa,,,The stress a tensile bar carries at 200 % elongation. Not a strength: no headline reads it (D122).,
 Tensile stress at 300 % elongation,mechanical,MPa,,,The stress a tensile bar carries at 300 % elongation. Not a strength: no headline reads it (D122).,
+Tensile stress at 400 % elongation,mechanical,MPa,,,The stress a tensile bar carries at 400 % elongation. Not a strength: no headline reads it (D122).,

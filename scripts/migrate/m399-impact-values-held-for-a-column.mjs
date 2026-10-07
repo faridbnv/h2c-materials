@@ -13,7 +13,7 @@
 // Left out: values the products' own sheets already hold, three comparison columns given to the wrong product ("Normal
 // PA6-CF" twice, IPCON PPA for PPA GF), a comparison column that contradicts the product's own sheet, QIDI's columns
 // headed by drawings, and ULTEM 1010's table, read whole in read9. Reading a registered, hash-checked sheet again is not
-// an import (D123).
+// an import (D123). Each page that now speaks for a product it did not list names it in Applicable grades.
 //
 // applyProposals checks every quote on the cached sheet before it writes. A re-run is a no-op, and a run after the data
 // moved stops.
@@ -22,6 +22,7 @@
 import { join } from 'node:path';
 import { openTables, projectRoot } from '../data/table-io.mjs';
 import { applyProposals } from './read-proposals-apply.mjs';
+import { rowsOf } from './m277-m279-sweep-shared.mjs';
 
 const MIGRATION = 'm399';
 const DIR = join(projectRoot, 'docs/audits/2026-10-07-quality-round/read8/applied');
@@ -29,6 +30,20 @@ const READ = 'Read 2026-10-07 by Claude Sonnet readers from the page image with 
 const t = openTables();
 
 const counts = applyProposals(t, DIR, { migration: MIGRATION, read: READ, date: '2026-10-07' });
+
+// A comparison page that now speaks for a product it did not list names it in Applicable grades (as m388 did).
+const GRADE = /G\d{3}-(?:\d+(?:-R\d+)?|R\d+)/g;
+counts.scoped = 0;
+for (const sourceId of new Set(rowsOf(join(DIR, 'values-add.csv')).map((r) => r.SourceID))) {
+  const s = t.get('sources', sourceId);
+  const before = s['Applicable grades'];
+  const entries = [...new Set(String(before ?? '').split(';').map((e) => e.trim()).filter((e) => e && !/^Not (published|applicable)$/.test(e)))];
+  const listed = new Set(entries.flatMap((e) => e.match(GRADE) ?? []));
+  const add = [...new Set(t.rows('measurements').filter((m) => m.SourceID === sourceId && m['Data status'] !== 'Retired duplicate record').map((m) => m.GradeID))].filter((g) => !listed.has(g)).sort();
+  if (!add.length) continue;
+  t.set('sources', sourceId, 'Applicable grades', [...entries, ...add.map((g) => `${t.get('grades', g).MaterialID} / ${g}`)].join('; '), { expect: before, migration: MIGRATION });
+  counts.scoped += add.length;
+}
 
 // The wet-state row names no test, as the comparison's other rows do; each product's own sheet prints the dry row of the
 // comparison as an unnotched X-Y Charpy to ISO 179 and GB/T 1043, so the wet row is that test's (D133's reading of which

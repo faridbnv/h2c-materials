@@ -11,18 +11,18 @@ Database snapshot 2026-09-21 · build 2026-10-07
 | materials | 175 |
 | h2cRelevant | 135 |
 | familyEntries | 23 |
-| retiredDuplicates | measurements 401, evidence 21, profiles 80 |
+| retiredDuplicates | measurements 403, evidence 21, profiles 80 |
 | excluded | 17 |
 | grades | 1180 |
-| measurements | 14662 |
-| numericMeasurements | 14472 |
-| quarantined | 33 |
+| measurements | 14664 |
+| numericMeasurements | 14471 |
+| quarantined | 36 |
 | profiles | 1835 |
 | evidence | 868 |
 | prices | 365 |
 | sources | 2016 |
 | coverage | 951 |
-| knowHow | 4879 |
+| knowHow | 4897 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 314 |
 | coverageDerived | 1137 |
@@ -192,7 +192,7 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 | Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
 |---|---:|---:|---:|---:|---:|---|
 | density | 817 | 1.44 | 1.99 | 0.797 | 0.951 | yes |
-| tensileModulusXY | 309 | 1.11 | 1.3 | 0.796 | 0.939 | yes |
+| tensileModulusXY | 309 | 1.11 | 1.3 | 0.796 | 0.942 | yes |
 | tensileStrengthXY | 330 | 1.22 | 1.19 | 0.788 | 0.939 | yes |
 | elongationXY | 357 | 1.13 | 1.16 | 0.796 | 0.952 | yes |
 | hdt045 | 430 | 2.04 | 3 | 0.791 | 0.919 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |

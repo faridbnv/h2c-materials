@@ -14,10 +14,10 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1016 | 46 | 1 | 42 | 1105 |
+| Products | 1017 | 46 | 1 | 41 | 1105 |
 | Materials | 135 | 10 | 0 | 7 | 152 |
 
-4879 statements; 1329 sources read for know-how; 216 makers' sites searched.
+4897 statements; 1329 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".
@@ -32,7 +32,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA-CF (M033) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 17 | 3 / 5 / 13 | — |
 | PA6-CF (M050) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 2 / 2 / 11 | — |
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 0 / 1 | — |
-| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 195 | 82 / 103 / 157 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
+| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 195 | 82 / 104 / 157 | Elegoo (no address held); Spectrum (spectrumfilaments.com, shop.spectrumfilaments.com); Yousu (ysfilament.com) |
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 11 | 3 / 3 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6-GF (M051) | Indoor prototype; Outdoor structural part; Warm environment | collected | 1 of 11 | 2 / 4 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-GF (M034) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 2 / 6 | — |

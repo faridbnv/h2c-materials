@@ -145,6 +145,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D131 | Check round 3: what decides is checked by code first, every check runs to the end, and the errors found were words in the wrong place, not wrong numbers | This round checked the values and print settings the tool's answers rest on, and read on their pages only what the code could not confirm. Of 540 records read, none held a wrong number; 29 held words in the wrong place (a label inside a cell, a note read for rows it does not speak for, a condition dropped), and each kind was swept everywhere it occurred. A sealed sample of 100 deciding records, read at the end, found two errors in what decides: a temperature parser that read a Fahrenheit window as Celsius, so the tool said one printable product could not be printed, and a dropped condition; both were fixed everywhere. Nine products held twice became one each, 43 records filed under the wrong product moved, MakerBot Tough is filed under PLA, the 123 documents whose bytes were lost were fetched again, and a check that once hid a real failure behind a slow timing now runs every step and lists every failure. | In force; it amends D57 (an outlier's acceptance names the value it was accepted for) and applies D89, D99, D106, D116, D120, D123 and D129 |
 | D132 | Published impact evidence is explained beside the exact product, without changing what decides (withdrawn) | Withdrawn the day it was made. Its drawer text told readers that makers were silent on things they had said, and called conditions "not stated" that the page states once for its whole table. The code is reverted; the four maker statements and the later Bambu PLA Tough+ page it recorded stay, under the topics they belong to. | Withdrawn on 2026-10-06 (code reverted; its statements re-filed by m384); the impact comparison is redone under GOALS, "Decided on 2026-10-06, later" |
 | D133 | Notched Charpy and notched Izod are drawn side by side in the drawer, a product each | The Mechanical tab has one closed heading, Impact tests: the two impact tests drawn one above the other on one scale (a dot per product at its published value, the middle half of the comparable products shaded and their median marked), a small table of what each median is of, then every impact result under its test with its document, the one each dot stands for marked. Selecting a dot shows its result there. The two tests are still never mixed or converted. Products their makers sell as toughened are marked from the maker's own words, and the page says what they and the other products give, so a few toughened products are not read as the material. | In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, sets the products sold as toughened (product_claims.csv) apart from the impact medians as D57 sets variants apart, and decides nothing |
+| D134 | The quality round: every open problem an agent can close, read on its page, judged one by one | The owner had the fourteen open problems that need no person's test or opinion worked through in one run. Reading machines (Claude Sonnet) read the pages and searched the web; Claude Opus judged every reading and wrote the changes. No published number had been copied with a wrong digit. What was wrong were words and conditions on rows, values held twice, values never copied, and a few rules too strict or too loose; each is fixed, and what still needs a maker or the owner is listed in OPEN-PROBLEMS §33. | In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and adds D135 |
+| D135 | A page that says once how its bars were printed gives that direction to its rows that say none | Many sheets say once, under a table, that "all specimens have been printed in XY plane" and then print each value without a direction. Such a value used to be drawn as "orientation not stated" and kept out of every median. Now the page's statement gives the direction to the tensile, flexural and impact rows that state none, exactly as a page's statement already gave them their specimen, moisture and treatment (D116). It never reaches a moulded bar's row. | In force; it extends D116 and D128 |
 
 <!-- end index -->
 
@@ -4482,3 +4484,64 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
   them as its range. PLA's notched Charpy is now 6.7 over 11 products (3.97 to 20.3), with 7 sold as toughened (5.76 to
   72.3) apart. No verdict reads a material's median, so no answer moved.
 
+
+## D134. The quality round: every open problem an agent can close, read on its page, judged one by one
+
+> **In plain words:** The owner had the fourteen open problems that need no person's test or opinion worked through in one run. Reading machines (Claude Sonnet) read the pages and searched the web; Claude Opus judged every reading and wrote the changes. No published number had been copied with a wrong digit. What was wrong were words and conditions on rows, values held twice, values never copied, and a few rules too strict or too loose; each is fixed, and what still needs a maker or the owner is listed in OPEN-PROBLEMS §33.
+> **Status:** In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and adds D135.
+
+*Built by Claude (an agent) on 2026-10-07; the record is [the quality round](audits/2026-10-07-quality-round/README.md).*
+
+- **Frozen first, read once per document.** Each item's targets were frozen before reading (`targets.mjs`), and one
+  queue read each of 387 documents once for every item that touched it (978 tasks). A verdict that changes a row was
+  judged against the item's rule (`judge.py`): a page statement the build already gives a row (D116) is not a fix, and
+  Spectrum's 2024 portfolio stays a summary (§32).
+- **Held twice is held once, by the page.** A product value that repeats a moulded bar's number is retired only where
+  both pages print the same number, point or range alike, and nothing on the copy's page says how its bar was made
+  (m397). The same reading undid two of m393's retirements, which had compared only the normalized value. A retailer's
+  line-for-line copy of a maker's sheet, filed as a product of its own, becomes the maker's product's twin with its
+  values held once (The Filament's TPU sheets, m402), as b32 had filed the brand's other listings.
+- **What the readers found is fixed where it is wrong, and flagged where the page is.** Conditional drying read as
+  required, a footnote's nozzle window held for the main one, a dropped "≥", an annealed row typed as printed, and a
+  test temperature left off are fixed (m398); values a page prints but cannot be (a PEEK melt flow at 210 °C, a
+  printed polycarbonate yielding at 94 MPa, a modulus of 2.9 MPa) are kept and flagged (m398, m401); rows whose unit
+  contradicts their label are held as "Unresolved unit / layout" (m398, m407).
+- **Tables held in part are read whole.** Reading the impact columns again (m399) showed Stratasys's ULTEM 1010, PC,
+  PC-ABS and ABS-M30 sheets and QIDI's PETG sheets holding one table of several; they were read cell by cell, with a
+  blind second reading of every value that decides (m401). Two tools were wrong on the way: the import's notch reader
+  took "ASTM D256, ASTM D4812" over both rows of a table as "notched", and the reconciler paired an unnotched cell with
+  the held notched row of its orientation and proposed overwriting it; both are fixed and tested, and nothing was
+  overwritten.
+- **Claims by the rule, from the product's own document** (m400): eight products marked toughened; a sentence printed
+  only on a retailer's copy of an earlier sheet does not mark its successor.
+- **Imports where a gap is large** (m405, m406): eight prices from pages that print their VAT basis, Panchroma CoPE's
+  V5.4 sheet from the Internet Archive for a material that held six values, second products for TPC-ESD and PBT-GF, and
+  purefil GreenTEC under R179. A document for a product the catalogue does not hold is staged under its material
+  (`ingest:witness --from`, `material:M###`).
+- **The answers that moved** are each a product's value changing on its page's word: PETG-GF leaves "Lightweight
+  structure" (QIDI's tensile table, now recorded), CoPE leaves "Flexible component" (its V5.4 sheet's elongation), and
+  nGen / Amphora (M092) enters "Warm environment" as unknown, because colorFabb nGen's 71 °C heat deflection was a copy
+  of its sheet's injection-moulded value (m397), which no printed product's answer may rest on.
+
+- **Checked blind at the close.** A fresh reader with no access to the tables read 40 changed records on their pages:
+  all 40 hold, and the one family found beside them (stray digits in standard cells, deciding nothing) is swept (m407).
+  A draw of 20 unmarked products found 4 toughened claims the first search had missed, because it read only products
+  with a notched impact headline; widened to every product with an impact value, it marked 25 more, and a second draw
+  found 1 in 20 (m408). The record is `blind-draw/RESULT.md`.
+
+## D135. A page that says once how its bars were printed gives that direction to its rows that say none
+
+> **In plain words:** Many sheets say once, under a table, that "all specimens have been printed in XY plane" and then print each value without a direction. Such a value used to be drawn as "orientation not stated" and kept out of every median. Now the page's statement gives the direction to the tensile, flexural and impact rows that state none, exactly as a page's statement already gave them their specimen, moisture and treatment (D116). It never reaches a moulded bar's row.
+> **Status:** In force; it extends D116 and D128.
+
+- **The statement is a row of `page_context.csv`.** A Direction column (vocabulary `directions`, "Not published" where
+  the page states none; m394) holds what the page says; m395 records the 28 sheets that say it (colorFabb's "specimens
+  have been printed in XY plane" on 17, Spectrum's PLA Tough, Filament2Print's PEEK and others), each quote checked on
+  the cached sheet.
+- **It reaches only where a direction means something and the row is silent.** `inheritPageContext`
+  (`build/src/page-context.js`) gives it to the tensile, flexural and impact scopes (`directionApplies`), only where the
+  row's direction is not stated, and only where its bar is printed or not stated: colorFabb's nGen sheet prints an
+  injection-moulded table beside its printed one, and a moulded bar has no print direction. A row that states another
+  direction contradicts its page and is flagged (CONTEXT-ROW-CONTRADICTS-PAGE).
+- **What it moved.** 25 values of 22 products now count as XY; no template answer moved, because no verdict reads a
+  material's median.

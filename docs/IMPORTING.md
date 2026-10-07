@@ -1,6 +1,6 @@
 # Importing a batch of data sheets
 
-> **In short.** How a new maker's document enters the database: it is fetched and fingerprinted (SHA-256), its text read page by page, each value proposed with the line it came from, checked, and applied by a numbered batch script. Imports are open since 2026-10-05, when the owner lifted the pause of 2026-09-25 (GOALS lists the batches run under it, the last b43 and b44). Correcting a value of a document already held is not an import: [AGENTS.md](../AGENTS.md) says how.
+> **In short.** How a new maker's document enters the database: it is fetched and fingerprinted (SHA-256), its text read page by page, each value proposed with the line it came from, checked, and applied by a numbered batch script. Imports are open since 2026-10-05, when the owner lifted the pause of 2026-09-25 (GOALS lists the batches run under it, the last b43 and b44); the quality round of 2026-10-07 ran the first since, b45 and the price batch p05. Correcting a value of a document already held is not an import: [AGENTS.md](../AGENTS.md) says how.
 
 *Moved out of AGENTS.md on 2026-09-25 (re-center phase 5), when imports were paused; the procedure is read when one
 runs. AGENTS.md keeps the rules every change follows.*

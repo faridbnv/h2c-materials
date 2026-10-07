@@ -1,0 +1,28 @@
+Task,GradeID,SourceID,page,sentence
+R01,G031-35,D-CREATBOT-ASA-PAGE,1,"Mechanical Properties Tensile strength 38 MPa, flexural strength 65 MPa, flexural modulus 2399 MPa, with good balance of rigidity and toughness."
+R01,G031-35,D-CREATBOT-ASA-PAGE,1,"Notched impact strength 12.9 kJ/m², resistant to brittle fracture under impact and dynamic loads, suitable for functional parts and structural components."
+R01,G031-35,D-CREATBOT-ASA-PAGE,1,"Chemical & Weather Resistance Excellent UV resistance, resistant to yellowing, chalking and embrittlement under long-term outdoor exposure."
+R01,G031-35,D-CREATBOT-ASA-PAGE,1,"It maintains performance after 3-5 years of outdoor exposure, while ABS noticeably yellows and becomes brittle after 1-2 years outdoors"
+R01,G031-35,D-CREATBOT-ASA-PAGE,1,"③ Mechanical properties—both have similar tensile, flexural and impact strengths, with ASA having slightly better toughness"
+R01,G031-35,D-CREATBOT-ASA-PAGE,1,"Typical applications include: ① Outdoor equipment housings—sensor housings, outdoor monitoring equipment, weather station housings, etc., resistant to yellowing and embrittlement under long-term exposure to sunlight and rain"
+R02,G020-65,D-YOUSU-PETG-PAGE,1,weather resistance outstanding clarity & impact resistance low shrinkage or warping
+R02,G020-65,D-YOUSU-PETG-PAGE,1,Non-brittle recipe and good layer bonding strength make the functional parts feasible.
+R03,G001-17,,,none
+R04,G024-20,,,none
+R05,G031-08,,,none
+R06,G038-02,,,none
+R07,G031-04,,,none
+R08,G032-02,,,none
+R09,G024-16,,,none
+R10,G153-01,,,none
+R11,G017-05,,,none
+R12,G016-04,,,none
+R13,G035-25,D-YOUSU-PC-PAGE,1,"III, Unique recipe – Make the filament less brittle and assure less stringing and better overhang performance."
+R13,G035-25,D-YOUSU-PC-PAGE,1,Impact-resistant High heat resistance Naturally transparent Bendable without breaking.
+R14,G052-05,R-FORMFUTURA-READER-20261004-e6942c45951e,1,"Superb mechanical properties Strong, flexible, high impact resistance, high crack resistance, high scratch resistance"
+R15,G001-08,,,none
+R16,G093-04,,,none
+R17,G075-01,,,none
+R18,G027-41,R-3DJAKE-ABS-P-TDS-1,1,"AzureFilm ABS (Acrylonitrile Butadiene Styrene) is a filament with high butadiene content, specially designed for applications that require ultra high impact toughness combined with good thermal resistance."
+R19,G031-06,,,none
+R20,G050-08,,,none
