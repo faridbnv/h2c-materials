@@ -30,3 +30,36 @@ folder's README once the round closes). This file logs each phase as it ends.
   - **TARGETS-5** (item 5): 112 registered sources without text (91 bytes absent, 12 no digest, 1 mismatch, 8 price
     pages whose text was never extracted), 31 of them behind rows; and 167 flagged pages of documents behind rows (128
     with an optical reading, 39 without).
+
+## Phase 1: item 10, the wrong facts (commit 0f553706)
+
+OPEN-PROBLEMS §3, §7, §14, §18, §22, §28, §29 and §31 corrected against their queries; the README's price sentence is
+derived from the listings' access dates; the quality round's draw is written where the README reads it.
+
+## Phase 2: item 5, text for held sources (commit 5428ccfa)
+
+The p05 price pages had their text read, and `ingest:prices` now reads a page's text as it keeps it. The backup restore
+brought back none of the 96 sources without bytes; the 22 deciding profiles among them were compared with their later
+copies in the quality round. Every flagged page of every cached document was read optically (290 pages) and 428 optical
+pages are now indexed in `documents_fts` (`view = 'ocr'`); 10 flagged pages give no text.
+
+## Phase 3: item 2, held twice (commit 4a92a58d)
+
+No source pair across two products is left unread. Of the 37 pairs on one product's own grade, 26 are copies (one is
+two 3DJake copies of one sheet) and 11 revisions (`decisions/same-grade-pairs.csv`). m409 retired 198 copy rows and filed
+two products on the maker's own sheet; PCTG+CF10's XY strength is now Fiberlogy's own yield strength (70 MPa). The item 2
+reader's 11 tasks: the seven split sources hold their rows on the right product or a keyed twin (R053), the nine "same
+name, different values" pairs are distinct products, and two filings are wrong (fixed in m410).
+
+## Phase 4: item 1, values the held sheets print (commit 4fb9e344)
+
+311 sheets read (20 batches), 5,876 readings, 510 read again blind. 351 values, 21 page statements and 20 profile cells
+enter (m410); 102 product values now come from them. No held value changes (`decisions/values-set-review.md`). T2 and
+T3 moved 4 product values in 160 leads and are not widened. Answers moved: PC-ESD and PET-GF fail questions they were
+unknown in, each on a value read on its page (TriStat ESD-PC's modulus, Raise3D Industrial PET GF's density).
+`verify:fast` 71.2 s.
+
+## Phase 5: recount and D136 draft
+
+OPEN-PROBLEMS §6 (397 acceptances), §19 (sources and the index), §22 and GOALS C16 (108 of 135 materials priced)
+recounted; D136 drafted; this README started.

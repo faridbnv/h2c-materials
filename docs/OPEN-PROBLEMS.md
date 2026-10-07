@@ -201,14 +201,14 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `MEAS-PHYSICS-WINDOW` | 204 | See item 2. Ten since 2026-10-02 are BASF's ISO 180 Izod values printed in J/m (m298), shown and never compared (D94). |
-| `IMPACT-UNIT-STANDARD` | 46 | A sheet that prints an impact unit beside a standard that reports another (kJ/m² beside ASTM D256; BASF's J/m beside ISO 180); kept as printed, compared only in its own unit. |
+| `MEAS-PHYSICS-WINDOW` | 195 | See item 2. Ten since 2026-10-02 are BASF's ISO 180 Izod values printed in J/m (m298), shown and never compared (D94). |
+| `IMPACT-UNIT-STANDARD` | 25 | A sheet that prints an impact unit beside a standard that reports another (kJ/m² beside ASTM D256; BASF's J/m beside ISO 180); kept as printed, compared only in its own unit. |
 | `MEAS-PHYSICS-STRAIN` | 32 | See item 2. |
-| `MEAS-PHYSICS-ORDER` | 31 | See item 2. |
-| `GRADE-VALUES-TWIN` | 31 | Two products whose sheets print one table, accepted as the separate products they are (R166 and its like). |
-| `MEAS-CROSS-SOURCE-TWIN` | 19 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). | Check round 3 added five (D131): four Bambu Lab sheets and their V3.0 revisions, which print one table, and Kingroon's TPU sheet, which reprints Bambu Lab TPU 90A's.
-| `EST-OUTLIER` | 7 | Seven reviewed material/headline findings: ABS-GF, PAHT-CF and PA6 heat deflection at 0.45 MPa, the density of ASA Aero, PA6-GS and PLA-EC, and PBAT's XY modulus (6 MPa, a rubbery polyester). Each acceptance names the original value and why the model differs. Findings near the threshold come and go when the model is refit: PA6-CE's density left the list and PBAT's modulus returned when m368 moved FiberFlex Aero (2026-10-05). |
-| `MEAS-PHYSICS-Z-ABOVE-XY` | 8 | Polymaker prints a Z stiffness 15 to 26 % above XY (two rows), and three sheets a Z strength or impact above their own X-Y one. Unusual at 100 % infill but not impossible; whether a sheet swapped its labels cannot be settled from the table. Three more, accepted on 2026-10-05, are where the sheet itself prints a Z value above XY: Fillamentum OBC 905's Izod impact twice, and a ZX bar a sheet advertises as its highest Z strength. |
+| `MEAS-PHYSICS-ORDER` | 34 | See item 2. |
+| `GRADE-VALUES-TWIN` | 43 | Two products whose sheets print one table, accepted as the separate products they are (R166 and its like). |
+| `MEAS-CROSS-SOURCE-TWIN` | 22 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). | Check round 3 added five (D131): four Bambu Lab sheets and their V3.0 revisions, which print one table, and Kingroon's TPU sheet, which reprints Bambu Lab TPU 90A's.
+| `EST-OUTLIER` | 8 | Eight reviewed material/headline findings: ABS-GF, PAHT-CF, PA6 and PA12 heat deflection at 0.45 MPa, the density of ASA Aero, PA6-GS and PLA-EC, and PBAT's XY modulus (6 MPa, a rubbery polyester). Each acceptance names the original value and why the model differs. Findings near the threshold come and go when the model is refit: PA6-CE's density left the list and PBAT's modulus returned when m368 moved FiberFlex Aero (2026-10-05). |
+| `MEAS-PHYSICS-Z-ABOVE-XY` | 9 | Polymaker prints a Z stiffness 15 to 26 % above XY (two rows), and three sheets a Z strength or impact above their own X-Y one. Unusual at 100 % infill but not impossible; whether a sheet swapped its labels cannot be settled from the table. Three more, accepted on 2026-10-05, are where the sheet itself prints a Z value above XY: Fillamentum OBC 905's Izod impact twice, and a ZX bar a sheet advertises as its highest Z strength. |
 | `EST-FAMILY-ORDER` | 5 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C; Nylon-CF's (M165) modulus once b43 added Markforged's Onyx and Stratasys Nylon-CF10. The per-record reasons preserve the sheets' values and conditions. |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
 | `TEXT-FULLWIDTH` | 4 | Full-width punctuation a sheet prints inside Chinese text, kept as printed. |
@@ -218,9 +218,9 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `MEAS-LOCATOR-DIRECTION` | 5 | PC-Max's page 2 figures show flat bars with Z through the thickness; the locator names that axis as figure context, not a Z-loaded result, and XY is supported (V011803 to V011807, 2026-10-03). |
 | `MEAS-PHYSICS-HDT-LOADS` | 2 | Heat deflection at the lighter load below the heavier: Prusament rPLA's 1 °C inversion is within ISO 75 repeatability (V013711); the lint paired two different columns of one sheet (V014653). |
 | `CONTEXT-ROW-CONTRADICTS-PAGE` | 1 | SUNLU PCL's bars were printed at 260 °C, far above its recommended 75-85 °C: a printed bar off the product's recipe (D95), a narrower form of the page's printed specimen (V010184, m365). |
-| `GRADE-KEY-PRODUCTS` | 2 | Spectrum's PLA Premium sheet prints one table for five products already keyed together; the table is recorded on the key's carrier grade (R053) and the others read it. Spectrum ASA-X CF10 prints FormFutura ApolloX CF10's table, which also prints two Charpy values Spectrum's does not (check round 3). |
+| `GRADE-KEY-PRODUCTS` | 3 | Spectrum's PLA Premium sheet prints one table for five products already keyed together; the table is recorded on the key's carrier grade (R053) and the others read it. Spectrum ASA-X CF10 prints FormFutura ApolloX CF10's table, which also prints two Charpy values Spectrum's does not (check round 3), and FormFutura ApolloX Kevlar prints Spectrum ASA Kevlar's (quality round). PLA Nature holds Spectrum's portfolio row of its own since m410; its siblings read the key's carrier, the one holding most of the table (D136). |
 
-Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-05 after check round 3, 406 in all, and
+Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-10-07 after the completeness round, 397 in all, and
 the command below counts them again. `npm run audit:data` refuses stale acceptances in the data; this documentation
 table must also be refreshed when the accepted rows change.
 
@@ -819,13 +819,15 @@ narrower and more honest, and leave these, each with where it is counted:
 - **Not executed:** the team's task trial (GOALS C7), a person's source spot-check (C3), screen-reader and other-browser
   checks, and a print on the H2C. The page and the engine are checked against each other and against the portfolio; none
   of that is a person using it.
-- **95 registered sources have no hash-verified original here, and 12 record no digest** (2026-10-05, after check
-  round 3 fetched the lost ones again: 1,894 of 2,002 registered originals verify, §32). 85 of the 95 are pages that
+- **97 registered sources have no hash-verified original here, and 12 record no digest** (2026-10-07: 1,907 of 2,016
+  registered originals verify; 96 are absent and one is a mismatch; the private backup restored none of them in the
+  completeness round, §34). Most of them are pages that
   changed since they were read; their later copies are kept beside the store, read by checks and not registered. The
   formerly mismatched R-KIMYA-PEBA-S-TDS remains a mismatch; no wrong bytes are accepted. Original recovery or a
   separately reviewed revision is still needed; never overwrite the recorded digest to make a cache match.
-- **The full-text index is partial**: the refreshed local SQLite of release 784aaac91d99 indexes 1626 of 1840
-  retrieved source rows; 214 lack text, as re-derived by the query below. Cached bytes and indexed text are different
+- **The full-text index is partial**: on 2026-10-07 it holds the text of 1,908 of 2,010 retrieved sources (102 lack
+  it: their bytes are absent here, or they record no digest), and since the completeness round the optical reading of
+  428 scanned or garbled pages beside their text layer (`documents_fts.view = 'ocr'`), as re-derived by the query below. Cached bytes and indexed text are different
   populations. The source/index receipt in the campaign's documentation reconciliation records this dated checkout.
   Fresh clones/CI without private originals legitimately have a smaller index; restore verified originals and their
   derivatives before source rereads. The existing test's partial-cache limitation remains: a fixture-created
@@ -955,7 +957,9 @@ npm run sql --silent -- "select status, count(*) from coverage group by 1 order 
 ## 22. What the price pass leaves open
 
 The price pass of 2026-09-30 (GOALS; [the record](audits/2026-09-30-price-pass/README.md)) priced 101 of the 136
-materials in scope, 30 of them converted from USD or EUR, and 214 products. What it leaves:
+materials in scope, 30 of them converted from USD or EUR, and 214 products; with the quality round's batch p05, 108 of
+the 135 materials in scope are priced, 37 of them from a converted foreign listing, and 221 of 1,105 products
+(2026-10-07). What it leaves:
 
 - **27 materials have no price** (35 at the pass's end; the quality round's batch p05 priced eight on 2026-10-07: LEHVOSS's
   two LUVOCOM 3F PAHT grades, Facilan PCL 100, Tarfuse POM, NonOilen, Vinyl 303 and Conductive FilaFlex from

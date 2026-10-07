@@ -147,6 +147,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D133 | Notched Charpy and notched Izod are drawn side by side in the drawer, a product each | The Mechanical tab has one closed heading, Impact tests: the two impact tests drawn one above the other on one scale (a dot per product at its published value, the middle half of the comparable products shaded and their median marked), a small table of what each median is of, then every impact result under its test with its document, the one each dot stands for marked. Selecting a dot shows its result there. The two tests are still never mixed or converted. Products their makers sell as toughened are marked from the maker's own words, and the page says what they and the other products give, so a few toughened products are not read as the material. | In force; it draws D83's spread, D84's counting apart and D92/D94's two tests, sets the products sold as toughened (product_claims.csv) apart from the impact medians as D57 sets variants apart, and decides nothing |
 | D134 | The quality round: every open problem an agent can close, read on its page, judged one by one | The owner had the fourteen open problems that need no person's test or opinion worked through in one run. Reading machines (Claude Sonnet) read the pages and searched the web; Claude Opus judged every reading and wrote the changes. No published number had been copied with a wrong digit. What was wrong were words and conditions on rows, values held twice, values never copied, and a few rules too strict or too loose; each is fixed, and what still needs a maker or the owner is listed in OPEN-PROBLEMS §33. | In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and adds D135 |
 | D135 | A page that says once how its bars were printed gives that direction to its rows that say none | Many sheets say once, under a table, that "all specimens have been printed in XY plane" and then print each value without a direction. Such a value used to be drawn as "orientation not stated" and kept out of every median. Now the page's statement gives the direction to the tensile, flexural and impact rows that state none, exactly as a page's statement already gave them their specimen, moisture and treatment (D116). It never reaches a moulded bar's row. | In force; it extends D116 and D128 |
+| D136 | The completeness round: what the held sheets print is held once, and found where it is printed | The owner had four open problems worked through together, then the tooling debt, then the makers' statements nobody had read. Values the held sheets print but the tables lacked were read on their pages and entered; copies of a maker's own sheet registered beside it hold their rows once; a scanned page's words can now be searched; and the open-problems page says what is true. Where a reading claimed a held number was wrong, it was the cell next to it every time, and no held number changed. | In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and extends D85 (the record tier) and D89 (which twin a product reads) |
 
 <!-- end index -->
 
@@ -4545,3 +4546,32 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
   direction contradicts its page and is flagged (CONTEXT-ROW-CONTRADICTS-PAGE).
 - **What it moved.** 25 values of 22 products now count as XY; no template answer moved, because no verdict reads a
   material's median.
+
+## D136. The completeness round: what the held sheets print is held once, and found where it is printed
+
+> **In plain words:** The owner had four open problems worked through together, then the tooling debt, then the makers' statements nobody had read. Values the held sheets print but the tables lacked were read on their pages and entered; copies of a maker's own sheet registered beside it hold their rows once; a scanned page's words can now be searched; and the open-problems page says what is true. Where a reading claimed a held number was wrong, it was the cell next to it every time, and no held number changed.
+> **Status:** In force; it applies D35 (every value from its page), D89 and D119 (twins), D123 and D125 (reading a registered sheet again is not an import), and extends D85 (the record tier) and D89 (which twin a product reads).
+
+*Built by Claude (an agent) on 2026-10-07; the record is [the completeness round](audits/2026-10-07-completeness-round/README.md).*
+
+- **Copies of a product's own sheet hold their rows once** (m409). Of the 130 source pairs `scripts/audit/duplicates.mjs`
+  finds without the lint's cap of ten, 37 are two documents of one product on its own grade. Those that are one table
+  registered twice (3DJake's copies of the maker's sheet, the maker's own sheet under a second address, its German or
+  Italian edition) have each row the maker's own sheet holds identically retired, naming the row that stays, as m182
+  did. Identically means the specimen and the standards too: a copy naming another standard is another revision and
+  stays, with the revisions of a sheet (§30, m174). The estimate model had counted those values twice.
+- **The values the held sheets print are read cell by cell and entered** (m410). The reader recall and the import's
+  skipped lines found 2,703 lines no row holds; those that fill an empty headline of the sheet's own product were read
+  in full, the rest by a seeded sample, widened only where 1 in 20 of the sample would move a product value (it moved
+  1 in 40). A reading does not come back as new where the source already holds its number as a retired or unresolved
+  row. Values are taken from makers' data sheets, and from a product page only where it is the product's only document.
+  A safety data sheet is never read for values.
+- **A reading that contradicts a held value is the neighbouring cell until the page says otherwise.** None of the 28
+  corrections the readers and their blind second readers agreed on stood: each was the other load, temperature, column
+  or print direction of the same table.
+- **A twin reads the sibling that carries the shared table** (`build/src/products.js`, `twinsOf`): among siblings of
+  one maker holding values, the one holding the most comes first. A sibling holding a row or two of its own (Spectrum's
+  portfolio row for PLA Nature) is no longer where the others read the table from.
+- **A scanned page's words are in the full-text index** (D85). `documents_fts` holds the optical reading of each page
+  `ingest:quality` flags as empty or garbled beside its text layer (`view = 'ocr'`), the SQLite file goes stale when an
+  optical reading or a flag is added, and a captured price page has its text read as it is kept.
