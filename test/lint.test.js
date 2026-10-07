@@ -162,6 +162,11 @@ test('one product has one grade, and one formulation key names one product of on
   assert.deepEqual(run([grade({}), grade({ GradeID: 'G1-02', 'Product name': 'petg cf', 'Shared formulation key': 'S-PETG-CF-2' })]), ['GRADE-PRODUCT-DUPLICATE G1-02']);
   // A retired copy is an audit trail, not a second product.
   assert.deepEqual(run([grade({}), grade({ GradeID: 'G1-02', Status: 'retired' })]), []);
+  // One product entered twice from two revisions of its sheet: the maker's words and a revision mark aside, it is one
+  // name. A rating or a product generation is not a revision.
+  const second = (name) => run([grade({}), grade({ GradeID: 'G1-02', 'Product name': name, 'Shared formulation key': 'S-PETG-CF-2' })]);
+  for (const name of ['Spectrum PETG CF', 'PETG CF V5.6', 'PETG CF Version 2', 'PETG CF TDS', 'PETG CF by Spectrum']) assert.deepEqual(second(name), ['GRADE-PRODUCT-DUPLICATE G1-02'], name);
+  for (const name of ['PETG CF V0', 'PETG CF 2.0', 'PETG CF Version B']) assert.deepEqual(second(name), [], name);
   // One key on two materials: the estimate model predicts a formulation once, so it cannot belong to both. This is
   // the Panchroma case, where two products came from columns of one sheet and the model read them as one.
   assert.deepEqual(run([grade({}), grade({ GradeID: 'G2-01', MaterialID: 'M2', 'Product name': 'CoPE' })]), ['FORMULATION-KEY-SPANS-MATERIALS G1-01 | G2-01']);

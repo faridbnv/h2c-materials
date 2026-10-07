@@ -33,7 +33,7 @@ export const LINT_RULES = {
   'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
   'PROFILE-DUPLICATE': 'Two live profiles of one product from one sheet that do not name different rows of it (a print speed, a nozzle size): one is a copy, usually of a test bar\'s settings read as a second setup and later made to match (D120). Retire the copy (Profile "Retired duplicate record", its Locator naming the profile that stays) after moving anything only it holds.',
   'PROFILE-SIBLING-SILENT': 'Two profiles of one product from one sheet, rows of it (a print speed, a nozzle size), where one holds a chamber, enclosure, drying or nozzle statement the other does not: the sheet prints it once for every row (D120). Copy it to the silent one.',
-  'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
+  'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer, the maker\'s own words and a sheet\'s revision mark (V5.6, Version 2) aside; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
   'FORMULATION-KEY-SPANS-MATERIALS': 'One Shared formulation key on active grades of more than one material. The estimate model reads a key as one product and predicts it once, so two materials cannot both own it (D12, D44); file the product under the material it is.',
   'GRADE-KEY-PRODUCTS': 'One Shared formulation key on active grades with different product names. A sheet that prints several products gives each its own key (SourceID#product), or the model reads two products as one.',
   'MEAS-CROSS-SOURCE-TWIN': 'Two sources publish almost the same numbers under the same conditions: one document registered twice, usually a retailer\'s copy of a manufacturer sheet. Keep the manufacturer\'s, retire the copy\'s rows as a duplicate record naming the twin and give its source the corroboration role, or accept with the reason the two really are separate tests.',
@@ -53,6 +53,22 @@ export const LINT_RULES = {
  * full stop and a space; a decimal point has a digit behind it.
  */
 export const basisHead = (basis) => String(basis ?? '').split(/\.\s/)[0];
+
+/**
+ * A product's name as GRADE-PRODUCT-DUPLICATE compares it: without its maker's words ("Polymaker PolyLite ABS" is
+ * PolyLite ABS), a closing "by <maker>", a sheet's revision mark (V5.6, Version 2, Rev 3) or the words "TDS" and
+ * "technical data sheet", so one product entered twice from two revisions of its sheet is found by name. A rating is
+ * not a revision: "V0" (UL 94) and "2.0" (a product generation, SUNLU PLA+2.0) stay (completeness round, D136).
+ */
+export function productName(name, manufacturer) {
+  let out = String(name ?? '').normalize('NFKC').replace(/\bby\s+\S+(\s+\S+)?\s*$/i, ' ');
+  const words = new Set([manufacturer, ...String(manufacturer ?? '').split(/[\s/]+/)].filter((w) => w && w.length > 2));
+  for (const w of words) out = out.replace(new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi'), ' ');
+  return out
+    .replace(/\b(v\d+\.\d+(\.\d+)*|(ver\.?|version|rev\.?)\s*\d+(\.\d+)*)\b/gi, ' ')
+    .replace(/\b(tds|technical data sheet)\b/gi, ' ')
+    .replace(/\s+/g, ' ').trim() || String(name ?? '');
+}
 
 const CJK = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]/;
 const FULLWIDTH_PUNCT = /[\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff5e\u3001\u3002]/;
@@ -268,7 +284,7 @@ export function lintData(tables, schemas) {
   const productKey = (s) => String(s ?? '').normalize('NFKC').toLowerCase().replace(/\+/g, 'plus').replace(/[^a-z0-9]/g, '');
   const byProduct = new Map();
   for (const g of activeGrades) {
-    const k = `${productKey(g.Manufacturer)}\u0000${productKey(g['Product name'])}`;
+    const k = `${productKey(g.Manufacturer)}\u0000${productKey(productName(g['Product name'], g.Manufacturer))}`;
     if (byProduct.has(k)) add('GRADE-PRODUCT-DUPLICATE', 'grades', g.GradeID, 'Product name', `${g.Manufacturer} ${g['Product name']} is already ${byProduct.get(k)}`);
     else byProduct.set(k, g.GradeID);
   }
