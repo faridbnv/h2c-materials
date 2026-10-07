@@ -123,7 +123,7 @@ export function compileRegistry(wb, issues) {
       // whose rule is the caption. Nothing is converted between them.
       drawerComparison: orNull(r['Drawer comparison']),
       // What its spread does with the products sold as toughened (product_claims.csv, D133): named, it says how many and
-      // what the others give, and keeps them in the median.
+      // what the others give, and keeps them in the median; set apart, they leave the median as a variant's values do.
       toughened: orNull(r['Sold as toughened']),
       labels: { short: r.Short, plain: r.Plain, technical: r.Technical, hint: r.Hint, axis: r['Axis label'], export: r['Export header'] },
       better: r.Better,

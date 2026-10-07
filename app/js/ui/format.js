@@ -379,6 +379,8 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
   const apart = [
     s.asPublished ? `${s.asPublished.n} with no stated orientation or test load (${s.asPublished.min === s.asPublished.max ? fmtNumber(s.asPublished.min) : `${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}`})` : null,
     s.variants ? `${s.variants.n} special formulation${s.variants.n === 1 ? '' : 's'}, such as foamed or metal-filled (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)})` : null,
+    // Products their makers sell as toughened, where the headline sets them apart (D133).
+    s.claimed?.setApart ? `${s.claimed.n} sold as toughened or impact-modified by ${s.claimed.n === 1 ? 'its maker' : 'their makers'} (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`})` : null,
   ].filter(Boolean);
   const title = `Median of ${s.n} products that report it on a comparable basis. Range ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, interquartile ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}.`
@@ -389,7 +391,7 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     + `${s.products > s.n ? ` ${s.products - s.n} of its ${s.products} products ${s.products - s.n === 1 ? 'does' : 'do'} not report it on that basis.` : ''}`
     + `${apart.length ? ` Left out: ${apart.join('; ')}.` : ''}`
     // Products their makers sell as toughened stay in the median; the popover says how many, and what the others give (D133).
-    + `${s.claimed ? ` Included: ${s.claimed.n} ${s.claimed.n === 1 ? 'product its maker sells' : 'products their makers sell'} as toughened or impact-modified (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`}).${
+    + `${s.claimed && !s.claimed.setApart ? ` Included: ${s.claimed.n} ${s.claimed.n === 1 ? 'product its maker sells' : 'products their makers sell'} as toughened or impact-modified (${s.claimed.min === s.claimed.max ? fmtNumber(s.claimed.min) : `${fmtNumber(s.claimed.min)} to ${fmtNumber(s.claimed.max)}`}).${
       s.claimed.others ? ` Without them the median is ${fmtNumber(s.claimed.others.median)} (${s.claimed.others.min === s.claimed.others.max ? fmtNumber(s.claimed.others.min) : `${fmtNumber(s.claimed.others.min)} to ${fmtNumber(s.claimed.others.max)}`}, ${s.claimed.others.n} product${s.claimed.others.n === 1 ? '' : 's'}).` : ''}` : ''}`;
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Median of ${s.n} products`, action: 'products', id: materialId });
   // Products that all publish one value show it once ("88 · 2"), not as a range of one number ("88–88 · 2"); in the table the

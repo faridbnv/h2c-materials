@@ -675,10 +675,14 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     for (const key of keys) {
       if (m.headline[key]?.notApplicable) continue;
       const entries = products.filter((g) => g.headline?.[key]).map((g) => ({ gradeId: g.id, variant: !variantOnly && variantValue(g, g.headline[key]), v: g.headline[key] }));
-      summary[key] = summarise(entries, variantOnly ? products.length : plain);
       // A headline whose spread names the products sold as toughened (D133) says how many and what the others give.
-      const split = defByKey.get(key)?.toughened ? claimedSplit(entries, CLAIM.TOUGHENED, (e) => claimsOf(gradeById.get(e.gradeId), e.v).includes(CLAIM.TOUGHENED)) : null;
-      if (split) summary[key].claimed = split;
+      // Set apart, their comparable values leave the median as a variant's do, unless every comparable value is theirs.
+      const def = defByKey.get(key);
+      const split = def?.toughened ? claimedSplit(entries, CLAIM.TOUGHENED, (e) => claimsOf(gradeById.get(e.gradeId), e.v).includes(CLAIM.TOUGHENED)) : null;
+      const apart = def?.toughened === 'set apart' && split?.others ? new Set(split.gradeIds) : null;
+      const counted = apart ? entries.filter((e) => !(apart.has(e.gradeId) && !e.variant && e.v.level === LEVEL.COMPARABLE)) : entries;
+      summary[key] = summarise(counted, (variantOnly ? products.length : plain) - (apart?.size ?? 0));
+      if (split) summary[key].claimed = apart ? { ...split, setApart: true } : split;
       if (summary[key].n > 0) {
         m.headline[key] = productsHeadline(m.headline[key].unit, summary[key], gradeById, key);
         // The listings behind the products the median is of: a variant's are its own, and apart (unless it is all there is).

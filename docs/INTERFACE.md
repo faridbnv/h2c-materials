@@ -501,8 +501,10 @@ headlines are drawn together is the Drawer comparison column of headline_definit
 (product_claims.csv) carries a **sold as toughened** mark beside its name, in its product card and in the impact table;
 the mark's explanation is the maker's quote, its document and page, and "the maker's statement, not a test result". Its
 dots are coloured. Under the impact rows, and under the Products tab's spread table, a sentence says how many of the
-comparable values are from such products, their range, and what the others give; the median's explanation says
-"Included: …" beside "Left out: …". They stay in the median.
+comparable values are from such products and their range. On the two impact headlines they are set apart (m390): the
+material's median, range and middle half are the other products', and the toughened ones are listed under "Left out" in
+the median's explanation and the Products table, and drawn as open marks outside the material's box in the Material
+ranges view on an impact axis, unless every comparable value is theirs.
 
 **Record notes.** Nearly every measurement's Notes cell is the record's history ("Added 2026-09-17 (m39): re-read from
 the source document"). It is shown, collapsed, as **Record notes**, never among the test conditions. Every record ID is

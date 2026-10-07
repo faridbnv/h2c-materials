@@ -4,8 +4,8 @@ M001,PLA,tensileModulusXY,value,2.58,GPa,,,,,51,G001-192,V013378
 M001,PLA,tensileStrengthXY,value,45,MPa,,,,,65,G001-132,V012546
 M001,PLA,tensileStrengthZ,value,31,MPa,,,,,37,G001-192,V013381
 M001,PLA,elongationXY,value,8,%,,,,,61,G001-01,V000004
-M001,PLA,charpyNotched,value,8.92,kJ/m²,,,,,18,G001-192,V013388
-M001,PLA,izodNotched,value,5,kJ/m²,,,,,7,G001-37,V004433
+M001,PLA,charpyNotched,value,6.7,kJ/m²,,,,,11,G007-01,V000142
+M001,PLA,izodNotched,value,5,kJ/m²,,,,,6,G001-37,V004433
 M001,PLA,hdt045,value,55,°C,,,,,86,G001-108,V008377
 M001,PLA,glassTransition,value,58.95,°C,,,,,74,G001-23,V003714
 M001,PLA,priceCADkg,value,33.655,CAD/kg,,,,,26,G001-165,
@@ -264,7 +264,7 @@ M027,ABS,tensileModulusXY,value,2.2,GPa,,,,,12,G027-01,V000554
 M027,ABS,tensileStrengthXY,value,34.94,MPa,,,,,17,G027-08,V003514
 M027,ABS,tensileStrengthZ,value,27.25,MPa,,,,,12,G027-44,V014188
 M027,ABS,elongationXY,value,10,%,,,,,16,G027-06,V003192
-M027,ABS,charpyNotched,value,19.015,kJ/m²,,,,,6,G027-09,V002364
+M027,ABS,charpyNotched,value,20.03,kJ/m²,,,,,5,G027-32,V008063
 M027,ABS,izodNotched,value,12.5,kJ/m²,,,,,2,G027-12,V004550
 M027,ABS,hdt045,value,94,°C,,,,,24,G027-52,V010455
 M027,ABS,glassTransition,value,105,°C,,,,,20,G027-06,V003195

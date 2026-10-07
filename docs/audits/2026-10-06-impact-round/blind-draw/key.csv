@@ -1,0 +1,38 @@
+draw_id,record,source_id,page,product,property,label
+D01,V014819,R-POLYMAKER-PRIORITY-20261003-749f634c9bfa,1,Polymaker FIBERON ASA CF08,Charpy strength,"Charpy, notched"
+D02,V014766,S-PET-TDS-PLACTIVE,4,Copper3D PLACTIVE,Izod impact strength,"Notched Izod Impact, ft-lb/in (J/m)"
+D03,V014792,S-SPECTRUM-pl-tds-spectrum-high-speed,1,Spectrum PLA High Speed,Charpy strength,"Udarność Charpy’ego z karbem, 23°C"
+D04,V014839,R-STRATASYS-mds-fdm-pc-abs-0823a,7,Stratasys PC-ABS,Izod impact strength,Notched (ZX)
+D05,V014821,R-POLYMAKER-PRIORITY-20261003-d06cdcda8dca,1,Polymaker Fiberon PA612-ESD,Charpy strength,"Charpy, notched"
+D06,V014781,R-POLYMAKER-PRIORITY-20261002-29b58f0eea90,1,Polymaker Polymaker ABS Pro,Charpy strength,"Charpy, unnotched (Z)"
+D07,V014827,S-PVB-PCBlend-Prusament-TDS-2022-16-EN,2,Prusa Research Prusament PC Blend by Prusa Polymers,Charpy strength,Impact Strength Charpy Notched [kJ/m ](5) (Vertical XZ (source label))
+D08,V014785,S-POLYCN-PolyTerra-PLA-TDS-V5-11,4,Polymaker PolyTerra PLA,Charpy strength,Charpy impact strength (X-Y)
+D09,V014823,S-PVB-53ee8f5e-tds-prusament-pei-1010-en,2,Prusa Research Prusament PEI 1010 by Prusa Polymers,Charpy strength,Impact Strength Charpy [kJ/m2](4) (Vertical XZ (source label))
+D10,V014833,R-3DJAKE-EN-TDS-PETG-Graphene-Light,1,3DJake PET-G PROGRAFEN GRAPHENE LIGHT,Charpy strength,"Impact strength, kJ/m²"
+D11,V014825,S-PVB-e032493a-tds-pc-space-grade-en,2,Prusa Research Prusament PC Space Grade Black by Prusa Polymers,Charpy strength,Impact Strength Charpy [kJ/m ](3) (Vertical XZ (source label))
+D12,V014760,R-3DJAKE-3DJAKE-TDS-PLA,1,Elegoo PLA,Izod impact strength,"Izod Impact, Notched (5.6)"
+D13,V014769,R-EXTRUDR-GAP2-20261005-8a59c7615526,1,Extrudr GREENTEC PRO,Charpy strength,Charpy notched impact strength (+23°C)
+D14,V014757,R-3DJAKE-3DJAKE-TDS-ABS-Prime-pptx,1,AzureFilm ABS Prime,Charpy strength,Impact Strength
+D15,V014786,S-PVB-7-PLA-Recycled-Prusament-TDS-2021-V4,2,Prusa Research Prusament PLA Recycled by Prusa Polymers,Charpy strength,Impact Strength Charpy [kJ/m²](4) (Horizontal (source label))
+D16,V014770,R-EXTRUDR-GAP2-20261005-8a59c7615526,1,Extrudr GREENTEC PRO,Charpy strength,Charpy notched impact strength (-30°C)
+D17,V014840,R-STRATASYS-mds-fdm-pciso-0820a,1,Stratasys PC-ISO,Izod impact strength,"IZOD Impact, notched (Method A, 23 °C)"
+D18,V014788,S-PVB-technisches-datenblatt-2,2,Prusa Research Buddy3D ABS,Charpy strength,Notched Charpy impact strength
+D19,V014815,R-POLYMAKER-PRIORITY-20261003-67deefea2e32,1,Polymaker Fiberon PET-GF15,Charpy strength,"Charpy, unnotched (Z)"
+D20,V014810,D-FIBERLOGY-PEI-9085-FILAMENT-2-PAGE,1,Fiberlogy PEI 9085,Izod impact strength,Izod impact strength (notched) @ 23°C
+D21,V014803,S-PEBA-eSUN-ePA-Filament-TDS-V4-0,1,eSUN PA Nylon Filament (1kg) Natural,Izod impact strength,IZOD Impact Strength
+D22,V014783,R-POLYMAKER-PRIORITY-20261002-e2d172d8d9f3,1,Polymaker Polymaker ABS Max,Charpy strength,"Charpy, unnotched (Z)"
+D23,V014756,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-V3-0-0,1,Anycubic PLA,Izod impact strength,Izod Impact Strength (kJ/m²) (X-Y)
+D24,V014761,B-PC-PLA-Pure-TDS,3,Bambu Lab PLA Pure,Charpy strength,Impact Strength (Z)
+D25,V014831,S-SPECTRUM-en-tds-spectrum-asax-cf10,1,Spectrum ASA-X CF10,Charpy strength,"Charpy impact strength, notched*"
+D26,V014787,S-PVB-7-PLA-Recycled-Prusament-TDS-2021-V4,2,Prusa Research Prusament PLA Recycled by Prusa Polymers,Charpy strength,Impact Strength Charpy [kJ/m²](4) (Vertical XZ (source label))
+D27,V014764,R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo,1,colorFabb PLA Chameleon,Charpy strength,Charpy unnotched impact strength
+D28,V014829,S-SPECTRUM-de-tds-spectrum-pla-stone-age,1,Spectrum PLA Stone Age,Izod impact strength,Schlagbiegeprüfung nach Izod mit Kerbe
+D29,V014832,S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,1,Spectrum PLA Glow in the Dark,Izod impact strength,Notched Izod Impact
+D30,V014817,R-POLYMAKER-PRIORITY-20261003-749f634c9bfa,1,Polymaker FIBERON ASA CF08,Charpy strength,"Charpy, unnotched (XY)"
+D31,V013177,D-FIBERLOGY-PLA-IMPACT-FILAMENT-PAGE,1,Fiberlogy IMPACT PLA,Izod impact strength,Izod impact strength (notched) @ 23°C
+D32,V009036,R-3DJAKE-3DJAKE-14-TDS-hyper-PLA-CF-EN,1,Creality Hyper PLA-CF,Charpy strength,"Charpy impact strength(Z) ISO 179, GB/T 1043"
+D33,V009032,R-3DJAKE-3DJAKE-14-TDS-hyper-PLA-CF-EN,1,Creality Hyper PLA-CF,Tensile strength (endpoint unspecified),"Tensile strength (X-Y) ISO 527, GB/T 1040"
+D34,V005980,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,1,colorFabb PLA High Speed PRO,Charpy strength,"Impact Strength Charpy Notch, ISO 179"
+D35,V011783,R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,5,BASF Forward AM Ultrafuse ASA,Izod impact strength,"Impact Strength Izod (notched), XY-Direction"
+D36,V002346,R-FORMFUTURA-STYX-PA6-TDS,1,FormFutura STYX PA6,Charpy strength,"Charpy notched impact strength, 23°C"
+D37,V009220,R-NANOVIA-PLA-XRS,1,Nanovia PLA XRS,Charpy strength,Charpy notched

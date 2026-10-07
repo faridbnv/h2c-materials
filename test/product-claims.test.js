@@ -48,17 +48,23 @@ test('only a product with a row is marked, whatever its name says', () => {
   }
 });
 
-test('the spread names the toughened products and what the others give, and keeps them in the median', () => {
+test('the impact spreads set the toughened products apart, and name them, unless they are all there is', () => {
   const pla = db.materials.find((m) => m.id === 'M001');
   const s = pla.summary.charpyNotched, k = s.claimed;
-  assert.ok(k && k.n >= 1 && k.n < s.n);
-  assert.equal(k.n + k.others.n, s.n, 'claimed and others are the comparable products, split');
-  assert.equal(pla.headline.charpyNotched.spread.n, s.n, 'the median is still over all of them');
+  assert.ok(k?.setApart, 'PLA\'s notched Charpy sets them apart (m390)');
+  assert.ok(k.n >= 1 && k.others.n === s.n, 'the median is the other products\'');
+  assert.equal(s.median, k.others.median);
+  assert.equal(pla.headline.charpyNotched.value, k.others.median, 'the table shows the others\' median');
   for (const id of k.gradeIds) assert.ok(db.grades.find((g) => g.id === id).claims?.length, id);
-  // The popover says both what it leaves out and what it includes, and the two never contradict.
+  // Every comparable value claimed: the products are the range, as a material of variants is its variants.
+  for (const m of db.materials) for (const key of ['charpyNotched', 'izodNotched']) {
+    const c = m.summary?.[key]?.claimed;
+    if (c && !c.others) assert.ok(!c.setApart, `${m.id} ${key}: nothing to set them apart from`);
+  }
+  // The popover lists them with what it leaves out, and never says it includes them.
   const html = renderValue(pla.headline.charpyNotched, { showUnit: true, materialId: 'M001' });
-  assert.match(html, /Left out: /);
-  assert.match(html, new RegExp(`Included: ${k.n} products their makers sell as toughened`));
+  assert.match(html, new RegExp(`Left out: [^"]*${k.n} sold as toughened or impact-modified by their makers`));
+  assert.doesNotMatch(html, /Included:/);
   assert.doesNotMatch(html, /including different commercial formulations/);
 });
 

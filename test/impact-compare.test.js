@@ -41,7 +41,7 @@ test('each row is the material\'s spread, a dot per product at its own value, sq
     assert.ok(at < html.indexOf('Charpy strength'), `${id}: it comes before the Charpy records`);
     rowsOf(html).forEach((dots, i) => {
       const key = IMPACT[i].key, s = m.summary?.[key];
-      assert.equal(dots.length, (s?.n ?? 0) + (s?.asPublished?.n ?? 0) + (s?.variants?.n ?? 0), `${id} ${key}: a dot per product the spread counts`);
+      assert.equal(dots.length, (s?.n ?? 0) + (s?.asPublished?.n ?? 0) + (s?.variants?.n ?? 0) + (s?.claimed?.setApart ? s.claimed.n : 0), `${id} ${key}: a dot per product the spread counts, those set apart included`);
       for (const d of dots) {
         const v = gradeById.get(d.gid).headline[key];
         assert.equal(d.mid, v.measurementId, `${id} ${key} ${d.gid}: its own value`);

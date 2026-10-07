@@ -1795,9 +1795,10 @@
           ]
         },
         "toughened": {
-          "description": "What the material's spread does with the products their makers sell as toughened (D133): named, or null.",
+          "description": "What the material's spread does with the products their makers sell as toughened (D133): named, set apart, or null.",
           "enum": [
             "named",
+            "set apart",
             null
           ]
         },
@@ -3104,6 +3105,7 @@
       "required": ["claim", "n", "min", "max", "gradeIds", "others"],
       "properties": {
         "claim": { "type": "string" },
+        "setApart": { "type": "boolean", "description": "true where the headline sets these products apart from the median (D133): the spread's own n, median and range are then the other products'." },
         "n": { "type": "integer", "minimum": 1 },
         "min": { "type": "number" },
         "max": { "type": "number" },

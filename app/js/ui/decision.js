@@ -601,6 +601,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       drawnFamilies.add(group);
       const text = `<b>${esc(s.name)}</b><br>${esc(yD.plain)}: ${esc(rangeText(s.y, yD))}<br>${esc(xD.plain)}: ${esc(rangeText(s.x, xD))}`
         + `${s.variants.length ? `<br>${s.variants.length} variant${s.variants.length === 1 ? '' : 's'} drawn apart, not in the range` : ''}`
+        + `${s.apart?.length ? `<br>${s.apart.length} sold as toughened by ${s.apart.length === 1 ? 'its maker' : 'their makers'}, drawn apart, not in the range` : ''}`
         + '<br><i>Each axis on its own: a corner of the box is not a product</i><extra></extra>';
       const cdm = ['material', s.materialId];
       const common = { type: 'scatter', legendgroup: group, showlegend: false, name: `${s.name} range`, hovertemplate: text };
@@ -619,11 +620,16 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       labelPlan.envelopes.push({ trace: traces.length - 1, index: 0, name: s.name, x: s.x.median, y: s.y.median, positions: ['top right'], radius: 5, shortlisted: scenario.shortlist.includes(s.materialId) });
     }
     const pop = new Set(ws.materialSummaries.flatMap((s) => s.paired));
+    // Products sold as toughened, on an axis that sets them apart from their material's spread (D133).
+    const apart = new Set(ws.materialSummaries.flatMap((s) => s.apart ?? []));
     const dots = ws.pairs.filter((q) => pop.has(q.key) && q.plottable);
     for (const [family, list] of groupBy(dots, (q) => q.family)) {
       drawnFamilies.add(colourGroup(family));
       const color = colors.color(family);
-      const own = list.filter((q) => !q.variant), variants = list.filter((q) => q.variant);
+      const own = list.filter((q) => !q.variant && !apart.has(q.key)), variants = list.filter((q) => q.variant), toughened = list.filter((q) => apart.has(q.key));
+      if (toughened.length) traces.push({ type: 'scatter', mode: 'markers', x: toughened.map((q) => q.x.value), y: toughened.map((q) => q.y.value),
+        marker: { size: 9, symbol: toughened.map((q) => `${shape(q)}-open`), color, opacity: toughened.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 1.6, color } }, name: `${family} (sold as toughened)`, legendgroup: colourGroup(family), showlegend: false,
+        text: toughened.map(() => NO_LABEL), customdata: toughened.map((q) => cd(q, `${stateWords(q.state)}; sold as toughened by its maker: kept out of ${q.name}'s range on this axis`)), hovertemplate: hover('%{customdata[7]}') });
       if (own.length) traces.push({ type: 'scatter', mode: 'markers', x: own.map((q) => q.x.value), y: own.map((q) => q.y.value),
         marker: { size: 6, symbol: own.map(shape), color: hexToRgba(color, 0.6), opacity: own.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 0 } }, name: family, legendgroup: colourGroup(family), showlegend: false,
         text: own.map(() => NO_LABEL), customdata: own.map((q) => cd(q, `${stateWords(q.state)}; ${VERDICT_WORD[q.verdict] ?? ''}`)), hovertemplate: hover('%{customdata[7]}') });
@@ -845,6 +851,7 @@ export function workspaceKey(state, ws, { view }) {
   for (const f of Object.keys(FILLER_SYMBOL).filter((k) => drawn.some((q) => (q.filler ?? 'unfilled') === k))) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}`);
   if (view === 'overview') {
     items.push(`${g('<rect x="3.5" y="4.5" width="9" height="7" fill-opacity=".2" stroke-width="1.2"/><path d="M1 8h14M8 1v14" fill="none" stroke-width="1"/>')}Box: the middle half of a material's products; whiskers: the lowest and highest; + at the medians`);
+    if (ws.materialSummaries.some((s) => s.apart?.length)) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Open: a product its maker sells as toughened, outside its material's range on an impact axis`);
     if (ws.materialSummaries.some((s) => s.variants.length)) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/><circle cx="8" cy="8" r="1.4"/>')}Ringed with a dot: a variant (a wood or metal filler, a foaming additive), outside its material's range`);
   } else {
     items.push(`${g('<circle cx="8" cy="8" r="5"/>')}Filled: ${state.scenario.constraints.length ? 'meets every requirement' : 'a product'}`);

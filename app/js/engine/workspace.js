@@ -227,6 +227,10 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
   const { products, noProducts } = judgedProducts(rows, ctx);
   const context = contextRows === rows ? products : judgedProducts(contextRows, ctx).products.filter((j) => !onScreen.has(j.material.id));
 
+  // An axis whose headline sets the products sold as toughened apart from its material's spread (D133): such a product is
+  // drawn, and kept out of its material's range on these axes as the build keeps it out of the material's median.
+  const setApart = [xKey, yKey].some((k) => registry?.headlines?.find((h) => h.key === k)?.toughened === 'set apart');
+  const toughened = (g) => (g.claims ?? []).some((c) => c.claim === 'Toughened or impact-modified');
   const pairOf = (j, inResults) => {
     const xv = axisValue(j, xKey, ctx), yv = axisValue(j, yKey, ctx);
     const known = xv.value !== null && yv.value !== null;
@@ -238,6 +242,7 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
       // A declared variant (a lightweight additive, a dense filler) describes the product, not its polymer (D57): it is
       // drawn, and kept out of its material's range as the build keeps it out of the material's spread.
       variant: j.grade.variant ?? null,
+      apart: setApart && !j.grade.variant && toughened(j.grade),
       state: { id: j.state.id, treatment: j.state.treatment ?? null, moisture: j.state.moisture ?? 'dry', synthetic: !!j.state.synthetic },
       verdict: j.verdict, bucket: j.bucket, screened: j.screened, inResults,
       x: xv, y: yv, known, offLog, plottable: known && !offLog,
@@ -293,12 +298,14 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
   for (const p of source) { if (!byMaterial.has(p.materialId)) byMaterial.set(p.materialId, []); byMaterial.get(p.materialId).push(p); }
   const materialSummaries = [...byMaterial.entries()].map(([materialId, list]) => {
     const loggable = list.filter((p) => !p.offLog);
-    // The range is the material's own products; a declared variant is drawn beside it as its own mark (D57, D108).
-    const own = loggable.filter((p) => !p.variant);
+    // The range is the material's own products; a declared variant is drawn beside it as its own mark (D57, D108), and so
+    // is a product sold as toughened on an axis that sets them apart, unless they are all the material has (D133).
+    const plain = loggable.filter((p) => !p.variant);
+    const own = plain.some((p) => !p.apart) ? plain.filter((p) => !p.apart) : plain;
     return {
       materialId, name: list[0].name, family: list[0].family, filler: list[0].filler,
       x: marginal(own, 'x'), y: marginal(own, 'y'), paired: loggable.map((p) => p.key), inRange: own.map((p) => p.key),
-      variants: loggable.filter((p) => p.variant).map((p) => p.key), products: new Set(list.map((p) => p.gradeId)).size,
+      variants: loggable.filter((p) => p.variant).map((p) => p.key), apart: plain.filter((p) => !own.includes(p)).map((p) => p.key), products: new Set(list.map((p) => p.gradeId)).size,
       population: population === 'confirmed' && tested ? 'confirmed' : 'judged',
     };
   });

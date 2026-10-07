@@ -13,7 +13,7 @@ special formulation
 sold as toughened (the maker's statement)
 middle half
 median
-Notched Charpy impact (kJ/m²): 6 products on a comparable basis, median 19, middle half 15.4 to 21.1 and 11 more with no stated orientation. 1 of the 6 is a product its maker sells as toughened or impact-modified (14.5 kJ/m²). The other 5 give 10.5 to 21.5 kJ/m², median 20.
+Notched Charpy impact (kJ/m²): 5 products on a comparable basis, median 20, middle half 18 to 21.5, 11 more with no stated orientation and 1 sold as toughened, set apart from the median. The median and middle half are of the other 5 products. The product its maker sells as toughened or impact-modified gives 14.5 kJ/m² and is set apart, as special formulations are.
 Notched Izod impact (kJ/m²): 2 products on a comparable basis, median 12.5, 15 more with no stated orientation and 1 special formulation, left out of the median.
 Both tests: 5 products (Fillamentum ABS Extrafill, 3D4Makers ABS, Fiberlogy R ABS, Fiberlogy ABS and Fiberlogy ABS PLUS).
 "Sold as toughened" is the maker's own statement about its product, quoted under its name in the table below; it is not a test result, and a product sold as toughened can publish a low value.

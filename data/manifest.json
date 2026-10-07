@@ -30,8 +30,8 @@
       "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
     },
     "evidence": {
-      "rows": 5760,
-      "sha256": "f10ef0a41c409d52161e654bbcfc15fc01ceef5e039ee4b03504a3aee451f6ab"
+      "rows": 5761,
+      "sha256": "bfb30392b20839ff0b9a5d6dbdf0b7fc322cee394150896f4e0fc86e7fd92a5b"
     },
     "know_how_reads": {
       "rows": 1545,
@@ -78,8 +78,8 @@
       "sha256": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b"
     },
     "product_claims": {
-      "rows": 19,
-      "sha256": "4574b4fe074f49a0a68d2411245d38a95d8c3bbfccff7337c030afaa69ca13af"
+      "rows": 20,
+      "sha256": "f6a3209374108acc276b230e6e14836cf539acf938e5e614ef21facabf9bd711"
     },
     "material_links": {
       "rows": 830,
@@ -95,7 +95,7 @@
     },
     "headline_definitions": {
       "rows": 10,
-      "sha256": "b6e231b8f43106b33e080b77f5932dfa3a7c931087dbf14302bff5bd35a30f7a"
+      "sha256": "3616c08ad393143d322d64895154004099f3f2976c1ba31aff6abd7bd5a68952"
     },
     "polymers": {
       "rows": 48,

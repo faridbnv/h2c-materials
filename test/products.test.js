@@ -245,8 +245,15 @@ test("a material's summary is the spread of its procurement products that are no
     // A twin's value is its sibling's, and is set apart where the sibling is a declared variant (D57, D89).
     const apart = (v) => !variantOnly && v?.from?.origin === 'twin' && !!gradeById.get(v.from.gradeId).variant;
     for (const [key, s] of Object.entries(m.summary)) {
-      const values = products.map((g) => g.headline?.[key]).filter((v) => v?.level === LEVEL.COMPARABLE && !apart(v)).map((v) => v.value).sort((a, b) => a - b);
-      assert.equal(s.products, products.length, `${m.id} ${key}`);
+      // A product its maker sells as toughened, on a headline that sets them apart (D133): its comparable value leaves the
+      // median as a variant's does, and the product leaves the count, unless every comparable value is one of theirs.
+      const toughened = new Set(s.claimed?.setApart ? s.claimed.gradeIds : []);
+      for (const id of toughened) {
+        const v = gradeById.get(id).headline[key];
+        assert.ok((v.from?.origin === 'twin' ? gradeById.get(v.from.gradeId) : gradeById.get(id)).claims?.length, `${m.id} ${key}: ${id} is set apart without a claim`);
+      }
+      const values = products.filter((g) => !toughened.has(g.id)).map((g) => g.headline?.[key]).filter((v) => v?.level === LEVEL.COMPARABLE && !apart(v)).map((v) => v.value).sort((a, b) => a - b);
+      assert.equal(s.products, products.length - toughened.size, `${m.id} ${key}`);
       assert.equal(s.n, values.length, `${m.id} ${key}`);
       // What is counted apart: a value published without its direction or load (D84), and a declared variant's (D57).
       const span = (list) => (list.length ? { n: list.length, min: Math.min(...list), max: Math.max(...list) } : undefined);
@@ -260,7 +267,7 @@ test("a material's summary is the spread of its procurement products that are no
       const mid = values.length % 2 ? values[(values.length - 1) / 2] : (values[values.length / 2 - 1] + values[values.length / 2]) / 2;
       assert.equal(s.median, Number(mid.toPrecision(12)), `${m.id} ${key}: the median of its products' comparable values`);
       assert.equal(values.length >= 4, s.q1 !== undefined, `${m.id} ${key}: quartiles from four values`);
-      assert.ok(products.includes(gradeById.get(s.typical)), `${m.id} ${key}: typical ${s.typical}`);
+      assert.ok(products.includes(gradeById.get(s.typical)) && !toughened.has(s.typical), `${m.id} ${key}: typical ${s.typical}`);
     }
   }
   // The rule once had a test per case that found it: PETG's median (headlines.test.js), eSUN PLA-Lite's unstated-load

@@ -32,12 +32,19 @@ data part: the impact results the registered sheets print and the tables did not
   colorFabb PLA High Speed PRO's 27.9 notched flagged implausible on one copy only, eleven notched rows printing the
   unnotched method code, and BASF's ISO 180 Izod column headed "J/m".
 
-**What moved.** PLA's notched Charpy is now 18 products (median 8.92, was 13.52 over 16); 7 are sold as toughened
-(5.76 to 72.3) and the other 11 give 3.97 to 20.3, median 6.7. ABS's is 6 products (median 19.0). No verdict changed;
-the six templates' answers are the same except one Explore-with-estimates screen (PA66 for the flexible component,
-whose elongation estimate's plausible top moved from 99.7 % to 103 % when the estimate model was refitted on the
-moved Hyper PLA-CF values), and PLA-CF counts one product more.
+**Checked, then set apart.** A blind re-read of 37 changed records found no error, and a draw of 20 unmarked
+products found one toughness claim the marks missed (added by m389) ([blind-draw/RESULT.md](blind-draw/RESULT.md)), so
+m390 sets the products sold as toughened apart from the impact medians, as the owner's plan said once the marks were
+checked.
+
+**What moved.** PLA's notched Charpy was 13.52 over 16 products; with the new values and the toughened products set
+apart it is 6.7 over 11 (3.97 to 20.3), and the 7 sold as toughened (5.76 to 72.3) are listed beside it. ABS's is 20.03
+over 5, with Polymaker ABS Pro (14.48) apart. No verdict changed; the six templates' answers are the same except one
+Explore-with-estimates screen (PA66 for the flexible component, whose elongation estimate's plausible top moved from
+99.7 % to 103 % when the estimate model was refitted on the moved Hyper PLA-CF values), and PLA-CF counts one product
+more.
 
 **Left open** (in [OPEN-PROBLEMS](../../OPEN-PROBLEMS.md) §18): the held readings above, which need their columns read;
-the bounded fetch of toughened PLAs the database lacks; the claims round's draw of unmarked products; and SUNLU's
+the bounded fetch of toughened PLAs the database lacks, researched and waiting for a batch of its own
+([FETCH-TARGETS.md](FETCH-TARGETS.md)); the toughness claims of products that publish no impact value, which were not judged; and SUNLU's
 "PLA+" product-information sheet, filed on plain SUNLU PLA, whose identity (PLA+ or PLA+2.0) is not settled.

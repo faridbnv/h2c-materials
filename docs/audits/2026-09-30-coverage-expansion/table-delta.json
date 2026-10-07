@@ -15,8 +15,8 @@
   },
   "evidence": {
     "baseline": 5306,
-    "current": 5760,
-    "added": 454,
+    "current": 5761,
+    "added": 455,
     "edited_existing": 261,
     "removed": 0
   },
@@ -113,8 +113,8 @@
   },
   "product_claims": {
     "baseline": 0,
-    "current": 19,
-    "added": 19,
+    "current": 20,
+    "added": 20,
     "edited_existing": 0,
     "removed": 0
   },

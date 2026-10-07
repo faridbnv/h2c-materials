@@ -1116,17 +1116,21 @@ function rowCounts(h, s) {
   if (!s) return '';
   const parts = [s.n ? `${plural(s.n, 'product')} on a comparable basis${s.n > 1 ? `, median ${fmtNumber(s.median)}${s.q1 != null ? `, middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}` : ''}` : 'no product on a comparable basis',
     s.asPublished ? `${s.asPublished.n} more with no stated orientation` : null,
-    s.variants ? `${plural(s.variants.n, 'special formulation')}, left out of the median` : null].filter(Boolean);
+    s.variants ? `${plural(s.variants.n, 'special formulation')}, left out of the median` : null,
+    s.claimed?.setApart ? `${s.claimed.n} sold as toughened, set apart from the median` : null].filter(Boolean);
   return `<li><b>${esc(h.labels.plain)}</b> (${esc(h.unit)}): ${esc(andList(parts))}.${s.claimed ? ` ${esc(toughenedSplit(s, h.unit))}` : ''}</li>`;
 }
 
 /**
  * What a spread's products sold as toughened give, and what the others give (D133): the reason a wide range is not the
- * material's. Both stay in the median.
+ * material's. Named, both stay in the median; set apart, the median is the others' and the toughened ones are listed.
  */
 function toughenedSplit(s, unit) {
   const k = s.claimed;
   const span = (x) => (x.min === x.max ? fmtNumber(x.min, unit) : `${fmtNumber(x.min)} to ${fmtNumber(x.max, unit)}`);
+  if (k.setApart) {
+    return `The median and middle half are of the other ${plural(s.n, 'product')}. ${k.n === 1 ? 'The product its maker sells as toughened or impact-modified gives' : `The ${k.n} products their makers sell as toughened or impact-modified give`} ${span(k)} and ${k.n === 1 ? 'is' : 'are'} set apart, as special formulations are.`;
+  }
   if (!k.others) {
     return s.n === 1 ? `That product is one its maker sells as toughened or impact-modified (${span(k)}).`
       : `All ${s.n} are products their makers sell as toughened or impact-modified (${span(k)}).`;
@@ -1230,7 +1234,8 @@ function spreadTable(m, c) {
       <td class="num">${s.n ? fmtNumber(s.median) : '—'}</td>
       <td class="num">${s.n > 1 ? `${fmtNumber(s.min)}–${fmtNumber(s.max)}` : s.n ? fmtNumber(s.min) : '—'}</td>
       <td class="num">${s.n} of ${s.products}</td>
-      <td>${[s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : ''].filter(Boolean).map(esc).join('; ') || '—'}</td></tr>`).join('')}
+      <td>${[s.asPublished ? `${s.asPublished.n} with no stated ${h.direction ? 'orientation' : 'test load'} (${span(s.asPublished)})` : '', s.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : '',
+        s.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : ''].filter(Boolean).map(esc).join('; ') || '—'}</td></tr>`).join('')}
   </tbody></table>`)}
   <p class="fine">Median and range of the products that report a value on a comparable basis. Different products, not one product's scatter.</p>
   ${rows.filter(([, s]) => s.claimed).map(([h, s]) => `<p class="fine imp-split"><b>${esc(h.labels.plain)}.</b> ${esc(toughenedSplit(s, h.unit))} "Sold as toughened" is the maker's statement, not a test result.</p>`).join('')}`;

@@ -1,5 +1,5 @@
 {
-  "dataRelease": "85a2d32d68f8",
+  "dataRelease": "2a137054057c",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -71,7 +71,7 @@
     "prices": 357,
     "sources": 2003,
     "coverage": 951,
-    "knowHow": 4871,
+    "knowHow": 4872,
     "polymerEnvironment": 353,
     "polymerEvidence": 314,
     "coverageDerived": 1137
@@ -93,8 +93,8 @@
     },
     "evidence": {
       "baseline": 5306,
-      "current": 5760,
-      "added": 454,
+      "current": 5761,
+      "added": 455,
       "edited_existing": 261,
       "removed": 0
     },
@@ -191,8 +191,8 @@
     },
     "product_claims": {
       "baseline": 0,
-      "current": 19,
-      "added": 19,
+      "current": 20,
+      "added": 20,
       "edited_existing": 0,
       "removed": 0
     },
