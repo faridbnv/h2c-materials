@@ -1,0 +1,305 @@
+SourceID,Page,GradeID,Topic,Finding,Claim,Note
+R-SUNLU-COVERAGE-20261001-816dc4c0cc18,1,G149-03,Good for,摆件、玩具、饰品、手办,,Main applications line
+R-SUNLU-COVERAGE-20261001-816dc4c0cc18,1,G149-03,Benefits,可在 70℃低温下打印，打印笔用，可重复塑型,,
+R-FIBERLOGY-FIBERLOGY-FIBERFLEX-40D-TDS,1,G167-06,none,,,"Technical data sheet: description line, technical information, property tables and chemical resistance table; no statement on use or printing"
+R-FIBERLOGY-TDS-FiberFlex-30D,1,G167-03,Printing advice,Heating is not required but recommended,,Parenthetical in the Bed Temperature row
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,Thermoplastic polyurethane with hardness 92 Shore A is a technical flexible filament that offers great mechanical properties such as high tear and tensile strength.,,
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,"Flexfill TPU 92A is a very flexible, elastic and easily bendable material, which maintains these properties even at low temperatures.",,
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,"Due to its lower hardness, it is softer and more flexible than other TPU filaments.",,
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Good for,"This material is great for printing products that require flexibility, strength and durability, such as protective corners, covers, gaskets, dampers, flexible joints and other parts.",,
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,EXCELLENT ABRASION RESISTANCE,,Feature list under WHY CHOOSE FLEXFILL TPU 92A?
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,GOOD REBOUND RESILIENCE,,Feature list
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,GREAT IMPACT RESISTANCE,,Feature list
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,HIGH ELASTICITY AND FLEXIBILITY,,Feature list
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Benefits,TEMPERATURE RESISTANCE -40 TO 80 °C,,Feature list
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,1,G039-30,Good for,IDEAL FOR PROTOTYPING FLEXIBLE COMPONENTS,,Feature list
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,2,G039-30,Pitfalls and limitations,FLEXFILL TPU 92A is not suitable for food contact.,,
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,2,G039-29,Printing advice,"For better chemical resistance, it is recommended to use more perimeters,",,"Sentence continues on a later line of the page text: bottom/top layers, higher temperature of printing to achieve good tightness. Chemical resistance section covers all Flexfill"
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,2,G039-29,Printing advice,"bottom/top layers, higher temperature of printing to achieve good tightness.",,"Second half of the sentence that begins ""For better chemical resistance, it is recommended to use more perimeters,"""
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,2,G039-29,Printing advice,Always try a little printed object first!,,"Chemical resistance section, applies to all Flexfill"
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,2,G039-30,Printing advice,"For better chemical resistance, it is recommended to use more perimeters,",,"Sentence continues on a later line of the page text: bottom/top layers, higher temperature of printing to achieve good tightness. Chemical resistance section covers all Flexfill"
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,2,G039-30,Printing advice,"bottom/top layers, higher temperature of printing to achieve good tightness.",,"Second half of the sentence that begins ""For better chemical resistance, it is recommended to use more perimeters,"""
+R-FILLAMENTUM-PRIORITY-20261003-8404042c1271,2,G039-30,Printing advice,Always try a little printed object first!,,"Chemical resistance section, applies to all Flexfill"
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Benefits,"Incredibly easy to print and producing consistently beautiful results, BigRep’s PRO HT is one of our best-selling filaments for good reason.",,
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Benefits,BigRep PRO HT is a well-rounded filament choice for many different applications.,,
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Good for,"Its balanced performance and reasonable price make PRO HT a great all-around material, perfect for prototypes and some end-use parts such as custom auto interiors.",,
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Benefits,"PRO HT is ductile and impact resistant, with a flexural strength of 60 MPa and a notched impact strength of 8 kJ/m².",,
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Pitfalls and limitations,PRO HT is recommended for lower temperature applications with its heat deflection temperature (HDT B) of 61°C.,,
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Pitfalls and limitations,PRO HT is not UV resistant and is recommended for undoor applications.,,"Typo ""undoor"" as printed"
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Good for,It is non-toxic and suitable for food contact applications.,,
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Benefits,BigRep materials are high quality and come with a Certificate of Analysis to ensure reliable performance.,,Statement about BigRep materials in general
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Good for,"With spool sizes up to 8 kg, BigRep filaments are optimized for large-scale 3D prints with complex geometries.",,Statement about BigRep filaments in general
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Moisture sensitivity,Drying recommendations 50 °C for 4 - 6 hours,,Other Information row
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Printing advice,"Yes, the BigRep PRO HT is compatible with all open material system 3D printers with a heated print bed and adequate temperature extrusion capabilities (190-230°C).",,FAQ answer
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Odour and emissions,"Yes, it is, as long as the room has good ventilation or an air filtration system for the safety and comfort of the people using the 3D printer.",,FAQ answer to: Is it safe to print PRO HT indoors?
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Moisture sensitivity,ABS is a slightly hygroscopic material which means it absorbs moisture from the air which affects the print quality. We recommend filament storage with a dryer such as the DRYCON which keeps the filament in perfect condition.,,FAQ answer on storage; names ABS as printed
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Supports and removal,"PLA is somewhat stronger and resistant to impact, while PRO HT is less brittle and many customers find support removal particularly easy.",,FAQ answer comparing with PLA
+R-BIGREP-READER-20261004-3dad37a3417f,1,G168-01,Moisture sensitivity,"PRO HT filament has a long shelf life if stored properly in a cool, dry place with minimal exposure to moisture or UV light.",,FAQ answer
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Benefits,The main difference caused by the very different polymer base is in chemical resistance.,,Description column
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Benefits,It has chemical resistance against wide range of substances.,,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Good for,This makes it perfect material for sealings of most of substances even at higher temperatures.,,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Benefits,This material has very low gas permeability.,,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Benefits,The toughness of objects printed with 100% infill is similar as in case of Flexfill TPU.,,Comparison with another product
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Surface finish,The surface of material is very pleasant to touch.,,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Adhesion between layers,"Thanks to its great layer adhesion, the objects have very smooth surface.",,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Surface finish,This finish is great to avoid any sticking of dirt.,,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Good for,This material can be used for production of electrical and electronic equipment.,,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Good for,The filament complies with the require- ments for food contact applications.,,Hyphenation across lines as printed
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Precision and tolerance,"For flexible materials, Fillamentum can guarantee maximum deviation of diameter +/- 0,10 mm.",,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Precision and tolerance,"During the production, filament is made with the best stability of diameter, roundness and colour.",,
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Printing advice,Workability of 3D printing filament is at least 12 months from delivery.,,Shelf life statement
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Printing advice,Use brim for better bed adhesion.,,Notes column of the Bed adhesive row
+R-FILLAMENTUM-Technical-Data-Sheet-Flexfill-TPE-96A,1,G167-11,Printing advice,Try your own settings before printing.,,Notes column of the print settings table
+R-NINJATEK-TDS-EEL-Revision1-26-06-V1,1,G157-02,Benefits,Eel's 355% elongation allows for repeated movement without wear or cracking.,,
+R-NINJATEK-TDS-EEL-Revision1-26-06-V1,1,G157-02,Precision and tolerance,"You'll produce reliable, high-quality prints due to the consistent diameter.",,
+R-NINJATEK-TDS-EEL-Revision1-26-06-V1,1,G157-02,Benefits,NinjaTek's Eel filament is chemical resistant to a variety of materials.,,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Benefits,"Polyether Imide (PEI) Ultem 1010 is an amorphous, amber to transparent thermoplastics with a glass transition temperature (Tg) of 217 °C and performs in continuous use up to 170 °C.",,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Benefits,This inherently flame retardant plastic has UL94 V0 and 5VA ratings.,,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Moisture sensitivity,The 3D 4 MAKERS PEI Filament has unique properties because it does not come into contact with water during the production process and is directly packaged in a vacuum packaging.,,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Good for,These properties make the 3D 4 MAKERS PEI Filament particularly suitable for usage in FDM and FFF 3D printers.,,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Adhesion between layers,"The material has an excellent adhesion between layers which results in great improvement of the impact resistance, strength, durability and the printing process.",,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Moisture sensitivity,"Drying recommendations 120°C, minimal 4 hours",,Printer settings table row
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Printing advice,To get the best results while printing we advise you to keep the 3D printer in a room where there is hardly any draft and/or temperature fluctuations.,,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Printing advice,Keep the 3D printer out of the sun.,,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Odour and emissions,This cannot be a room where people sleep.,,
+D-3D4MAKERS-PEI-FILAMENT-PAGE,1,G099-04,Moisture sensitivity,"When the 3D printer is not being used it is important to keep the 3D4MAKERS PEI Filament in a bag and stored in a cool, dry and dark place until it is used again.",,
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Benefits,Temperature & chemical resistant PCTG filament with high optical clarity,,
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Benefits,"In contrast to the generally popular PETG, PCTG has better properties: They stand out due to their higher toughness, impact resistance and clarity, which makes them an excellent alternative to PETG filaments.",,"Comparison with PETG, not a toughened claim"
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Benefits,"The PCTG from 3DJake is a first-class filament, which is also characterised by high chemical resistance, a wide printing temperature range and long durability.",,
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Benefits,"The PCTG is easy to process, its texture stronger, harder and clearer.",,
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Good for,"The filament contains no bisphenol derivatives (BPA-free) or phthalate-based plasticisers, making it even suitable for food contact.",,
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Good for,Domestic appliances,,"Bullet under ""Wide range of applications"""
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Good for,Houseware,,"Bullet under ""Wide range of applications"""
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Good for,Food and beverage packaging,,"Bullet under ""Wide range of applications"""
+D-3DJAKE-PCTG-BLACK-1-PAGE,1,G088-08,Good for,Cosmetic packaging,,"Bullet under ""Wide range of applications"""
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,The use of high-quality raw materials creates a 3D printer filament that is particularly easy to process.,,
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Precision and tolerance,"Using a state-of-the-art manufacturing process, very low manufacturing tolerances are achieved, which leads to convincing printing results with all FDM 3D printers.",,
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Precision and tolerance,small diameter and roundness tolerances,,Bullet
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,easy to print,,Bullet
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,"ASA is a styrene-based plastic that has similar properties to ABS (acrylonitrile butadiene styrene), but has much better weather and UV resistance.",,
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,"ASA is hard, scratch and impact resistant.",,
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Good for,"If you are planning projects that require a plastic that can withstand UV rays and weather, acrylonitrile-styrene-acrylic ester is your first choice.",,
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Surface finish,ASA retains its original color for years and does not yellow.,,
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,"Compared to the standard plastics, ASA is characterized above all by higher strength, toughness, rigidity and resistance to fats and oils.",,Comparison with standard plastics
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,"This plastic not only has high heat resistance, it is also particularly resistant to chemicals and can be used for temperatures of up to 92 ° C.",,
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,Excellent weather resistance,,Characteristics bullet
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,Excellent UV resistance,,Characteristics bullet
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,Scratch Resistant,,Characteristics bullet
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,Greater strength and toughness than ABS,,Characteristics bullet; comparison with another product
+D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,G031-26,Benefits,particularly resistant to chemicals,,Characteristics bullet
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Benefits,"EASY PLA is the most popular PLA filament for 3D printing—easy to use, ideal for beginners and professionals alike.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Precision and tolerance,It enables the creation of high-precision 3D prints without typical printing issues.,,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Benefits,"A biodegradable, safe, and predictable material that opens the door to more ambitious projects.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Good for,"Available in a wide range of vibrant colors—perfect for prototypes, decorations, and functional parts.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Benefits,EASY PLA is an exceptionally easy-to-use PLA filament for 3D printing that is extremely popular among both beginners and experienced users.,,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Benefits,"Thanks to its reliability and user-friendly properties, it allows you to achieve very high-quality prints—without complications or frustration.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Good for,"Regardless of your experience level, printing with Fiberlogy EASY PLA encourages you to tackle more ambitious and complex 3D projects.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Good for,It’s the perfect material to get started in the world of FDM printing —it helps you gain experience and provides a solid foundation before moving on to more advanced filaments.,,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Benefits,"An additional advantage of EASY PLA is its biodegradability —the filament is made from polylactide (lactic acid), which makes it more environmentally friendly.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Precision and tolerance,"3D prints made from this material are characterized by high precision and aesthetic appeal, making them look exceptionally good in any display or project.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Benefits,"If you’re looking for a filament that combines ease of printing , eco-friendliness , and outstanding visual results , EASY PLA is an excellent choice.",,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Warping and shrinkage,"NatureWorks’ PLA is characterized by high processing stability: it does not clog the nozzle, has a stable melting temperature, and minimal susceptibility to warping.",,About the NatureWorks Ingeo PLA the filament is made from
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Adhesion between layers,Very good adhesion between print layers,,
+D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,G001-182,Odour and emissions,No unpleasant odor,,
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,"Recreus PLA is the most versatile and widely used polymer in 3D printing, engineered for exceptional ease of use across all printer types.",,
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,"This biobased filament combines enhanced mechanical properties with improved impact resistance and reduced moisture absorption, making it perfect for both rapid prototyping and final parts.",toughened,Improved impact resistance claimed over plain PLA
+D-RECREUS-PLA-PAGE,1,G001-188,Odour and emissions,"Its odorless, non-toxic nature and minimal warping characteristics ensure reliable, high-quality prints every time.",,
+D-RECREUS-PLA-PAGE,1,G001-188,Warping and shrinkage,"minimal warping characteristics ensure reliable, high-quality prints every time",,Part of the sentence on odour and warping
+D-RECREUS-PLA-PAGE,1,G001-188,Surface finish,its industrial matte finish and outstanding detail quality,,"Part of: What sets this PLA apart is its industrial matte finish and outstanding detail quality, coupled with enhanced durability that makes it less brittle than conventional PLA."
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,enhanced durability that makes it less brittle than conventional PLA,toughened,Less brittle than conventional PLA
+D-RECREUS-PLA-PAGE,1,G001-188,Good for,"Designed for both industrial and personal use, this filament excels in quick prototyping, daily design needs, and short production runs of customized products.",,
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,"Whether you're a professional or hobbyist, Recreus PLA delivers consistent, high-quality results across all 3D printers.",,
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,Universal Printing: Compatible with all 3D printers Easy Print,,Key Features
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,Enhanced Properties: Improved impact resistance and durability,toughened,Key Features
+D-RECREUS-PLA-PAGE,1,G001-188,Surface finish,Superior Finish: Industrial matte surface with excellent detail,,Key Features
+D-RECREUS-PLA-PAGE,1,G001-188,Warping and shrinkage,Reliable Performance: Minimal warping and moisture resistance,,Key Features
+D-RECREUS-PLA-PAGE,1,G001-188,Good for,Rapid Prototyping: Quick visual models and concepts,,Professional Applications
+D-RECREUS-PLA-PAGE,1,G001-188,Good for,Consumer Products: Phone cases and everyday accessories,,Professional Applications
+D-RECREUS-PLA-PAGE,1,G001-188,Good for,Creative Design: Jewelry and decorative objects,,Professional Applications
+D-RECREUS-PLA-PAGE,1,G001-188,Good for,"Entertainment: Toys, figures, and game pieces",,Professional Applications
+D-RECREUS-PLA-PAGE,1,G001-188,Good for,Short Production: Small batch custom products,,Professional Applications
+D-RECREUS-PLA-PAGE,1,G001-188,Moisture sensitivity,"Store in a cool, dry place",,Storage and Handling
+D-RECREUS-PLA-PAGE,1,G001-188,Moisture sensitivity,"PLA is less hygroscopic than other materials, but proper storage helps maintain quality",,Storage and Handling
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,"PLA (Polylactic Acid) is a biodegradable polymer known for its ease of printing, good surface quality and dimensional accuracy.",,
+D-RECREUS-PLA-PAGE,1,G001-188,Good for,"Perfect for decorative parts, prototypes, and general printing needs where mechanical properties are not critical.",,
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,PLA allows for moderate printing speeds while maintaining good print quality. These speeds are optimized for reliability and quality.,,
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,PEI sheet works excellent,,Build Surface Recommendations
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Glass bed with proper cleaning,,Build Surface Recommendations
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Textured surfaces for better adhesion,,Build Surface Recommendations
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Clean surface with IPA before printing,,Build Surface Recommendations
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,PLA requires maximum cooling for best results,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Full fan speed helps with bridging and overhangs,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,First layer needs no cooling for good adhesion,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Small parts need maximum cooling,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,PLA prints well in room temperature,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Enclosure is not recommended for PLA,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Monitor first layer temperature and adhesion,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Adjust fan speed only for first layer,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Use maximum fan speed for all other layers,,Cooling Settings / Critical Considerations / Temperature Control Tips
+D-RECREUS-PLA-PAGE,1,G001-188,Adhesion between layers,1. Increase temperature by 5-10°C 2. Reduce cooling fan speed for first few layers 3. Clean build surface with IPA,,Troubleshooting row: Poor Layer Adhesion
+D-RECREUS-PLA-PAGE,1,G001-188,Warping and shrinkage,1. Increase bed temperature to 60°C 2. Add brim (5-10mm) 3. Ensure no drafts in printing area,,Troubleshooting row: Warping
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,1. Lower temperature by 5°C 2. Increase retraction speed to 45mm/s 3. Adjust retraction distance,,Troubleshooting row: Stringing
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,1. Increase temperature by 5-10°C 2. Clean nozzle or try cold pull 3. Check filament quality,,Troubleshooting row: Under-extrusion
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,1. Ensure 100% cooling 2. Reduce temperature by 5°C 3. Reduce print speed by 50%,,Troubleshooting row: Poor Overhangs
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Clean bed with IPA before each print,,"Best Practices, Basic Tips"
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Level bed when heated to printing temperature,,"Best Practices, Basic Tips"
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Use 0.2mm first layer height for better adhesion,,"Best Practices, Basic Tips"
+D-RECREUS-PLA-PAGE,1,G001-188,Moisture sensitivity,Store in a dry place with desiccant,,"Best Practices, Basic Tips"
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Always use cooling fan (except first layer),,"Best Practices, Print Settings"
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Print first layer at 50% speed,,"Best Practices, Print Settings"
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Use brim for tall or large prints,,"Best Practices, Print Settings"
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,Keep ambient temperature stable,,"Best Practices, Print Settings"
+D-RECREUS-PLA-PAGE,1,G001-188,Benefits,PLA is one of the easiest materials to print.,,
+D-RECREUS-PLA-PAGE,1,G001-188,Printing advice,"These settings are optimized for quality and reliability, but you may need to fine-tune based on your specific printer and environment.",,
+PR-prusament-petg-recycled,1,G020-59,Precision and tolerance,Prusament PETG Recycled is our own in-house made filament with ±0.05mm manufacturing tolerance.,,
+PR-prusament-petg-recycled,1,G020-59,Surface finish,"100 % of the material consists of recycled Prusament PETG materials, so every batch has a different color.",,
+PR-prusament-petg-recycled,1,G020-59,Benefits,Durable & Tough,,Tag under the product description
+PR-prusament-petg-recycled,1,G020-59,Benefits,Strength & Rigid,,Tag under the product description
+PR-prusament-petg-recycled,1,G020-59,Benefits,High temperature resistance,,Pros
+PR-prusament-petg-recycled,1,G020-59,Benefits,Easy to print,,Pros
+PR-prusament-petg-recycled,1,G020-59,Warping and shrinkage,Low shrinking and warping,,Pros
+PR-prusament-petg-recycled,1,G020-59,Benefits,Strength and Durability,,Pros
+PR-prusament-petg-recycled,1,G020-59,Benefits,Not brittle,,Pros
+PR-prusament-petg-recycled,1,G020-59,Benefits,Simple to sand,,Pros
+PR-prusament-petg-recycled,1,G020-59,Odour and emissions,Mostly odorless while printing,,Pros
+PR-prusament-petg-recycled,1,G020-59,Surface finish,Glossy and smooth surface finish,,Pros
+PR-prusament-petg-recycled,1,G020-59,Adhesion between layers,Strong layer to layer adhesion,,Pros
+PR-prusament-petg-recycled,1,G020-59,Moisture sensitivity,Low water absorption,,Pros
+PR-prusament-petg-recycled,1,G020-59,Benefits,Recyclable,,Pros
+PR-prusament-petg-recycled,1,G020-59,Pitfalls and limitations,Not suitable for tiny parts,,Cons
+PR-prusament-petg-recycled,1,G020-59,Pitfalls and limitations,Possibility of stringing,,Cons
+PR-prusament-petg-recycled,1,G020-59,Pitfalls and limitations,Poor bridging characteristics,,Cons
+PR-prusament-petg-recycled,1,G020-59,Pitfalls and limitations,Strong adhesion to the bed - be careful when you’re removing the print,,Cons
+PR-prusament-petg-recycled,1,G020-59,Pitfalls and limitations,Cannot be acetone smoothed like ABS,,Cons
+PR-prusament-petg-recycled,1,G020-59,Supports and removal,Supports are harder to remove,,Cons
+PR-prusament-petg-recycled,1,G020-59,Pitfalls and limitations,Prone to scratches (more than PLA),,Cons
+PR-prusament-petg-recycled,1,G020-59,Good for,"Thanks to strength and durability, PETG is a great choice for mechanical parts.",,
+PR-prusament-petg-recycled,1,G020-59,Good for,"Also, plastic parts on Original Prusa i3 MK3 are made of PETG material.",,
+PR-prusament-petg-recycled,1,G020-59,Good for,PETG is perfect for printing any holders or clamps in your workroom.,,
+PR-prusament-petg-recycled,1,G020-59,Good for,"Because of the very good layer adhesion, the PETG prints are suitable for waterproof applications.",,
+PR-prusament-petg-recycled,1,G020-59,Benefits,Printing difficulty Easy to medium,,Details table
+PR-prusament-petg-recycled,1,G020-59,Warping and shrinkage,Susceptibility to warping Low,,Details table
+PR-prusament-petg-recycled,1,G020-59,Odour and emissions,Odor No odor,,Details table
+PR-prusament-petg-recycled,1,G020-59,Nozzle wear,Abrasivity None,,Details table
+PR-prusament-petg-recycled,1,G020-59,Printing advice,Print speed Fast,,Details table
+PR-prusament-petg-recycled,1,G020-59,Precision and tolerance,Details 0.15 mm and more,,Details table
+PR-prusament-petg-recycled,1,G020-59,Benefits,PETG is a very tough material with good thermal resistance.,,
+PR-prusament-petg-recycled,1,G020-59,Good for,Its use is universal but especially suitable for mechanical parts and both indoor and outdoor use.,,
+PR-prusament-petg-recycled,1,G020-59,Warping and shrinkage,"PETG has almost no warping , so printing large objects isn’t a problem.",,
+PR-prusament-petg-recycled,1,G020-59,Benefits,"It’s almost as easy to print as PLA, but it can offer many mechanical properties that PLA prints just cannot achieve.",,
+PR-prusament-petg-recycled,1,G020-59,Benefits,"Glycol modifies the properties of PET, so that it’s easier to print, less brittle and clearer when printing with semi-transparent variants.",,
+PR-prusament-petg-recycled,1,G020-59,Warping and shrinkage,"PETG has a low thermal expansion, so even when printing big objects, and without an enclosure, it rarely lifts from the bed and warps.",,
+PR-prusament-petg-recycled,1,G020-59,Benefits,"In addition to that, PETG is ductile . It has a healthy amount of flex which can prevent parts from breaking under pressure.",,
+PR-prusament-petg-recycled,1,G020-59,Pitfalls and limitations,"Unlike PLA or ABS, PETG tends to ooze a bit and may leave strings of plastic on your print.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"You can fight this with increasing retraction and playing with hotend temperature, but if you use our filament presets in PrusaSlicer or PrusaControl , we already did that for you and the amount of stringing is minimal.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"If you witness a tiny bit of stringing anyway, you can get rid of it by quickly blasting your finished prints with a heat gun.",,
+PR-prusament-petg-recycled,1,G020-59,Benefits,"If you can handle the oozing and strong adhesion, you’ll be left with a very durable print, that is considerably temperature resistant and usable for both indoor and outdoor use.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"To achieve the best adhesion of the print surface, it is important to keep it clean.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"Using of isopropyl alcohol is not recommended, because the adhesion may be too strong.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"You can use the glue stick as a separator however, a better choice is a window cleaner.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,Pour a small amount of window cleaner on an unscented paper towel and wipe the print surface.,,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,The bed should be cleaned when it’s cold for the best results.,,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"If it is cleaned when already preheated for PETG, keep in mind that the cleaner will evaporate before it can clean anything.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"Alternatively, you can clean the bed with warm water and a few drops of dish soap on a paper towel.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"When post-processing PETG, it’s possible to use both dry and wet sanding.",,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"When printing with PETG, you must consider using a cooling fan.",,
+PR-prusament-petg-recycled,1,G020-59,Precision and tolerance,The rapid cooling helps to keep print detailed with no stringing and blobs.,,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"If you need the strongest possible print, print with no fan.",,
+PR-prusament-petg-recycled,1,G020-59,Adhesion between layers,The higher filament temperature will aid extra strong layer adhesion.,,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,We recommend printing the first few layers without the cooling fan to prevent warping and half fan power on after that.,,
+PR-prusament-petg-recycled,1,G020-59,Printing advice,"If you’re in need of a durable part, increase the number of perimeters rather than increasing the infill percentage as the majority of a 3D print strength comes from its outer shell.",,
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,"Prografen PET-G Graphene Light is a graphene-enhanced filament for 3D printing, designed for everyday engineering and industrial applications.",,
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Benefits,"It contains 0.5% edge-functionalized graphene flakes (EFG), which gives it better mechanical strength compared to standard PET-G, while maintaining ease of printing and low abrasion.",,"Comparison with standard PET-G on strength, not impact"
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Benefits,"The small amount of graphene enhances the filament’s strength, flexibility, and wear resistance, making it more durable than traditional PET-G filaments.",,
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Nozzle wear,"The filament can be easily printed using standard brass nozzles without the risk of excessive wear, unlike materials reinforced with carbon fibers.",,
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,"Prografen PET-G Graphene Light differs from the Strong version by its lower graphene content (0.5% compared to 5%), making it the ideal choice for less demanding applications.",,
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,Enriching PET-G with graphene makes this filament ideal for a wide range of applications.,,
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Surface finish,high transparency as compared to other materials for additive manufacturing,,Material characteristics
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Benefits,"very good mechanical properties as regards rigidity, hardness and impact resistance",,Material characteristics
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Benefits,chemical resistance,,Material characteristics
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Precision and tolerance,high dimensional accuracy,,Material characteristics
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Benefits,combines the advantages of PLA and ABS,,Material characteristics
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Adhesion between layers,exceptional adhesion between layers,,Material characteristics
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Odour and emissions,odour-free printing,,Material characteristics
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,visual and functional prototyping,,Applications
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,fit testing,,Applications
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,concept models,,Applications
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,manufacturing aids,,Applications
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Good for,manufacturing of semi-transparent enclosures and backlit sections of various boards and signs,,Applications
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Printing advice,Enclosure not necessary,,How to use table
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Moisture sensitivity,Drybox recommended No,,How to use table
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Nozzle wear,Ruby or hardened nozzle recommended No,,How to use table
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Printing advice,"Adhesive not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",,How to use table
+R-COVERAGE-20261001-0b9610f07886,1,G153-02,Warping and shrinkage,"Its significant advantage of PETG is practically no shrinkage, odorlessness & chemical resistance.",,"Structured product data text about PET-G in general; typo ""Secon"" precedes it in the source"
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Surface finish,Silk Gloss PLA (polylactic acid) is modified with another polymer to have a very smooth and silky surface finish with a high level of light dispersion and reflection.,,
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Surface finish,Silk Gloss PLA exhibits excellent 3D printing properties and allows objects to be 3D printed with a high level of glossiness and almost no visible layers.,,
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Surface finish,Good surface quality,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Surface finish,Shiny silk gloss surface finish without visible layers and fine detail,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Surface finish,High level of light dispersion and reflection,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Printing advice,Lowering printing speed and temperature increases the silk gloss effect,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Benefits,Easy to 3D print,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Warping and shrinkage,Warp-free printing and improved flowing behaviour,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Printing advice,Excellent first layer adhesion to several (un)heated print surfaces,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Supports and removal,Compatible with AquaSolve PVA for complex dual extrusion 3D printing,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Surface finish,Wide variety of vivid and brilliant silk gloss colours,,Unique features
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Good for,"Aesthetics, design, and art",,Applications
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Good for,Complex educational projects and models,,Applications
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Good for,Household articles,,Applications
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Good for,Visualization aids,,Applications
+R-FORMFUTURA-READER-20261004-2e91907c9666,1,G008-28,Printing advice,Above displayed settings are meant as guidance to find your optimal print settings.,,Footnote of General printing guidelines
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Benefits,"STYX-12 is an industrial PA12 grade nylon filament which combines excellent mechanical, chemical and hygroscopic properties with printability.",,
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Moisture sensitivity,STYX-12 has a very low water absorption compared to other nylons and can be printed at relatively low temperatures.,,
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Benefits,This combination of properties has resulted in high-performance and industrial-grade nylon which can be printed on a wide-range of FFF/FDM 3D printers.,,
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Benefits,Superb mechanical properties,,Unique features
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Benefits,"Strong, flexible, high impact resistance, high crack resistance, high scratch resistance",,Unique features
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Benefits,Excellent chemical resistance,,Unique features
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Benefits,Excellent weather and UV resistance,,Unique features
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Warping and shrinkage,Outstanding dimensional stability,,Unique features
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Printing advice,Good first layer adhesion to EasyPad + DimaFix prepared print bed,,Unique features
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Surface finish,Very clear in its natural form (without added colorants),,Unique features
+R-FORMFUTURA-READER-20261004-e6942c45951e,1,G052-05,Printing advice,Above displayed settings are meant as guidance to find your optimal print settings.,,Footnote of General printing guidelines
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Benefits,三绿PCL的低熔点使材料打印过程更加安全，适合教学与快速成型。,,
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Good for,适合教学与快速成型,,Part of the previous sentence
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Benefits,材料可重复塑形，灵活性高。,,
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Benefits,材料具有超低熔点，能够在较低的打印温度下顺利打印，确保整个打印过程更加安全，降低高温带来的潜在风险，适合各种打印环境。,,
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Printing advice,该材料无需热床即可成功打印，减少了对设备的依赖。,,
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Warping and shrinkage,打印过程中几乎不发生翘边现象，大大提高了打印稳定性和成功率，使打印过程更加轻松和高效。,,
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Benefits,具有出色的韧性，打印成型后可以反复塑形，适合进行二次加工和调整，保证了材料的长久耐用性。,,
+R-SUNLU-COVERAGE-20261001-5b7089593d2d,1,G149-03,Benefits,无论是重复使用还是高强度应用，均能保持优异的表现。,,
+XP-pei-cf15,1,G118-02,Benefits,"High thermal properties, Tg of 186C and an HDT of 165C",,Benefits list
+XP-pei-cf15,1,G118-02,Benefits,Inherent flame resistance due to Ultem 9085 base resin,,Benefits list
+XP-pei-cf15,1,G118-02,Good for,Improved stiffness and strength for structural applications,,Benefits list
+XP-pei-cf15,1,G118-02,Warping and shrinkage,"Excellent dimensional stability – lower CTE, warp, and shrinkage vs unfilled grades",,Benefits list
+XP-pei-cf15,1,G118-02,Benefits,"Resistance to a broad range of chemicals, include automotive fluids, fully halogenated hydrocarbons, alcohols, and aqueous solutions",,Benefits list
+XP-pei-cf15,1,G118-02,Nozzle wear,Strongly recommend this material to be printed through a hardened steel nozzle rather than a softer metal.,,Tip from Our Engineers
+XP-pei-cf15,1,G118-02,Good for,This custom formulation is an excellent printing aerospace-grade material specifically formulated for our aerospace clients.,,
+XP-pei-cf15,1,G118-02,Good for,Ultem™ 9085 is FAA-approved for FST applications (Flame/Smoke/Toxicity) and meets FAR 25.853 and OSU 65/65 standards.,,About the Ultem 9085 base resin
+XP-pei-cf15,1,G118-02,Benefits,The addition of 15% high-modulus carbon fiber allows for superior strength and stiffness while maintaining excellent dimensional stability and printability.,,
+XP-pei-cf15,1,G118-02,Printing advice,Heated Chamber Recommended,,Print Recommendations table
+XP-pei-cf15,1,G118-02,Nozzle wear,Nozzle Specs Hardened Steel with .4mm diameter minimum,,Print Recommendations table
+XP-pei-cf15,1,G118-02,Printing advice,Layer Height 0.25mm or higher,,Print Recommendations table
+XP-pei-cf15,1,G118-02,Moisture sensitivity,Drying Specs 140°C for 6-8 hours,,Print Recommendations table
+R-QIDI-FILAMENT-GUIDE,1,G018-13,Moisture sensitivity,Required,,"Cell under ""Dry Out Before Use / Is drying highly recommended?"" in the comparison table column PLA-CF"
+R-QIDI-FILAMENT-GUIDE,1,G018-13,Moisture sensitivity,Blast Drying Oven: 50°C / 4-6 h,,"Cell under ""Drying Condition / Oven temperature & time"" in the comparison table column PLA-CF"
+R-QIDI-FILAMENT-GUIDE,1,G018-13,Nozzle wear,0.4–0.8 mm / Hardened steel nozzle or harder,,"Cell under ""Nozzle Size/Material / Recommended hardware settings"" in the comparison table column PLA-CF"
+R-QIDI-FILAMENT-GUIDE,1,G018-13,Printing advice,70-80°C / 4-6 h (optional; support parts to limit warping),,"Cell under ""Post-printing Processes / Annealing / Post-cure processing"" in the comparison table column PLA-CF"
+R-QIDI-FILAMENT-GUIDE,1,G020-44,Moisture sensitivity,Optional,,"Cell under ""Dry Out Before Use / Is drying highly recommended?"" in the comparison table column PETG Rapido"
+R-QIDI-FILAMENT-GUIDE,1,G020-44,Moisture sensitivity,Blast Drying Oven: 60-65°C / 4-6 h,,"Cell under ""Drying Condition / Oven temperature & time"" in the comparison table column PETG Rapido"
+R-QIDI-FILAMENT-GUIDE,1,G020-44,Nozzle wear,0.2-0.8 mm / All Material,,"Cell under ""Nozzle Size/Material / Recommended hardware settings"" in the comparison table column PETG Rapido"
+R-QIDI-FILAMENT-GUIDE,1,G020-44,Printing advice,Not generally recommended,,"Cell under ""Post-printing Processes / Annealing / Post-cure processing"" in the comparison table column PETG Rapido"
+R-QIDI-FILAMENT-GUIDE,1,G024-16,Moisture sensitivity,Required,,"Cell under ""Dry Out Before Use / Is drying highly recommended?"" in the comparison table column PETG-CF"
+R-QIDI-FILAMENT-GUIDE,1,G024-16,Moisture sensitivity,Blast Drying Oven: 70°C / 4-6 h,,"Cell under ""Drying Condition / Oven temperature & time"" in the comparison table column PETG-CF"
+R-QIDI-FILAMENT-GUIDE,1,G024-16,Nozzle wear,0.4–0.8 mm / Hardened steel nozzle or harder,,"Cell under ""Nozzle Size/Material / Recommended hardware settings"" in the comparison table column PETG-CF"
+R-QIDI-FILAMENT-GUIDE,1,G024-16,Printing advice,80-90°C / 2-4 h (optional; support parts),,"Cell under ""Post-printing Processes / Annealing / Post-cure processing"" in the comparison table column PETG-CF"
+R-QIDI-FILAMENT-GUIDE,1,G025-04,Moisture sensitivity,Required,,"Cell under ""Dry Out Before Use / Is drying highly recommended?"" in the comparison table column PETG-GF"
+R-QIDI-FILAMENT-GUIDE,1,G025-04,Moisture sensitivity,Blast Drying Oven: 70°C / 4-6 h,,"Cell under ""Drying Condition / Oven temperature & time"" in the comparison table column PETG-GF"
+R-QIDI-FILAMENT-GUIDE,1,G025-04,Nozzle wear,0.4–0.8 mm / Hardened steel nozzle or harder,,"Cell under ""Nozzle Size/Material / Recommended hardware settings"" in the comparison table column PETG-GF"
+R-QIDI-FILAMENT-GUIDE,1,G025-04,Printing advice,80-90°C / 2-4 h (optional; support parts),,"Cell under ""Post-printing Processes / Annealing / Post-cure processing"" in the comparison table column PETG-GF"
+R-QIDI-FILAMENT-GUIDE,1,G039-50,Moisture sensitivity,Required,,"Cell under ""Dry Out Before Use / Is drying highly recommended?"" in the comparison table column TPU95A-HF"
+R-QIDI-FILAMENT-GUIDE,1,G039-50,Moisture sensitivity,Blast Drying Oven: 70-80°C / 4-6 h,,"Cell under ""Drying Condition / Oven temperature & time"" in the comparison table column TPU95A-HF"
+R-QIDI-FILAMENT-GUIDE,1,G039-50,Nozzle wear,0.2-0.8 mm / All Material,,"Cell under ""Nozzle Size/Material / Recommended hardware settings"" in the comparison table column TPU95A-HF"
+R-QIDI-FILAMENT-GUIDE,1,G039-50,Printing advice,Not recommended,,"Cell under ""Post-printing Processes / Annealing / Post-cure processing"" in the comparison table column TPU95A-HF"
+R-QIDI-FILAMENT-GUIDE,1,G045-07,Moisture sensitivity,Required,,"Cell under ""Dry Out Before Use / Is drying highly recommended?"" in the comparison table column PEBA 95A"
+R-QIDI-FILAMENT-GUIDE,1,G045-07,Moisture sensitivity,Blast Drying Oven: 60°C / 4-6 h,,"Cell under ""Drying Condition / Oven temperature & time"" in the comparison table column PEBA 95A"
+R-QIDI-FILAMENT-GUIDE,1,G045-07,Nozzle wear,0.2-0.8 mm / All Material,,"Cell under ""Nozzle Size/Material / Recommended hardware settings"" in the comparison table column PEBA 95A"
+R-QIDI-FILAMENT-GUIDE,1,G045-07,Printing advice,Not recommended,,"Cell under ""Post-printing Processes / Annealing / Post-cure processing"" in the comparison table column PEBA 95A"

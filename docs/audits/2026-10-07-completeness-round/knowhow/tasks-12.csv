@@ -1,0 +1,20 @@
+SourceID,SHA256,Class,Title,Pages,Why,Grades,Products
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,8992b2383e8d5a7351ba6f7971ec08242da9433281bd66b6ccd4b96dd768dbd8,Manufacturer TDS,Ultrafuse 316L,3,nd,G171-02,G171-02 = BASF Forward AM Ultrafuse 316L
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,afe0917e3ad785a09e7092bf00a9277d46d4c684e8b339fef43fca72acd02b08,Manufacturer TDS,Kerfil Aluminiumoxid (Al O ),3,nd,G173-01,G173-01 = Fabru Kerfil Aluminiumoxid (Al2O3)
+R-MARKFORGED-CompositesMaterialDatasheet,58a9c5673b437051db279513a2720ef02cda9f76cd50d9e6976db79efd32ac71,Manufacturer TDS,Composites Material Datasheet,2,nd,G164-10 G165-02 G165-03,G164-10 = Markforged Nylon White | G165-02 = Markforged Onyx | G165-03 = Markforged Onyx FR
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,c645e2c9ce0e6bf4f8298da7f2a17c2ebe154c5758aed49aa6e5c4d84e298142,Manufacturer TDS,Technical Data Sheet,2,ext,G167-10,G167-10 = eSUN TPE 83A
+R-ESSENTIUM-Essentium-PA-TDS,83953599227035063ae445aa52a5e983d41f0a01494b3d582cce7752d91d5bb8,Manufacturer TDS,Essentium PA Technical Data Sheet,1,nd,G164-11,G164-11 = Essentium Essentium PA
+R-FORMFUTURA-READER-20261004-47a4e58d606f,47a4e58d606fb5783762070ced17287cf8679a44a1608623c988a5d1777c9446,Manufacturer product page or guide,Crystal Flex,1,nd,G174-01,G174-01 = FormFutura Crystal Flex
+S-PET-TDS-Crystal-Flex,95dd0c3faeba82855270f90fac744605ecda8dd1c25fa51def2293293f756659,Manufacturer TDS,Technical Data Sheet Crystal Flex™,1,nd,G174-01,G174-01 = FormFutura Crystal Flex
+D-3D4MAKERS-PETG-CARBON-PAGE,b8439a1f2a44258d6a76fa937b0095439bb7f2e6cc9dd9c3c0d7277c8105c724,Manufacturer product page or guide,PETG Carbon Filament,1,ext,G024-10,G024-10 = 3D4Makers PETGCarbon
+D-COLORFABB-CUSTOM-COLORED-PLA-FILAMENT-PAGE,5393773f91436848b71af604e1e0c7eb5f290682b63da05a25e3f7b011453200,Manufacturer product page or guide,"PLA 3D print filament, your Color is our Demand",1,ext,G001-60,G001-60 = colorFabb PLA Color On Demand (COD)
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,9d455497a59838aee670f5ffb955fcf887fdb952037b063a9b2deffaa2e71807,Manufacturer product page or guide,purefil PLA Silk blue 10m 1.75mm,1,ext,G008-10,G008-10 = Fabru / purefil Polylactide Silk (PLA Silk)
+D-FORMFUTURA-REFORM-RPET-PAGE,3fa09e5e1b42c658b582e1acaeb0e984426093b8b39745c072e1b896eb431217,Manufacturer product page or guide,ReForm - rPET,1,ext,G020-62,G020-62 = FormFutura ReForm - rPET
+D-SPECTRUM-PLA-NATURE-PAGE,a39a6bf9b25ae4890a3a7f257b9018b7c608789892ab4703ce2acf07f90b19c6,Manufacturer product page or guide,PLA Nature,1,ext,G001-141,G001-141 = Spectrum PLA Nature
+PR-prusament-pla-recycled,b659b988bd0860915d4b7a8a229b7a6e8e02ca2b0e28736d336ca6a840cd08a4,Manufacturer product page or guide,Prusament PLA Recycled,1,ext,G001-90,G001-90 = Prusa Research Prusament PLA Recycled by Prusa Polymers
+R-COVERAGE-20261001-bc88189b518f,bc88189b518f547a000bc4c0f61b26059ff9cffa9c9c467d4a50c6c0635aea61,Manufacturer product page or guide,Prografen PET-G Graphene Strong official product page,1,ext,G153-01,G153-01 = 3DJake PROGRAFEN PET-G GRAPHENE STRONG
+R-FORMFUTURA-READER-20261004-554e6bbd8217,554e6bbd821755b80dcc33f9de2d72bf591181a3495d48847de2c28fdcab2a5e,Manufacturer product page or guide,Centaur PP,1,ext,G082-11,G082-11 = FormFutura Centaur PP
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,fcf79ef4a352f015f4f1793937ce8c6dce251013aeb84fe0c4b2d7e286d9c4dd,Manufacturer product page or guide,MetalFil - Brass,1,ext,G011-07,G011-07 = FormFutura MetalFil Brass
+R-RAISE3D-GAP2-20261005-5cc937c01792,5cc937c01792edc9ad7df53ee81088c2b19d8ee7210f7055817f523bb4fc7493,Manufacturer product page or guide,Hyper Core ABS CF15,1,ext,G029-09,G029-09 = Raise3D Hyper Core ABS CF15
+XP-3dxmax-r-pc,90d9b29096ddb5e0ca4c8f4816065d4bb3f98ea5c54d8edaa284ad210d6752a7,Manufacturer product page or guide,3DXMAX® PC,1,ext,G035-05,G035-05 = 3DXTECH 3DXMAX Polycarbonate
+XP-thermax-pes-1,e90f22afbdf1257ed753524f36ad44531600d89c1fbcf3de80e0ffe96aea0911,Manufacturer product page or guide,THERMAX™ PES,1,ext,G101-01,G101-01 = 3DXTECH THERMAX PES

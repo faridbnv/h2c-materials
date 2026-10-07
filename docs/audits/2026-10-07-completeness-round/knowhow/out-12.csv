@@ -1,0 +1,325 @@
+SourceID,Page,GradeID,Topic,Finding,Claim,Note
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,1,G171-02,Good for,Ultrafuse® 316L is a Metal-polymer composite filament to produce metal components in a stainless steel type 316L using standard FFF printer systems and subsequently an industry standard debinding and sintering process.,,
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,1,G171-02,Benefits,The filament has a non-slip surface allowing its application in any Bowden or direct drive extruder.,,
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,1,G171-02,Benefits,Its high flexibility allows it to be funnelled through complex idler pulleys as well as many guide roller filament transportation systems in any printer.,,
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,1,G171-02,Moisture sensitivity,Ultrafuse® 316L filament should be stored at 15 - 25°C in its originally sealed package in a clean and dry environment.,,
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,1,G171-02,Moisture sensitivity,If the recommended storage conditions are observed the products will have a minimum shelf life of 12 months.,,
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,1,G171-02,Odour and emissions,"Recommended: Process materials in a well ventilated room, or use professional extraction systems.",,
+R-BASF-Ultrafuse-316L-TDS-EN-v1-1,2,G171-02,Moisture sensitivity,"316L is in a printable condition, drying is not necessary",,Cell of the Drying Recommendations row; label and cell text interleave in the text layer.
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,Kerfil Filamente sind flexibel und lassen sich mit allen üblichen FDM 3D- Druckern verarbeiten.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Printing advice,Um ein reines Keramikteil zu erhalten müssen die gedruckten Teile (Grünteile) noch entbindert und gesintert werden.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,Am Ende entsteht ein vollwertiges Keramikbauteil mit einer Dichte von bis zu 99%.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,Extrem hohe Härte,,"Bullet under ""vorteilhaft""."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,Hitzebeständigkeit weit über 1000°C,,"Bullet under ""vorteilhaft""."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,Vollwertige Keramikteile,,"Bullet under ""vorteilhaft""."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,sehr geringer Verschleiss,,"Bullet under ""vorteilhaft""."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,geringer Ausdehnungskoeffizient,,"Bullet under ""vorteilhaft""."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,Korrosionsbeständig,,"Bullet under ""vorteilhaft""."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,1,G173-01,Benefits,sehr gute Bioverträglichkeit,,"Bullet under ""vorteilhaft""."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,"Für die erfolgreiche Verarbeitung des Kerfil Filamentes wird ein FDM 3D-Drucker benötigt, welcher einen Filamentdurchmesser von 1.75mm verarbeiten kann.",,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,Das Kerfil Filament kann sowohl mit Bowden als auch mit Direct Drive Extruder verarbeitet werden.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,Wir empfehlen jedoch die Verwendung eines Direct Drive Extruders.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,Der Anpressdruck des Filamentes ans Antriebsrad sollte nicht zu gross sein.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,"Falls sich der Anpressdruck einstellen lässt, reduzieren Sie den Anpressdruck.",,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,"Falls der Anpressdruck des Filamentes ans Antriebsrad mittels Feder geschieht, empfehlen wir die Feder durch eine weichere Druckfeder zu ersetzen.",,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Nozzle wear,"Längere Lebensdauer: Chromstahl, gehärteter Stahl",,Cell of the Parameter table row Düsenmaterial.
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,es wird empfohlen das gedruckte Bauteil direkt mit der Glasplatte in Aceton einzulegen,,Clause in the Plattenmaterial row of the Parameter table.
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,je höher desto besser die Qualität,,Clause in the Lüftergeschwindigkeit row.
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Supports and removal,Stützstrukturen können mit dem gleichen Material gedruckt werden und vor dem Sintern entfernt werden.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Supports and removal,Alternativ lassen sich Stützstrukturen auch aus anderem Material mittels Dual-Druckkopf drucken.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Warping and shrinkage,Die Schwindung ist von der Füllstruktur sowie weiteren Einflussfaktoren wie z.B. Druckparametern und Bauteilgeometrie abhängig.,,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,Schnelle Lösungsmittelentbinderung: Halten Sie das bedruckte Teil 4 Stunden lang in einem Acetonbad bei 45 °C,,"Debinding step, a variant of two."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,Langsame Lösungsmittelentbinderung: Bewahren Sie das gedruckte Teil eine Woche lang in Aceton bei Raumtemperatur auf.,,"Debinding step, a variant of two."
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Warping and shrinkage,"Die Wahrscheinlichkeit Verzug und Rissen ist geringer, wenn langsames Lösungsmittelentbindern verwendet wird.",,
+R-FABRU-1933-Materialdatenblatt-Kerfil-Aluminiumoxid-V1,2,G173-01,Printing advice,Nehmen Sie das Teil nach der Lösemittelentbinderung aus dem Acetonbad und lassen Sie es mindestens 4 Stunden bei Raumtemperatur trocknen,,
+R-MARKFORGED-CompositesMaterialDatasheet,2,G164-10,Benefits,Markforged Composite Base materials print like conventional FFF thermoplastics.,,"Range statement for the Composite Base materials (Onyx, Onyx FR, Nylon)."
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-02,Benefits,Markforged Composite Base materials print like conventional FFF thermoplastics.,,"Range statement for the Composite Base materials (Onyx, Onyx FR, Nylon)."
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-03,Benefits,Markforged Composite Base materials print like conventional FFF thermoplastics.,,"Range statement for the Composite Base materials (Onyx, Onyx FR, Nylon)."
+R-MARKFORGED-CompositesMaterialDatasheet,2,G164-10,Benefits,"They can be printed by themselves, or reinforced with any of our continuous fibers, including Carbon Fiber, Kevlar, and Fiberglass.",,Two-column page: sentence reassembled from the left-column lines 8 and 10 (line 9 belongs to the other column).
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-02,Benefits,"They can be printed by themselves, or reinforced with any of our continuous fibers, including Carbon Fiber, Kevlar, and Fiberglass.",,Two-column page: sentence reassembled from the left-column lines 8 and 10 (line 9 belongs to the other column).
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-03,Benefits,"They can be printed by themselves, or reinforced with any of our continuous fibers, including Carbon Fiber, Kevlar, and Fiberglass.",,Two-column page: sentence reassembled from the left-column lines 8 and 10 (line 9 belongs to the other column).
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-02,Benefits,It’s 1.4 times stronger and stiffer than ABS and can be reinforced with any continuous fiber.,,Two-column page: sentence reassembled from the left-column text of lines 44 and 45.
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-02,Surface finish,"Onyx sets the bar for surface finish, chemical resistivity, and heat tolerance.",,Two-column page: sentence reassembled from the left-column text of lines 45 and 46.
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-02,Benefits,"Onyx sets the bar for surface finish, chemical resistivity, and heat tolerance.",,Two-column page: sentence reassembled from the left-column text of lines 45 and 46.
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-03,Benefits,Onyx FR is a Blue Card certified UL94 V-0 material that possesses similar mechanical properties to Onyx.,,Two-column page: sentence reassembled from the left-column text of lines 49 and 50.
+R-MARKFORGED-CompositesMaterialDatasheet,2,G165-03,Good for,"It’s best for applications in which flame retardancy, light weight, and strength are required.",,Two-column page: sentence reassembled from the left-column text of lines 50 and 51.
+R-MARKFORGED-CompositesMaterialDatasheet,2,G164-10,Surface finish,"Nylon White parts are smooth, non-abrasive, and easily painted.",,
+R-MARKFORGED-CompositesMaterialDatasheet,2,G164-10,Nozzle wear,"Nylon White parts are smooth, non-abrasive, and easily painted.",,
+R-MARKFORGED-CompositesMaterialDatasheet,2,G164-10,Good for,"They can be reinforced with any continuous fiber and work best for non-marring work holding, repeated handling, and cosmetic parts.",,Two-column page: sentence reassembled from the left-column text of lines 61 to 63.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Benefits,"Flexible TPE printing consumables with hardness of 83A are sturdy and durable; Printed models are softer than TPU-95A and eFlex, with delicate and soft hand feeling,also low surface friction.",,
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Surface finish,"Flexible TPE printing consumables with hardness of 83A are sturdy and durable; Printed models are softer than TPU-95A and eFlex, with delicate and soft hand feeling,also low surface friction.",,
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Surface finish,Matte surface effect,,Characteristics list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Benefits,Sturdy and durable,,Characteristics list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Benefits,High impact resistance,,"Characteristics list; no comparison with another grade, so no toughened claim."
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Surface finish,Skin-friendly feel,,Characteristics list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Benefits,High elasticity,,Characteristics list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Benefits,Flexible and soft,,Characteristics list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Benefits,High tenacity,,Characteristics list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Good for,Shoes materials,,Applications list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Good for,Automobile,,Applications list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Good for,Running piping,,Applications list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Good for,Machinery,,Applications list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Good for,Electric products,,Applications list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,1,G167-10,Good for,Sporting goods,,Applications list.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,2,G167-10,Moisture sensitivity,"it is recommended to dry the filaments (55℃/> 4h) before printing to achieve the best printing effect, and it would be better to use together with eBOX when printing.",,Note 1.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,2,G167-10,Printing advice,"It is recommended to use a short-range double-wheel deceleration extruder designed for flexibility, and eLastic materials cannot be printed by a remote extruder.",,Note 2.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,2,G167-10,Printing advice,"After a long printing time, impurities may remain in the nozzle, so it is recommended to use it with cleaning filament.",,Note 3.
+S-PEBA-eSUN-TPE-83A-Filament-TDS-V4-0,2,G167-10,Printing advice,"If necessary, pleasw replace the nozzle and throat with new ones.",,"Note 3; typo ""pleasw"" is the sheet's."
+R-ESSENTIUM-Essentium-PA-TDS,1,G164-11,Benefits,Essentium PA provides exceptional strength and durabilitiy while retaining a surprising amount of stiffness.,,
+R-ESSENTIUM-Essentium-PA-TDS,1,G164-11,Moisture sensitivity,It is important to note that the mechanical properties of PA may cahnge with water uptake as it is moisture sensitive.,,
+R-ESSENTIUM-Essentium-PA-TDS,1,G164-11,Printing advice,The best prints with Essentium PA typically occur utilizing a glass bed and bed adhesion solution.,,
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Benefits,"Crystal Flex is a SBC type of 3D printer filament that yields formability, toughness, and clarity into is a high-performance semi-flexible 3D printer filament.",,Toughness named as a property the filament yields; no comparison.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Benefits,"Crystal Flex is a very clear filament, resilient and semi-flexible filament.",,
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Surface finish,"Crystal Flex is a very clear filament, resilient and semi-flexible filament.",,
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Benefits,Crystal Flex meets the specifications of the United States FDA Food Packaging Regulation 21 CFR 177.1640 and complies with UL 94 HB flammability standards.,,
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Surface finish,Excellent clarity,,Key features list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Surface finish,Very clear filament with 92% light transmittance and high surface gloss,,Key features list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Benefits,"Semi-flexible, bendable and resilient",,Key features list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Benefits,Shore hardness of 63D and bendable up to 230% without causing white stress marks,,Key features list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Benefits,Food contact acceptable,,Key features list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Benefits,UL 94 HB flammability rating,,Key features list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Supports and removal,Compatible with Helios Support for complex multi-extrusion 3D printing,,Key features list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Good for,Fit testing,,Applications list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Good for,Lighting,,Applications list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Good for,"Bottles, boxes, containers and (blister) packaging",,Applications list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Good for,End-use parts,,Applications list.
+R-FORMFUTURA-READER-20261004-47a4e58d606f,1,G174-01,Good for,Medical and lab equipment,,Applications list.
+S-PET-TDS-Crystal-Flex,1,G174-01,Benefits,Crystal Flex™ is an “easy to use” high-end SBC (Styrene Butadiene Block Copolymer) type of 3D printer filament.,,
+S-PET-TDS-Crystal-Flex,1,G174-01,Benefits,"Crystal Flex™ is a strong, flexible and crystal clear filament, as it will let 92% of visible light pass through its fibre.",,
+S-PET-TDS-Crystal-Flex,1,G174-01,Surface finish,"Crystal Flex™ is a strong, flexible and crystal clear filament, as it will let 92% of visible light pass through its fibre.",,
+S-PET-TDS-Crystal-Flex,1,G174-01,Benefits,"Because of its resilience and shore hardness of D63, Crystal Flex™ can be bend up to 230% without causing white stress marks after bending.",,
+S-PET-TDS-Crystal-Flex,1,G174-01,Adhesion between layers,"An outstanding interlayer bonding completed with very limited water absorption and by that virtually no warping, make Crystal Flex™ a unique and wonderful material to print with.",,
+S-PET-TDS-Crystal-Flex,1,G174-01,Moisture sensitivity,"An outstanding interlayer bonding completed with very limited water absorption and by that virtually no warping, make Crystal Flex™ a unique and wonderful material to print with.",,
+S-PET-TDS-Crystal-Flex,1,G174-01,Warping and shrinkage,"An outstanding interlayer bonding completed with very limited water absorption and by that virtually no warping, make Crystal Flex™ a unique and wonderful material to print with.",,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Benefits,"Due to the carbon fibers compounded in the PETG you can create 3D printed parts with exceptional stiffness, great dimensional stability and excellent suface quality.",,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Warping and shrinkage,"Due to the carbon fibers compounded in the PETG you can create 3D printed parts with exceptional stiffness, great dimensional stability and excellent suface quality.",,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Surface finish,"Due to the carbon fibers compounded in the PETG you can create 3D printed parts with exceptional stiffness, great dimensional stability and excellent suface quality.",,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Good for,"This filament is highly suitable for printing a wide range of industrial applications like frames, drones, tools, parts for the automotive and more.",,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Nozzle wear,Abrasive please be aware of the wear of carbon filled filaments.,,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Nozzle wear,We advise to use a hardened steel nozzle.,,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Benefits,Increased Impact Resistance compared to regular PETG,toughened,Increased impact resistance claimed against regular PETG.
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Benefits,Easy to Print.,,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Warping and shrinkage,Great Dimensional Stability.,,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Benefits,Extremely Stiff.,,
+D-3D4MAKERS-PETG-CARBON-PAGE,1,G024-10,Warping and shrinkage,No Warping.,,
+D-COLORFABB-CUSTOM-COLORED-PLA-FILAMENT-PAGE,1,G001-60,none,,,"Color On Demand service page: colour ordering options, minimum quantities, delivery and a screen-colour disclaimer; no statement about using or printing the material."
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Good for,The purefil filament samples are particularly suitable for small printed objects or for use in 3D printing pens.,,Speaks of the purefil sample packs.
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Benefits,The use of high-quality raw materials creates a 3D printer filament that is particularly easy to process.,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Precision and tolerance,"Using a state-of-the-art manufacturing process, very low manufacturing tolerances are achieved, which leads to convincing print results with all FDM 3D printers.",,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Precision and tolerance,low diameter and roundness tolerances,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Benefits,easy to print,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Surface finish,Purefil PLA Silk is a PLA-based filament to which appropriate additives are added to achieve a metallic sheen.,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Surface finish,The printed parts have exceptional aesthetic properties.,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Benefits,PLA Silk is as easy to process as standard PLA and has slightly better mechanical properties.,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Good for,This unique filament is particularly suitable for applications with high demands on the appearance of the printed parts.,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Surface finish,This unique filament is particularly suitable for applications with high demands on the appearance of the printed parts.,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Pitfalls and limitations,"Due to the additives included, PLA Silk is no longer 100% biodegradable and cannot be composted.",,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Benefits,This filament meets the compositional requirements of European Regulation No. 10/2011 on plastic materials intended for food contact.,,
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Surface finish,fantastically beautiful optics,,Characteristics list.
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Benefits,slightly better mechanical properties than standard PLA,,Characteristics list.
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Surface finish,beautiful shine effect,,Characteristics list.
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Benefits,easily printable,,Characteristics list.
+D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,G008-10,Surface finish,does not fade,,Characteristics list.
+D-FORMFUTURA-REFORM-RPET-PAGE,1,G020-62,Benefits,This sustainable PETG filament combines strength and toughness with printability.,,
+D-FORMFUTURA-REFORM-RPET-PAGE,1,G020-62,Surface finish,Homogeneous compound runs can vary in color intensity.,,
+D-FORMFUTURA-REFORM-RPET-PAGE,1,G020-62,Surface finish,This may result in lighter or darker 3D printing filament colors extruded from various homogeneous compound runs.,,
+D-FORMFUTURA-REFORM-RPET-PAGE,1,G020-62,Surface finish,"rPET White and Black will always have the same color, as extrusion waste from black and white PETG filament is collected separately.",,
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Surface finish,The PLA Nature series was designed with the intention of creating new textures in 3D printing materials through the use of bio-fillers.,,Series statement.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Benefits,"Filaments from the PLA Nature series are characterized by ease of printing, unique textures and colors and low shrinkage.",,Series statement.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Surface finish,"Filaments from the PLA Nature series are characterized by ease of printing, unique textures and colors and low shrinkage.",,Series statement.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Warping and shrinkage,"Filaments from the PLA Nature series are characterized by ease of printing, unique textures and colors and low shrinkage.",,Series statement.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Surface finish,A significant presence of visible bio-filler in PLA Nature filaments is a unique feature compared to the traditional PLA material.,,Series statement.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Printing advice,"The printed model can also undergo a post-print heat treatment process, thereby increasing its heat resistance.",,Series statement.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Benefits,The particle size of the natural fillers used in production has been specially reduced to increase their presence in the filament and enable printing on a much wider range of devices using standard PLA settings.,,Series statement.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Surface finish,unique texture,,Material characteristics list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Benefits,ease of printing,,Material characteristics list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Benefits,made of biodegradable raw materials,,Material characteristics list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Good for,educational projects,,Applications list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Good for,concept and demo prototyping,,Applications list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Good for,industrial design,,Applications list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Good for,interior design,,Applications list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Printing advice,Enclosure  not necessary,,How to use list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Moisture sensitivity,Drybox recommended  No,,How to use list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Nozzle wear,Ruby or hardened nozzle recommended  No,,How to use list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Printing advice,"Adhesive  not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",,How to use list.
+D-SPECTRUM-PLA-NATURE-PAGE,1,G001-141,Warping and shrinkage,"Adhesive  not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",,How to use list.
+PR-prusament-pla-recycled,1,G001-90,Precision and tolerance,Prusament PLA Recycled is our own in-house made filament with ±0.05mm manufacturing tolerance.,,
+PR-prusament-pla-recycled,1,G001-90,Surface finish,"100 % of the material consists of recycled Prusament PLA materials, so every batch has a different color.",,
+PR-prusament-pla-recycled,1,G001-90,Benefits,Easy to print,,Pros list.
+PR-prusament-pla-recycled,1,G001-90,Precision and tolerance,Can print tiny parts,,Pros list.
+PR-prusament-pla-recycled,1,G001-90,Good for,Can print huge objects,,Pros list.
+PR-prusament-pla-recycled,1,G001-90,Benefits,Hard,,Pros list.
+PR-prusament-pla-recycled,1,G001-90,Warping and shrinkage,Low warping,,Pros list.
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,Brittle,,Cons list.
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,Low temperature resistance,,Cons list.
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,Difficult post-processing,,Cons list.
+PR-prusament-pla-recycled,1,G001-90,Good for,Action figures often include tons of small features. Printing them with PLA is easy at almost any scale,,
+PR-prusament-pla-recycled,1,G001-90,Good for,"PLA is perfect for printing small and detailed objects, such as jewelry.",,
+PR-prusament-pla-recycled,1,G001-90,Precision and tolerance,"Whether it’s a necklace or an earring, you can expect clean edges and no stringing, especially if coupled with a smaller nozzle.",,
+PR-prusament-pla-recycled,1,G001-90,Good for,"Thanks to its minimal thermal expansion, PLA is a great choice for large prints.",,
+PR-prusament-pla-recycled,1,G001-90,Warping and shrinkage,"Thanks to its minimal thermal expansion, PLA is a great choice for large prints.",,
+PR-prusament-pla-recycled,1,G001-90,Warping and shrinkage,"No warping, no layer separation.",,
+PR-prusament-pla-recycled,1,G001-90,Adhesion between layers,"No warping, no layer separation.",,
+PR-prusament-pla-recycled,1,G001-90,Benefits,Printing difficulty  Easy,,Details table.
+PR-prusament-pla-recycled,1,G001-90,Warping and shrinkage,Susceptibility to warping  None,,Details table.
+PR-prusament-pla-recycled,1,G001-90,Odour and emissions,Odor  No odor,,Details table.
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Post processing  Difficult; Wet sanding,,Details table.
+PR-prusament-pla-recycled,1,G001-90,Precision and tolerance,Details  Under 0.2 mm,,Details table.
+PR-prusament-pla-recycled,1,G001-90,Nozzle wear,Abrasivity  None,,Details table.
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,"It’s a hard material, but that also means it’s somewhat brittle, and once it breaks, it likes to shatter.",,
+PR-prusament-pla-recycled,1,G001-90,Benefits,"Unlike so-called thermoset materials, PLA can be heated past its melting point multiple times with very little degradation.",,
+PR-prusament-pla-recycled,1,G001-90,Good for,"The best use of PLA is for printing concept models, prototypes, miniatures, jewelry, low-wear toys, etc.",,
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,The low print temperature also means low-temperature resistance.,,
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,Parts start to lose mechanical strength at temperatures over 60 °C.,,
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,"The combination of being both biodegradable and having low-temperature resistance means that it’s not ideal for outdoor use, also due to the low UV-resistance.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Use glue to connect multiple parts together.,,
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,"Even though PLA is biodegradable, and the material on its own is food safe, we suggest not to drink or eat from your 3D prints repeatedly.",,
+PR-prusament-pla-recycled,1,G001-90,Pitfalls and limitations,"It’s because of the small fractures in the print surface, which means bacteria can build up in there over time.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,You can prevent this by applying a food-safe coating.,,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Heated Bed Optional Enclosure not required,,Printer requirements.
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Print Surface  PEI Glass plate Painter’s tape Glue stick,,Printer requirements.
+PR-prusament-pla-recycled,1,G001-90,Nozzle wear,No special hot-end required,,Printer requirements.
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Part Cooling Fan Required,,Printer requirements.
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"To achieve the best adhesion of the print surface, it is important to keep it clean.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"Cleaning the surface is simple: the best option is Isopropyl alcohol ( available in drugstores) which works best not just for PLA, but other materials as well.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Pour a small amount of IPA on an unscented paper towel and wipe the print surface.,,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"The bed should be cleaned when it’s cold for the best results but it can also be cleaned when already preheated for PLA, just be careful not to touch the bed surface or the nozzle.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"But keep in mind that when cleaning at higher temperatures, the alcohol will evaporate before it can clean anything.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"Alternatively, you can clean the bed with warm water and a few drops of dish soap on a paper towel.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Denatured alcohol is also another option.,,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"When post-processing PLA, it’s better to use wet sanding.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"Without water you’ll quickly start heating the plastic by friction, it will melt locally and make it hard to keep sanding.",,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,Feel free to cool PLA during printing as much as possible.,,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,With good enough cooling you can print extreme overhangs and bridge between far away surfaces.,,
+PR-prusament-pla-recycled,1,G001-90,Printing advice,"If you’re in need of a durable part, increase the number of perimeters rather than increasing the infill percentage as the majority of a 3D print strength comes from its outer shell.",,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,It is designed for engineering and industrial applications.,,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,"This high-performance filament is characterized by exceptional mechanical strength, wear resistance and low abrasion.",,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Nozzle wear,"This high-performance filament is characterized by exceptional mechanical strength, wear resistance and low abrasion.",,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,Prografen PET-G Graphene Strong offers significantly improved mechanical properties compared to pure PET-G.,,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,Its tensile strength is 25% higher and its stiffness (Young’s modulus) is increased by 20%.,,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,This makes the filament more resistant to stress and ideally suited for advanced technical applications.,,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,"Additionally, the flow rate (MFR) is 170% higher than pure PET-G, enabling high-speed printing while maintaining excellent print quality.",,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Nozzle wear,"Low abrasion means the filament can be easily printed using standard brass nozzles without the risk of excessive wear, unlike materials reinforced with carbon fibers.",,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,"Prografen PET-G Graphene Strong is a perfect choice for printing parts that require high mechanical strength, such as functional prototypes or spare parts.",,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,"Thanks to its wear resistance and low abrasion, it can be also suitable for printing gears or guides.",,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,Its excellent dimensional stability and fast printing capabilities make it an ideal choice where precision and speed are essential.,,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Warping and shrinkage,Its excellent dimensional stability and fast printing capabilities make it an ideal choice where precision and speed are essential.,,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,Enriching PET-G with graphene makes this filament ideal for a wide range of demanding applications.,,
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Nozzle wear,Can be extruded with standard brass nozzles without the risk of excessive wear in contrast to carbon fiber reinforced materials,,Material characteristics list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,Ability to print faster while maintaining the same nozzle temperature with respect to pure PET-G,,Material characteristics list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,Possibility to print at a lower temperature while maintaining the same speed with respect to pure PET-G.,,Material characteristics list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Warping and shrinkage,Reduced shrinkage compared to pure PET-G.,,Material characteristics list; compared with pure PET-G.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,Easy to print,,Material characteristics list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Benefits,Resistant to environmental conditions and many chemicals,,Material characteristics list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,visual and functional prototyping,,Applications list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,fit testing,,Applications list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,concept models,,Applications list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,manufacturing aids,,Applications list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Good for,manufacturing of semi-transparent enclosures and backlit sections of various boards and signs,,Applications list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Printing advice,Enclosure  not necessary,,How to use list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Moisture sensitivity,Drybox recommended  No,,How to use list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Nozzle wear,Ruby or hardened nozzle recommended  No,,How to use list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Printing advice,"Adhesive  not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",,How to use list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Warping and shrinkage,"Adhesive  not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",,How to use list.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Warping and shrinkage,"Its significant advantage of PETG is practically no shrinkage, odorlessness & chemical resistance.",,Structured-data block; speaks of PETG in general.
+R-COVERAGE-20261001-bc88189b518f,1,G153-01,Odour and emissions,"Its significant advantage of PETG is practically no shrinkage, odorlessness & chemical resistance.",,Structured-data block; speaks of PETG in general.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Adhesion between layers,Centaur PP 3D prints with a superb interlayer adhesion and features outstanding mechanical properties.,,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Centaur PP is a lightweight and high-performance Polypropylene (PP) filament.,,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,It is an extremely diverse and multifunctional material.,,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Good for,"It can, amongst others, be used for functional engineering parts and household items.",,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,It is both dishwasher and microwave proof.,,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Centaur PP has outstanding mechanical properties and a superb interlayer adhesion.,,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Adhesion between layers,Centaur PP has outstanding mechanical properties and a superb interlayer adhesion.,,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Food contact compliant natural variant,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Dishwasher proof and microwave safe,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Lightweight,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Watertight printing possible with only single wall prints,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Great elastic properties,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,Can stretch up to >600% before breaking,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,"Improved wear-, abrasion- and fatigue resistance",,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Benefits,High chemical resistance,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Adhesion between layers,Excellent interlayer adhesion,,Unique features list.
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Printing advice,"Large Centaur PP prints can be printed on an unheated 2mm or 3mm PP plate, which can be attached to the print bed.",,
+R-FORMFUTURA-READER-20261004-554e6bbd8217,1,G082-11,Printing advice,Smaller prints can be printed on standard PP packaging tape.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Surface finish,It offers 3D printed heavyweight parts which are nearly indistinguishable from genuine brass cast objects.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Surface finish,This incredible high filling with brass powders enables every FDM 3D printer user to 3D print brass objects which are almost indistinguishable from genuine brass casted objects.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Benefits,"The material is easy to print and can be printed on full metal, PEEK, and PFTE hotends and can perfectly be printed with ≥ 0.6mm nozzles with retraction settings enabled on both direct drive extruders, as well as on Bowden style extruders, which is a truly unique feature for a metal‐filled filament.",,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Printing advice,"The material is easy to print and can be printed on full metal, PEEK, and PFTE hotends and can perfectly be printed with ≥ 0.6mm nozzles with retraction settings enabled on both direct drive extruders, as well as on Bowden style extruders, which is a truly unique feature for a metal‐filled filament.",,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Surface finish,MetalFil Brass printed objects are extremely easy to polish.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Surface finish,"Real brass look, heavyweight, and “cold” brass metal feel",,Unique features list.
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Printing advice,"Compatible with full metal, PEEK, and PFTE hotends",,Unique features list.
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Printing advice,Compatible with direct drive and Bowden style extruders,,Unique features list.
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Nozzle wear,Compatible with ≥ 0.6mm hardened nozzles with retraction settings enabled,,Unique features list.
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Benefits,Easy to post-process,,Unique features list.
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Good for,"Aesthetics, design, and art",,Applications list.
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Good for,Figurines and miniatures,,Applications list.
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Printing advice,If blobs/lumps form around the nozzle then your print temperature is too high.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Nozzle wear,"Please be aware that MetalFil filaments contain a very high concentration of metal powders, which have an abrasive nature.",,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Nozzle wear,"In general, these metal powders will accelerate the nozzle-wear of brass nozzles, much faster than unfilled filaments.",,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Nozzle wear,We recommend using nozzles from stainless steel or other hardened alloys.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Printing advice,When printing with filled/composite filaments it is recommended to clean your nozzle immediately after printing by feeding 15-20cm PLA filament through your nozzle.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Printing advice,This will make sure that any potential fillers are flown out of your nozzle.,,
+R-FORMFUTURA-READER-20261004-fcf79ef4a352,1,G011-07,Printing advice,It is even better to use glow in the dark PLA as the extremely hard phosphorous particles are much more likely to scrape out residual waste from your nozzle.,,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,Carbon fiber-reinforced material with balanced properties and wide range of uses,,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Good for,"Fiber-reinforced composite filaments are the ideal material for end-use parts production and heavy-duty applications that require superior strength, stiff and heat resistance.",,Speaks of fiber-reinforced composite filaments in general.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Pitfalls and limitations,"However, printing fiber-reinforced filament at high speed brings many challenges, such as lower flowability and poorer interlayer bonding quality, as well as the quicker wearing-out of the nozzle.",,Speaks of fiber-reinforced filament in general; the next paragraph says how this product answers it.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Nozzle wear,"However, printing fiber-reinforced filament at high speed brings many challenges, such as lower flowability and poorer interlayer bonding quality, as well as the quicker wearing-out of the nozzle.",,Speaks of fiber-reinforced filament in general; the next paragraph says how this product answers it.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Adhesion between layers,"However, printing fiber-reinforced filament at high speed brings many challenges, such as lower flowability and poorer interlayer bonding quality, as well as the quicker wearing-out of the nozzle.",,Speaks of fiber-reinforced filament in general; the next paragraph says how this product answers it.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,"To overcome these challenges, Raise3D’s Hyper Core ABS CF15 filament is specially developed utilizing special extrusion technology to form a fiber-rich inner core where most of the carbon fibers are well-aligned and distributed.",,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,"During high-speed FFF printing, the outstanding heat conductivity of carbon-fiber core accelerates filament melting in the hot end.",,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Adhesion between layers,"Moreover, the residual thermal energy of the fiber-rich inner core promotes the interlayer bonding of ABS across the adjacent lines to form a smooth and strong part.",,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,"The Hyper Core ABS CF15 filament is designed for a fast-melting rate as well as balancing print quality, performance and cost.",,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,"Hyper Core ABS CF15 inherits excellent impact toughness, good chemical resistance and low moisture absorption of terpolymer ABS matrix.",,"Impact toughness is inherited from the ABS matrix; no comparison, so no toughened claim."
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Moisture sensitivity,"Hyper Core ABS CF15 inherits excellent impact toughness, good chemical resistance and low moisture absorption of terpolymer ABS matrix.",,"Impact toughness is inherited from the ABS matrix; no comparison, so no toughened claim."
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Adhesion between layers,"Moreover, special fiber distribution improves the Z-direction strength and stiffness, in addition to the prolonging the life of the nozzle.",,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Nozzle wear,"Moreover, special fiber distribution improves the Z-direction strength and stiffness, in addition to the prolonging the life of the nozzle.",,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Good for,"It is an ideal choice for volume production of industrial-grade applications where high performance, stability and efficiency are required.",,
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,Developed for Hyper FFF ®,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,Tailored fiber distribution,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Adhesion between layers,Excellent interlayer bonding,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Warping and shrinkage,Dimensional stability,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Nozzle wear,Lower nozzle abrasion,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Warping and shrinkage,Warp-free parts,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Surface finish,Ready for polishing and acetone vapor smoothing,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,Superior strength and stiffness,,Feature list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Good for,Jigs and Fixtures,,Applications list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Good for,Manufacturing aids,,Applications list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Good for,End-use parts,,Applications list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Good for,Housings and enclosures,,Applications list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,High Speed Printing,,Benefits list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,Easy Post-processing,,Benefits list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Benefits,Easy to Print,,Benefits list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Moisture sensitivity,"Raise3D Hyper Core ABS CF15 Filament (2.5 kg) was designed to be used while inside the sealed bag, so please do not unseal it.",,Footnote on the 2.5 kg spool.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Moisture sensitivity,Filament bag keeps the filament dry,,Benefits for 2.5kg Filament list.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Nozzle wear,Abrasion of the brass nozzle happens frequently when printing with Hyper Core ABS CF15.,,Printing Notifications.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Nozzle wear,"Using an abrasion-resistant nozzle, at minimum a Steel nozzle should be used or preferably, a SiC nozzle.",,Printing Notifications.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Moisture sensitivity,"Drying isn’t usually necessary, but if so, it’s recommended to dry the filament at 60-80ºC for 6-8 hours to restore the printing quality of Raise3D Hyper Core ABS CF15.",,Printing Notifications.
+R-RAISE3D-GAP2-20261005-5cc937c01792,1,G029-09,Odour and emissions,Please print in a well-ventilated environment.,,Printing Notifications.
+XP-3dxmax-r-pc,1,G035-05,Benefits,"High thermal properties, with a Tg of 147C",,Benefits list.
+XP-3dxmax-r-pc,1,G035-05,Warping and shrinkage,"Amorphous structure gives it low, near isotropic shrinkage",,Benefits list.
+XP-3dxmax-r-pc,1,G035-05,Benefits,Excellent ductility and impact resistance,,"Benefits list; absolute claim, no comparison with another grade, so no toughened claim."
+XP-3dxmax-r-pc,1,G035-05,Odour and emissions,Very low odor while printing,,Benefits list.
+XP-3dxmax-r-pc,1,G035-05,Benefits,Wide processing range of 280-310C,,Benefits list.
+XP-3dxmax-r-pc,1,G035-05,Benefits,PC has some of the best mechanical properties & high-heat resistance in the 3D Printing world (Tg of 147C).,,
+XP-3dxmax-r-pc,1,G035-05,Good for,Our PC allows for the printing of functional prototypes and production parts with very fine detail and excellent surface quality.,,
+XP-3dxmax-r-pc,1,G035-05,Precision and tolerance,Our PC allows for the printing of functional prototypes and production parts with very fine detail and excellent surface quality.,,
+XP-3dxmax-r-pc,1,G035-05,Surface finish,Our PC allows for the printing of functional prototypes and production parts with very fine detail and excellent surface quality.,,
+XP-3dxmax-r-pc,1,G035-05,Printing advice,3DXMAX PC is suitable for use in both consumer-grade and industrial FDM/FFF printers that have a heated print bed and extruders which can reach upwards of 300C.,,
+XP-3dxmax-r-pc,1,G035-05,Printing advice,Heated Chamber  Recommended,,Print Recommendations.
+XP-3dxmax-r-pc,1,G035-05,Nozzle wear,Nozzle Specs  No special concerns,,Print Recommendations.
+XP-thermax-pes-1,1,G101-01,Benefits,Very high thermal properties superior to Ultem 1010,,Benefits list.
+XP-thermax-pes-1,1,G101-01,Benefits,High Environmental Stress Crack Resistance (ESCR),,Benefits list.
+XP-thermax-pes-1,1,G101-01,Benefits,"Sterilization capable, including EtO gas, radiation, steam autoclaving, plasma, dry heat and cold sterilization",,Benefits list.
+XP-thermax-pes-1,1,G101-01,Benefits,"Exceptional strength and modulus, even at elevated temperatures",,Benefits list.
+XP-thermax-pes-1,1,G101-01,Benefits,"Resists most common automotive fluids including gasoline, antifreeze, transmission fluids, motor oils, power steering fluid, windshield washer fluid (ESCR, 24 hrs, 100C)",,Benefits list.
+XP-thermax-pes-1,1,G101-01,Benefits,Inherently flame retardant with low smoke evolution and low smoke toxicity,,Benefits list.
+XP-thermax-pes-1,1,G101-01,Benefits,"Excellent dimensional stability with low creep sensitivity, low and uniform coefficient of thermal expansion, and highly reproducible part-to-part dimensions.",,Benefits list.
+XP-thermax-pes-1,1,G101-01,Warping and shrinkage,"Excellent dimensional stability with low creep sensitivity, low and uniform coefficient of thermal expansion, and highly reproducible part-to-part dimensions.",,Benefits list.
+XP-thermax-pes-1,1,G101-01,Precision and tolerance,"Excellent dimensional stability with low creep sensitivity, low and uniform coefficient of thermal expansion, and highly reproducible part-to-part dimensions.",,Benefits list.
+XP-thermax-pes-1,1,G101-01,Benefits,"Polyether Sulfone (PES or PESU) is a high-temperature aromatic sulfone polymer that exhibits xceptional thermal, mechanical, and chemical resistance properties.",,
+XP-thermax-pes-1,1,G101-01,Benefits,ThermaX PES is an amorphous polymer and has excellent dimensional stability and creep resistance.,,
+XP-thermax-pes-1,1,G101-01,Warping and shrinkage,ThermaX PES is an amorphous polymer and has excellent dimensional stability and creep resistance.,,
+XP-thermax-pes-1,1,G101-01,Benefits,"PES has higher temperature resistance and toughness than Ultem 1010, offering the ability to print parts with higher mechanical properties at elevated temperature.",,"Comparison with Ultem 1010, another product: no toughened claim."
+XP-thermax-pes-1,1,G101-01,Printing advice,Heated Chamber  Recommended,,Print Recommendations.
+XP-thermax-pes-1,1,G101-01,Nozzle wear,Nozzle Specs  No special concerns,,Print Recommendations.
+XP-thermax-pes-1,1,G101-01,Moisture sensitivity,Drying Specs  120C for 4 hours,,Print Recommendations.

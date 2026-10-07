@@ -1,0 +1,223 @@
+SourceID,Page,GradeID,Topic,Finding,Claim,Note
+R-STRATASYS-fdm-nylon-cf10-material-datasheet,2,G165-04,Benefits,"FDM Nylon-CF10 is a composite material combining a blended nylon polymer with 10% chopped carbon fiber (by weight), enhancing the material’s strength and rigidity.",,
+R-STRATASYS-fdm-nylon-cf10-material-datasheet,2,G165-04,Benefits,The nylon base polymer also gives FDM Nylon-CF10 good chemical resistance.,,
+R-ULTIMAKER-MakerBot-Nylon-092020,1,G164-05,Benefits,"MakerBot Specialty Nylon is an engineering-grade material that is optimized for high abrasion resistance due to its excellent flexural, tensile, and impact strength, not to mention a heat resistance of up to 180°C.",,"Optimised for abrasion resistance, not for impact: no toughened claim"
+R-ULTIMAKER-MakerBot-Nylon-092020,1,G164-05,Good for,MakerBot Nylon is compatible with MakerBot’s water soluble PVA for unrestricted geometric freedom and is ideal for demanding applications in the automotive and industrial products industries for both functional prototypes and end use parts.,,
+R-ULTIMAKER-MakerBot-Nylon-092020,1,G164-05,Supports and removal,MakerBot Nylon is compatible with MakerBot’s water soluble PVA for unrestricted geometric freedom,,"Same sentence as the Good for row, support part"
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Gears,,"Application bullet under ""Applications include:"""
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Industrial products,,"Application bullet under ""Applications include:"""
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Pulleys,,"Application bullet under ""Applications include:"""
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Seat Belt buckles,,"Application bullet under ""Applications include:"""
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Nuts and Bolts,,"Application bullet under ""Applications include:"""
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Gaskets,,"Application bullet under ""Applications include:"""
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Assembly Fixtures,,"Application bullet under ""Applications include:"""
+R-ULTIMAKER-MakerBot-Nylon-092020,2,G164-05,Good for,Manifolds,,"Application bullet under ""Applications include:"""
+R-MATTERHACKERS-RczMCr,1,G164-04,Moisture sensitivity,Suggested drying temperature 75°C for 8 hours,,"Settings-table row, kept because it is a drying temperature and time"
+R-MATTERHACKERS-RczMCr,1,G164-04,Moisture sensitivity,Nylon materials inherently take up moisture from the surrounding atmosphere due to the nature of their chemistry.,,
+R-MATTERHACKERS-RczMCr,1,G164-04,Moisture sensitivity,"If moisture is present during extrusion, degradation can occur, resulting in a weaker part.",,
+R-MATTERHACKERS-RczMCr,1,G164-04,Moisture sensitivity,A tell-tale sign of your nylon being too wet is popping noises and visible air bubbles escaping the extru- date.,,Hyphenation across a line break kept as printed
+R-MATTERHACKERS-RczMCr,1,G164-04,Moisture sensitivity,We recommend drying all nylons prior to printing.,,
+R-NANOVIA-SiC,1,G172-01,Good for,"This FFF filament loaded at 71 % by mass with fine silicon carbide (SiC) particles allows for the creation, after sintering (thermal without chemical debinding), of 100 % made out of SiC.",,
+R-NANOVIA-SiC,1,G172-01,Benefits,This ceramic material resists temperatures up to 2200 °C.,,
+R-NANOVIA-SiC,1,G172-01,Printing advice,"Printable with most FFF 3D printers without enclosure, the “green” parts can be post treated and tooled with standard equipment.",,
+R-NANOVIA-SiC,1,G172-01,Good for,Create ceramic components with all the advantages of FFF additive fabrication.,,
+R-NANOVIA-SiC,1,G172-01,Benefits,Easy / normal post processing and tooling before sintering.,,
+R-NANOVIA-SiC,1,G172-01,Benefits,Sintering without the need for a chemical debinding step.,,
+R-NANOVIA-SiC,1,G172-01,Moisture sensitivity,"Store in airtight container with desiccant, out of direct sunlight.",,
+R-NANOVIA-SiC,1,G172-01,Moisture sensitivity,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,,
+R-NANOVIA-SiC,1,G172-01,Nozzle wear,"A reinforced nozzle, suitable for abrasive materials is recommended.",,
+R-NANOVIA-SiC,1,G172-01,Printing advice,"It’s possible to apply normal post treatment techniques on green parts (sanding, polishing, threading, drilling, tooling, etc…)",,Post-processing of green parts
+R-NANOVIA-SiC,1,G172-01,Printing advice,"A debinding phase at a relatively low temperature of 400 °C, which evacuates the binding agent.",,"Sintering procedure, first phase"
+R-NANOVIA-SiC,1,G172-01,Printing advice,"A sintering phase directly following the debinding phase at 2050 °C, which fuses the remaining ceramic particles together.",,"Sintering procedure, second phase"
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Benefits,Bio-filament with excellent thermal & mechanical properties,,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Surface finish,Matt surface,,Features & Advantages list
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Benefits,High heat resistance,,Features & Advantages list
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Benefits,High impact resistance,toughened,"Unqualified impact-resistance feature claim of a PLA-based filament, no comparison named"
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Benefits,3DJake niceBIO is a premium bio filament that combines excellent thermal and mechanical properties with full biodegradability.,,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Printing advice,"As it does not require a heated print bed, it can be processed on almost any FDM printer.",,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Adhesion between layers,Models printed with niceBIO feature outstanding layer adhesion and a refined matte finish.,,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Surface finish,Models printed with niceBIO feature outstanding layer adhesion and a refined matte finish.,,Same sentence as the layer adhesion row
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Benefits,"Excellent thermal and mechanical stability for durable, high-performance parts",,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Benefits,"High impact resistance for strong, resilient prints",toughened,"Unqualified impact-resistance feature claim of a PLA-based filament, no comparison named"
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Adhesion between layers,"Outstanding layer adhesion for stable, homogeneous models without weak points",,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Odour and emissions,Odour-free during printing,,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Surface finish,Attractive matte surface finish,,
+D-3DJAKE-NICEBIO-BLACK-PAGE,1,G168-02,Benefits,Biodegradable in accordance with DIN EN ISO 14855,,
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Surface finish,"3DXPro™ Low-Gloss PETG is a specialty grade of PETG that offers a low-gloss, high-tech look.",,
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Surface finish,The low-gloss helps hide the layer lines and offers a more “technical look” to the parts as compared to higher gloss filaments.,,
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Good for,"Our low-gloss PETG is perfect for applications that require the performance of PETG, but a more sophisticated fit and finish.",,
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Surface finish,Low-gloss sheen – excellent finish,,Benefits list
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Benefits,Superior Chemical Resistance vs. ABS,,Benefits list
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Benefits,BPA Free,,Benefits list
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Warping and shrinkage,Amorphous: Low shrink and warp,,Benefits list
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Moisture sensitivity,Low moisture absorption: 3X lower vs. ABS,,Benefits list
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Odour and emissions,Very low odor emitted during printing,,Benefits list
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Printing advice,Low Gloss PETG does NOT printer the same as standard PETG.,,"Typo ""printer"" as printed"
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Adhesion between layers,"Ideal extruder temp is 260 to 280°C, or higher depending on your printer / thermocouple set-up – some users report requiring temps up to 290°C to obtain optimal layer bonding.",,
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Adhesion between layers,The low-gloss additive in this material requires a higher extruder temp to achieve good layer bonding than you usually use for standard PETG.,,
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Adhesion between layers,You may need to increase nozzle temps by 20°C or higher than standard PETG settings if you have layer bonding issues.,,
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Printing advice,"Magigoo Bed Prep Adhesive , or Clean glass w/ 4mm Kapton Tape",,"Value of ""Platform Prep:"" in General Print Recommendations"
+R-3DXTECH-GAP2-20261005-24da1fe07c7b,1,G020-01,Supports and removal,Our Aquatek X1 water soluble support works great to create complex parts.,,"Printed as ""Support:"""
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Benefits,A Shore hardness of 30D provides noticeable flexibility and a soft-to-the-touch surface.,,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Benefits,"High impact resistance is maintained even at low temperatures, so the print won't crack when struck in cold weather.",,"Impact feature claim of a flexible TPU, no comparison or modifier named"
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Benefits,The material retains its shape and strength even when exposed to heat.,,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Benefits,Its chemical resistance makes the material suitable for use in industrial environments.,,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Good for,"FiberFlex 30D is a flexible TPU filament with a Shore hardness of 30D , designed for users who need a very soft , rubber-like material for 3D printing.",,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Good for,"Thanks to its exceptional flexibility, it is perfect for creating prints that are resistant to bending , crushing , and stretching , making it an excellent choice for applications requiring high mechanical strength and flexibility .",,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Pitfalls and limitations,"However, printing with FiberFlex 30D filament requires some experience and a printer equipped with a direct-drive extruder, due to the material’s softness, which can pose challenges during filament feeding.",,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Printing advice,"It is recommended to lower the print speed and reduce the extruder pressure to ensure a stable, high-quality print.",,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Good for,FiberFlex 30D is designed for more advanced users who want to use flexible TPU materials for complex projects.,,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Pitfalls and limitations,NOTE: FiberFlex 30D may release a small amount of powder during printing; this is a natural characteristic of the material and does not constitute a product defect.,,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Printing advice,"If you notice a significant amount of powder buildup, we recommend periodically cleaning the printer components, as this buildup can, over time, interfere with the proper feeding of filament into the extruder.",,
+R-FIBERLOGY-GAP2-20261005-683b0acd2c7e,1,G167-03,Moisture sensitivity,Drying conditions: 60°C / 4 hours,,"Print-parameters table row, kept because it is a drying temperature and time"
+D-3D4MAKERS-ABS-ESD-PAGE,1,G030-04,Good for,ABS ESD Filament has been designed for protection of electronic devices which are sensitive to electrostatic discharges.,,
+D-3D4MAKERS-ABS-ESD-PAGE,1,G030-04,Benefits,The material prevents the risk of damage to vulnerable electronic components due to its dissipative properties.,,
+D-3D4MAKERS-ABS-ESD-PAGE,1,G030-04,Good for,"The filament is ideal for industrial applications like housings / casings for connectors, sensors and measuring devices.",,
+D-3D4MAKERS-ABS-ESD-PAGE,1,G030-04,Benefits,Electrostatic Discharge Protection.,,Feature list
+D-3D4MAKERS-ABS-ESD-PAGE,1,G030-04,Benefits,High Impact Resistance.,,"Feature list; unqualified, no comparison or modifier named"
+D-3D4MAKERS-ABS-ESD-PAGE,1,G030-04,Benefits,Low dust / powder attraction.,,Feature list
+D-3D4MAKERS-ABS-ESD-PAGE,1,G030-04,Moisture sensitivity,"Drying Recommendations: 80°C, 2-4 hours",,"Print-settings row, kept because it is a drying temperature and time"
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Benefits,UV & weather resistant,,Features & Advantages list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Benefits,High stiffness & strength,,Features & Advantages list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Benefits,Very good heat resistance,,Features & Advantages list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Good for,3DJake ASA CF is a carbon fibre-reinforced ASA filament developed specifically for industrial applications.,,
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Good for,"Its excellent UV and weather resistance make it perfectly suited for outdoor use, while the carbon fibres provide significantly increased rigidity and strength.",,
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Adhesion between layers,"The material offers outstanding process reliability: optimised flow characteristics, consistent layer adhesion, and enhanced thermal stability ensure clean print results with minimal deformation.",,
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Warping and shrinkage,"The material offers outstanding process reliability: optimised flow characteristics, consistent layer adhesion, and enhanced thermal stability ensure clean print results with minimal deformation.",,Same sentence as the layer adhesion row
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Surface finish,"Its matte surface finish gives printed parts a professional, technical appearance.",,
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Good for,Composite reinforced with 12% carbon fibre for high-strength applications,,Key Features list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Good for,UV- and weather-resistant – ideal for outdoor use,,Key Features list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Good for,High rigidity and strength for mechanically stressed components,,Key Features list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Benefits,Excellent heat deflection resistance,,Key Features list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Adhesion between layers,Optimised layer adhesion and process stability with low warping tendency,,Key Features list
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Warping and shrinkage,Optimised layer adhesion and process stability with low warping tendency,,Same bullet as the layer adhesion row
+D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,G033-16,Surface finish,"Matt, technical surface for a professional finish",,Key Features list
+D-COLORFABB-NGEN-PAGE,1,G092-02,Good for,nGen is a great all-round 3D printing filament for everyday use.,,
+D-COLORFABB-NGEN-PAGE,1,G092-02,Benefits,It has good flow properties through the printer nozzle - even at lower temperatures than some other polymers require.,,
+D-COLORFABB-NGEN-PAGE,1,G092-02,Benefits,"These properties make nGen more workable at a wider breadth of temperatures, producing reliable results and resulting in less waste.",,
+D-COLORFABB-NGEN-PAGE,1,G092-02,Benefits,"nGen exhibits advanced overhang ability, excellent looks, and large printing temperature range - empowering users to create durable and useful items.",,
+D-COLORFABB-NGEN-PAGE,1,G092-02,Surface finish,"nGen exhibits advanced overhang ability, excellent looks, and large printing temperature range - empowering users to create durable and useful items.",,Same sentence as the Benefits row
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,The use of high-quality raw materials creates a 3D printer filament that is particularly easy to process.,,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Precision and tolerance,"Using a state-of-the-art manufacturing process, very low manufacturing tolerances are achieved, which leads to convincing printing results with all FDM 3D printers.",,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Precision and tolerance,small diameter and roundness tolerances,,List item printed with a leading dash
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,easy to print,,List item printed with a leading dash
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,"In general, one can say that PET-G is characterized by clarity/transparency, odor neutrality and robustness.",,Describes PET-G in general
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Odour and emissions,"In general, one can say that PET-G is characterized by clarity/transparency, odor neutrality and robustness.",,Same sentence as the Benefits row
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,"Nevertheless, PET-G is very easy to print and there are no significant problem areas.",,Describes PET-G in general
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,"These properties, together with high impact strength, excellent flexibility and shrinkage values close to zero, make PET-G an excellent material for FDM 3D printing.",,"Describes PET-G in general; high impact strength of standard PETG, no toughened claim"
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Warping and shrinkage,"These properties, together with high impact strength, excellent flexibility and shrinkage values close to zero, make PET-G an excellent material for FDM 3D printing.",,Same sentence as the Benefits row
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Moisture sensitivity,PET-G must be well pre-dried to prevent the material from forming bubbles and decomposing during processing.,,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Moisture sensitivity,This fact also affects the storage of already used filament rolls.,,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Moisture sensitivity,These must be stored in a dry and airtight manner (already humidity can severely deteriorate the filament).,,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Moisture sensitivity,It is advisable to add small drying bags (silica) to the packaged roll.,,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Moisture sensitivity,"If it is noticed during processing that the filament is «damp», it can be dried in the oven at 80°C for 2h-4h.",,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,This filament meets the compositional requirements of European Regulation No. 10/2011 on plastic materials intended for food contact.,,
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,"Great hardness, strength and excellent rigidity",,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,Good toughness even in the cold,,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,"Low coefficient of friction, high abrasion resistance",,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,Application range from -40°C to +100°C,,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,Good electrical insulating properties,,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,High tracking resistance,,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,Physiologically harmless,,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,PET is resistant to stress cracking,,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,Resistant to weather and hot air,,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Benefits,"PET is resistant to water at room temperature, diluted acids, neutral and acidic salts, alcohol, ether, oils, fats, perchlorinated, aromatic and aliphatic hydrocarbons",,Characteristics list (material characteristics of PET)
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Pitfalls and limitations,Flammable,,Characteristics list
+D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,G020-57,Pitfalls and limitations,"PET is not resistant to alkalis, superheated steam, ketones, phenols, esters, oxidizing acids and chlorinated hydrocarbons",,Characteristics list
+D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,G001-130,Good for,MH Build Series Black PLA is an affordable PLA filament intended for producing quality 3D-printed parts.,,
+D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,G001-130,Good for,Prototype affordably in product-ready colors,,
+D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,G001-130,Benefits,MH Build Series Black PLA filament is the most affordable material on the market that is still reliable and capable of producing high-quality results.,,
+D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,G001-130,Benefits,It's really easy to use,,"Reason listed for PLA in general under ""What is PLA Filament?"""
+D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,G001-130,Warping and shrinkage,Low warping,,"Reason listed for PLA in general under ""What is PLA Filament?"""
+D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,G001-130,Benefits,Environmentally friendly - much more biodegradable when compared to other petroleum-based plastics,,"Reason listed for PLA in general under ""What is PLA Filament?"""
+D-YOUSU-PP-PAGE,1,G082-08,Benefits,"Polypropylene,short as PP filament is a tough, semi-rigid thermoplastic that is highly resistant to heat, electricity, chemicals, fatigue, and impact",,Describes PP in general; no comparison or modifier named
+D-YOUSU-PP-PAGE,1,G082-08,Good for,"Due to its high resistance to damage and remarkable flexibility as well as resistance to chemical substances (acids, bases, water), it has found many applications in various fields of industry and everyday use.",,
+D-YOUSU-PP-PAGE,1,G082-08,Benefits,Good chemical and fatigue resistance,,Features list
+D-YOUSU-PP-PAGE,1,G082-08,Surface finish,Smooth surface finish,,Features list
+D-YOUSU-PP-PAGE,1,G082-08,Moisture sensitivity,Low moisture absorption,,Features list
+D-YOUSU-PP-PAGE,1,G082-08,Moisture sensitivity,The relative inertness of PP makes it practically impermeable to water,,
+D-YOUSU-PP-PAGE,1,G082-08,Adhesion between layers,Excellent layer adhesion,,Features list
+D-YOUSU-PP-PAGE,1,G082-08,Adhesion between layers,Parts printed in PP tend to have very good layer adhesion and are rarely prone to layer splitting.,,
+D-YOUSU-PP-PAGE,1,G082-08,Benefits,Excellent flexibility and light lightweight,,Features list
+D-YOUSU-PP-PAGE,1,G082-08,Good for,PP can be used to make easily deform-able lightweight parts when printed with thin walls and light infill.,,
+D-YOUSU-PP-PAGE,1,G082-08,Benefits,On the other hand tough parts with exceptional impact resistance can be produced when printing solid parts with thick walls.,,"Depends on print walls, describes PP in general; no modifier named"
+D-YOUSU-PP-PAGE,1,G082-08,Printing advice,PP is really difficult to stick to any material printer bed surface besides itself.,,
+D-YOUSU-PP-PAGE,1,G082-08,Printing advice,Polypropylene sheet building film:YOUSU iStick film integrated Nano technology enables no warping printing and it is better than PEI film and other heating bed stick film.,,Bed film accessory
+D-YOUSU-PP-PAGE,1,G082-08,Warping and shrinkage,Polypropylene sheet building film:YOUSU iStick film integrated Nano technology enables no warping printing and it is better than PEI film and other heating bed stick film.,,Same sentence as the Printing advice row
+R-3DXTECH-READER-20261004-e4755c0876bd,1,G119-01,Benefits,3DXMAX® PC/ASA (Polycarbonate + Acrylonitirle Styrene Acrylate Alloy) is a highly UV-resistant weatherable polymer.,,
+R-3DXTECH-READER-20261004-e4755c0876bd,1,G119-01,Good for,PC/ASA’s UV-stability makes it an ideal material for outdoor applications that will experience intense exposure to the sun and weather.,,
+R-3DXTECH-READER-20261004-e4755c0876bd,1,G119-01,Good for,"PC/ASA’s exceptional mechanical and thermal properties – coupled with excellent UV-stability – is why this resin is used the Auto, Marine, and RV industries for exterior applications such as mirror housings, cowl covers, radiator grills, and sensor housings.",,
+R-3DXTECH-READER-20261004-e4755c0876bd,1,G119-01,Printing advice,cool the bed down by about 10-20°C after the first couple of layers,,Part of the Bed Temp line of Recommended Print Conditions
+R-3DXTECH-READER-20261004-e4755c0876bd,1,G119-01,Printing advice,"3DXTech Polyimide Tape, ABS / Acetone Slurry, or Hairspray on clean glass",,"Value of ""Bed Prep:"" in Recommended Print Conditions"
+R-3DXTECH-READER-20261004-e4755c0876bd,1,G119-01,Printing advice,We recommend using a printer with an enclosure to help keep some heat in while printing with PC/ASA,,"Printed as ""Enclosure:"""
+R-3DXTECH-READER-20261004-e4755c0876bd,1,G119-01,Supports and removal,Our Aquatek water soluble support works great to create complex parts.,,"Printed as ""Support:"""
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Surface finish,"Galaxy PLA is a deep metallic colored PLA type of 3D printer filament with a high contend of silver aluminum particles inside, which gives 3D printed parts a sparkling galaxy-like effect.",,"Typo ""contend"" as printed"
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Surface finish,Galaxy PLA is a deep metallic coloured PLA filament.,,
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Surface finish,"This results in a beautiful sparkling, reflecting and glittering finish to a printed object.",,
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Surface finish,Printed objects have subtle colour shadings and radiance and no visible layers.,,
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Nozzle wear,"Despite its high silver-aluminium-flake content, Galaxy PLA is not abrasive to the nozzle of your 3D printer.",,
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Surface finish,Extremely glittering & shimmering surface finish,,Unique features list
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Surface finish,3D print objects without visible layers,,Unique features list
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Nozzle wear,Not abrasive to the nozzle of 3D printers,,Unique features list
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Surface finish,Incredibly deep coloured 3D printer filament,,Unique features list
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Benefits,Very easy to print,,Unique features list
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Warping and shrinkage,Warp-free printing and no deformation after cooling,,Unique features list
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Adhesion between layers,Improved flowing behaviour and inter-layer adhesion,,Unique features list
+R-FORMFUTURA-READER-20261004-036785dac2f2,1,G015-04,Printing advice,Good first layer adhesion to several (un)heated print surfaces,,Unique features list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Good for,Python Flex TPU 90A is a very flexible type of 3D printer filament with a shore hardness of 90A and is perfect for 3D printing strong and resilient parts that require both flexibility and elasticity.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Benefits,Python Flex TPU 90A is an easy to print flexible filament.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Adhesion between layers,Python Flex TPU 90A shows good adhesion to the print bed and has perfect inter-layer adhesion.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Printing advice,Python Flex TPU 90A shows good adhesion to the print bed and has perfect inter-layer adhesion.,,Same sentence as the layer adhesion row; bed adhesion part
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Good for,"This industrial-grade TPU is designed for mechanical applications whereby resistance to wear, tear and abrasion are important.",,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Benefits,The filament also features good resistance to chemicals and UV radiation.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Benefits,Good resistance to chemicals and oils,,Important key features list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Benefits,"Resistant to wear, tear, and abrasion",,Important key features list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Good for,Manufacturing seals and gaskets,,Suitable applications list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Good for,Protective bumpers and vibration dampers,,Suitable applications list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Good for,Snap-fit applications,,Suitable applications list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Good for,Various Orthopedic applications,,Suitable applications list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Good for,3D printing sleeves and hinges,,Suitable applications list
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Moisture sensitivity,Python Flex is a very hygroscopic material and will attract and hold water molecules from the surrounding environment.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Moisture sensitivity,When opened and exposed to humidity too long this can have a negative effect on the printing behaviour and quality of the filament.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Moisture sensitivity,It is therefore strongly recommended to immediately remove the spool from the printer after printing and store it in a vacuum bag or airtight container without silica.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Moisture sensitivity,When the filament is too wet it is recommended to dry Python Flex in an oven or filament drying machine at 65C for approximately 6 hours.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Moisture sensitivity,Drying times can depend on how long the filament has been exposed to humidity.,,
+R-FORMFUTURA-READER-20261004-a49416ed8834,1,G039-63,Moisture sensitivity,"Python Flex is packaged in a vacuum bag with a guaranteed moisture content of less than 0,2% to ensure ideal printing behaviour and results directly after opening the spool.",,
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,"Fiber-reinforced composite filaments are well known material for end-use parts production and heavy-duty applications with superior strength, stiff and heat resistance.",,Describes fibre-reinforced filaments in general
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Pitfalls and limitations,"However, high-speed printing using fiber-reinforced filament brings many challenges, such as lower flowability and poorer interlayer bonding quality, and quicker wearing out of the nozzle.",,Describes fibre-reinforced filaments in general
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Benefits,"To overcome these challenges, Raise3D has developed a new extrusion technology to form a cross-section of the filament with a fiber-rich inner core and a polymer-coated outer skin for the Hyper Core family.",,
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Adhesion between layers,"During high-speed FFF printing, the thick polymer skin of Hyper Core PPA GF25 filament improves polymer healing and welding process across the interface of adjacent layers and lines.",,
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Benefits,"The Hyper Core PPA GF25 is optimized for a fast melt rate in the hot end as well as a good balance of print efficiency, quality, performance and cost.",,
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Benefits,"Thanks to the special coated skin and fiber (25wt.%) distribution structure, Hyper Core PPA GF25 exhibits a high stiffness (6.6 GPa), strength (98 MPa), heat resistance (189 ℃) as well as outstanding printing quality.",,
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,"Hyper Core PPA GF25 is an ideal choice for diverse industrial applications where high performance, stability and cost-efficiency are required.",,
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Benefits,Tailored fiber distribution,,Feature list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Benefits,High strength and stiffness,,Feature list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Benefits,High temperature resistance,,Feature list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Adhesion between layers,Enhanced interlayer bonding,,Feature list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Surface finish,Smooth surface finish,,Feature list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Nozzle wear,Lower nozzle abrasion,,Feature list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Benefits,Cost-effectiveness,,Feature list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,Automobile,,Applications list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,Aerospace,,Applications list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,Jigs & Fixtures,,Applications list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,Functional Parts,,Applications list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,Manufacturing aids,,Applications list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Good for,Electrical and electronics (E&E) industry,,Applications list
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Nozzle wear,Abrasion of the brass nozzle happens frequently when printing Hyper Core PPA GF25.,,Printing Notifications
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Nozzle wear,"Using an abrasion-resistant nozzle, at minimum a Steel nozzle should be used or preferably, a SiC nozzle.",,Printing Notifications
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Moisture sensitivity,"Please dry the filament for a long time, at least 8 hours at 80-100°C or more to get the full print quality of Raise3D Hyper Core PPA GF25.",,Printing Notifications
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Moisture sensitivity,"After drying, we recommend storing Hyper Core PPA GF25 filament inside the Raise3D Filament Dry Box during the printing.",,Printing Notifications
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Printing advice,"After printing, it is recommended to anneal the printed part at 80-100°C for 8 hours.",,Printing Notifications
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Warping and shrinkage,"After annealing, a maximum of 0.5% dimensional shrinkage may be observed along the Z-axis depending on infill and layer height, with no discernible dimensional shrinkage in XY-axis.",,Printing Notifications
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Supports and removal,"If Hyper Core PPA GF25 is used as the support material for itself, please remove the support structure after annealing.",,Printing Notifications
+R-RAISE3D-GAP2-20261005-f47d6082f518,1,G071-05,Supports and removal,"Otherwise, the support structure may be permanently bonded to the model after moisture absorption.",,Printing Notifications
+XP-carbonx-ezpc-cf-1,1,G037-04,Benefits,"High thermal properties, especially when reinforced with carbon fiber",,Benefits list
+XP-carbonx-ezpc-cf-1,1,G037-04,Warping and shrinkage,"Amorphous structure gives it low, near isotropic shrinkage (very low CTE)",,Benefits list
+XP-carbonx-ezpc-cf-1,1,G037-04,Warping and shrinkage,Further improved stiffness and dimensional stability with the addition of carbon fiber reinforcement,,Benefits list
+XP-carbonx-ezpc-cf-1,1,G037-04,Odour and emissions,Very low odor emitted while printing,,Benefits list
+XP-carbonx-ezpc-cf-1,1,G037-04,Benefits,Wide processing range of 260-280°C (suitable for most desktop printers),,Benefits list
+XP-carbonx-ezpc-cf-1,1,G037-04,Nozzle wear,Strongly recommend this material to be printed through a hardened steel nozzle rather than a softer metal.,,Tips from Our Engineers
+XP-carbonx-ezpc-cf-1,1,G037-04,Good for,"This material is ideal for anyone that desires a structural component with high heat, high stiffness, excellent surface quality, and dimensional stability.",,
+XP-carbonx-ezpc-cf-1,1,G037-04,Surface finish,"This material is ideal for anyone that desires a structural component with high heat, high stiffness, excellent surface quality, and dimensional stability.",,Same sentence as the Good for row
+XP-carbonx-ezpc-cf-1,1,G037-04,Good for,ezPC+CF is a clear choice for engineering-grade projects that require excellent performance and ease of printability.,,
+XP-carbonx-ezpc-cf-1,1,G037-04,Moisture sensitivity,Drying Specs  80C for 4 hours,,"Print Recommendations row, kept because it is a drying temperature and time"

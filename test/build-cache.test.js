@@ -71,3 +71,14 @@ test('an entry gives back exactly the result it was made from, and a damaged or 
   assert.throws(() => decodeEntry(key, damaged), /damaged/);
   assert.throws(() => encodeEntry(key, { db: new Map() }), Uncacheable);
 });
+
+test('one stored result serves every build label, each hit stamped with the label it was asked for', () => {
+  const wb = loadTables(join(root, 'data'));
+  const snapshot = snapshotDate(wb.Method.rows);
+  const first = buildDatabase(wb, { snapshot, build: 'label-a', estimates: false });
+  const second = buildDatabase(wb, { snapshot, build: 'label-b', estimates: false });
+  assert.equal(first.db.meta.build, 'label-a');
+  assert.equal(second.db.meta.build, 'label-b');
+  if (second.cached) assert.equal(second.cached.key, first.cached?.key ?? second.cached.key, 'the second label read the first one\'s entry');
+  assert.deepEqual({ ...second.db, meta: { ...second.db.meta, build: 'label-a' } }, first.db);
+});

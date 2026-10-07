@@ -9,7 +9,7 @@
 //                   estimate model are read from there), and the installed dependency tree (build/node_modules)
 //   the runtime     Node's version, platform and architecture, ICU's version and the default collation locale
 //                   (the estimate stage sorts with localeCompare)
-//   the options     snapshot, build and estimates
+//   the options     snapshot and estimates (the build label is a stamp on db.meta, which buildDatabase sets on a hit)
 //
 // A key that cannot be computed safely is no key: a `wb` holding anything other than plain objects, arrays and
 // primitives, a result that does not survive serialisation exactly, a build that changed its own input, or a code

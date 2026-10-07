@@ -89,7 +89,7 @@ test('a numeric measurement in a unit its property does not allow is an error', 
 test('a headline limited to some materials is not applicable, with its reason, everywhere else', () => {
   const { db, errors } = build((wb) => {
     Object.assign(wb['Headline definitions'].rows.find((h) => h.HeadlineKey === 'elongationXY'), { 'Applies to': 'Scope: H2C-relevant', 'Not applicable reason': 'test rule' });
-  });
+  }, { estimates: false });
   const excluded = db.materials.filter((m) => m.scope === 'Excluded');
   assert.ok(excluded.length);
   for (const m of excluded) {

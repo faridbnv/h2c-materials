@@ -1,0 +1,19 @@
+SourceID,SHA256,Class,Title,Pages,Why,Grades,Products
+R-BASF-GAP2-20261005-002e9b98caaa,002e9b98caaa480e47cb7ad03f70e51337c70b1014917e5eaf87db89ad521203,Manufacturer product page or guide,Ultrafuse 316L User Guidelines for 3D Printing Metal Parts,9,nd,G171-02,G171-02 = BASF Forward AM Ultrafuse 316L
+R-COLORFABB-TDS-E-PA-Blue-Metal-Detectable,8de66aa22ae18962fe19c52119a552cec6fb8edb3b8d18804e429ba32688c17b,Manufacturer TDS,Technical datasheet PA Blue Metal Detectable,2,ext,G164-02,G164-02 = colorFabb PA Blue Metal Detectable
+D-FLASH-FABRIAL-R-TPE-TDS-JP,36bdc5d8f5c3688c6f49629cf2ac5ac6e2ee6f587d8b91d2392e36e088fdd501,Manufacturer TDS,"テクニカルデータシート FABRIAL-R (TPE) [Technical Data Sheet FABRIAL-R, Japanese]",1,nd,G167-14,G167-14 = Flashforge FABRIAL-R
+R-FABRU-QR-20261007-d299af0d6899,d299af0d689965ebd128c678126bfcf8667f297f1437c2717b5d7a2413fa2613,Manufacturer TDS,GreenTEC (purefil material data sheet),1,nd,G168-07,G168-07 = Fabru GreenTEC
+R-NANOVIA-ISTROFLEX,d86d18d3c27a5af40763b4c0a44249c82262e1d6fc61f2db8a20ba13381a46de,Manufacturer TDS,Store,1,nd,G167-12,G167-12 = Nanovia ISTROFLEX
+X-3DXPRO-LG-PETG-TDS-v3,90bffa56993d09180589ba4ceb660a8505cdd7956eb8744666309cd1ecd8f853,Manufacturer TDS,3DXPRO LG PETG,1,nd,G020-01,G020-01 = 3DXTECH 3DXPRO LG PETG
+D-3D4MAKERS-PLA-FILAMENT-PAGE,cdcfb5e915c37e9f1e9efc317bd8bc705380a62a85fef78613c7d12b91739570,Manufacturer product page or guide,PLA Filament,1,ext,G001-95,G001-95 = 3D4Makers PLA
+D-COLORFABB-LW-PET-FLEX-NATURAL-PAGE,2e78dcea5a5db3fd816d157708072fad95869c3ae2b656c3c3be612dbef0c2f6,Manufacturer product page or guide,LW-PET FLEX NATURAL,1,ext,G141-02,G141-02 = colorFabb Lightweight PET FLEX
+D-FABRU-PUREFIL-PUREFIL-PA12-CF15-FILAMENT-310-7552-PAGE,60f7eeb5ce7b601ff9ffaaabc3bb6200bb7c9a2dd618a2ee15239a486acd883f,Manufacturer product page or guide,purefil PA12 CF15 tiefschwarz 1kg 1.75mm,1,ext,G053-12,G053-12 = Fabru Polyamid 12 carbon fiber 15% (PA12 CF15)
+D-KIMYA-FILAMENT-PAGE,d58ec4c07f63ebadf9482010943a9d6a67e590d38a49fb18338900cb64cf5bcf,Manufacturer product page or guide,Filament - Kimya,1,ext,G045-03 G046-02,G045-03 = Kimya Kimya PEBA-S | G046-02 = Kimya Kimya TPC-91A
+D-YOUSU-PC-PAGE,5c18d043d64b2208256abcd16a40c8f08b1b667fd8f78cc6d19870bee079d74c,Manufacturer product page or guide,YOUSU PC 3D Filament natural 1.75mm 2.85mm 1kg,1,ext,G035-25,G035-25 = Yousu PC
+R-3DXTECH-READER-20261004-1e9273d6658c,1e9273d6658caf6b5bb675f2f9b5569f2a16d558b1c534d4df73bb691a4e4db7,Manufacturer product page or guide,3DXSTAT ESD-Nylon 12 product page (archived 2025-11-15),1,ext,G064-01,G064-01 = 3DXTECH 3DXSTAT ESD PA12
+R-ESUN-PRIORITY-20261003-be26800125b2,be26800125b288750361183a6206277d042a9c867fbdb3c0eeccbd59b4867f19,Manufacturer product page or guide,TPU-64D official maker product page,1,ext,G039-44,G039-44 = eSUN TPU-64D
+R-FORMFUTURA-READER-20261004-835cca10109f,835cca10109fa409b2dd23c01fd0de511613399e4424bcafbc3be0ffa591d754,Manufacturer product page or guide,FlexiFil,1,ext,G046-07,G046-07 = FormFutura FlexiFil
+R-ISANMATE-READER-20261004-c117288bd0d4,c117288bd0d4f22a380d1364b157bfcc07abca5063d153d382382b967415573c,Manufacturer product page or guide,iSANMATE Durable PETG Glass Fiber Filament for industrial parts,1,ext,G025-01,G025-01 = iSANMATE PETG Glass Fiber
+R-RAISE3D-GAP2-20261005-823e5cec6179,823e5cec6179e326ddb75d15b2d50cf40a154a86b38ffdffb91a90c8bac9053c,Manufacturer product page or guide,PETG ESD,1,ext,G026-06,G026-06 = Raise3D Industrial PETG ESD
+XP-3dxstat-esd-pei-ultem-1010,5b18d8ad71f669f89401e19ea6b8e35d9673701d7cc01b5bfe4c3f0b2a16e098,Manufacturer product page or guide,3DXSTAT™ ESD-PEI 1010,1,ext,G123-01,G123-01 = 3DXTECH 3DXSTAT ESD-Ultem 1010
+XP-triton-asa,e3ff1483295a8b68980b783e1fbdb4af529a35bbdeedd72d1b0a13d3548b6b9f,Manufacturer product page or guide,TRITON3D™ ASA - Stratasys® Compatible,1,ext,G031-39,G031-39 = 3DXTECH Triton ASA Model Material

@@ -76,7 +76,9 @@ function compiled(dir, { estimates = true } = {}) {
 test('a property for elastomers only is added with data rows alone and reaches every view', () => {
   const { dir, elastomerId, measurementId } = withShoreA();
   try {
-    const { db, schemaIssues, errors } = compiled(dir);
+    // The core database: every view below reads the compiled headline, and Shore A hardness is not estimated, so the
+    // estimate stage would add nothing here but twenty seconds (completeness round, D136).
+    const { db, schemaIssues, errors } = compiled(dir, { estimates: false });
     assert.deepEqual(schemaIssues, []);
     assert.deepEqual(errors, []);
 

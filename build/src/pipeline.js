@@ -25,7 +25,10 @@ import { cacheEnabled, cacheKey, claim, readEntry, writeEntry } from './build-ca
 let handedOutOriginal = false;
 
 export function buildDatabase(wb, { snapshot = snapshotDate(wb.Method.rows), build = 'dev', estimates = true, cache = true } = {}) {
-  const options = { snapshot, build, estimates };
+  // The build label is a stamp on db.meta, never an input of the result: one entry serves every label, and a hit is
+  // stamped with the label asked for. So the tests' builds of the tables as they are reuse the one npm run build has
+  // just stored, where they used to compute the estimate stage again (completeness round, D136).
+  const options = { snapshot, estimates };
   const key = cache && cacheEnabled() ? cacheKey(wb, options) : null;
   let lock = null;
   if (key) {
@@ -33,7 +36,10 @@ export function buildDatabase(wb, { snapshot = snapshotDate(wb.Method.rows), bui
     // Stored already, or stored by another process while this one waited for it.
     const hit = readEntry(key) ?? (lock = claim(key)).entry;
     // `timing` says what this call cost; `cached.timing` what the build that stored the result cost.
-    if (hit) return { db: hit.db, issues: hit.issues, timing: { cache: Math.round(performance.now() - t) }, cached: { key, timing: hit.timing } };
+    if (hit) {
+      hit.db.meta.build = build;
+      return { db: hit.db, issues: hit.issues, timing: { cache: Math.round(performance.now() - t) }, cached: { key, timing: hit.timing } };
+    }
   }
   try {
     // Each stage's wall time, so a build that is getting slower says which stage is. The estimate stage is cubic in
