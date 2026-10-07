@@ -42,9 +42,9 @@ ABS-AF
 ABS-CF
 4.35
 2.7–5.21 · 4
-0.00156
+0.00157
 log scale
-20.8
+21.8
 all 152 candidates
 Tensile strength (XY) MPa
 ABS
@@ -56,7 +56,7 @@ ABS-CF
 43.3
 27.3–48 · 5
 7
-287
+299
 all 152 candidates
 Tensile strength (Z) MPa
 ABS
@@ -75,11 +75,11 @@ ABS
 10
 2.7–40 · 16
 ABS-AF
-~2–17†
+~2–18†
 ABS-CF
 1.9
 1.48–3.08 · 4
-0.603
+0.645
 log scale
 1,050
 all 152 candidates

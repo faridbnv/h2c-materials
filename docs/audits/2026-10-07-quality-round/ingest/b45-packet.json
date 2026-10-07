@@ -1,0 +1,256 @@
+{
+  "PacketID": "b45-quality-round",
+  "Batch": "b45",
+  "Documents": [
+    {
+      "File": "8106f1c5c75e2cb3.json",
+      "ProposalSHA256": "c1b7ae318697fe4caf736c6c59999644ae981427afa02b10165a0f23ff958b49",
+      "OriginalSHA256": "8106f1c5c75e2cb3a5bb5ed7b0af16ea438681153caa2f132601755aa53a9789",
+      "Source": {
+        "SourceID": "R-POLYMAKER-QR-20261007-8106f1c5c75e",
+        "Publisher": "Polymaker",
+        "Title": "Panchroma™ CoPE Technical Data Sheet",
+        "Revision": "V5.4",
+        "Publication date": "Not published",
+        "Access date": "2026-10-07",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Polymaker's six-page data sheet for Panchroma CoPE, version 5.4, as the Internet Archive captured it on 2025-11-04 12:49:41 UTC: physical, thermal and mechanical tables (the mechanical one in a classic and a high printing speed column), recommended printing conditions and how its test bars were made. The maker's address (https://polymaker.com/wp-content/uploads/lana-downloads/Panchroma-CoPE_TDS_EN_V5.4.pdf) answers 404; R-POLYMAKER-COPE-TDS-V5-4 recorded it not retrieved on 2026-09-13.",
+        "Citation role": "cited",
+        "URL": "http://web.archive.org/web/20251104124941id_/https://polymaker.com/wp-content/uploads/lana-downloads/Panchroma-CoPE_TDS_EN_V5.4.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "M091 / G091-02",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-07 by Claude Sonnet (quality round 2026-10-07, b45) as the raw capture (id_) of https://polymaker.com/wp-content/uploads/lana-downloads/Panchroma-CoPE_TDS_EN_V5.4.pdf, captured 2025-11-04 12:49:41 UTC; the document hashed is the file as the Internet Archive replays it. Staged by digest (ingest:witness --from). The maker does not serve it now.",
+        "SHA256": "8106f1c5c75e2cb3a5bb5ed7b0af16ea438681153caa2f132601755aa53a9789"
+      },
+      "Grades": [
+        {
+          "Key": "main",
+          "GradeID": "G091-02",
+          "MaterialID": "M091",
+          "Manufacturer": "Polymaker",
+          "Product name": "Panchroma CoPE"
+        }
+      ],
+      "Values": 22,
+      "Profiles": 1,
+      "Skipped": [
+        "Melting temperature: prints N/A",
+        "Bending modulus (Z), both columns: N/A",
+        "Bending strength (Z), both columns: N/A",
+        "Notched Charpy impact strength (Z), both columns: N/A",
+        "MAX VOLUMETRIC SPEED table (p. 3): a printing-speed/flow table, not a profile",
+        "SURFACE GLOSSINESS table (p. 3, GU values by speed and temperature): a gloss table, not a profile",
+        "Page 5 HOW TO MAKE SPECIMENS settings (230 °C, bed 50 °C, shell 2, top & bottom 3, infill 100 %, ambient, fan ON): recorded in params of the mechanical values; it differs from the column footnotes (210 °C / 230 °C), a conflict inside the sheet",
+        "Page 5 specimen drawings (tensile, flexural, impact with 45° notch, Z axis arrows): no numbers recorded beyond the notch angle being in the drawing",
+        "Page 4 FAQ (do not print with PLA, glue caution, bed 40-50℃ not above 60℃, textured PEI not recommended): bed items kept in the profile notes only",
+        "Page 1 cover and page 6 disclaimer: no values",
+        "Environmental temperature \"Ambient temperature\" (p. 5): a specimen condition, not an enclosure recommendation"
+      ]
+    },
+    {
+      "File": "01ba14075179671e.json",
+      "ProposalSHA256": "499380edfc1d76c6c426587d6bcbc44e9167ea302d254a1fde481584087a7c13",
+      "OriginalSHA256": "01ba14075179671e90a7ed069d2b68dcdef0bfc2660c9996d07c381fe2d1b336",
+      "Source": {
+        "SourceID": "R-KIMYA-QR-20261007-01ba14075179",
+        "Publisher": "Kimya",
+        "Title": "Kimya TPC-ESD 3D Filament",
+        "Revision": "Revised on 13/11/2019",
+        "Publication date": "2019-11-13",
+        "Access date": "2026-10-07",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Kimya's two-page technical data sheet for its TPC-ESD filament, created and revised 13/11/2019, as a retailer (shop3duniverse.com) serves it; kimya.fr does not answer. Filament properties on page 1, printed specimens' properties (printing direction XY) on page 2.",
+        "Citation role": "cited",
+        "URL": "https://shop3duniverse.com/cdn/shop/t/116/assets/kimya-tpc-esd-3d-filament_en.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-07 by Claude Sonnet (quality round 2026-10-07, b45) from https://shop3duniverse.com/cdn/shop/t/116/assets/kimya-tpc-esd-3d-filament_en.pdf; staged by digest (ingest:witness --from, docs/audits/2026-10-07-quality-round/ingest/staged-manifest-b45.csv).",
+        "SHA256": "01ba14075179671e90a7ed069d2b68dcdef0bfc2660c9996d07c381fe2d1b336"
+      },
+      "Grades": [
+        {
+          "Key": "main",
+          "GradeID": null,
+          "MaterialID": "M114",
+          "Manufacturer": "Kimya",
+          "Product name": "Kimya TPC-ESD"
+        }
+      ],
+      "Values": 11,
+      "Profiles": 0,
+      "Skipped": [
+        "Diameter 1,75 ± 0,1 mm: dimension, not a property",
+        "Charpy impact resistance ISO 179-1/1eA prints \"No Break\": no number",
+        "Note 1 and Note 2 (French): footnote and \"indicative values\" disclaimer, recorded in notes only",
+        "Block headed PRINT PARAMETERS AND SPECIMENS DIMENSIONS is the specimen print block (its heading says specimens); recorded as a profile because its nozzle and bed ranges read as settings, doubtful whether the maker recommends them",
+        "\"Shore hardness of 91 A\" in the intro: repeats the Shore Hardness row",
+        "Surface resistivity 10⁷ - 10⁹ Ohms/m² (ASTM D257): an exponent range in a unit the table does not hold; left in the record tier.",
+        "The block \"PRINT PARAMETERS AND SPECIMENS DIMENSIONS\" (nozzle 230-270 °C, bed 60-85 °C, 20-60 mm/s, 100 % rectilinear, XY) is how the test bars were printed, not a recommendation: never a profile (m170); it is the printed bars' statement of the page 2 values."
+      ]
+    },
+    {
+      "File": "70f515d2b2875c2f.json",
+      "ProposalSHA256": "8fd9dbb6477e7b1cf0eee1e908b665cf4eef97bf133ddd41d42d5fac54b0527f",
+      "OriginalSHA256": "70f515d2b2875c2fa517ce7eaa4fb8b2df0add8e0496a72a3d37e93ff8bcd978",
+      "Source": {
+        "SourceID": "R-DREMC-QR-20261007-70f515d2b287",
+        "Publisher": "DREMC",
+        "Title": "PBT GF – Glass Fibre Technical Data Sheet (TDS)",
+        "Revision": "V1.1",
+        "Publication date": "Not published",
+        "Access date": "2026-10-07",
+        "Source class": "Manufacturer TDS",
+        "Source note": "DREMC's three-page data sheet for its PBT GF filament (file DREMC_PBT_GF_TDS_V1.1.pdf, linked from the product page): physical and mechanical tables, the test bars' printing conditions, a drying note.",
+        "Citation role": "cited",
+        "URL": "https://cdn.shopify.com/s/files/1/0541/6638/8905/files/DREMC_PBT_GF_TDS_V1.1.pdf?v=1747390078",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-07 by Claude Sonnet (quality round 2026-10-07, b45) from https://cdn.shopify.com/s/files/1/0541/6638/8905/files/DREMC_PBT_GF_TDS_V1.1.pdf?v=1747390078; staged by digest (ingest:witness --from, docs/audits/2026-10-07-quality-round/ingest/staged-manifest-b45.csv).",
+        "SHA256": "70f515d2b2875c2fa517ce7eaa4fb8b2df0add8e0496a72a3d37e93ff8bcd978"
+      },
+      "Grades": [
+        {
+          "Key": "main",
+          "GradeID": null,
+          "MaterialID": "M132",
+          "Manufacturer": "DREMC",
+          "Product name": "PBT GF"
+        }
+      ],
+      "Values": 9,
+      "Profiles": 1,
+      "Skipped": [
+        "Chemical Properties table (acid, alkali, oil and grease, organic solvent resistance): qualitative, no number",
+        "Specimen Testing conditions (0.6mm nozzle, 300 °C, 50mm/s, 0.12mm layer, infill 100%) p. 2: recorded in the params of every mechanical value, not a recommended-settings profile",
+        "Annealing Tip: 80-100 °C for 2-3 hours: a post-process recommendation, not a recorded value",
+        "Supports advice (remove supports once cooled): text only",
+        "The only drying statement is a note for wet filament, recorded as a profile with a drying cell only; the sheet has no recommended nozzle or bed block",
+        "\"added GF <10%\" composition figure: identity statement",
+        "Specimen drawings (tensile ASTM D638/ISO 527/GB/T 1040; flexural ASTM D790/ISO 178/GB/T 9341) p. 2: the drawings show a Z axis arrow normal to the flat bar; no number to record",
+        "Disclaimer p. 3: no values"
+      ]
+    },
+    {
+      "File": "a23be9ad12ed9c70.json",
+      "ProposalSHA256": "69289747225724b69a8d47f892a883cc05358dfaae5dab109643c0e0e95eff54",
+      "OriginalSHA256": "a23be9ad12ed9c705ef4ef3015eea73054cee1b708840f20addb45daf8fec7fd",
+      "Source": {
+        "SourceID": "R-DREMC-QR-20261007-a23be9ad12ed",
+        "Publisher": "DREMC",
+        "Title": "DREMC PBT GF Glass Fibre Filament 1.75mm 1kg",
+        "Revision": "Product page as served on 2026-10-07",
+        "Publication date": "Not published",
+        "Access date": "2026-10-07",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "DREMC's own product page for PBT GF: its specification block (density) and its printing settings and requirements (nozzle, bed, chamber, drying, a wear-resistant nozzle). The page marks the product end of life for retail.",
+        "Citation role": "cited",
+        "URL": "https://store.dremc.com.au/products/dremc-pbt-gf-glass-fibre-filament-1-75mm-1kg",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-10-07 by Claude Sonnet (quality round 2026-10-07, b45) from https://store.dremc.com.au/products/dremc-pbt-gf-glass-fibre-filament-1-75mm-1kg; staged by digest (ingest:witness --from, docs/audits/2026-10-07-quality-round/ingest/staged-manifest-b45.csv).",
+        "SHA256": "a23be9ad12ed9c705ef4ef3015eea73054cee1b708840f20addb45daf8fec7fd"
+      },
+      "Grades": [
+        {
+          "Key": "main",
+          "GradeID": null,
+          "MaterialID": "M132",
+          "Manufacturer": "DREMC",
+          "Product name": "PBT GF"
+        }
+      ],
+      "Values": 1,
+      "Profiles": 1,
+      "Skipped": [
+        "Diameter: 1.75mm (+/- 0.05mm), Net weight 1KG, Empty spool ~150g, spool dimensions: packaging data, not material properties",
+        "Prices, bulk discount table, quantities: shop content",
+        "Retraction settings (0.5-1 mm, 20 mm/s direct drive; 2-3 mm bowden): not a profile cell",
+        "\"Material is stable up to 280°C\", \">290°C may emit carbon monoxide, tetrahydrofuran\", \"do not exceed 280°C\": safety statements, not recorded as values",
+        "\"<10% glass fibre\" composition figure: composition statement, recorded as identity",
+        "Printing Settings block names \"carbon fiber material is abrasive\" for a glass-fibre product (printed as is, in nozzleMaterial)",
+        "Product page is marked discontinued/EOL for retail (replaced by PC PBT GF)"
+      ]
+    },
+    {
+      "File": "d299af0d689965eb.json",
+      "ProposalSHA256": "6137216402696407a133d8b3c804eafb619060fdfc9e7983d2c2d3cc86dd6c97",
+      "OriginalSHA256": "d299af0d689965ebd128c678126bfcf8667f297f1437c2717b5d7a2413fa2613",
+      "Source": {
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Publisher": "Fabru / purefil",
+        "Title": "GreenTEC (purefil material data sheet)",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Fabru's one-page German material data sheet for purefil GreenTEC (Materialdatenblatt), linked from purefil.ch's product page \"purefil GreenTEC filament\": processing data and technical data. It names no polymer; its figures are Extrudr GreenTEC's, which purefil sells under the same name (R179).",
+        "Citation role": "cited",
+        "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/1971%2FMaterialdatenblatt+GreenTEC+purefil.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "${grade:main}",
+        "Access state": "retrieved",
+        "Access note": "Fetched 2026-09-17 by the V2 import (docs/audits/2026-09-18-v2-import/ledger.csv, doc_key d299af0d689965eb), hash-checked, and held for its identity until the owner's ruling R179; staged by digest for this batch (ingest:witness --from) and admitted in batch b45 (2026-10-07).",
+        "SHA256": "d299af0d689965ebd128c678126bfcf8667f297f1437c2717b5d7a2413fa2613"
+      },
+      "Grades": [
+        {
+          "Key": "main",
+          "GradeID": null,
+          "MaterialID": "M168",
+          "Manufacturer": "Fabru",
+          "Product name": "GreenTEC"
+        }
+      ],
+      "Values": 8,
+      "Profiles": 1,
+      "Skipped": [
+        "Formbeständigkeitstemperatur 0.45 MPa: prints \"-\" (no value)",
+        "Wärmeleitzahl 23°C: prints \"-\" (no value)",
+        "Brennbarkeit HB: a flammability class, not a property in properties.csv",
+        "\"Wärmebeständigkeit ... 115°C (VST)\" in the Allgemein text: repeats the Vicat A row, not recorded twice",
+        "Dichte/ISO 14855 biodegradability and Verordnung Nr. 10/2011 food-contact statement: not numeric properties",
+        "Trocknungsdauer 2h is printed on its own line beside Trocknungstemperatur 80°C; recorded in the profile notes, the drying cell holds 80°C only"
+      ]
+    }
+  ],
+  "Totals": {
+    "Documents": 5,
+    "NewGrades": 4,
+    "Values": 51,
+    "Profiles": 4
+  },
+  "NewVocabulary": [
+    {
+      "Vocabulary": "manufacturers",
+      "Value": "DREMC",
+      "Meaning": "Australian maker and shop (DREMC, store.dremc.com.au); sells its own filament line under the DREMC name.",
+      "Aliases": "DREMC 3D"
+    }
+  ],
+  "Review": {
+    "prepared_by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+    "scope": "five documents: a not-retrieved sheet found in the Internet Archive, three documents for two thin materials, and a sheet held for its identity until R179"
+  },
+  "NotAdmitted": [
+    {
+      "Document": "DREMC Support for PLA/PETG product page (store.dremc.com.au, f63f2f7aa307)",
+      "Why": "its settings (bed 100-110 °C, a 60-80 °C enclosure) are not a support printed beside PLA and read as another product's template, its SKU is DR-SUPPORT-PP and it names no polymer: a page that contradicts its product is not entered on the reviewer's word. Left for the owner."
+    },
+    {
+      "Document": "Z-Polymers Tullomer TDS 1.8 (7d15f954a020)",
+      "Why": "the sheet names no polymer (only \"Tullomer\"), and the maker's product page as served names none either; filed as LCP only on press reports, which R205 does not admit. Not entered."
+    },
+    {
+      "Document": "BASF Forward AM hub pages for Ultrafuse 17-4 PH, PPSU and Support Layer (Internet Archive), Eryone ABS+ TDS (2023), iSANMATE ASA, PA12 CF and CF-PC (2023-2024), Polymaker PolyCast TDS V5.2",
+      "Why": "fetched again (docs/audits/2026-10-07-quality-round/web/refetch.csv) but not entered: products the catalogue does not hold (17-4 PH, PPSU, Support Layer, ABS+), or earlier editions of sheets already entered in a later revision (iSANMATE, PolyCast V5.5)."
+    },
+    {
+      "Document": "purefil LCP, purefil TPV 98A and Fillamentum NonOilen product pages",
+      "Why": "they repeat the print settings their products' registered sheets already give (P1467, P1452, P1396 and P1397) and add no setting a column holds."
+    }
+  ]
+}

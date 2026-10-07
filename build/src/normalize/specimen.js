@@ -54,8 +54,8 @@ export function readPostProcessingState(text) {
   if (s === 'Not published') return 'not-stated';
   // Raise3D heads its first table "Conditioned, before annealed" and BASF its columns "as printed without annealing" or
   // "non-annealed" (m298): each denies the annealing the next table states. Flashforge's note says "the printed model has
-  // not been annealed", which read as annealing (gap round 2's blind draw).
-  if (/not (?:been |be )?annealed|unannealed|non-?annealed|before anneal\w*|without anneal\w*|no anneal\w*/i.test(s)) return 'as-printed';
+  // not been annealed", which read as annealing (gap round 2's blind draw). DREMC's note says "Test sample is un-annealing".
+  if (/not (?:been |be )?annealed|un-?anneal\w*|non-?annealed|before anneal\w*|without anneal\w*|no anneal\w*/i.test(s)) return 'as-printed';
   if (s === 'As printed') return 'as-printed';
   // Polish sheets print "wyżarzone" (annealed) in the row label (quality round 2026-10-07).
   if (/anneal|wyżarz/i.test(s)) return 'annealed';

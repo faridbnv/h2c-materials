@@ -1,5 +1,5 @@
 {
-  "dataRelease": "365d9a012700",
+  "dataRelease": "9f2ccc2b485b",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -25,7 +25,10 @@
     "G165-04",
     "G165-05",
     "G018-20",
-    "G001-200"
+    "G001-200",
+    "G114-02",
+    "G132-02",
+    "G168-07"
   ],
   "applicationCells": {
     "Evidence recorded": 43,
@@ -47,11 +50,11 @@
     }
   },
   "allCataloguePrintGates": {
-    "products": 1102,
-    "nozzleKnown": 1067,
-    "chamberKnown": 789,
-    "chamberUnknown": 313,
-    "dryingRequired": 620
+    "products": 1105,
+    "nozzleKnown": 1069,
+    "chamberKnown": 791,
+    "chamberUnknown": 314,
+    "dryingRequired": 623
   },
   "databaseCounts": {
     "materials": 175,
@@ -63,14 +66,14 @@
       "profiles": 80
     },
     "excluded": 17,
-    "grades": 1177,
-    "measurements": 14611,
-    "numericMeasurements": 14421,
+    "grades": 1180,
+    "measurements": 14662,
+    "numericMeasurements": 14472,
     "quarantined": 33,
-    "profiles": 1831,
+    "profiles": 1835,
     "evidence": 868,
-    "prices": 357,
-    "sources": 2003,
+    "prices": 365,
+    "sources": 2016,
     "coverage": 951,
     "knowHow": 4879,
     "polymerEnvironment": 353,
@@ -115,8 +118,8 @@
     },
     "grades": {
       "baseline": 1163,
-      "current": 1177,
-      "added": 14,
+      "current": 1180,
+      "added": 17,
       "edited_existing": 144,
       "removed": 0
     },
@@ -157,8 +160,8 @@
     },
     "measurements": {
       "baseline": 11536,
-      "current": 15012,
-      "added": 3476,
+      "current": 15063,
+      "added": 3527,
       "edited_existing": 2719,
       "removed": 0
     },
@@ -185,8 +188,8 @@
     },
     "prices": {
       "baseline": 357,
-      "current": 357,
-      "added": 0,
+      "current": 365,
+      "added": 8,
       "edited_existing": 7,
       "removed": 0
     },
@@ -206,15 +209,15 @@
     },
     "profile_notes": {
       "baseline": 2061,
-      "current": 2493,
-      "added": 432,
+      "current": 2500,
+      "added": 439,
       "edited_existing": 0,
       "removed": 0
     },
     "profiles": {
       "baseline": 1316,
-      "current": 1911,
-      "added": 595,
+      "current": 1915,
+      "added": 599,
       "edited_existing": 991,
       "removed": 0
     },
@@ -227,9 +230,9 @@
     },
     "sources": {
       "baseline": 1828,
-      "current": 2003,
-      "added": 175,
-      "edited_existing": 114,
+      "current": 2016,
+      "added": 188,
+      "edited_existing": 115,
       "removed": 0
     }
   },

@@ -1,7 +1,7 @@
 COUNT 89 shown PASS + UNKNOWN
-STATUS ☑ PASS 7 | ☑ UNKNOWN 104 | ☐ FAIL 41 | ☐ SCREENED 22
+STATUS ☑ PASS 7 | ☑ UNKNOWN 103 | ☐ FAIL 42 | ☐ SCREENED 21
 7 of the 152 materials meet these requirements
-Flexible component template · 104 more could not be checked, listed flagged, except 22 screened out
+Flexible component template · 103 more could not be checked, listed flagged, except 21 screened out
 Why the rest were excluded
 Clear requirements
 Within H2C temperature limits
@@ -175,13 +175,7 @@ PVB / Specialty Polymers
  UNKNOWN
 none judged
 nothing published to judge
- 1,020 ~0.44–1.42† ~43–81† ~20–500† 160 — ☆
-CoPE
-Copolyesters
- UNKNOWN
-none judged
-nothing published to judge
- 1,300 2.52 51.6 ~7–71† ~50–70† 21.6↗ ☆
+ 1,020 ~0.46–1.44† ~45–94† ~20–500† 160 — ☆
 CPE
 Copolyesters
  UNKNOWN
@@ -258,7 +252,7 @@ OBC
 Polyolefins
  PASS
 1 of 1 product
- 905 ~0.01–0.40† 14 passing: 700
+ 905 ~0.01–0.41† 14 passing: 700
 all products: 700
  n/a — ☆
 PA12
@@ -268,7 +262,7 @@ none judged
 nothing published to judge
  1,010
 1,000–1,020 · 6
- ~0.7–2.0† ~33–65† ~200–380† 135
+ ~0.7–2.0† ~34–68† ~200–380† 135
 100–135 · 3
  183
 123–242 · 2
@@ -308,7 +302,7 @@ none judged
 nothing published to judge
  1,150
 1,130–1,200 · 7
- ~1.5–4.0† ~41–80† ~51–107† 140
+ ~1.5–3.9† ~40–81† ~52–108† 140
 60–143 · 3
  163↗ ☆
 PA6-CF
@@ -372,7 +366,7 @@ annealed median
 ↗ ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.1–3.5† ~37–81† ~8–73† ~78–168† — ☆
+ UNKNOWN ~990–1,070† ~1.1–3.6† ~37–82† ~8–75† ~79–169† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN
@@ -404,6 +398,12 @@ annealed median
  3
 annealed median
  157 178↗ ☆
+PA66
+Nylon / Polyamide
+ UNKNOWN
+none judged
+nothing published to judge
+ ~1,010–1,060† ~1.4–4.1† ~42–96† ~6–51† ~60–99† 246¤ ☆
 PAHT-CF
 Nylon / Polyamide
  UNKNOWN
@@ -511,7 +511,7 @@ Polymer Blends
  UNKNOWN
 none judged
 nothing published to judge
- 1,250 ~3.6–5.1† ~90.0–98.8† ~3.6–8.5† ~113–127† 115¤ ☆
+ 1,250 ~3.6–5.0† ~90.0–99.5† ~3.6–8.6† ~113–127† 115¤ ☆
 PCL
 PVB / Specialty Polymers
  UNKNOWN
@@ -519,7 +519,7 @@ none judged
 nothing published to judge
  1,100
 1,100–1,130 · 3
- ~0.22–0.68† ~9–45† 800 57 — ☆
+ ~0.22–0.66† ~8–45† 800 57 234¤ ☆
 PCTG
 Copolyesters
  UNKNOWN
@@ -667,7 +667,7 @@ likely fails: 2 with data miss, 3 publish none
 PETG-PTFE UNKNOWN
 none judged
 nothing published to judge
- 1,320 ~0.9–2.7† ~25–53† ~105–201† ~48–73† 86↗ ☆
+ 1,320 ~0.9–2.7† ~27–57† ~105–202† ~49–73† 86↗ ☆
 PLA UNKNOWN
 0 of 62 products
 likely fails: 62 with data miss, 133 publish none
@@ -703,8 +703,8 @@ annealed median
 PLA blend UNKNOWN
 none judged
 nothing published to judge
- 1,345
-1,300–1,540 · 8
+ 1,340
+1,300–1,540 · 9
  4.3* 58* 14* 84
 54–115 · 5
  53.6
@@ -715,7 +715,7 @@ none judged
 nothing published to judge
  1,280
 1,200–1,360 · 2
- 7.12* 65* 2.5* 74 — ☆
+ 7.12* 65* 2.5* 74 83.8¤ ☆
 PLA Galaxy UNKNOWN
 0 of 2 products
 likely fails: 2 with data miss, 2 publish none
@@ -868,7 +868,7 @@ also called Acetal · Acetals
 likely fails: 2 with data miss, 1 publish none
  1,340
 1,140–1,420 · 3
- 1.87 50 11 100 — ☆
+ 1.87 50 11 100 121¤ ☆
 PP
 Polyolefins
  PASS
@@ -1024,7 +1024,7 @@ none judged
 nothing published to judge
  1,310
 1,269–1,350 · 2
- ~0.1–7.2† ~26–51† ~20–370† ~51–76† — ☆
+ ~0.1–7.1† ~27–55† ~10–370† ~51–76† 80.9¤ ☆
 PVDF
 Fluoropolymers
  UNKNOWN
@@ -1040,7 +1040,7 @@ Styrenics
  UNKNOWN
 none judged
 nothing published to judge
- 1,080 ~2.7–4.5† ~72–90† ~5–51† ~102–114† — ☆
+ 1,080 ~2.7–4.5† ~72–89† ~5–49† ~102–114† — ☆
 SBC
 Styrenics
  UNKNOWN
@@ -1070,7 +1070,13 @@ Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,280 1.4 70 > 300 n/a — ☆
+ 1,240
+1,200–1,280 · 2
+ 0.723
+0.046–1.4 · 2
+ 41.5
+13.1–70 · 2
+ > 300 n/a — ☆
 TPE, maker-undisclosed elastomer
 Flexible Elastomers
  UNKNOWN
@@ -1142,7 +1148,7 @@ none judged
 nothing published to judge
  1,180
 1,090–1,260 · 15
- ~0.01–0.39† 30
+ ~0.01–0.40† 30
 22.4–39 · 3
  540
 140–650+ · 3
@@ -1152,7 +1158,7 @@ Flexible Elastomers
  UNKNOWN
 none judged
 nothing published to judge
- 1,230 ~0.02–0.72† ~23–74† ~22–66† n/a 189
+ 1,230 ~0.02–0.74† ~18–94† ~19–60† n/a 189
 150–227 · 2
 ¤↗
 out of stock
@@ -1164,7 +1170,7 @@ none judged
 nothing published to judge
  1,255
 1,180–1,330 · 2
- ~0.01–0.35† ~14–45† ~80–310† n/a — ☆
+ ~0.01–0.36† ~11–57† ~90–330† n/a 202¤ ☆
 TPU-ESD
 Flexible Elastomers
  UNKNOWN
@@ -1172,7 +1178,7 @@ none judged
 nothing published to judge
  1,190
 1,180–1,200 · 2
- ~0.01–0.36† 12 ~310–640† n/a 174¤ ☆
+ ~0.01–0.38† 12 ~310–680† n/a 174¤ ☆
 TPU-LW
 Flexible Elastomers
  UNKNOWN
@@ -1180,7 +1186,7 @@ none judged
 nothing published to judge
  1,085
 880–1,200 · 4
- ~0.005–0.19† 10.3 629 n/a 70↗ ☆
+ ~0.005–0.20† 10.3 629 n/a 70↗ ☆
 TPV
 Flexible Elastomers
  UNKNOWN

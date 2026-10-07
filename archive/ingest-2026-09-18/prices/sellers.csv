@@ -31,3 +31,4 @@ texasfilamentsupply.com,Texas Filament Supply,TEXASFILAMENT,USD storefront,Exclu
 np3dp.com,Narrow Path 3D,NP3DP,USD storefront,Excluded; sales tax and shipping at checkout,A US retailer Fiberlogy names as a seller; Shopify base currency USD.
 3dprintersdepot.com,3D Printers Depot,3DPRINTERSDEPOT,USD storefront,Excluded; sales tax and shipping at checkout,A US retailer; Shopify base currency USD.
 www.3djake.com,3DJake International,3DJAKE,European storefront,Excluded: the page states all prices exclude VAT; delivery extra,"Austria (niceshops); prices in EUR, shown before VAT to a visitor outside the EU, which the page states."
+filamentworld.de,filamentworld.de,FILAMENTWORLD,European storefront,"Included: 19 % MwSt., the rate each page prints beside the price; shipping extra","Germany; WooCommerce, prices in EUR including German VAT at the rate the page states (quality round 2026-10-07, p05)."

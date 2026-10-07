@@ -1100,6 +1100,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Creality | Printer maker (Shenzhen Creality 3D); sells filament under its own name. | CREALITY;creality;Creality 3D |
 | CreatBot | Chinese printer maker (Henan Suwei Electronic Technology); sells filament under its own name. | Creatbot;creatbot |
 | Dow | Resin supplier; the EVOLV3D line is its filament brand. | The Dow Chemical Company;Dow Chemical |
+| DREMC | Australian maker and shop (DREMC, store.dremc.com.au); sells its own filament line under the DREMC name. | DREMC 3D |
 | DSM | Resin supplier; the Arnitel line is its brand. | DSM Engineering Materials;Royal DSM |
 | DuPont | Resin supplier; the Delrin and Zytel lines are its brands. | DuPont Engineering Polymers;E. I. du Pont de Nemours |
 | DuPont / Celanese | The Delrin acetal line, sold by DuPont and later by Celanese; a grade sheet that carries both names. Two companies, so it is not merged into either. | Celanese / DuPont |

@@ -117,7 +117,7 @@ test('the annealing schedule is a typed pair the wording checks: three spellings
   assert.equal(parseAnnealSchedule('As printed', 'as-printed'), null);
   // A sentence that denies annealing is the as-printed state, however it is worded (Flashforge's note, gap round 2).
   const { readPostProcessingState } = await import('../build/src/normalize/specimen.js');
-  for (const text of ['the printed model has not been annealed', 'not annealed', 'as printed without annealing', 'Conditioned, before annealed', 'no annealing']) {
+  for (const text of ['the printed model has not been annealed', 'not annealed', 'as printed without annealing', 'Conditioned, before annealed', 'no annealing', 'Test sample is un-annealing', 'un-annealed']) {
     assert.equal(readPostProcessingState(text), 'as-printed', text);
   }
   assert.equal(readPostProcessingState('All specimens were annealed at 100 ºC for 8h'), 'annealed');

@@ -10,7 +10,8 @@
 //                                          are the file's, and they must hash to the digest the reader recorded
 //   npm run ingest:witness -- --from <manifest.csv>   many staged copies at once; columns file, url, doc, for,
 //                                          provider, manufacturer, product, sha256, accessed, by ("for" names a
-//                                          SourceID registered before the V2 import, whose sheet has no ledger row)
+//                                          SourceID registered before the V2 import, whose sheet has no ledger row, or
+//                                          material:M### for a product of that material the catalogue does not hold)
 //
 // R075 and R077 said the sheet answers what the name does not, and for two documents in three it does not: the
 // sheet prints the numbers and never the polymer. The owner chose, for those, the maker's own product page — the
@@ -62,7 +63,8 @@ function wanting(ledger, only = null) {
  * copy says who saved it and when, and is dated by that reading, not by the day it was staged.
  */
 export function witnessRow({ row, page, found = false, staged = null, today = new Date().toISOString().slice(0, 10), reread = false }) {
-  const forKey = row.doc_key || (staged?.forSource ? `source:${staged.forSource}` : '');
+  // A document a search found for a product the catalogue does not hold yet names the material it is for ("material:M114").
+  const forKey = row.doc_key || (staged?.forSource ? (/^material:M\d+$/.test(staged.forSource) ? staged.forSource : `source:${staged.forSource}`) : '');
   // A page the ledger already holds from another day's reading, with other bytes, is a second reading of it: keyed by
   // the day it was read, so neither reading replaces the other.
   return {
@@ -94,7 +96,7 @@ async function witness({ row, page, found = false, staged = null, reread = false
   storeBytes(got.bytes);
   const text = await documentText(got.bytes, { sha });
   const lines = (text.pages ?? []).reduce((n, p) => n + (p.lines ?? []).length, 0);
-  const of = row.doc_key || `source ${staged?.forSource}, registered before the V2 import (its sheet has no ledger row)`;
+  const of = row.doc_key || (/^material:M\d+$/.test(staged?.forSource ?? '') ? `a product of ${staged.forSource.slice(9)} the catalogue does not hold yet, found by a search (R089)` : `source ${staged?.forSource}, registered before the V2 import (its sheet has no ledger row)`);
   return { ...base, sha256: sha, format: isPdf ? 'PDF' : 'HTML', access_status: `${isPdf ? 'document' : 'page'} ${staged ? `staged (${staged.name})` : `fetched (${got.type || 'text/html'})`}`, status: 'duplicate-of',
     status_note: `the maker's ${isPdf ? 'document' : 'page'} for ${of}, ${lines} line(s) of text; a witness for what the sheet does not say` };
 }

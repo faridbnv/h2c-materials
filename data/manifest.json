@@ -6,20 +6,20 @@
       "sha256": "412ed7beb8eace90a529dda29c99a548b6c4c9c4f7bdb9e8585a88acf0bad5f8"
     },
     "grades": {
-      "rows": 1177,
-      "sha256": "c008eb3b09e9e0bed9e4f3246d32f0eb021ab40d7c5019c76b8732299148e618"
+      "rows": 1180,
+      "sha256": "769c02b680ad50bede3192efdd3e82bf6c2b8b1413367f4fe4368c718b15558d"
     },
     "profiles": {
-      "rows": 1911,
-      "sha256": "d73df13fc219fb9404ecf07b5e5fddb9e6fdf74dba99ff7b80f43d8c36439b81"
+      "rows": 1915,
+      "sha256": "30be63ff2110a8e58e2075d279c598f56c722a7456fa878787aab8f648460699"
     },
     "profile_notes": {
-      "rows": 2493,
-      "sha256": "b6d9309b26fe3e796941568911791c77ad712bf92a60ab7e7bafd661996caf49"
+      "rows": 2500,
+      "sha256": "4425e7bfd9260213e9bf6e298b4a03b730f04943076a2cfdac0677550e5ca0b2"
     },
     "measurements": {
-      "rows": 15012,
-      "sha256": "c33de5a3ee5214fb6a10181cdf109b8fa17104f64c6b7700b7251b8b3deb2612"
+      "rows": 15063,
+      "sha256": "156fba2484d1df76a6a22a88588504d699f55751a3d07f3eb1a49c2e23396692"
     },
     "page_context": {
       "rows": 985,
@@ -50,16 +50,16 @@
       "sha256": "5b6868e6f63a1a3eac8f0531fdde055730a7874ac225a580bef808328dc98b00"
     },
     "prices": {
-      "rows": 357,
-      "sha256": "7ee924a4e6150e8211de68eed5e28db91a262f826b220d0f51a534e402ba74b7"
+      "rows": 365,
+      "sha256": "7c31c6e83b0cc3eccce6b78fa0a4470e3df1570e2c164441b1291543734d2917"
     },
     "fx_rates": {
       "rows": 2,
       "sha256": "20a0a90e2492da45c2f956e325d15d53e596579262c2d42df3002ba733080ab0"
     },
     "sources": {
-      "rows": 2003,
-      "sha256": "f76fcae94208682350f13c1be72dfae582795221367393a416fc116ef8811270"
+      "rows": 2016,
+      "sha256": "1d6d7ee6aa6d0068be48b5ae3d2358ff3d38eb3c1378047095c26f30fda8f1a8"
     },
     "coverage": {
       "rows": 951,

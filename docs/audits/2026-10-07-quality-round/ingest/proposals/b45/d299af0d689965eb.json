@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b45.mjs (quality round 2026-10-07)",
+    "date": "2026-10-07"
+  },
+  "document": {
+    "sha256": "d299af0d689965ebd128c678126bfcf8667f297f1437c2717b5d7a2413fa2613",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/1971%2FMaterialdatenblatt+GreenTEC+purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/1971%2FMaterialdatenblatt+GreenTEC+purefil.pdf#b45"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": "M168",
+    "note": "R179 (the owner's ruling): GreenTEC is an undisclosed bio-copolymer of Extrudr's BIO Performance range, which purefil sells under the same name; its home is PLA blend (M168). Its table prints Extrudr GreenTEC's figures (docs/audits/2026-10-07-quality-round/web/greentec.md), so it takes that sheet as its formulation key (D119)."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+      "Publisher": "Fabru / purefil",
+      "Title": "GreenTEC (purefil material data sheet)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-17",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Fabru's one-page German material data sheet for purefil GreenTEC (Materialdatenblatt), linked from purefil.ch's product page \"purefil GreenTEC filament\": processing data and technical data. It names no polymer; its figures are Extrudr GreenTEC's, which purefil sells under the same name (R179).",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/1971%2FMaterialdatenblatt+GreenTEC+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-09-17 by the V2 import (docs/audits/2026-09-18-v2-import/ledger.csv, doc_key d299af0d689965eb), hash-checked, and held for its identity until the owner's ruling R179; staged by digest for this batch (ingest:witness --from) and admitted in batch b45 (2026-10-07).",
+      "SHA256": "d299af0d689965ebd128c678126bfcf8667f297f1437c2717b5d7a2413fa2613"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "GreenTEC ist ein Biokunststoff, welcher eine hohe Zug- und Biegefestigkeit hat."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+      "date": "2026-10-07"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "MaterialID": "M168",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "GreenTEC",
+        "Shared formulation key": "R-EXTRUDR-greentec-TDS-en",
+        "Composition / filler": "Not published: \"GreenTEC ist ein Biokunststoff\" (a bioplastic) \"aus 100% nachwachsenden Rohstoffen\"; the sheet names no polymer. Filed in PLA blend by the owner's ruling R179.",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "note": "New product: purefil GreenTEC, filed in PLA blend (M168) by R179, beside purefil GreenTEC Pro (G001-66); its table is Extrudr GreenTEC's, so it shares that sheet's key (D119)."
+      },
+      "evidence": {
+        "page": 1,
+        "text": "GreenTEC ist ein Biokunststoff, welcher eine hohe Zug- und Biegefestigkeit hat."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 294-4, 2577",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: Schwindung (Technische Daten)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Schwindung (ISO 294-4, 2577) 0.5 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m001"
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "4 cm /10min",
+        "Raw unit": "cm3/10min",
+        "Raw numeric": "4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: MFR (Technische Daten)",
+        "Notes": "The sheet prints no test temperature or load for the MFR; the cm3 exponent is on its own text line (\"3\").",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (ISO 1133) 4 cm /10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m002"
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "46 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "46",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "46",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: Streckspannung (Technische Daten)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckspannung (ISO 527) 46 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m003"
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: Streckdehnung (Technische Daten)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Streckdehnung (ISO 527) 3 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m004"
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "14 %",
+        "Raw unit": "%",
+        "Raw numeric": "14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: Reissdehnung (Technische Daten)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Reissdehnung (ISO 527) 14 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m005"
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3200 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: Zug-E-Modul (Technische Daten)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Zug-E-Modul (ISO 527) 3200 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m006"
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "115 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "115",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "115",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: Vicat Erweichungstemperatur A (Technische Daten)",
+        "Notes": "\"(ISO 306)\" is on the next text line; the label names method A, no load stated.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Erweichungstemperatur A 115 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m007"
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.30 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Technische Daten table; no specimen, print or conditioning conditions stated",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "Locator": "p. 1: Dichte (Technische Daten)",
+        "Notes": "The cm3 exponent is on its own text line (\"3\" at line 40). No test standard printed.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Dichte 1.30 g/cm"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m008"
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M168",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "180-230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "180",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "50-90 °C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Trocknungstemperatur 80°C, Trocknungsdauer 2h",
+        "Drying state": "stated",
+        "Drying need": "required",
+        "Drying °C": "80",
+        "Drying hours": "2",
+        "Drying hours open": "FALSE",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FABRU-QR-20261007-d299af0d6899",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Verarbeitungsdaten",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "evidence": {
+        "page": 1,
+        "text": "180-230 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image against the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Formbeständigkeitstemperatur 0.45 MPa: prints \"-\" (no value)"
+    },
+    {
+      "note": "Wärmeleitzahl 23°C: prints \"-\" (no value)"
+    },
+    {
+      "note": "Brennbarkeit HB: a flammability class, not a property in properties.csv"
+    },
+    {
+      "note": "\"Wärmebeständigkeit ... 115°C (VST)\" in the Allgemein text: repeats the Vicat A row, not recorded twice"
+    },
+    {
+      "note": "Dichte/ISO 14855 biodegradability and Verordnung Nr. 10/2011 food-contact statement: not numeric properties"
+    },
+    {
+      "note": "Trocknungsdauer 2h is printed on its own line beside Trocknungstemperatur 80°C; recorded in the profile notes, the drying cell holds 80°C only"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+    "date": "2026-10-07",
+    "note": "Read page by page on the page images and against the cached text: 8 value(s) and 1 print profile(s) for 1 product(s); 6 omission(s) are reasoned in skipped."
+  }
+}

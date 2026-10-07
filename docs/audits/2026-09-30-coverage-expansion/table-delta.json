@@ -36,8 +36,8 @@
   },
   "grades": {
     "baseline": 1163,
-    "current": 1177,
-    "added": 14,
+    "current": 1180,
+    "added": 17,
     "edited_existing": 144,
     "removed": 0
   },
@@ -78,8 +78,8 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 15012,
-    "added": 3476,
+    "current": 15063,
+    "added": 3527,
     "edited_existing": 2719,
     "removed": 0
   },
@@ -106,8 +106,8 @@
   },
   "prices": {
     "baseline": 357,
-    "current": 357,
-    "added": 0,
+    "current": 365,
+    "added": 8,
     "edited_existing": 7,
     "removed": 0
   },
@@ -127,15 +127,15 @@
   },
   "profile_notes": {
     "baseline": 2061,
-    "current": 2493,
-    "added": 432,
+    "current": 2500,
+    "added": 439,
     "edited_existing": 0,
     "removed": 0
   },
   "profiles": {
     "baseline": 1316,
-    "current": 1911,
-    "added": 595,
+    "current": 1915,
+    "added": 599,
     "edited_existing": 991,
     "removed": 0
   },
@@ -148,9 +148,9 @@
   },
   "sources": {
     "baseline": 1828,
-    "current": 2003,
-    "added": 175,
-    "edited_existing": 114,
+    "current": 2016,
+    "added": 188,
+    "edited_existing": 115,
     "removed": 0
   }
 }

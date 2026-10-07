@@ -32,6 +32,11 @@ test('a witness for a source that predates the ledger is keyed by that source, a
   assert.equal(row.duplicate_of, '');
 });
 
+test('a document a search found for a product the catalogue does not hold is keyed by its material', () => {
+  const row = witnessRow({ row: { ...sheet, doc_key: '' }, page: 'https://maker.example/tpc-esd.pdf', found: true, staged: { accessed: '2026-10-07', by: 'x', forSource: 'material:M114' } });
+  assert.equal(row.doc_key, 'https://maker.example/tpc-esd.pdf#witness-for=material:M114');
+});
+
 test('a page the ledger holds from another reading, with other bytes, is a second reading keyed by its day', () => {
   const row = witnessRow({ row: sheet, page: 'https://maker.example/pla', found: true, staged: { accessed: '2026-09-26', by: 'x' }, reread: true });
   assert.equal(row.doc_key, 'https://maker.example/pla#witness-for=abc123&read=2026-09-26');

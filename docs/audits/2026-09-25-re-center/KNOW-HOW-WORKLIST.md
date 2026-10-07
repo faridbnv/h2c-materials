@@ -14,7 +14,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1016 | 46 | 1 | 39 | 1102 |
+| Products | 1016 | 46 | 1 | 42 | 1105 |
 | Materials | 135 | 10 | 0 | 7 | 152 |
 
 4879 statements; 1329 sources read for know-how; 216 makers' sites searched.
@@ -63,7 +63,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 1 / 0 / 1 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 9 / 7 / 19 | — |
 | PLA Aero (M017) | Indoor prototype; Lightweight structure | collected | 0 of 12 | 6 / 5 / 10 | — |
-| PLA blend (M168) | Indoor prototype; Warm environment | collected | 0 of 8 | 1 / 1 / 2 | — |
+| PLA blend (M168) | Indoor prototype; Warm environment | collected | 0 of 9 | 1 / 1 / 2 | — |
 | PLA-PHB (M146) | Indoor prototype; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PPA-CF (M070) | Indoor prototype; Warm environment | collected | 0 of 8 | 3 / 0 / 2 | — |
 | TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 18 | 9 / 9 / 17 | — |
@@ -120,7 +120,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PPS-ESD (M124) | — | sheet-silent | 1 of 1 | 0 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PVA (M075) | — | collected | 1 of 11 | 4 / 6 / 11 | Yousu (ysfilament.com) |
 | PVDF (M096) | — | collected | 1 of 3 | 2 / 2 / 2 | Filament2Print (filament2print.com) |
-| TPC-ESD (M114) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| TPC-ESD (M114) | — | sheet-silent | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPI (M121) | — | sheet-silent | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | BVOH (M076) | — | collected | 0 of 4 | 1 / 0 / 3 | — |
 | COC (M137) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
@@ -128,7 +128,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA-ESD (M064) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | PA12-AF (M154) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PAHT-CE (M148) | — | collected | 0 of 2 | 2 / 0 / 2 | — |
-| PBT-GF (M132) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PBT-GF (M132) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PC-GF (M038) | — | collected | 0 of 3 | 2 / 0 / 2 | — |
 | PC-PTFE (M112) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PE (M085) | — | collected | 0 of 2 | 1 / 1 / 1 | — |

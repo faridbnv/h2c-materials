@@ -1,0 +1,75 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-10-07"
+ },
+ "document": {
+  "sha256": "9883de8ff00ccc0560e7f9c4c13a89359f7308be805bd79a0c251d375f41d8e1",
+  "url": "https://filamentworld.de/shop/special-filament/hochtemperatur-filament/3d4makers-luvocom-3f-paht-9825-nt-nylon-filament-pa-6-natur-1-75-mm/",
+  "format": "jsonld",
+  "host": "filamentworld.de",
+  "accessed": "2026-10-07"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-FILAMENTWORLD-20261007-9883de8ff00c",
+   "Publisher": "filamentworld.de",
+   "Title": "3D4Makers - LUVOCOM 3F PAHT 9825 NT - Nylon Filament (PA 6) - Natur - 1.75 mm - 0,75 kg",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-10-07",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://filamentworld.de/shop/special-filament/hochtemperatur-filament/3d4makers-luvocom-3f-paht-9825-nt-nylon-filament-pa-6-natur-1-75-mm/",
+   "Locator": "Document / product page",
+   "Applicable grades": "G147-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "9883de8ff00ccc0560e7f9c4c13a89359f7308be805bd79a0c251d375f41d8e1"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "3D4M9825NT175NAT",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M147",
+    "GradeID": "G147-01",
+    "Retailer": "filamentworld.de",
+    "Variant / SKU": "3D4Makers - LUVOCOM 3F PAHT 9825 NT - Nylon Filament (PA 6) - Natur - 1.75 mm - 0,75 kg (SKU 3D4M9825NT175NAT)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 89.9,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 89.9,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Included: 19 % MwSt., the rate each page prints beside the price; shipping extra",
+    "VAT included %": "19",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://filamentworld.de/shop/special-filament/hochtemperatur-filament/3d4makers-luvocom-3f-paht-9825-nt-nylon-filament-pa-6-natur-1-75-mm/",
+    "Access date": "2026-10-07",
+    "Notes": "The page prints \"inkl. 19 % MwSt.\" beside the price. Read from the shop's own product data (schema.org); offer 3D4M9825NT175NAT."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-10-07",
+    "note": "Quality round 2026-10-07, item 10: an unpriced material's product, priced where the page states its tax (review-p05.mjs).",
+    "maker": "The listing names the product exactly, LUVOCOM 3F PAHT 9825 NT of LEHVOSS's LUVOCOM 3F line; 3D4Makers, in its title, is the label it is sold under."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-10-07"
+ }
+}

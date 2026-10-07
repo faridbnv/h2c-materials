@@ -1,0 +1,1085 @@
+[
+ {
+  "sha256": "d299af0d689965ebd128c678126bfcf8667f297f1437c2717b5d7a2413fa2613",
+  "title": "GreenTEC",
+  "revision": "Not published",
+  "published": "Not published",
+  "product": "GreenTEC",
+  "identity": "GreenTEC ist ein Biokunststoff, welcher eine hohe Zug- und Biegefestigkeit hat.",
+  "identityLine": "GreenTEC ist ein Biokunststoff, welcher eine hohe Zug- und Biegefestigkeit hat.",
+  "values": [
+   {
+    "page": 1,
+    "property": "Mould shrinkage",
+    "label": "Schwindung",
+    "unit": "%",
+    "raw": "0.5 %",
+    "num": 0.5,
+    "op": "=",
+    "line": "Schwindung (ISO 294-4, 2577) 0.5 %",
+    "std": "ISO 294-4, 2577",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: Schwindung (Technische Daten)"
+   },
+   {
+    "page": 1,
+    "property": "Melt volume-flow rate",
+    "label": "MFR",
+    "unit": "cm3/10min",
+    "raw": "4 cm /10min",
+    "num": 4,
+    "op": "=",
+    "line": "MFR (ISO 1133) 4 cm /10min",
+    "std": "ISO 1133",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: MFR (Technische Daten)",
+    "notes": "The sheet prints no test temperature or load for the MFR; the cm3 exponent is on its own text line (\"3\")."
+   },
+   {
+    "page": 1,
+    "property": "Tensile yield strength",
+    "label": "Streckspannung",
+    "unit": "MPa",
+    "raw": "46 MPa",
+    "num": 46,
+    "op": "=",
+    "line": "Streckspannung (ISO 527) 46 MPa",
+    "std": "ISO 527",
+    "direction": "Unstated",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: Streckspannung (Technische Daten)"
+   },
+   {
+    "page": 1,
+    "property": "Elongation at yield",
+    "label": "Streckdehnung",
+    "unit": "%",
+    "raw": "3 %",
+    "num": 3,
+    "op": "=",
+    "line": "Streckdehnung (ISO 527) 3 %",
+    "std": "ISO 527",
+    "direction": "Unstated",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: Streckdehnung (Technische Daten)"
+   },
+   {
+    "page": 1,
+    "property": "Elongation at break",
+    "label": "Reissdehnung",
+    "unit": "%",
+    "raw": "14 %",
+    "num": 14,
+    "op": "=",
+    "line": "Reissdehnung (ISO 527) 14 %",
+    "std": "ISO 527",
+    "direction": "Unstated",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: Reissdehnung (Technische Daten)"
+   },
+   {
+    "page": 1,
+    "property": "Tensile modulus",
+    "label": "Zug-E-Modul",
+    "unit": "MPa",
+    "raw": "3200 MPa",
+    "num": 3200,
+    "op": "=",
+    "line": "Zug-E-Modul (ISO 527) 3200 MPa",
+    "std": "ISO 527",
+    "direction": "Unstated",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: Zug-E-Modul (Technische Daten)"
+   },
+   {
+    "page": 1,
+    "property": "Vicat softening temperature",
+    "label": "Vicat Erweichungstemperatur A",
+    "unit": "°C",
+    "raw": "115 °C",
+    "num": 115,
+    "op": "=",
+    "line": "Vicat Erweichungstemperatur A 115 °C",
+    "std": "ISO 306",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: Vicat Erweichungstemperatur A (Technische Daten)",
+    "notes": "\"(ISO 306)\" is on the next text line; the label names method A, no load stated."
+   },
+   {
+    "page": 1,
+    "property": "Density",
+    "label": "Dichte",
+    "unit": "g/cm3",
+    "raw": "1.30 g/cm3",
+    "num": 1.3,
+    "op": "=",
+    "line": "Dichte 1.30 g/cm",
+    "std": "",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Technische Daten table; no specimen, print or conditioning conditions stated",
+    "locator": "p. 1: Dichte (Technische Daten)",
+    "notes": "The cm3 exponent is on its own text line (\"3\" at line 40). No test standard printed."
+   }
+  ],
+  "profiles": [
+   {
+    "page": 1,
+    "locator": "Verarbeitungsdaten",
+    "cells": {
+     "nozzle": "180-230 °C",
+     "bed": "50-90 °C",
+     "drying": "80°C"
+    },
+    "lines": {
+     "nozzle": "180-230 °C",
+     "bed": "50-90 °C",
+     "drying": "80°C"
+    },
+    "evidence": "180-230 °C",
+    "notes": [
+     [
+      "Drucktemperatur",
+      "180-230 °C"
+     ],
+     [
+      "Heizbett Temperatur",
+      "50-90 °C"
+     ],
+     [
+      "Trocknungstemperatur",
+      "80°C"
+     ],
+     [
+      "Trocknungsdauer",
+      "2h"
+     ]
+    ]
+   }
+  ],
+  "skipped": [
+   "Formbeständigkeitstemperatur 0.45 MPa: prints \"-\" (no value)",
+   "Wärmeleitzahl 23°C: prints \"-\" (no value)",
+   "Brennbarkeit HB: a flammability class, not a property in properties.csv",
+   "\"Wärmebeständigkeit ... 115°C (VST)\" in the Allgemein text: repeats the Vicat A row, not recorded twice",
+   "Dichte/ISO 14855 biodegradability and Verordnung Nr. 10/2011 food-contact statement: not numeric properties",
+   "Trocknungsdauer 2h is printed on its own line beside Trocknungstemperatur 80°C; recorded in the profile notes, the drying cell holds 80°C only"
+  ]
+ },
+ {
+  "sha256": "a23be9ad12ed9c705ef4ef3015eea73054cee1b708840f20addb45daf8fec7fd",
+  "title": "DREMC PBT GF Glass Fibre Filament 1.75mm 1kg",
+  "revision": "Not published",
+  "published": "Not published",
+  "product": "DREMC PBT GF Glass Fibre Filament 1.75mm 1kg",
+  "identity": "DREMC's PBT-GF is a polybutylene terephthalate with glass fiber 3D printing filament",
+  "identityLine": "DREMC's PBT-GF is a polybutylene terephthalate with glass fiber 3D printing filament. Its <10% glass fibre composition provides exceptional heat resistance and minimal shrinkage. With impressive rigidity, tensile strength, and excellent anti static properties. This filament is a reliable choice for printing durable and stable parts. Ideal for a variety of applications that demand high-quality printed components such as connectors/switches in automotive applications.",
+  "values": [
+   {
+    "page": 1,
+    "property": "Density",
+    "label": "Density",
+    "unit": "g/cm3",
+    "raw": "1.35 g/cm3",
+    "num": 1.35,
+    "op": "=",
+    "line": "Density: 1.35 g/cm3",
+    "std": "",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Materials/Spool/Packaging Information block of the product page; no test standard or temperature stated",
+    "locator": "p. 1: Materials/Spool/Packaging Information (Density)"
+   }
+  ],
+  "profiles": [
+   {
+    "page": 1,
+    "locator": "Printing Settings/Requirements",
+    "cells": {
+     "nozzle": "260°C - 280°C",
+     "bed": "100°C - 120°C",
+     "chamber": "at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+",
+     "enclosure": "Recommended for complex larger geometries. 60-100˚C+ may be required for higher density and larger geometries. Recommend VOC/Air Filtering/fume extraction or print in well ventilated room with fume extraction.",
+     "drying": "~80 ° c for 8-12hr (Only dry if filament is wet, over drying/repeat drying can damage filament)",
+     "nozzleMaterial": "A wear resistant nozzle must be used, carbon fiber material is abrasive and will wear standard brass nozzles and >0.5mm nozzle is recommended.",
+     "plate": "Works well with most common build surfaces. We recommended PEI Build Plate (Smooth/Textured) with Bed Adhesive such as Glue Stick / Magigoo HT. [ Do not print on bare PEI without bed adhesive barrier]"
+    },
+    "lines": {
+     "nozzle": "Nozzle Temperature  260°C - 280°C",
+     "bed": "Build Plate Temperature  100°C - 120°C",
+     "chamber": "Note 2 : at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+, to reduce warping/material shrinkage during printing on complex parts.",
+     "enclosure": "Enclosure / Heater Chambers  Recommended for complex larger geometries. 60-100˚C+ may be required for higher density and larger geometries. Recommend VOC/Air Filtering/fume extraction or print in well ventilated room with fume extraction.",
+     "drying": "Drying Recommendation  ~80 ° c for 8-12hr (Only dry if filament is wet, over drying/repeat drying can damage filament) REQUIRE PRINTED CLAMP WHEN DRYING ( Filament Dryer Guide )",
+     "nozzleMaterial": "A wear resistant nozzle must be used, carbon fiber material is abrasive and will wear standard brass nozzles and >0.5mm nozzle is recommended.",
+     "plate": "Build Surface Material  Works well with most common build surfaces. We recommended PEI Build Plate (Smooth/Textured) with Bed Adhesive such as Glue Stick / Magigoo HT. [ Do not print on bare PEI without bed adhesive barrier]"
+    },
+    "evidence": "Nozzle Temperature  260°C - 280°C",
+    "notes": [
+     [
+      "Speed",
+      "40 mm/s - 100 mm/s (<60mm/s is our recommendation for most pro-consumer hardware)"
+     ],
+     [
+      "Cooling",
+      "LOW-MEDIUM for better surface quality OFF-LOW (<10%) for better strength"
+     ],
+     [
+      "Basis",
+      "Based on 0.5/0.6 mm nozzle. Printing conditions may vary with different printers and nozzle diameters."
+     ],
+     [
+      "Abrasion",
+      "Abrasive resistance nozzle is requirement due to glass fibre, plated/brass nozzle can wear quickly and cause inconsistent prints and will destroy those types of nozzles."
+     ],
+     [
+      "Chamber note (Note 2, description)",
+      "Note 2 : at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+, to reduce warping/material shrinkage during printing on complex parts."
+     ]
+    ]
+   }
+  ],
+  "skipped": [
+   "Diameter: 1.75mm (+/- 0.05mm), Net weight 1KG, Empty spool ~150g, spool dimensions: packaging data, not material properties",
+   "Prices, bulk discount table, quantities: shop content",
+   "Retraction settings (0.5-1 mm, 20 mm/s direct drive; 2-3 mm bowden): not a profile cell",
+   "\"Material is stable up to 280°C\", \">290°C may emit carbon monoxide, tetrahydrofuran\", \"do not exceed 280°C\": safety statements, not recorded as values",
+   "\"<10% glass fibre\" composition figure: composition statement, recorded as identity",
+   "Printing Settings block names \"carbon fiber material is abrasive\" for a glass-fibre product (printed as is, in nozzleMaterial)",
+   "Product page is marked discontinued/EOL for retail (replaced by PC PBT GF)"
+  ]
+ },
+ {
+  "sha256": "70f515d2b2875c2fa517ce7eaa4fb8b2df0add8e0496a72a3d37e93ff8bcd978",
+  "title": "PBT GF – Glass Fibre Technical Data Sheet (TDS)",
+  "revision": "Not published",
+  "published": "Not published",
+  "product": "PBT GF – Glass Fibre",
+  "identity": "DREMC PBT GF using BASF Ultradur® PBT resin with added GF <10%",
+  "identityLine": "DREMC PBT GF using BASF Ultradur® PBT resin with added GF <10%. The has a high",
+  "values": [
+   {
+    "page": 1,
+    "property": "Density",
+    "label": "Density",
+    "unit": "g/cm3",
+    "raw": "1.35 g/cm3",
+    "num": 1.35,
+    "op": "=",
+    "line": "Density ISO 1183, GB/T1003 1.35 g/cm3",
+    "std": "ISO 1183, GB/T1003",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Physical Properties table; no specimen stated",
+    "locator": "p. 1: Density (Physical Properties)"
+   },
+   {
+    "page": 1,
+    "property": "Melt mass-flow rate",
+    "label": "Melt index",
+    "unit": "g/10min",
+    "raw": "15 g/10min",
+    "num": 15,
+    "op": "=",
+    "line": "Melt index ISO 1183, 250°C/2.15Kg 15 g/10min",
+    "std": "ISO 1183, 250°C/2.15Kg",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Physical Properties table; no specimen stated",
+    "locator": "p. 1: Melt index (Physical Properties)",
+    "notes": "The sheet prints \"ISO 1183\" (the density standard) for the melt index and \"2.15Kg\" as the load; recorded as printed."
+   },
+   {
+    "page": 1,
+    "property": "Water absorption",
+    "label": "Moisture Absorption",
+    "unit": "%",
+    "raw": "<0.4%",
+    "num": 0.4,
+    "op": "<",
+    "line": "Moisture Absorption ISO 62 <0.4%",
+    "std": "ISO 62",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Physical Properties table; no specimen stated",
+    "locator": "p. 1: Moisture Absorption (Physical Properties)",
+    "notes": "No immersion time or temperature printed."
+   },
+   {
+    "page": 1,
+    "property": "HDT",
+    "label": "HDT",
+    "unit": "°C",
+    "raw": "170 °C",
+    "num": 170,
+    "op": "=",
+    "line": "HDT ISO 75 / 0.455 MPa 170 °C",
+    "std": "ISO 75 / 0.455 MPa",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Physical Properties table; no specimen stated",
+    "locator": "p. 1: HDT (Physical Properties)",
+    "notes": "Load printed as 0.455 MPa in the method cell."
+   },
+   {
+    "page": 1,
+    "property": "Tensile strength (endpoint unspecified)",
+    "label": "Tensile strength(X-Y)",
+    "unit": "Mpa",
+    "raw": "70 Mpa",
+    "num": 70,
+    "op": "=",
+    "line": "Tensile strength(X-Y) ISO 538 70 Mpa",
+    "std": "ISO 538",
+    "direction": "XY",
+    "post": "un-annealing (Note: Test sample is un-annealing TDS)",
+    "specimenType": "Printed specimen",
+    "params": "Mechanical Properties table; specimens printed per p. 2 Specimen Testing conditions: nozzle 0.6mm, 300 °C, 50mm/s, layer 0.12mm, infill 100%; test sample un-annealing",
+    "locator": "p. 1: Tensile strength(X-Y) (Mechanical Properties)",
+    "notes": "Method printed as \"ISO 538\" (sic; the other tensile rows print ISO 527)."
+   },
+   {
+    "page": 1,
+    "property": "Flexural strength",
+    "label": "Flexural Strength (X-Y)",
+    "unit": "Mpa",
+    "raw": "110 Mpa",
+    "num": 110,
+    "op": "=",
+    "line": "Flexural Strength (X-Y) ISO 178 110 Mpa",
+    "std": "ISO 178",
+    "direction": "XY",
+    "post": "un-annealing (Note: Test sample is un-annealing TDS)",
+    "specimenType": "Printed specimen",
+    "params": "Mechanical Properties table; specimens printed per p. 2 Specimen Testing conditions: nozzle 0.6mm, 300 °C, 50mm/s, layer 0.12mm, infill 100%; test sample un-annealing",
+    "locator": "p. 1: Flexural Strength (X-Y) (Mechanical Properties)"
+   },
+   {
+    "page": 1,
+    "property": "Elongation at break",
+    "label": "Elongation at break (X-Y)",
+    "unit": "%",
+    "raw": "3%",
+    "num": 3,
+    "op": "=",
+    "line": "Elongation at break (X-Y) ISO 527 3%",
+    "std": "ISO 527",
+    "direction": "XY",
+    "post": "un-annealing (Note: Test sample is un-annealing TDS)",
+    "specimenType": "Printed specimen",
+    "params": "Mechanical Properties table; specimens printed per p. 2 Specimen Testing conditions: nozzle 0.6mm, 300 °C, 50mm/s, layer 0.12mm, infill 100%; test sample un-annealing",
+    "locator": "p. 1: Elongation at break (X-Y) (Mechanical Properties)"
+   },
+   {
+    "page": 1,
+    "property": "Tensile modulus",
+    "label": "Elastic Modulus (X-Y)",
+    "unit": "Mpa",
+    "raw": "4000 Mpa",
+    "num": 4000,
+    "op": "=",
+    "line": "Elastic Modulus (X-Y) ISO 527 4000 Mpa",
+    "std": "ISO 527",
+    "direction": "XY",
+    "post": "un-annealing (Note: Test sample is un-annealing TDS)",
+    "specimenType": "Printed specimen",
+    "params": "Mechanical Properties table; specimens printed per p. 2 Specimen Testing conditions: nozzle 0.6mm, 300 °C, 50mm/s, layer 0.12mm, infill 100%; test sample un-annealing",
+    "locator": "p. 1: Elastic Modulus (X-Y) (Mechanical Properties)",
+    "notes": "Labelled \"Elastic Modulus\" with the tensile method ISO 527."
+   },
+   {
+    "page": 1,
+    "property": "Impact strength",
+    "label": "Impact Strength (X-Y)",
+    "unit": "Kj/m2",
+    "raw": "2.3 Kj/m",
+    "num": 2.3,
+    "op": "=",
+    "line": "Impact Strength (X-Y) ISO 180 2.3 Kj/m",
+    "std": "ISO 180",
+    "direction": "XY",
+    "post": "un-annealing (Note: Test sample is un-annealing TDS)",
+    "specimenType": "Printed specimen",
+    "params": "Mechanical Properties table; specimens printed per p. 2 Specimen Testing conditions: nozzle 0.6mm, 300 °C, 50mm/s, layer 0.12mm, infill 100%; test sample un-annealing",
+    "locator": "p. 1: Impact Strength (X-Y) (Mechanical Properties)",
+    "notes": "The m2 exponent is on its own text line (\"2\" at line 16). The sheet does not say notched or unnotched; ISO 180 is printed as the method."
+   }
+  ],
+  "profiles": [
+   {
+    "page": 1,
+    "locator": "Note: DREMC PBT GF print from dry box or dryer.",
+    "cells": {
+     "drying": "dry it in a hot air oven at 80°C for at least 6 hours"
+    },
+    "lines": {
+     "drying": "the filament becomes wet, it is recommended to dry it in a hot air oven at 80°C for at least 6"
+    },
+    "evidence": "the filament becomes wet, it is recommended to dry it in a hot air oven at 80°C for at least 6",
+    "notes": [
+     [
+      "Storage",
+      "Note: DREMC PBT GF print from dry box or dryer. This material easily absorbs moisture. If"
+     ],
+     [
+      "Supports",
+      "Supports: If using PBT GF as a support material, it's advisable to remove the support"
+     ]
+    ]
+   }
+  ],
+  "skipped": [
+   "Chemical Properties table (acid, alkali, oil and grease, organic solvent resistance): qualitative, no number",
+   "Specimen Testing conditions (0.6mm nozzle, 300 °C, 50mm/s, 0.12mm layer, infill 100%) p. 2: recorded in the params of every mechanical value, not a recommended-settings profile",
+   "Annealing Tip: 80-100 °C for 2-3 hours: a post-process recommendation, not a recorded value",
+   "Supports advice (remove supports once cooled): text only",
+   "The only drying statement is a note for wet filament, recorded as a profile with a drying cell only; the sheet has no recommended nozzle or bed block",
+   "\"added GF <10%\" composition figure: identity statement",
+   "Specimen drawings (tensile ASTM D638/ISO 527/GB/T 1040; flexural ASTM D790/ISO 178/GB/T 9341) p. 2: the drawings show a Z axis arrow normal to the flat bar; no number to record",
+   "Disclaimer p. 3: no values"
+  ]
+ },
+ {
+  "sha256": "01ba14075179671e90a7ed069d2b68dcdef0bfc2660c9996d07c381fe2d1b336",
+  "title": "Kimya TPC-ESD 3D Filament",
+  "revision": "Revised on 13/11/2019",
+  "published": "Created on 13/11/2019",
+  "product": "Kimya TPC-ESD 3D Filament",
+  "identity": "belongs to the thermoplastic copolyester family: is an elastomer",
+  "identityLine": "The Kimya TPC-ESD 3D filament belongs to the thermoplastic copolyester family: is an elastomer. TPC is",
+  "values": [
+   {
+    "page": 1,
+    "property": "Density",
+    "label": "Density",
+    "unit": "g/cm3",
+    "raw": "1,2 g/cm3",
+    "num": 1.2,
+    "op": "=",
+    "line": "ISO 1183-1 1,2 g/cm3",
+    "std": "ISO 1183-1",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Filament Properties table (p. 1); no specimen stated",
+    "locator": "p. 1: Density (Filament Properties)"
+   },
+   {
+    "page": 1,
+    "property": "Moisture content",
+    "label": "Moisture rate",
+    "unit": "%",
+    "raw": "< 1 %",
+    "num": 1,
+    "op": "<",
+    "line": "Moisture rate INS-6711 < 1 %",
+    "std": "INS-6711",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Filament Properties table (p. 1); no specimen stated",
+    "locator": "p. 1: Moisture rate (Filament Properties)",
+    "notes": "Filament moisture rate by the maker's own method INS-6711."
+   },
+   {
+    "page": 1,
+    "property": "Melt mass-flow rate",
+    "label": "Melt flow index (MFI)",
+    "unit": "g/10min",
+    "raw": "21 - 25 g/10min",
+    "num": 21,
+    "op": "=",
+    "line": "Melt flow index (MFI) ISO 1133-1 (@210°C – 2,16 kg) 21 - 25 g/10min",
+    "std": "ISO 1133-1 (@210°C – 2,16 kg)",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Filament Properties table (p. 1); no specimen stated",
+    "locator": "p. 1: Melt flow index (MFI) (Filament Properties)",
+    "notes": "Range 21 - 25; 210 °C and 2,16 kg printed in the method cell."
+   },
+   {
+    "page": 1,
+    "property": "Melting temperature",
+    "label": "Melting Temperature (Tm)",
+    "unit": "°C",
+    "raw": "160 °C",
+    "num": 160,
+    "op": "=",
+    "line": "Melting Temperature (Tm) ISO 11357-1 DSC (10°C/min – 0-300°C) 160 °C",
+    "std": "ISO 11357-1 DSC (10°C/min – 0-300°C)",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Filament Properties table (p. 1); no specimen stated",
+    "locator": "p. 1: Melting Temperature (Tm) (Filament Properties)"
+   },
+   {
+    "page": 2,
+    "property": "Surface resistivity",
+    "label": "Surface resistivity",
+    "unit": "Ohms/m²",
+    "raw": "10⁷ - 10⁹ Ohms/m²",
+    "num": 10000000,
+    "op": "=",
+    "line": "ELECTRICAL 10 - 10",
+    "std": "ASTM D257",
+    "direction": "Not applicable",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Surface resistivity (Electrical Properties)",
+    "notes": "Range 10^7 to 10^9; the exponents 7 and 9 are on the text line above (\"7 9\"), the base 10 is in this line. The printed unit is Ohms/m², not Ohm."
+   },
+   {
+    "page": 2,
+    "property": "Tensile modulus",
+    "label": "Tensile modulus",
+    "unit": "MPa",
+    "raw": "46 MPa",
+    "num": 46,
+    "op": "=",
+    "line": "Tensile modulus ISO 37/2/500 46 MPa",
+    "std": "ISO 37/2/500",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Tensile modulus (Mechanical Properties)",
+    "notes": "Method printed as ISO 37/2/500 (a rubber tensile method)."
+   },
+   {
+    "page": 2,
+    "property": "Tensile strength (endpoint unspecified)",
+    "label": "Tensile Strength",
+    "unit": "MPa",
+    "raw": "13,1 MPa",
+    "num": 13.1,
+    "op": "=",
+    "line": "Tensile Strength ISO 37/2/500 13,1 MPa",
+    "std": "ISO 37/2/500",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Tensile Strength (Mechanical Properties)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile break strength",
+    "label": "Tensile Stress at Break",
+    "unit": "MPa",
+    "raw": "12,8 MPa",
+    "num": 12.8,
+    "op": "=",
+    "line": "Tensile Stress at Break ISO 37/2/500 12,8 MPa",
+    "std": "ISO 37/2/500",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Tensile Stress at Break (Mechanical Properties)"
+   },
+   {
+    "page": 2,
+    "property": "Elongation at break",
+    "label": "Tensile strain at break",
+    "unit": "%",
+    "raw": "0 %",
+    "num": 0,
+    "op": "=",
+    "line": "Tensile strain at break ISO 37/2/500 0 %",
+    "std": "ISO 37/2/500",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Tensile strain at break (Mechanical Properties)",
+    "notes": "Printed as 0 % for a sheet that calls the material an elastomer; recorded as printed, looks implausible."
+   },
+   {
+    "page": 2,
+    "property": "Flexural modulus",
+    "label": "Flexural modulus",
+    "unit": "MPa",
+    "raw": "54 MPa",
+    "num": 54,
+    "op": "=",
+    "line": "Flexural modulus ISO 178 54 MPa",
+    "std": "ISO 178",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Flexural modulus (Mechanical Properties)"
+   },
+   {
+    "page": 2,
+    "property": "Flexural stress at conventional deflection",
+    "label": "Flexural stress at conventional deflection (3,5% strain)*",
+    "unit": "MPa",
+    "raw": "2 MPa",
+    "num": 2,
+    "op": "=",
+    "line": "ISO 178 2 MPa",
+    "std": "ISO 178",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Flexural stress at conventional deflection (3,5% strain)* (Mechanical Properties)",
+    "notes": "Note 1 (French): test ended at 5 % elongation per ISO 178 even if the specimen does not break. The label and value sit on separate text lines (13, 14, 15)."
+   },
+   {
+    "page": 2,
+    "property": "Hardness",
+    "label": "Shore Hardness",
+    "unit": "Shore A",
+    "raw": "91A",
+    "num": 91,
+    "op": "=",
+    "line": "Shore Hardness ISO 868 91A",
+    "std": "ISO 868",
+    "direction": "Not applicable",
+    "specimenType": "Printed specimen",
+    "params": "Printed Specimens Properties table (p. 2); printing direction XY, printing speed 20-60 mm/s, infill 100% rectilinear, infill angle 45°/-45°, nozzle 230-270°C, bed 60-85°C (p. 1 Print Parameters and Specimens Dimensions)",
+    "locator": "p. 2: Shore Hardness (Mechanical Properties)",
+    "notes": "Cell prints \"91A\"; page 1 text says \"Shore hardness of 91 A\"."
+   }
+  ],
+  "profiles": [
+   {
+    "page": 1,
+    "locator": "PRINT PARAMETERS AND SPECIMENS DIMENSIONS",
+    "cells": {
+     "nozzle": "230-270°C",
+     "bed": "60-85°C"
+    },
+    "lines": {
+     "nozzle": "Nozzle Temperature 230-270°C",
+     "bed": "Bed T° 60-85°C"
+    },
+    "evidence": "Nozzle Temperature 230-270°C",
+    "notes": [
+     [
+      "Speed",
+      "20-60 mm/s"
+     ],
+     [
+      "Infill",
+      "100% - rectilinear"
+     ],
+     [
+      "Infill Angle",
+      "45°/-45°"
+     ],
+     [
+      "Printing direction",
+      "XY"
+     ]
+    ]
+   }
+  ],
+  "skipped": [
+   "Diameter 1,75 ± 0,1 mm: dimension, not a property",
+   "Charpy impact resistance ISO 179-1/1eA prints \"No Break\": no number",
+   "Note 1 and Note 2 (French): footnote and \"indicative values\" disclaimer, recorded in notes only",
+   "Block headed PRINT PARAMETERS AND SPECIMENS DIMENSIONS is the specimen print block (its heading says specimens); recorded as a profile because its nozzle and bed ranges read as settings, doubtful whether the maker recommends them",
+   "\"Shore hardness of 91 A\" in the intro: repeats the Shore Hardness row"
+  ]
+ },
+ {
+  "sha256": "8106f1c5c75e2cb3a5bb5ed7b0af16ea438681153caa2f132601755aa53a9789",
+  "title": "Panchroma™ CoPE Technical Data Sheet",
+  "revision": "V5.4",
+  "published": "Not published",
+  "product": "Panchroma™ CoPE",
+  "identity": "Panchroma™ CoPE is a co-polyester-based 3D printing material",
+  "identityLine": "Panchroma™ CoPE is a co-polyester-based 3D printing material that",
+  "values": [
+   {
+    "page": 2,
+    "property": "Density",
+    "label": "Density",
+    "unit": "g/cm3",
+    "raw": "1.296g/cm3 at 23°C",
+    "num": 1.296,
+    "op": "=",
+    "line": "Density ISO1183, GB/T1033 1.296g/cm at 23°C",
+    "std": "ISO1183, GB/T1033",
+    "direction": "Not applicable",
+    "testTemp": "23°C",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Physical Properties table; no specimen stated",
+    "locator": "p. 2: Density (Physical Properties)",
+    "notes": "The cm3 exponent is on its own text line (\"3\" at line 5)."
+   },
+   {
+    "page": 2,
+    "property": "Melt mass-flow rate",
+    "label": "Melt index",
+    "unit": "g/10min",
+    "raw": "25.944 g/10min",
+    "num": 25.944,
+    "op": "=",
+    "line": "Melt index 210°C, 2.16kg 25.944 g/10min",
+    "std": "210°C, 2.16kg",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Physical Properties table; no specimen stated",
+    "locator": "p. 2: Melt index (Physical Properties)"
+   },
+   {
+    "page": 2,
+    "property": "Glass transition temperature",
+    "label": "Glass transition temperature",
+    "unit": "°C",
+    "raw": "58.2 °C",
+    "num": 58.2,
+    "op": "=",
+    "line": "Glass transition temperature DSC, 10°C/min 58.2 °C",
+    "std": "DSC, 10°C/min",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Thermal Properties table; no specimen stated",
+    "locator": "p. 2: Glass transition temperature (Thermal Properties)"
+   },
+   {
+    "page": 2,
+    "property": "Vicat softening temperature",
+    "label": "Vicat softening temperature",
+    "unit": "°C",
+    "raw": "65.5 °C",
+    "num": 65.5,
+    "op": "=",
+    "line": "Vicat softening temperature ISO 306, GB/T 1633 65.5 °C",
+    "std": "ISO 306, GB/T 1633",
+    "direction": "Not applicable",
+    "specimenType": "Not published (do not assume printed)",
+    "params": "Thermal Properties table; no specimen stated",
+    "locator": "p. 2: Vicat softening temperature (Thermal Properties)",
+    "notes": "Vicat method (A or B) and load are not stated."
+   },
+   {
+    "page": 2,
+    "property": "Tensile modulus",
+    "label": "Young’s modulus (X-Y)",
+    "unit": "MPa",
+    "raw": "2514.6±71.1 MPa",
+    "num": 2514.6,
+    "op": "=",
+    "line": "Young’s modulus (X-Y) 2514.6±71.1 MPa 2345.5±35.5 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Young’s modulus (X-Y) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile modulus",
+    "label": "Young’s modulus (X-Y)",
+    "unit": "Mpa",
+    "raw": "2345.5±35.5 Mpa",
+    "num": 2345.5,
+    "op": "=",
+    "line": "Young’s modulus (X-Y) 2514.6±71.1 MPa 2345.5±35.5 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Young’s modulus (X-Y) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile modulus",
+    "label": "Young’s modulus (Z)",
+    "unit": "MPa",
+    "raw": "2190.4±50.5 MPa",
+    "num": 2190.4,
+    "op": "=",
+    "line": "Young’s modulus (Z) 2190.4±50.5 MPa 2219.2±65.2 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "Z",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Young’s modulus (Z) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile modulus",
+    "label": "Young’s modulus (Z)",
+    "unit": "Mpa",
+    "raw": "2219.2±65.2 Mpa",
+    "num": 2219.2,
+    "op": "=",
+    "line": "Young’s modulus (Z) 2190.4±50.5 MPa 2219.2±65.2 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "Z",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Young’s modulus (Z) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile strength (endpoint unspecified)",
+    "label": "Tensile strength (X-Y)",
+    "unit": "MPa",
+    "raw": "51.6±0.3 MPa",
+    "num": 51.6,
+    "op": "=",
+    "line": "51.6±0.3 MPa 45.6±0.5 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Tensile strength (X-Y) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile strength (endpoint unspecified)",
+    "label": "Tensile strength (X-Y)",
+    "unit": "Mpa",
+    "raw": "45.6±0.5 Mpa",
+    "num": 45.6,
+    "op": "=",
+    "line": "51.6±0.3 MPa 45.6±0.5 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Tensile strength (X-Y) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile strength (endpoint unspecified)",
+    "label": "Tensile strength (Z)",
+    "unit": "MPa",
+    "raw": "36.1±1.2 MPa",
+    "num": 36.1,
+    "op": "=",
+    "line": "Tensile strength (Z) 36.1±1.2 MPa 30.1±2.0 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "Z",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Tensile strength (Z) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Tensile strength (endpoint unspecified)",
+    "label": "Tensile strength (Z)",
+    "unit": "Mpa",
+    "raw": "30.1±2.0 Mpa",
+    "num": 30.1,
+    "op": "=",
+    "line": "Tensile strength (Z) 36.1±1.2 MPa 30.1±2.0 Mpa",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "Z",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Tensile strength (Z) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Elongation at break",
+    "label": "Elongation at break (X-Y)",
+    "unit": "Mpa",
+    "raw": "10.5±3.8 Mpa",
+    "num": 10.5,
+    "op": "=",
+    "line": "Elongation at break (X-Y) 10.5±3.8 Mpa 4.8±0.8 %",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Elongation at break (X-Y) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Elongation at break",
+    "label": "Elongation at break (X-Y)",
+    "unit": "%",
+    "raw": "4.8±0.8 %",
+    "num": 4.8,
+    "op": "=",
+    "line": "Elongation at break (X-Y) 10.5±3.8 Mpa 4.8±0.8 %",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Elongation at break (X-Y) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Elongation at break",
+    "label": "Elongation at break (Z)",
+    "unit": "%",
+    "raw": "2.2±0.2 %",
+    "num": 2.2,
+    "op": "=",
+    "line": "2.2±0.2 % 1.6±0.17 %",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "Z",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Elongation at break (Z) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Elongation at break",
+    "label": "Elongation at break (Z)",
+    "unit": "%",
+    "raw": "1.6±0.17 %",
+    "num": 1.6,
+    "op": "=",
+    "line": "2.2±0.2 % 1.6±0.17 %",
+    "std": "ISO 527, GB/T 1040",
+    "direction": "Z",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Elongation at break (Z) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Flexural modulus",
+    "label": "Bending modulus (X-Y)",
+    "unit": "Mpa",
+    "raw": "2370.9 Mpa",
+    "num": 2370.9,
+    "op": "=",
+    "line": "Bending modulus (X-Y) 2370.9 Mpa 2199.0±35.0 Mpa",
+    "std": "ISO 178, GB/T 9341",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Bending modulus (X-Y) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Flexural modulus",
+    "label": "Bending modulus (X-Y)",
+    "unit": "Mpa",
+    "raw": "2199.0±35.0 Mpa",
+    "num": 2199,
+    "op": "=",
+    "line": "Bending modulus (X-Y) 2370.9 Mpa 2199.0±35.0 Mpa",
+    "std": "ISO 178, GB/T 9341",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Bending modulus (X-Y) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Flexural strength",
+    "label": "Bending strength (X-Y)",
+    "unit": "Mpa",
+    "raw": "75.5±0.9 Mpa",
+    "num": 75.5,
+    "op": "=",
+    "line": "Bending strength (X-Y) 75.5±0.9 Mpa 70.1±0.9 Mpa",
+    "std": "ISO 178, GB/T 9341",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Bending strength (X-Y) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Flexural strength",
+    "label": "Bending strength (X-Y)",
+    "unit": "Mpa",
+    "raw": "70.1±0.9 Mpa",
+    "num": 70.1,
+    "op": "=",
+    "line": "Bending strength (X-Y) 75.5±0.9 Mpa 70.1±0.9 Mpa",
+    "std": "ISO 178, GB/T 9341",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Bending strength (X-Y) (High printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Charpy strength",
+    "label": "Notched Charpy impact strength (X-Y)",
+    "unit": "kJ/㎡",
+    "raw": "2.9±0.1 kJ/㎡",
+    "num": 2.9,
+    "op": "=",
+    "line": "Notched Charpy impact strength (X-Y) 2.9±0.1 kJ/㎡ 2.8±0.1 kJ/㎡",
+    "std": "ISO 179, GB/T 1043",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "Classic printing speed column: 0.4 mm nozzle, 0.2 mm layer, 50 mm/s, 210 °C. Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Notched Charpy impact strength (X-Y) (Classic printing speed value)"
+   },
+   {
+    "page": 2,
+    "property": "Charpy strength",
+    "label": "Notched Charpy impact strength (X-Y)",
+    "unit": "kJ/㎡",
+    "raw": "2.8±0.1 kJ/㎡",
+    "num": 2.8,
+    "op": "=",
+    "line": "Notched Charpy impact strength (X-Y) 2.9±0.1 kJ/㎡ 2.8±0.1 kJ/㎡",
+    "std": "ISO 179, GB/T 1043",
+    "direction": "XY",
+    "specimenType": "Printed specimen",
+    "params": "High printing speed column: 0.4 mm nozzle, 0.2 mm layer, 300 mm/s, 230 °C (footnote misprints the high speed as \"Classic printing speed = 300mm/s\"). Specimen build (p. 5, How to make specimens, not column-specific): printing temperature 230 °C, bed 50 °C, shell 2, top & bottom layer 3, infill 100 %, ambient environmental temperature, cooling fan ON.",
+    "locator": "p. 2: Notched Charpy impact strength (X-Y) (High printing speed value)"
+   }
+  ],
+  "profiles": [
+   {
+    "page": 3,
+    "locator": "RECOMMENDED PRINTING CONDITIONS",
+    "cells": {
+     "nozzle": "200 – 230 (℃)",
+     "bed": "25 - 60 (˚C)",
+     "drying": "55˚C for 6h"
+    },
+    "lines": {
+     "nozzle": "Nozzle temperature 200 – 230 (℃)",
+     "bed": "Build plate temperature 25 - 60 (˚C)",
+     "drying": "Drying setting 55˚C for 6h"
+    },
+    "evidence": "Nozzle temperature 200 – 230 (℃)",
+    "notes": [
+     [
+      "Cooling",
+      "ON"
+     ],
+     [
+      "Speed",
+      "Up to 400 (mm/s)"
+     ],
+     [
+      "Basis",
+      "* Based on 0.4 mm nozzle. Printing conditions may vary with different nozzle diameters."
+     ],
+     [
+      "Bed temperature settings (p. 4 FAQ)",
+      "⚫ Bed Temperature Settings: A bed temperature of 40-50℃ typically provides adequate adhesion. If stronger adhesion is needed, you may increase the temperature but avoid exceeding 60℃ to prevent excessive sticking."
+     ],
+     [
+      "Textured PEI (p. 4 FAQ)",
+      "⚫ Not recommended to be printed on textured PEI as this material has an extra high bed adhesion properties and can damage the bed. We recommend using Magigoo Original or Vision Miner Adhesive to help with print release if using a textured PEI plate."
+     ]
+    ]
+   }
+  ],
+  "skipped": [
+   "Melting temperature: prints N/A",
+   "Bending modulus (Z), both columns: N/A",
+   "Bending strength (Z), both columns: N/A",
+   "Notched Charpy impact strength (Z), both columns: N/A",
+   "MAX VOLUMETRIC SPEED table (p. 3): a printing-speed/flow table, not a profile",
+   "SURFACE GLOSSINESS table (p. 3, GU values by speed and temperature): a gloss table, not a profile",
+   "Page 5 HOW TO MAKE SPECIMENS settings (230 °C, bed 50 °C, shell 2, top & bottom 3, infill 100 %, ambient, fan ON): recorded in params of the mechanical values; it differs from the column footnotes (210 °C / 230 °C), a conflict inside the sheet",
+   "Page 5 specimen drawings (tensile, flexural, impact with 45° notch, Z axis arrows): no numbers recorded beyond the notch angle being in the drawing",
+   "Page 4 FAQ (do not print with PLA, glue caution, bed 40-50℃ not above 60℃, textured PEI not recommended): bed items kept in the profile notes only",
+   "Page 1 cover and page 6 disclaimer: no values",
+   "Environmental temperature \"Ambient temperature\" (p. 5): a specimen condition, not an enclosure recommendation"
+  ]
+ }
+]

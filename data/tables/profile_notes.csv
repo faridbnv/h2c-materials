@@ -2492,3 +2492,10 @@ P1855,Drying,"Print settings: ""Drying Settings: 100˚C for 10h (Only if the mat
 P1863,Drying,"Print settings: ""Drying Settings: 80˚C for 10h (Only if the material has absorbed moisture)"" Tips: ""Keep the filament sealed and dry; use the listed 100°C / 8h drying cycle if moisture-related defects appear."" Printing requirements: ""Filament dryer required - the material is very hygroscopic."""
 P1865,Drying,"Specifications: ""Drying 100°C for 8h"" Tips: ""Keep the filament sealed and dry; use the listed 75°C / 6h drying cycle if moisture-related defects appear."""
 P1867,Drying,"Specifications: ""Drying 65°C for 3h"""
+P1912,Storage humidity,Note: DREMC PBT GF print from dry box or dryer. This material easily absorbs moisture. If
+P1913,Cooling,ON
+P1913,Speed,Up to 400 (mm/s)
+P1913,Adhesion / release,"⚫ Bed Temperature Settings: A bed temperature of 40-50℃ typically provides adequate adhesion. If stronger adhesion is needed, you may increase the temperature but avoid exceeding 60℃ to prevent excessive sticking."
+P1914,Speed,40 mm/s - 100 mm/s (<60mm/s is our recommendation for most pro-consumer hardware)
+P1914,Cooling,LOW-MEDIUM for better surface quality OFF-LOW (<10%) for better strength
+P1914,Warping / shrinkage,"Note 2 : at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+, to reduce warping/material shrinkage during printing on complex parts."

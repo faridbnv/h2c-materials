@@ -89,7 +89,7 @@ M087,POM / Acetal,within,within,within,exceeds,unknown,required
 M088,PCTG,within,within,within,within,no-special-concern,required
 M089,CPE,within,within,within,within,unknown,required
 M090,CPE-CF,within,within,within,within,requires-hardened,required
-M091,CoPE,within,within,within,within,unknown,optional
+M091,CoPE,within,within,within,within,unknown,required
 M092,nGen / Amphora,within,within,within,unknown,no-special-concern,unknown
 M093,PVB,within,within,within,within,unknown,required
 M094,PC-ABS,within,within,within,within,no-special-concern,required
@@ -130,7 +130,7 @@ M128,PC-ABS-CF,within,within,within,unknown,requires-hardened,required
 M129,TPU-CF,within,within,within,within,requires-hardened,required
 M130,PPE-PS,within,within,within,partial,unknown,required
 M131,PC-PBT-CF,within,within,within,unknown,requires-hardened,required
-M132,PBT-GF,within,within,within,partial,unknown,required
+M132,PBT-GF,within,within,within,partial,requires-hardened,required
 M133,PBAT,within,within,within,within,unknown,required
 M134,CPE-LW,family,unknown,unknown,unknown,unknown,unknown
 M135,PVC,within,within,within,unknown,no-special-concern,not-needed

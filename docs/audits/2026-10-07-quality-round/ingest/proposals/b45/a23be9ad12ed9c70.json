@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "build-b45.mjs (quality round 2026-10-07)",
+    "date": "2026-10-07"
+  },
+  "document": {
+    "sha256": "a23be9ad12ed9c705ef4ef3015eea73054cee1b708840f20addb45daf8fec7fd",
+    "url": "https://store.dremc.com.au/products/dremc-pbt-gf-glass-fibre-filament-1-75mm-1kg",
+    "pages": 1,
+    "provider": "DREMC",
+    "manufacturer": "DREMC",
+    "docKey": "https://store.dremc.com.au/products/dremc-pbt-gf-glass-fibre-filament-1-75mm-1kg#b45"
+  },
+  "identity": {
+    "polymer": null,
+    "materialId": "M132",
+    "note": "The page says \"DREMC's PBT-GF is a polybutylene terephthalate with glass fiber 3D printing filament\": the product its data sheet is."
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-DREMC-QR-20261007-a23be9ad12ed",
+      "Publisher": "DREMC",
+      "Title": "DREMC PBT GF Glass Fibre Filament 1.75mm 1kg",
+      "Revision": "Product page as served on 2026-10-07",
+      "Publication date": "Not published",
+      "Access date": "2026-10-07",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "DREMC's own product page for PBT GF: its specification block (density) and its printing settings and requirements (nozzle, bed, chamber, drying, a wear-resistant nozzle). The page marks the product end of life for retail.",
+      "Citation role": "cited",
+      "URL": "https://store.dremc.com.au/products/dremc-pbt-gf-glass-fibre-filament-1-75mm-1kg",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Fetched 2026-10-07 by Claude Sonnet (quality round 2026-10-07, b45) from https://store.dremc.com.au/products/dremc-pbt-gf-glass-fibre-filament-1-75mm-1kg; staged by digest (ingest:witness --from, docs/audits/2026-10-07-quality-round/ingest/staged-manifest-b45.csv).",
+      "SHA256": "a23be9ad12ed9c705ef4ef3015eea73054cee1b708840f20addb45daf8fec7fd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "DREMC's PBT-GF is a polybutylene terephthalate with glass fiber 3D printing filament. Its <10% glass fibre composition provides exceptional heat resistance and minimal shrinkage. With impressive rigidity, tensile strength, and excellent anti static properties. This filament is a reliable choice for printing durable and stable parts. Ideal for a variety of applications that demand high-quality printed components such as connectors/switches in automotive applications."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+      "date": "2026-10-07"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "row": {
+        "MaterialID": "M132",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "DREMC",
+        "Product name": "PBT GF",
+        "Shared formulation key": "R-DREMC-QR-20261007-70f515d2b287",
+        "Composition / filler": "PBT with glass fibre under 10 % (\"DREMC PBT GF using BASF Ultradur® PBT resin with added GF <10%\", p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "End of life for retail: the maker's product page (2026-10-07) says it is replaced by DREMC PC PBT GF, a PC/PBT blend.",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-DREMC-QR-20261007-70f515d2b287",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "note": "The product its data sheet (same batch) registers."
+      },
+      "evidence": {
+        "page": 1,
+        "text": "DREMC's PBT-GF is a polybutylene terephthalate with glass fiber 3D printing filament."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M132",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.35 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1350",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Materials/Spool/Packaging Information block of the product page; no test standard or temperature stated",
+        "SourceID": "R-DREMC-QR-20261007-a23be9ad12ed",
+        "Locator": "p. 1: Materials/Spool/Packaging Information (Density)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density: 1.35 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image (130 dpi) against the cached text and bound to its evidence line. Every number was read on the page image by the reader and checked again on it by the reviewer."
+      },
+      "id": "m001"
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M132",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260°C - 280°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "100°C - 120°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+",
+        "Chamber state": "range",
+        "Chamber min °C": "60",
+        "Chamber max °C": "100",
+        "Chamber requirement": "required",
+        "Enclosure": "Recommended for complex larger geometries. 60-100˚C+ may be required for higher density and larger geometries. Recommend VOC/Air Filtering/fume extraction or print in well ventilated room with fume extraction.",
+        "Enclosure state": "recommended",
+        "Plate": "Works well with most common build surfaces. We recommended PEI Build Plate (Smooth/Textured) with Bed Adhesive such as Glue Stick / Magigoo HT. [ Do not print on bare PEI without bed adhesive barrier]",
+        "Drying": "~80 ° c for 8-12hr (Only dry if filament is wet, over drying/repeat drying can damage filament)",
+        "Drying state": "stated",
+        "Drying need": "optional",
+        "Drying °C": "80",
+        "Drying hours": "Not published",
+        "Drying hours open": "Not applicable",
+        "Nozzle material": "A wear resistant nozzle must be used, carbon fiber material is abrasive and will wear standard brass nozzles and >0.5mm nozzle is recommended.",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Abrasive resistance nozzle is requirement due to glass fibre, plated/brass nozzle can wear quickly and cause inconsistent prints and will destroy those types of nozzles.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-DREMC-QR-20261007-a23be9ad12ed",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Printing Settings/Requirements",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40 mm/s - 100 mm/s (<60mm/s is our recommendation for most pro-consumer hardware)"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "LOW-MEDIUM for better surface quality OFF-LOW (<10%) for better strength"
+        },
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "Note 2 : at least 60-90c minimal active/passive chamber is recommended, our recommendation is 80-100c+, to reduce warping/material shrinkage during printing on complex parts."
+        }
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature  260°C - 280°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+        "date": "2026-10-07",
+        "visual": true,
+        "note": "Read on the page image against the cached text; every cell is the page's own words and the typed columns are the parsers' reading."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "acceptances": [],
+  "skipped": [
+    {
+      "note": "Diameter: 1.75mm (+/- 0.05mm), Net weight 1KG, Empty spool ~150g, spool dimensions: packaging data, not material properties"
+    },
+    {
+      "note": "Prices, bulk discount table, quantities: shop content"
+    },
+    {
+      "note": "Retraction settings (0.5-1 mm, 20 mm/s direct drive; 2-3 mm bowden): not a profile cell"
+    },
+    {
+      "note": "\"Material is stable up to 280°C\", \">290°C may emit carbon monoxide, tetrahydrofuran\", \"do not exceed 280°C\": safety statements, not recorded as values"
+    },
+    {
+      "note": "\"<10% glass fibre\" composition figure: composition statement, recorded as identity"
+    },
+    {
+      "note": "Printing Settings block names \"carbon fiber material is abrasive\" for a glass-fibre product (printed as is, in nozzleMaterial)"
+    },
+    {
+      "note": "Product page is marked discontinued/EOL for retail (replaced by PC PBT GF)"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude Sonnet (quality round 2026-10-07, b45), checked by Claude Opus",
+    "date": "2026-10-07",
+    "note": "Read page by page on the page images and against the cached text: 1 value(s) and 1 print profile(s) for 1 product(s); 7 omission(s) are reasoned in skipped."
+  }
+}

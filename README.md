@@ -23,7 +23,7 @@ allowables, and it does not replace the product's own data sheet.
 
 Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md), written by every build.
 
-- **What it holds.** About 1,100 products, 14,600 measured values and 2,000 source documents. The page lists 152
+- **What it holds.** About 1,100 products, 14,700 measured values and 2,000 source documents. The page lists 152
   materials: the 135 the H2C can print, which the tool judges, and 17 it shows only to say why they are out
   (high-temperature plastics such as PEEK and PEI that need a hotter printer, and metal or ceramic sintering filaments).
 - **How accurate it is.** Records are checked by random samples read against their source pages. The latest, of 34
@@ -32,7 +32,7 @@ Exact, current counts are in [build/snapshot/counts.md](build/snapshot/counts.md
   corrections, found 15 with a wrong cell, 2 of them in a cell that can change an answer. Every check so far was done by
   an AI; a person's spot-check is still to come.
 - **What is still missing.** Makers rarely publish a heated-chamber temperature (unknown for about 300 products), drying
-  (about 200), or, for some products, the nozzle or bed temperature (35 for the nozzle and 33 for the bed). Several
+  (about 200), or, for some products, the nozzle or bed temperature (36 for the nozzle and 34 for the bed). Several
   hundred products publish no strength, stiffness or heat-resistance value. Reading the documents already held again
   will not close these: they need documents that print the values, or the makers.
 - **What needs people, not code.** A person checking the values that decide answers, a trial with the team, and test

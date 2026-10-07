@@ -458,8 +458,8 @@ all products: 55
 ↗ ☆
 PLA blend PASS
 2 of 4 products
- 1,345
-1,300–1,540 · 8
+ 1,340
+1,300–1,540 · 9
  4.3* 58* 14* passing: 84–87
 all products: 84
 54–115 · 5
@@ -497,7 +497,7 @@ Polymer Blends
 1 of 1 product
  1,200 1.9* 38.6* 7.7* passing: 119
 all products: 119
- — ☆
+ 64.7¤ ☆
 PP
 Polyolefins
  PASS
