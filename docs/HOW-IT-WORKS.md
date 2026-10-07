@@ -289,7 +289,8 @@ different bars held in different ways; both report energy per area of the notche
 is not an Izod value, and Izod in J/m (ASTM D256) is energy per metre of notch, which needs a bar thickness no sheet
 gives. The tool never converts one into another. In a material's **Mechanical** tab, under one heading, the two tests are
 drawn one above the other on one scale, a dot per product, above every impact result the material's products publish,
-listed under its test with its document; selecting a dot shows the result it stands for. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 4.9 to 72.3
+listed under its test with its document; selecting a dot shows the result it stands for. Where fewer than two
+products have a value of either test, nothing is drawn and a sentence says why. A wide range is often a few products far from the rest: PLA's notched Charpy values run from 4.9 to 72.3
 kJ/m², but its middle half is 6.6 to 21, and the high end is products sold as toughened. Where a maker's own words
 present a product as toughened or impact-modified, it is marked **sold as toughened**, with the quote, and the impact
 medians set those products apart, as they set special formulations apart: PLA's notched Charpy is the median of its 11

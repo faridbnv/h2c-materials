@@ -4456,6 +4456,19 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
   press away; it used to jump to Sources. Charpy strength is shown as "Charpy impact strength", beside Izod impact
   strength. m392 points the caption at the results below instead of the table. A property replaced by another is no
   longer listed as not published (PLA was told "Izod strength" was missing).
+- **What is drawn decides itself, and a moulded value is held once** (m393). Checking every material's heading for the
+  owner (ASA-AF drew three dots and printed a median table of dashes) found two things. ASA-AF's three dots were one
+  number, 7.5 kJ/m², that Spectrum ASA Kevlar's own sheet says was measured on injection-moulded bars, drawn through
+  copies that say nothing of the bar: Fiberlogy's ASA+AF sheet and FormFutura's ApolloX Kevlar sheet, both its twins'
+  (one table, R053). A moulded bar's value is never a printed product's. So where a product or its twin holds the same
+  impact value twice, once said to be moulded and once with no bar stated, the copy is retired as a duplicate and the
+  moulded record stays: twenty records (makers' product pages repeating their data sheets, second sheets, twins'
+  sheets), ten of them a product's drawn value. The rest of the empty medians are right: a value whose sheet states no
+  print orientation is drawn and never in a median (D84), and in 33 materials no product's value is compared (15 of
+  them have more than one). The heading
+  now draws only what it has, with no list of materials: no graph with fewer than two values (a sentence names the
+  one, if there is one), no row for a test no product has a value of, a key only for the marks drawn, and no median
+  table where nothing is compared, but a sentence saying why.
 - **Then set apart, once the marks were checked** (m389, m390). A random draw of 20 unmarked products that publish an
   impact value found one claim the marks missed (colorFabb PET HIGH SPEED PRO, added), within the one in twenty the
   owner's plan allowed, and a blind re-read of 37 changed records found no error. So the two impact rows say "set

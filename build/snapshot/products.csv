@@ -1472,7 +1472,6 @@ G020-05,M020,PET-G FR V0,density,1260,comparable,,V002676,,,,
 G020-05,M020,PET-G FR V0,tensileModulusXY,2.35,as-published,unstated-direction,V010486,,,,twin G020-67
 G020-05,M020,PET-G FR V0,tensileStrengthXY,40,as-published,unstated-direction,V010484,,,,twin G020-67
 G020-05,M020,PET-G FR V0,elongationXY,40,as-published,unstated-direction,V010488,,,,twin G020-67
-G020-05,M020,PET-G FR V0,charpyNotched,3,as-published,unstated-direction,V013170,,,,
 G020-05,M020,PET-G FR V0,hdt045,63,comparable,,V006277,,,,
 G020-06,M020,THE FILAMENT PETG Lite,density,1290,comparable,,V002706,,,,
 G020-06,M020,THE FILAMENT PETG Lite,elongationXY,160,as-published,unstated-direction,V002708,,,,
@@ -1762,7 +1761,6 @@ G020-67,M020,PET-G VO,density,1260,comparable,,V002676,,,,twin G020-05
 G020-67,M020,PET-G VO,tensileModulusXY,2.35,as-published,unstated-direction,V010486,,,,
 G020-67,M020,PET-G VO,tensileStrengthXY,40,as-published,unstated-direction,V010484,,,,
 G020-67,M020,PET-G VO,elongationXY,40,as-published,unstated-direction,V010488,,,,
-G020-67,M020,PET-G VO,charpyNotched,3,as-published,unstated-direction,V010489,,,,
 G020-67,M020,PET-G VO,hdt045,63,comparable,,V010490,,,,
 G020-68,M020,EASY PET-G,density,1290,comparable,,V013137,,,,
 G020-68,M020,EASY PET-G,tensileModulusXY,2.8,as-published,unstated-direction,V010524,,,,
@@ -2796,7 +2794,6 @@ G034-05,M034,DURAPRO ASA GF,density,1100,comparable,,V012873,,,,
 G034-05,M034,DURAPRO ASA GF,tensileModulusXY,3.1,as-published,unstated-direction,V013042,,,,
 G034-05,M034,DURAPRO ASA GF,tensileStrengthXY,54,as-published,unstated-direction,V013043,,,,
 G034-05,M034,DURAPRO ASA GF,elongationXY,3,as-published,unstated-direction,V013045,,,,
-G034-05,M034,DURAPRO ASA GF,charpyNotched,8,as-published,unstated-direction,V014807,,,,
 G034-05,M034,DURAPRO ASA GF,hdt045,95,comparable,,V013051,,,,
 G034-05,M034,DURAPRO ASA GF,glassTransition,103,comparable,,V013054,,,,
 G034-06,M034,ASA - GF,density,1170,comparable,,V004978,,,,
@@ -3518,7 +3515,6 @@ G052-01,M052,AMIDEX Nylon 12,priceCADkg,242.14,comparable,,CA0322,,,,
 G052-02,M052,DURAPRO PA12,tensileModulusXY,1.5,as-published,unstated-direction,V012123,,,,
 G052-02,M052,DURAPRO PA12,tensileStrengthXY,50,as-published,unstated-direction,V012124,,,,
 G052-02,M052,DURAPRO PA12,elongationXY,50,as-published,unstated-direction,V012125,,,,
-G052-02,M052,DURAPRO PA12,charpyNotched,11,as-published,unstated-direction,V012128,,,,
 G052-02,M052,DURAPRO PA12,hdt045,135,comparable,,V012130,,,,
 G052-02,M052,DURAPRO PA12,glassTransition,45,comparable,,V012133,,,,
 G052-03,M052,Polyamide 12 (PA12),density,1000,comparable,,V005724,,,,
@@ -4395,7 +4391,6 @@ G095-01,M095,Polymaker PC PBT,hdt045,107.4,comparable,,V001589,,,,
 G095-01,M095,Polymaker PC PBT,glassTransition,140,comparable,,V001584,,,,
 G095-01,M095,Polymaker PC PBT,priceCADkg,69.99,comparable,,CA0271,,,,
 G095-02,M095,DURAPRO PC-PBT,tensileStrengthXY,60,as-published,unstated-direction,V012946,,,,
-G095-02,M095,DURAPRO PC-PBT,charpyNotched,60,as-published,unstated-direction,V012947,,,,
 G095-02,M095,DURAPRO PC-PBT,glassTransition,145,comparable,,V012950,,,,
 G096-01,M096,FLUORX PVDF,density,1710,comparable,,V001603,,,,
 G096-01,M096,FLUORX PVDF,tensileModulusXY,2.45,comparable,,V001605,,,,
@@ -4623,21 +4618,18 @@ G113-01,M113,ASA Kevlar,density,1070,comparable,,V003116,,,,
 G113-01,M113,ASA Kevlar,tensileModulusXY,2.2,as-published,unstated-direction,V011490,,,,twin G113-02
 G113-01,M113,ASA Kevlar,tensileStrengthXY,40,as-published,unstated-direction,V007519,,,,twin G113-02
 G113-01,M113,ASA Kevlar,elongationXY,6,as-published,unstated-direction,V007522,,,,twin G113-02
-G113-01,M113,ASA Kevlar,charpyNotched,7.5,as-published,unstated-direction,V012188,,,,
 G113-01,M113,ASA Kevlar,hdt045,89,as-published,load-not-stated,V012395,,,,
 G113-01,M113,ASA Kevlar,priceCADkg,109.32,comparable,,CA0157,,,,
 G113-02,M113,ApolloX Kevlar,density,1070,comparable,,V007518,,,,
 G113-02,M113,ApolloX Kevlar,tensileModulusXY,2.2,as-published,unstated-direction,V011490,,,,
 G113-02,M113,ApolloX Kevlar,tensileStrengthXY,40,as-published,unstated-direction,V007519,,,,
 G113-02,M113,ApolloX Kevlar,elongationXY,6,as-published,unstated-direction,V007522,,,,
-G113-02,M113,ApolloX Kevlar,charpyNotched,7.5,as-published,unstated-direction,V007524,,,,
 G113-02,M113,ApolloX Kevlar,hdt045,89,as-published,load-not-stated,V012395,,,,twin G113-01
 G113-02,M113,ApolloX Kevlar,priceCADkg,119.98,comparable,,CA0178,,,,
 G113-03,M113,ASA+AF,density,1070,comparable,,V003116,,,,twin G113-01
 G113-03,M113,ASA+AF,tensileModulusXY,2.2,as-published,unstated-direction,V011490,,,,twin G113-02
 G113-03,M113,ASA+AF,tensileStrengthXY,40,as-published,unstated-direction,V007519,,,,twin G113-02
 G113-03,M113,ASA+AF,elongationXY,6,as-published,unstated-direction,V007522,,,,twin G113-02
-G113-03,M113,ASA+AF,charpyNotched,7.5,as-published,unstated-direction,V012188,,,,twin G113-01
 G113-03,M113,ASA+AF,hdt045,89,as-published,load-not-stated,V012395,,,,twin G113-01
 G114-01,M114,3DXSTAT ESD-TPC (90A),density,1280,comparable,,V003134,,,,
 G114-01,M114,3DXSTAT ESD-TPC (90A),tensileModulusXY,1.4,comparable,,V003136,,,,
@@ -5109,7 +5101,6 @@ G168-02,M168,niceBIO,tensileStrengthXY,55,as-published,unstated-direction,V01114
 G168-02,M168,niceBIO,hdt045,54,comparable,,V011149,,,,
 G168-02,M168,niceBIO,priceCADkg,53.59,comparable,,CA0340,,,,
 G168-03,M168,GREENTEC PRO,density,1350,comparable,,V011229,,,,
-G168-03,M168,GREENTEC PRO,charpyNotched,4,as-published,unstated-direction,V014769,,,,
 G168-03,M168,GREENTEC PRO,priceCADkg,75.37,comparable,,CA0356,,,,
 G168-04,M168,GREENTEC,density,1300,comparable,,V011240,,,,
 G168-04,M168,GREENTEC,charpyNotched,12,as-published,unstated-direction,V014805,,,,
@@ -5128,7 +5119,6 @@ G169-01,M169,GREENTEC PRO CF,density,1200,comparable,,V011218,,,,
 G169-01,M169,GREENTEC PRO CF,tensileModulusXY,7.12,as-published,unstated-direction,V012089,,,,
 G169-01,M169,GREENTEC PRO CF,tensileStrengthXY,65,as-published,unstated-direction,V012090,,,,
 G169-01,M169,GREENTEC PRO CF,elongationXY,2.5,as-published,unstated-direction,V012092,,,,
-G169-01,M169,GREENTEC PRO CF,charpyNotched,4.6,as-published,unstated-direction,V012095,,,,
 G169-01,M169,GREENTEC PRO CF,glassTransition,60,comparable,,V012100,,,,
 G169-02,M169,HI-TEMP CF,density,1360,comparable,,V011301,,,,
 G169-02,M169,HI-TEMP CF,tensileModulusXY,7,as-published,unstated-direction,V011303,,,,

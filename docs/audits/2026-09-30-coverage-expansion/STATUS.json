@@ -1,5 +1,5 @@
 {
-  "dataRelease": "6597d68491c2",
+  "dataRelease": "a683016b96cf",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -57,14 +57,14 @@
     "h2cRelevant": 135,
     "familyEntries": 23,
     "retiredDuplicates": {
-      "measurements": 332,
+      "measurements": 352,
       "evidence": 21,
       "profiles": 80
     },
     "excluded": 17,
     "grades": 1176,
-    "measurements": 14509,
-    "numericMeasurements": 14320,
+    "measurements": 14489,
+    "numericMeasurements": 14300,
     "quarantined": 32,
     "profiles": 1831,
     "evidence": 868,
@@ -158,7 +158,7 @@
       "baseline": 11536,
       "current": 14841,
       "added": 3305,
-      "edited_existing": 2637,
+      "edited_existing": 2643,
       "removed": 0
     },
     "method": {

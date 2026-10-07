@@ -737,7 +737,21 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
   and all but Nanovia PLA VX print an unnotched row beside it several times higher, so the label stands and the method
   is the sheet's slip; each row says so in its notes. The mirror case was wrong and is corrected: Nanovia PLA XRS's
   "Charpy full 12 kJ/m² ISO 179-1eA" had been recorded notched from its method; it is unnotched, by its own word. None
-  states a direction, so all nine are counted apart and decide only when asked.
+  states a direction, so all nine are counted apart and decide only when asked. ApolloX Kevlar's is retired since m393
+  as a copy of Spectrum ASA Kevlar's moulded value (its twin's table).
+- **Impact values whose sheet states no print orientation** (2026-10-07): drawn hollow and never in a median (D84). In
+  15 materials every value drawn is such (ABS-CF, PC-CF, PA6, PA12, PET, PVA, CPE, PEEK, PEI, ABS-AF, PC-PTFE, PCTG-CF,
+  PCL, Nylon of an undisclosed polyamide, PLA blend), so their heading has no median; in 56 more, no product or only
+  one has a value of either test, and nothing is drawn. page_context.csv cannot carry a direction a page states once
+  for its table; a sheet that says "all bars printed flat" would decide these, and none is recorded.
+- **Copies of a moulded value that say nothing of the bar, on other properties** (2026-10-07): m393 retired the twenty
+  impact records that repeat, for the same product or its twin, a number another record says was measured on a moulded
+  bar. The same pattern backs 55 product values of other headlines (density 18, heat deflection at 0.45 MPa 12, glass
+  transition 8, elongation 7, tensile modulus 5, tensile strength 5): a product page or a twin's sheet repeats a data
+  sheet's resin value without its footnote, and the copy is chosen because it says nothing. Retiring them moves
+  answers (density and heat deflection are filters), so each needs its pair checked on the page first. Found by
+  comparing each product value whose specimen is not stated with the product's and its twins' records of the same
+  property, unit, notch, direction and value whose Specimen type is "Raw material value".
 - **Four glass transition rows cite a Vicat or heat deflection standard** (ASTM D1525, ISO 75), as their sheets print
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Products whose only glass transition is a resin supplier's value** (Specimen type Raw material value, which is

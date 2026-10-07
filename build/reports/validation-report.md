@@ -11,11 +11,11 @@ Database snapshot 2026-09-21 · build 2026-10-06
 | materials | 175 |
 | h2cRelevant | 135 |
 | familyEntries | 23 |
-| retiredDuplicates | measurements 332, evidence 21, profiles 80 |
+| retiredDuplicates | measurements 352, evidence 21, profiles 80 |
 | excluded | 17 |
 | grades | 1176 |
-| measurements | 14509 |
-| numericMeasurements | 14320 |
+| measurements | 14489 |
+| numericMeasurements | 14300 |
 | quarantined | 32 |
 | profiles | 1831 |
 | evidence | 868 |
@@ -501,7 +501,7 @@ Every one of the 175 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (4937 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (4927 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

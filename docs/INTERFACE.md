@@ -504,9 +504,23 @@ in the place of the first impact property, instead of a comparison beside three 
   fields, "stated once on its page" where a page heading supplied it), and a **sold as toughened** mark with the
   maker's quote. A sibling's record that a twin reads (D89) carries a line for each product it stands for.
 
+What is drawn decides itself, from the products' values, with no list of materials anywhere:
+
+- **No graph with fewer than two values.** A spread needs two points. Where no product has a notched Charpy or notched
+  Izod value, the heading opens on "Nothing is drawn: no product has a … value" (30 materials on 2026-10-07); where one
+  product has one, the sentence names it, its value (which opens its record) and whether it is compared (26). The
+  comparison notes and the lists follow, with no caption, key or table.
+- **A row only for a test with a value.** A test no product has a value of gets no empty row; a line under the table
+  says so and that its results are listed below.
+- **A key only for the marks drawn**, and the middle half and median only where a row has them.
+- **No median table without a median.** Where none of the values drawn is compared (every one states no orientation,
+  or is a special formulation or sold as toughened), a sentence says so and why, per test, instead of a table of
+  dashes (15 materials, among them ABS-CF, PA6, PA12 and PEEK).
+
 There is no product-by-product table: it repeated the lists (most of a material's impact records were in both), and
 few products publish both tests (23 of 386). Hovering a product's dot on one row lights its dot on the other; selecting
-a dot opens its list on this tab, marks its record and brings it into view, and the record's document opens Sources.
+a dot (or the one value a sentence names) opens its list on this tab, marks its record and brings it into view, and
+the record's document opens Sources.
 Which headlines are drawn together is the Drawer comparison column of headline_definitions.csv; a property they read is
 folded into the heading. A material where neither headline applies keeps its impact properties as headings of their own.
 

@@ -25,9 +25,14 @@ function mechanical(materialId) {
   return host.innerHTML;
 }
 const section = (html) => html.slice(html.indexOf('<section class="imp-compare"'), html.indexOf('</section>', html.indexOf('<section class="imp-compare"')));
-/** Each headline's row of dots, as [measurementId, gradeId, classes] triples, in the order the headlines are drawn. */
-const rowsOf = (html) => section(html).split('<div class="imp-row">').slice(1, 1 + IMPACT.length)
-  .map((r) => [...r.matchAll(/<button type="button" class="imp-dot([^"]*)" data-row="([^"]+)" data-grade="([^"]+)"/g)].map((d) => ({ cls: d[1], mid: d[2], gid: d[3] })));
+/** Each headline's row of dots, as [measurementId, gradeId, classes] triples, in the order of IMPACT; none where the
+ *  test has no row. */
+const rowsOf = (html) => IMPACT.map((h) => {
+  const at = section(html).indexOf(`<div class="imp-row" data-headline="${h.key}">`);
+  if (at < 0) return [];
+  const row = section(html).slice(at, section(html).indexOf('</div>', at));
+  return [...row.matchAll(/<button type="button" class="imp-dot([^"]*)" data-row="([^"]+)" data-grade="([^"]+)"/g)].map((d) => ({ cls: d[1], mid: d[2], gid: d[3] }));
+});
 
 /** The records in the impact heading, each with the "On the graph" lines it carries: [{ mid, key, text }]. */
 const graphLines = (html) => html.split('<div class="evidence-row').slice(1).flatMap((r) => {
@@ -75,6 +80,7 @@ test('a schedule its page states once for the table is the bar\'s state, never "
 test('every dot\'s record says where it sits, and the ones "in the median" are the median the table prints', () => {
   for (const m of db.materials.filter((x) => !x.familyEntry && IMPACT.some((h) => x.summary?.[h.key]))) {
     const html = mechanical(m.id);
+    if (!html.includes('<section class="imp-compare"')) continue;
     const lines = graphLines(html);
     IMPACT.forEach((h, i) => {
       const dots = rowsOf(html)[i] ?? [];
@@ -88,6 +94,40 @@ test('every dot\'s record says where it sits, and the ones "in the median" are t
       if (s?.n) assert.ok(Math.abs(median(inMedian) - s.median) < 1e-6 * Math.max(1, s.median), `${m.id} ${h.key}: median ${median(inMedian)} = ${s.median}`);
     });
   }
+});
+
+test('what is drawn decides itself: no graph without two dots, no row for a test without one, no table without a median', () => {
+  const seen = { none: 0, one: 0, noMedian: 0, silentRow: 0, full: 0 };
+  for (const m of db.materials.filter((x) => !x.familyEntry)) {
+    const html = mechanical(m.id);
+    if (!html.includes('class="prop-block imp-block"')) continue;
+    const products = db.grades.filter((g) => g.materialId === m.id && !g.retired);
+    const dots = IMPACT.map((h) => (m.headline?.[h.key]?.notApplicable ? 0 : products.filter((g) => g.headline?.[h.key]).length));
+    // A spread needs two points: with none or one, a sentence and no graph.
+    const total = dots.reduce((a, b) => a + b, 0);
+    if (total < 2) {
+      seen[total ? 'one' : 'none'] = (seen[total ? 'one' : 'none'] ?? 0) + 1;
+      assert.ok(!html.includes('<section class="imp-compare"'), `${m.id}: no graph`);
+      assert.match(html, total ? /Nothing is drawn: only one product has a [^<]* value, [^<]*<button type="button" class="link-btn" data-row="V\d+">/ : /Nothing is drawn: no product has a /, `${m.id}: says why`);
+      assert.ok(!html.includes('data-on-graph'), `${m.id}: no record says it is on a graph`);
+      continue;
+    }
+    IMPACT.forEach((h, i) => assert.equal(html.includes(`data-headline="${h.key}"`), dots[i] > 0, `${m.id} ${h.key}: a row only with a dot`));
+    if (dots.some((n) => !n)) { seen.silentRow++; assert.match(section(html), /: no product has one, so it has no row/, `${m.id}: the missing row is said`); }
+    const compared = IMPACT.some((h, i) => dots[i] && m.summary?.[h.key]?.n);
+    assert.equal(section(html).includes('class="grid imp-summary"'), compared, `${m.id}: a median table only with a median`);
+    if (!compared) { seen.noMedian++; assert.match(section(html), /No median: none of the values drawn is compared/, `${m.id}: says why there is no median`); } else seen.full++;
+    // The key names only the marks a dot carries.
+    const key = section(html).match(/<p class="imp-key fine">([\s\S]*?)<\/p>/)[1];
+    const drawnClasses = rowsOf(html).flat().map((d) => d.cls);
+    // A special formulation is a diamond whatever its orientation, so "no stated orientation" is keyed by a circle only.
+    for (const mark of ['open', 'annealed', 'variant', 'claimed']) {
+      const carried = drawnClasses.some((x) => x.includes(mark) && (mark !== 'open' || !x.includes('variant')));
+      assert.equal(key.includes(`imp-dot ${mark}`), carried, `${m.id}: the key's ${mark} mark`);
+    }
+  }
+  // Every kind occurs in the data, so each branch above was taken.
+  for (const [k, n] of Object.entries(seen)) assert.ok(n > 0, `some material shows ${k}`);
 });
 
 test('a product\'s name is text, never markup', () => {

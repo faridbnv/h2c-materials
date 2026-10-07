@@ -44,7 +44,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PP (M082) | Flexible component; Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 5 / 7 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 55 | 21 / 24 / 45 | 3DJake (3djake.com); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 5 / 3 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
-| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 73 | 23 / 24 / 50 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
+| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 73 | 23 / 25 / 50 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
 | PA12-CF (M053) | Indoor prototype; Warm environment | collected | 1 of 15 | 5 / 4 / 9 | MatterHackers (matterhackers.com) |
 | PC (M035) | Indoor prototype; Warm environment | collected | 1 of 22 | 6 / 8 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 2 / 3 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |

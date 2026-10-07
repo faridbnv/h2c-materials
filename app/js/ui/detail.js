@@ -767,22 +767,23 @@ export function renderDrawer(host, state, actions) {
     gradeOpen.set(b.dataset.gradeToggle, !body.hidden);
   }));
   wireEvidence(host, actions);
-  // A product's dot on one impact row lights its dot on the other, so the two tests are read for the same product; a dot
-  // selected opens its record in the list below it, on this tab, from where its document is one press away.
+  // A product's dot on one impact row lights its dot on the other, so the two tests are read for the same product. A dot,
+  // or the one value a sentence names where nothing is drawn, opens its record in the list below it, on this tab, from
+  // where its document is one press away.
   host.querySelectorAll('.imp-dot[data-grade]').forEach((d) => {
     const pair = (on) => host.querySelectorAll(`.imp-dot[data-grade="${CSS.escape(d.dataset.grade)}"]`).forEach((x) => x.classList.toggle('partner', on));
     d.addEventListener('mouseenter', () => pair(true));
     d.addEventListener('mouseleave', () => pair(false));
-    d.addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      const row = host.querySelector(`.imp-records .evidence-row[data-mid="${CSS.escape(d.dataset.row)}"]`);
-      if (!row) { actions.openMeasurement(d.dataset.row); return; }
-      host.querySelectorAll('.evidence-row.target').forEach((r) => r.classList.remove('target'));
-      row.classList.add('target');
-      for (let x = row.closest('details'); x; x = x.parentElement?.closest('details')) x.open = true;
-      requestAnimationFrame(() => row.scrollIntoView({ block: 'center', behavior: 'smooth' }));
-    });
   });
+  host.querySelectorAll('.imp-block [data-row]').forEach((d) => d.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    const row = host.querySelector(`.imp-records .evidence-row[data-mid="${CSS.escape(d.dataset.row)}"]`);
+    if (!row) { actions.openMeasurement(d.dataset.row); return; }
+    host.querySelectorAll('.evidence-row.target').forEach((r) => r.classList.remove('target'));
+    row.classList.add('target');
+    for (let x = row.closest('details'); x; x = x.parentElement?.closest('details')) x.open = true;
+    requestAnimationFrame(() => row.scrollIntoView({ block: 'center', behavior: 'smooth' }));
+  }));
   const search = host.querySelector('[data-search]');
   if (search) {
     search.addEventListener('input', () => { drawerQuery = search.value; applySearch(host); });
@@ -1113,6 +1114,10 @@ function stack(entries, pct) {
   return Math.max(1, rows.length);
 }
 
+/** A dot's shape: hollow with no stated orientation, square annealed, a diamond a special formulation, coloured sold as toughened. */
+const dotClass = (h, e, c) => [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '',
+  h.toughened && soldToughened(e.g, e.v, c) ? 'claimed' : ''].filter(Boolean).join(' ');
+
 /** One headline's row of dots: a product each, the middle half of the comparable ones shaded and their median marked. */
 function dotRow(h, entries, s, scale, c, gradeLabel) {
   const rows = stack(entries, scale.pct);
@@ -1124,11 +1129,11 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
     const kind = [e.v.level === 'as-published' ? 'no stated orientation' : null, ...changedState(x, e.v),
       e.variant ? 'special formulation, left out of the median' : null, claimed ? 'sold as toughened by its maker' : null, e.v.from ? e.v.from.label : null].filter(Boolean);
     const title = `${gradeLabel(e.g)}: ${fmtBounded(e.v.value, h.unit, e.v.interval)}${kind.length ? ` (${kind.join('; ')})` : ''}`;
-    const cls = [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '', claimed ? 'claimed' : ''].filter(Boolean).join(' ');
+    const cls = dotClass(h, e, c);
     return `<button type="button" class="imp-dot${cls ? ` ${cls}` : ''}" data-row="${esc(e.v.measurementId)}" data-grade="${esc(e.g.id)}"
       style="left:${e.x}%;bottom:${3 + e.row * 9}px" title="${esc(title)}" aria-label="${esc(title)}" tabindex="-1"></button>`;
   }).join('');
-  return `<div class="imp-row"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${plural(entries.length, 'product')}</span></span>
+  return `<div class="imp-row" data-headline="${esc(h.key)}"><span class="imp-label">${esc(h.labels.plain)}<span class="fine">${plural(entries.length, 'product')}</span></span>
     <span class="imp-track" style="height:${8 + rows * 9}px">${gridLines(scale)}${band}${median}${dots}</span></div>`;
 }
 
@@ -1139,22 +1144,29 @@ function dotRow(h, entries, s, scale, c, gradeLabel) {
 function spreadSummary(hs, m) {
   // A range never breaks across lines at its dash (U+2060 joins the dash to its numbers).
   const span = (x) => (x.min === x.max ? fmtNumber(x.min) : `${fmtNumber(x.min)}\u2060–\u2060${fmtNumber(x.max)}`);
+  const apartOf = (s) => [s?.asPublished ? `${s.asPublished.n} with no stated orientation (${span(s.asPublished)})` : null,
+    s?.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : null,
+    s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : null].filter(Boolean);
   const row = (h) => {
     const s = m.summary?.[h.key];
-    const apart = [s?.asPublished ? `${s.asPublished.n} with no stated orientation (${span(s.asPublished)})` : null,
-      s?.variants ? `${plural(s.variants.n, 'special formulation')} (${span(s.variants)})` : null,
-      s?.claimed?.setApart ? `${s.claimed.n} sold as toughened (${span(s.claimed)})` : null].filter(Boolean);
+    const apart = apartOf(s);
     return `<tr><th scope="row">${esc(h.labels.plain)}</th><td class="num">${s?.n ?? 0}</td><td class="num">${s?.n ? esc(fmtNumber(s.median)) : '—'}</td>
       <td class="num">${s?.q1 != null ? esc(`${fmtNumber(s.q1)}–${fmtNumber(s.q3)}`) : '—'}</td><td class="num">${s?.n ? esc(span(s)) : '—'}</td></tr>
       ${apart.length ? `<tr class="imp-apart"><td colspan="5">Also drawn, not in the median: ${esc(andList(apart))}.</td></tr>` : ''}`;
   };
   const claimed = hs.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s?.claimed);
   const apart = hs.some((h) => m.summary?.[h.key]?.claimed?.setApart) ? 'special formulations and products sold as toughened' : 'special formulations';
+  const rule = `the products whose sheet states the bar's orientation (XY), except ${apart}`;
+  const toughened = `${claimed.some(([, s]) => !s.claimed.setApart) ? ` ${claimed.filter(([, s]) => !s.claimed.setApart).map(([h, s]) => `${h.labels.plain}: ${toughenedSplit(s, h.unit)}`).map(esc).join(' ')}` : ''}${
+    claimed.length ? ' "Sold as toughened" is the maker\'s own statement about its product, quoted on its value\'s line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.' : ''}`;
+  // Where no value drawn is compared, a table of dashes says nothing: a sentence says why there is no median.
+  if (hs.every((h) => !m.summary?.[h.key]?.n)) {
+    return `<p class="fine imp-foot imp-no-median">No median: none of the values drawn is compared. ${hs.map((h) => `${esc(h.labels.plain)}: ${esc(andList(apartOf(m.summary?.[h.key])))}.`).join(' ')}
+      Only ${esc(rule)}, are compared.${toughened}</p>`;
+  }
   return `${scrollTable(`<table class="grid imp-summary"><thead><tr><th>Test, <span class="u">${esc(hs[0].unit)}</span></th><th class="num" title="Products compared">n</th><th class="num">Median</th>
       <th class="num">Middle half</th><th class="num">Range</th></tr></thead><tbody>${hs.map(row).join('')}</tbody></table>`)}
-    <p class="fine imp-foot">n counts the products compared: those whose sheet states the bar's orientation (XY), except ${apart}. The median, middle half and range are of these alone.${
-      claimed.some(([, s]) => !s.claimed.setApart) ? ` ${claimed.filter(([, s]) => !s.claimed.setApart).map(([h, s]) => `${h.labels.plain}: ${toughenedSplit(s, h.unit)}`).map(esc).join(' ')}` : ''}${
-      claimed.length ? ' "Sold as toughened" is the maker\'s own statement about its product, quoted on its value\'s line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.' : ''}</p>`;
+    <p class="fine imp-foot">n counts the products compared: ${esc(rule)}. The median, middle half and range are of these alone.${toughened}</p>`;
 }
 
 /**
@@ -1205,29 +1217,50 @@ function drawerComparisons(m, c, tab) {
     const properties = new Set(hs.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
     const byKey = new Map(hs.map((h) => [h.key, spreadEntries(m, c, h.key)]));
     if (!hs.length || !c.ms.some((x) => properties.has(x.property) && x.numeric && !x.quarantined)) return null;
-    const scale = stripScale(hs.flatMap((h) => byKey.get(h.key).map((e) => e.v.value)));
+    // What is drawn decides itself: a test with no product's value has no row, a mark no dot carries has no key, and a
+    // material whose products publish no value either test compares has no graph and no median, only its results.
+    const drawn = hs.filter((h) => byKey.get(h.key).length);
+    const silent = hs.filter((h) => !byKey.get(h.key).length);
     const caption = c.db.method?.find((r) => r.topic === topic)?.rule ?? '';
-    const strips = hs.some((h) => byKey.get(h.key).length) ? `<div class="imp-strips">
-        ${hs.map((h) => dotRow(h, byKey.get(h.key), m.summary?.[h.key], scale, c, gradeLabel)).join('')}
-        <div class="imp-row imp-axis"><span class="fine">${esc(hs[0].unit)}${scale.log ? ', log scale' : ''}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div>
-        <p class="imp-key fine"><span><i class="imp-dot"></i> orientation stated (XY)</span><span><i class="imp-dot open"></i> no stated orientation</span>
-          <span><i class="imp-dot annealed"></i> measured after annealing</span><span><i class="imp-dot variant"></i> special formulation</span>
-          ${hs.some((h) => h.toughened && byKey.get(h.key).some((e) => soldToughened(e.g, e.v, c))) ? '<span><i class="imp-dot claimed"></i> sold as toughened (the maker\'s statement)</span>' : ''}
-          <span><i class="imp-band-key"></i> middle half</span><span><i class="imp-median-key"></i> median</span></p>
-        <p class="fine imp-hint">A product's dot lights its dot in the other row; select a dot to see its record below, and from there its document.</p></div>` : '';
-    // The products that publish both tests, by name: the pairs the two rows are read for.
-    const both = byKey.get(hs[0].key)?.filter((e) => hs.every((h) => byKey.get(h.key).some((x) => x.g.id === e.g.id))).map((e) => gradeLabel(e.g)) ?? [];
-    const bothLine = hs.length < 2 ? '' : both.length
-      ? `<p class="fine imp-foot">Both tests: ${esc(plural(both.length, 'product'))} (${esc(andList(both.slice(0, 6)))}${both.length > 6 ? ' and others' : ''}).</p>`
-      : '<p class="fine imp-foot">No product publishes both tests.</p>';
+    const dots = drawn.flatMap((h) => byKey.get(h.key).map((e) => ({ h, e })));
+    let graph = '';
+    // A spread needs two points: one product's value is said in a sentence, not drawn.
+    if (dots.length > 1) {
+      const scale = stripScale(drawn.flatMap((h) => byKey.get(h.key).map((e) => e.v.value)));
+      const classes = drawn.flatMap((h) => byKey.get(h.key).map((e) => dotClass(h, e, c).split(' ')));
+      const has = (k) => classes.some((x) => x.includes(k));
+      const summaries = drawn.map((h) => m.summary?.[h.key]).filter(Boolean);
+      const key = [
+        classes.some((x) => !x.includes('open') && !x.includes('variant')) ? '<span><i class="imp-dot"></i> orientation stated (XY)</span>' : '',
+        classes.some((x) => x.includes('open') && !x.includes('variant')) ? '<span><i class="imp-dot open"></i> no stated orientation</span>' : '',
+        has('annealed') ? '<span><i class="imp-dot annealed"></i> measured after annealing</span>' : '',
+        has('variant') ? '<span><i class="imp-dot variant"></i> special formulation</span>' : '',
+        has('claimed') ? '<span><i class="imp-dot claimed"></i> sold as toughened (the maker\'s statement)</span>' : '',
+        summaries.some((x) => x.q1 != null) ? '<span><i class="imp-band-key"></i> middle half</span>' : '',
+        summaries.some((x) => x.n > 1) ? '<span><i class="imp-median-key"></i> median</span>' : '',
+      ].join('');
+      // The products that publish both tests, by name: the pairs the two rows are read for.
+      const both = byKey.get(drawn[0].key).filter((e) => drawn.every((h) => byKey.get(h.key).some((x) => x.g.id === e.g.id))).map((e) => gradeLabel(e.g));
+      const bothLine = drawn.length < 2 ? '' : both.length
+        ? `<p class="fine imp-foot">Both tests: ${esc(plural(both.length, 'product'))} (${esc(andList(both.slice(0, 6)))}${both.length > 6 ? ' and others' : ''}).</p>`
+        : '<p class="fine imp-foot">No product publishes both tests.</p>';
+      const silentLine = silent.length ? `<p class="fine imp-foot">${esc(andList(silent.map((h) => h.labels.plain)))}: no product has one, so ${silent.length > 1 ? 'they have' : 'it has'} no row; ${silent.length > 1 ? 'their' : 'its'} results are listed below.</p>` : '';
+      graph = `${caption ? `<p class="fine imp-caption">${esc(caption)}</p>` : ''}
+        <div class="imp-strips">
+        ${drawn.map((h) => dotRow(h, byKey.get(h.key), m.summary?.[h.key], scale, c, gradeLabel)).join('')}
+        <div class="imp-row imp-axis"><span class="fine">${esc(drawn[0].unit)}${scale.log ? ', log scale' : ''}</span><span class="imp-scale">${scale.ticks.map((v) => `<span${scale.pct(v) >= 99.5 ? ' class="end"' : scale.pct(v) <= 0.5 ? ' class="start"' : ''} style="left:${scale.pct(v)}%">${esc(fmtNumber(v))}</span>`).join('')}</span></div>
+        <p class="imp-key fine">${key}</p>
+        <p class="fine imp-hint">${drawn.length > 1 ? 'A product\'s dot lights its dot in the other row; select' : 'Select'} a dot to see its record below, and from there its document.</p></div>
+        ${spreadSummary(drawn, m)}${silentLine}${bothLine}`;
+    }
     // The line a dot's record carries: its mark, where it sits, and what changed its bar. A twin's dot is its
     // sibling's record (D89), which then carries a line for each product it stands for.
     const lines = new Map();
-    for (const h of hs) {
+    for (const h of graph ? hs : []) {
       for (const e of byKey.get(h.key)) {
         const x = c.msById.get(e.v.measurementId);
         const claimed = !!h.toughened && soldToughened(e.g, e.v, c);
-        const mark = [e.v.level === 'as-published' ? 'open' : '', e.v.anneal ? 'annealed' : '', e.variant ? 'variant' : '', claimed ? 'claimed' : ''].filter(Boolean).join(' ');
+        const mark = dotClass(h, e, c);
         const owner = e.v.from?.origin === 'twin' ? c.gradeById.get(e.v.from.gradeId) : e.g;
         const whose = x && e.g.id !== x.gradeId ? ` for ${gradeLabel(e.g)} too (${e.v.from?.label ?? 'the same sheet'})` : '';
         // The maker's quote is the mark itself: in the reason where it is why, else after the line.
@@ -1241,12 +1274,22 @@ function drawerComparisons(m, c, tab) {
       }
     }
     const compared = hs.filter((h) => h.comparisonNote).map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
-    const html = (recordBlocks, values) => makerBlock(topic, values, 'value', `<section class="imp-compare" data-comparison="${esc(topic)}">
-      ${caption ? `<p class="fine imp-caption">${esc(caption)}</p>` : ''}
-      ${strips}
-      ${hs.some((h) => m.summary?.[h.key]) ? spreadSummary(hs, m) : ''}
-      ${bothLine}</section>
-      <h4 class="imp-sub">Every result, with its document</h4>${compared}<div class="imp-records">${recordBlocks}</div>`, { cls: 'prop-block imp-block' });
+    // Without a graph, a sentence: no product has a value of either test, or one product has one, named with its value,
+    // which opens its record, and whether it is compared.
+    const rules = `${hs.length > 1 ? 'Each test\'s rule' : 'The rule'} is below, then every result with its document.`;
+    const values = hs.map((h) => lower(h.labels.plain)).join(' or ');
+    const one = dots.length === 1 ? dots[0] : null;
+    const reason = one && outOfMedian(one.e, m.summary?.[one.h.key], c);
+    const none = !one
+      ? `<p class="fine imp-none">Nothing is drawn: no product has a ${esc(values)} value. ${rules}</p>`
+      : `<p class="fine imp-none">Nothing is drawn: only one product has a ${esc(values)} value, ${esc(gradeLabel(one.e.g))}'s ${esc(lower(one.h.labels.plain))} of
+        <button type="button" class="link-btn" data-row="${esc(one.e.v.measurementId)}">${esc(fmtBounded(one.e.v.value, one.h.unit, one.e.v.interval))}</button>; ${
+        esc({ 'no stated orientation': 'its sheet states no orientation, so it is not compared', 'special formulation': 'it is a special formulation, so it is not compared',
+          'sold as toughened': 'it is sold as toughened, so it is not compared' }[reason] ?? 'it is the material\'s only compared value')}. ${rules}</p>`;
+    const html = (recordBlocks, values) => makerBlock(topic, values, 'value', graph
+      ? `<section class="imp-compare" data-comparison="${esc(topic)}">${graph}</section>
+        <h4 class="imp-sub">Every result, with its document</h4>${compared}<div class="imp-records">${recordBlocks}</div>`
+      : `${none}${compared}<div class="imp-records">${recordBlocks}</div>`, { cls: 'prop-block imp-block' });
     return { topic, properties, lines, html };
   }).filter(Boolean);
 }

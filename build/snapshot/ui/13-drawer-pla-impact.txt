@@ -24,5 +24,5 @@ Notched Charpy impact 11 6.7 5.42–12.5 3.97⁠–⁠20.3
 Also drawn, not in the median: 20 with no stated orientation (1.8⁠–⁠29.8), 7 special formulations (1.8⁠–⁠7) and 7 sold as toughened (5.76⁠–⁠72.3).
 Notched Izod impact 6 5 4.63–5.75 4.5⁠–⁠6.5
 Also drawn, not in the median: 10 with no stated orientation (2⁠–⁠5), 5 special formulations (5.5⁠–⁠18.1) and 1 sold as toughened (10).
-n counts the products compared: those whose sheet states the bar's orientation (XY), except special formulations and products sold as toughened. The median, middle half and range are of these alone. "Sold as toughened" is the maker's own statement about its product, quoted on its value's line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.
+n counts the products compared: the products whose sheet states the bar's orientation (XY), except special formulations and products sold as toughened. The median, middle half and range are of these alone. "Sold as toughened" is the maker's own statement about its product, quoted on its value's line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.
 Both tests: 1 product (colorFabb Copper filled PLA).
