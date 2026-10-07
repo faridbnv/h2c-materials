@@ -11,11 +11,11 @@ Database snapshot 2026-09-21 · build 2026-10-07
 | materials | 175 |
 | h2cRelevant | 135 |
 | familyEntries | 23 |
-| retiredDuplicates | measurements 403, evidence 21, profiles 80 |
+| retiredDuplicates | measurements 601, evidence 21, profiles 80 |
 | excluded | 17 |
 | grades | 1180 |
-| measurements | 14664 |
-| numericMeasurements | 14471 |
+| measurements | 14466 |
+| numericMeasurements | 14273 |
 | quarantined | 36 |
 | profiles | 1835 |
 | evidence | 868 |
@@ -193,8 +193,8 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 |---|---:|---:|---:|---:|---:|---|
 | density | 817 | 1.44 | 1.99 | 0.797 | 0.951 | yes |
 | tensileModulusXY | 309 | 1.11 | 1.3 | 0.796 | 0.942 | yes |
-| tensileStrengthXY | 330 | 1.22 | 1.19 | 0.788 | 0.939 | yes |
-| elongationXY | 357 | 1.13 | 1.16 | 0.796 | 0.952 | yes |
+| tensileStrengthXY | 330 | 1.23 | 1.19 | 0.788 | 0.939 | yes |
+| elongationXY | 357 | 1.13 | 1.17 | 0.796 | 0.952 | yes |
 | hdt045 | 430 | 2.04 | 3 | 0.791 | 0.919 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
 EST-GRADE-OUTLIER, 39 grades: PLA 12, PLA Wood 3, PLA Aero 3, PA12-CF 3, PPA-CF 3, PPA-GF 3, PA6-CF 2, PP-CF 2, PLA Marble 1, PP 1, POM / Acetal 1, ABS 1, TPU 85A class and softer 1, PETG 1, PA6 1, PET-GF 1.
@@ -483,8 +483,8 @@ Measured headlines far outside their prediction (worth a second look at the sour
 - PA6-GS, density: 1010 kg/m³, expected about 1320
 - PLA-EC, density: 1240 kg/m³, expected about 1530
 - PBAT, tensileModulusXY: 0.006 GPa, expected about 0.983
-- PA6, hdt045: 140 °C, expected about 88.9
-- PA12, hdt045: 135 °C, expected about 86
+- PA6, hdt045: 140 °C, expected about 88.8
+- PA12, hdt045: 135 °C, expected about 85.9
 
 ## Consistency
 
@@ -514,5 +514,5 @@ interface can say so rather than implying a certainty it does not have.
 - `PARSE-UNREAD` **profiles** — 1 process temperature cells were not parsed: P1612 nozzle: "75-85℃"
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 6 values are physically impossible for their property and were kept out of the estimate model: V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
-- `EST-OUTLIER` **materials** — 6 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1030); PA6-GS density 1010 (expected about 1320); PLA-EC density 1240 (expected about 1530); PBAT tensileModulusXY 0.006 (expected about 0.983); PA6 hdt045 140 (expected about 88.9); PA12 hdt045 135 (expected about 86)
-- `EST-FAMILY-ORDER` **materials** — 5 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2; ASA-AF tensileModulusXY 1.8 (estimate) < ASA 2.1973; PBT-GF hdt045 172.5 < PBT 180; PA12-AF hdt045 96.6 (estimate) < PA12 135; Nylon-CF, maker-undisclosed polyamide tensileModulusXY 2.16 < Nylon, maker-undisclosed polyamide 3
+- `EST-OUTLIER` **materials** — 6 measured headlines sit far outside what every other observation predicts; check the source and the grade: ASA Aero density 460 (expected about 1030); PA6-GS density 1010 (expected about 1320); PLA-EC density 1240 (expected about 1530); PBAT tensileModulusXY 0.006 (expected about 0.983); PA6 hdt045 140 (expected about 88.8); PA12 hdt045 135 (expected about 85.9)
+- `EST-FAMILY-ORDER` **materials** — 5 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2; ASA-AF tensileModulusXY 1.79 (estimate) < ASA 2.1973; PBT-GF hdt045 172.5 < PBT 180; PA12-AF hdt045 96.6 (estimate) < PA12 135; Nylon-CF, maker-undisclosed polyamide tensileModulusXY 2.16 < Nylon, maker-undisclosed polyamide 3

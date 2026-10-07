@@ -1,0 +1,38 @@
+Grade,SourceA,SourceB,Verdict,Copy,Stays,Reason
+G027-53,R-3DJAKE-FIBERLOGY-ABS-TDS,R-FIBERLOGY-FIBERLOGY-ABS-TDS-4,copy,R-FIBERLOGY-FIBERLOGY-ABS-TDS-4,R-3DJAKE-FIBERLOGY-ABS-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G094-11,R-3DJAKE-FIBERLOGY-PCABS-TDS,R-FIBERLOGY-FIBERLOGY-PCABS-TDS,copy,R-3DJAKE-FIBERLOGY-PCABS-TDS,R-FIBERLOGY-FIBERLOGY-PCABS-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G020-17,R-EXTRUDR-petg-TDS-en,R-EXTRUDR-petg-bundle-TDS-en,copy,R-EXTRUDR-petg-bundle-TDS-en,R-EXTRUDR-petg-TDS-en,the same table registered twice; the copy's repeated rows retired (m409)
+G001-35,R-EXTRUDR-pla-hs-TDS-en,R-EXTRUDR-pla-hs-TDS-en-8f08c1,copy,R-EXTRUDR-pla-hs-TDS-en-8f08c1,R-EXTRUDR-pla-hs-TDS-en,the same table registered twice; the copy's repeated rows retired (m409)
+G001-33,R-EXTRUDR-pla-nx2-matt-TDS-en,R-EXTRUDR-pla-nx2-matt-TDS-it,copy,R-EXTRUDR-pla-nx2-matt-TDS-it,R-EXTRUDR-pla-nx2-matt-TDS-en,the same table registered twice; the copy's repeated rows retired (m409)
+G001-33,R-EXTRUDR-pla-nx2-TDS-en,R-EXTRUDR-pla-nx2-matt-TDS-en,revision,,,"PLA NX2 and NX2 MATT, one product since m302, two sheets"
+G001-33,R-EXTRUDR-pla-nx2-TDS-en,R-EXTRUDR-pla-nx2-matt-TDS-it,revision,,,"PLA NX2 and NX2 MATT, one product since m302, two sheets"
+G031-26,R-FABRU-16-material-datat-sheet-ASA-purefil,R-FABRU-PUREFIL-17-Materialdatenblatt-ASA-purefil,copy,R-FABRU-PUREFIL-17-Materialdatenblatt-ASA-purefil,R-FABRU-16-material-datat-sheet-ASA-purefil,the same table registered twice; the copy's repeated rows retired (m409)
+G138-02,R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil,R-FABRU-PUREFIL-3493-Materialdatenblatt-HDPE-GF20-purefil,copy,R-FABRU-PUREFIL-3493-Materialdatenblatt-HDPE-GF20-purefil,R-FABRU-3492-Material-data-sheet-HDPE-GF20-purefil,the same table registered twice; the copy's repeated rows retired (m409)
+G001-68,R-FABRU-4691-material-data-sheet-PLA-purefil,R-FABRU-PUREFIL-749-Materialdatenblatt-PLA-purefil,copy,R-FABRU-PUREFIL-749-Materialdatenblatt-PLA-purefil,R-FABRU-4691-material-data-sheet-PLA-purefil,the same table registered twice; the copy's repeated rows retired (m409)
+G020-68,R-FIBERLOGY-FIBERLOGY-EASY-PET-G-TDS,R-FIBERLOGY-FIBERLOGY-EASY-PET-G-TDS-5,revision,,,?
+G167-04,R-FIBERLOGY-FIBERLOGY-MATTFLEX-40D-TDS,R-FIBERLOGY-FIBERLOGY-MATTFLEX-40D-TDS-1,copy,R-FIBERLOGY-FIBERLOGY-MATTFLEX-40D-TDS-1,R-FIBERLOGY-FIBERLOGY-MATTFLEX-40D-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G088-07,R-FIBERLOGY-FIBERLOGY-PCTG-TDS,R-FIBERLOGY-FIBERLOGY-PCTG-TDS-0,copy,R-FIBERLOGY-FIBERLOGY-PCTG-TDS-0,R-FIBERLOGY-FIBERLOGY-PCTG-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G020-07,S-SPECTRUM-EN-TDS-Spectrum-PETG-Premium-High-Speed,S-SPECTRUM-en-tds-spectrum-petg-premium-high-speed,copy,S-SPECTRUM-EN-TDS-Spectrum-PETG-Premium-High-Speed,S-SPECTRUM-en-tds-spectrum-petg-premium-high-speed,the same table registered twice; the copy's repeated rows retired (m409)
+G107-01,S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD,S-SPECTRUM-en-tds-spectrum-pla-esd,copy,S-SPECTRUM-EN-TDS-Spectrum-PLA-ESD,S-SPECTRUM-en-tds-spectrum-pla-esd,the same table registered twice; the copy's repeated rows retired (m409)
+G001-13,S-SPECTRUM-EN-TDS-The-Filament-PLA,S-SPECTRUM-eng-tds-the-filament-pla,copy,S-SPECTRUM-EN-TDS-The-Filament-PLA,S-SPECTRUM-eng-tds-the-filament-pla,the same table registered twice; the copy's repeated rows retired (m409)
+G001-11,S-SPECTRUM-EN-TDS-The-Filament-PLA-HS,S-SPECTRUM-eng-tds-the-filament-pla-hs,copy,S-SPECTRUM-EN-TDS-The-Filament-PLA-HS,S-SPECTRUM-eng-tds-the-filament-pla-hs,the same table registered twice; the copy's repeated rows retired (m409)
+G020-68,R-FIBERLOGY-FIBERLOGY-EASY-PET-G-TDS,R-FIBERLOGY-FIBERLOGY-EASYPETG-TDS,copy,R-FIBERLOGY-FIBERLOGY-EASY-PET-G-TDS,R-FIBERLOGY-FIBERLOGY-EASYPETG-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G020-68,R-FIBERLOGY-FIBERLOGY-EASY-PET-G-TDS-5,R-FIBERLOGY-FIBERLOGY-EASYPETG-TDS,copy,R-FIBERLOGY-FIBERLOGY-EASY-PET-G-TDS-5,R-FIBERLOGY-FIBERLOGY-EASYPETG-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G020-71,R-FIBERLOGY-FIBERLOGY-R-PET-G-TDS-0,R-FIBERLOGY-FIBERLOGY-RPETG-TDS,copy,R-FIBERLOGY-FIBERLOGY-R-PET-G-TDS-0,R-FIBERLOGY-FIBERLOGY-RPETG-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G129-07,R-FIBERLOGY-FIBERLOGY-FIBERFLEX-CF-TDS,R-FIBERLOGY-FIBERLOGY-FIBERFLEXCF-TDS,copy,R-FIBERLOGY-FIBERLOGY-FIBERFLEX-CF-TDS,R-FIBERLOGY-FIBERLOGY-FIBERFLEXCF-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G028-12,I-PLA-ABS-GF-TDS,I-PLA-ABS-Glass-Fiber-Technical-Data-Sheet,revision,,,two revisions (2024/09 and 2025/08 uploads)
+G001-62,R-COLORFABB-Files-colorFabb,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,copy,R-COLORFABB-Files-colorFabb,R-COLORFABB-TDS-colorFabb-PLA-High-Speed-PRO,the same table registered twice; the copy's repeated rows retired (m409)
+G053-04,R-EXTRUDR-durapro-pa12-cf-TDS-en,R-EXTRUDR-durapro-pa12-cf-TDS-it,copy,R-EXTRUDR-durapro-pa12-cf-TDS-it,R-EXTRUDR-durapro-pa12-cf-TDS-en,the same table registered twice; the copy's repeated rows retired (m409)
+G039-15,R-EXTRUDR-flex-semisoft-TDS-en,R-EXTRUDR-flex-semisoft-TDS-en-f4e958,copy,R-EXTRUDR-flex-semisoft-TDS-en-f4e958,R-EXTRUDR-flex-semisoft-TDS-en,the same table registered twice; the copy's repeated rows retired (m409)
+G001-185,R-FIBERLOGY-FIBERLOGY-R-PLA-TDS-0,R-FIBERLOGY-FIBERLOGY-RPLA-TDS,revision,,,3DJake's copy names ISO 527 where Fiberlogy's sheet now names ASTM D882: another revision
+G070-05,X-ECOMAX-CF-HTN-v1,X-ECOMAX-CarbonX-CF-HTN-TDS-v2,revision,,,two revisions (v1 and v2)
+G144-03,R-3DJAKE-FIBERLOGY-PCTGCF-TDS,R-FIBERLOGY-FIBERLOGY-PCTGCF-TDS,copy,R-3DJAKE-FIBERLOGY-PCTGCF-TDS,R-FIBERLOGY-FIBERLOGY-PCTGCF-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G110-03,R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS,R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS-1,copy,R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS-1,R-FIBERLOGY-FIBERLOGY-PCTGGF-TDS,the same table registered twice; the copy's repeated rows retired (m409)
+G026-05,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,S-POLYCN-PolyMax-PETG-ESD-TDS-V5-3,revision,,,a rebrand: Fiberon V1.1 and PolyMax V5.3 (merged in check round 3)
+G123-01,X-ECOMAX-3DXSTAT-ESD-Ultem1010-TDS-v3-1,X-ECOMAX-3XDSTAT-ESD-Ultem-v3-TDS,revision,,,two revisions (3.0 and 3.1)
+G039-11,S-POLYCN-PolyFlex-TPU90-TDS-V4-2,S-POLYCN-PolyFlex-TPU90-TDS-V5-1,revision,,,two revisions (V4.2 and V5.1)
+G001-143,R-SUNLU-65301701781747847057,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,revision,,,"SUNLU's ISO PLA+ and PLA+2.0 sheets, one table (m372)"
+G088-03,R-EXTRUDR-pctg-TDS-de,R-EXTRUDR-pctg-TDS-en,copy,R-EXTRUDR-pctg-TDS-de,R-EXTRUDR-pctg-TDS-en,the same table registered twice; the copy's repeated rows retired (m409)
+G027-09,S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04,S-POLYCN-TDS-Polymaker-PolyLite-ABS-V5-6-2025-12-30-EN,revision,,,two revisions (V5.6 and V6.0)
+G031-06,S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN,S-POLYCN-index-php-controller-attachment-id-attachment-3937,revision,,,two revisions (V6.0 and an older retailer copy)
+G001-16,S-SPECTRUM-EN-TDS-Spectrum-PLA-Pro-2,S-SPECTRUM-en-tds-spectrum-pla-pro,copy,S-SPECTRUM-EN-TDS-Spectrum-PLA-Pro-2,S-SPECTRUM-en-tds-spectrum-pla-pro,the same table registered twice; the copy's repeated rows retired (m409)

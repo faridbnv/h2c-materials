@@ -1,5 +1,5 @@
 {
-  "dataRelease": "a4aa04a3b851",
+  "dataRelease": "ec84d36b2c6f",
   "latestCompletedDataCommit": "5397478d80ffee953329936b201548b744aeb819",
   "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
   "materialAssessments": {
@@ -61,14 +61,14 @@
     "h2cRelevant": 135,
     "familyEntries": 23,
     "retiredDuplicates": {
-      "measurements": 403,
+      "measurements": 601,
       "evidence": 21,
       "profiles": 80
     },
     "excluded": 17,
     "grades": 1180,
-    "measurements": 14664,
-    "numericMeasurements": 14471,
+    "measurements": 14466,
+    "numericMeasurements": 14273,
     "quarantined": 36,
     "profiles": 1835,
     "evidence": 868,
@@ -120,7 +120,7 @@
       "baseline": 1163,
       "current": 1180,
       "added": 17,
-      "edited_existing": 144,
+      "edited_existing": 146,
       "removed": 0
     },
     "headline_definitions": {
@@ -162,7 +162,7 @@
       "baseline": 11536,
       "current": 15067,
       "added": 3531,
-      "edited_existing": 2757,
+      "edited_existing": 2917,
       "removed": 0
     },
     "method": {
