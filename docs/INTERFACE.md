@@ -492,30 +492,38 @@ in the place of the first impact property, instead of a comparison beside three 
 - the two notched tests drawn one above the other on one kJ/m² scale with labelled ticks (logarithmic, at 1, 2 and 5 of
   each decade, once the largest value is more than ten times the smallest): a dot per product at its published value
   (filled: orientation stated; hollow: no stated orientation; square: measured after annealing; diamond: a special
-  formulation), the middle half of the compared products shaded and their median a line. A caption from method.csv says
-  how Charpy and Izod differ and that nothing is converted;
+  formulation), the middle half of the compared products shaded and their median a line;
 - a small table, a test a row: how many products are compared, their median, middle half and range, and on a line
   under it the products drawn but left out of the median, by why (no stated orientation, special formulation, sold as
   toughened), then the products that publish both tests, by name;
-- **Every result, with its document**: the two tests' comparison notes, said once, then the property blocks (Charpy
-  impact strength, Izod impact strength, and Impact strength, test unclear, where the material has them), closed, each
-  with every value, its product and its source. The record a dot stands for carries a line **On the graph** with the
-  dot's mark: in the median, or not and why, what changed its bar (annealed, conditioned; from the build's typed
-  fields, "stated once on its page" where a page heading supplied it), and a **sold as toughened** mark with the
-  maker's quote. A sibling's record that a twin reads (D89) carries a line for each product it stands for.
+- one closed line, **How Charpy and Izod differ, and what is compared**: method.csv's caption (how the tests differ,
+  that nothing is converted) and each test's comparison note, there for a reader who asks;
+- **Every result, with its document**: one line counting the results below by what each is ("Of the 269 results
+  below, 63 are drawn above; the other 206: 47 with no stated notch, 40 unnotched, 39 in J/m, 32 on moulded bars, …"),
+  so the counts under the property headings add up, then the property blocks (Charpy impact strength, Izod impact
+  strength, and Impact strength, test unclear, where the material has them), closed, each with every value, its product
+  and its source. The record a dot stands for carries a line **On the graph** with the dot's mark: in the median, or
+  not and why, what changed its bar (annealed, conditioned; from the build's typed fields, "stated once on its page"
+  where a page heading supplied it), and a **sold as toughened** mark with the maker's quote. A sibling's record that a
+  twin reads (D89) carries a line for each product it stands for.
 
 What is drawn decides itself, from the products' values, with no list of materials anywhere:
 
-- **No graph with fewer than two values.** A spread needs two points. Where no product has a notched Charpy or notched
-  Izod value, the heading opens on "Nothing is drawn: no product has a … value" (30 materials on 2026-10-07); where one
-  product has one, the sentence names it, its value (which opens its record) and whether it is compared (26). The
-  comparison notes and the lists follow, with no caption, key or table.
+- **No graph with fewer than two values.** A spread needs two points. The heading then opens on one line that says why
+  and counts the results below, so it never seems to contradict them: "No graph: no product has a value to draw. The
+  2 results below: 2 on moulded bars." (ASA-AF), or "No graph: only one product has a value to draw, iSANMATE ASA Glass
+  Fiber's notched Izod impact of 9 kJ/m², with no stated orientation. The other 14 results below: 6 on moulded bars, 5
+  with no stated notch, 2 unnotched and 1 struck cold." (ASA-GF; the value opens its record). The closed line on how
+  the tests differ and the lists follow; nothing else.
 - **A row only for a test with a value.** A test no product has a value of gets no empty row; a line under the table
   says so and that its results are listed below.
 - **A key only for the marks drawn**, and the middle half and median only where a row has them.
-- **No median table without a median.** Where none of the values drawn is compared (every one states no orientation,
-  or is a special formulation or sold as toughened), a sentence says so and why, per test, instead of a table of
-  dashes (15 materials, among them ABS-CF, PA6, PA12 and PEEK).
+- **No median table without a median.** Where none of the values drawn is compared, one sentence says so and why
+  ("No median: none of the 5 values drawn states the bar's orientation (XY), and only those that do are compared."),
+  instead of a table of dashes.
+
+Why each result is or is not drawn is read from its typed fields in the order the build reads them (products.js
+assess); test/impact-compare.test.js checks the two agree on every impact record, and that each counted line adds up.
 
 There is no product-by-product table: it repeated the lists (most of a material's impact records were in both), and
 few products publish both tests (23 of 386). Hovering a product's dot on one row lights its dot on the other; selecting

@@ -7,7 +7,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderDrawer } from '../app/js/ui/detail.js';
+import { renderDrawer, impactWhy } from '../app/js/ui/detail.js';
+import { assess } from '../build/src/products.js';
 import { useRegistry } from '../app/js/ui/registry.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -108,7 +109,7 @@ test('what is drawn decides itself: no graph without two dots, no row for a test
     if (total < 2) {
       seen[total ? 'one' : 'none'] = (seen[total ? 'one' : 'none'] ?? 0) + 1;
       assert.ok(!html.includes('<section class="imp-compare"'), `${m.id}: no graph`);
-      assert.match(html, total ? /Nothing is drawn: only one product has a [^<]* value, [^<]*<button type="button" class="link-btn" data-row="V\d+">/ : /Nothing is drawn: no product has a /, `${m.id}: says why`);
+      assert.match(html, total ? /No graph: only one product has a value to draw, [^<]*<button type="button" class="link-btn" data-row="V\d+">/ : /No graph: no product has a value to draw\. /, `${m.id}: says why`);
       assert.ok(!html.includes('data-on-graph'), `${m.id}: no record says it is on a graph`);
       continue;
     }
@@ -116,7 +117,7 @@ test('what is drawn decides itself: no graph without two dots, no row for a test
     if (dots.some((n) => !n)) { seen.silentRow++; assert.match(section(html), /: no product has one, so it has no row/, `${m.id}: the missing row is said`); }
     const compared = IMPACT.some((h, i) => dots[i] && m.summary?.[h.key]?.n);
     assert.equal(section(html).includes('class="grid imp-summary"'), compared, `${m.id}: a median table only with a median`);
-    if (!compared) { seen.noMedian++; assert.match(section(html), /No median: none of the values drawn is compared/, `${m.id}: says why there is no median`); } else seen.full++;
+    if (!compared) { seen.noMedian++; assert.match(section(html), /No median: none of the (\d+ )?values? drawn (is compared|states the bar(?:'|&#39;)s orientation)/, `${m.id}: says why there is no median`); } else seen.full++;
     // The key names only the marks a dot carries.
     const key = section(html).match(/<p class="imp-key fine">([\s\S]*?)<\/p>/)[1];
     const drawnClasses = rowsOf(html).flat().map((d) => d.cls);
@@ -128,6 +129,48 @@ test('what is drawn decides itself: no graph without two dots, no row for a test
   }
   // Every kind occurs in the data, so each branch above was taken.
   for (const [k, n] of Object.entries(seen)) assert.ok(n > 0, `some material shows ${k}`);
+});
+
+test('why a result is not drawn is the build\'s reason, and the counted line adds up to the lists under it', () => {
+  const MAP = [[/no usable numeric/, 'noNumber'], [/^measures /, 'unclear'], [/^in /, 'unit'], [/implausible/, 'implausible'],
+    [/moulded/, 'moulded'], [/moisture conditioning/, 'conditioned'], [/annealed, and the product publishes/, 'annealed'],
+    [/an unnotched bar/, 'unnotched'], [/whether the bar was notched/, 'notch'], [/^tested at/, 'temperature'],
+    [/^measured to/, 'standard'], [/ measurement, not /, 'direction'], [/./, 'notPrinted']];
+  const props = new Set(IMPACT.flatMap((h) => [...h.valueProperties, ...h.relatedProperties]));
+  let checked = 0;
+  for (const m of db.materials.filter((x) => !x.familyEntry)) {
+    const ms = db.measurements.filter((x) => x.materialId === m.id);
+    const records = ms.filter((x) => props.has(x.property) && !(!x.numeric && !x.qualitative && /^not published$/i.test(String(x.dataStatus ?? '').trim())));
+    if (!records.length) continue;
+    const products = (m.gradeIds ?? []).map((id) => gradeById.get(id)).filter((g) => g && !g.retired);
+    const drawnIds = new Set(products.flatMap((g) => IMPACT.map((h) => g.headline?.[h.key]?.measurementId).filter(Boolean)));
+    const c = { ms, gradeById };
+    for (const x of records.filter((y) => !y.quarantined)) {
+      const h = IMPACT.find((d) => d.valueProperties.includes(x.property)) ?? null;
+      const why = impactWhy(x, h, c, drawnIds);
+      const r = assess(x, h ?? IMPACT[0], ms.filter((y) => y.gradeId === x.gradeId));
+      if (r.excluded) {
+        const want = MAP.find(([re]) => re.test(r.excluded))[1];
+        const got = why.startsWith('unit:') ? 'unit' : ['cold', 'hot'].includes(why) ? 'temperature' : why;
+        assert.equal(got, want, `${m.id} ${x.id}: the build says "${r.excluded}"`);
+      } else assert.ok(['drawn', 'second', 'retired', 'reference'].includes(why), `${m.id} ${x.id}: the build takes it, the drawer says ${why}`);
+      checked++;
+    }
+    // The line above the lists counts every result in them.
+    const html = mechanical(m.id);
+    if (!html.includes('class="prop-block imp-block"')) continue;
+    const said = html.match(/Of the (\d+) results below|The (\d+) results below|(The result below|It is the only result below)|The other (\d+) results below|The other (result) below/);
+    assert.ok(said, `${m.id}: a counted line`);
+    const n = said[1] ? +said[1] : said[2] ? +said[2] : said[3] ? 1 : said[4] ? +said[4] + 1 : 2;
+    assert.equal(n, records.length, `${m.id}: the counted line covers every result listed`);
+    // Its parts add up too.
+    const line = html.match(/<p class="fine imp-(?:tally|none)">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, '');
+    const after = (line.match(/(?:the other \d+|below): (.*)$/)?.[1] ?? '').trim();
+    const sum = [...after.matchAll(/(?:^|, | and )(\d+) /g)].reduce((a, x) => a + +x[1], 0);
+    const drawn = +(line.match(/, (\d+) (?:is|are) drawn above/)?.[1] ?? (/only one product/.test(line) ? 1 : 0));
+    if (after.trim()) assert.equal(sum + drawn, records.length, `${m.id}: "${line}"`);
+  }
+  assert.ok(checked > 1000, `${checked} results checked`);
 });
 
 test('a product\'s name is text, never markup', () => {

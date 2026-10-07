@@ -4468,7 +4468,11 @@ kJ/m² over 16 products, its range 4.94 to 72.3, while most plain PLAs publish 5
   them have more than one). The heading
   now draws only what it has, with no list of materials: no graph with fewer than two values (a sentence names the
   one, if there is one), no row for a test no product has a value of, a key only for the marks drawn, and no median
-  table where nothing is compared, but a sentence saying why.
+  table where nothing is compared, but a sentence saying why. The owner then found the no-graph wording at odds with
+  the counts under it ("only one product has a … value" above ten Charpy results), and too much text before the lists.
+  The line now counts the results below by why each is or is not drawn, in the build's own order (a test checks the
+  drawer's reason against products.js on every impact record), and the caption and the tests' notes are one closed
+  line, "How Charpy and Izod differ, and what is compared".
 - **Then set apart, once the marks were checked** (m389, m390). A random draw of 20 unmarked products that publish an
   impact value found one claim the marks missed (colorFabb PET HIGH SPEED PRO, added), within the one in twenty the
   owner's plan allowed, and a blind re-read of 37 changed records found no error. So the two impact rows say "set

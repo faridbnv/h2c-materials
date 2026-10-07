@@ -846,7 +846,6 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
    median a line. Hollow: no stated orientation. Square: measured after annealing. Diamond: a special formulation, as
    the Material ranges view draws one. A product's dot on one row lights its dot on the other. */
 .imp-compare { margin: 0 0 16px; }
-.imp-caption { max-width: 100ch; margin: 2px 0 8px; }
 .imp-row { display: grid; grid-template-columns: minmax(84px, 150px) minmax(0, 1fr); gap: 10px; align-items: end; padding: 3px 0; font-size: 12.5px; }
 .imp-label { display: flex; flex-direction: column; line-height: 1.25; overflow-wrap: anywhere; }
 .imp-label .fine { font-size: 11px; }
@@ -899,6 +898,12 @@ table.grid.imp-summary thead th { white-space: normal; cursor: default; }
 .imp-foot { margin: 4px 0 0; max-width: 100ch; }
 .imp-sub { margin: 16px 0 4px; font-size: var(--t-body); }
 .imp-records { margin-top: 6px; }
+/* Where nothing is drawn, one line says why, counted; how the tests differ is one closed line under it. */
+.imp-none { margin: 4px 0 6px; max-width: 100ch; }
+.imp-tally { margin: 0 0 6px; max-width: 100ch; }
+.imp-about { margin: 10px 0 0; }
+.imp-about > summary { cursor: pointer; font-size: var(--t-small); color: var(--ink-2); }
+.imp-about > p { margin: 6px 0; max-width: 100ch; }
 /* On a phone the test's name goes above its row, which then has the drawer's whole width. */
 @media (max-width: 600px) {
   .imp-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
