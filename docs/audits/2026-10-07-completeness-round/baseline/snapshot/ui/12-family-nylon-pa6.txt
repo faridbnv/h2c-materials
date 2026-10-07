@@ -1,0 +1,153 @@
+COUNT 5 shown PASS
+STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 147
+5 of the 152 materials meet these requirements
+Why the rest were excluded
+Clear requirements
+Family: Nylon / Polyamide
+×
+Polymer: PA6
+×
+Values judged: as printed, dry.
+H2C printability not checked: a pass here says nothing about whether the H2C can print the product. Check nozzle, bed and chamber
+What this database cannot answer
+Properties
+Printing
+Key properties of each material
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
+Compare against
+no reference
+PLA
+PETG
+ABS
+ASA
+PC
+— not published
+2.3 1.0–3.0 · 27 median and range
+1.2 one measurement
+* published, not comparable
+≈ close to the limit
+¤ converted
+n/a not applicable
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
+PA6
+Nylon / Polyamide
+ PASS
+9 of 9 products
+ 1,150
+1,130–1,200 · 7
+ 3.59* 27* 1.9* 140
+60–143 · 3
+ 163↗ ☆
+PA6-CE
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,490 6* 55* — 90* 161¤ ☆
+PA6-CF
+Nylon / Polyamide
+ PASS
+14 of 14 products
+ 1,175
+1,090–1,250 · 14
+ 4.37
+3.8–8.64 · 6
+annealed median
+ 77
+53–112 · 7
+ 7.35
+2.1–16.5 · 6
+annealed median
+ 183
+140–215 · 10
+ 130
+110–204 · 4
+↗ ☆
+PA6-GF
+Nylon / Polyamide
+ PASS
+11 of 11 products
+ 1,310
+1,140–1,370 · 9
+ 4.35
+2.85–5.36 · 4
+ 82.3
+62.8–98.9 · 6
+annealed median
+ 4.95
+2.4–12.5 · 6
+ 184
+161–210 · 10
+annealed median
+ 84
+77–146 · 3
+↗ ☆
+PA6-GS
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ 1,010 4.2* 87* — 90* 180↗ ☆
+RAIL
+Each count is how many of that family your other requirements leave. Tick a family to list its polymers.
+Nylon / Polyamide
+24
+PA6
+5
+PA
+4
+PA12
+4
+PA612
+4
+PAHT
+3
+PA6/66
+2
+PA66
+2
+PLA
+18
+Flexible Elastomers
+15
+Industrial High-Temperature
+14
+Polymer Blends
+10
+Copolyesters
+9
+High-Performance Engineering
+8
+Polyolefins
+7
+ASA
+6
+PETG
+6
+Polycarbonate
+6
+ABS
+5
+PVB / Specialty Polymers
+5
+PET Engineering
+4
+Support / Interface
+4
+Metal and Ceramic Sintering
+3
+Styrenics
+3
+Fluoropolymers
+2
+Support / Soluble
+2
+Acetals
+1

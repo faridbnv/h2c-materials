@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { roundCount, figure, about, drawResult, renderStatus, replaceBlock, START, END } from '../scripts/docs-status.mjs';
+import { roundCount, figure, about, drawResult, renderStatus, replaceBlock, pricesSampled, START, END } from '../scripts/docs-status.mjs';
 import { statusCounts } from '../scripts/lib/status-counts.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -86,4 +86,13 @@ test('the counts of a small database', () => {
   assert.deepEqual(c.materials, { total: 3, familyEntries: 1, listed: 2, excluded: 1, judged: 1 });
   assert.equal(c.products, 2);
   assert.deepEqual(c.unknown, { chamber: 2, drying: 2, nozzle: 2, bed: 2 });
+  assert.deepEqual(c.priceDates, []);
+  const priced = statusCounts({ ...db, prices: [{ accessDate: '2026-09-30' }, { accessDate: '2026-09-10' }, { accessDate: '2026-09-30' }, { accessDate: '2026-10-07', quarantined: true }] });
+  assert.deepEqual(priced.priceDates, ['2026-09-10', '2026-09-30'], 'distinct days, oldest first, a quarantined listing not among them');
+});
+
+test('the price sentence names the days the listings in use were read on', () => {
+  assert.equal(pricesSampled(['2026-09-30']), 'prices were sampled once (30 September 2026)');
+  assert.equal(pricesSampled(['2026-09-10', '2026-09-30', '2026-10-07']), 'prices were sampled on three days, from 10 September 2026 to 7 October 2026, and not refreshed since');
+  assert.match(renderStatus({ ...counts, priceDates: ['2026-09-10', '2026-10-07'] }, acc, '2026-10-07').replace(/\s+/g, ' '), /prices were sampled on two days, from 10 September 2026 to 7 October 2026/);
 });

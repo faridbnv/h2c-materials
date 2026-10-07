@@ -1,0 +1,26 @@
+Notched Charpy impact
+17 products
+Notched Izod impact
+18 products
+kJ/m², log scale
+2
+5
+10
+20
+50
+100
+orientation stated (XY)
+no stated orientation
+measured after annealing
+special formulation
+sold as toughened (the maker's statement)
+middle half
+median
+Select a dot to open its result below; hover to find the same product in the other row.
+Test, kJ/m² n Median Middle half Range
+Notched Charpy impact 5 20 18–21.5 10.5⁠–⁠21.5
+Also drawn, not in the median: 11 with no stated orientation (18⁠–⁠58) and 1 sold as toughened (14.5).
+Notched Izod impact 2 12.5 — 10⁠–⁠15
+Also drawn, not in the median: 15 with no stated orientation (4⁠–⁠39) and 1 special formulation (13.7).
+n counts the products compared: the products whose sheet states the bar's orientation (XY), except special formulations and products sold as toughened. The median, middle half and range are of these alone. "Sold as toughened" is the maker's own statement about its product, quoted on its value's line in the lists below; it is not a test result, and a product sold as toughened can publish a low value.
+Both tests: 5 products (Fillamentum ABS Extrafill, 3D4Makers ABS, Fiberlogy R ABS, Fiberlogy ABS and Fiberlogy ABS PLUS).

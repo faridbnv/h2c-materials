@@ -1,0 +1,4 @@
+grade-pairs.csv     257 pairs from 22376 same-maker active pairs; GRADE-VALUES-TWIN-like (>= 5 shared values, >= 80 % of smaller, same maker): 29 (10 already under one key); verdicts: 4 same-product, 25 twin, 228 distinct
+source-pairs.csv    130 pairs without the cap (19 with the cap of 10; 111 only found without it; 19 accepted already; 0 identical files)
+densities.csv       67 rows, 14 in the OPEN-PROBLEMS section 17 population; suggestions: 4 needs the sheet re-read, 12 genuine, 2 unit/transcription, 41 declared variant, 8 foamed or filled variant to declare
+split-sources.csv   11 sources with rows on more than one active grade

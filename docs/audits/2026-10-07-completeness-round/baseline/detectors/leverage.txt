@@ -1,0 +1,47 @@
+leverage: 9667 targets, 2281 with leverage; 18 questions; replica of 1112 products' recipes agrees with the build
+value: 508 of 4913
+  HDT                                          295 of   611
+  Tensile modulus                              112 of   670
+  Density                                       77 of   949
+  Elongation at break                           24 of   808
+  Tensile strength (endpoint unspecified)        0 of   757
+  Charpy strength                                0 of   237
+  Glass transition temperature                   0 of   379
+  Izod impact strength                           0 of   151
+  Tensile yield strength                         0 of   193
+  Tensile break strength                         0 of   158
+gate: 1708 of 4659
+  Drying                                       517 of   664
+  Enclosure                                    475 of   508
+  Abrasion / clogging                          362 of   535
+  Chamber °C                                   188 of   869
+  Bed °C                                       131 of  1020
+  Nozzle material                               24 of    26
+  Nozzle °C                                     11 of  1037
+guide: 65 of 95
+  Enclosure                                     17 of    17
+  Hardened nozzle                               16 of    16
+  Drying                                        15 of    15
+  Chamber °C                                    10 of    16
+  Bed °C                                         6 of    16
+  Nozzle °C                                      1 of    15
+basis of the leverage: gate/material 92, gate/print-state 1237, gate/product 379, guide/material 5, guide/print-state 42, guide/product 18, value/material 233, value/product 275
+by question (targets whose perturbation flips a product in it):
+  Indoor prototype                                 value    0  gate/guide  494
+  Indoor prototype, annealing permitted            value    0  gate/guide  494
+  Warm environment, annealing permitted            value  199  gate/guide  175
+  Warm environment                                 value  176  gate/guide  155
+  S04                                              value  203  gate/guide    0
+  S08                                              value  203  gate/guide    0
+  Lightweight structure, annealing permitted       value  152  gate/guide   40
+  Lightweight structure                            value  104  gate/guide   28
+  Outdoor structural part, annealing permitted     value   72  gate/guide   31
+  S03                                              value   68  gate/guide    0
+  Outdoor structural part                          value   39  gate/guide   22
+  S01                                              value   39  gate/guide   22
+  High-stiffness fixture, annealing permitted      value   29  gate/guide   22
+  Flexible component, annealing permitted          value   24  gate/guide   13
+  Flexible component                               value   22  gate/guide   13
+  High-stiffness fixture                           value   17  gate/guide   15
+  S05                                              value   26  gate/guide    0
+runtime 1.7 s; wrote build/reports/leverage/leverage.csv

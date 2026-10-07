@@ -1,0 +1,6 @@
+viewport 1180x760
+document width 1180
+spill: none
+clipped cells:
+  #lens: 0 of 21
+hidden controls: 0

@@ -1,0 +1,7 @@
+viewport 390x844
+document width 390
+spill: none
+clipped cells:
+  #lens table 1: 0 of 18
+  #lens table 2: 0 of 15
+hidden controls: 0

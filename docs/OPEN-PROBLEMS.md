@@ -127,16 +127,20 @@ settled from the sheet; it is the same PC sheet as the heat-deflection pair abov
 
 ## 3. Values that cannot be read, or are another quantity
 
-Quarantined (Data status "Unresolved unit / layout"): kept with the reason, never a number (D31). Four cannot be read
-at all:
+Quarantined (Data status "Unresolved unit / layout"): kept with the reason, never a number (D31). There are 36 on
+2026-10-07, each row's Notes saying why. They are of three kinds:
 
-- **V000420** PETG hardness, and **V002188 / V002189** ABS-ESD heat deflection: unresolved unit or layout.
-- **V001540** PCTG notched Izod prints "93 C KJ/m2", verified verbatim in the current sheet. 93 kJ/m² is not
-  credible for a notched PCTG bar (5 to 10 is typical). The source needs correcting, not the transcription.
-
-The rest are what their line prints under another name, found by the sweep (m127) and the close-call re-read (m156):
-a processing block's melt temperature filed as a melting point, a ball-pressure pass at 125 °C filed as a Vicat, a
-stress at 300 % filed as an elongation. Each row's Notes say what its line is.
+- **A unit or layout that cannot be read as printed.** V000420 PETG hardness; V002188 / V002189 ABS-ESD heat
+  deflection; V001540, a PCTG notched Izod printed "93 C KJ/m2", verified verbatim in the current sheet (93 kJ/m² is
+  not credible for a notched PCTG bar, where 5 to 10 is typical, so the source needs correcting, not the
+  transcription); Extrudr's Izod rows whose label and standard disagree on the notch; V005648, an ASTM D412 stress with
+  no stated elongation (m398); and values the reader round entered held back (m342: a resin's modulus, hardness at a
+  printing density, "around 50 °C", a kg/cm² strength).
+- **What the line prints under another name**, found by the sweep (m127), the close-call re-read (m156) and the
+  reader round: a processing block's melt temperature filed as a melting point, a ball-pressure pass at 125 °C filed
+  as a Vicat, a neighbouring row's value under a row that prints "-".
+- **A unit the sheet misprints** (m407): Polymaker PolyFlex TPU95's 33.6 MPa under "Tensile strain" and its elongation
+  of 551.2 "MPa", and Eryone's elongation printed "MPa 3".
 
 ```bash
 npm run sql --silent -- "select measurementid, materialid, property, raw_value from measurements
@@ -235,9 +239,9 @@ more data narrows them, a review does not (D73).
   derived (D74). The current in-scope marks and unfinished campaign assessments are generated in
   [STATUS.md](audits/2026-09-30-coverage-expansion/STATUS.md). The query below counts raw rows across the entire
   catalogue, including superseded and out-of-scope findings; it therefore differs from the 136-cell UI.
-- **A list column loses its missing state in SQLite.** `Standards` and `Units` are TEXT and hold `Not published`
-  inline, where a number column gets a `_state` sibling and a NULL. Harmless today, because no vocabulary value
-  collides with a missing-state word, but it is an inconsistency in the query layer (D75).
+- **A list column loses its missing state in SQLite.** `Standards` is TEXT and holds `Not published` inline, where a
+  number column gets a `_state` sibling and a NULL (`Units` holds no missing state). Harmless today, because no
+  vocabulary value collides with a missing-state word, but it is an inconsistency in the query layer (D75).
 
 ```bash
 npm run sql --silent -- "select status, count(*) from coverage where domain = 'Post-processing / application' group by 1"
@@ -542,8 +546,8 @@ thirteen sheets that waited on a reader gap, read page by page. 8 remain deferre
   pellet bulk density) and names no morphology class for it ("amorphous structure" is said of Polystyrene). No row
   was written. What frees it: a Styrolux grade data sheet from INEOS Styrolution that prints its density, and the
   owner's word on the class (a stiff amorphous styrenic, as R200 and M174's note argue, or an elastomer like SEBS).
-- **purefil's GreenTEC (d299af0d689965eb) is answered and not imported.** R179 names GreenTEC (PLA blend since m223);
-  the sheet was held before b34 and is not among the 74 the owner freed, so it waits for imports to resume.
+- **purefil's GreenTEC (d299af0d689965eb) is imported** (b45, m406, 2026-10-07): grade G168-07 under R179, keyed to
+  Extrudr GreenTEC's sheet (D119), whose values it reads as a twin.
 - **A TPU rated only in prose, or not at all, needs a ruling.** The reader files a TPU by the rating in its name or its
   sheet's Shore hardness row (hardness-classes.csv); Copper3D's MD Flex says "TPU98A" in a sentence, and R197 pins it.
   Since m223 a TPU that states no rating has no class to go to ("TPU, hardness not stated" is a family entry, D106):
@@ -762,9 +766,9 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Products whose only glass transition is a resin supplier's value** (Specimen type Raw material value, which is
   not the product's): tg_resin_only in the query, 14 on 2026-09-27.
-- **55 impact results whose test is unclear** (2026-10-06, m391): filed as "Impact strength, test unclear", each with a
-  reviewer's reading of which test it probably was (impact_test_guesses.csv: 23 probably Charpy, 23 probably Izod, 8
-  cannot tell, 1 another test). Where a maker confirms its test, the record can move under it; until then it is never
+- **58 impact results whose test is unclear** (m391, and three the quality round added in m399; counted 2026-10-07):
+  filed as "Impact strength, test unclear", each with a reviewer's reading of which test it probably was
+  (impact_test_guesses.csv: 26 probably Charpy, 23 probably Izod, 8 cannot tell, 1 another test). Where a maker confirms its test, the record can move under it; until then it is never
   compared. Query: `select m.measurementid, g.likely_test from measurements m join impact_test_guesses g using (measurementid)`
   (column names as `npm run sql` exposes them).
 - **Impact results the impact round held** (2026-10-06, [the impact round](audits/2026-10-06-impact-round/README.md)):
@@ -965,8 +969,8 @@ materials in scope, 30 of them converted from USD or EUR, and 214 products. What
   without its rate or no VAT basis at all, so their prices cannot be taken before tax; a page or a written quote that
   states it would admit them. PC-PTFE and TPU-EC were out of stock everywhere found. The rest were not found in a
   bounded search.
-- **The prices are a snapshot of two days.** 104 listings were read on 2026-09-10 and 253 on 2026-09-30; none is
-  refreshed, and no routine refreshes them (GOALS: with the team layer). The exchange rates are the Bank of Canada's for
+- **The prices are a snapshot of three days.** Of the listings in use, 103 were read on 2026-09-10, 253 on 2026-09-30
+  and 8 on 2026-10-07 (p05); none is refreshed, and no routine refreshes them (GOALS: with the team layer). The exchange rates are the Bank of Canada's for
   2026-09-29, frozen; a later batch adds a later rate, which then applies to every foreign listing.
 - **An Amazon.ca price is the maker's Amazon price**, which can sit well above its own shop's (Siraya Tech's Fibreheart
   PPA-GF: 105.93 CAD there, 45.59 USD in its US shop that does not ship to Canada). The owner accepted Amazon.ca as the
@@ -1123,22 +1127,25 @@ classes and left each guard at zero unreviewed findings (D115, D116, D119). What
   filing (D130): its table is FiberFlex 40D's "for the unfoamed material", 40D's safety data sheet names a copolyester
   elastomer, and its own safety data sheet names no polymer; CPE-LW is an alias of TPC / TPEE. Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for
   value and sit under PA6-CE and PA6, as Spectrum's own documents name them, while the LUVOCOM grades sit under PAHT-CE.
-  33 twin acceptances (GRADE-VALUES-TWIN, §6) stand, R166's among them.
+  39 twin acceptances (GRADE-VALUES-TWIN, §6; 33 on 2026-10-03) stand, R166's among them.
 - **The import's fibre sentence is gone since m296** (D121): 174 profiles say what their sheets say, the rule is in
   `method.csv`, and the page says it as the rule. Braskem's PP-CF prints "Nozzle Size (Material) ≥0.6 (Hardened Nozzle)",
   which its profile now holds (m299).
 - **The values never transcribed that this list named are recorded since m298** (D123). Stratasys PA6/66-GF30-FR's
   Tables 4 and 5 are recorded since the reader round (m342, 30 values on pp. 6 and 7); its XY heat deflection at 264 psi
-  prints 35 °C beside 161 °C at 66 psi and 153 °C XZ, recorded as printed. Left, seen while reading: Polymaker PolyFlex TPU95 still has an untranscribed ISO 37 table; TPU90 already held V5.1 strength/elongation, and m314–m315 now add fixed-strain stress and the coherent V5.5 table; Eryone's light-weight PLA prints
-  MPa as the unit of its X-Y elongation; Raise3D's Hyper Core PPA CF25 (G070-08) carries Industrial PET CF V4.0's source as
-  its formulation key, which no other grade shares and reads nothing, but which may say its sheet reprints that table
-  (R166). `npm run audit:sources` finds such values.
+  prints 35 °C beside 161 °C at 66 psi and 153 °C XZ, recorded as printed. The three leads seen while reading are
+  closed since the quality round (2026-10-07): PolyFlex TPU95's ISO 37 table is held (its 400 % stress added, and two
+  rows whose unit the sheet misprints held back, m407); Eryone light-weight PLA's X-Y elongation printed "MPa 3" is held
+  back as printed (m407); Raise3D Hyper Core PPA CF25 (G070-08) is keyed to its own sheet (m396). `npm run
+  audit:sources` finds such values.
 - **Guard precision.** `audit:context` keeps 63 accepted findings on measurements, where it matched a neighbouring line,
   or a statement that does not speak for the rows it flagged, or a standard printed without its letter, and 36 on print
   profiles, each a reading the profile is right to differ from (a test bar's single temperature under a heading the
-  reader does not know, a neighbouring column, purefil's mislabelled bed row, a brass-wear caution, a decimal comma);
-  123 acceptances in all (`data/review/context-witness-accepted.csv`), 8 of them unrecorded profiles from the reader
-  round's guard. IMPACT-UNIT-STANDARD keeps 46, each a sheet that prints kJ/m² beside ASTM D256 or J/m beside ISO 180 (BASF, m298). PARSE-REVIEW-STALE checks print profiles and measurements alike.
+  reader does not know, a neighbouring column, purefil's mislabelled bed row, a brass-wear caution, a decimal comma).
+  On 2026-10-07 `data/review/context-witness-accepted.csv` holds 130: 66 on measurements, 39 on print profiles, 9
+  unrecorded profiles and 16 unrecorded page statements (123 on 2026-10-03). IMPACT-UNIT-STANDARD keeps 25 (46 before
+  the impact round of 2026-10-06), each a sheet that prints kJ/m² beside ASTM D256 or J/m beside
+  ISO 180 (BASF, m298). PARSE-REVIEW-STALE checks print profiles and measurements alike.
 - **What the independent review left open.** Since D128 a statement can name the table it heads (m356); a statement
   recorded for the page still reaches every table of its scope. The migrations' quote check proves a quote is on the cached
   sheet, not that it applies to the rows it is used for. `audit:context` needs the text cache, so CI skips it and only a
@@ -1195,8 +1202,9 @@ on its own. What it could not, by who settles it:
     2026-10-05 and are settled (D130, m368).
 - **The makers.** purefil PA6 GF10's two bed rows (§28); the source contradictions of §§23 to 26; the conditions of §15.
 - **People.** The decisive-value spot-check (C3) and the team trial (C7). Every review in this pass was an AI's.
-- **Leads the readers saw**, recorded in §28: Stratasys PA6/66-GF30-FR's 35 °C heat deflection at 264 psi; PolyFlex TPU95's remaining ISO 37 table (TPU90 recovered in m314–m315); Raise3D Hyper Core PPA CF25's key; Eryone
-  light-weight PLA's elongation printed in MPa; Braskem PP-CF's two beds; BVOH's Extended TDS conditions.
+- **Leads the readers saw**, recorded in §28: Stratasys PA6/66-GF30-FR's 35 °C heat deflection at 264 psi; Braskem
+  PP-CF's two beds; BVOH's Extended TDS conditions. (PolyFlex TPU95's ISO 37 table, Raise3D Hyper Core PPA CF25's key and
+  Eryone light-weight PLA's elongation in MPa are closed since the quality round, m396 and m407.)
 
 ```sh
 npm run data:lint && npm run audit:context && npm run audit:coverage-status -- --check
@@ -1372,8 +1380,9 @@ re-derives it.
   documents that print them.
 - **What is left of the print recipe.** 20 products have no nozzle and 20 no bed (16 and 15 of the frozen list, and
   the new products of b43 that print none); chamber stays the largest gap (284), and drying 179 after the dry-box
-  answers left the Drying cell (D129). §30's chamber ruling stands. After check round 3 the counts are 35, 33, 313 and 204
-  (`build/snapshot/print.csv`); the seven products made Variants in that round, which now read no printer guide, are
+  answers left the Drying cell (D129). §30's chamber ruling stands. After check round 3 the counts were 35, 33, 313 and 204,
+  and after the quality round 36, 34, 314 and 205 (`build/snapshot/print.csv`, 2026-10-07, its imports adding products);
+  the seven products made Variants in that round, which now read no printer guide, are
   among them (§32).
 - **Second reads.** Of the 1,792 second-read tasks still outstanding (`reconcile/final-3/summary.md`), the 57 whose reading
   would decide something were run (`readings/second/w4-01.csv`); each was a mis-pairing and nothing was applied. Check

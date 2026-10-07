@@ -1,0 +1,282 @@
+COUNT 15 shown PASS
+STATUS ☑ PASS 15 | ☐ UNKNOWN 84 | ☐ FAIL 53
+15 of the 152 materials meet these requirements
+Lightweight structure template · 84 more could not be checked, left out under Confirmed only
+Why the rest were excluded
+Clear requirements
+Within H2C temperature limits
+×
+Within H2C capability
+×
+Build material (not a support)
+×
+Density at most 1250 kg/m³
+×
+Tensile modulus (XY) at least 2.5 GPa
+×
+Values judged: as printed, dry. Allow annealing: 5 more pass
+Not checked by this template: Which material is lightest overall
+Properties
+Printing
+Key properties of each material
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
+Compare against
+no reference
+PLA
+PETG
+ABS
+ASA
+PC
+— not published
+2.3 1.0–3.0 · 27 median and range
+1.2 one measurement
+* published, not comparable
+≈ close to the limit
+¤ converted
+n/a not applicable
+Material ▲ Result Density kg/m³ Modulus XY GPa Strength XY MPa Elongation XY % HDT 0.45 °C Price CAD/kg Shortlist
+ABS-GF PASS
+2 of 4 products
+ passing: 1,150
+all products: 1,100
+1,016–1,150 · 11
+ passing: 3.75–4.21
+all products: 3.16
+1.74–4.21 · 5
+annealed median
+ 46.5
+35.5–68 · 7
+ 2.1
+1.2–10 · 7
+ 97
+82–100 · 9
+ 39↗ ☆
+ASA-CF PASS
+2 of 4 products
+ passing: 1,060–1,090
+all products: 1,095
+1,020–1,170 · 16
+ passing: 3.61–4.5
+all products: 3.91
+0.85–5.36 · 6
+ 41.3
+34–50.1 · 6
+ 3
+1.64–15.5 · 5
+ 101
+86–130 · 7
+ 65
+40–122 · 5
+↗ ☆
+ASA-GF PASS
+1 of 2 products
+ passing: 1,110
+all products: 1,130
+1,100–1,170 · 6
+ passing: 2.76
+all products: 2.31
+1.86–2.76 · 2
+ 39
+34.2–40.8 · 3
+ 5.55
+5.3–5.8 · 2
+ 91.5
+86–98 · 4
+ 96↗ ☆
+Nylon, maker-undisclosed polyamide
+Nylon / Polyamide
+ PASS
+1 of 4 products
+ passing: 1,210
+all products: 1,140
+1,100–1,210 · 3
+ passing: 3.33
+all products: 3
+1.95–3.33 · 3
+ 63
+49–69.2 · 3
+ 9.13
+8.5–9.77 · 2
+ 79
+41–91 · 3
+ 107¤ ☆
+PA6-CF
+Nylon / Polyamide
+ PASS
+4 of 4 products
+ passing: 1,090–1,210
+all products: 1,175
+1,090–1,250 · 14
+ passing: 3.8–4.67
+all products: 4.37
+3.8–8.64 · 6
+annealed median
+ 77
+53–112 · 7
+ 7.35
+2.1–16.5 · 6
+annealed median
+ 183
+140–215 · 10
+ 130
+110–204 · 4
+↗ ☆
+PA6/66
+Nylon / Polyamide
+ PASS
+1 of 2 products
+ passing: 1,120
+all products: 1,120
+1,080–1,140 · 7
+ passing: 2.7
+all products: 2.34
+1.98–2.7 · 2
+ 61
+55–78 · 3
+ 15
+12.7–100 · 3
+ 111
+102–140 · 5
+annealed median
+ 40
+39–90.7 · 3
+↗ ☆
+PAHT
+Nylon / Polyamide
+ PASS
+1 of 1 product
+ passing: 1,200
+all products: 1,200
+ passing: 3.1
+all products: 3.1
+ 82.1 — 80* 162¤ ☆
+PETG PASS
+1 of 56 products
+ passing: 1,250
+all products: 1,270
+1,180–1,300 · 59
+ passing: 2.78
+all products: 1.68
+0.5–3.5 · 21
+ 46.5
+31.9–68.4 · 26
+ 8.4
+4.1–90 · 25
+ 70
+63–78.4 · 43
+ 26
+20–66 · 12
+↗ ☆
+PLA PASS
+15 of 66 products
+ passing: 800–1,240
+all products: 1,240
+1,170–1,329 · 154
+ passing: 2.53–4.16
+all products: 2.58
+0.433–4.24 · 51
+ 45
+26–70.9 · 66
+ 8
+1.2–65 · 61
+ 55
+50–135 · 87
+ 33.7
+18–80 · 26
+↗ ☆
+PLA Aero PASS
+1 of 6 products
+ passing: 840
+all products: 1,100
+350–1,240 · 9
+ passing: 3.1
+all products: 1.35
+0.86–3.1 · 7
+annealed median
+ 20
+9–39.2 · 8
+ 8.8
+1.8–16.9 · 7
+ 53
+48–59 · 7
+annealed median
+ 58↗ ☆
+PLA-CF PASS
+2 of 11 products
+ passing: 1,240–1,250
+all products: 1,250
+1,190–1,420 · 19
+ passing: 2.8–4.02
+all products: 2.8
+1.1–4.95 · 7
+ 41
+31.2–54.9 · 9
+ 8.4
+2–13.2 · 9
+annealed median
+ 56.3
+54–91 · 10
+ 40.5
+40–41 · 2
+↗ ☆
+PLA-NF PASS
+1 of 2 products
+ passing: 1,250
+all products: 1,350
+1,250–1,450 · 2
+ passing: 2.83
+all products: 2.83
+ 37 22.3* 67.5
+55–80 · 2
+ — ☆
+PP-CF
+Polyolefins
+ PASS
+1 of 1 product
+ passing: 1,100
+all products: 1,000
+910–1,100 · 5
+ passing: 6.15
+all products: 6.26
+6.15–6.38 · 2
+ 59.5
+41–78 · 2
+ 1.4
+1.3–1.5 · 2
+ 141
+88–158 · 4
+ 147↗ ☆
+PP-GF
+Polyolefins
+ PASS
+1 of 1 product
+ passing: 1,120
+all products: 1,120
+ passing: 6.75
+all products: 6.75
+ 65 1.7 139
+138–139 · 2
+ 118¤↗
+out of stock
+ ☆
+PPA
+High-Performance Engineering
+ PASS
+1 of 1 product
+ passing: 1,140
+all products: 1,175
+1,140–1,210 · 2
+ passing: 2.86
+all products: 2.86
+ 76 3.4 92
+81–103 · 2
+ 85↗ ☆

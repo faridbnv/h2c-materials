@@ -1,0 +1,280 @@
+group,SourceID,class,bytes,text,measurements,profiles,sha
+bytes absent,H2C-WIKI,Printer documentation,absent,absent,0,0,
+bytes absent,D-PRUSA,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,S-PA12,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,D-FLASH-PETGF,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,S-POM,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,S-FILLAMENTUM,Manufacturer product page or guide,absent,absent,0,2,
+bytes absent,S-NGEN2,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-ecomax-r-pla,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-3dxstat-esd-petg-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-carbonx-abs-cf-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-3dxstat-esd-abs-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-carbonx-pc-cf-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-amidex-nylon-6-67,Manufacturer product page or guide,absent,absent,0,3,
+bytes absent,XP-carbonx-nylon-12-cf-1,Manufacturer product page or guide,absent,absent,0,2,
+bytes absent,XP-fibrex-nylon-12-gf30-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-thermax-pps,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-3dxmax-hips,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-carbonx-pp-cf-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-max-g-pctg-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-3dxmaxa-r-pc-abs,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-fluorx-pvdf-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-thermax-peek-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-pekk-a,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-thermax-pei-1010,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-thermax-psu-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,S-PES,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,XP-thermax-ppsu-1,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,PR-pla,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-petg,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-abs,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-asa,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-polycarbonate-pc,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-flexible-materials,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-polyamide-nylon,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-cpe,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-polypropylene-pp,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-hips,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-water-soluble-bvoh-pva,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-pvb,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,PR-ngen,Manufacturer product page or guide,absent,absent,0,0,
+no SHA-256,NIOSH-2019,Safety guidance,not-recorded,not-recorded,0,0,
+bytes absent,P-FATIGUE,Peer-reviewed study,absent,absent,42,0,
+bytes absent,P-CHEM,Peer-reviewed study,absent,absent,0,0,
+bytes absent,B-pla-basic-filament,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-matte,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-basic-gradient,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-tough-upgrade,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-translucent,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-silk-upgrade,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-silk-dual-color,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-metal,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-marble,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-sparkle,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-wood,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-galaxy,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-glow,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-aero,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pla-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-petg-basic,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-petg-hf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-petg-translucent,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-petg-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-abs-filament,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-abs-gf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-asa-filament,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-asa-aero,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-asa-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-PC,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pc-fr,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-tpu-for-ams,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-tpu-95a-hf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-TPU-SOFT,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-paht-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pa6-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pa6-gf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pet-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-ppa-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pps-cf,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-pva,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-support-for-pla-petg,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-support-for-abs,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,B-support-for-pa-pet,Manufacturer product page or guide,absent,absent,0,0,
+bytes absent,CA-3DPC1,Retailer catalogue,absent,absent,0,0,
+bytes absent,CA-3DPC3,Retailer catalogue,absent,absent,0,0,
+bytes absent,CA-3DPC4,Retailer catalogue,absent,absent,0,0,
+bytes absent,CA-ADVANCED,Retailer catalogue,absent,absent,0,0,
+bytes absent,CA-SHOP3D1,Retailer catalogue,absent,absent,0,0,
+no SHA-256,R-POLYMAKER-WIKI-HTPLAGF,Manufacturer TDS,not-recorded,not-recorded,0,0,
+no SHA-256,R-STRATASYS-ULTEM9085,Reference or register,not-recorded,not-recorded,0,0,
+no SHA-256,R-H2C-SPECS,Printer documentation,not-recorded,not-recorded,0,0,
+no SHA-256,R-MDPI-FATIGUE,Peer-reviewed study,not-recorded,not-recorded,0,0,
+no SHA-256,R-BAMBU-CA-CATALOG-20260913,Retailer catalogue,not-recorded,not-recorded,0,0,
+no SHA-256,R-BAMBU-SUPPORT-PLA-NEW-PRODUCT,Manufacturer product page or guide,not-recorded,not-recorded,0,0,
+no SHA-256,R-BASF-PCGF30-PRODUCT,Manufacturer product page or guide,not-recorded,not-recorded,0,0,
+no SHA-256,R-AIRTECH-KIMYA-PORTFOLIO,Manufacturer product page or guide,not-recorded,not-recorded,0,0,
+hash mismatch,R-KIMYA-PEBA-S-TDS,Manufacturer TDS,mismatch,absent,13,1,
+no SHA-256,R-AIRTECH-KIMYA-ACQUISITION,Manufacturer product page or guide,not-recorded,not-recorded,0,0,
+bytes absent,R-ESUN-PLA-LITE-PAGE,Manufacturer product page or guide,absent,absent,13,1,
+bytes absent,R-POLYMAKER-SILK-PLA-PAGE,Manufacturer product page or guide,absent,absent,0,1,
+bytes absent,R-POLYMAKER-WIKI-PANCHROMA-COPE,Manufacturer product page or guide,absent,absent,0,1,
+no SHA-256,R-POLYMAKER-COPE-TDS-V5-4,Manufacturer TDS,not-recorded,not-recorded,0,0,
+no SHA-256,R-FIBERON-PETGF15-PAGE,Manufacturer product page or guide,not-recorded,not-recorded,0,0,
+bytes absent,R-TRINITY3DS-HYPERLITE-PP,Manufacturer product page or guide,absent,absent,1,0,
+bytes absent,R-MITSUBISHI-GPOLYMER-PAGE,Manufacturer product page or guide,absent,absent,0,0,
+"bytes present, text never extracted",OFFER-FILAMENTWORLD-20261007-666f6dd3b04f,Retailer catalogue,present,absent,0,0,
+"bytes present, text never extracted",OFFER-FILAMENTWORLD-20261007-6bac84ad9ac3,Retailer catalogue,present,absent,0,0,
+"bytes present, text never extracted",OFFER-FILAMENTWORLD-20261007-9883de8ff00c,Retailer catalogue,present,absent,0,0,
+"bytes present, text never extracted",OFFER-FILAMENTWORLD-20261007-cb80cc4830aa,Retailer catalogue,present,absent,0,0,
+"bytes present, text never extracted",OFFER-FILAMENTWORLD-20261007-ce937d2cce44,Retailer catalogue,present,absent,0,0,
+"bytes present, text never extracted",OFFER-FILAMENTWORLD-20261007-e0f50b7b3be1,Retailer catalogue,present,absent,0,0,
+"bytes present, text never extracted",OFFER-3DJAKE-20261007-e661e82ca4e3,Retailer catalogue,present,absent,0,0,
+"bytes present, text never extracted",OFFER-FILAMENTWORLD-20261007-f5fc593b263d,Retailer catalogue,present,absent,0,0,
+"flagged page, optical reading held",S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Manufacturer TDS,present,page 1: empty,30,2,e71fac75b41e1f756b2827213885bd9f5d606a23b124cdb39f2035d04e049972
+"flagged page, optical reading held",S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,Manufacturer TDS,present,page 5: empty,30,2,e71fac75b41e1f756b2827213885bd9f5d606a23b124cdb39f2035d04e049972
+"flagged page, optical reading held",B-pla-tough-upgrade-TDS,Manufacturer TDS,present,page 4: empty,22,1,73fc789bc00aee976c7d70890bada6103fc8fadcbae50cd955872549c7603f61
+"flagged page, optical reading held",S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,Manufacturer TDS,present,page 1: empty,36,1,7e9fe84101b5dfbbf0c8be3a834fd19ef5522ba3635fd6a74ef0692f1e29f3fb
+"flagged page, optical reading held",S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,Manufacturer TDS,present,page 7: empty,36,1,7e9fe84101b5dfbbf0c8be3a834fd19ef5522ba3635fd6a74ef0692f1e29f3fb
+"flagged page, no optical reading",S-POLYCN-PolyLite-PETG-TDS-V5-3,Manufacturer TDS,present,page 1: empty,21,1,3e325b645b42d7547517ee7940f5fd476b48815c08342676a38777206350092f
+"flagged page, optical reading held",S-POLYCN-PolyFlex-TPU95-TDS-V5-1,Manufacturer TDS,present,page 1: empty,5,1,085b92653b50d7f808fa7a162edd5aa721581c4bff6e942b316c734057450713
+"flagged page, optical reading held",S-POLYCN-PolyFlex-TPU90-TDS-V5-1,Manufacturer TDS,present,page 1: empty,6,1,b646650211110f3466d7f40f2ea69f2f066495f4be8bcdb7b2cf2f92489bbde8
+"flagged page, no optical reading",S-POLYCN-PolyMide-CoPA-TDS-V5-2,Manufacturer TDS,present,page 1: empty,31,3,21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee
+"flagged page, optical reading held",S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,Manufacturer TDS,present,page 1: empty,31,1,9fcb5693449b1f7cf4af84dc3a0f25753fb71476848ca24fd3b3a90c24c446db
+"flagged page, optical reading held",S-FIBER-PA612,Manufacturer TDS,present,page 1: glyph,34,2,11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f
+"flagged page, optical reading held",S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,Manufacturer TDS,present,page 1: empty,32,1,2852b98cdd004aad9f26893e2a4d66cdcbc6cf4c59c0b9d44973a66cc56c626c
+"flagged page, optical reading held",S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,Manufacturer TDS,present,page 1: glyph,34,2,02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f
+"flagged page, optical reading held",S-PET-TDS,Manufacturer TDS,present,page 1: empty,14,1,f04c5244e4400548198fe54348c625ec9926364e021f167ed74673b387dabd89
+"flagged page, optical reading held",S-FIBER-PPSGF-TDS-2,Manufacturer TDS,present,page 1: glyph,24,1,2a2f32e737ecae8509160bcadd33ab263c26cd8e7d6334f38e935890136b0c66
+"flagged page, optical reading held",X-EVOLV3D-OBC-TDS,Manufacturer TDS,present,page 1: glyph,7,1,89a1aa6f71753437e6d68d7b8054b0bba997fca8b77c6169815eaaeb65c00153
+"flagged page, no optical reading",S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,Manufacturer TDS,present,page 1: empty,23,1,b85d00a14b3a1c90afe510c4f1d58d7fab8fb69660eaee79c7420b1b7f8c4058
+"flagged page, no optical reading",S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,Manufacturer TDS,present,page 5: empty,23,1,b85d00a14b3a1c90afe510c4f1d58d7fab8fb69660eaee79c7420b1b7f8c4058
+"flagged page, no optical reading",S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,Manufacturer TDS,present,page 1: empty,23,1,422bebbd0afd300415532d7d089877fb734d51316e877a54f4c00c806ca1570e
+"flagged page, no optical reading",S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,Manufacturer TDS,present,page 5: empty,23,1,422bebbd0afd300415532d7d089877fb734d51316e877a54f4c00c806ca1570e
+"flagged page, optical reading held",R-ESSENTIUM-PPSCF-TDS,Manufacturer TDS,present,page 1: glyph,25,1,225419a589be85d566c662f2720339a5eb20b6fa50187e98411bf627dd7b1e15
+"flagged page, optical reading held",R-ESSENTIUM-PPSCF-TDS,Manufacturer TDS,present,page 2: glyph,25,1,225419a589be85d566c662f2720339a5eb20b6fa50187e98411bf627dd7b1e15
+"flagged page, optical reading held",R-GRUPA-AZOTY-TARFUSE-POM-TDS,Manufacturer TDS,present,page 1: glyph,9,1,ef0bbc0dd06cf77c1c14d95f0338d3541e287b36920e5f212492399fcb3263ea
+"flagged page, optical reading held",R-GRUPA-AZOTY-TARFUSE-POM-TDS,Manufacturer TDS,present,page 2: glyph,9,1,ef0bbc0dd06cf77c1c14d95f0338d3541e287b36920e5f212492399fcb3263ea
+"flagged page, optical reading held",R-DUPONT-ZYTEL-GUIDE,Resin supplier data sheet,present,page 7: letters,14,1,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092
+"flagged page, optical reading held",R-DUPONT-ZYTEL-GUIDE,Resin supplier data sheet,present,page 9: letters,14,1,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092
+"flagged page, optical reading held",R-DUPONT-ZYTEL-GUIDE,Resin supplier data sheet,present,page 11: letters,14,1,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092
+"flagged page, optical reading held",R-DUPONT-ZYTEL-GUIDE,Resin supplier data sheet,present,page 13: letters,14,1,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092
+"flagged page, optical reading held",R-DUPONT-ZYTEL-GUIDE,Resin supplier data sheet,present,page 17: letters,14,1,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092
+"flagged page, optical reading held",R-DUPONT-ZYTEL-GUIDE,Resin supplier data sheet,present,page 19: letters,14,1,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092
+"flagged page, optical reading held",R-DUPONT-ZYTEL-GUIDE,Resin supplier data sheet,present,page 21: letters,14,1,4b28bc3c55f6cebb864463b497521e9dcdca89a1edd82de6fee0bb2a0e820092
+"flagged page, no optical reading",S-POLYCN-PolySmooth-TDS-V5-4,Manufacturer TDS,present,page 1: empty,16,1,126df8abf06b12f4ba02ead2d247760a3087ebb5e6076a7187eab9acd1efb345
+"flagged page, optical reading held",R-FORWARDAM-ULTRAFUSE-BVOH-EXTENDED-TDS,Manufacturer TDS,present,page 2: letters,15,1,5c312e6dd2740bf4264081441412666d526fb7ee1f12d681a63f468952a43eda
+"flagged page, no optical reading",S-POLYCN-PolyLite-ABS-TDS-V5-3,Manufacturer TDS,present,page 1: empty,16,1,3471ec2cb7244564bd7e64ccee2e49633f5a416958f0e8307be4a1607232dfac
+"flagged page, no optical reading",S-POLYCN-PolyLite-ASA-TDS-V5-3,Manufacturer TDS,present,page 1: empty,16,1,f51a4df921be2a531fe4870fcc9ef2c88c498522fecbde9490eca488635054a5
+"flagged page, no optical reading",S-POLYCN-PolyLite-PC-TDS-V5-3,Manufacturer TDS,present,page 1: empty,16,1,89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d
+"flagged page, no optical reading",S-POLYCN-PolyMax-PC-FR-TDS-V5-1,Manufacturer TDS,present,page 1: empty,17,1,2a0902b570748c80a189a0b25007ebdde1d1b62f04e846fbf54e84d96c7ce114
+"flagged page, no optical reading",S-POLYCN-PolyMax-PC-FR-TDS-V5-1,Manufacturer TDS,present,page 5: empty,17,1,2a0902b570748c80a189a0b25007ebdde1d1b62f04e846fbf54e84d96c7ce114
+"flagged page, optical reading held",R-FIBERON-PETCF17-TDS,Manufacturer TDS,present,page 1: glyph,22,1,640a5ed487a8475805af3ecf387e942805182e263fdef5ebe0e5587a3e60a254
+"flagged page, optical reading held",S-POLYCN-PolyLite-PLA-TDS-V5-1-7,Manufacturer TDS,present,page 1: empty,16,1,0678205d8447934333627472db8a91b236d0eacfa63dd168af73ad1567889b31
+"flagged page, no optical reading",S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,Manufacturer TDS,present,page 1: empty,18,1,442547e8f1a407bd82b3b2d14e3e8a674f18928e5ced0dbc4f65f30a46f07fbb
+"flagged page, no optical reading",S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,Manufacturer TDS,present,page 7: empty,18,1,442547e8f1a407bd82b3b2d14e3e8a674f18928e5ced0dbc4f65f30a46f07fbb
+"flagged page, no optical reading",S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-0,Manufacturer TDS,present,page 1: empty,18,1,4bf0dcd61bd4732caac2243535fc361f4c13ec0f123025ecae723737b8d27f4c
+"flagged page, no optical reading",S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-0,Manufacturer TDS,present,page 7: empty,18,1,4bf0dcd61bd4732caac2243535fc361f4c13ec0f123025ecae723737b8d27f4c
+"flagged page, no optical reading",S-POLYCN-PolyTerra-PLA-TDS-V5-11,Manufacturer TDS,present,page 1: empty,9,1,6c37d968e41b23da3188689e96fbe83f00225951f0aedd63b73b0d5658e1c0c5
+"flagged page, no optical reading",S-POLYCN-PolyLite-LW-PLA-TDS-US-5-3-20240307,Manufacturer TDS,present,page 1: empty,18,1,73c46d4f841952298ecec7a03cafe01273a7f8f2fbcf1960c42f2b31cb230117
+"flagged page, no optical reading",S-POLYCN-PolyLite-PC-PIS-EN,Manufacturer TDS,present,page 1: empty,10,1,7a00c7bc653e9f28d5415ff7883af8469f1b1e3efa2d4486202a3cb564e37673
+"flagged page, no optical reading",S-POLYCN-PolyLite-PC-PIS-EN,Manufacturer TDS,present,page 16: empty,10,1,7a00c7bc653e9f28d5415ff7883af8469f1b1e3efa2d4486202a3cb564e37673
+"flagged page, no optical reading",S-POLYCN-PolyLite-PC-TDS-V5-1,Manufacturer TDS,present,page 1: empty,17,1,819ca676a2a6fd349ea05d0ab92da14e1a817d8c977ad93ea322890b08e9673e
+"flagged page, no optical reading",S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1,Manufacturer TDS,present,page 7: empty,13,1,8f7b184eec9ee5471cb29d424a9ca06de751983d9cc657464921c6a55aafd501
+"flagged page, optical reading held",S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2,Manufacturer TDS,present,page 1: empty,6,1,9bbb82b1305b7044afdbb4f8d200b637f3207e8ad8095d32fbfc558cb2768577
+"flagged page, optical reading held",S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2,Manufacturer TDS,present,page 16: empty,6,1,9bbb82b1305b7044afdbb4f8d200b637f3207e8ad8095d32fbfc558cb2768577
+"flagged page, no optical reading",S-POLYCN-PolyMide-CoPA-PIS-EN,Manufacturer TDS,present,page 1: empty,12,1,a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b
+"flagged page, no optical reading",S-POLYCN-PolyMide-CoPA-PIS-EN,Manufacturer TDS,present,page 16: empty,12,1,a0a8fefbbfb85a25f8651d189a6ca47307328a91368de743956ed93c751c370b
+"flagged page, no optical reading",S-POLYCN-index-php-controller-attachment-id-attachment-3937,Manufacturer TDS,present,page 1: empty,16,1,db463fe022dc27a462781317210fc315c5dcd8d018509aceb414183f42020482
+"flagged page, optical reading held",S-POLYCN-PolyLite-PLA-CF-TDS-US-5-1,Manufacturer TDS,present,page 1: empty,17,1,e868af12aa841ba706e8a3e8fba7a91f7e9141e66c7d80509d07984d71e29850
+"flagged page, no optical reading",S-POLYCN-PolyLite-PETG-TDS-V5-2,Manufacturer TDS,present,page 1: empty,16,1,f0566292697decaea2d9ebe85fc2c498375bc239c4b18f3778f2c1fb2445b563
+"flagged page, optical reading held",R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,Manufacturer TDS,present,page 2: glyph,13,1,0049b4facf5ff87b0380109e7b4c5644ed2ec0cc2c7ae7beb7d5f7e606a324de
+"flagged page, optical reading held",R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,Manufacturer TDS,present,page 2: glyph,12,1,026956efec70960e88eac19c404dc5029f35388eed3dafb26638abc4f0378cd5
+"flagged page, optical reading held",R-SUNLU-56889371789540318047,Manufacturer TDS,present,page 2: glyph,22,1,05905ccb757833a685563516d337fdbd5804d690ee041f84dcfd9f5d6bba2d62
+"flagged page, optical reading held",R-SUNLU-30522971789539747056,Manufacturer TDS,present,page 2: glyph,18,1,078860f565ca6586b313bd9ef777b516f298a5c17d29d57a1b9a748733bcf0a7
+"flagged page, optical reading held",R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,Manufacturer TDS,present,page 2: glyph,12,1,08e386cd13004305dc7e0123ce1daa42d7e4fce46ce227f697b7374b86cdd056
+"flagged page, optical reading held",R-SUNLU-25182761789529093884,Manufacturer TDS,present,page 2: glyph,12,1,0dfe19aea957140cb70fed1d7b242c960ab7417125668b6f3e0d674024430879
+"flagged page, optical reading held",R-SUNLU-73632671781747576290,Manufacturer TDS,present,page 2: glyph,13,1,13fac1b4645829b9e1c6f2bc9ef64d57742bdaf9c192f338ecc96cfd0dc93930
+"flagged page, optical reading held",R-SUNLU-65301701781747847057,Manufacturer TDS,present,page 2: glyph,13,1,1833d0910da27075d9dac2c44b60fc051786197a25d9ef8b0688d59fbf7e284b
+"flagged page, optical reading held",R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,Manufacturer TDS,present,page 2: glyph,13,1,1a67c0c36fede8858a68ec18d3c07b0b56506a8efc26cfcef7259509829fd5b7
+"flagged page, optical reading held",R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,Manufacturer TDS,present,page 2: glyph,6,1,1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9
+"flagged page, optical reading held",R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,Manufacturer TDS,present,page 2: glyph,10,1,21631f3193d547ef693726f70be5bb36c3abb385b3978470832bbb89e430593b
+"flagged page, optical reading held",R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,Manufacturer TDS,present,page 2: glyph,13,1,27059e4a61a2cb5e477d38e5550858d29ffe3c54ac7d6123ef5e1f29c25cc3ce
+"flagged page, optical reading held",R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,Manufacturer TDS,present,page 2: glyph,12,1,2b8c38d54f96f102c76f6bc596f5a067fe4911d744ed79b468f467e8e9605280
+"flagged page, optical reading held",R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,Manufacturer TDS,present,page 2: glyph,14,1,36cc3d5f082a77cc0d12b3d94e8eca2073f826a3683797410f08e2724cfe1e58
+"flagged page, optical reading held",R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,Manufacturer TDS,present,page 2: glyph,12,1,3c9552022e6281990e72561484cc4c5fd85b5c04118df1d501c453dea22394e5
+"flagged page, optical reading held",R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,Manufacturer TDS,present,page 2: glyph,11,1,46e1cfb74e3b80b8db8fecc25c6eeb0d5db034009000ae35ba5c6f47dca1c2dd
+"flagged page, optical reading held",R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,Manufacturer TDS,present,page 2: glyph,13,1,471ccb741b6a86c31d6c2f1f86011cb0845b9856a5900b80931559b800bea6a7
+"flagged page, optical reading held",R-SUNLU-499dacc6-a1e4-4f81-b1ae-8bf1b8e424ec,Manufacturer TDS,present,page 2: glyph,13,2,4aeab9573571c5a150fa5cab17b2f4908da369ba66dd7f0969780402dffc31c3
+"flagged page, optical reading held",R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,Manufacturer TDS,present,page 2: glyph,15,1,5035c913031079675e0ab412045ce105daa5ce7cda3a1780df890068770fc20f
+"flagged page, optical reading held",R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,Manufacturer TDS,present,page 2: glyph,12,1,54370666a35ca1f3fa4b57e8f401e7b8a02be73663391fddee7c820a81fdc419
+"flagged page, optical reading held",R-SUNLU-19364171789540194308,Manufacturer TDS,present,page 2: glyph,12,1,714d8e8d4f710bc196b4ce96b96d8020e423863ae5fa6ad769044796e65ef560
+"flagged page, optical reading held",R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,Manufacturer TDS,present,page 2: glyph,15,1,75e1e2947abe26bc91805a6fb6e6b7a5ceafc3153429bdee65202d280a819ad9
+"flagged page, optical reading held",R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,Manufacturer TDS,present,page 2: glyph,8,1,77202ef641ffa9bb13da230edf742c59f7eea3bff115829ba9f0b98917e63452
+"flagged page, optical reading held",R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,Manufacturer TDS,present,page 2: glyph,13,1,78cf4630e756a753bcd7228107cb761c6d3e858e3655e9cb4e02f5c992a2bd7f
+"flagged page, optical reading held",R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,Manufacturer TDS,present,page 2: glyph,13,1,79654c2d7556a5a6bb4024833dd4a185c93f943857af452ab71a880ea6ac2efa
+"flagged page, optical reading held",R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,Manufacturer TDS,present,page 2: glyph,12,1,870d9710fa851063e06633bea393443301a927c1fa34bc9d340941945acc0776
+"flagged page, optical reading held",R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,Manufacturer TDS,present,page 2: glyph,15,1,921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033
+"flagged page, optical reading held",R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,Manufacturer TDS,present,page 2: glyph,9,1,985ffa6209213452ed90a16c488b1d23c275b72b921a754814b2ab86375649f5
+"flagged page, optical reading held",R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,Manufacturer TDS,present,page 2: glyph,11,1,9de5ef7245a90a97c871bbaad2ac061c22d82c77c9316df48a6a96fc87b47331
+"flagged page, optical reading held",R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,Manufacturer TDS,present,page 2: glyph,10,1,a57b4350816468146afbd91371632c9ab7a92cf82b6da01165d39d691df39c26
+"flagged page, optical reading held",R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,Manufacturer TDS,present,page 2: glyph,15,1,a76533e9c21a1264526635beac9d4d3f5c01753a4ed884f796dae7efca3d326d
+"flagged page, optical reading held",R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,Manufacturer TDS,present,page 2: glyph,12,1,b2d6571516714eee55ef1e0792cad054772487a6238889f3f932cf348f5a89da
+"flagged page, optical reading held",R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,Manufacturer TDS,present,page 2: glyph,12,1,b549a33c5bb86816aa44f46bb1c5b0851fc41358cd67ed98d92c05d3049ab035
+"flagged page, optical reading held",R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,Manufacturer TDS,present,page 2: glyph,12,1,b5723e949da4bd43f0aef4bef05fd263a072dad1c860dc68bd35f19679a518dc
+"flagged page, optical reading held",R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,Manufacturer TDS,present,page 2: glyph,12,1,b813ed0c3823b9712a6c9949b8cf56a450e62bab2997a7907d68acb97437439c
+"flagged page, optical reading held",R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,Manufacturer TDS,present,page 2: glyph,7,1,c2da8fbdc75808ce598bb5df4db226b058f1706822340b744f58ec72c4ea2dd0
+"flagged page, optical reading held",R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,Manufacturer TDS,present,page 2: glyph,15,1,e1a590c791fd27eeb4e1a734ef971fb5d3a4b246e61c74e45af5eec68d028da0
+"flagged page, optical reading held",R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,Manufacturer TDS,present,page 2: glyph,12,1,fab54bfd39fbefe0bca7ddb7e5326b06958da23151c4b01914d1e7ee0bbff589
+"flagged page, optical reading held",R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,Manufacturer TDS,present,page 1: glyph,20,1,058a8c3270f4fec4f190273d689add4ff16245000621c365b7dd3b6caab1c4fb
+"flagged page, optical reading held",R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,Manufacturer TDS,present,page 1: glyph,22,1,6f17386258f10da06bfaa52a4e07aa471bdffe7f115a76c919e65dd026ee0d6e
+"flagged page, optical reading held",R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,Manufacturer TDS,present,page 1: glyph,21,1,90be757860575b59d2c3e70437407b94bf4206445e1302d622530b7e1544ce2a
+"flagged page, optical reading held",R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,Manufacturer TDS,present,page 1: glyph,22,1,f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4
+"flagged page, optical reading held",S-PCGF-PA12-CF-TDS-EN-1,Manufacturer TDS,present,page 4: empty,12,1,6bafd26ee3d73ad5173240c52d1b6fbd6c6e31e0a76d7b80eb6c2e048b0378ce
+"flagged page, optical reading held",B-PC-new-Bambu-PLA-Tough-Technical-Data-Sheet,Manufacturer TDS,present,page 4: empty,20,1,b71340d09d13a5c78080a4831787f6768c631ded42344aaa7274ce9542263c8a
+"flagged page, optical reading held",R-QIDI-ABS-GF25,Manufacturer TDS,present,page 1: glyph,14,1,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d
+"flagged page, optical reading held",R-QIDI-ABS-GF25,Manufacturer TDS,present,page 2: glyph,14,1,20d212ff485b8cfde3c86e23dd2fddfb287d0e449e999b6a518430507351ce4d
+"flagged page, optical reading held",R-QIDI-ODORLESS-ABS,Manufacturer TDS,present,page 1: glyph,17,1,387e9400e0e400ca0712b225e27c3cded5daf7411adbc83c1d70289169be2633
+"flagged page, optical reading held",R-QIDI-ASA-AERO,Manufacturer TDS,present,page 1: glyph,11,1,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c
+"flagged page, optical reading held",R-QIDI-ASA-AERO,Manufacturer TDS,present,page 3: glyph,11,1,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c
+"flagged page, optical reading held",R-QIDI-ASA-AERO,Manufacturer TDS,present,page 4: glyph,11,1,446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c
+"flagged page, optical reading held",R-QIDI-ASA-CF20-CORE,Manufacturer TDS,present,page 1: glyph,13,1,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320
+"flagged page, optical reading held",R-QIDI-ASA-CF20-CORE,Manufacturer TDS,present,page 2: glyph,13,1,6578afca6561181428c896d6a3ab8ff2f5b1d7a2bf9623eb6e9926590971a320
+"flagged page, optical reading held",R-QIDI-ASA,Manufacturer TDS,present,page 1: glyph,17,1,a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4
+"flagged page, optical reading held",R-QIDI-TPU95A-HF,Manufacturer TDS,present,page 1: glyph,8,1,aecae6b621183444eb359d8e08099d6f30519e191342392b6b7a7e597b5bb196
+"flagged page, optical reading held",R-QIDI-PETG-TOUGH,Manufacturer TDS,present,page 1: glyph,15,1,bb72c5721e1b12bc5919cffbaae584d44c120ac3b97be7e3380290876a442b61
+"flagged page, optical reading held",R-QIDI-PET-GF,Manufacturer TDS,present,page 1: glyph,13,1,f522e5d934d58f7a20ce24bc3c958c3f976fb570ab0ca9cd73f0d2c2e0f3623a
+"flagged page, optical reading held",R-SUNLU-PA12-CF-TDS,Manufacturer TDS,present,page 2: glyph,12,1,055519eef178c1845704d555d4dd99620b4a5b5a36c9d79dce2186c67ea0ed68
+"flagged page, optical reading held",R-SUNLU-PA6-GF-TDS,Manufacturer TDS,present,page 2: glyph,12,1,19c5c4b0244fabf86903c5ac555d9037f816d91bd01d8ba2177268d8dbfd184d
+"flagged page, optical reading held",R-SUNLU-TDS-High-speed-PLA-marble,Manufacturer TDS,present,page 2: glyph,15,1,3fd065cbb26dacda65b1918be25785e5cc62c639667590d1cc23d349b7135400
+"flagged page, optical reading held",R-SUNLU-PLA-Galaxy-TDS,Manufacturer TDS,present,page 2: glyph,11,1,413cdb54c97a593e31739d2cfcd54f99bfbdc0989fc4e4f6ab1c7bec612204cd
+"flagged page, optical reading held",R-SUNLU-PVB-TDS,Manufacturer TDS,present,page 2: glyph,12,1,6622dff0d6b9f85343f2bf6e4370c7b5ae0c2e78581876c24f81c3a54ae006e8
+"flagged page, optical reading held",R-SUNLU-PC-ABS-TDS,Manufacturer TDS,present,page 2: glyph,10,1,819b9fe01752d912622da958d05f1a6829b9473601788d36b010c65c52e0cd9e
+"flagged page, optical reading held",R-SUNLU-High-Speed-Matte-PETG-TDS,Manufacturer TDS,present,page 2: glyph,13,3,9cf76ba6b1b7a91671d8be801dcbb143a5088aa5d952513cade09e09ceee7143
+"flagged page, optical reading held",R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,Manufacturer TDS,present,page 2: glyph,10,1,b73b1805d859a3ad014b3069def3d6c1a7d068bdb07f129c750534731af74b31
+"flagged page, optical reading held",R-SUNLU-ABS-FR-TDS-0,Manufacturer TDS,present,page 2: glyph,12,1,cff0a8dcb674cc54949eece22d90b6ffe4ebc8c574e8839f7fca949da65a86b0
+"flagged page, optical reading held",R-SUNLU-PLA-Classic-TDS,Manufacturer TDS,present,page 2: glyph,11,3,d140af2e6529276f85cd006714659be3ddbe3cff5c14b658fb10268f76b8ab53
+"flagged page, optical reading held",R-SUNLU-PA6-CF-TDS,Manufacturer TDS,present,page 2: glyph,12,1,d950c78f73414d4b0e058ee182c368a15942cc93df98b996c2608d7506411a9d
+"flagged page, optical reading held",R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,Manufacturer TDS,present,page 2: glyph,13,1,dbcd9fabc078423d3f7d6af4f093da1b0a22913494356f7d0882d1aae27efc10
+"flagged page, optical reading held",S-PVB-technisches-datenblatt-2,Manufacturer TDS,present,page 2: glyph,10,1,e7abf8ceb8be6c2d920d4dcde15ee9107a63fb8e395446ffcd965bebff756904
+"flagged page, optical reading held",R-SUNLU-High-Speed-ABS-TDS,Manufacturer TDS,present,page 2: glyph,14,1,efe9e1f4c6ca1d0091a21e354edd952ddb9c144ccd2a7f0be205a30520d7d8be
+"flagged page, optical reading held",R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,Manufacturer TDS,present,page 2: glyph,14,1,dfc4e8b55e12ca56866c37b5b957fc83fd64ceb88fbd926a10f291b82e609988
+"flagged page, no optical reading",S-PCGF-PPA-CF-TDS-EN,Manufacturer TDS,present,page 4: empty,0,1,154516a0a95d8309df280d6ee37a69ec0baad2c26de84be8e8bd0e295bf1eafa
+"flagged page, no optical reading",S-PCGF-PPS-CF-TDS-EN,Manufacturer TDS,present,page 4: empty,0,1,56157e1934a4ee22b81341f43232fc658badca3512fd988d9bf125ddd88d9a1e
+"flagged page, optical reading held",R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,Manufacturer TDS,present,page 2: glyph,11,1,674839366a0943712ae139131c1c1a4f27f046e5fa4ea4e1580498038698f6b1
+"flagged page, optical reading held",R-SUNLU-689d1925-acad-4de8-9079-c8eee9c3081e,Manufacturer TDS,present,page 2: glyph,0,1,709536576e3c9dbabd594550e79784ecb613be802313bd97e779e29ce85732e8
+"flagged page, optical reading held",R-SUNLU-91c03fbc-a5c0-4711-b3ae-10d0efd19f27,Manufacturer TDS,present,page 2: glyph,0,1,90b1a08f993c1b2b1c0081fe62587e0b3ee6c9453cbef0a5c0c70ae72bdc04bc
+"flagged page, optical reading held",R-SUNLU-63d55fe5-d33b-47f2-8930-520f193ade51,Manufacturer TDS,present,page 2: glyph,0,1,9a3b9765eb3c356a9d9e7f56c0c39bedc54db735274fecc2051b2f5d1ab598ba
+"flagged page, optical reading held",R-SUNLU-5156fe91-c7a8-48bd-9d1a-e753bf9c53a1,Manufacturer TDS,present,page 2: glyph,0,1,cae542204ed6e2108898d7144539d82d28f03be50827458c3e2679e8f52b700e
+"flagged page, optical reading held",R-SUNLU-5644650b-5633-42fb-b06a-6d1e125c9114,Manufacturer TDS,present,page 2: glyph,0,1,f45032f53e2e405ef072d4560f4206e71e7b30f6a0041d12a70df96c2a2f4c8f
+"flagged page, optical reading held",R-QIDI-PA12-CF,Manufacturer TDS,present,page 1: glyph,20,1,3bee87ff0b079c2a03f1395d0dbe71e51815c38a6243afdc9a3c2cc79613bc35
+"flagged page, optical reading held",S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen,Manufacturer TDS,present,page 1: glyph,8,1,5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497
+"flagged page, optical reading held",I-PLA-PA12-CF-TDS,Manufacturer TDS,present,page 1: glyph,18,1,5687298e0e5c2069ffab5e99828a507c97e5160cf2b3690336871574ef83bf88
+"flagged page, no optical reading",S-POLYCN-PolyWood-TDS-V5-1,Manufacturer TDS,present,page 1: empty,16,1,6be71ddce3cf5286ba963cd35e8838a19c52dc0ea7f7aecd47967d1cefdbebd4
+"flagged page, optical reading held",R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,Manufacturer TDS,present,page 2: glyph,6,1,77ea19eb018c179eaa877db371bb052f752b1ce09998d286b788df83db0cdd7b
+"flagged page, no optical reading",S-POLYCN-PolyCast-TDS-V5-1,Manufacturer TDS,present,page 1: empty,14,1,92f08bb9b0eb9a3fffeb3796c899b6fdcb7092987f034dddd3e627ec2267812c
+"flagged page, no optical reading",S-POLYCN-PolyWood-PIS-EN,Manufacturer TDS,present,page 1: empty,10,1,d1bb2b690449ed026858fa08e8b1ff9deff02cb5bc8d4e02c8fc02a1dd702037
+"flagged page, no optical reading",S-POLYCN-PolyWood-PIS-EN,Manufacturer TDS,present,page 16: empty,10,1,d1bb2b690449ed026858fa08e8b1ff9deff02cb5bc8d4e02c8fc02a1dd702037
+"flagged page, optical reading held",S-POLYCN-PolyDissolve-S1-PIS-EN,Manufacturer TDS,present,page 1: empty,2,1,f5c886182dbea81dbb03967e2d0415c9dd9902bb0f943aa41ba731ea23785787
+"flagged page, optical reading held",S-POLYCN-PolyDissolve-S1-PIS-EN,Manufacturer TDS,present,page 16: empty,2,1,f5c886182dbea81dbb03967e2d0415c9dd9902bb0f943aa41ba731ea23785787
+"flagged page, no optical reading",S-POLYCN-Polylite-CosPLA-Version-B-EN-V5-3-20240123,Manufacturer TDS,present,page 1: empty,17,1,fbb7588ce25d411eb8e6985868a3c8dbaa04a4f0515eddb1d8148de613e57b8f
+"flagged page, no optical reading",S-POLYCN-Polylite-CosPLA-Version-B-EN-V5-3-20240123,Manufacturer TDS,present,page 5: empty,17,1,fbb7588ce25d411eb8e6985868a3c8dbaa04a4f0515eddb1d8148de613e57b8f
+"flagged page, optical reading held",R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0,Manufacturer TDS,present,page 1: garble,6,1,5fd5ff6e8a913129b384ce4165cb2628aeaedbc60ce2c7818e6d69ad8d092bee
+"flagged page, optical reading held",B-PC-PLA-Pure-TDS,Manufacturer TDS,present,page 4: garble,3,1,e3aecef282b9c25ccdc4d506ad42bbecd44608396bfed5c3802ba8059b4f2b61
+"flagged page, optical reading held",R-SPECTRUM-PORTFOLIO-2024,Manufacturer product page or guide,present,page 2: glyph,42,47,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74
+"flagged page, optical reading held",R-SPECTRUM-PORTFOLIO-2024,Manufacturer product page or guide,present,page 12: glyph,42,47,4fb78715b81997ecd11b61d8b84393e1bfc6fe096ed35fc50ac062073c96cd74
+"flagged page, optical reading held",D-SUNLU-TPU-TDS-2024-06,Manufacturer TDS,present,page 2: glyph,7,1,550a9d1a784b31dc65813a38a5544708002593f92a81241df23fd17d90068ddc
+"flagged page, optical reading held",R-SUNLU-COVERAGE-20261001-816dc4c0cc18,Manufacturer TDS,present,page 2: glyph,2,1,816dc4c0cc18aad865d8e9ec3bc83153886f02d2d3357461f93d407ff7b1caec
+"flagged page, optical reading held",R-COVERAGE-20261001-28aad1fe7597,Manufacturer product page or guide,present,page 2: glyph,12,55,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7
+"flagged page, optical reading held",R-COVERAGE-20261001-28aad1fe7597,Manufacturer product page or guide,present,page 5: glyph,12,55,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7
+"flagged page, optical reading held",R-COVERAGE-20261001-28aad1fe7597,Manufacturer product page or guide,present,page 6: glyph,12,55,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7
+"flagged page, optical reading held",R-COVERAGE-20261001-28aad1fe7597,Manufacturer product page or guide,present,page 7: glyph,12,55,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7
+"flagged page, optical reading held",R-COVERAGE-20261001-28aad1fe7597,Manufacturer product page or guide,present,page 26: glyph,12,55,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7
+"flagged page, optical reading held",R-COVERAGE-20261001-28aad1fe7597,Manufacturer product page or guide,present,page 28: glyph,12,55,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7
+"flagged page, optical reading held",R-COVERAGE-20261001-28aad1fe7597,Manufacturer product page or guide,present,page 30: glyph,12,55,28aad1fe759765537625b69e860f0b3c31082660a9ca7f59f7cd304cee53e4c7
+"flagged page, no optical reading",R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe,Manufacturer TDS,present,page 1: empty,0,1,44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734
+"flagged page, no optical reading",R-POLYMAKER-PRIORITY-20261002-44bdc8c05cbe,Manufacturer TDS,present,page 12: empty,0,1,44bdc8c05cbe469d22f2384a0290c4a8b8e935637de2e48c65fccb7fa0dd5734
+"flagged page, optical reading held",R-POLYMAKER-PRIORITY-20261002-8c3c83807f63,Manufacturer TDS,present,page 1: empty,5,1,8c3c83807f63b025181088de281ddff20b2893231d02f50cb1af9c8879b71a26
+"flagged page, no optical reading",D-FLASH-FABRIAL-R-TPE-TDS-JP,Manufacturer TDS,present,page 1: garble,9,1,36bdc5d8f5c3688c6f49629cf2ac5ac6e2ee6f587d8b91d2392e36e088fdd501
+"flagged page, no optical reading",R-QIDI-S-White,Manufacturer TDS,present,page 1: glyph,4,1,715a70a33079fa3f19ef7eb2cbe4cb77c6a15511a7f826cc19d7a4d0704fa2ea
+"flagged page, no optical reading",R-POLYMAKER-QR-20261007-8106f1c5c75e,Manufacturer TDS,present,page 1: empty,22,1,8106f1c5c75e2cb3a5bb5ed7b0af16ea438681153caa2f132601755aa53a9789

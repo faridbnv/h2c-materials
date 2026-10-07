@@ -1,0 +1,66 @@
+Record,Material,Headline,Claim,What
+G006-01,M001,,Toughened or impact-modified,Bambu Lab PLA Tough+: Q05757
+G018-01,M018,,Toughened or impact-modified,Bambu Lab PLA-CF: Q05762
+G068-02,M068,,Toughened or impact-modified,Polymaker Fiberon PET-GF15: Q05786
+G028-02,M028,,Toughened or impact-modified,Siraya Tech Fibreheart ABS-GF: Q02317
+G001-06,M001,,Toughened or impact-modified,Spectrum PLA Matt: Q00577
+G001-20,M001,,Toughened or impact-modified,Polymaker Polymaker PolySonic PLA Pro 6.0: Q00976
+G027-08,M027,,Toughened or impact-modified,Polymaker Polymaker ABS Pro: Q02147
+G001-23,M001,,Toughened or impact-modified,Polymaker PolyTerra PLA: Q00985
+G001-24,M001,,Toughened or impact-modified,Polymaker PolyMax PLA: Q00990
+G001-29,M001,,Toughened or impact-modified,Polymaker Polymaker HT PLA Pro: Q00995
+G001-30,M001,,Toughened or impact-modified,Polymaker Polymaker PLA Pro: Q00998
+G020-16,M020,,Toughened or impact-modified,Polymaker Polymaker PolyMax PETG: Q05763
+G088-03,M088,,Toughened or impact-modified,Extrudr PCTG: Q05785
+G131-01,M131,,Toughened or impact-modified,Extrudr DURAPRO PC-PBT CF: Q05764
+G001-43,M001,,Toughened or impact-modified,Eryone Hyper-Speed PLA: Q05770
+G001-45,M001,,Toughened or impact-modified,Eryone PLA+: Q05771
+G001-48,M001,,Toughened or impact-modified,Flashforge PLA Multicolor: Q05772
+G017-07,M017,,Toughened or impact-modified,Flashforge PLA LW: Q05773
+G001-49,M001,,Toughened or impact-modified,Flashforge HS PLA: Q05774
+G001-50,M001,,Toughened or impact-modified,Flashforge PLA Matte: Q05775
+G008-09,M008,,Toughened or impact-modified,Flashforge Silk: Q05776
+G001-51,M001,,Toughened or impact-modified,Flashforge PLA Pro: Q01069
+G001-52,M001,,Toughened or impact-modified,Flashforge PLA Crystal: Q05777
+G028-07,M028,,Toughened or impact-modified,Fiberlogy ABS GF: Q05779
+G001-55,M001,,Toughened or impact-modified,Fiberlogy IMPACT PLA: Q05769
+G066-03,M066,,Toughened or impact-modified,colorFabb PET HIGH SPEED PRO: Q05761
+G001-59,M001,,Toughened or impact-modified,colorFabb PLA Economy: Q01088
+G001-60,M001,,Toughened or impact-modified,colorFabb PLA Color On Demand (COD): Q05765
+G001-62,M001,,Toughened or impact-modified,colorFabb PLA High Speed PRO: Q01090
+G026-05,M026,,Toughened or impact-modified,Polymaker PETG ESD: Q02086
+G001-67,M001,,Toughened or impact-modified,Flashforge PLA: Q05778
+G024-10,M024,,Toughened or impact-modified,3D4Makers PETGCarbon: Q05780
+G019-03,M019,,Toughened or impact-modified,eSUN PLA GF: Q01730
+G113-02,M113,,Toughened or impact-modified,FormFutura ApolloX Kevlar: Q04753
+G020-45,M020,,Toughened or impact-modified,QIDI ToughPETG-HF: Q01895
+G019-04,M019,,Toughened or impact-modified,Nobufil PLAx GF: Q01734
+G001-126,M001,,Toughened or impact-modified,Nobufil PLAx: Q00701
+G027-39,M027,,Toughened or impact-modified,AzureFilm ABS Prime: Q02274
+G011-06,M011,,Toughened or impact-modified,Anycubic PLA Metal: Q01427
+G018-16,M018,,Toughened or impact-modified,Nobufil PLAx CF: Q01713
+G001-143,M001,,Toughened or impact-modified,SUNLU PLA+2.0: Q00780
+G027-41,M027,,Toughened or impact-modified,AzureFilm ABS: Q02277
+G001-155,M001,,Toughened or impact-modified,Raise3D Hyper Speed PLA: Q00830
+G145-01,M145,,Toughened or impact-modified,colorFabb PLA/PHA: Q04888
+G027-45,M027,,Toughened or impact-modified,FormFutura ABSpro: Q02290
+G001-159,M001,,Toughened or impact-modified,FormFutura EasyFil PLA: Q00845
+G001-161,M001,,Toughened or impact-modified,FormFutura Tough PLA: Q00860
+G001-177,M001,,Toughened or impact-modified,3D4Makers Facilan C8: Q05781
+G001-179,M001,,Toughened or impact-modified,BigRep PLX: Q05782
+G156-01,M156,,Toughened or impact-modified,eSUN ePA CF: Q05034
+G082-12,M082,,Toughened or impact-modified,FormFutura Pegasus PP: Q05766
+G110-03,M110,,Toughened or impact-modified,Fiberlogy PCTG+GF10: Q05784
+G001-188,M001,,Toughened or impact-modified,Recreus PLA: Q05767
+G168-03,M168,,Toughened or impact-modified,Extrudr GREENTEC PRO: Q05783
+G168-04,M168,,Toughened or impact-modified,Extrudr GREENTEC: Q05768
+G001-200,M001,,Toughened or impact-modified,SUNLU PLA+: Q01033
+M001,PLA,charpyNotched,Toughened or impact-modified,"7 of 14: 5.76-72.3 (G001-20 G001-23 G001-24 G001-29 G001-30 G001-62 G006-01); others 14: 2.16-20.3, median 6"
+M001,PLA,izodNotched,Toughened or impact-modified,"1 of 6: 10-10 (G001-143); others 6: 4.5-6.5, median 5"
+M018,PLA-CF,charpyNotched,Toughened or impact-modified,"1 of 2: 7.6-7.6 (G018-01); others 2: 5.5-6.65, median 6.075"
+M020,PETG,charpyNotched,Toughened or impact-modified,"1 of 6: 11.6-11.6 (G020-16); others 6: 2.6-8.6, median 5.575"
+M026,PETG-ESD,charpyNotched,Toughened or impact-modified,1 of 1: 5.7-5.7 (G026-05); others none
+M027,ABS,charpyNotched,Toughened or impact-modified,"1 of 5: 14.48-14.48 (G027-08); others 5: 10.51-21.5, median 20.03"
+M066,PET,charpyNotched,Toughened or impact-modified,1 of 1: 1.2-1.2 (G066-03); others none
+M068,PET-GF,charpyNotched,Toughened or impact-modified,"1 of 1: 8.7-8.7 (G068-02); others 1: 6.56-6.56, median 6.56"
+M145,PLA-PHA,charpyNotched,Toughened or impact-modified,1 of 1: 2.6-2.6 (G145-01); others none

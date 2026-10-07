@@ -1,0 +1,6 @@
+Not stated by the maker: anything beyond its numbers and annealing schedule.
+Good for: 0 of 2 makersBenefits: 0 of 2 makersPitfalls and limitations: 0 of 2 makersWarping and shrinkage: 0 of 2 makersPrecision and tolerance: 0 of 2 makersSurface finish: 1 of 2 makers (1 product)Adhesion between layers: 0 of 2 makersMoisture sensitivity: 0 of 2 makersNozzle wear: 1 of 2 makers (1 product)Odour and emissions: 0 of 2 makersSupports and removal: 0 of 2 makersPrinting advice: 1 of 2 makers (1 product)
+Not stated by the maker: anything beyond its numbers and annealing schedule.
+What the maker says
+ Surface finish“PP can be postprocessed with sandpaper, razor blades, and a variety of other instruments. Wet sanding is recommended (due to airborne particles) but not necessary as the material doesn’t deform under the heat caused by friction.” — product page, p. 1 where ID review noteNozzle wear“A hardened nozzle is necessary.” — data sheet, p. 1 where IDPrinting advice“The brim is recommended to improve the adhesion of the edges and corners of the object.” — data sheet, p. 1 where ID
+ Not stated by the maker: applications, benefits, pitfalls, warping, dimensional accuracy, layer adhesion, moisture, odour, supports and annealing schedule (website checked 2026-09-28).

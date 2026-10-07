@@ -1,0 +1,23 @@
+kind,record,pair,products,detail
+split-source,R-FILLAMENTUM-Technical-Data-Sheet-PC-ABS,,G094-06 PC/ABS (9); G094-11 Fiberlogy PC/ABS (1),different makers: check the filing
+split-source,R-MATTERHACKERS-PRO-SERIES-8AWUF9,,G001-115 Tough PLA (7); G001-16 Spectrum PLA Pro (1),different makers: check the filing
+split-source,R-POLYMAKER-PANCHROMA-TDS-V2-1,,G008-01 Panchroma Silk PLA (6); G091-02 Polymaker Panchroma CoPE (6),"same maker, few grades: check each row is on the product the sheet names"
+split-source,X-EVOLV3D-OBC-TDS,,G086-01 EVOLV3D OBC (6); G086-02 Fillamentum OBC 905 (1),different makers: check the filing
+split-source,D-FILLAMENTUM-NYLON-CF15-PAGE,,G154-01 Nylon AF80 Aramid (3); G164-01 Fillamentum Nylon FX256 (3); G053-14 Fillamentum Nylon CF15 Carbon (1),"same maker, few grades: check each row is on the product the sheet names"
+split-source,R-BAMBU-PRIORITY-20261003-0419c91c3241,,G051-01 PA6-GF (1); G050-01 Bambu Lab PA6-CF (1); G048-01 Bambu Lab PAHT-CF (1),"same maker, few grades: check each row is on the product the sheet names"
+split-source,R-MARKFORGED-CompositesMaterialDatasheet,,G165-02 Onyx (9); G164-10 Markforged Nylon White (9); G165-03 Markforged Onyx FR (8),"same maker, few grades: check each row is on the product the sheet names"
+grade-pair,G165-02,G165-03,Onyx | Onyx FR,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (3 shared of 9 and 8; 5 differ); read both sheets"
+grade-pair,G013-02,G001-31,PLA Glitter | PLA,"twin (one sheet, two products: key, D89) or a rename: different names, 5 shared of 11 and 6; 0 differ"
+grade-pair,G107-01,G001-31,PLA ESD | PLA,"twin (one sheet, two products: key, D89) or a rename: different names, 5 shared of 10 and 6; 0 differ"
+grade-pair,G001-13,G001-31,THE FILAMENT PLA | PLA,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (1 shared of 8 and 6; 3 differ); read both sheets"
+grade-pair,G107-01,G013-02,PLA ESD | PLA Glitter,"twin (one sheet, two products: key, D89) or a rename: different names, 9 shared of 10 and 11; 1 differ"
+grade-pair,G107-01,G001-69,PLA ESD | PLA Premium,"twin (one sheet, two products: key, D89) or a rename: different names, 9 shared of 10 and 14; 1 differ"
+grade-pair,G001-88,G001-91,PLA+HS | PLA+HS Silver,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (0 shared of 12 and 7; 2 differ); read both sheets"
+grade-pair,G107-01,G016-05,PLA ESD | PLA Glow in the Dark,"twin (one sheet, two products: key, D89) or a rename: different names, 8 shared of 10 and 11; 1 differ"
+grade-pair,G107-01,G012-07,PLA ESD | PLA Stone Age,"twin (one sheet, two products: key, D89) or a rename: different names, 8 shared of 10 and 11; 1 differ"
+grade-pair,G011-02,G011-04,PLA Metal Copper | PLA Metal Bronze,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (0 shared of 6 and 5; 5 differ); read both sheets"
+grade-pair,G027-13,G027-14,ABS | ABS-FR,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (4 shared of 25 and 22; 10 differ); read both sheets"
+grade-pair,G020-29,G020-47,Prusament PETG by Prusa Polymers | Prusament PETG V0 by Prusa Polymers,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (1 shared of 21 and 14; 11 differ); read both sheets"
+grade-pair,G035-16,G035-18,Premium PC | Premium PC Black White,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (1 shared of 15 and 14; 12 differ); read both sheets"
+grade-pair,G035-06,G035-08,PolyMax PC | Polymaker PolyMax PC FR,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (0 shared of 25 and 17; 16 differ); read both sheets"
+grade-pair,G035-01,G036-01,PC | PC FR,"distinct? (same name, different values: a re-test or another revision): names normalise equal but values differ (2 shared of 23 and 21; 19 differ); read both sheets"

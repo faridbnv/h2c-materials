@@ -17,6 +17,7 @@ export const activeProducts = (db) => db.grades.filter((g) => !g.retired && !/-R
  *    plastic, a sintering filament) and `judged` ones are the candidates the templates judge.
  *  - unknown: the products whose print gate on that axis is unknown, counted as the engine judges it (productGates),
  *    the same reading build/snapshot/print.csv records.
+ *  - priceDates: the days the price listings in use were read on.
  */
 export function statusCounts(db) {
   const products = activeProducts(db);
@@ -42,5 +43,7 @@ export function statusCounts(db) {
     measurements: db.measurements.length,
     sources: db.sources.length,
     unknown,
+    // The days the prices in use were read on, oldest first: a listing is read once and never refreshed (GOALS, C16).
+    priceDates: [...new Set((db.prices ?? []).filter((p) => !p.quarantined && p.accessDate).map((p) => p.accessDate))].sort(),
   };
 }
