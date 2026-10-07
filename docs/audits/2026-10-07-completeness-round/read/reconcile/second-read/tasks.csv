@@ -1,0 +1,25 @@
+task_id,source_id,page,kind,field,product,label,locator
+S0001,R-BIGREP-EajSvqXsqMZDmdON2v3rhnQBDgGH-1IuRzfjv5WgPXKsQA,1,value,HDT,G020-30,HDT B - 0.45 MPa (ISO 75),Thermal Properties
+S0002,R-BIGREP-EajSvqXsqMZDmdON2v3rhnQBDgGH-1IuRzfjv5WgPXKsQA,1,value,Vicat softening temperature,G020-30,Vicat Softening Temperature (ISO 306),Thermal Properties
+S0003,R-BIGREP-EajSvqXsqMZDmdON2v3rhnQBDgGH-1IuRzfjv5WgPXKsQA,1,setting,fan,G020-30,Fan Speed,Recommended Printing Conditions
+S0004,R-BIGREP-EajSvqXsqMZDmdON2v3rhnQBDgGH-1IuRzfjv5WgPXKsQA,1,setting,drying,G020-30,Drying Recommendations,Other Information
+S0005,R-COLORFABB-TDS-E-ColorFabb-HT,1,context,all,G089-04,held page context PC00983,
+S0006,S-PET-TDS-Galaxy-PLA,1,setting,print_speed,G015-04,Print speed,Recommended print settings regular speed
+S0007,S-PET-TDS-Galaxy-PLA,1,setting,bed,G015-04,Bed temperature,Recommended print settings regular speed
+S0008,S-PET-TDS-Galaxy-PLA,1,setting,fan,G015-04,Fan speed,Recommended print settings regular speed
+S0009,S-PET-TDS-Galaxy-PLA,1,setting,drying,G015-04,Drying,Recommended pretreatment
+S0010,S-PET-TDS-Galaxy-PLA,1,setting,enclosure,G015-04,Enclosure,Print with
+S0011,S-PET-TDS-Galaxy-PLA,1,setting,other,G015-04,Dry box,Print with
+S0012,S-PET-TDS-Galaxy-PLA,1,value,Izod impact strength,G015-04,Impact strenght,Mechanical properties
+S0013,S-PET-TDS-Galaxy-PLA,1,value,Tensile break strength,G015-04,Tensile strenght at break,Mechanical properties
+S0014,S-PET-TDS-Galaxy-PLA,1,value,Elongation at yield,G015-04,Elongation at yield,Mechanical properties
+S0015,S-PET-TDS-Galaxy-PLA,1,value,Flexural strength,G015-04,Flexural strenght,Mechanical properties
+S0016,S-PET-TDS-Galaxy-PLA,1,value,Flexural modulus,G015-04,Flexural modulus,Mechanical properties
+S0017,S-PET-TDS-Galaxy-PLA,1,value,HDT,G015-04,Heat deflection temperature,Thermal properties
+S0018,S-PET-TDS-Galaxy-PLA,1,value,Glass transition temperature,G015-04,Glass transition temperature,Thermal properties
+S0019,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,1,context,tensile,G093-03,Printed test bars statement,
+S0020,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,1,context,flexural,G093-03,Printed test bars statement,
+S0021,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,1,context,impact,G093-03,Printed test bars statement,
+S0022,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,1,context,tensile,G053-05,Printed test bars statement,
+S0023,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,1,context,flexural,G053-05,Printed test bars statement,
+S0024,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,1,context,impact,G053-05,Printed test bars statement,

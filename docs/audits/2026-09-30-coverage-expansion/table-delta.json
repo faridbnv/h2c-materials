@@ -38,7 +38,7 @@
     "baseline": 1163,
     "current": 1180,
     "added": 17,
-    "edited_existing": 146,
+    "edited_existing": 147,
     "removed": 0
   },
   "headline_definitions": {
@@ -50,8 +50,8 @@
   },
   "impact_test_guesses": {
     "baseline": 0,
-    "current": 58,
-    "added": 58,
+    "current": 60,
+    "added": 60,
     "edited_existing": 0,
     "removed": 0
   },
@@ -78,8 +78,8 @@
   },
   "measurements": {
     "baseline": 11536,
-    "current": 15067,
-    "added": 3531,
+    "current": 15418,
+    "added": 3882,
     "edited_existing": 2917,
     "removed": 0
   },
@@ -92,8 +92,8 @@
   },
   "page_context": {
     "baseline": 0,
-    "current": 985,
-    "added": 985,
+    "current": 1006,
+    "added": 1006,
     "edited_existing": 0,
     "removed": 0
   },
@@ -136,7 +136,7 @@
     "baseline": 1316,
     "current": 1915,
     "added": 599,
-    "edited_existing": 991,
+    "edited_existing": 995,
     "removed": 0
   },
   "properties": {
@@ -150,7 +150,7 @@
     "baseline": 1828,
     "current": 2016,
     "added": 188,
-    "edited_existing": 115,
+    "edited_existing": 122,
     "removed": 0
   }
 }

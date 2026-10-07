@@ -17,7 +17,8 @@ v = head.index('Verdict') if 'Verdict' in head else 4
 verdicts, counts = [], 0
 for k in sorted(set(before) | set(after)):
     b, a = before.get(k), after.get(k)
-    if not b or not a: verdicts.append((k, b and b[v], a and a[v])); continue
+    # A material the snapshot no longer lists is neither a candidate nor screened: every product of it fails.
+    if not b or not a: verdicts.append((k, b[v] if b else 'FAIL (not listed)', a[v] if a else 'FAIL (not listed)')); continue
     if b[v] != a[v]: verdicts.append((k, b[v], a[v]))
     elif b != a: counts += 1
 print(f'{len(verdicts)} material verdict(s) moved; {counts} row(s) where only product counts or the typical product moved')

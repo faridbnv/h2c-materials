@@ -20,6 +20,10 @@ G001-16,M001,PLA Pro,annealed:110:0.25,hdt045,75,V005539,75,twin G001-55
 G001-16,M001,PLA Pro,annealed:110:0.25,tensileModulusXY,2.87,V005535,2.865,twin G001-55
 G001-16,M001,PLA Pro,annealed:110:0.25,tensileStrengthXY,40,V005534,40,twin G001-55
 G001-21,M001,Polymaker HT PLA,annealed:x:x,charpyNotched,4.67,V003827,4.94,
+G001-21,M001,Polymaker HT PLA,annealed:x:x,elongationXY,1.87,V015387,2.8,
+G001-21,M001,Polymaker HT PLA,annealed:x:x,hdt045,107.2,V015384,61.4,
+G001-21,M001,Polymaker HT PLA,annealed:x:x,tensileModulusXY,3.26716,V015385,2.94575,
+G001-21,M001,Polymaker HT PLA,annealed:x:x,tensileStrengthZ,18.82,V015386,20.83,
 G001-29,M001,Polymaker HT PLA Pro,annealed:x:x,charpyNotched,10.1,V003915,9.94,
 G001-29,M001,Polymaker HT PLA Pro,annealed:x:x,elongationXY,4.3,V013476,13,
 G001-29,M001,Polymaker HT PLA Pro,annealed:x:x,hdt045,107.6,V013473,56.3,
@@ -37,8 +41,10 @@ G001-55,M001,IMPACT PLA,annealed:110:0.3333,tensileStrengthXY,40,V003108,40,twin
 G001-55,M001,IMPACT PLA,annealed:x:x,hdt045,85,V012363,75,twin G001-16
 G001-93,M001,Pro PLA,as-printed,hdt045,,,75,
 G001-93,M001,Pro PLA,as-printed,tensileModulusXY,,,2.865,
+G001-93,M001,Pro PLA,as-printed,tensileStrengthXY,,,40,
 G001-93,M001,Pro PLA,annealed:110:0.3333,hdt045,75,V012460,75,
 G001-93,M001,Pro PLA,annealed:110:0.3333,tensileModulusXY,2.865,V014737,2.865,
+G001-93,M001,Pro PLA,annealed:110:0.3333,tensileStrengthXY,40,V015070,40,
 G001-115,M001,Tough PLA,as-printed,hdt045,,,75,
 G001-115,M001,Tough PLA,annealed:110:0.3333,hdt045,75,V003114,75,twin G001-16
 G001-115,M001,Tough PLA,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.865,twin G001-16
@@ -233,7 +239,7 @@ G018-01,M018,PLA-CF,annealed:55:8,tensileStrengthXY,38,V000333,38,
 G018-01,M018,PLA-CF,annealed:55:8,tensileStrengthZ,26,V000334,26,
 G019-01,M019,Polymaker HT PLA GF,annealed:x:x,charpyNotched,4.92,V000375,5.31,
 G019-01,M019,Polymaker HT PLA GF,annealed:x:x,elongationXY,2.3,V000369,2.77,
-G019-01,M019,Polymaker HT PLA GF,annealed:x:x,hdt045,114.7,V000353,75.5,
+G019-01,M019,Polymaker HT PLA GF,annealed:x:x,hdt045,114.7,V014426,75.5,
 G019-01,M019,Polymaker HT PLA GF,annealed:x:x,tensileModulusXY,4.20691,V000365,3.79385,
 G019-01,M019,Polymaker HT PLA GF,annealed:x:x,tensileStrengthXY,50.2,V000367,50.09,
 G019-01,M019,Polymaker HT PLA GF,annealed:x:x,tensileStrengthZ,22.46,V000368,23.68,

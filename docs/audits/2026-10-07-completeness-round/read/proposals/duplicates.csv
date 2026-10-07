@@ -1,0 +1,22 @@
+RowID,KeptRowID,SourceID,Page,Grade,Field,Raw,Reader
+batch-01.csv#33,batch-01.csv#32,R-3D-FUEL-TDS-3DFuel-PETG,1,,all,,c1-01
+batch-07.csv#136,batch-07.csv#134,I-PLA-PA12-CF-TDS,1,iSANMATE PA12CF,flexural,,c1-07
+batch-07.csv#137,batch-07.csv#135,I-PLA-PA12-CF-TDS,1,iSANMATE PA12CF,impact,,c1-07
+batch-07.csv#280,batch-07.csv#267,R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,1,LUVOCOM 3F Filament PAHT 9825 NT,tensile,,c1-07
+batch-08.csv#101,batch-08.csv#100,R-MARKFORGED-CompositesMaterialDatasheet,1,,flexural,,c1-08
+batch-09.csv#291,batch-09.csv#290,S-PVB-0eaa8597-prusament-rpla-natural-pigments-technical-data-sheet,2,G001-77,physical,,c1-09
+batch-09.csv#318,batch-09.csv#317,S-PVB-269cd3c8-prusament-pla-hs-technical-datasheet,2,G001-87,physical,,c1-09
+batch-09.csv#347,batch-09.csv#346,S-PVB-512923fd-tds-pp-glass-fiber-en,2,G084-02,physical,,c1-09
+batch-09.csv#375,batch-09.csv#374,S-PVB-53ee8f5e-tds-prusament-pei-1010-en,2,G099-07,physical,,c1-09
+batch-11.csv#275,batch-11.csv#255,D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,1,,thermal,,c1-11
+batch-11.csv#277,batch-11.csv#262,D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,1,,tensile,,c1-11
+batch-11.csv#278,batch-11.csv#263,D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,1,,flexural,,c1-11
+batch-11.csv#279,batch-11.csv#264,D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,1,,impact,,c1-11
+batch-18.csv#104,batch-18.csv#103,S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN,1,G031-06,all,,c1-18
+batch-18.csv#143,batch-18.csv#142,S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN,1,G019-01,all,,c1-18
+batch-18.csv#195,batch-18.csv#194,S-POLYCN-TDS-Polymaker-HT-PLA-V1-3-2025-12-10-EN,1,G001-21,all,,c1-18
+batch-18.csv#259,batch-18.csv#258,S-POLYCN-TDS-Polymaker-PolyLite-CosPLA-Version-B-V5-5-2025-12-30-EN,1,G001-148,all,,c1-18
+batch-18.csv#310,batch-18.csv#309,S-POLYCN-TDS-PolySonic-PLA-V6-0-2026-06-08-EN,1,G001-25,all,,c1-18
+batch-18.csv#311,batch-18.csv#309,S-POLYCN-TDS-PolySonic-PLA-V6-0-2026-06-08-EN,1,G001-25,all,,c1-18
+batch-08.csv#104,batch-08.csv#99,R-MARKFORGED-CompositesMaterialDatasheet,1,,tensile,,c1-08
+batch-18.csv#233,batch-18.csv#232,S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN,1,G039-11,all,,c1-18

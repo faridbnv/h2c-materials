@@ -7,27 +7,27 @@
     },
     "grades": {
       "rows": 1180,
-      "sha256": "d53da4c6e3be8661ba1d3b05b622f1f875c01959a82160e045ad9ab8058e85c6"
+      "sha256": "0cd3d45b8455ff142e032140d49a1c99bc9bc9b90c2597f7d1e7723d0b34898a"
     },
     "profiles": {
       "rows": 1915,
-      "sha256": "30be63ff2110a8e58e2075d279c598f56c722a7456fa878787aab8f648460699"
+      "sha256": "4348cf2e9e6a4dfc218ff2a73e5f75042afbcb93efc97bc926b73520f22dcc58"
     },
     "profile_notes": {
       "rows": 2500,
       "sha256": "4425e7bfd9260213e9bf6e298b4a03b730f04943076a2cfdac0677550e5ca0b2"
     },
     "measurements": {
-      "rows": 15067,
-      "sha256": "8ff2dfada7d4c461f49039f01c193b14d8dc7baa3230484aa9bdbac1f1f4bbd1"
+      "rows": 15418,
+      "sha256": "9e1bbf3fad353f1e24ece549e2382b6635e24efc68b83849b0a809789745c801"
     },
     "page_context": {
-      "rows": 985,
-      "sha256": "bdebe85e4af2773099c5caed550a42e45e1f71008e79810d1db2963dfed694ce"
+      "rows": 1006,
+      "sha256": "d695d2d0622438c7265323da133d177ff202755085c6bee081f90ccc4f448f26"
     },
     "impact_test_guesses": {
-      "rows": 58,
-      "sha256": "6a2ebf8802f0e6e6453b07108693e71ba1fba1bf3b0d486d74f07aa6bfa247ff"
+      "rows": 60,
+      "sha256": "8c3ea27d1f977c953329021048c34851e41d644fab11b1fc13908684320223a9"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -59,7 +59,7 @@
     },
     "sources": {
       "rows": 2016,
-      "sha256": "c6369c955e9df22b26901e4167a4687ae42fb34d78ef6d91565a3f8a29f5de37"
+      "sha256": "d1b41b654ab6a0e9488131ebedfe56019a016b6aa17ed76bb5f3d5217c79f6a1"
     },
     "coverage": {
       "rows": 951,

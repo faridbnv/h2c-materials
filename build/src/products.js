@@ -521,8 +521,8 @@ function checkPins(selections, { defs, measurementById, measurementsByGrade, gra
 
 /**
  * Each product's twins (D89): the other active products of the same material under the same Shared formulation key,
- * whose sheets print one table (R053) that the database records once. The one holding the values comes first, then
- * one of the same maker, then by ID. A key never spans two materials (FORMULATION-KEY-SPANS-MATERIALS), so a product
+ * whose sheets print one table (R053) that the database records once. One holding values comes first, then one of the
+ * same maker, then the one holding the most values, then by ID. A key never spans two materials (FORMULATION-KEY-SPANS-MATERIALS), so a product
  * that reprints another material's table (R166) has no twin and reads nothing.
  */
 function twinsOf(grades, measurementsByGrade) {
@@ -533,13 +533,16 @@ function twinsOf(grades, measurementsByGrade) {
     if (!byKey.has(k)) byKey.set(k, []);
     byKey.get(k).push(g);
   }
-  const holds = (g) => (measurementsByGrade.get(g.id)?.length ? 0 : 1);
+  const count = (g) => measurementsByGrade.get(g.id)?.length ?? 0;
+  const holds = (g) => (count(g) ? 0 : 1);
   const out = new Map();
   for (const list of byKey.values()) {
     if (list.length < 2) continue;
     // A product reads its own maker's sheet before another maker's reprint of the table (m281's clusters).
     const sameMaker = (g, x) => (x.manufacturer === g.manufacturer ? 0 : 1);
-    for (const g of list) out.set(g.id, list.filter((x) => x !== g).sort((a, b) => holds(a) - holds(b) || sameMaker(g, a) - sameMaker(g, b) || (a.id < b.id ? -1 : 1)));
+    // Among those, the carrier of the shared table holds most of its values: a sibling holding a statement or two of
+    // its own (a portfolio's row for it) is not where the others read the table from (completeness round, D136).
+    for (const g of list) out.set(g.id, list.filter((x) => x !== g).sort((a, b) => holds(a) - holds(b) || sameMaker(g, a) - sameMaker(g, b) || count(b) - count(a) || (a.id < b.id ? -1 : 1)));
   }
   return out;
 }

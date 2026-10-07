@@ -151,10 +151,10 @@ G001-158,M001,High Precision PLA,within,within,within,not-needed,no-special-conc
 G001-159,M001,EasyFil PLA,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-160,M001,Premium PLA,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-161,M001,Tough PLA,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
-G001-162,M001,EasyFil ePLA,within,within,within,not-needed,no-special-concern,optional,nozzle: twin G001-31; bed: twin G001-31; chamber: twin G001-69; enclosure: twin G001-69; hardenedNozzle: twin G001-69; drying: guide PG016
+G001-162,M001,EasyFil ePLA,within,within,within,not-needed,no-special-concern,optional,nozzle: twin G001-69; bed: twin G001-69; chamber: twin G001-69; enclosure: twin G001-69; hardenedNozzle: twin G001-69; drying: guide PG016
 G001-163,M001,PLACTIVE,within,within,within,not-needed,no-special-concern,optional,chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-164,M001,Volcano PLA,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
-G001-165,M001,ReFill PLA,within,within,within,not-needed,no-special-concern,optional,nozzle: twin G001-31; bed: twin G001-31; chamber: twin G001-69; enclosure: twin G001-69; hardenedNozzle: twin G001-69; drying: guide PG016
+G001-165,M001,ReFill PLA,within,within,within,not-needed,no-special-concern,optional,nozzle: twin G001-69; bed: twin G001-69; chamber: twin G001-69; enclosure: twin G001-69; hardenedNozzle: twin G001-69; drying: guide PG016
 G001-166,M001,PDS,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-167,M001,PLA i5+,within,within,within,not-needed,no-special-concern,optional,nozzle: guide PG016; bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
 G001-168,M001,HS PLA Matte,within,within,within,not-needed,no-special-concern,optional,bed: guide PG016; chamber: guide PG016; enclosure: guide PG016; hardenedNozzle: guide PG016; drying: guide PG016
@@ -409,7 +409,7 @@ G024-20,M024,Hyper Speed PETG CF,within,within,within,not-needed,requires-harden
 G024-21,M024,CarbonFil,within,within,within,not-needed,requires-hardened,optional,bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; hardenedNozzle: guide PG027; drying: guide PG027
 G024-22,M024,PETG CF,within,within,within,not-needed,requires-hardened,optional,nozzle: guide PG027; bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; hardenedNozzle: guide PG027; drying: guide PG027
 G024-23,M024,PETG+CF,within,within,within,not-needed,requires-hardened,required,
-G024-24,M024,PET-G CF,within,within,within,not-needed,requires-hardened,optional,bed: guide PG027; chamber: guide PG027; enclosure: guide PG027; drying: guide PG027
+G024-24,M024,PET-G CF,within,within,within,not-needed,requires-hardened,optional,chamber: guide PG027; enclosure: guide PG027; drying: guide PG027
 G025-01,M025,PETG Glass Fiber,within,within,unknown,unknown,unknown,unknown,
 G025-02,M025,PETG-GF,within,within,unknown,recommended,requires-hardened,required,
 G025-03,M025,PETG GF UV,within,within,within,not-needed,requires-hardened,optional,
@@ -889,10 +889,10 @@ G088-01,M088,MAXG PCTG,within,within,within,unknown,no-special-concern,required,
 G088-02,M088,pctg,within,within,within,not-needed,no-special-concern,required,drying: twin G088-05
 G088-03,M088,PCTG,within,within,unknown,recommended,no-special-concern,required,
 G088-04,M088,Pro PCTG,within,within,within,not-needed,unknown,required,nozzle: twin G088-02; bed: twin G088-02; drying: twin G088-05
-G088-05,M088,AthenaX,within,within,within,not-needed,unknown,required,nozzle: twin G088-02; bed: twin G088-02; chamber: twin G088-02; enclosure: twin G088-02
+G088-05,M088,AthenaX,within,within,within,not-needed,unknown,required,nozzle: twin G088-02; bed: twin G088-02; chamber: twin G088-04; enclosure: twin G088-04
 G088-06,M088,PCTG,within,within,unknown,unknown,unknown,required,
 G088-07,M088,PCTG,within,within,within,not-needed,unknown,required,
-G088-08,M088,PCTG,within,within,within,not-needed,unknown,required,chamber: twin G088-02; enclosure: twin G088-02; drying: twin G088-05
+G088-08,M088,PCTG,within,within,within,not-needed,unknown,required,chamber: twin G088-04; enclosure: twin G088-04; drying: twin G088-05
 G089-01,M089,CPE HG100,within,within,within,not-needed,unknown,required,
 G089-02,M089,CPE ANTIBAC,within,within,within,not-needed,unknown,required,
 G089-03,M089,XT,within,within,unknown,unknown,unknown,unknown,
@@ -958,7 +958,7 @@ G101-01,M101,THERMAX PES,exceeds,exceeds,unknown,unknown,no-special-concern,requ
 G102-01,M102,THERMAX PPSU,exceeds,exceeds,unknown,unknown,no-special-concern,required,
 G102-02,M102,PPSU,exceeds,exceeds,exceeds,unknown,unknown,unknown,
 G102-03,M102,PPSU,exceeds,exceeds,exceeds,unknown,unknown,unknown,chamber: twin G102-02
-G102-04,M102,PPSU,exceeds,exceeds,exceeds,unknown,unknown,unknown,nozzle: twin G102-02; bed: twin G102-02; chamber: twin G102-02
+G102-04,M102,PPSU,exceeds,exceeds,exceeds,unknown,unknown,unknown,nozzle: twin G102-03; bed: twin G102-03; chamber: twin G102-02
 G103-01,M103,Hyperlite PP,within,within,within,unknown,no-special-concern,not-needed,
 G104-01,M104,PA6 CS20 FR V0,within,within,within,recommended,requires-hardened,optional,
 G105-01,M105,ASA Conductive,within,within,within,recommended,requires-hardened,optional,

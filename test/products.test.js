@@ -341,6 +341,17 @@ test("a twin reads only a same-material sibling's own value, only where it publi
   assert.ok(read > 100, `only ${read} values read from a twin`);
 });
 
+test('among same-maker siblings holding values, a twin reads the one holding most of the shared table, not one holding a row or two of its own', () => {
+  // PLA Nature holds Spectrum's portfolio row for it (1.25 g/cm³, HDT 60 °C, m410); PLA Premium holds the table its
+  // sheet prints for the products of its key. PLA Thermoactive and SafeGuard PLA, silent on both, read PLA Premium's.
+  const premium = gradeById.get('G001-69'), nature = gradeById.get('G001-141');
+  assert.ok(sameKey(premium, nature) && ownMeasurements(nature.id).length < ownMeasurements(premium.id).length);
+  for (const id of ['G001-147', 'G001-150']) {
+    for (const key of ['density', 'hdt045']) assert.equal(gradeById.get(id).headline[key]?.from?.gradeId, 'G001-69', `${id} ${key}`);
+  }
+  assert.equal(nature.headline.density.from, undefined, "PLA Nature's own row is its own, and wins");
+});
+
 test('a product with no value of its own beside a same-key sibling that has one reads it', () => {
   for (const g of db.grades.filter(isProduct)) {
     for (const key of defs.keys()) {

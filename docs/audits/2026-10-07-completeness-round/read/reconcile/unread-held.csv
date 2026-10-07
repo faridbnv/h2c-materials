@@ -1,0 +1,655 @@
+SourceID,ID,Kind,Grade,What,Locator
+R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,P1279,profile,G088-04,Manufacturer published guidance,p. 1: Description
+R-3D-FUEL-TDS-3DFuel-PETG,P0643,profile,G020-31,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: nozzle temp
+R-3D-FUEL-TDS-3DFuel-Pro-PLA,P1217,profile,G001-93,Manufacturer published guidance,"p. 1: Hot End Temperature, Bed Temperature"
+R-3D4MAKERS-TDS-LUVOCOM-3F-PEEK-9581-Filament,P0590,profile,G097-04,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Drying Instruction
+R-3D4MAKERS-TDS-LUVOCOM-3F-PEKK-50082-Filament,P0593,profile,G098-04,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Nozzle temperature; p. 1: Description
+R-3D4MAKERS-TDS-PEEK-Filament-1,P0706,profile,G097-06,Manufacturer published guidance,p. 1: Recommended printing settings
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006871,measurement,G099-04,Density 1.27 g/cm3,p. 1: Density ISO 1183
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006872,measurement,G099-04,Mould shrinkage 0.70 %,p. 1: Molding Shrinkage-Flow Internal Method 0.50 to
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006873,measurement,G099-04,Tensile modulus 3200 MPa,p. 1: Tensile modulus ISO 572-2/1
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006874,measurement,G099-04,Tensile yield strength 105 MPa,p. 1: Tensile Stress ISO 527-2/50 Yield
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006875,measurement,G099-04,Tensile break strength 85.0 MPa,p. 1: Tensile Stress ISO 527-2/50 Break
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006876,measurement,G099-04,Flexural modulus 3300 MPa,p. 1: Flexural Modulus ISO 178
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006877,measurement,G099-04,Flexural strength 160 MPa,p. 1: Flexural Stress ISO 178
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006878,measurement,G099-04,Izod impact strength 5.0 kJ/m2,p. 1: Notched Izod Impact Strength 23°C ISO 180/1A
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006883,measurement,G099-04,Vicat softening temperature 170 °C,p. 2: Vicat Softening Temperature RTI Elec UL 746
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006884,measurement,G099-04,Vicat softening temperature 170 °C,p. 2: Vicat Softening Temperature RTI Imp UL 746
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006885,measurement,G099-04,Vicat softening temperature 170 °C,p. 2: Vicat Softening Temperature RTI Str UL 746 ELECTRICAL
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,V006886,measurement,G099-04,Oxygen index 47 %,p. 3: Oxygen Index ISO 4589-2
+R-3D4MAKERS-TDS-PEI-ULTEM-1010,P0625,profile,G099-04,Manufacturer published guidance,p. 3: Recommended printing settings
+R-3D4MAKERS-TDS-PLLA-Filament,P0584,profile,G001-73,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Drying Instruction; p. 1: Bed Adhesion
+R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers,P0626,profile,G097-05,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Dryingrecommendations
+R-3DJAKE-3DJake-easyPETG,P1030,profile,G020-66,Manufacturer published guidance,p. 1: Recommended printing settings
+R-3DJAKE-3DJake-mattePLA,P0998,profile,G001-174,Manufacturer published guidance,p. 1: Recommended printing settings
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,V008820,measurement,G001-116,Glass transition temperature 59.2 ℃,"p. 2: Glass Transition Temperature ISO 11357-1, 10℃/min ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,V008821,measurement,G001-116,Melting temperature 169.5 ℃,"p. 2: Melting Temperature ISO 11357-1, 10℃/min ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,V008822,measurement,G001-116,Crystallization temperature 114.3 ℃,"p. 2: Crystallization Temperature ISO 11357-1, 10℃/min ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,V008823,measurement,G001-116,Vicat softening temperature 62.1 ℃,"p. 2: Vicat Softening Temperature (VST) ISO 306, 10N ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,V008824,measurement,G001-116,HDT 55.1 ℃,"p. 2: Heat Deflection Temperature (HDT) ISO 75-2, 0.45MPa ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,V008825,measurement,G001-116,HDT 52.7 ℃,"p. 2: Heat Deflection Temperature (HDT) ISO 75-2, 1.8MPa ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,P0827,profile,G001-116,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Dry Environment
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-TPU-V3-0,V008901,measurement,G039-55,Melting temperature 145.1 ℃,"p. 2: Melting Temperature ISO 11357-1, 10℃/min ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-TPU-V3-0,V008902,measurement,G039-55,HDT 52 ℃,"p. 2: Heat Deflection Temperature (HDT) ISO 75-2, 0.45MPa ℃"
+R-3DJAKE-3DJAKE-ANYCUBIC-TDS-TPU-V3-0,P0840,profile,G039-55,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Dry Environment; p. 2: Nozzle Temperature; p. 2: Bed Temperature; p. 2: Recommended Printing Parameters
+R-3DJAKE-3DJAKE-ASA-TDS-1,P0868,profile,G031-31,Manufacturer published guidance,"p. 1: Recommended printing settings: Nozzle temperature, Heated bed; p. 1: Printing Recommendations"
+R-3DJAKE-3DJAKE-TDS-PLA,P0865,profile,G001-129,Manufacturer published guidance,p. 2: Recommended printing settings
+R-3DJAKE-ABS-P-TDS-1,P0914,profile,G027-41,Manufacturer published guidance,"p. 1: Recommended printing settings: Nozzle temperature, Heated bed; p. 1: Build platform"
+R-3DJAKE-PLA-TDS,V012672,measurement,G001-153,"Flexural elongation at break 3,3",p. 1: Strain at break (Flexural) [%]
+R-3DJAKE-PLA-TDS,P0920,profile,G001-153,Manufacturer published guidance,"p. 1: Recommended printing settings: Nozzle temperature, Heated bed; p. 1: Build platform"
+R-3DJAKE-PLA-TDS-7,P1649,profile,G001-153,Manufacturer published guidance,p. 1: Nozzle temperature; p. 1: Heated bed; p. 1: Build platform
+R-3DJAKE-SILK-TDS-4,P1229,profile,G008-33,Manufacturer published guidance,p. 1: Nozzle temperature; p. 1: Heated bed; p. 1: Build platform
+B-PC-PLA-Pure-TDS,P1650,profile,G001-183,Manufacturer published guidance,p. 1: Drying Settings before Printing; p. 1: Nozzle Size; p. 1: Nozzle Temperature; p. 1: Build Plate Type; p. 1: Bed Temperature; p. 1: Chamber Temperature
+B-PC-uVYGQd,P1101,profile,G001-183,Manufacturer published guidance,"p. 1: Bed Temperature, Chamber Temperature, Drying Settings before Printing, Nozzle Temperature; p. 1: Build Plate Type; p. 1: Drying Settings before Printing"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V007797,measurement,G031-23,Elongation at break 5.2 %,p. 5: Elongation at Break6) ISO 527
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V007798,measurement,G031-23,Tensile modulus 2120 MPa,p. 5: Young’s Modulus7) ISO 527
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V007799,measurement,G031-23,Flexural strength 67.4 MPa,p. 5: Flexural Strength ISO 178 TBD
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V007800,measurement,G031-23,Flexural modulus 2050 MPa,p. 5: Flexural Modulus ISO 178 TBD
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V007801,measurement,G031-23,Charpy strength 8.6 kJ/m2,p. 5: Impact Strength Charpy ISO 179-2
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011772,measurement,G031-23,Tensile strength (endpoint unspecified) 37.0 MPa,"p. 5: Tensile strength, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011773,measurement,G031-23,Tensile strength (endpoint unspecified) 26.6 MPa,"p. 5: Tensile strength, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011774,measurement,G031-23,Elongation at break 1.9 %,"p. 5: Elongation at Break, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011775,measurement,G031-23,Tensile modulus 1940 MPa,"p. 5: Young’s Modulus, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011776,measurement,G031-23,Flexural strength 44.0 MPa,"p. 5: Flexural Strength, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011777,measurement,G031-23,Flexural modulus 1820 MPa,"p. 5: Flexural Modulus, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011778,measurement,G031-23,Flexural elongation at break 2.7 %,"p. 5: Flexural Elongation at Break, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011779,measurement,G031-23,Charpy strength 7.8 kJ/m2,"p. 5: Impact Strength Charpy (notched), XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011780,measurement,G031-23,Charpy strength 31.3 kJ/m2,"p. 5: Impact Strength Charpy (unnotched), XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011781,measurement,G031-23,Charpy strength 41.0 kJ/m2,"p. 5: Impact Strength Charpy (unnotched), XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011782,measurement,G031-23,Charpy strength 8.3 kJ/m2,"p. 5: Impact Strength Charpy (unnotched), ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011783,measurement,G031-23,Izod impact strength 8.7 J/m,"p. 5: Impact Strength Izod (notched), XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011784,measurement,G031-23,Izod impact strength 8.5 J/m,"p. 5: Impact Strength Izod (notched), XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011785,measurement,G031-23,Izod impact strength 23.2 J/m,"p. 5: Impact Strength Izod (unnotched), XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011786,measurement,G031-23,Izod impact strength 40.0 J/m,"p. 5: Impact Strength Izod (unnotched), XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,V011787,measurement,G031-23,Izod impact strength 8.2 J/m,"p. 5: Impact Strength Izod (unnotched), ZX-Direction"
+R-COLORFABB-Files-colorFabb,P1659,profile,G001-62,Manufacturer published guidance,p. 2: Nozzle Temp.
+R-COLORFABB-TDS-E-colorFabb-LW-ASA,P0497,profile,G032-03,Manufacturer published guidance,p. 2: Recommended printing settings
+R-COLORFABB-TDS-E-ColorFabb-nGen,P0515,profile,G092-02,Manufacturer published guidance,p. 2: Recommended printing settings
+R-COLORFABB-TDS-PET-ULTRA-HIGH-SPEED,P0504,profile,G066-04,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Bed / surface modification
+R-COLORFABB-TDS-varioShore-PEBA45D,P0498,profile,G045-05,Manufacturer published guidance,"p. 2: Guideline for print settings: Nozzle Temp., unfoamed column (Value unfoamed @ 210)"
+R-COLORFABB-TDS-varioShore-PEBA45D,P1357,profile,G045-05,Manufacturer published guidance,"p. 2: Guideline for print settings: Nozzle Temp., foamed column (Value foamed @ 250)"
+R-ERYONE-eryone-silk-pla-tri-color-tds,V011925,measurement,G008-07,Melt mass-flow rate 20.5±1.5,p. 1: Melt Index(g/10 min)
+R-ERYONE-eryone-silk-pla-tri-color-tds,P1219,profile,G008-20,Manufacturer published guidance,"p. 1: Nozzle temperature, Bed temperature, Sealed printing; p. 1: Bed material"
+R-ERYONE-eryone-standard-pla-tds,V012752,measurement,G001-191,Tensile strength (endpoint unspecified) 57.3 MPa,p. 2: Tensile strength X-Y
+R-ERYONE-eryone-standard-pla-tds,V012753,measurement,G001-191,Tensile modulus 1902.1 MPa,p. 2: Elastic modulus X-Y
+R-ERYONE-eryone-standard-pla-tds,V012754,measurement,G001-191,Elongation at break 2.2 %,p. 2: Elongation at break X-Y
+R-ERYONE-eryone-standard-pla-tds,V012755,measurement,G001-191,Tensile strength (endpoint unspecified) 28.4 MPa,p. 2: Tensile strength X-Z
+R-ERYONE-eryone-standard-pla-tds,V012756,measurement,G001-191,Tensile modulus 1823.9 MPa,p. 2: Elastic modulus X-Z
+R-ERYONE-eryone-standard-pla-tds,V012757,measurement,G001-191,Elongation at break 1.8 %,p. 2: Elongation at break X-Z
+R-ERYONE-eryone-standard-pla-tds,V012758,measurement,G001-191,Flexural strength 91.1 MPa,p. 2: Bending strength
+R-ERYONE-eryone-standard-pla-tds,V012759,measurement,G001-191,Flexural modulus 3093.4 MPa,p. 2: Bending modulus
+R-ERYONE-eryone-standard-pla-tds,V012760,measurement,G001-191,Charpy strength 3.6 kJ/m2,p. 2: Charpy Impact strenght
+R-ERYONE-eryone-tpu-hs-tds,V004973,measurement,G039-21,Tensile strength (endpoint unspecified) 27.3 MPa,p. 2: Tensile strength X-Y 50mm/min GB/T 1040.4 MPa
+R-ERYONE-eryone-tpu-hs-tds,V004974,measurement,G039-21,Tensile modulus 27 MPa,p. 2: Elastic modulus X-Y 50mm/min GB/T 1040.1-2006 MPa
+R-ERYONE-eryone-tpu-hs-tds,V004975,measurement,G039-21,Elongation at break 501.3 %,p. 2: Elongation at break X-Y 50mm/min GB/T 1040.4 %
+R-ERYONE-eryone-tpu-hs-tds,V004976,measurement,G039-21,Tensile strength (endpoint unspecified) 22 MPa,p. 2: Tensile strength X-Z 50mm/min GB/T 1843 MPa
+R-ERYONE-eryone-tpu-hs-tds,V004977,measurement,G039-21,Impact strength 120 kJ/m2,p. 2: Charpy Impact strenght 2.75J GB/T 1843 kJ/m2
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571,V004878,measurement,G033-06,Density 1.17 g/cm³,"p. 1: Density(g/cm³ at 21.5 ° C) ASTM D792 (ISO 1183, GB/T 1033) g/cm³"
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571,V004879,measurement,G033-06,Vicat softening temperature 108 ℃,p. 1: Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) ℃
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571,V004880,measurement,G033-06,HDT 86 ℃,p. 1: Heat distortion temperature(° C) ASTM D648 0.45MPa ℃
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571,V004881,measurement,G033-06,Melt mass-flow rate 1.74 ± 0.3 g/10min,"p. 1: Melt Index(g/10 min) 220 ° C, 10kg 240 ° C, 2.16 kg g/10min"
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571,P0434,profile,G033-06,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Sealed printing; p. 1: Bed material
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--92f474,V004978,measurement,G034-06,Density 1.17 g/cm³,"p. 1: Density(g/cm³ at 21.5 ° C) ASTM D792 (ISO 1183, GB/T 1033) g/cm³"
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--92f474,V004979,measurement,G034-06,HDT 86 ℃,p. 1: Heat distortion temperature(° C) ASTM D648 0.45MPa ℃
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--92f474,V004980,measurement,G034-06,Glass transition temperature 104 ℃,"p. 1: Glass transition temperature (° C) DSC, 10 ° C/min ℃"
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--92f474,V004981,measurement,G034-06,Melt mass-flow rate 10 g/10min,"p. 1: Melt Index(g/10 min) 220 ° C, 10kg 240 ° C, 2.16 kg g/10min"
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--92f474,P0443,profile,G034-06,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Sealed printing; p. 1: Bed material
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9a96a3,V005003,measurement,G031-10,Density 1.05 g/cm³,"p. 1: Density(g/cm³ at 21.5 ° C) ASTM D792 (ISO 1183, GB/T 1033) g/cm³"
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9a96a3,V005004,measurement,G031-10,Vicat softening temperature 106 ℃,p. 1: Vicat Softening Temperature(° C) ASTM D1525 (ISO 306 GB/T 1633) ℃
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9a96a3,V005005,measurement,G031-10,HDT 95 ℃,p. 1: Heat distortion temperature(° C) ASTM D648 0.45MPa ℃
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9a96a3,V005006,measurement,G031-10,Melt mass-flow rate 7 g/10min,"p. 1: Melt Index(g/10 min) 220 ° C, 10kg 240 ° C, 2.16 kg g/10min"
+R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9a96a3,P0445,profile,G031-10,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Sealed printing; p. 1: Bed material
+S-PEBA-eSUN-ePA-Filament-TDS-V4-0,P1261,profile,G057-07,Manufacturer published guidance,"p. 2: Extruder Temperature, Build Platform Temperature"
+S-PEBA-eSUN-PETG-HS-Filament-TDS-V1-0-1,P0658,profile,G020-33,Manufacturer published guidance,p. 2: Recommended printing settings
+S-PEBA-eSUN-PLA-Clear-Filament-TDS-V4-0,P1201,profile,G001-146,Manufacturer published guidance,"p. 2: Extruder Temperature, Build Platform Temperature; Enclosure as the page states it (m374)"
+S-PEBA-eSUN-PLA-GF-Filament-TDS-V1-0-1,P0620,profile,G019-03,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Footnote
+S-PEBA-PETG-Basic-TDS,V007311,measurement,G020-37,Tensile strength (endpoint unspecified) 68.41 MPa,p. 2: Tensile Strength (X-Y) GB/T 1040
+S-PEBA-PETG-Basic-TDS,V007312,measurement,G020-37,Tensile strength (endpoint unspecified) 35.84 MPa,p. 2: Tensile Strength (Z) GB/T 1040
+S-PEBA-PETG-Basic-TDS,V007313,measurement,G020-37,Elongation at break 7.56 %,p. 2: Elongation at Break (X-Y) GB/T 1040
+S-PEBA-PETG-Basic-TDS,V007314,measurement,G020-37,Elongation at break 3.17 %,p. 2: Elongation at Break (Z) GB/T 1040
+S-PEBA-PETG-Basic-TDS,V007315,measurement,G020-37,Flexural strength 100.2 MPa,p. 2: Flexural Strength (X-Y) GB/T 9341
+S-PEBA-PETG-Basic-TDS,V007316,measurement,G020-37,Flexural strength 59.7 MPa,p. 2: Flexural Strength (Z) GB/T 9341
+S-PEBA-PETG-Basic-TDS,V007317,measurement,G020-37,Flexural modulus 2636.66 MPa,p. 2: Flexural Modulus (X-Y) GB/T 9341
+S-PEBA-PETG-Basic-TDS,V007318,measurement,G020-37,Flexural modulus 2207.6 MPa,p. 2: Flexural Modulus (Z) GB/T 9341
+S-PEBA-PETG-Basic-TDS,V007319,measurement,G020-37,Izod impact strength 2.28 kJ/m2,p. 2: IZOD Impact Strength (X-Y) GB/T 1843
+S-PEBA-PETG-Basic-TDS,V007320,measurement,G020-37,Izod impact strength 2.06 kJ/m2,p. 2: IZOD Impact Strength (Z) GB/T 1843
+S-PEBA-PETG-Basic-TDS,P0690,profile,G020-37,Manufacturer published guidance,p. 2: Recommended printing settings: Extruder Temperature; p. 2: Drying Preparation; p. 2: Build Platform Type
+S-PEBA-PETG-Basic-TDS,P0691,profile,G020-37,Retired duplicate record,Retired duplicate of P0690 (D120): p. 2: Recommended printing settings: Nozzle Temperature
+R-EXTRUDR-durapro-pa12-cf-TDS-it,P1672,profile,G053-04,Manufacturer published guidance,p. 2: Ugello; p. 2: Piano riscaldato; p. 2: Impostazioni consigliate
+R-EXTRUDR-durapro-pc-fr-v0-TDS-de,V006432,measurement,G035-11,Density 1190 kg/m³,p. 2: Dichte ISO 1183-1 kg/m³
+R-EXTRUDR-durapro-pc-fr-v0-TDS-de,V012895,measurement,G035-11,Water absorption 0.5 %,p. 2: Wasseraufnahme (Sättigungswert)
+R-EXTRUDR-durapro-pc-fr-v0-TDS-de,V012896,measurement,G035-11,Water absorption 0.2 %,p. 2: Wasseraufnahme (Gleichgewichtswert)
+R-EXTRUDR-durapro-pc-fr-v0-TDS-de,P1673,profile,G035-11,Manufacturer published guidance,p. 2: Düse; p. 2: Heizbett; p. 2: Vorgeschlagene Einstellungen
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004288,measurement,G035-11,Water absorption 0.5 %,p. 2: Water absorption (saturation value) ISO 62 %
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004289,measurement,G035-11,Water absorption 0.2 %,p. 2: Water absorption (equilibrium value) ISO 62 %
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V004290,measurement,G035-11,Density 1190 kg/m³,p. 2: Density ISO 1183-1 kg/m³
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,V012890,measurement,G035-11,Dielectric strength 35 kV/mm,p. 2: Electrical strength
+R-EXTRUDR-durapro-pc-fr-v0-TDS-en,P0389,profile,G035-11,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Hardened Nozzle; p. 2: Recommended settings
+R-EXTRUDR-durapro-pc-pbt-TDS-de,V006213,measurement,G095-02,Density 1200 kg/m³,p. 2: Dichte ISO 1183-1 kg/m³
+R-EXTRUDR-durapro-pc-pbt-TDS-de,V012904,measurement,G095-02,Dielectric strength 30 kV/mm,p. 2: Elektrische Durchschlagfestigkeit
+R-EXTRUDR-durapro-pc-pbt-TDS-de,V012905,measurement,G095-02,Water absorption 0.5 %,p. 2: Wasseraufnahme (Sättigungswert)
+R-EXTRUDR-durapro-pc-pbt-TDS-de,V012906,measurement,G095-02,Water absorption 0.2 %,p. 2: Wasseraufnahme (Gleichgewichtswert)
+R-EXTRUDR-durapro-pc-pbt-TDS-de,P1674,profile,G095-02,Manufacturer published guidance,p. 2: Düse; p. 2: Heizbett; p. 2: Vorgeschlagene Einstellungen
+D-FLASH-ABS-GF-TDS-EN,P0484,profile,G028-06,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle Temperature; p. 2: Ambient Temperature for Printing; p. 3: Drying note; p. 2: Build Surface Material; p. 2: Nozzle & Gear Material
+D-FLASH-ABS-Matte-TDS-EN,P0463,profile,G027-16,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle Temperature; p. 2: Ambient Temperature for Printing; p. 3: Drying note; p. 2: Build Surface Material
+D-FLASH-PA6-GF-TDS-EN,P0479,profile,G051-07,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle Temperature; p. 2: Ambient Temperature for Printing; p. 3: Drying note; p. 2: Build Surface Material; p. 2: Nozzle & Gear Material
+D-FLASH-PC-CF-TDS-EN,P0456,profile,G037-05,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle Temperature; p. 2: Ambient Temperature for Printing; p. 3: Drying note; p. 2: Build Surface Material; p. 2: Nozzle & Gear Material
+D-FLASH-PLA-LW-TDS-EN,V005203,measurement,G017-07,Density 1.1-1.2 g/cm³,p. 1: Density ISO 1183 g/cm³
+D-FLASH-PLA-LW-TDS-EN,V005204,measurement,G017-07,Melt mass-flow rate 8-15 g/10min,p. 1: Melt Flow Rate (MFR) (190°C/2.16Kg) ISO 1133 g/10min
+D-FLASH-PLA-LW-TDS-EN,V005205,measurement,G017-07,Water absorption 0.3 %,p. 1: Water Absorption (23℃/24h) ISO 62 %
+D-FLASH-PLA-LW-TDS-EN,V005206,measurement,G017-07,Tensile strength (endpoint unspecified) 39.2-40 Mpa,p. 1: Tensile Strength (X-Y) ISO 527 Mpa
+D-FLASH-PLA-LW-TDS-EN,V005207,measurement,G017-07,Elongation at break 6.9-7.3 %,p. 1: Elongation at Break (X-Y) ISO 527 %
+D-FLASH-PLA-LW-TDS-EN,V005208,measurement,G017-07,Flexural modulus 2512-2723 Mpa,p. 1: Bending Modulus (X-Y) ISO 178 Mpa
+D-FLASH-PLA-LW-TDS-EN,V005209,measurement,G017-07,Flexural modulus 1908-2317 Mpa,p. 1: Bending Modulus (X-Z) ISO 178 Mpa
+D-FLASH-PLA-LW-TDS-EN,V005210,measurement,G017-07,Flexural strength 78.9-80.2 Mpa,p. 1: Bending Strength (X-Y) ISO 178 Mpa
+D-FLASH-PLA-LW-TDS-EN,P0462,profile,G017-07,Manufacturer published guidance,p. 3: Recommended printing settings; p. 3: Ambient Temperature for Printing; p. 1: Drying note; p. 3: Build Surface Material
+S-PET-formfutura-tds-pythonflex90a,P1277,profile,G039-63,Manufacturer published guidance,p. 1: Drying recommended
+R-YOUSU-POM-TDS,P1270,profile,G087-03,Manufacturer published guidance,"p. 2: Printing Temp, Bed Temp"
+S-PPA-TDS,P0088,profile,G069-01,Manufacturer published guidance,Recommended printing settings; p. 2: Compatible Printer Type
+I-PLA-ABS-TDS,P0970,profile,G027-50,Manufacturer published guidance,p. 2: Recommended printing settings
+D-LEHVOSS-LUVOCOM-3F-PAHT-KK-50056-BK-FR,P1492,profile,G148-02,Manufacturer published guidance,p. 2: nozzle temperature; p. 2: nozzle material; p. 2: Dehumidifying dryer; p. 2: print bed temperature
+R-YOUSU-YOUSUPCTDS-535a,V010305,measurement,G035-25,Dielectric strength 17 KV/mm,p. 2: Dielectric Strength ASTM D149 KV/mm
+R-YOUSU-YOUSUPCTDS-535a,V013300,measurement,G035-25,Tensile yield strength 60,p. 1: Tensile Strength (60)
+R-YOUSU-YOUSUPCTDS-535a,P1023,profile,G035-25,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Bed Temp
+S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen,P0946,profile,G147-01,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Dehumidifying dryer (optional)
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011415,measurement,G147-01,Tensile modulus 3.1 ± 0.1 GPa,"p. 1: Modulus of elasticity, 100% infill - 45/135° - XY (Engineering settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011420,measurement,G147-01,Tensile strain at strength 3.7 ± 0.0 %,"p. 1: Elongation at maximum force, 100% infill - 90° - XY (Engineering settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011421,measurement,G147-01,Tensile modulus 3.1 ± 0.0 GPa,"p. 1: Modulus of elasticity, 100% infill - 90° - XY (Engineering settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011433,measurement,G147-01,Tensile modulus 2.8 ± 0.3 GPa,"p. 1: Modulus of elasticity, 100% infill - 90° - XY (Fast settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,V011436,measurement,G147-01,Tensile modulus 2.8 ± 0.1 GPa,"p. 1: Modulus of elasticity, 100% infill - ZX (Fast settings)"
+R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT,P1493,profile,G147-01,Manufacturer published guidance,p. 2: chamber; p. 2: Dehumidifying dryer; p. 2: Printing temperature; p. 2: Nozzle diameter; p. 2: adhesion aid; p. 2: Print bed temperature
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011150,measurement,G166-01,Tensile yield strength 73.7 ± 2.1 MPa,p. 2: Tensile Strength at Yield MPa
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011151,measurement,G166-01,Tensile break strength 70.7 ± 1.8 MPa,p. 2: Tensile Strength at Break MPa
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011152,measurement,G166-01,Tensile modulus 4.2 ± 0.2 GPa,p. 2: Tensile Modulus GPa
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011153,measurement,G166-01,Elongation at break 5.9 ± 0.4 %,p. 2: Elongation at Break %
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011470,measurement,G166-01,Tensile yield strength 60.4 ± 1.9 MPa,"p. 2: Mechanical properties in different environments, Tensile Strength at Yield, Dry"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011471,measurement,G166-01,Tensile break strength 59.4 ± 1.7 MPa,"p. 2: Mechanical properties in different environments, Tensile Strength at Break, Dry"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011472,measurement,G166-01,Tensile modulus 3.1 ± 0.1 GPa,"p. 2: Mechanical properties in different environments, Tensile Modulus, Dry"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011473,measurement,G166-01,Elongation at break 5.5 ± 0.3 %,"p. 2: Mechanical properties in different environments, Elongation at Break, Dry"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011474,measurement,G166-01,Tensile yield strength 41.7 ± 0.7 MPa,"p. 2: Mechanical properties in different environments, Tensile Strength at Yield, Wet"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011475,measurement,G166-01,Tensile break strength 40.4 ± 0.9 MPa,"p. 2: Mechanical properties in different environments, Tensile Strength at Break, Wet"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011476,measurement,G166-01,Tensile modulus 1.9 ± 0.1 GPa,"p. 2: Mechanical properties in different environments, Tensile Modulus, Wet"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011477,measurement,G166-01,Elongation at break 21.9 ± 3.0 %,"p. 2: Mechanical properties in different environments, Elongation at Break, Wet"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011478,measurement,G166-01,Tensile break strength 25.9 ± 3.5 MPa,"p. 2: Tensile Strength at Break, ZX Orientation"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011479,measurement,G166-01,Tensile modulus 1.5 ± 0.2 GPa,"p. 2: Tensile Modulus, ZX Orientation"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011480,measurement,G166-01,Elongation at break 3.2 ± 0.3 %,"p. 2: Elongation at Break, ZX Orientation"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011481,measurement,G166-01,Coefficient of thermal expansion 121 μm/(m*°C),"p. 2: Mean CTE (30 to 50°C), ZX Orientation"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V011482,measurement,G166-01,Coefficient of thermal expansion 284 μm/(m*°C),"p. 2: Mean CTE (60 to 160°C), ZX Orientation"
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V012260,measurement,G166-01,Tensile yield strength 57.9 ± 0.7 MPa,p. 2: Tensile Strength at Yield (conditioned 52% RH 23 ± 2°C 44 ± 2 h (ASTM D618 Procedure A))
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V012261,measurement,G166-01,Tensile break strength 56.5 ± 0.9 MPa,p. 2: Tensile Strength at Break (conditioned 52% RH 23 ± 2°C 44 ± 2 h (ASTM D618 Procedure A))
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V012262,measurement,G166-01,Elongation at break 6.2 ± 0.6 %,p. 2: Elongation at Break (conditioned 52% RH 23 ± 2°C 44 ± 2 h (ASTM D618 Procedure A))
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V012263,measurement,G166-01,Tensile yield strength 57.9 ± 0.7 MPa,p. 2: Tensile Strength at Yield (Conditioned: conditioned 52% RH 23 ± 2°C 44 ± 2 h (ASTM D618 Procedure A))
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V012264,measurement,G166-01,Tensile break strength 56.5 ± 0.9 MPa,p. 2: Tensile Strength at Break (Conditioned: conditioned 52% RH 23 ± 2°C 44 ± 2 h (ASTM D618 Procedure A))
+R-MARKFORGED-Onyx-GF-Material-Datasheet,V012265,measurement,G166-01,Elongation at break 6.2 ± 0.6 %,p. 2: Elongation at Break (Conditioned: conditioned 52% RH 23 ± 2°C 44 ± 2 h (ASTM D618 Procedure A))
+R-MATTERHACKERS-PRO-SERIES-d0cX8m,V009116,measurement,G001-130,Flexural strength 97 MPa,p. 2: Flexural Strength
+R-MATTERHACKERS-PRO-SERIES-d0cX8m,V009117,measurement,G001-130,Izod impact strength 4 kJ/M2,p. 2: Notched Izod Impact
+R-MATTERHACKERS-PRO-SERIES-d0cX8m,P0875,profile,G001-130,Manufacturer published guidance,p. 2: Recommended printing settings
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V003585,measurement,G001-22,Density 1.22 g/cm3,"p. 2: Density ISO1183, GB/T1033"
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V003586,measurement,G001-22,Melt mass-flow rate 6 g/10min,"p. 2: Melt index 210°C, 2.16 kg"
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V003587,measurement,G001-22,Glass transition temperature 62 °C,"p. 4: Glass transition temperature DSC, 10°C/min"
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V003588,measurement,G001-22,Melting temperature 150 °C,"p. 4: Melting temperature DSC, 10°C/min"
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V003589,measurement,G001-22,Vicat softening temperature 62.7 °C,"p. 4: Vicat softening temperature ISO 306, GB/T 1633"
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V003590,measurement,G001-22,HDT 57.6 °C,p. 4: Heat deflection temperature ISO 75 1.8MPa
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V003591,measurement,G001-22,HDT 59.3 °C,p. 4: Heat deflection temperature ISO 75 0.45MPa
+S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,V013448,measurement,G001-22,Water absorption 0.291,p. 3: Equilibrium water absorption (%)
+S-PVB-0eaa8597-prusament-rpla-natural-pigments-technical-data-sheet,P0592,profile,G001-77,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type
+S-PVB-269cd3c8-prusament-pla-hs-technical-datasheet,P0634,profile,G001-87,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type
+S-PVB-512923fd-tds-pp-glass-fiber-en,P0698,profile,G084-02,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type; p. 1: Additional Info
+S-PVB-53ee8f5e-tds-prusament-pei-1010-en,P0696,profile,G099-07,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Drying note
+S-PVB-7-PLA-Recycled-Prusament-TDS-2021-V4,P0661,profile,G001-90,Manufacturer published guidance,p. 1: Recommended printing settings
+S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,P1238,profile,G020-59,Manufacturer published guidance,"p. 1: Nozzle Temperature [°C], Heatbed Temperature [°C]; p. 1: Bed Type"
+S-PVB-80316f6d-tds-prusament-tpu-95a-en-1,P0631,profile,G039-35,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type
+S-PVB-9f8d2165-tds-prusament-petg-n-en,P0580,profile,G020-29,Manufacturer published guidance,p. 1: Recommended printing settings: Nozzle Temperature; p. 1: Bed Type
+S-PVB-b4ef2bf6-technical-data-sheet-1,P0644,profile,G083-03,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type; p. 1: Additional Info
+S-PVB-bc8551ef-tds-prusament-asa-2024-en,P0670,profile,G031-20,Manufacturer published guidance,p. 1: Recommended printing settings: Nozzle Temperature; p. 1: Bed Type
+S-PVB-e032493a-tds-pc-space-grade-en,P0655,profile,G037-06,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type; p. 1: Additional Info
+S-PVB-PCBlend-Prusament-TDS-2022-16-EN,P0600,profile,G035-15,Manufacturer published guidance,p. 1: Recommended printing settings: Nozzle Temperature; p. 1: Bed Type
+S-PVB-Prusament-PC-Space-Grade-Black,P0739,profile,G037-06,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type; p. 1: Additional Info
+S-PVB-prusament-petg-v0-technical-data-sheet,P0783,profile,G020-47,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type
+S-PVB-prusament-pla-technical-data-sheet,P1199,profile,G001-144,Manufacturer published guidance,"p. 1: Nozzle Temperature [°C], Heatbed Temperature [°C]; p. 1: Bed Type"
+S-PVB-prusament-rpla-natural-pigments-technical-data-sheet,P0770,profile,G001-77,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Bed Type
+S-PVB-TDS-Prusament-PCCF-2023-EN,P1251,profile,G037-10,Manufacturer published guidance,"p. 1: Nozzle Temperature [°C], Heatbed Temperature [°C]; p. 1: Bed Type"
+S-PVB-technisches-datenblatt-1,V013752,measurement,G030-08,Decomposition temperature 300 °C,p. 2: Decomposition of ABS ESD
+S-PVB-technisches-datenblatt-1,P0789,profile,G030-08,Manufacturer published guidance,p. 2: Recommended printing settings
+S-PVB-technisches-datenblatt-2,V013753,measurement,G027-33,Continuous service temperature 75°C,p. 1: Main ABS features
+S-PVB-technisches-datenblatt-2,V013757,measurement,G027-33,Decomposition temperature 300 °C,p. 3: Decomposition of ABS
+S-PVB-technisches-datenblatt-2,P0806,profile,G027-33,Manufacturer published guidance,p. 3: Recommended printing settings; p. 3: 3. RECOMMENDATION OF PRINTING
+S-PVB-technisches-datenblatt-3,V013759,measurement,G020-46,Decomposition temperature 350 °C,p. 3: Decomposition of PET-G
+R-QIDI-PETG-CF,V008027,measurement,G024-16,HDT 77 ℃,p. 3: Heat Deflection Temperature (HDT) ISO 75
+R-QIDI-PETG-CF,V008028,measurement,G024-16,Vicat softening temperature 83 ℃,p. 3: Vicat Softening Temperature (VST) ISO 306
+R-QIDI-PETG-CF,V008029,measurement,G024-16,Density 1.27-1.31 g/cm³,p. 3: Density ISO 1183
+R-QIDI-PETG-CF,V013791,measurement,G024-16,Flexural strength 84-95,p. 3: Flexural Strength (MPa) (84-95)
+R-QIDI-PETG-CF,V013792,measurement,G024-16,Flexural strength 95-98,p. 3: Flexural Strength (MPa) (95-98)
+R-QIDI-PETG-CF,V013793,measurement,G024-16,Flexural strength 43-54,p. 3: Flexural Strength (MPa) (43-54)
+R-QIDI-PETG-CF,V013794,measurement,G024-16,Flexural modulus 3200~3400,p. 3: Flexural Modulus (MPa) (3200~3400)
+R-QIDI-PETG-CF,V013795,measurement,G024-16,Flexural modulus 3300~3400,p. 3: Flexural Modulus (MPa) (3300~3400)
+R-QIDI-PETG-CF,V013796,measurement,G024-16,Flexural modulus 1700~1800,p. 3: Flexural Modulus (MPa) (1700~1800)
+R-QIDI-PETG-CF,V013797,measurement,G024-16,Glass transition temperature 66℃,p. 3: GlassTransition Temperature
+R-QIDI-PETG-CF,V013798,measurement,G024-16,Melt mass-flow rate 8-14 g/10 min,p. 3: Melt Flow Rate (MFR)
+R-QIDI-PETG-CF,P0758,profile,G024-16,Manufacturer published guidance,p. 5: Recommended printing settings; p. 5: Recommended Build Surface
+D-RAISE3D-P-filament-721-Technical-Data-Sheet-eng-04-20-2021,P0662,profile,G082-09,Manufacturer published guidance,p. 1: Recommended printing settings: Nozzle temperature; p. 1: Heading; p. 1: Bed modification; p. 2: Specimen chamber temperature
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013849,measurement,G071-05,Tensile modulus 5401 ± 227,p. 2: Young’s modulus (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013850,measurement,G071-05,Tensile modulus 4151 ± 80,p. 2: Young’s modulus (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013851,measurement,G071-05,Tensile strength (endpoint unspecified) 97 ± 2,p. 2: Tensile strength (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013852,measurement,G071-05,Tensile strength (endpoint unspecified) 65 ± 3,p. 2: Tensile strength (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013853,measurement,G071-05,Elongation at break 2.92 ± 0.13,p. 2: Elongation at break (%) (XY)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013854,measurement,G071-05,Elongation at break 1.90 ± 0.15,p. 2: Elongation at break (%) (ZX)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013855,measurement,G071-05,Flexural modulus 5403 ± 123,p. 2: Bending modulus (MPa)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013856,measurement,G071-05,Flexural strength 162 ± 3,p. 2: Bending strength (MPa)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013857,measurement,G071-05,Charpy strength 12.55 ± 0.86,p. 2: Charpy impact strength (kJ/m²)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013858,measurement,G071-05,Melt mass-flow rate 5.5,p. 2: Melt flow index (g/10 min)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013859,measurement,G071-05,HDT 196,p. 2: Heat distortion temperature (°C) (196)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,V013860,measurement,G071-05,HDT 118,p. 2: Heat distortion temperature (°C) (118)
+D-RAISE3D-Raise3D-Hyper-Core-PPA-GF25-TDS-V1-1,P0913,profile,G071-05,Retired duplicate record,"Retired duplicate of P0912 (D120): p. 2: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013877,measurement,G067-07,Tensile modulus 5000± 170,p. 2: Young’s modulus (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013878,measurement,G067-07,Tensile modulus 2600 ± 150,p. 2: Young’s modulus (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013879,measurement,G067-07,Tensile strength (endpoint unspecified) 55± 0.3,p. 2: Tensile strength (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013880,measurement,G067-07,Tensile strength (endpoint unspecified) 25± 2.0,p. 2: Tensile strength (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013881,measurement,G067-07,Elongation at break 4 ± 0.5,p. 2: Elongation at break (%) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013882,measurement,G067-07,Elongation at break 1.5 ± 0.6,p. 2: Elongation at break (%) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013883,measurement,G067-07,Flexural modulus 4500 ± 35.0,p. 2: Bending modulus (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013884,measurement,G067-07,Flexural modulus 3300± 100.0,p. 2: Bending modulus (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013885,measurement,G067-07,Flexural strength 95 ± 1.0,p. 2: Bending strength (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013886,measurement,G067-07,Flexural strength 45 ± 2,p. 2: Bending strength (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013887,measurement,G067-07,Charpy strength 5.0 ± 0.3,p. 2: Charpy impact strength (kJ/m²) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013888,measurement,G067-07,Charpy strength 3.0 ± 0.1,p. 2: Charpy impact strength (kJ/m²) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013889,measurement,G067-07,Melt mass-flow rate 31,p. 2: Melt flow index (g/10 min)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013890,measurement,G067-07,HDT 150,p. 2: Heat distortion temperature (°C) (150)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,V013891,measurement,G067-07,HDT 110,p. 2: Heat distortion temperature (°C) (110)
+D-RAISE3D-Raise3D-Hyper-Speed-PET-CF-TDS-V1-0,P0916,profile,G067-07,Manufacturer published guidance,"p. 2: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006617,measurement,G053-09,Tensile modulus 3040 ± 130 MPa,"p. 2: Young’s modulus (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006618,measurement,G053-09,Tensile modulus 1530 ± 70 MPa,p. 2: Young’s modulus (Z) /
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006619,measurement,G053-09,Tensile strength (endpoint unspecified) 73 ± 1 MPa,"p. 2: Tensile strength (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006620,measurement,G053-09,Tensile strength (endpoint unspecified) 42 ± 2 MPa,p. 2: Tensile strength (Z) /
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006621,measurement,G053-09,Elongation at break 6.1 ± 0.6 %,"p. 2: Elongation at break (X-Y) ISO 527, GB/T 1040"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006622,measurement,G053-09,Elongation at break 3.5 ± 0.5 %,p. 2: Elongation at break (Z) /
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006623,measurement,G053-09,Flexural modulus 3336 ± 292 MPa,"p. 2: Bending modulus (X-Y) ISO 178, GB/T 9341"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006624,measurement,G053-09,Flexural strength 100 ± 4 MPa,"p. 2: Bending strength (X-Y) ISO 178, GB/T 9341"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,V006625,measurement,G053-09,Charpy strength 9.2 ± 0.6 kJ/m2,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,P1280,profile,G053-09,Manufacturer published guidance,p. 2: Notes 1 and 3
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V007190,measurement,G067-05,Tensile modulus 6 GPa,p. 1: tensile modulus and strength of over
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011546,measurement,G067-05,Tensile modulus 5731 ± 261 MPa,"p. 1: Young’s modulus (MPa), XY, Flat"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011547,measurement,G067-05,Tensile modulus 3270 ± 63 MPa,"p. 1: Young’s modulus (MPa), ZX, Upright"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011548,measurement,G067-05,Tensile strength (endpoint unspecified) 73 ± 2 MPa,"p. 1: Tensile strength (MPa), XY, Flat"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011549,measurement,G067-05,Tensile strength (endpoint unspecified) 34 ± 2 MPa,"p. 1: Tensile strength (MPa), ZX, Upright"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011550,measurement,G067-05,Elongation at break 2.49 ± 0.22 %,"p. 1: Elongation at break (%), XY, Flat"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011551,measurement,G067-05,Elongation at break 1.20 ± 0.08 %,"p. 1: Elongation at break (%), ZX, Upright"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011552,measurement,G067-05,Flexural modulus 5346 ± 232 MPa,"p. 1: Bending modulus (MPa), XY, Flat"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011553,measurement,G067-05,Flexural strength 115 ± 2 MPa,"p. 1: Bending strength (MPa), XY, Flat"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011554,measurement,G067-05,Charpy strength 7.75 ± 1.08 kJ/m²,"p. 1: Charpy impact strength (kJ/m²), XY, Flat"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011561,measurement,G067-05,Density 1.30 g/cm3,p. 1: Density (g/cm³)
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,V011562,measurement,G067-05,Water absorption 0.5 %,p. 1: Water absorption (%)
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,P0674,profile,G067-05,Retired duplicate record,"Retired duplicate of P0673 (D120): p. 2: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,P0675,profile,G067-05,Retired duplicate record,Retired duplicate of P0673 (D120): p. 2: Recommended printing settings: nozzle
+D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1,V006929,measurement,G068-04,Flexural modulus 3650 ± 66 MPa,"p. 2: Bending modulus (X-Y) ISO 178, GB/T 9341"
+D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1,V006930,measurement,G068-04,Flexural strength 115 ± 3 MPa,"p. 2: Bending strength (X-Y) ISO 178, GB/T 9341"
+D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1,V006931,measurement,G068-04,Charpy strength 6.56 ± 0.68 kJ/m2,"p. 2: Charpy impact strength (X-Y) ISO 179, GB/T 1043"
+D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1,P0633,profile,G068-04,Manufacturer published guidance,"p. 2: the notes under the test specimens' conditions, the sheet's only printing guidance (m295); p. 2: Notes. Its nozzle and bed temperatures are the specimens' print conditions, which are not printing guidance (m170, m345)."
+D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1,P1151,profile,G071-04,Manufacturer published guidance,p. 2: Drying note; p. 2: Nozzle note
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V009313,measurement,G073-07,Density 1.29,p. 1: Density
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V009314,measurement,G073-07,Water absorption 0.23,p. 1: Water absorption
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013958,measurement,G073-07,HDT 260 °C,p. 1: Description
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013959,measurement,G073-07,Tensile modulus 5500 ± 150,p. 1: Young’s modulus (MPa) (5500 ± 150)
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013960,measurement,G073-07,Tensile modulus 2800 ± 150,"p. 1: Young’s modulus (MPa) (2800 ± 150) (Typical Value (ZX, Flat) column)"
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013961,measurement,G073-07,Tensile strength (endpoint unspecified) 60 ± 1.3,p. 1: Tensile strength (MPa) (60 ± 1.3)
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013962,measurement,G073-07,Tensile strength (endpoint unspecified) 32.0 ± 5.0,"p. 1: Tensile strength (MPa) (32.0 ± 5.0) (Typical Value (ZX, Flat) column)"
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013963,measurement,G073-07,Elongation at break 1.8 ± 0.1,p. 1: Elongation at break (%) (1.8 ± 0.1)
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013964,measurement,G073-07,Elongation at break 1.9 ± 0.2,"p. 1: Elongation at break (%) (1.9 ± 0.2) (Typical Value (ZX, Flat) column)"
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013965,measurement,G073-07,Flexural modulus 4600 ± 140,p. 1: Bending modulus (MPa) (4600 ± 140)
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,V013966,measurement,G073-07,Flexural modulus 2600 ± 150,"p. 1: Bending modulus (MPa) (2600 ± 150) (Typical Value (ZX, Flat) column)"
+D-RAISE3D-Raise3D-Industrial-PPS-CF-TDS-V1-1,P0909,profile,G073-07,Manufacturer published guidance,"p. 1: Description (a non-heated printing chamber); p. 3: Note 1 (a wear-resistant nozzle). The nozzle and bed temperatures of its p. 2 footnote are the specimens' print conditions, which are not recorded as guidance (m170, m345)."
+D-RAISE3D-Raise3D-Premium-ABS-TDS-V7-2,P0910,profile,G027-40,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle temperature; p. 2: Recommended environmental temperature; p. 2: Build Surface material; p. 2: Note 1
+D-RAISE3D-Raise3D-Premium-ABS-TDS-V7-2,P0911,profile,G027-40,Retired duplicate record,Retired duplicate of P0910 (D120): p. 2: Recommended printing settings: Nozzle temperature
+D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,P0582,profile,G031-16,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle temperature; p. 2: Build Surface material; p. 2: Note
+D-RAISE3D-Raise3D-Premium-ASA-TDS-v6-0,P0583,profile,G031-16,Retired duplicate record,Retired duplicate of P0582 (D120): p. 2: Recommended printing settings: Nozzle temperature
+D-RAISE3D-Raise3d-Premium-PETG-TDS-V3,P1237,profile,G020-58,Manufacturer published guidance,"p. 2: Nozzle temperature, Build plate temperature; p. 2: Build Surface material; p. 2: Note 1"
+X-RECREUS-PET-G-TDS-2023,P1779,profile,G020-70,Manufacturer published guidance,p. 2: Printing temperatures; p. 2: Hot-bed temperature; p. 2: Minimal nozzle diameter
+S-PCGF-ASA-TDS,V014828,measurement,G033-17,Izod impact strength 10.5~12 KJ/m²,p. 1: Impact Strength [G033-17]
+D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds,P0882,profile,G129-03,Manufacturer published guidance,p. 1: Recommended printing settings
+D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds,P0975,profile,G039-66,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Drying note; p. 1: Recommended Nozzle Diameter; p. 1: Build Platform Material
+D-SIRAYA-siraya-tech-fibreheart-paht-cf-ppa-based-tds,P0925,profile,G070-02,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Drying; p. 1: Recommended build plate temperature; p. 1: Nozzle; p. 1: Print Bed Surface Coating
+R-FILAMENT2PRINT-Smartfil-FLEX-77A,P1885,profile,G159-01,Manufacturer published guidance,p. 1: PROPIEDADES DE IMPRESIÓN
+S-SPECTRUM-en-tds-spectrum-asa-conductive,P0186,profile,G105-01,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Drying (if wet) ***; p. 1: Adhesive; p. 1: settings footnote
+S-SPECTRUM-PRINT-20260928-fbfcc181ccf7,P1553,profile,G105-01,Manufacturer published guidance,p. 1: Nozzle temperature - standard speed; p. 1: Bed temperature; p. 1: Closed chamber; p. 1: Dry box; p. 1: Ruby or hardened nozzle; p. 1: settings are based on a 0.4mm nozzle; p. 1: Drying (if wet) ***
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,V002099,measurement,G094-03,Charpy strength NB,"p. 1: Charpy impact strength, unnotched, 23°C"
+S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,P0120,profile,G094-03,Manufacturer published guidance,Recommended printing settings; p. 2: Nozzle note; p. 2: Dry box; p. 2: * settings are based on a 0.5mm nozzle
+S-SPECTRUM-en-tds-spectrum-petg-carbon,P0178,profile,G024-03,Manufacturer published guidance,p. 1: Recommended printing settings
+S-SPECTRUM-en-tds-spectrum-pla-esd,V002819,measurement,G107-01,Density 1.16 g/cm3,p. 1: Density
+S-SPECTRUM-en-tds-spectrum-pla-esd,P0193,profile,G107-01,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Dry box recommended
+S-SPECTRUM-en-tds-spectrum-safeguard-pla,P1205,profile,G001-150,Manufacturer published guidance,"p. 1: Closed chamber, Ruby or hardened nozzle; p. 1: Dry box; p. 1: Adhesive; p. 1: settings footnote"
+S-SPECTRUM-EN-TDS-Spectrum-SFLEX-98A,P0546,profile,G039-08,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Nozzle note; p. 1: Footnote *; p. 1: Dry box
+S-SPECTRUM-en-tds-spectrum-thermatech-pa,P1163,profile,G164-03,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Nozzle note; p. 1: Nozzle temperature - standard speed; p. 1: settings are based on a 0.4mm nozzle
+S-SPECTRUM-en-tds-spectrum-wood,P0361,profile,G014-02,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Nozzle note; p. 1: Dry box; p. 1: Recommended nozzle
+S-SPECTRUM-eng-tds-the-filament-pla,P0216,profile,G001-13,Manufacturer published guidance,"p. 1: Recommended printing settings; p. 1: * settings are based on a 0,4 mm nozzle"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014565,measurement,G098-06,Tensile yield strength 86.7 (5.0),"p. 6: Tensile Properties: Yield Strength MPa (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014566,measurement,G098-06,Tensile yield strength 59.4 (5.8),"p. 6: Tensile Properties: Yield Strength MPa (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014567,measurement,G098-06,Elongation at yield 4.7,"p. 6: Tensile Properties: Elongation @ Yield % (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014568,measurement,G098-06,Elongation at yield 2.3,"p. 6: Tensile Properties: Elongation @ Yield % (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014569,measurement,G098-06,Tensile break strength 73.0 (4.7),"p. 6: Tensile Properties: Strength @ Break MPa (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014570,measurement,G098-06,Tensile break strength 59.7 (5.5),"p. 6: Tensile Properties: Strength @ Break MPa (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014571,measurement,G098-06,Elongation at break 6.1,"p. 6: Tensile Properties: Elongation @ Break % (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014572,measurement,G098-06,Elongation at break 2.3,"p. 6: Tensile Properties: Elongation @ Break % (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014573,measurement,G098-06,Tensile modulus 2.64 (0.05),"p. 6: Tensile Properties: Modulus (Elastic) GPa (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014574,measurement,G098-06,Tensile modulus 2.77 (0.04),"p. 6: Tensile Properties: Modulus (Elastic) GPa (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014575,measurement,G098-06,Flexural strength 106 (13),"p. 6: Flexural Properties: Strength @ Break MPa (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014576,measurement,G098-06,Flexural stress at conventional deflection 136 (2.3),"p. 6: Flexural Properties: Strength @ 5% Strain MPa (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014577,measurement,G098-06,Flexural elongation at break 4.1,"p. 6: Flexural Properties: Strain @ Break % (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014578,measurement,G098-06,Flexural modulus 3.20 (0.04),"p. 6: Flexural Properties: Modulus GPa (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014579,measurement,G098-06,Flexural modulus 2.65 (0.03),"p. 6: Flexural Properties: Modulus GPa (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014580,measurement,G098-06,Compression strength 95.8 (5.9),"p. 6: Compression Properties: Yield Strength MPa (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014581,measurement,G098-06,Compression strength 95.4 (4.0),"p. 6: Compression Properties: Yield Strength MPa (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014582,measurement,G098-06,Izod impact strength 41.1 (6.9),"p. 6: Impact Properties: Notched J/m (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014583,measurement,G098-06,Izod impact strength 33.3 (4.2),"p. 6: Impact Properties: Notched J/m (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014584,measurement,G098-06,"Izod impact strength 1,730 (680)","p. 6: Impact Properties: Unnotched J/m (XZ), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014585,measurement,G098-06,Izod impact strength 203 (35),"p. 6: Impact Properties: Unnotched J/m (ZX), Table 4"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014586,measurement,G098-06,Tensile yield strength 90.0 (5.2),"p. 7: Tensile Properties: Yield Strength MPa (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014587,measurement,G098-06,Tensile yield strength 50.1 (3.6),"p. 7: Tensile Properties: Yield Strength MPa (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014588,measurement,G098-06,Elongation at yield 4.8,"p. 7: Tensile Properties: Elongation @ Yield % (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014589,measurement,G098-06,Elongation at yield 1.8,"p. 7: Tensile Properties: Elongation @ Yield % (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014590,measurement,G098-06,Tensile break strength 73.0 (13),"p. 7: Tensile Properties: Strength @ Break MPa (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014591,measurement,G098-06,Tensile break strength 49.4 (3.8),"p. 7: Tensile Properties: Strength @ Break MPa (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014592,measurement,G098-06,Elongation at break 6.4,"p. 7: Tensile Properties: Elongation @ Break % (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014593,measurement,G098-06,Elongation at break 1.8,"p. 7: Tensile Properties: Elongation @ Break % (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014594,measurement,G098-06,Tensile modulus 2.71 (0.05),"p. 7: Tensile Properties: Modulus (Elastic) GPa (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014595,measurement,G098-06,Tensile modulus 2.89 (0.05),"p. 7: Tensile Properties: Modulus (Elastic) GPa (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014596,measurement,G098-06,Flexural strength 96.6 (11),"p. 7: Flexural Properties: Strength @ Break MPa (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014597,measurement,G098-06,Flexural stress at conventional deflection 137 (1.85),"p. 7: Flexural Properties: Strength @ 5% Strain MPa (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014598,measurement,G098-06,Flexural elongation at break 3.6,"p. 7: Flexural Properties: Strain @ Break % (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014599,measurement,G098-06,Flexural modulus 3.20 (0.02),"p. 7: Flexural Properties: Modulus GPa (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014600,measurement,G098-06,Flexural modulus 3.84 (0.07),"p. 7: Flexural Properties: Modulus GPa (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014601,measurement,G098-06,Compression strength 98.4 (4.8),"p. 7: Compression Properties: Yield Strength MPa (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014602,measurement,G098-06,Compression strength 102 (1.4),"p. 7: Compression Properties: Yield Strength MPa (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014603,measurement,G098-06,Izod impact strength 40.0 (6.3),"p. 7: Impact Properties: Notched J/m (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014604,measurement,G098-06,Izod impact strength 30.1 (6.0),"p. 7: Impact Properties: Notched J/m (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014605,measurement,G098-06,"Izod impact strength 2,730 (1,400)","p. 7: Impact Properties: Unnotched J/m (XZ), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014606,measurement,G098-06,Izod impact strength 119 (44),"p. 7: Impact Properties: Unnotched J/m (ZX), Table 5"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014607,measurement,G098-06,Tensile yield strength 57.4,p. 8: Table 6 No UV Exposure: Yield Strength (MPa)
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014608,measurement,G098-06,Tensile break strength 57.6,p. 8: Table 6 No UV Exposure: Stress at Break (MPa)
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014609,measurement,G098-06,Elongation at break 2.4,p. 8: Table 6 No UV Exposure: Elongation at Break (%)
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014610,measurement,G098-06,Tensile modulus 2.7,p. 8: Table 6 No UV Exposure: Modulus (GPa)
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014611,measurement,G098-06,HDT 177 °C (350.6 °F),"p. 11: HDT @ 66 psi (printed), XY"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014612,measurement,G098-06,HDT 170 °C (354.2 °F),"p. 11: HDT @ 66 psi (printed), XZ"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014613,measurement,G098-06,HDT 176 °C (348.8 °F),"p. 11: HDT @ 66 psi (printed), ZX"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014614,measurement,G098-06,HDT 159 °C (318.2 °F),"p. 11: HDT @ 266 psi (printed), XY"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014615,measurement,G098-06,HDT 159 °C (318.2 °F),"p. 11: HDT @ 266 psi (printed), XZ"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014616,measurement,G098-06,HDT 155 °C (311 °F),"p. 11: HDT @ 266 psi (printed), ZX"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014617,measurement,G098-06,Glass transition temperature 151 °C (303.8 °F),p. 11: Tg
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014618,measurement,G098-06,Coefficient of thermal expansion 48.89 μm/[m*°C],p. 11: Mean CTE (X)
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014619,measurement,G098-06,Coefficient of thermal expansion 46.61 μm/[m*°C],p. 11: Mean CTE (Y)
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014620,measurement,G098-06,Coefficient of thermal expansion 52.54 μm/[m*°C],p. 11: Mean CTE (Z)
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014621,measurement,G098-06,Relative permittivity 3.23,"p. 11: Dielectric Constant, XY"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014622,measurement,G098-06,Relative permittivity 3.32,"p. 11: Dielectric Constant, ZX"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014623,measurement,G098-06,Density 1.31,p. 11: Specific Gravity
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014624,measurement,G098-06,Elongation at yield 2.7 (0.64),"p. 12: Tensile Properties: Elongation @ Yield % (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014625,measurement,G098-06,Elongation at yield 0.75 (0.27),"p. 12: Tensile Properties: Elongation @ Yield % (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014626,measurement,G098-06,Tensile break strength 88.8 (12),"p. 12: Tensile Properties: Strength @ Break MPa (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014627,measurement,G098-06,Tensile break strength 36.7 (4.4),"p. 12: Tensile Properties: Strength @ Break MPa (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014628,measurement,G098-06,Elongation at break 2.6 (0.65),"p. 12: Tensile Properties: Elongation @ Break % (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014629,measurement,G098-06,Elongation at break 0.83 (0.28),"p. 12: Tensile Properties: Elongation @ Break % (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014630,measurement,G098-06,Tensile modulus 3.87 (0.34),"p. 12: Tensile Properties: Modulus (Elastic) GPa (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014631,measurement,G098-06,Tensile modulus 4.03 (1.4),"p. 12: Tensile Properties: Modulus (Elastic) GPa (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014632,measurement,G098-06,Flexural strength 173 (4.9),"p. 12: Flexural Properties: Flex Strength MPa (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014633,measurement,G098-06,Flexural strength 53.6 (8.2),"p. 12: Flexural Properties: Flex Strength MPa (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014634,measurement,G098-06,Flexural elongation at break 1.8 (1.4),"p. 12: Flexural Properties: Strain @ Break % (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014635,measurement,G098-06,Flexural modulus 2.96 (0.12),"p. 12: Flexural Properties: Modulus GPa (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014636,measurement,G098-06,Compression strength 108 (13),"p. 12: Compression Properties: Yield Strength MPa (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014637,measurement,G098-06,Compression strength 106 (4.6),"p. 12: Compression Properties: Yield Strength MPa (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014638,measurement,G098-06,Izod impact strength 27.2 (5.3),"p. 12: Impact Properties: Notched J/m (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014639,measurement,G098-06,Izod impact strength 16.6 (6.4),"p. 12: Impact Properties: Notched J/m (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014640,measurement,G098-06,Izod impact strength 625 (120),"p. 12: Impact Properties: Unnotched J/m (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014641,measurement,G098-06,Izod impact strength 48.1 (10),"p. 12: Impact Properties: Unnotched J/m (ZX), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,V014642,measurement,G098-06,Flexural modulus 40.3 (0.11),"p. 12: Flexural Properties: Modulus GPa (XZ), Table 12"
+R-STRATASYS-mds-fdm-antero-800na-0825a,P1888,profile,G098-06,Manufacturer published guidance,p. 3: Product Information: Table 1 and System Requirements
+R-STRATASYS-mds-fdm-pc-0426a,V009430,measurement,G035-23,HDT 144.0 °C,p. 6: HDT @ 66 psi
+R-STRATASYS-mds-fdm-pc-0426a,V009431,measurement,G035-23,HDT 140.7 °C,p. 6: HDT @ 264 psi
+R-STRATASYS-mds-fdm-pc-0426a,V009432,measurement,G035-23,Elongation at yield 4.8 %,p. 8: Elongation @ Yield %
+R-STRATASYS-mds-fdm-pc-0426a,V009433,measurement,G035-23,Elongation at break 12 %,p. 8: Elongation @ Break %
+R-STRATASYS-mds-fdm-pc-0426a,V009436,measurement,G035-23,Elongation at yield 5.5 %,p. 12: Elongation @ Yield %
+R-STRATASYS-mds-fdm-pc-0426a,V009437,measurement,G035-23,Elongation at break 7.6 %,p. 12: Elongation @ Break %
+R-STRATASYS-mds-fdm-pc-0426a,V014316,measurement,G035-23,HDT 141.1 °C (286.0 °F),p. 6: HDT @ 264 psi [G035-23]
+R-STRATASYS-mds-fdm-pc-0426a,V014317,measurement,G035-23,Glass transition temperature 142.5 °C (288.6 °F),p. 6: Tg
+R-STRATASYS-mds-fdm-pc-0426a,V014318,measurement,G035-23,Elongation at yield 1.9,p. 8: Elongation @ Yield % [G035-23] (Table 4: PC White Mechanical Properties - F900 - T16 Tip)
+R-STRATASYS-mds-fdm-pc-0426a,V014319,measurement,G035-23,Elongation at break 1.9,p. 8: Elongation @ Break % [G035-23] (Table 4: PC White Mechanical Properties - F900 - T16 Tip)
+R-STRATASYS-mds-fdm-pc-0426a,V014324,measurement,G035-23,Elongation at yield 2.8 (0.41),"p. 12: Elongation @ Yield % [G035-23] (Table 10: Mechanical Properties of PC Red, F900, T16)"
+R-STRATASYS-mds-fdm-pc-0426a,V014325,measurement,G035-23,Elongation at break 2.8 (0.41),"p. 12: Elongation @ Break % [G035-23] (Table 10: Mechanical Properties of PC Red, F900, T16)"
+R-STRATASYS-mds-fdm-pc-0426a,V014836,measurement,G035-23,Izod impact strength 45.8 (5.9) J/m,p. 8: Notched (XZ)
+R-STRATASYS-mds-fdm-pc-0426a,V014837,measurement,G035-23,Izod impact strength 30.7 (4.4) J/m,p. 8: Notched (ZX)
+R-STRATASYS-mds-fdm-pc-0426a,V014945,measurement,G035-23,Tensile yield strength 93.9 (2.15),p. 8: Yield Strength (XZ; ASTM D638)
+R-STRATASYS-mds-fdm-pc-0426a,V014946,measurement,G035-23,Tensile yield strength 53.1 (4.1),p. 8: Yield Strength (ZX; ASTM D638)
+R-STRATASYS-mds-fdm-pc-0426a,V014947,measurement,G035-23,Tensile break strength 54.1 (11),p. 8: Strength @ Break (XZ; ASTM D638)
+R-STRATASYS-mds-fdm-pc-0426a,V014948,measurement,G035-23,Tensile break strength 52.6 (4.0),p. 8: Strength @ Break (ZX; ASTM D638)
+R-STRATASYS-mds-fdm-pc-0426a,V014949,measurement,G035-23,Tensile modulus 2.94 (0.05),p. 8: Modulus (Elastic) (XZ)
+R-STRATASYS-mds-fdm-pc-0426a,V014950,measurement,G035-23,Tensile modulus 2.88 (0.07),p. 8: Modulus (Elastic) (ZX)
+R-STRATASYS-mds-fdm-pc-0426a,V014951,measurement,G035-23,Flexural strength 85.3 (14),"p. 8: Strength @ Break (ZX; ASTM D790, Procedure A)"
+R-STRATASYS-mds-fdm-pc-0426a,V014952,measurement,G035-23,Flexural stress at conventional deflection 144 (4.6),p. 8: Strength @ 5% Strain
+R-STRATASYS-mds-fdm-pc-0426a,V014953,measurement,G035-23,Flexural elongation at break 3.1,p. 8: Strain @ Break
+R-STRATASYS-mds-fdm-pc-0426a,V014954,measurement,G035-23,Flexural modulus 3.43 (0.09),p. 8: Modulus (XZ)
+R-STRATASYS-mds-fdm-pc-0426a,V014955,measurement,G035-23,Flexural modulus 2.80 (0.06),p. 8: Modulus (ZX)
+R-STRATASYS-mds-fdm-pc-0426a,V014956,measurement,G035-23,Compression strength 106 (3.3),p. 8: Yield Strength (XZ; ASTM D695)
+R-STRATASYS-mds-fdm-pc-0426a,V014957,measurement,G035-23,Compression strength 106 (3.1),p. 8: Yield Strength (ZX; ASTM D695)
+R-STRATASYS-mds-fdm-pc-0426a,V014958,measurement,G035-23,"Izod impact strength 1,930 (950)",p. 8: Unnotched (XZ)
+R-STRATASYS-mds-fdm-pc-0426a,V014959,measurement,G035-23,Izod impact strength 143.2 (32),p. 8: Unnotched (ZX)
+R-STRATASYS-mds-fdm-pc-0426a,V014972,measurement,G035-23,Tensile yield strength 62.3 (0.46),p. 12: Yield Strength (XZ)
+R-STRATASYS-mds-fdm-pc-0426a,V014973,measurement,G035-23,Tensile yield strength 45.3 (4.9),p. 12: Yield Strength (ZX)
+R-STRATASYS-mds-fdm-pc-0426a,V014974,measurement,G035-23,Tensile break strength 54.4 (2.4),p. 12: Strength @ Break (XZ)
+R-STRATASYS-mds-fdm-pc-0426a,V014975,measurement,G035-23,Tensile break strength 45.3 (4.9),p. 12: Strength @ Break (ZX)
+R-STRATASYS-mds-fdm-pc-0426a,V014976,measurement,G035-23,Tensile modulus 1.92 (0.026),p. 12: Modulus (Elastic) (XZ)
+R-STRATASYS-mds-fdm-pc-0426a,V014977,measurement,G035-23,Tensile modulus 1.91 (0.036),p. 12: Modulus (Elastic) (ZX)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V009342,measurement,G094-09,HDT 117.9 °C,p. 5: HDT @ 66 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V009343,measurement,G094-09,HDT 107.5 °C,p. 5: HDT @ 264 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V009344,measurement,G094-09,Elongation at yield 3.0 %,"p. 7: Elongation @ Yield % (Table 4. PC-ABS Mechanical Properties (F900 - T16 Tip), XZ Orientation)"
+R-STRATASYS-mds-fdm-pc-abs-0823a,V009345,measurement,G094-09,Elongation at break 4.7 %,p. 7: Elongation @ Break %
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014326,measurement,G094-09,HDT 126.1 °C (259.0 °F),p. 5: HDT @ 66 psi [G094-09]
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014327,measurement,G094-09,HDT 112.0 °C (233.6 °F),p. 5: HDT @ 264 psi [G094-09]
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014328,measurement,G094-09,HDT 125.0 °C (257.1 °F),p. 5: Molded HDT @ 66 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014329,measurement,G094-09,HDT 102.9 °C (217.2 °F),p. 5: Molded HDT @ 264 psi
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014330,measurement,G094-09,Glass transition temperature 105.3 °C (221.6 °F),p. 5: Tg
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014331,measurement,G094-09,Elongation at break 1.8 (0.22),p. 7: Elongation @ Break % [G094-09] (Table 4. PC-ABS Mechanical Properties (F900 - T16 Tip))
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014838,measurement,G094-09,Izod impact strength 241 (40) J/m,p. 7: Notched (XZ)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014839,measurement,G094-09,Izod impact strength 34.0 (6.0) J/m,p. 7: Notched (ZX)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014919,measurement,G094-09,Tensile yield strength 36.5 (0.73),p. 7: Yield Strength (XZ; ASTM D638)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014920,measurement,G094-09,Tensile break strength 34.7 (0.83),p. 7: Strength @ Break (XZ; ASTM D638)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014921,measurement,G094-09,Tensile break strength 25.9 (1.6),p. 7: Strength @ Break (ZX; ASTM D638)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014922,measurement,G094-09,Tensile modulus 1.99 (0.038),p. 7: Modulus (Elastic) (XZ)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014923,measurement,G094-09,Tensile modulus 1.87 (0.19),p. 7: Modulus (Elastic) (ZX)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014924,measurement,G094-09,Flexural strength 46.2 (2.0),"p. 7: Strength @ Break (ZX; ASTM D790, Procedure A)"
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014925,measurement,G094-09,Flexural stress at conventional deflection 61.9 (1.2),p. 7: Strength @ 5% Strain
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014926,measurement,G094-09,Flexural elongation at break 3.51 (0.30),p. 7: Strain @ Break
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014927,measurement,G094-09,Flexural modulus 1.86 (0.14),p. 7: Modulus (XZ)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014928,measurement,G094-09,Flexural modulus 1.68 (0.069),p. 7: Modulus (ZX)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014929,measurement,G094-09,Compression strength 96.5 (3.6),p. 7: Yield Strength (XZ; ASTM D695)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014930,measurement,G094-09,Compression strength 172 (13),p. 7: Yield Strength (ZX; ASTM D695)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014931,measurement,G094-09,Izod impact strength 655 (127),p. 7: Unnotched (XZ)
+R-STRATASYS-mds-fdm-pc-abs-0823a,V014932,measurement,G094-09,Izod impact strength 101 (23),p. 7: Unnotched (ZX)
+R-STRATASYS-mds-fdm-pc-abs-0823a,P0921,profile,G094-09,Manufacturer published guidance,p. 3: Build Sheet
+R-3D4MAKERS-TDS-ABS-Filament,P0695,profile,G027-28,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Bed Adhesion
+R-3DJAKE-3DJAKE-23-TDS-HYPER-PETG-EN,P0867,profile,G020-53,Manufacturer published guidance,p. 1: Recommended printing settings; p. 1: Hot Bed Temperature
+R-3DJAKE-3DJAKE-TDS-ecoPLA-Sparkling-0,P0824,profile,G001-119,Manufacturer published guidance,p. 1: Recommended printing settings
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007622,measurement,G048-02,Tensile strength (endpoint unspecified) 103.2 MPa,p. 5: Tensile strength dry ISO 527
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007623,measurement,G048-02,Elongation at break 2.9 %,p. 5: Elongation at Break11) ISO 527
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007624,measurement,G048-02,Elongation at break 1.8 %,p. 5: Elongation at Break dry ISO 527
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007625,measurement,G048-02,Tensile modulus 5052 MPa,p. 5: Young’s Modulus9) ISO 527
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007626,measurement,G048-02,Tensile modulus 8386 MPa,p. 5: Young’s Modulus dry ISO 527
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007627,measurement,G048-02,Flexural strength 50.8 MPa,p. 6: Flexural Strength dry7) ISO 178
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007628,measurement,G048-02,Flexural modulus 6063 MPa,p. 6: Flexural Modulus ISO 178
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007629,measurement,G048-02,Flexural modulus 8258 MPa,p. 6: Flexural Modulus dry7) ISO 178
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007630,measurement,G048-02,Flexural elongation at break 3.6 %,p. 6: Flexural Elongation at Break ISO 178 No break
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007631,measurement,G048-02,Flexural elongation at break 2.4 %,p. 6: Flexural Elongation at Break ISO 178
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V007632,measurement,G048-02,Charpy strength 5.1 kJ/m2,p. 6: Impact Strength Charpy ISO 179-2
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011720,measurement,G048-02,Tensile strength (endpoint unspecified) 62.9 MPa,"p. 5: Tensile strength conditioned, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011721,measurement,G048-02,Tensile strength (endpoint unspecified) 19.1 MPa,"p. 5: Tensile strength conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011722,measurement,G048-02,Tensile strength (endpoint unspecified) 18.2 MPa,"p. 5: Tensile strength dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011723,measurement,G048-02,Tensile strength (endpoint unspecified) 54 MPa,"p. 5: Tensile strength conditioned annealed, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011724,measurement,G048-02,Tensile strength (endpoint unspecified) 7.9 MPa,"p. 5: Tensile strength conditioned annealed, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011725,measurement,G048-02,"Tensile strength (endpoint unspecified) 80,5 MPa","p. 5: Tensile strength dry annealed, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011726,measurement,G048-02,"Tensile strength (endpoint unspecified) 8,14 MPa","p. 5: Tensile strength dry annealed, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011727,measurement,G048-02,Elongation at break 0.8 %,"p. 5: Elongation at Break conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011728,measurement,G048-02,Elongation at break 0.5 %,"p. 5: Elongation at Break dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011729,measurement,G048-02,"Elongation at break 2,9 %","p. 5: Elongation at Break conditioned annealed, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011730,measurement,G048-02,Elongation at break 1.8 %,"p. 5: Elongation at Break conditioned annealed, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011731,measurement,G048-02,"Elongation at break 1,7 %","p. 5: Elongation at Break dry annealed, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011732,measurement,G048-02,"Elongation at break 0,8 %","p. 5: Elongation at Break dry annealed, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011733,measurement,G048-02,Tensile modulus 2455 MPa,"p. 5: Young’s Modulus conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011734,measurement,G048-02,Tensile modulus 3532 MPa,"p. 5: Young’s Modulus dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011735,measurement,G048-02,Tensile modulus 4102 MPa,"p. 5: Young’s Modulus conditioned annealed, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011736,measurement,G048-02,Tensile modulus 795 MPa,"p. 5: Young’s Modulus conditioned annealed, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011737,measurement,G048-02,Tensile modulus 6588 MPa,"p. 5: Young’s Modulus dry annealed, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011738,measurement,G048-02,Tensile modulus 1320 MPa,"p. 5: Young’s Modulus dry annealed, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011739,measurement,G048-02,Flexural strength 125.1 MPa,"p. 6: Flexural Strength conditioned, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011740,measurement,G048-02,Flexural strength 121.9 MPa,"p. 6: Flexural Strength conditioned, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011741,measurement,G048-02,Flexural strength 56.0 MPa,"p. 6: Flexural Strength conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011742,measurement,G048-02,Flexural strength 160.7 MPa,"p. 6: Flexural Strength dry, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011743,measurement,G048-02,Flexural strength 171.8 MPa,"p. 6: Flexural Strength dry, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011744,measurement,G048-02,Flexural modulus 6260 MPa,"p. 6: Flexural Modulus conditioned, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011745,measurement,G048-02,Flexural modulus 2190 MPa,"p. 6: Flexural Modulus conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011746,measurement,G048-02,Flexural modulus 7669 MPa,"p. 6: Flexural Modulus dry, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011747,measurement,G048-02,Flexural modulus 2715 MPa,"p. 6: Flexural Modulus dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011748,measurement,G048-02,Flexural elongation at break 4.0 %,"p. 6: Flexural Elongation at Break conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011749,measurement,G048-02,Flexural elongation at break 2.8 %,"p. 6: Flexural Elongation at Break dry, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011750,measurement,G048-02,Flexural elongation at break 1.8 %,"p. 6: Flexural Elongation at Break dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011751,measurement,G048-02,Charpy strength 5.3 kJ/m2,"p. 6: Impact Strength Charpy (notched) conditioned, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011752,measurement,G048-02,Charpy strength 1.6 kJ/m2,"p. 6: Impact Strength Charpy (notched) conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011753,measurement,G048-02,Charpy strength 4.8 kJ/m2,"p. 6: Impact Strength Charpy (notched) dry, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011754,measurement,G048-02,Charpy strength 3.9 kJ/m2,"p. 6: Impact Strength Charpy (notched) dry, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011755,measurement,G048-02,Charpy strength 1.3 kJ/m2,"p. 6: Impact Strength Charpy (notched) dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011756,measurement,G048-02,Charpy strength 21.9 kJ/m2,"p. 6: Impact Strength Charpy (unnotched) conditioned, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011757,measurement,G048-02,Charpy strength 20.4 kJ/m2,"p. 6: Impact Strength Charpy (unnotched) conditioned, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011758,measurement,G048-02,Charpy strength 2.8 kJ/m2,"p. 6: Impact Strength Charpy (unnotched) conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011759,measurement,G048-02,Charpy strength 20.6 kJ/m2,"p. 6: Impact Strength Charpy (unnotched) dry, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011760,measurement,G048-02,Charpy strength 19.3 kJ/m2,"p. 6: Impact Strength Charpy (unnotched) dry, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011761,measurement,G048-02,Charpy strength 2.9 kJ/m2,"p. 6: Impact Strength Charpy (unnotched) dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011762,measurement,G048-02,Izod impact strength 6.5 J/m,"p. 6: Impact Strength Izod (notched) conditioned, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011763,measurement,G048-02,Izod impact strength 5.8 J/m,"p. 6: Impact Strength Izod (notched) conditioned, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011764,measurement,G048-02,Izod impact strength 4.9 J/m,"p. 6: Impact Strength Izod (notched) dry, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011765,measurement,G048-02,Izod impact strength 5.1 J/m,"p. 6: Impact Strength Izod (notched) dry, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011766,measurement,G048-02,Izod impact strength 16.3 J/m,"p. 6: Impact Strength Izod (unnotched) conditioned, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011767,measurement,G048-02,Izod impact strength 15.1 J/m,"p. 6: Impact Strength Izod (unnotched) conditioned, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011768,measurement,G048-02,Izod impact strength 4.1 J/m,"p. 6: Impact Strength Izod (unnotched) conditioned, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011769,measurement,G048-02,Izod impact strength 16.4 J/m,"p. 6: Impact Strength Izod (unnotched) dry, XY-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011770,measurement,G048-02,Izod impact strength 18.1 J/m,"p. 6: Impact Strength Izod (unnotched) dry, XZ-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V011771,measurement,G048-02,Izod impact strength 2.9 J/m,"p. 6: Impact Strength Izod (unnotched) dry, ZX-Direction"
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,V012681,measurement,G048-02,Density 1203 kg/m³,p. 4: Filament Density
+R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,P0732,profile,G048-02,Manufacturer published guidance,p. 3: Recommended printing settings; p. 4: Drying recommendations; p. 3: Bed Material
+R-COLORFABB-TDS-E-ColorFabb-ASA,P0519,profile,G031-13,Manufacturer published guidance,p. 2: Recommended printing settings
+R-COLORFABB-TDS-E-ColorFabb-CopperFill,P0997,profile,G001-156,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Bed / surface modification
+R-COLORFABB-TDS-E-ColorFabb-LW-PLA,P0500,profile,G017-09,Manufacturer published guidance,p. 2: Recommended printing settings
+R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,P0512,profile,G143-01,Manufacturer published guidance,p. 2: Recommended printing settings: Nozzle Temp
+R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,P0513,profile,G143-01,Retired duplicate record,Retired duplicate of P0512 (D120): p. 2: Recommended printing settings: nozzle
+R-COLORFABB-TDS-E-colorFabb-PLA-Regrind,P0517,profile,G001-61,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Bed / surface modification
+R-COLORFABB-TDS-LW-PET,P0495,profile,G141-01,Manufacturer published guidance,"p. 2: Guideline for print settings: Nozzle Temp., unfoamed column (Value unfoamed @ 210)"
+R-COLORFABB-TDS-LW-PET,P1356,profile,G141-01,Manufacturer published guidance,"p. 2: Guideline for print settings: Nozzle Temp., foamed column (Value foamed @ 260)"
+R-COLORFABB-TDS-LW-PET-FLEX,P0508,profile,G141-02,Manufacturer published guidance,"p. 2: Guideline for print settings: Nozzle Temp., unfoamed column (Value unfoamed @ 210)"
+R-COLORFABB-TDS-LW-PET-FLEX,P1358,profile,G141-02,Manufacturer published guidance,"p. 2: Guideline for print settings: Nozzle Temp., foamed column (Value foamed @ 260)"
+R-COLORFABB-TDS-varioShore-TPU-95A,P0501,profile,G039-25,Manufacturer published guidance,p. 2: Recommended printing settings
+R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,P1221,profile,G008-22,Manufacturer published guidance,"p. 1: Nozzle temperature, Bed temperature, Sealed printing; p. 1: Bed material"
+R-ERYONE-eryone-silk-pla-dual-color-tds,P1222,profile,G008-23,Manufacturer published guidance,"p. 1: Nozzle temperature, Bed temperature, Sealed printing; p. 1: Bed material"
+S-PEBA-eABS-HS-TDS,P0586,profile,G027-20,Manufacturer published guidance,"p. 2: Recommended printing settings: Extruder Temperature, Build Platform Temperature; p. 2: Based on 0.4 mm nozzle; p. 2: Build Platform Temperature"
+R-EXTRUDR-durapro-pc-pbt-cf-TDS-en,V004169,measurement,G131-01,Water absorption 0.5 %,p. 2: Water Absorption (Saturation Value) ISO 62 %
+R-EXTRUDR-durapro-pc-pbt-cf-TDS-en,V004170,measurement,G131-01,Water absorption 0.2 %,p. 2: Water Absorption (Equilibrium Value) ISO 62 %
+R-EXTRUDR-durapro-pc-pbt-cf-TDS-en,V004171,measurement,G131-01,Density 1200 kg/m³,p. 2: Density ISO 1183-1 kg/m³
+R-EXTRUDR-durapro-pc-pbt-cf-TDS-en,P0379,profile,G131-01,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Adhesive; p. 2: nozzle_diameter
+R-YOUSU-YOUSUPETGTDS-8fb4,P0988,profile,G020-65,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Bed Temp
+S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,V009737,measurement,G148-01,Melting temperature 280 °C,p. 2: Melt temperature °C
+S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,P0953,profile,G148-01,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Processing: nozzle material; p. 2: Dehumidifying dryer
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003523,measurement,G001-21,Density 1.287 g/cm3,"p. 2: Density ISO1183, GB/T1033"
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003524,measurement,G001-21,Melt mass-flow rate 22.6 g/10min,"p. 2: Melt index 210°C, 2.16 kg"
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003525,measurement,G001-21,Glass transition temperature 59.8 °C,"p. 3: Glass transition temperature DSC, 10°C/min"
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003526,measurement,G001-21,Melting temperature 177.23 °C,"p. 3: Melting temperature DSC, 10°C/min"
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003527,measurement,G001-21,Crystallization temperature 77.21 °C,"p. 3: Crystallization temperature DSC, 10°C/min"
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003528,measurement,G001-21,Vicat softening temperature 156.2 °C,"p. 3: Vicat softening temperature ISO 306, GB/T 1633"
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003529,measurement,G001-21,HDT 58.6 °C,p. 3: Heat deflection temperature ISO 75 1.8MPa
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,V003530,measurement,G001-21,HDT 61.4 °C,p. 3: Heat deflection temperature ISO 75 0.45MPa
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,P0294,profile,G001-21,Manufacturer published guidance,p. 5: Recommended printing settings: Nozzle temperature; p. 5: Drying setting; p. 5: Closure chamber
+S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,P0295,profile,G001-21,Retired duplicate record,Retired duplicate of P0294 (D120): p. 5: Recommended printing settings: Nozzle temperature
+S-POLYCN-PolyMax-PETG-TDS-V4,P0323,profile,G020-16,Retired duplicate record,Retired duplicate of P0322 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN,P0279,profile,G031-06,Retired duplicate record,Retired duplicate of P0278 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN,P0297,profile,G019-01,Retired duplicate record,Retired duplicate of P0296 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-HT-PLA-V1-3-2025-12-10-EN,P0332,profile,G001-21,Retired duplicate record,Retired duplicate of P0331 (D120): p. 1: Recommended printing settings: Nozzle temperature
+S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN,P0291,profile,G039-11,Retired duplicate record,Retired duplicate of P0290 (D120): p. 1: Recommended printing settings: Nozzle temperature
+R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,P0576,profile,G050-11,Retired duplicate record,Retired duplicate of P0575 (D120): p. 1: Recommended printing settings: Nozzle temperature
+R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,P0568,profile,G051-09,Retired duplicate record,Retired duplicate of P0567 (D120): p. 1: Recommended printing settings: Nozzle temperature
+R-QIDI-ASA,V008091,measurement,G031-25,Density 1.07 g/cm³,p. 2: 密度 ISO 1183 Density
+R-QIDI-ASA,V008092,measurement,G031-25,Glass transition temperature 98 °C,p. 2: Density 玻璃化转变温度 ISO 11357 Glass transition temperature
+R-QIDI-ASA,V008093,measurement,G031-25,Melt mass-flow rate 5.6 g/10min,p. 2: Melt index
+R-QIDI-ASA,V008094,measurement,G031-25,Vicat softening temperature 101 °C,p. 2: 维卡软温度 ISO 306 Vicat softening temperature
+R-QIDI-ASA,V008095,measurement,G031-25,HDT 83 °C,p. 2: 热变形温度 ISO 75:Method A
+R-QIDI-ASA,V008096,measurement,G031-25,HDT 93 °C,p. 2: Determination of temperature
+R-QIDI-ASA,P1246,profile,G031-25,Manufacturer published guidance,"p. 4: Nozzle temperature, Build plate temperature, Additional Suggestions"
+R-QIDI-ODORLESS-ABS,V008055,measurement,G027-32,Tensile break strength 33.36 ± 0.53 MPa,p. 3: 拉伸断裂强度 Tensile breaking strength (X-Y)
+R-QIDI-ODORLESS-ABS,V008056,measurement,G027-32,Elongation at break 5.77 ± 0.84 %,p. 3: 断裂伸长率 Elongation at break (X-Y)
+R-QIDI-ODORLESS-ABS,V008057,measurement,G027-32,Tensile break strength 26.16 ± 1.73 MPa,p. 3: Tensile breaking strength
+R-QIDI-ODORLESS-ABS,V008058,measurement,G027-32,Tensile modulus 1967.57 ± 119.93 MPa,p. 3: Young's Modulus (无保温环境/开放式打印机)
+R-QIDI-ODORLESS-ABS,V008059,measurement,G027-32,Elongation at break 1.62 ± 0.14 %,p. 3: 断裂伸长率 Elongation at break (Z)
+R-QIDI-ODORLESS-ABS,V008060,measurement,G027-32,Tensile modulus 2201.74 ± 74.91 MPa,p. 3: Young's Modulus (Chamber Temp: 55℃)
+R-QIDI-ODORLESS-ABS,V008061,measurement,G027-32,Flexural strength 67.81 ± 0.54 MPa,p. 3: 弯曲强度 Bending strength (X-Y)
+R-QIDI-ODORLESS-ABS,V008062,measurement,G027-32,Flexural modulus 2400 ± 79.69 MPa,p. 3: Bending Modulus
+R-QIDI-ODORLESS-ABS,V008063,measurement,G027-32,Charpy strength 20.03 ± 1.32 KJ/㎡,p. 3: Charpy impact strength ISO 179
+R-QIDI-ODORLESS-ABS,P1122,profile,G027-32,Manufacturer published guidance,p. 5: Drying note; p. 4: Nozzle Temperature; p. 4: Build plate temperature; p. 5: Additional Suggestions
+R-QIDI-PET-GF,V008154,measurement,G068-05,HDT 120.3 °C,p. 3: Determination of temperature ISO 75: Method B
+R-QIDI-PET-GF,V008155,measurement,G068-05,Tensile strength (endpoint unspecified) 70.86 ± 2.86 Mpa,p. 3: 拉伸强度(X-Y) Tensile strength(X-Y)
+R-QIDI-PET-GF,V008156,measurement,G068-05,Elongation at break 2.56 ± 0.30 %,p. 3: 断裂伸长率(X-Y) Elongation at break (X-Y)
+R-QIDI-PET-GF,V008157,measurement,G068-05,Flexural strength 114.87 ± 3.0 Mpa,p. 3: 弯曲强度(X-Y) Bending strength (X-Y)
+R-QIDI-PET-GF,V008158,measurement,G068-05,Flexural modulus 3650.32 ± 65.81 Mpa,p. 3: 弯曲模量 (X-Y) Bending modulus (X-Y)
+R-QIDI-PET-GF,V008159,measurement,G068-05,Charpy strength 6.56 ± 0.68 KJ/㎡,p. 3: 缺口冲击强度 (X-Y) ISO 179 Charpy impact strength (X-Y)
+R-QIDI-PET-GF,V008160,measurement,G068-05,Tensile strength (endpoint unspecified) 33.95 ± 2.38 MPa,p. 3: 拉伸强度 (Z) Tensile strength (Z)
+R-QIDI-PET-GF,V008161,measurement,G068-05,Tensile modulus 3322.37 ± 94.04 MPa,p. 3: 拉伸模量(Z)
+R-QIDI-PET-GF,V008162,measurement,G068-05,Elongation at break 1.14 ± 0.11 %,p. 3: 断裂伸长率(Z) Elongation at break (Z)
+R-QIDI-PET-GF,P1145,profile,G068-05,Manufacturer published guidance,p. 4: Drying note; p. 3: Nozzle Temperature; p. 4: Build plate temperature; p. 5: Nozzle; p. 3: Recommended Nozzle Diameter
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V009312,measurement,G001-152,Density 1.21,p. 1: Density
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013922,measurement,G001-152,Water absorption 0.45,p. 1: Water absorption (%)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013923,measurement,G001-152,Tensile modulus 3100 ± 100,p. 1: Young’s modulus (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013924,measurement,G001-152,Tensile modulus 2200 ± 150,p. 1: Young’s modulus (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013925,measurement,G001-152,Tensile strength (endpoint unspecified) 37.5 ± 3.5,p. 1: Tensile strength (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013926,measurement,G001-152,Tensile strength (endpoint unspecified) 20.5 ± 4.5,p. 1: Tensile strength (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013927,measurement,G001-152,Elongation at break 16.0 ± 8.0,p. 1: Elongation at break (%) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013928,measurement,G001-152,Elongation at break 3.0 ± 1.5,p. 1: Elongation at break (%) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013929,measurement,G001-152,Flexural modulus 3050 ± 150,p. 1: Bending modulus (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013930,measurement,G001-152,Flexural modulus 2000 ± 200,p. 1: Bending modulus (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013931,measurement,G001-152,Flexural strength 68.5 ± 2.5,p. 1: Bending strength (MPa) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013932,measurement,G001-152,Flexural strength 45.5 ± 3.5,p. 1: Bending strength (MPa) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013933,measurement,G001-152,Charpy strength 15.5 ± 4.5,p. 1: Charpy impact strength (kJ/m²) (XY)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,V013934,measurement,G001-152,Charpy strength 5.0 ± 2.0,p. 1: Charpy impact strength (kJ/m²) (ZX)
+D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,P0908,profile,G001-152,Retired duplicate record,"Retired duplicate of P0907 (D120): p. 2: the conditions the test specimens were printed under, which are not printing guidance (m170)"
+R-RECREUS-FILAFLEX-Filaflex-82A,P0692,profile,G039-43,Manufacturer published guidance,p. 3: Recommended printing settings; p. 3: Nozzle 0.4 mm
+R-RECREUS-FILAFLEX-Filaflex-82A,P1344,profile,G039-43,Manufacturer published guidance,p. 3: Recommended printing settings: Nozzle 0.6 mm
+R-RECREUS-FILAFLEX-Filaflex-82A,P1345,profile,G039-43,Manufacturer published guidance,p. 3: Recommended printing settings: Nozzle 0.8 mm
+R-RECREUS-FILAFLEX-Filaflex-82A,P1346,profile,G039-43,Manufacturer published guidance,p. 4: Recommended printing settings: Nozzle 1.0 mm
+R-RECREUS-FILAFLEX-Filaflex-95A,P1342,profile,G039-40,Manufacturer published guidance,p. 3: Recommended printing settings: Nozzle 0.8 mm
+R-RECREUS-FILAFLEX-Filaflex-95A,P1343,profile,G039-40,Manufacturer published guidance,p. 3: Recommended printing settings: Nozzle 1.0 mm
+R-STRATASYS-mds-fdm-absesd7-0222a,V009428,measurement,G027-44,Elongation at yield 2.1 %,p. 7: Elongation @ Yield %
+R-STRATASYS-mds-fdm-absesd7-0222a,V009429,measurement,G027-44,Elongation at break 2.4 %,p. 7: Elongation @ Break %
+R-STRATASYS-mds-fdm-absesd7-0222a,V014195,measurement,G027-44,Tensile yield strength 33.3 (0.70) MPa,p. 7: Yield Strength
+R-STRATASYS-mds-fdm-absesd7-0222a,V014196,measurement,G027-44,Tensile break strength 31.8 (0.77) MPa,p. 7: Strength @ Break (XZ)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014197,measurement,G027-44,Tensile break strength 23.2 (0.34) MPa,p. 7: Strength @ Break (ZX)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014198,measurement,G027-44,Elongation at break 1.8 (0.071) %,p. 7: Elongation @ Break
+R-STRATASYS-mds-fdm-absesd7-0222a,V014199,measurement,G027-44,Tensile modulus 2.12 (0.029) GPa,p. 7: Modulus (Elastic) (XZ)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014200,measurement,G027-44,Tensile modulus 1.73 (0.020) GPa,p. 7: Modulus (Elastic) (ZX)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014201,measurement,G027-44,Flexural strength 60.4 (2.5) MPa,p. 7: Strength @ Break (flexural)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014202,measurement,G027-44,Flexural elongation at break 3.81 (0.26) %,p. 7: Strain @ Break (flexural)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014203,measurement,G027-44,Flexural modulus 2.25 (0.026) GPa,p. 7: Modulus (flexural)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014204,measurement,G027-44,Compression strength 52.8 (2.2) MPa,p. 7: Yield Strength (compression)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014849,measurement,G027-44,Izod impact strength 41.4 (3.0) J/m,p. 7: Notched (XZ)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014850,measurement,G027-44,Izod impact strength 18 (2.7) J/m,p. 7: Notched (ZX)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014851,measurement,G027-44,Izod impact strength 343 (41) J/m,p. 7: Unnotched (XZ)
+R-STRATASYS-mds-fdm-absesd7-0222a,V014852,measurement,G027-44,Izod impact strength 69.1 (6.6) J/m,p. 7: Unnotched (ZX)
+R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,P0427,profile,G093-03,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Nozzle Temp.
+R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,P0404,profile,G053-05,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Nozzle Temp.
+R-SUNLU-9c709eea-12c7-4a05-b5cd-227c63c700b8,P1612,profile,G149-03,Manufacturer published guidance,p. 2: Nozzle Temp.; p. 2: Plate Temp.; p. 2: Plate Material; p. 2: Room Temp.; p. 2: Drying Temp.
+R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,P0903,profile,G057-06,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Nozzle Temp.
+R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,P0408,profile,G027-12,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Nozzle Temp.
+R-SUNLU-High-Speed-Matte-PETG-TDS,P0786,profile,G020-20,Manufacturer published guidance,"p. 2: Recommended printing settings; p. 2: Nozzle Print Temp.; p. 2: Nozzle temperature, 50-100mm/s; p. 2: Print Platform Material"
+R-SUNLU-High-Speed-Matte-PETG-TDS,P1361,profile,G020-20,Manufacturer published guidance,"p. 2: Recommended Printing Parameters: Nozzle temperature, 100-300mm/s; p. 2: Print Platform Material"
+R-SUNLU-High-Speed-Matte-PETG-TDS,P1362,profile,G020-20,Manufacturer published guidance,"p. 2: Recommended Printing Parameters: Nozzle temperature, 300-600mm/s; p. 2: Print Platform Material"
+R-SUNLU-PA12-CF-TDS,P0765,profile,G053-05,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Nozzle Print Temp.; p. 2: Print Platform Material
+R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,P0793,profile,G082-05,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Nozzle Print Temp.; p. 2: Print Platform Temp.; p. 1: Points for attention
+R-SUNLU-SUNLU-ABS-Blue,P0788,profile,G027-13,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Room Temp.
+R-SUNLU-SUNLU-ABS-Blue,P1332,profile,G027-13,Manufacturer published guidance,"p. 2: Recommended Printing Parameters: Zonal Temperature, 100-200mm/s"
+R-SUNLU-SUNLU-ASA-Purple,P0777,profile,G031-08,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Print Platform Temp.; p. 2: Room Temp.
+R-SUNLU-SUNLU-ASA-Purple,P1330,profile,G031-08,Manufacturer published guidance,"p. 2: Recommended Printing Parameters: Zonal Temperature, 100-200mm/s"
+R-SUNLU-TDS-EASY-PA,P0763,profile,G057-06,Manufacturer published guidance,p. 2: Recommended printing settings; p. 2: Nozzle Print Temp.; p. 2: Room Temp.
+R-SUNLU-TDS-EASY-PA,P1324,profile,G057-06,Manufacturer published guidance,"p. 2: Recommended Printing Parameters: Zonal Temperature, 100-200mm/s"
+R-3DJAKE-EN-TDS-The-Filament-ASA-CF,P1249,profile,G033-18,Manufacturer published guidance,"p. 1: Nozzle temperature, Bed temperature, Closed chamber for printing, Ruby or hardened nozzle; p. 1: Dry box recommended; p. 1: * settings are based on a 0,4 mm nozzle."
+R-ULTIMAKER-MAKERBOT-MakerBot-Precision-ASA-3-092020,V014391,measurement,G031-21,HDT 96°C,p. 1: HEAT DEFLECTION
+R-ULTIMAKER-MAKERBOT-MakerBot-Precision-ASA-3-092020,V014392,measurement,G031-21,"Tensile modulus 2,167 MPA",p. 1: TENSILE MODULUS
+R-ULTIMAKER-MAKERBOT-MakerBot-Precision-ASA-3-092020,V014393,measurement,G031-21,Tensile strength (endpoint unspecified) 49 MPA,p. 1: TENSILE STRENGTH
+R-ULTIMAKER-MAKERBOT-MakerBot-Precision-ASA-3-092020,P1799,profile,G031-21,Manufacturer published guidance,p. 2: METHOD heated chamber
