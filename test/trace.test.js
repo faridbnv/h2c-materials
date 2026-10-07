@@ -80,3 +80,13 @@ test('the command prints the same trace as one JSON object, its keys always in t
   const printed = JSON.parse(r.stdout);
   assert.equal(r.stdout.trim(), JSON.stringify(traceDecision(db, scenario({ anneal: true }), PRODUCT, { file, database: printed.database }), null, 2));
 });
+
+test('a scenario that ranks by a goal: the trace gives the material its place as the page ranks it, or says why it has none', () => {
+  const t = traceDecision(db, scenario({ anneal: true, rankBy: 'beam-stiffness' }), PRODUCT);
+  assert.equal(t.rank.indexId, 'beam-stiffness');
+  if (t.rank.place) {
+    assert.ok(t.rank.place >= 1 && t.rank.place <= t.rank.of && Number.isFinite(t.rank.materialValue));
+    assert.equal(t.rank.reasonIfUnranked, null);
+  } else assert.match(t.rank.reasonIfUnranked, /publishes|does not pass/, 'an unranked material says why');
+  assert.equal(traceDecision(db, scenario({ anneal: true }), PRODUCT).rank, null, 'no goal, no rank');
+});

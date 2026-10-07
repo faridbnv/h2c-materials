@@ -18,7 +18,8 @@
 // the product it says the release, the requirements and the evidence policy; the states the scenario permits, each
 // state's verdict and the one it was judged in; for each requirement its status and reason, the records it rests on,
 // a measurement's own words and typed conditions and what was admitted unstated, and each source's SHA-256 and locator;
-// and its material's verdict and counts. --json prints one object, its keys always in the same order, for tests and
+// and its material's verdict and counts, and, where the scenario ranks by a goal, the material's place and the product's
+// own index value (rank). --json prints one object, its keys always in the same order, for tests and
 // tools. The database is dist/db.json when it is of the release the tables, rules and engine make now (D96), and is
 // compiled in memory from them otherwise, so a trace is never of other tables than the ones on disk.
 
@@ -30,7 +31,8 @@ import { snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 import { releaseIdentity } from '../build/src/release.js';
 import { runSelection, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
-import { productsByMaterial, productHeadline, scenarioStates, statePolicy } from '../app/js/engine/products.js';
+import { productsByMaterial, productHeadline, productView, scenarioStates, stateOf, statePolicy } from '../app/js/engine/products.js';
+import { indexById, indexValue, rankingFor } from '../app/js/engine/indices.js';
 import { deserialize, applyAssumptions } from '../app/js/engine/scenario.js';
 
 // ---------------------------------------------------------------- one decision
@@ -228,6 +230,23 @@ export function traceDecision(db, scenarioText, productId, { requirement = null,
     records: requirementRecords(ix, r, { material, grade, state, ctx }),
   }));
 
+  // Its place under the scenario's goal, as the page ranks it (D102, rankingFor): a material ranks by the median of its
+  // passing products' own index values, each in the state it passes in; the product's own value is the one it adds.
+  const index = scenario.rankBy ? indexById(scenario.rankBy) : null;
+  let rank = null;
+  if (index) {
+    const rows = materials.map((m) => ({ material: m, evaluation: evaluations.find((e) => e.materialId === m.id) })).filter((r) => r.evaluation);
+    const ranking = rankingFor(rows, ctx, index);
+    const placed = ranking.byMaterial.get(material.id) ?? null;
+    const productValue = entry.verdict === 'PASS' ? indexValue(productView(material, grade, ctx, stateOf(grade, entry.state.id)), index) : null;
+    const unranked = ranking.unranked.find((u) => u.materialId === material.id)?.reason
+      ?? (evaluation.verdict !== 'PASS' ? `the material does not pass (${evaluation.verdict}); only a passing material ranks` : null);
+    rank = {
+      indexId: index.id, place: placed?.place ?? null, of: ranking.order.length, materialValue: placed?.value ?? null,
+      productValue, reasonIfUnranked: placed ? null : unranked,
+    };
+  }
+
   return {
     release: { id: db.meta.release?.id ?? null, digest: db.meta.release?.digest ?? null },
     database,
@@ -255,6 +274,7 @@ export function traceDecision(db, scenarioText, productId, { requirement = null,
       share: evaluation.share ?? null, counts: evaluation.counts ?? null, someFail: evaluation.someFail ?? false,
       decidedBy: { gradeId: evaluation.gradeId ?? null, state: evaluation.state?.id ?? null },
     },
+    rank,
   };
 }
 
@@ -296,6 +316,11 @@ function decisionText(t) {
   say(0, `material ${m.id} ${m.name}: ${m.verdict}${m.share ? ` (${m.share})` : ''}${m.eligible ? ', a candidate' : ''}`
     + (c ? `; of ${c.products} product(s) ${c.pass} pass, ${c.fail} fail, ${c.untested} unresolved${c.screened ? ` (${c.screened} screened)` : ''}` : '')
     + (m.decidedBy.gradeId ? `; answered by ${m.decidedBy.gradeId} in ${m.decidedBy.state}` : ''));
+  const k = t.rank;
+  if (k) {
+    say(0, k.place ? `rank under ${k.indexId}: ${k.place} of ${k.of} (material median ${k.materialValue.toPrecision(4)}${k.productValue !== null ? `; this product ${k.productValue.toPrecision(4)}` : ''})`
+      : `rank under ${k.indexId}: unranked (${k.reasonIfUnranked ?? 'no value'})`);
+  }
   return lines.join('\n');
 }
 
