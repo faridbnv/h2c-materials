@@ -17,7 +17,7 @@ rather than repeat a number.
 | … with a maker's know-how statement | 1,017 | lane 3 |
 | Measurements | 14,817 | active rows |
 | … with a usable number | 14,624 |  |
-| Product values | 5,229 | one per product and headline, chosen by rule (D83) |
+| Product values | 5,227 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 708 | headline cells of in-scope materials |
 | Material values estimated | 138 | where no product publishes (D43) |
 | Print profiles | 1,835 |  |

@@ -1039,8 +1039,6 @@ G008-28,M008,Silk Gloss PLA,tensileStrengthXY,64,as-published,unstated-direction
 G008-29,M008,PLA Silk Dual Color,density,1240,comparable,,V009852,,,,
 G008-31,M008,ePLA-Silk Mystic,priceCADkg,39.99,comparable,,CA0264,,,,
 G008-32,M008,PLA Silk,density,1240,comparable,,V009852,,,,twin G008-29
-G008-33,M008,SILK,tensileStrengthXY,59,as-published,unstated-direction,V011863,,,,
-G008-33,M008,SILK,elongationXY,4.2,as-published,unstated-direction,V011864,,,,
 G009-01,M008,PLA Silk+,density,1270,comparable,,V000144,55 °C 8 h,,,
 G009-01,M008,PLA Silk+,tensileModulusXY,2.13,comparable,,V000151,55 °C 8 h,,,
 G009-01,M008,PLA Silk+,tensileStrengthXY,33,comparable,,V000153,55 °C 8 h,,,

@@ -18,7 +18,7 @@ tensileStrengthXY,this-material,bottom,58,1,3,0.025,yes
 tensileStrengthXY,family,top,67,0,4,0.975,yes
 tensileStrengthXY,family,bottom,67,3,4,0.025,yes
 elongationXY,this-grade,top,46,0,2,0.975,yes
-elongationXY,this-grade,bottom,46,2,2,0.021133,yes
+elongationXY,this-grade,bottom,46,2,2,0.0211325,yes
 elongationXY,this-material,top,69,2,4,0.975,yes
 elongationXY,this-material,bottom,69,2,4,0.025,yes
 elongationXY,family,top,86,2,5,0.975,yes

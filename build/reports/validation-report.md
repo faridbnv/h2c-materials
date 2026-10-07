@@ -125,9 +125,9 @@ its plausible range wholly fails.
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
 | density | 912 | 120 | 80% | 95% | ×1.1 | 0.0257 (16898 pairs) |
-| tensileModulusXY | 1351 | 83 | 81% | 95% | ×1.48 | 0.288 (2141 pairs) |
-| tensileStrengthXY | 1449 | 67 | 81% | 96% | ×1.39 | 0.22 (3627 pairs) |
-| elongationXY | 1110 | 86 | 80% | 95% | ×3.65 | 0.689 (3175 pairs) |
+| tensileModulusXY | 1350 | 83 | 81% | 95% | ×1.48 | 0.288 (2141 pairs) |
+| tensileStrengthXY | 1447 | 67 | 81% | 96% | ×1.39 | 0.22 (3627 pairs) |
+| elongationXY | 1109 | 86 | 80% | 95% | ×3.65 | 0.689 (3175 pairs) |
 | hdt045 | 1246 | 80 | 80% | 94% | 20.3 °C | 4.19 (6023 pairs) |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
@@ -163,21 +163,21 @@ Floors (D126): the shown ranges of the same hidden headlines, floored by what th
 | Headline | Floors | Hidden | Ranges moved | Likely holds | Plausible holds | Median likely width | Hidden values under the plausible range |
 |---|---|---:|---:|---:|---:|---:|---:|
 | tensileStrengthXY | none | 67 | 0 | 80.6% | 95.5% | ×1.39 | 2 |
-| tensileStrengthXY | printed | 67 | 50 | 55.2% | 71.6% | ×1.37 | 19 |
+| tensileStrengthXY | printed | 67 | 50 | 56.7% | 73.1% | ×1.37 | 18 |
 | tensileStrengthXY | printedXY | 67 | 11 | 73.1% | 92.5% | ×1.39 | 5 |
 | tensileStrengthXY | unstated | 67 | 62 | 22.4% | 28.4% | ×1.16 | 48 |
 | tensileStrengthXY | containment | 67 | 13 | 83.6% | 94% | ×1.64 | 4 |
-| tensileStrengthXY | sameSource | 67 | 50 | 53.7% | 70.1% | ×1.37 | 20 |
+| tensileStrengthXY | sameSource | 67 | 50 | 55.2% | 71.6% | ×1.37 | 19 |
 | tensileStrengthXY | lowestOfProducts | 67 | 62 | 73.1% | 86.6% | ×1.38 | 9 |
 | tensileStrengthXY | formulation | 67 | 40 | 76.1% | 91% | ×1.38 | 6 |
 | elongationXY | none | 86 | 0 | 80.2% | 95.3% | ×3.65 | 3 |
 | elongationXY | printed | 86 | 59 | 55.8% | 66.3% | ×2.9 | 28 |
-| elongationXY | printedXY | 86 | 17 | 74.4% | 89.5% | ×3.64 | 8 |
+| elongationXY | printedXY | 86 | 17 | 74.4% | 89.5% | ×3.65 | 8 |
 | elongationXY | unstated | 86 | 73 | 33.7% | 39.5% | ×2 | 52 |
-| elongationXY | containment | 86 | 14 | 79.1% | 88.4% | ×6.32 | 9 |
+| elongationXY | containment | 86 | 14 | 79.1% | 88.4% | ×6.33 | 9 |
 | elongationXY | sameSource | 86 | 59 | 53.5% | 64% | ×2.9 | 30 |
 | elongationXY | lowestOfProducts | 86 | 73 | 67.4% | 81.4% | ×3.53 | 16 |
-| elongationXY | formulation | 86 | 47 | 67.4% | 82.6% | ×3.34 | 14 |
+| elongationXY | formulation | 86 | 47 | 67.4% | 82.6% | ×3.35 | 14 |
 | hdt045 | none | 80 | 0 | 77.5% | 92.5% | 17.3 °C | 1 |
 | hdt045 | printed | 80 | 39 | 63.7% | 77.5% | 15.7 °C | 14 |
 | hdt045 | printedXY | 80 | 5 | 73.8% | 88.7% | 17.1 °C | 4 |
@@ -193,8 +193,8 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 |---|---:|---:|---:|---:|---:|---|
 | density | 832 | 1.34 | 1.97 | 0.799 | 0.95 | yes |
 | tensileModulusXY | 315 | 1.12 | 1.29 | 0.8 | 0.949 | yes |
-| tensileStrengthXY | 333 | 1.21 | 1.21 | 0.787 | 0.946 | yes |
-| elongationXY | 364 | 1.14 | 1.16 | 0.794 | 0.951 | yes |
+| tensileStrengthXY | 333 | 1.21 | 1.21 | 0.787 | 0.943 | yes |
+| elongationXY | 364 | 1.14 | 1.16 | 0.794 | 0.948 | yes |
 | hdt045 | 441 | 1.94 | 3 | 0.789 | 0.921 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
 EST-GRADE-OUTLIER, 35 grades: PLA 8, PLA Wood 3, PLA Aero 3, PA12-CF 3, PPA-CF 3, PPA-GF 3, PA6-CF 2, PP-CF 2, PLA Marble 1, PP 1, POM / Acetal 1, ABS 1, TPU 85A class and softer 1, PETG 1, PA6 1, PET-GF 1.
@@ -495,7 +495,7 @@ Every one of the 175 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (5008 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (5006 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
