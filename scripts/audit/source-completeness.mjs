@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Source completeness: did every number a data sheet publishes reach the tables?
 //
-// For each source cited by measurements and published as a PDF, the document is fetched into .cache/sources/
-// (once), checked against the SHA-256 in sources.csv, and its text read line by line. Every "number unit"
+// For each source cited by measurements and published as a PDF, the document is read from the store by its SHA-256 in
+// sources.csv, or fetched through the import pipeline's bounded request and checked against it, and its text read line by line. Every "number unit"
 // statement (°C, MPa, GPa, %, g/cm³, kJ/m², J/m, HRM, Shore) is matched against the numbers the tables already
 // hold for that source: measurement raw, normalized and uncertainty values, and the print profiles citing it.
 // What matches nothing is listed for review: an untranscribed result, or a number that is not a result (a
@@ -22,6 +22,8 @@ import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { documentText, allLines, joinDigits, statementRe, CONDITION_BEFORE, RANGE, LABELS } from '../lib/pdf-text.mjs';
+import { locate } from '../data/source-store.mjs';
+import { get } from '../ingest/fetch.mjs';
 
 const args = process.argv.slice(2);
 const only = args.includes('--source') ? args[args.indexOf('--source') + 1] : null;
@@ -63,63 +65,72 @@ function knownNumbers(sourceId) {
   return known;
 }
 
-async function fetchPdf(source) {
-  const path = join(cacheDir, `${source.SourceID}.pdf`);
-  if (!existsSync(path)) {
-    if (offline) return { error: 'not cached' };
-    const res = await fetch(source.URL, { headers: { 'User-Agent': 'Mozilla/5.0' } }).catch((e) => ({ ok: false, statusText: e.message }));
-    if (!res.ok) return { error: `download failed: ${res.status ?? ''} ${res.statusText}` };
-    writeFileSync(path, Buffer.from(await res.arrayBuffer()));
-  }
-  const bytes = readFileSync(path);
-  const sha = createHash('sha256').update(bytes).digest('hex');
-  if (/^[0-9a-f]{64}$/.test(source.SHA256) && sha !== source.SHA256) return { error: `document changed: SHA-256 ${sha.slice(0, 12)}, recorded ${source.SHA256.slice(0, 12)}` };
-  return { bytes, sha };
+/**
+ * The source's recorded bytes: from the store by digest (or its SourceID file), else fetched through the import
+ * pipeline's bounded request (scripts/ingest/fetch.mjs: a timeout, a size limit and retries of what is transient).
+ * Bytes that do not hash to the recorded digest are another document and are not kept; a fetch is never a way to fill
+ * the store (D35).
+ */
+export async function fetchPdf(source, { fetchBytes = get } = {}) {
+  const recorded = /^[0-9a-f]{64}$/.test(source.SHA256) ? source.SHA256 : null;
+  const found = locate(source.SHA256, source.SourceID);
+  if (found.bytes === 'present') return { bytes: readFileSync(found.path), sha: source.SHA256 };
+  if (offline) return { error: 'not cached' };
+  const got = await fetchBytes(source.URL, { accept: 'application/pdf,*/*' });
+  if (got.error) return { error: `download failed: ${got.error}` };
+  const sha = createHash('sha256').update(got.bytes).digest('hex');
+  if (recorded && sha !== recorded) return { error: `document changed: SHA-256 ${sha.slice(0, 12)}, recorded ${recorded.slice(0, 12)}` };
+  if (!recorded) writeFileSync(join(cacheDir, `${source.SourceID}.pdf`), got.bytes);
+  return { bytes: got.bytes, sha };
 }
 
 const STATEMENT = statementRe();
 
-const labelFindings = [];
+async function main() {
+  const labelFindings = [];
 
-const findings = [];
-const summary = [];
-for (const source of sources.filter((s) => (!only || s.SourceID === only) && /\.pdf(\?|$)/i.test(s.URL) && measurements.some((m) => m.SourceID === s.SourceID))) {
-  const doc = await fetchPdf(source);
-  if (doc.error) { summary.push({ source: source.SourceID, status: doc.error, statements: 0, unmatched: 0 }); continue; }
-  const known = knownNumbers(source.SourceID);
-  let statements = 0, unmatched = 0;
-  const document = await documentText(doc.bytes, { sha: doc.sha });
-  for (const { page, text } of allLines(document)) {
-    const line = joinDigits(text);
-    for (const m of line.matchAll(STATEMENT)) {
-      const before = line.slice(Math.max(0, m.index - 3), m.index);
-      if (RANGE.test(before + m[1])) continue; // the upper end of a range is a setting, not a result
-      if (CONDITION_BEFORE.test(line.slice(0, m.index))) continue;
-      statements++;
-      const value = Number(m[1]);
-      if (known.has(Number(value.toPrecision(6)))) continue;
-      unmatched++;
-      findings.push({ SourceID: source.SourceID, Page: page, Value: m[1], Uncertainty: m[2] ?? '', Unit: m[3].replace(/\s/g, ''), Line: line.slice(0, 200) });
+  const findings = [];
+  const summary = [];
+  for (const source of sources.filter((s) => (!only || s.SourceID === only) && /\.pdf(\?|$)/i.test(s.URL) && measurements.some((m) => m.SourceID === s.SourceID))) {
+    const doc = await fetchPdf(source);
+    if (doc.error) { summary.push({ source: source.SourceID, status: doc.error, statements: 0, unmatched: 0 }); continue; }
+    const known = knownNumbers(source.SourceID);
+    let statements = 0, unmatched = 0;
+    const document = await documentText(doc.bytes, { sha: doc.sha });
+    for (const { page, text } of allLines(document)) {
+      const line = joinDigits(text);
+      for (const m of line.matchAll(STATEMENT)) {
+        const before = line.slice(Math.max(0, m.index - 3), m.index);
+        if (RANGE.test(before + m[1])) continue; // the upper end of a range is a setting, not a result
+        if (CONDITION_BEFORE.test(line.slice(0, m.index))) continue;
+        statements++;
+        const value = Number(m[1]);
+        if (known.has(Number(value.toPrecision(6)))) continue;
+        unmatched++;
+        findings.push({ SourceID: source.SourceID, Page: page, Value: m[1], Uncertainty: m[2] ?? '', Unit: m[3].replace(/\s/g, ''), Line: line.slice(0, 200) });
+      }
     }
-  }
-  const text = allLines(document).map((l) => l.text.replace(/(\p{L}) (?=\p{L})/gu, '$1 ')).join('\n');
-  const properties = new Set(measurements.filter((m) => m.SourceID === source.SourceID).map((m) => m.Property));
-  for (const [label, inText, property] of LABELS) {
-    const squeezed = text.replace(/(?<=\b\p{L}) (?=\p{L}{1,3}\b)/gu, ''); // "T ensile", "Den sity"
-    if ((inText.test(text) || inText.test(squeezed)) && ![...properties].some((p) => property.test(p))) {
-      const line = text.split('\n').find((l) => inText.test(l)) ?? squeezed.split('\n').find((l) => inText.test(l)) ?? '';
-      labelFindings.push({ SourceID: source.SourceID, Label: label, Line: line.slice(0, 160) });
+    const text = allLines(document).map((l) => l.text.replace(/(\p{L}) (?=\p{L})/gu, '$1 ')).join('\n');
+    const properties = new Set(measurements.filter((m) => m.SourceID === source.SourceID).map((m) => m.Property));
+    for (const [label, inText, property] of LABELS) {
+      const squeezed = text.replace(/(?<=\b\p{L}) (?=\p{L}{1,3}\b)/gu, ''); // "T ensile", "Den sity"
+      if ((inText.test(text) || inText.test(squeezed)) && ![...properties].some((p) => property.test(p))) {
+        const line = text.split('\n').find((l) => inText.test(l)) ?? squeezed.split('\n').find((l) => inText.test(l)) ?? '';
+        labelFindings.push({ SourceID: source.SourceID, Label: label, Line: line.slice(0, 160) });
+      }
     }
+    summary.push({ source: source.SourceID, status: 'read', statements, unmatched });
   }
-  summary.push({ source: source.SourceID, status: 'read', statements, unmatched });
+
+  if (!only) {
+    writeFileSync(join(outDir, 'source-completeness.csv'), csvText(['SourceID', 'Page', 'Value', 'Uncertainty', 'Unit', 'Line'], findings));
+    writeFileSync(join(outDir, 'source-completeness-labels.csv'), csvText(['SourceID', 'Label', 'Line'], labelFindings));
+  }
+  if (only) for (const f of labelFindings) console.log(`  label "${f.Label}" named but no row: ${f.Line}`);
+  for (const s of summary.filter((x) => x.status !== 'read' || x.unmatched)) console.log(`${String(s.unmatched).padStart(4)} of ${String(s.statements).padStart(3)}  ${s.source}${s.status === 'read' ? '' : `  (${s.status})`}`);
+  if (only) for (const f of findings) console.log(`  p. ${f.Page}  ${f.Value}${f.Uncertainty ? ` ± ${f.Uncertainty}` : ''} ${f.Unit}  | ${f.Line}`);
+  const read = summary.filter((s) => s.status === 'read');
+  console.log(`${read.length} documents read, ${summary.length - read.length} not read; ${read.reduce((a, s) => a + s.statements, 0)} statements, ${findings.length} not in the tables; ${labelFindings.length} named properties with no row`);
 }
 
-if (!only) {
-  writeFileSync(join(outDir, 'source-completeness.csv'), csvText(['SourceID', 'Page', 'Value', 'Uncertainty', 'Unit', 'Line'], findings));
-  writeFileSync(join(outDir, 'source-completeness-labels.csv'), csvText(['SourceID', 'Label', 'Line'], labelFindings));
-}
-if (only) for (const f of labelFindings) console.log(`  label "${f.Label}" named but no row: ${f.Line}`);
-for (const s of summary.filter((x) => x.status !== 'read' || x.unmatched)) console.log(`${String(s.unmatched).padStart(4)} of ${String(s.statements).padStart(3)}  ${s.source}${s.status === 'read' ? '' : `  (${s.status})`}`);
-if (only) for (const f of findings) console.log(`  p. ${f.Page}  ${f.Value}${f.Uncertainty ? ` ± ${f.Uncertainty}` : ''} ${f.Unit}  | ${f.Line}`);
-const read = summary.filter((s) => s.status === 'read');
-console.log(`${read.length} documents read, ${summary.length - read.length} not read; ${read.reduce((a, s) => a + s.statements, 0)} statements, ${findings.length} not in the tables; ${labelFindings.length} named properties with no row`);
+if (process.argv[1]?.endsWith('source-completeness.mjs')) await main();
