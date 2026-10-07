@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { storeBytes } from '../scripts/data/source-store.mjs';
 import { shopifyCatalogueOffers, jsonLdOffers, amazonOffers, shopMeta, massKg, isOneSeventyFive } from '../scripts/lib/offers.mjs';
-import { guard, rehearse, priceRow, sourceRow, writePrices } from '../scripts/ingest/prices.mjs';
+import { guard, rehearse, priceRow, sourceRow, writePrices, keep } from '../scripts/ingest/prices.mjs';
+import { cachedText } from '../scripts/lib/pdf-text.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CATALOGUE_URL = 'https://fixture-shop.invalid/products.json?limit=250&page=1';
@@ -140,4 +141,12 @@ test('a stored Canadian-price gap is superseded by the write that prices the mat
   assert.ok(log.includes(`coverage C09991 (Canadian price of ${grade.MaterialID})`), log.join('\n'));
   assert.deepEqual(tables.coverage.map((c) => [c.CoverageID, c.Status]), [['C09990', 'Superseded'], ['C09991', 'Resolved']]);
   assert.match(tables.coverage[0].Finding, /^Superseded by C09991 \(2026-09-30; was "Gap"\): A reviewer found no listing\.$/);
+});
+
+test('a captured page is stored by its digest and its text is read as it is kept', async () => {
+  const page = Buffer.from('<html><head><title>Fixture listing</title></head><body><h1>Fixture PLA 1.75 mm 1 kg</h1><p>Price 24.99 inkl. 19 % MwSt.</p></body></html>');
+  const { sha } = await keep(page);
+  const text = cachedText(sha);
+  assert.ok(text, 'the page has cached text');
+  assert.match(text.pages.flatMap((p) => p.lines.map((l) => l.text)).join(' '), /Fixture PLA 1\.75 mm 1 kg/);
 });

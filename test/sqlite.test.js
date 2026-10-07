@@ -181,9 +181,14 @@ test('writing the SQLite file leaves dist/db.json as it was', () => {
 
 test('the full-text index finds a document by its words, page by page', { skip: !existsSync(cacheDir('text')) && 'no text cache (.cache/text): the index is built only where the documents were read' }, () => {
   assert.ok(result.record.fulltext, 'the text cache is present but no index was built');
-  const [{ pages }] = all('SELECT COUNT(*) AS pages FROM documents_fts');
+  const [{ pages }] = all("SELECT COUNT(*) AS pages FROM documents_fts WHERE view = 'text'");
   const [{ expected }] = all('SELECT SUM(text_pages) AS expected FROM documents');
   assert.equal(pages, expected, 'the index and documents.text_pages disagree');
+  const [{ optical }] = all("SELECT COUNT(*) AS optical FROM documents_fts WHERE view = 'ocr'");
+  const [{ ocr }] = all('SELECT COALESCE(SUM(ocr_pages), 0) AS ocr FROM documents');
+  assert.equal(optical, ocr, 'the optical rows and documents.ocr_pages disagree');
+  const [{ other }] = all("SELECT COUNT(*) AS other FROM documents_fts WHERE view NOT IN ('text', 'ocr')");
+  assert.equal(other, 0);
   const hits = all("SELECT sha256, page FROM documents_fts WHERE documents_fts MATCH 'annealing'");
   assert.ok(hits.length > 0, 'no cached document mentions annealing');
   const [{ strays }] = all('SELECT COUNT(*) AS strays FROM documents_fts f LEFT JOIN documents d USING (sha256) WHERE d.text_pages IS NULL');

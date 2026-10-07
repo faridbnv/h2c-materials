@@ -23,6 +23,10 @@
 //                  with no ruling: a fact belongs to its document whether or not the document's product is settled.
 //   documents_fts  the cached text of each of those documents, one row per page, in an FTS5 index. Built only when
 //                  .cache/text is present, and never committed: the text is the makers', and dist/ is gitignored.
+//                  Its view column says which reading a row is: 'text', the text layer; 'ocr', the optical reading
+//                  (npm run ingest:ocr-pass, .cache/ocr-text) of a page whose text layer ingest:quality flags as
+//                  empty or garbled, indexed beside it so a scanned page's words are found too. documents.ocr_pages
+//                  counts those, and documents.unread_pages the flagged pages that have no optical reading yet.
 //
 // How much of the corpus that index holds is said beside it, because a search that finds nothing in a partial cache
 // reads exactly like a search of every sheet that finds nothing (F13; review finding A08). The corpus is the sources
@@ -69,14 +73,37 @@ export function recordInputs(root) {
   const lines = [`${sha256(readFileSync(join(root, LEDGER)))}  ${LEDGER}`];
   const dir = join(root, PROPOSALS);
   for (const rel of proposalFiles(dir)) lines.push(`${sha256(readFileSync(join(dir, rel)))}  ${PROPOSALS}/${rel}`);
-  const text = cacheDir('text');
-  if (existsSync(text)) {
-    for (const f of readdirSync(text).sort()) {
-      const s = statSync(join(text, f));
-      lines.push(`${f} ${s.size} ${Math.round(s.mtimeMs)}`);
+  // The text cache, and the optical readings and quality flags that decide which optical pages are indexed beside it.
+  for (const name of ['text', 'ocr-text', 'quality']) {
+    const dir = cacheDir(name);
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).sort()) {
+      const s = statSync(join(dir, f));
+      lines.push(`${name === 'text' ? '' : `${name}/`}${f} ${s.size} ${Math.round(s.mtimeMs)}`);
     }
   }
   return { state: 'present', digest: sha256(lines.join('\n')) };
+}
+
+// The flags that say a page's text layer is not a reading of the page (scripts/lib/text-quality.mjs); "label-no-number"
+// is a page that reads, only without a number beside a label, and keeps its text.
+const BROKEN = new Set(['empty', 'glyph', 'letters', 'garble']);
+
+/**
+ * A document's pages whose text layer ingest:quality flags as broken, and of those the ones an optical reading holds:
+ * { flagged: [page], optical: [{ page, text }] }. Nothing when the document was never checked.
+ */
+export function opticalPages(sha) {
+  const quality = cacheDir('quality', `${sha}.json`);
+  if (!existsSync(quality)) return { flagged: [], optical: [] };
+  const flagged = (JSON.parse(readFileSync(quality, 'utf8')).pages ?? []).filter((p) => (p.flags ?? []).some((f) => BROKEN.has(f))).map((p) => Number(p.page));
+  const sidecar = cacheDir('ocr-text', `${sha}.json`);
+  if (!flagged.length || !existsSync(sidecar)) return { flagged, optical: [] };
+  const optical = (JSON.parse(readFileSync(sidecar, 'utf8')).pages ?? [])
+    .filter((p) => flagged.includes(Number(p.page)))
+    .map((p) => ({ page: Number(p.page), text: (p.lines ?? []).map((l) => (typeof l === 'string' ? l : l.text ?? '')).filter(Boolean).join('\n') }))
+    .filter((p) => p.text.trim());
+  return { flagged, optical };
 }
 
 /** Every proposal file under the folder, as a path relative to it, in a fixed order. */
@@ -234,14 +261,19 @@ export function writeRecordTier(db, root) {
     }
   }
 
+  const optical = new Map([...texts.keys()].map((sha) => [sha, opticalPages(sha)]));
+
   db.exec(`CREATE TABLE documents (sha256 TEXT PRIMARY KEY, doc_key TEXT, sourceid TEXT, provider TEXT, manufacturer TEXT,
-    product TEXT, url TEXT, status TEXT, status_note TEXT, duplicate_of TEXT, text_pages INTEGER, optical INTEGER)`);
-  const insDoc = db.prepare('INSERT INTO documents VALUES (?,?,?,?,?,?,?,?,?,?,?,?)');
+    product TEXT, url TEXT, status TEXT, status_note TEXT, duplicate_of TEXT, text_pages INTEGER, optical INTEGER,
+    ocr_pages INTEGER, unread_pages INTEGER)`);
+  const insDoc = db.prepare('INSERT INTO documents VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
   db.exec('BEGIN');
   for (const d of [...documents.values()].sort((a, b) => (a.sha256 < b.sha256 ? -1 : 1))) {
     const t = texts.get(d.sha256);
+    const o = optical.get(d.sha256);
     insDoc.run(d.sha256, d.doc_key, d.sourceid, d.provider, d.manufacturer, d.product, d.url, d.status, d.status_note,
-      d.duplicate_of, t ? t.pages.length : null, t ? (t.ocr ? 1 : 0) : null);
+      d.duplicate_of, t ? t.pages.length : null, t ? (t.ocr ? 1 : 0) : null,
+      t ? o.optical.length : null, t ? o.flagged.filter((p) => !o.optical.some((x) => x.page === p)).length : null);
   }
   db.exec('COMMIT');
   db.exec('CREATE INDEX ix_documents_sourceid ON documents (sourceid)');
@@ -261,20 +293,24 @@ export function writeRecordTier(db, root) {
   if (cached) {
     // Words as printed: unicode61 folds case and accents and stems nothing, so 'anneal*' is how to ask for every form.
     db.exec(`CREATE VIRTUAL TABLE documents_fts USING fts5(text, sha256 UNINDEXED, doc_key UNINDEXED, sourceid UNINDEXED,
-      page UNINDEXED, tokenize = 'unicode61 remove_diacritics 2')`);
-    const insText = db.prepare('INSERT INTO documents_fts (text, sha256, doc_key, sourceid, page) VALUES (?,?,?,?,?)');
-    let pages = 0;
+      page UNINDEXED, view UNINDEXED, tokenize = 'unicode61 remove_diacritics 2')`);
+    const insText = db.prepare('INSERT INTO documents_fts (text, sha256, doc_key, sourceid, page, view) VALUES (?,?,?,?,?,?)');
+    let pages = 0, ocrPages = 0;
     db.exec('BEGIN');
     for (const [sha, t] of texts) {
       const d = documents.get(sha);
       for (const p of t.pages) {
-        insText.run(p.lines.map((l) => l.text).join('\n'), sha, d.doc_key, d.sourceid, p.page);
+        insText.run(p.lines.map((l) => l.text).join('\n'), sha, d.doc_key, d.sourceid, p.page, 'text');
         pages++;
+      }
+      for (const p of optical.get(sha).optical) {
+        insText.run(p.text, sha, d.doc_key, d.sourceid, p.page, 'ocr');
+        ocrPages++;
       }
     }
     db.exec('COMMIT');
     db.exec("INSERT INTO documents_fts (documents_fts) VALUES ('optimize')");
-    fulltext = { documents: texts.size, pages };
+    fulltext = { documents: texts.size, pages, ocrPages };
   }
 
   // Every retrieved source whose text the index does not hold, and why. A source with no digest cannot be looked up in

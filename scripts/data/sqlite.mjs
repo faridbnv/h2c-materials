@@ -369,6 +369,7 @@ function writeTables(db, root, compiled, inputs) {
     'fulltext.sources_indexed': corpus.indexed,
     'fulltext.documents': record?.fulltext?.documents ?? 0,
     'fulltext.pages': record?.fulltext?.pages ?? 0,
+    'fulltext.ocr_pages': record?.fulltext?.ocrPages ?? 0,
   };
   // Written last: a file with a stamp is a file that was finished.
   db.exec('CREATE TABLE _generation (key TEXT PRIMARY KEY, value TEXT)');
@@ -453,7 +454,7 @@ function printWritten(r, out) {
   const t = r.record;
   if (!t) return console.error('  record tier not written: no import ledger in this checkout');
   console.error(`  record tier: ${t.facts} source_facts (${Object.entries(t.kinds).map(([k, n]) => `${n} ${k}`).join(', ')}) on ${t.factDocuments} documents, `
-    + (t.fulltext ? `documents_fts: ${t.fulltext.pages} pages of ${t.fulltext.documents} documents` : 'documents_fts not built: no text cache (.cache/text)')
+    + (t.fulltext ? `documents_fts: ${t.fulltext.pages} pages of ${t.fulltext.documents} documents, and ${t.fulltext.ocrPages} optical readings of pages whose text layer is broken` : 'documents_fts not built: no text cache (.cache/text)')
     + ` (${(t.ms / 1000).toFixed(1)} s)`);
 }
 

@@ -210,7 +210,10 @@ registry           { properties, headlines, relations }: what every property and
 which `db.json` never does. `source_facts` has every line the import reader read without it becoming data: the text as
 printed, its page, the reader's reason, the document's source and grades, and the known property it names.
 `documents_fts` is a full-text index of every cached document's text, one row per page, built only where
-`.cache/text` is present. For example:
+`.cache/text` is present. Its `view` column says which reading a row is: `text`, the text layer, or `ocr`, the optical
+reading (`npm run ingest:ocr-pass`) of a page whose text layer `npm run ingest:quality` flags as empty or garbled, so a
+scanned page's words are found too; `documents.ocr_pages` counts those, and `documents.unread_pages` the flagged pages
+no optical reading holds yet (D136). For example:
 `select sourceid, page, text from source_facts where text like '%shrinkage%'`, or
 `select doc_key, sourceid, page from documents_fts where documents_fts match 'anneal*'`. `_generation` says which
 release the file is of and how much of the corpus the full-text index holds (`fulltext`); `v_sources_without_text` names

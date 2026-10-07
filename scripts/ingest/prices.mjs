@@ -49,7 +49,7 @@ import { buildDatabase } from '../../build/src/pipeline.js';
 import { isCanadianMarket } from '../../build/src/prices.js';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
 import { storeBytes, locate } from '../data/source-store.mjs';
-import { sha256 } from '../lib/pdf-text.mjs';
+import { sha256, documentText } from '../lib/pdf-text.mjs';
 import { readOffers, shopMeta, massKg, isOneSeventyFive } from '../lib/offers.mjs';
 import { PROPOSALS } from './context.mjs';
 import { Refusal } from './apply.mjs';
@@ -79,6 +79,17 @@ async function fetchBytes(url) {
   return Buffer.from(await response.arrayBuffer());
 }
 
+/**
+ * A captured document into the store by its digest, and its text into the text cache: a page registered as a source is
+ * searched like any other (documents_fts), and a page whose text was never read is a source without text (OPEN-PROBLEMS
+ * §19; p05's eight pages were).
+ */
+export async function keep(bytes) {
+  const s = storeBytes(bytes);
+  await documentText(bytes, { sha: s.sha });
+  return s;
+}
+
 function record(batch, entry) {
   const dir = batchDir(batch);
   mkdirSync(dir, { recursive: true });
@@ -93,7 +104,7 @@ export async function captureShop(batch, host, { date = new Date().toISOString()
   const origin = `https://${host}`;
   const meta = await fetchBytes(`${origin}/meta.json`);
   shopMeta(meta);
-  const m = storeBytes(meta);
+  const m = await keep(meta);
   record(batch, { Host: host, URL: `${origin}/meta.json`, Kind: 'meta', Format: 'shopify-meta', SHA256: m.sha, Bytes: meta.length, Accessed: date, Note: `base currency ${shopMeta(meta).currency}` });
   let pages = 0, products = 0;
   for (let page = 1; page <= maxPages; page++) {
@@ -101,7 +112,7 @@ export async function captureShop(batch, host, { date = new Date().toISOString()
     const bytes = await fetchBytes(url);
     const n = JSON.parse(bytes.toString('utf8')).products?.length ?? 0;
     if (!n) break;
-    const s = storeBytes(bytes);
+    const s = await keep(bytes);
     record(batch, { Host: host, URL: url, Kind: 'catalogue', Format: 'shopify-catalogue', SHA256: s.sha, Bytes: bytes.length, Accessed: date, Note: `${n} products` });
     pages++; products += n;
     await sleep(700);
@@ -113,7 +124,7 @@ export async function captureShop(batch, host, { date = new Date().toISOString()
 export async function capturePage(batch, url, format, { date = new Date().toISOString().slice(0, 10) } = {}) {
   const bytes = await fetchBytes(url);
   const { offers } = readOffers(bytes, format, url);
-  const s = storeBytes(bytes);
+  const s = await keep(bytes);
   record(batch, { Host: new URL(url).host, URL: url, Kind: 'page', Format: format, SHA256: s.sha, Bytes: bytes.length, Accessed: date, Note: `${offers.length} offer(s) read` });
   return { sha: s.sha, offers: offers.length };
 }
@@ -149,7 +160,7 @@ export async function captureRendered(batch, urls, format, { date = new Date().t
       const html = await evaluate('document.documentElement.outerHTML');
       const bytes = Buffer.from(html, 'utf8');
       const { offers } = readOffers(bytes, format, url);
-      const s = storeBytes(bytes);
+      const s = await keep(bytes);
       record(batch, { Host: new URL(url).host, URL: url, Kind: 'rendered', Format: format, SHA256: s.sha, Bytes: bytes.length, Accessed: date, Note: `${ready ? '' : 'no price drawn; '}${offers.length} offer(s) read; drawn by a browser` });
       out.push({ url, sha: s.sha, offers: offers.length, ready });
       await sleep(2500);
