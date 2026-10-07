@@ -1519,3 +1519,18 @@ test("a test-bar block's infill below 100 % makes its mechanical rows partial-in
   assert.equal(row['Specimen type'], 'Printed specimen at partial infill');
   assert.match(row['Specimen / print parameters'], /Infill: 20 %/);
 });
+
+test("LEHVOSS's printed-specimen layout: an infill is never a value, a printed heading makes printed bars, and a ZX label is upright (m198)", async () => {
+  const { cachedText } = await import('../scripts/lib/pdf-text.mjs');
+  const cached = cachedText('ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7');
+  if (!cached) return; // a checkout without the document cache
+  const rows = readSheet(cached, registry).values.filter((v) => /^(Tensile|Elongation)/.test(v.property))
+    .map((v) => measurementRow(v, { sourceId: 'R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT', materialId: 'M147', gradeId: 'G147-01' }));
+  assert.ok(rows.length >= 18, `only ${rows.length} tensile cells read`);
+  assert.ok(rows.every((r) => r['Raw numeric'] !== '100'), '"100% infill" read as a value');
+  assert.ok(rows.every((r) => r['Specimen type'] === 'Printed specimen'), 'the heading "*Printed using Ultimaker S5 Pro" says the bars were printed');
+  // Every number read is one m198 transcribed from the page by hand, on the same property, and an upright bar is ZX.
+  const held = readCsv(join(root, 'data/tables/measurements.csv')).records.map((r) => r.values).filter((m) => m.SourceID === 'R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT');
+  for (const r of rows) assert.ok(held.some((m) => m.Property === r.Property && Number(m['Raw numeric']) === Number(r['Raw numeric']) && (r.Direction === 'Unstated' || m.Direction === r.Direction)), `${r.Property} ${r['Raw value']} ${r.Direction} is not one of m198's rows`);
+  assert.ok(rows.some((r) => r.Direction === 'ZX'));
+});

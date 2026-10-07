@@ -760,7 +760,11 @@ export function readRow(text, registry, held = null) {
   // with. Read as the value it gave five sheets a heat deflection of 3 °C. A value is written apart from the
   // word before it, always.
   const footnoted = line.replace(/([A-Za-z]{3,})(\d)(?![\d.,])/g, (m, word) => `${word} `);
-  const masked = footnoted.replace(new RegExp(STANDARD_RE.source, 'gi'), (m) => ' '.repeat(m.length));
+  // An infill is how the bar was printed, never a result: LEHVOSS heads each tensile row of its LUVOCOM 3F sheets
+  // "100% infill - 45/135° - XY", and an "Elongation at maximum force" row read 100 % from it (m198 transcribed that
+  // sheet by hand for this). It is blanked like a standard's digits.
+  const masked = footnoted.replace(new RegExp(STANDARD_RE.source, 'gi'), (m) => ' '.repeat(m.length))
+    .replace(/\b\d{1,3}\s?%\s*infill\b/gi, (m) => ' '.repeat(m.length));
   const candidates = [...masked.matchAll(valueRe())].filter((m) => !inDesignation(m.index) && !afterSlash(m.index) && !inPower(m.index));
   // The table may have put the unit in a column before the value, and a row that does may still carry a "number
   // unit" pair that is not its result: "Notched impact strength ASTM D256 kj/m² 100 @ 23°C" states the test
@@ -1507,11 +1511,14 @@ function readSheetOnce(text, registry) {
   // A sheet that prints the conditions its specimens were made under is describing printed bars, and says so once
   // for the whole table: 3DXTECH heads a block "Printed Specimen Conditions" and lists the printer, the nozzle,
   // the layer height and the orientation under it.
-  const printedSpecimens = text.pages.some((p) => (p.lines ?? []).some((l) => /printed specimen conditions|specimen (preparation|conditions)[:\s]|test specimens?( were)? (3d )?printed/i.test(l.text)));
+  // LEHVOSS heads its printed-specimen tables "*Printed using Ultimaker S5 Pro and Engineering settings" (m198).
+  const printedSpecimens = text.pages.some((p) => (p.lines ?? []).some((l) => /printed specimen conditions|specimen (preparation|conditions)[:\s]|test specimens?( were)? (3d )?printed|\*\s*printed using\b/i.test(l.text)));
   // A sheet that prints its test bars' settings and an infill below 100 % in them has bars as hollow as that: 3DJake's
   // AzureFilm sheets head a block "Test specimens print settings" and print "Infill: 20 %" under it (m366, D130). The
   // infill must stand in that block (within a few lines of its heading), so a print recommendation's infill is not one.
   const partialInfill = specimenInfill(text);
+  // The pages that say their bars were printed ("*Printed using Ultimaker S5 Pro", "printed specimen").
+  const printedPages = new Set((text.pages ?? []).filter((p) => (p.lines ?? []).some((l) => /\bprinted using\b|\bprinted (specimens?|bars?|test (bars?|specimens?))\b/i.test(l.text))).map((p) => p.page));
   // A sheet that says how its specimens were laid on the plate has stated the direction its values are in:
   // "Specimen Orientation: XY Flat". A headline in a direction cannot cite a row that does not state one.
   const orientation = text.pages.flatMap((p) => p.lines ?? [])
@@ -1894,7 +1901,7 @@ function readSheetOnce(text, registry) {
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
         printedSpecimens, orientation, block, column: line.column ?? null,
         specimen: line.condition === 'moulded' || line.condition === 'printed' ? line.condition : specimenBlock,
-        parameters: line.parameters ?? null, partialInfill,
+        parameters: line.parameters ?? null, partialInfill, printedPage: printedPages.has(page.page),
       });
     }
     dropHeld();
@@ -2361,7 +2368,8 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // What the row says about the specimen is its own words and the footnote its mark points at, together.
   const says = [printed, v.label ?? '', v.footnote ?? ''].filter(Boolean).join(' ');
   // The axis may also stand in brackets after the property: iSANMATE's CF PEEK prints "Flexural Strength [Z]".
-  const labelAxis = /\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b|\b(?:strength|modulus|break|yield|elongation)\s*[[(（]?\s*z\s*[\])）]?(?![a-z])/i.test(says) ? 'Z' : null;
+  // An axis pair named in the label is the bar's: "100% infill - ZX" (LEHVOSS) is an upright bar, as "XY" is a flat one.
+  const labelAxis = /\bzx\b/i.test(says) ? 'ZX' : /\bxz\b/i.test(says) ? 'XZ' : /\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b|\b(?:strength|modulus|break|yield|elongation)\s*[[(（]?\s*z\s*[\])）]?(?![a-z])/i.test(says) ? 'Z' : null;
   // A sheet may write the axis with the plane's letters apart ("(Z-X)"), as it writes "(X-Y)"; the database keeps
   // ZX and XZ, so a row that states one must not be read as stating none.
   // The bracket may have lost its opening: one SUNLU sheet's text layer begins a row "X-Y) Heat Distortion",
@@ -2470,7 +2478,10 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     'Specimen type': /\bD\s?-?\s?882\b/i.test(standardText) && /^(Tensile|Elongation)/.test(v.property) ? 'Film specimen (ASTM D882); not a printed or moulded bar'
       // LEHVOSS names its bars by the standard that moulds them: "MPTS ISO 3167 A" is ISO's injection-moulded
       // multipurpose test specimen, and "molded sample" says the same in words.
-      : /injection mou?ld|\bmou?lded (?:sample|specimen|bar|test)|\bMPTS\b|\bISO\s?3167\b/i.test(says) ? 'Raw material value'
+      // A bare "ISO 3167" is the bar's shape, which a printed bar may take too: LEHVOSS's printed-specimen sheets print
+      // "ISO 3167:2014 Typ A" under a heading "*Printed using Ultimaker S5 Pro" (m198). It names a moulded bar only on a
+      // page that says nothing of printing.
+      : /injection mou?ld|\bmou?lded (?:sample|specimen|bar|test)|\bMPTS\b/i.test(says) || (/\bISO\s?3167\b/i.test(says) && !v.printedPage) ? 'Raw material value'
       // A bar printed below 100 % infill, where the sheet's test-bar block says so, is not the solid material (D130).
       : v.partialInfill && /^(Tensile|Elongation|Flexural|Charpy|Izod|Impact|Compression)/.test(v.property) ? 'Printed specimen at partial infill'
       : /\b3d print|printed (specimen|bar|part)/i.test(says) ? 'Printed specimen'
